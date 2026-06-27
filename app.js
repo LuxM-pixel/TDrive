@@ -69,8 +69,14 @@ if (form) {
 
     try {
 
-      await saveBooking(booking);
-            alert("تم التسجيل بنجاح");
+ console.log("قبل الحفظ");
+
+const id = await saveBooking(booking);
+
+console.log("تم الحفظ برقم:", id);
+
+alert("تم التسجيل بنجاح");
+          
 
       form.reset();
 
