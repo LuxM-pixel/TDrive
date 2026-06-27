@@ -1,116 +1,79 @@
-// ======================
-// TDrive App
-// ======================
+import { saveBooking } from "./firebase.js";
+
+// نسخ الآيبان
+window.copyIBAN = function () {
+    const iban = document.getElementById("iban").value;
+    navigator.clipboard.writeText(iban);
+    alert("تم نسخ رقم الآيبان");
+};
+
+// نسخ الاسم
+window.copyName = function () {
+    const name = document.getElementById("name").value;
+    navigator.clipboard.writeText(name);
+    alert("تم نسخ اسم المستفيد");
+};
 
 const form = document.getElementById("bookingForm");
 
-function copyIBAN(){
+form.addEventListener("submit", async function (e) {
 
-const iban=document.getElementById("iban").value;
+    e.preventDefault();
 
-navigator.clipboard.writeText(iban);
+    const fullName = document.getElementById("fullName").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const trainingDate = document.getElementById("trainingDate").value;
+    const trainingTime = document.getElementById("trainingTime").value;
 
-alert("تم نسخ رقم الآيبان");
+    if (
+        !fullName ||
+        !phone ||
+        !address ||
+        !trainingDate
+    ) {
+        alert("يرجى تعبئة جميع البيانات");
+        return;
+    }
 
-}
+    const summary =
+`تأكيد الحجز
 
-function copyName(){
+👤 الاسم: ${fullName}
 
-const name=document.getElementById("name").value;
+📱 الجوال: ${phone}
 
-navigator.clipboard.writeText(name);
+📍 العنوان: ${address}
 
-alert("تم نسخ اسم المستفيد");
+📅 التاريخ: ${trainingDate}
 
-}
+🕒 الوقت: ${trainingTime}
 
-window.copyIBAN=copyIBAN;
+💰 السعر: 375 ريال
 
-window.copyName=copyName;
+هل تريد تأكيد الحجز؟`;
 
-form.addEventListener("submit",function(e){
+    if (!confirm(summary)) return;
 
-e.preventDefault();
-
-const fullName=document.getElementById("fullName").value.trim();
-
-const phone=document.getElementById("phone").value.trim();
-
-const address=document.getElementById("address").value.trim();
-
-const trainingDate=document.getElementById("trainingDate").value;
-
-const trainingTime=document.getElementById("trainingTime").value;
-
-if(
-
-fullName===""||
-
-phone===""||
-
-address===""||
-
-trainingDate===""
-
-){
-
-alert("يرجى تعبئة جميع البيانات.");
-
-return;
-
-}
-    const summary = `
-
-تأكيد الحجز
-
-====================
-
-👤 الاسم:
-${fullName}
-
-📱 الجوال:
-${phone}
-
-📍 العنوان:
-${address}
-
-📅 التاريخ:
-${trainingDate}
-
-🕒 الوقت:
-${trainingTime}
-
-💰 السعر:
-375 ريال
-
-`;
-
-const confirmBooking = confirm(summary + "\n\nهل تريد تأكيد الحجز؟");
-
-if(!confirmBooking){
-
-return;
-
-}
     const booking = {
-    fullName,
-    phone,
-    address,
-    trainingDate,
-    trainingTime,
-    price: 375,
-    status: "Pending Payment",
-    createdAt: new Date().toISOString()
-};
+        fullName,
+        phone,
+        address,
+        trainingDate,
+        trainingTime,
+        price: 375,
+        status: "Pending Payment",
+        createdAt: new Date().toISOString()
+    };
 
-// مؤقتاً نعرض البيانات في المتصفح
-console.log("Booking:", booking);
+    try {
 
-// رسالة واتساب جاهزة
-const message =
+        await saveBooking(booking);
+
+        const message =
 `السلام عليكم
 
-أرغب بتأكيد حجز دورة احترف القيادة على الطريق.
+أرغب بحجز دورة احترف القيادة على الطريق.
 
 الاسم: ${fullName}
 
@@ -126,14 +89,22 @@ const message =
 
 وسأرسل إيصال التحويل الآن.`;
 
-// فتح الواتساب
-window.open(
-`https://wa.me/message/VDGPVTYNXF4EP1?text=${encodeURIComponent(message)}`,
-"_blank"
-);
+        alert("تم حفظ الحجز بنجاح");
 
-alert("تم تسجيل بيانات الحجز بنجاح.");
+        form.reset();
 
-form.reset();
+        window.open(
+            "https://wa.me/message/VDGPVTYNXF4EP1?text=" +
+            encodeURIComponent(message),
+            "_blank"
+        );
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert("تعذر حفظ الحجز.");
+
+    }
 
 });
