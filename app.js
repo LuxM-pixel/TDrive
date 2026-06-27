@@ -85,7 +85,13 @@ const message = `السلام عليكم،
 
 شكراً لكم.`;
 
-        alert("تم حفظ الحجز بنجاح");
+        const message = `...`;
+
+form.reset();
+
+window.location.href =
+"https://wa.me/966556117180?text=" +
+encodeURIComponent(message);
 
         form.reset();
 window.location.href =
