@@ -30,18 +30,24 @@ const db = getFirestore(app);
 
 export async function saveBooking(data){
 
-try{
+    console.log("سيتم الحفظ...", data);
 
-await addDoc(collection(db,"bookings"),data);
+    try{
 
-console.log("Booking Saved");
+        const docRef = await addDoc(collection(db,"bookings"), data);
 
-}catch(error){
+        console.log("تم الحفظ", docRef.id);
 
-console.error(error);
+        return docRef.id;
 
-alert("حدث خطأ أثناء حفظ الحجز");
+    }catch(error){
 
-}
+        console.error("Firebase Error:", error);
+
+        alert(error.message);
+
+        throw error;
+
+    }
 
 }
