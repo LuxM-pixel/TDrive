@@ -94,10 +94,10 @@ form.addEventListener("submit", async function (e) {
         form.reset();
 
         window.open(
-            "https://wa.me/message/VDGPVTYNXF4EP1?text=" +
-            encodeURIComponent(message),
-            "_blank"
-        );
+    "https://wa.me/966556117180?text=" +
+    encodeURIComponent(message),
+    "_blank"
+);
 
     } catch (err) {
 
