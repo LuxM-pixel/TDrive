@@ -71,35 +71,27 @@ form.addEventListener("submit", async function (e) {
 
         await saveBooking(booking);
 
-        const message =
-`السلام عليكم
+const message = `السلام عليكم،
 
-أرغب بحجز دورة احترف القيادة على الطريق.
+سجلت في دورة احترف القيادة.
 
-الاسم: ${fullName}
+👤 الاسم: ${fullName}
+📱 الجوال: ${phone}
 
-الجوال: ${phone}
+📅 تاريخ بداية التدريب: ${trainingDate}
+🕒 وقت التدريب: ${trainingTime}
 
-العنوان: ${address}
+أرغب بالحصول على بيانات الحساب البنكي لإتمام دفع الرسوم.
 
-التاريخ: ${trainingDate}
-
-الوقت: ${trainingTime}
-
-السعر: 375 ريال
-
-وسأرسل إيصال التحويل الآن.`;
+شكراً لكم.`;
 
         alert("تم حفظ الحجز بنجاح");
 
         form.reset();
-
-        window.open(
-    "https://wa.me/966556117180?text=" +
-    encodeURIComponent(message),
-    "_blank"
-);
-
+window.location.href =
+"https://wa.me/966556117180?text=" +
+encodeURIComponent(message);
+        
     } catch (err) {
 
         console.error(err);
