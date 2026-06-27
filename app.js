@@ -89,9 +89,7 @@ const message = `السلام عليكم،
 
 form.reset();
 
-window.location.href =
-"https://wa.me/966556117180?text=" +
-encodeURIComponent(message);
+window.location.href = "https://google.com";
 
         form.reset();
 window.location.href =
