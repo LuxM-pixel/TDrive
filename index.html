@@ -2,17 +2,20 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TDrive | تكنولوجيا القيادة</title>
+<meta charset="UTF-8">
 
-    <link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>TDrive | تكنولوجيا القيادة</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
@@ -30,7 +33,7 @@
 
 <nav>
 
-<a href="#">الرئيسية</a>
+<a href="#home">الرئيسية</a>
 
 <a href="#program">البرنامج</a>
 
@@ -42,9 +45,9 @@
 
 </header>
 
-<section class="hero">
+<section id="home" class="hero">
 
-<div class="hero-text">
+<div class="hero-content">
 
 <h2>
 
@@ -54,7 +57,7 @@
 
 <p>
 
-منصة تدريبية حديثة تساعدك على تعلم القيادة نظرياً وعملياً على سيارة المؤسسة.
+تعلم القيادة بطريقة حديثة وآمنة مع مدربة محترفة وعلى سيارة المؤسسة.
 
 </p>
 
@@ -74,13 +77,13 @@
 
 </div>
 
-<div class="discount">
+<p class="offer">
 
 خصم 46٪ لأول تسجيل لفترة محدودة
 
-</div>
+</p>
 
-<a href="#booking" class="btn">
+<a href="#booking" class="button">
 
 احجز الآن
 
@@ -91,115 +94,6 @@
 <div class="hero-image">
 
 🚗
-
-</div>
-
-</section>
-
-<section id="payment">
-
-<h2>
-
-بيانات الدفع
-
-</h2>
-
-<button id="showPayment">
-
-الحصول على بيانات الحساب البنكي
-
-</button>
-
-<div id="paymentBox">
-
-<h3>
-
-كابتن منى 👩‍✈️
-
-</h3>
-
-<p>
-
-وعليكم السلام ورحمة الله وبركاته،
-
-</p>
-
-<p>
-
-مرحباً عزيزي العميل.
-
-</p>
-
-<p>
-
-رقم الآيبان
-
-</p>
-
-<div class="copy">
-
-<input
-id="iban"
-readonly
-value="SA8715134018966784773544">
-
-<button onclick="copyIBAN()">
-
-نسخ
-
-</button>
-
-</div>
-
-<p>
-
-الاسم
-
-</p>
-
-<div class="copy">
-
-<input
-id="name"
-readonly
-value="منى أحمد حمود الشمراني">
-
-<button onclick="copyName()">
-
-نسخ
-
-</button>
-
-</div>
-
-<p>
-
-البنك
-
-</p>
-
-<strong>
-
-بنك البلاد
-
-</strong>
-
-<br><br>
-
-<p>
-
-❗ يرجى إرسال إيصال التحويل بعد الدفع.
-
-</p>
-
-<a
-class="whatsapp"
-target="_blank"
-href="https://wa.me/message/VDGPVTYNXF4EP1">
-
-إرسال الإيصال عبر واتساب
-
-</a>
 
 </div>
 
@@ -221,13 +115,13 @@ href="https://wa.me/message/VDGPVTYNXF4EP1">
 
 <h3>
 
-5 ساعات تدريب
+تدريب عملي
 
 </h3>
 
 <p>
 
-تدريب عملي على الطريق.
+التدريب يتم على الطريق بسيارة المؤسسة.
 
 </p>
 
@@ -239,13 +133,13 @@ href="https://wa.me/message/VDGPVTYNXF4EP1">
 
 <h3>
 
-شرح نظري
+تدريب نظري
 
 </h3>
 
 <p>
 
-أساسيات القيادة وقوانين المرور.
+تعلم أساسيات القيادة وقوانين المرور.
 
 </p>
 
@@ -253,21 +147,95 @@ href="https://wa.me/message/VDGPVTYNXF4EP1">
 
 <div class="card">
 
-🚙
+⏰
 
 <h3>
 
-سيارة المؤسسة
+5 ساعات
 
 </h3>
 
 <p>
 
-جميع التدريبات تتم بسيارة المؤسسة.
+برنامج تدريبي مكثف لمدة خمس ساعات.
 
 </p>
 
 </div>
+
+</div>
+
+</section>
+<section id="payment">
+
+<h2>بيانات الدفع</h2>
+
+<div class="payment-card">
+
+<p><strong>كابتن منى 👩🏻‍✈️</strong></p>
+
+<p>وعليكم السلام ورحمة الله وبركاته</p>
+
+<p>مرحباً عزيزي العميل،</p>
+
+<label>رقم الآيبان</label>
+
+<div class="copy-box">
+
+<input id="iban"
+readonly
+value="SA8715134018966784773544">
+
+<button onclick="copyIBAN()">
+
+نسخ
+
+</button>
+
+</div>
+
+<label>الاسم</label>
+
+<div class="copy-box">
+
+<input id="name"
+readonly
+value="منى أحمد حمود الشمراني">
+
+<button onclick="copyName()">
+
+نسخ
+
+</button>
+
+</div>
+
+<p>
+
+اسم البنك
+
+</p>
+
+<h3>
+
+بنك البلاد
+
+</h3>
+
+<p>
+
+❗ يرجى إرسال إيصال التحويل بعد الدفع.
+
+</p>
+
+<a
+class="whatsapp"
+target="_blank"
+href="https://wa.me/message/VDGPVTYNXF4EP1">
+
+إرسال إيصال التحويل عبر واتساب
+
+</a>
 
 </div>
 
@@ -277,49 +245,108 @@ href="https://wa.me/message/VDGPVTYNXF4EP1">
 
 <h2>
 
-التسجيل
+التسجيل في الدورة
 
 </h2>
 
-<p>
+<form id="bookingForm">
 
-(سيتم ربط هذه الصفحة بالتقويم وFirebase في الخطوة القادمة.)
+<input
+type="text"
+id="fullName"
+placeholder="الاسم الكامل"
+required>
 
-</p>
+<input
+type="text"
+id="address"
+placeholder="عنوان المتدربة"
+required>
+
+<input
+type="tel"
+id="phone"
+placeholder="رقم الجوال"
+required>
+
+<label>
+
+اختيار تاريخ التدريب
+
+</label>
+
+<input
+type="date"
+id="trainingDate">
+
+<label>
+
+اختيار الوقت
+
+</label>
+
+<select id="trainingTime">
+
+<option>08:00 صباحاً</option>
+
+<option>09:00 صباحاً</option>
+
+<option>10:00 صباحاً</option>
+
+<option>11:00 صباحاً</option>
+
+<option>12:00 ظهراً</option>
+
+<option>01:00 ظهراً</option>
+
+<option>02:00 ظهراً</option>
+
+<option>03:00 عصراً</option>
+
+</select>
+
+<button type="submit">
+
+تأكيد التسجيل
+
+</button>
+
+</form>
 
 </section>
-
 <section class="coming">
 
-<div>
+<h2>قريباً</h2>
 
-<h3>
+<div class="cards">
 
-دورة الكابتن المحترف
+<div class="card">
 
-</h3>
+<h3>دورة الكابتن المحترف</h3>
 
 <p>
 
-Coming Soon
+تعلم تطبيق ISO في خدمة نقل الركاب.
 
 </p>
+
+<span>Coming Soon</span>
 
 </div>
 
-<div>
+<div class="card">
 
-<h3>
-
-شراء سيارة
-
-</h3>
+<h3>شراء سيارة</h3>
 
 <p>
 
-Coming Soon
+ساعدك في اختيار السيارة المناسبة.
 
 </p>
+
+<span>Coming Soon</span>
+
+</div>
 
 </div>
 
@@ -327,11 +354,17 @@ Coming Soon
 
 <footer>
 
-© 2026 TDrive
+<p>
+
+© 2026 TDrive | تكنولوجيا القيادة
+
+</p>
 
 </footer>
 
-<script type="module" src="app.js"></script>
+<script type="module" src="firebase.js"></script>
+
+<script src="app.js"></script>
 
 </body>
 
