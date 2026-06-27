@@ -16,6 +16,7 @@ window.copyName = function () {
 
 const form = document.getElementById("bookingForm");
 
+if (form) {
 form.addEventListener("submit", async function (e) {
 
     e.preventDefault();
