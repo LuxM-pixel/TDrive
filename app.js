@@ -2,47 +2,41 @@ import { saveBooking } from "./firebase.js";
 
 // نسخ الآيبان
 window.copyIBAN = function () {
-  const iban = document.getElementById("iban").value;
-  navigator.clipboard.writeText(iban);
+  const input = document.getElementById("iban");
+  if (!input) return;
+  navigator.clipboard.writeText(input.value);
   alert("تم نسخ رقم الآيبان");
 };
 
 // نسخ الاسم
 window.copyName = function () {
-  const name = document.getElementById("name").value;
-  navigator.clipboard.writeText(name);
+  const input = document.getElementById("name");
+  if (!input) return;
+  navigator.clipboard.writeText(input.value);
   alert("تم نسخ اسم المستفيد");
 };
 
 const form = document.getElementById("bookingForm");
 
 if (form) {
+  form.addEventListener("submit", async function (e) {
 
-form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-e.preventDefault();
+    const fullName = document.getElementById("fullName").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const trainingDate = document.getElementById("trainingDate").value;
+    const trainingTime = document.getElementById("trainingTime").value;
 
-const fullName = document.getElementById("fullName").value.trim();
-const address = document.getElementById("address").value.trim();
-const phone = document.getElementById("phone").value.trim();
-const trainingDate = document.getElementById("trainingDate").value;
-const trainingTime = document.getElementById("trainingTime").value;
+    if (!fullName || !address || !phone || !trainingDate) {
+      alert("يرجى تعبئة جميع البيانات");
+      return;
+    }
 
-if (
-!fullName ||
-!address ||
-!phone ||
-!trainingDate
-){
+    const summary = `
 
-alert("يرجى تعبئة جميع البيانات");
-
-return;
-
-}
-
-const summary = `
-تأكيد الحجز
+تأكيد التسجيل
 
 👤 الاسم: ${fullName}
 
@@ -54,37 +48,33 @@ const summary = `
 
 🕒 الوقت: ${trainingTime}
 
-💰 السعر: 375 ريال
+💰 الرسوم: 375 ريال
 
 هل تريد تأكيد التسجيل؟
+
 `;
 
-if(!confirm(summary)) return;
+    if (!confirm(summary)) return;
 
-const booking = {
+    const booking = {
+      fullName,
+      address,
+      phone,
+      trainingDate,
+      trainingTime,
+      price: 375,
+      status: "Pending Payment",
+      createdAt: new Date().toISOString()
+    };
 
-fullName,
+    try {
 
-phone,
+      await saveBooking(booking);
+            alert("تم التسجيل بنجاح");
 
-address,
+      form.reset();
 
-trainingDate,
-
-trainingTime,
-
-price:375,
-
-status:"Pending Payment",
-
-createdAt:new Date().toISOString()
-
-};
-    try{
-
-await saveBooking(booking);
-
-const message = `السلام عليكم،
+      const message = `السلام عليكم،
 
 سجلت في دورة احترف القيادة.
 
@@ -98,47 +88,18 @@ const message = `السلام عليكم،
 
 شكراً لكم.`;
 
-form.reset();
+      window.location.href =
+        "https://wa.me/966556117180?text=" +
+        encodeURIComponent(message);
 
-window.location.href =
-"https://wa.me/966556117180?text=" +
-encodeURIComponent(message);
+    } catch (error) {
 
-}catch(error){
+      console.error(error);
 
-console.error(error);
+      alert("تعذر حفظ الحجز، حاول مرة أخرى.");
 
-alert("حدث خطأ أثناء حفظ الحجز، حاول مرة أخرى.");
+    }
 
-}
-
-});
+  });
 
 }
-// جعل الدوال متاحة عالمياً
-
-window.copyIBAN = window.copyIBAN || function () {
-
-const input = document.getElementById("iban");
-
-if(!input) return;
-
-navigator.clipboard.writeText(input.value);
-
-alert("تم نسخ رقم الآيبان");
-
-};
-
-window.copyName = window.copyName || function () {
-
-const input = document.getElementById("name");
-
-if(!input) return;
-
-navigator.clipboard.writeText(input.value);
-
-alert("تم نسخ اسم المستفيد");
-
-};
-
-console.log("TDrive App Loaded Successfully ✅");
