@@ -1,223 +1,543 @@
+/* ==========================
+   TDrive
+   Modern UI
+========================== */
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Cairo',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-    background:#f7f9fb;
-    color:#2d3748;
-    line-height:1.8;
+
+background:#ffffff;
+
+color:#222;
+
+line-height:1.8;
+
 }
 
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
-    background:white;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
-    position:sticky;
-    top:0;
-    z-index:100;
+
+position:sticky;
+
+top:0;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 8%;
+
+background:white;
+
+box-shadow:0 8px 25px rgba(0,0,0,.05);
+
+z-index:999;
+
 }
 
 .logo h1{
-    color:#5fa8b5;
-    font-size:34px;
-    font-weight:800;
+
+font-size:34px;
+
+font-weight:800;
+
+color:#65b7c3;
+
 }
 
 .logo p{
-    color:#666;
-    font-size:14px;
+
+color:#888;
+
+font-size:14px;
+
 }
 
 nav{
-    display:flex;
-    gap:25px;
+
+display:flex;
+
+gap:28px;
+
 }
 
 nav a{
-    text-decoration:none;
-    color:#444;
-    font-weight:700;
-    transition:.3s;
+
+text-decoration:none;
+
+color:#444;
+
+font-weight:700;
+
+transition:.3s;
+
 }
 
 nav a:hover{
-    color:#5fa8b5;
+
+color:#65b7c3;
+
 }
 
 .hero{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:80px 8%;
-    flex-wrap:wrap;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:90px 8%;
+
+flex-wrap:wrap;
+
 }
 
-.hero-text{
-    max-width:520px;
+.hero-content{
+
+max-width:520px;
+
 }
 
-.hero h2{
-    font-size:48px;
-    margin-bottom:20px;
+.hero-content h2{
+
+font-size:58px;
+
+margin-bottom:20px;
+
 }
 
-.hero p{
-    color:#666;
-    margin-bottom:25px;
+.hero-content p{
+
+font-size:20px;
+
+color:#666;
+
+margin-bottom:25px;
+
+}
+
+.hero-image{
+
+font-size:180px;
+
 }
 
 .old{
-    text-decoration:line-through;
-    color:#999;
-    margin-left:12px;
+
+text-decoration:line-through;
+
+color:#999;
+
+font-size:26px;
+
+margin-left:10px;
+
 }
 
 .new{
-    font-size:34px;
-    color:#18a558;
-    font-weight:bold;
+
+font-size:46px;
+
+font-weight:bold;
+
+color:#18a558;
+
 }
 
-.discount{
-    margin:18px 0;
-    color:#e63946;
-    font-weight:bold;
+.offer{
+
+margin-top:18px;
+
+font-weight:bold;
+
+color:#d62828;
+
 }
 
-.btn{
-    display:inline-block;
-    background:#5fa8b5;
-    color:white;
-    text-decoration:none;
-    padding:15px 35px;
-    border-radius:12px;
-    transition:.3s;
+.button{
+
+display:inline-block;
+
+margin-top:25px;
+
+background:#65b7c3;
+
+color:white;
+
+padding:15px 40px;
+
+border-radius:14px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+transition:.3s;
+
 }
 
-.btn:hover{
-    transform:translateY(-3px);
-}
+.button:hover{
 
-.hero-image{
-    font-size:150px;
-}
+transform:translateY(-4px);
 
+box-shadow:0 12px 25px rgba(0,0,0,.12);
+
+}
 section{
-    padding:70px 8%;
+
+padding:80px 8%;
+
 }
 
-h2{
-    margin-bottom:25px;
+section h2{
+
+font-size:36px;
+
+margin-bottom:35px;
+
+color:#333;
+
 }
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-    gap:25px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+gap:25px;
+
 }
 
 .card{
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
-    text-align:center;
+
+background:#fff;
+
+border-radius:22px;
+
+padding:35px;
+
+text-align:center;
+
+box-shadow:0 10px 30px rgba(0,0,0,.06);
+
+transition:.3s;
+
 }
 
-#paymentBox{
-    display:none;
-    margin-top:20px;
-    background:white;
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
+.card:hover{
+
+transform:translateY(-8px);
+
 }
 
-.copy{
-    display:flex;
-    gap:10px;
-    margin:15px 0;
+.card h3{
+
+margin:18px 0;
+
+color:#444;
+
 }
 
-.copy input{
-    flex:1;
-    padding:12px;
-    border:1px solid #ddd;
-    border-radius:10px;
+.card p{
+
+color:#666;
+
 }
 
-.copy button,
-#showPayment{
-    background:#5fa8b5;
-    color:white;
-    border:none;
-    padding:12px 18px;
-    border-radius:10px;
-    cursor:pointer;
+.payment-card{
+
+background:#f8fbfc;
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+.payment-card label{
+
+display:block;
+
+margin-top:18px;
+
+font-weight:bold;
+
+}
+
+.copy-box{
+
+display:flex;
+
+gap:10px;
+
+margin-top:10px;
+
+margin-bottom:18px;
+
+}
+
+.copy-box input{
+
+flex:1;
+
+padding:14px;
+
+border:1px solid #ddd;
+
+border-radius:12px;
+
+font-size:15px;
+
+background:white;
+
+}
+
+.copy-box button{
+
+background:#65b7c3;
+
+color:white;
+
+border:none;
+
+padding:0 20px;
+
+border-radius:12px;
+
+cursor:pointer;
+
 }
 
 .whatsapp{
-    display:inline-block;
-    margin-top:20px;
-    text-decoration:none;
-    background:#25D366;
-    color:white;
-    padding:14px 22px;
-    border-radius:12px;
+
+display:inline-block;
+
+margin-top:25px;
+
+background:#25D366;
+
+color:white;
+
+padding:14px 22px;
+
+border-radius:12px;
+
+text-decoration:none;
+
+font-weight:bold;
+
 }
+
+#bookingForm{
+
+max-width:650px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+#bookingForm input,
+
+#bookingForm select{
+
+padding:16px;
+
+border-radius:12px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+}
+
+#bookingForm button{
+
+background:#65b7c3;
+
+color:white;
+
+border:none;
+
+padding:16px;
+
+border-radius:12px;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+#bookingForm button:hover{
+
+background:#4fa5b3;
+
+}
+/* ==========================
+   Coming Soon
+========================== */
 
 .coming{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
+
+background:#f8fbfc;
+
 }
 
-.coming div{
-    background:white;
-    padding:40px;
-    border-radius:18px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.05);
+.coming span{
+
+display:inline-block;
+
+margin-top:15px;
+
+background:#65b7c3;
+
+color:white;
+
+padding:8px 18px;
+
+border-radius:30px;
+
+font-size:14px;
+
+font-weight:bold;
+
 }
+
+/* ==========================
+   Footer
+========================== */
 
 footer{
-    background:#222;
-    color:white;
-    text-align:center;
-    padding:30px;
-    margin-top:60px;
+
+margin-top:70px;
+
+padding:35px;
+
+text-align:center;
+
+background:#1f2937;
+
+color:white;
+
 }
 
-@media(max-width:768px){
+/* ==========================
+   Responsive
+========================== */
+
+@media(max-width:900px){
 
 header{
-    flex-direction:column;
-    gap:20px;
+
+flex-direction:column;
+
+gap:18px;
+
+padding:20px;
+
 }
 
 nav{
-    flex-wrap:wrap;
-    justify-content:center;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
 }
 
 .hero{
-    text-align:center;
-    justify-content:center;
+
+flex-direction:column-reverse;
+
+text-align:center;
+
+padding:60px 25px;
+
 }
 
-.hero h2{
-    font-size:34px;
+.hero-content{
+
+max-width:100%;
+
+}
+
+.hero-content h2{
+
+font-size:38px;
+
+}
+
+.hero-content p{
+
+font-size:18px;
+
 }
 
 .hero-image{
-    margin-top:40px;
-    font-size:100px;
+
+font-size:120px;
+
+margin-bottom:30px;
+
+}
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+.payment-card{
+
+padding:25px;
+
+}
+
+.copy-box{
+
+flex-direction:column;
+
+}
+
+.copy-box button{
+
+padding:14px;
+
+}
+
+.button{
+
+width:100%;
+
+text-align:center;
+
 }
 
 }
