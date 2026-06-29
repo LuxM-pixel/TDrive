@@ -1,7 +1,7 @@
-const button = document.getElementById("startEvaluation");
+const nextButton = document.getElementById("nextLesson");
 
-button.addEventListener("click", () => {
+nextButton.addEventListener("click", () => {
 
-alert("قريبًا ستبدأ الحصة الأولى.");
+alert("سيتم الانتقال للحصة الثانية.");
 
 });
