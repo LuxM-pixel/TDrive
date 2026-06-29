@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>تقييم المتدربة | TDrive</title>
+<title>TDrive | سجل تقدم المتدربة</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,8 +19,11 @@
 <header>
 
 <div class="logo">
+
 <h1>TDrive</h1>
-<p>تقييم المتدربة</p>
+
+<p>سجل تقدم المتدربة</p>
+
 </div>
 
 <nav>
@@ -31,56 +34,38 @@
 
 </header>
 
-<section>
+<section class="evaluation">
 
-<h2>📋 تقييم المتدربة</h2>
+<h2>📋 سجل تقدم المتدربة</h2>
 
-<form id="evaluationForm">
+<p class="videos-text">
+
+قومي بتقييم مستوى المتدربة بعد كل حصة تدريبية.
+
+</p>
+
+<div class="card">
+
+<label>اسم المتدربة</label>
 
 <input
 type="text"
-placeholder="اسم المتدربة"
-required>
+id="studentName"
+placeholder="اكتبي اسم المتدربة">
 
-<h3>الحصة الأولى</h3>
+<br><br>
 
-<label>علامات الطريق</label>
+<button id="startEvaluation">
 
-<input
-type="number"
-min="0"
-max="10"
-placeholder="من 10">
-
-<label>تشغيل وإطفاء السيارة</label>
-
-<select>
-
-<option>⭐</option>
-
-<option>⭐⭐</option>
-
-<option>⭐⭐⭐</option>
-
-<option>⭐⭐⭐⭐</option>
-
-<option>⭐⭐⭐⭐⭐</option>
-
-</select>
-
-<textarea
-placeholder="ملاحظات المدربة">
-</textarea>
-
-<button type="submit">
-
-حفظ التقييم
+ابدئي التقييم
 
 </button>
 
-</form>
+</div>
 
 </section>
+
+<script src="evaluation.js"></script>
 
 </body>
 
