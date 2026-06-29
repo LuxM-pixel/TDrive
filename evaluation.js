@@ -1,39 +1,35 @@
-// ==========================
-// TDrive Evaluation
+// =====================================
+// TDrive Evaluation System
 // الجزء الأول
-// ==========================
+// =====================================
 
 // الحصص
 const lessons = [
-  document.getElementById("lesson1"),
-  document.getElementById("lesson2"),
-  document.getElementById("lesson3"),
-  document.getElementById("lesson4"),
-  document.getElementById("lesson5"),
-  document.getElementById("resultSection")
+    document.getElementById("lesson1"),
+    document.getElementById("lesson2"),
+    document.getElementById("lesson3"),
+    document.getElementById("lesson4"),
+    document.getElementById("lesson5"),
+    document.getElementById("resultSection")
 ];
 
-// دوائر التقدم
+// شريط التقدم
 const steps = document.querySelectorAll(".step");
 
-// إظهار حصة وإخفاء البقية
+// عرض حصة
 function showLesson(index){
 
     lessons.forEach((lesson,i)=>{
 
-        lesson.style.display = i===index ? "block" : "none";
+        lesson.style.display = (i===index) ? "block" : "none";
 
     });
 
     steps.forEach((step,i)=>{
 
-        if(i<=index && i<5){
+        if(i<5){
 
-            step.classList.add("active");
-
-        }else{
-
-            step.classList.remove("active");
+            step.classList.toggle("active",i<=index);
 
         }
 
@@ -41,69 +37,74 @@ function showLesson(index){
 
 }
 
-// تبدأ الصفحة بالحصة الأولى
+// تشغيل الصفحة
 showLesson(0);
 
-// ==========================
-// أزرار التالي
-// ==========================
+// =====================================
+// التنقل بين الحصص
+// =====================================
 
-document.getElementById("next1").onclick = ()=>{
+document.getElementById("next1").addEventListener("click",()=>{
 
     showLesson(1);
 
-};
+});
 
-document.getElementById("next2").onclick = ()=>{
+document.getElementById("next2").addEventListener("click",()=>{
 
     showLesson(2);
 
-};
+});
 
-document.getElementById("next3").onclick = ()=>{
+document.getElementById("next3").addEventListener("click",()=>{
 
     showLesson(3);
 
-};
+});
 
-document.getElementById("next4").onclick = ()=>{
+document.getElementById("next4").addEventListener("click",()=>{
 
     showLesson(4);
 
-};
+});
 
-document.getElementById("finishEvaluation").onclick = ()=>{
+document.getElementById("finishEvaluation").addEventListener("click",()=>{
 
     showLesson(5);
 
-};
-// ==========================
+});
+// =====================================
 // تشغيل النجوم
-// ==========================
+// =====================================
 
-document.querySelectorAll(".stars").forEach(stars => {
+document.querySelectorAll(".stars").forEach((stars)=>{
 
     const items = stars.querySelectorAll("span");
 
     items.forEach((star,index)=>{
 
-        star.style.cursor="pointer";
+        star.addEventListener("click",()=>{
 
-        star.onclick=()=>{
+            stars.dataset.rating = index + 1;
 
-            stars.dataset.rating=index+1;
+            items.forEach((item,i)=>{
 
-            items.forEach((s,i)=>{
+                if(i <= index){
 
-                s.textContent=i<=index ? "★" : "☆";
+                    item.textContent = "★";
+                    item.style.color = "#FFD700";
 
-                s.style.color=i<=index ? "#FFD700" : "#999";
+                }else{
+
+                    item.textContent = "☆";
+                    item.style.color = "#BBBBBB";
+
+                }
 
             });
 
-        };
+        });
 
     });
-          });
 
-
+});
