@@ -165,3 +165,61 @@ getRating("gasStars")
         total.toFixed(1) + " / 95";
 
 }
+// =====================================
+// حفظ التقييم
+// =====================================
+
+document.getElementById("saveEvaluation").addEventListener("click", async ()=>{
+
+    const data = {
+
+        studentName:
+        document.getElementById("studentName").value,
+
+        roadScore:
+        Number(document.getElementById("roadScore").value||0),
+
+        theoryScore:
+        Number(document.getElementById("theoryScore").value||0),
+
+        engine:getRating("engineStars"),
+        forward:getRating("forwardStars"),
+        lane:getRating("laneStars"),
+        gas:getRating("gasStars"),
+        turn:getRating("turnStars"),
+        parallel:getRating("parallelStars"),
+        parking:getRating("parkingStars"),
+        x:getRating("xStars"),
+        overtake:getRating("overtakeStars"),
+        speed:getRating("speedStars"),
+        angle:getRating("angleStars"),
+
+        practical:
+        document.getElementById("practicalResult").textContent,
+
+        final:
+        document.getElementById("finalResult").textContent,
+
+        notes:
+        document.getElementById("notes").value,
+
+        createdAt:
+        new Date().toISOString()
+
+    };
+
+    try{
+
+        await saveEvaluation(data);
+
+        alert("✅ تم حفظ التقييم في Firebase بنجاح");
+
+    }catch(error){
+
+        console.error(error);
+
+        alert("❌ فشل حفظ التقييم");
+
+    }
+
+});
