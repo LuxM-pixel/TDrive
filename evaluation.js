@@ -106,3 +106,4 @@ document.querySelectorAll(".stars").forEach(stars => {
     });
 
 });
+alert(document.querySelectorAll(".stars").length);
