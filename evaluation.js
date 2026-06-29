@@ -71,6 +71,8 @@ document.getElementById("next4").addEventListener("click",()=>{
 
 document.getElementById("finishEvaluation").addEventListener("click",()=>{
 
+    calculateResult();
+
     showLesson(5);
 
 });
@@ -109,3 +111,50 @@ document.querySelectorAll(".stars").forEach((stars)=>{
     });
 
 });
+// =====================================
+// حساب الدرجات
+// =====================================
+
+function getRating(id){
+
+    return Number(document.getElementById(id).dataset.rating || 0);
+
+}
+
+function calculateResult(){
+
+    const practical =
+
+        getRating("engineStars") +
+        getRating("forwardStars") +
+        getRating("laneStars") +
+        getRating("gasStars") +
+        getRating("turnStars") +
+        getRating("parallelStars") +
+        getRating("parkingStars") +
+        getRating("xStars") +
+        getRating("overtakeStars") +
+        getRating("speedStars") +
+        getRating("angleStars");
+
+    const practicalScore = practical * 75 / 55;
+
+    const road = Number(document.getElementById("roadScore").value || 0);
+
+    const theory = Number(document.getElementById("theoryScore").value || 0);
+
+    const total = practicalScore + road + theory;
+
+    document.getElementById("practicalResult").textContent =
+        practicalScore.toFixed(1) + " / 75";
+
+    document.getElementById("roadResult").textContent =
+        road + " / 10";
+
+    document.getElementById("theoryResult").textContent =
+        theory + " / 10";
+
+    document.getElementById("finalResult").textContent =
+        total.toFixed(1) + " / 95";
+
+}
