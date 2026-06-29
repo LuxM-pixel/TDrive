@@ -4,13 +4,18 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TDrive | سجل تقدم المتدربة</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
@@ -36,70 +41,476 @@
 
 <section class="evaluation">
 
-<h2>📋 سجل تقدم المتدربة</h2>
+<h2>
 
-<p class="videos-text">
+📋 سجل تقدم المتدربة
 
-قومي بتقييم مستوى المتدربة بعد كل حصة تدريبية.
+</h2>
+
+<p class="evaluation-text">
+
+يستخدم هذا النموذج لتقييم مستوى المتدربة أثناء البرنامج التدريبي.
 
 </p>
 
-<div class="card">
+<div class="evaluation-card">
 
-<label>اسم المتدربة</label>
+<label>
+
+اسم المتدربة
+
+</label>
 
 <input
 type="text"
 id="studentName"
 placeholder="اكتبي اسم المتدربة">
 
-<br><br>
+</div>
 
-<section id="lesson1">
+<div class="progress">
 
-<h2>📚 الحصة الأولى</h2>
+<div class="step active">
+
+1
+
+</div>
+
+<div class="step">
+
+2
+
+</div>
+
+<div class="step">
+
+3
+
+</div>
+
+<div class="step">
+
+4
+
+</div>
+
+<div class="step">
+
+5
+
+</div>
+
+</div>
+
+<section id="lesson1" class="lesson">
+
+<h2>
+
+الحصة الأولى
+
+</h2>
 
 <div class="card">
 
-<h3>🚦 اختبار علامات الطريق</h3>
+<h3>
 
-<a href="road-test.html" class="button">
-فتح الاختبار
-</a>
+🚦 اختبار علامات الطريق
+
+</h3>
+
+<p>
+
+يتم إرسال رابط الاختبار للمتدربة ثم تدوين درجتها هنا.
+
+</p>
+
+<label>
+
+الدرجة من 10
+
+</label>
+
+<input
+type="number"
+id="roadScore"
+min="0"
+max="10">
 
 </div>
 
 <div class="card">
 
-<h3>🔑 تشغيل وإطفاء السيارة</h3>
+<h3>
 
-<p>التقييم من 5 نجوم</p>
+🔑 تشغيل وإطفاء السيارة
 
-<select id="engine">
+</h3>
 
-<option value="">اختاري الدرجة</option>
-<option>⭐</option>
-<option>⭐⭐</option>
-<option>⭐⭐⭐</option>
-<option>⭐⭐⭐⭐</option>
-<option>⭐⭐⭐⭐⭐</option>
+<p>
 
-</select>
+اختاري مستوى أداء المتدربة.
+
+</p>
+
+<div class="stars" id="engineStars">
+
+<span>☆</span>
+
+<span>☆</span>
+
+<span>☆</span>
+
+<span>☆</span>
+
+<span>☆</span>
 
 </div>
 
-<button id="nextLesson" class="button">
+</div>
 
-التالي ⟵
+<button
+id="next1"
+class="button">
+
+التالي
 
 </button>
 
 </section>
 
+
+
+<section id="lesson2" class="lesson" style="display:none;">
+
+<h2>
+
+الحصة الثانية
+
+</h2>
+
+<div class="card">
+
+<h3>⬆️⬇️ التقدم والرجوع</h3>
+
+<p>التقييم من 5 نجوم</p>
+
+<div class="stars" id="forwardStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
 </div>
 
-</section>
+</div>
 
+<div class="card">
+
+<h3>↔️ الانتقال بين المسارات</h3>
+
+<p>التقييم من 5 نجوم</p>
+
+<div class="stars" id="laneStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<button id="next2" class="button">
+
+التالي
+
+</button>
+
+</section>
+<section id="lesson3" class="lesson" style="display:none;">
+
+<h2>
+
+الحصة الثالثة
+
+</h2>
+
+<div class="card">
+
+<h3>⛽ التحكم بالبنزين</h3>
+
+<div class="stars" id="gasStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>↩️ الدوران والتحكم بالسرعة</h3>
+
+<div class="stars" id="turnStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🅿️ الوقوف الطولي</h3>
+
+<div class="stars" id="parallelStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🚗 الوقوف العرضي</h3>
+
+<div class="stars" id="parkingStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<button id="next3" class="button">
+
+التالي
+
+</button>
+
+</section>
+<section id="lesson4" class="lesson" style="display:none;">
+
+<h2>
+
+الحصة الرابعة
+
+</h2>
+
+<div class="card">
+
+<h3>📖 الاختبار النظري</h3>
+
+<p>
+
+يتم إرسال رابط الاختبار ثم تسجيل الدرجة.
+
+</p>
+
+<label>
+
+الدرجة من 10
+
+</label>
+
+<input
+type="number"
+id="theoryScore"
+min="0"
+max="10">
+
+</div>
+
+<button id="next4" class="button">
+
+التالي
+
+</button>
+
+</section>
+<section id="lesson5" class="lesson" style="display:none;">
+
+<h2>
+
+الحصة الخامسة
+
+</h2>
+
+<div class="card">
+
+<h3>❌ مناورة X</h3>
+
+<div class="stars" id="xStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>🚙 التجاوز الآمن</h3>
+
+<div class="stars" id="overtakeStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>⚡ السرعات الآمنة</h3>
+
+<div class="stars" id="speedStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>📐 الوقوف المائل</h3>
+
+<div class="stars" id="angleStars">
+
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+<span>☆</span>
+
+</div>
+
+</div>
+
+<button id="finishEvaluation" class="button">
+
+إنهاء التقييم
+
+</button>
+
+</section>
+<section id="resultSection" class="lesson" style="display:none;">
+
+<h2>
+
+📊 النتيجة النهائية
+
+</h2>
+
+<div class="card">
+
+<p>
+
+الاختبار العملي:
+
+<strong id="practicalResult">
+
+0 / 75
+
+</strong>
+
+</p>
+
+<p>
+
+اختبار علامات الطريق:
+
+<strong id="roadResult">
+
+0 / 10
+
+</strong>
+
+</p>
+
+<p>
+
+الاختبار النظري:
+
+<strong id="theoryResult">
+
+0 / 10
+
+</strong>
+
+</p>
+
+<p>
+
+المجموع النهائي:
+
+<strong id="finalResult">
+
+0
+
+</strong>
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+📝 توصيات المدربة
+
+</h3>
+
+<textarea
+id="notes"
+rows="6"
+placeholder="اكتبي ملاحظاتك هنا..."></textarea>
+
+</div>
+
+<button id="saveEvaluation" class="button">
+
+💾 حفظ التقييم
+
+</button>
+
+</section>
+</section>
 <script src="evaluation.js"></script>
 
 </body>
