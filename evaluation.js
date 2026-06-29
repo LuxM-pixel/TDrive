@@ -212,10 +212,12 @@ document.getElementById("saveEvaluation").addEventListener("click", async ()=>{
 
         await saveEvaluation(data);
 
-downloadPDF();
+localStorage.setItem(
+    "lastEvaluation",
+    JSON.stringify(data)
+);
 
-alert("✅ تم حفظ التقييم في Firebase بنجاح");
-
+window.location.href = "report.html";
     }catch(error){
 
         console.error(error);
