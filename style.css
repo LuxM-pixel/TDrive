@@ -795,3 +795,76 @@ transform:scale(1);
 }
 
 }
+/* ==========================
+   Evaluation
+========================== */
+
+.evaluation{
+
+max-width:900px;
+
+margin:auto;
+
+}
+
+.evaluation .card{
+
+max-width:700px;
+
+margin:auto;
+
+}
+
+.evaluation input{
+
+width:100%;
+
+padding:16px;
+
+margin-top:10px;
+
+border:1px solid #ddd;
+
+border-radius:12px;
+
+font-size:16px;
+
+}
+
+.evaluation button{
+
+margin-top:25px;
+
+width:100%;
+
+background:#65b7c3;
+
+color:white;
+
+padding:16px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.evaluation button:hover{
+
+background:#4fa5b3;
+
+}
+
+/* ===== Rating Stars ===== */
+
+/* ===== Progress ===== */
+
+/* ===== Report ===== */
