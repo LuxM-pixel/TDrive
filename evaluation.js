@@ -231,6 +231,8 @@ alert("✅ تم حفظ التقييم في Firebase بنجاح");
 
 function downloadPDF(){
 
+    alert(typeof window.jspdf);
+
     const { jsPDF } = window.jspdf;
 
     const doc = new jsPDF();
