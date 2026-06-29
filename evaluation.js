@@ -77,3 +77,32 @@ document.getElementById("finishEvaluation").onclick = ()=>{
     showLesson(5);
 
 };
+// ==========================
+// تشغيل النجوم
+// ==========================
+
+document.querySelectorAll(".stars").forEach(stars => {
+
+    const items = stars.querySelectorAll("span");
+
+    items.forEach((star,index)=>{
+
+        star.style.cursor="pointer";
+
+        star.onclick=()=>{
+
+            stars.dataset.rating=index+1;
+
+            items.forEach((s,i)=>{
+
+                s.textContent=i<=index ? "★" : "☆";
+
+                s.style.color=i<=index ? "#FFD700" : "#999";
+
+            });
+
+        };
+
+    });
+
+});
