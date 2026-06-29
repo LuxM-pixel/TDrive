@@ -52,3 +52,20 @@ return docRef.id;
     }
 
 }
+export async function saveEvaluation(data){
+
+    try{
+
+        const docRef = await addDoc(collection(db,"evaluations"), data);
+
+        return docRef.id;
+
+    }catch(error){
+
+        console.error(error);
+
+        throw error;
+
+    }
+
+}
