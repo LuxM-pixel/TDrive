@@ -136,6 +136,12 @@ function calculateResult(){
         getRating("overtakeStars") +
         getRating("speedStars") +
         getRating("angleStars");
+    alert(
+getRating("engineStars")+" | "+
+getRating("forwardStars")+" | "+
+getRating("laneStars")+" | "+
+getRating("gasStars")
+);
 
     const practicalScore = practical * 75 / 55;
 
