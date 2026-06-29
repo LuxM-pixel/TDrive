@@ -1,5 +1,7 @@
 import { saveBooking } from "./firebase.js";
-
+const ORIGINAL_PRICE = 500;
+const OPENING_PRICE = 375;
+const FIRST10_PRICE = 270;
 // نسخ الآيبان
 window.copyIBAN = function () {
   const input = document.getElementById("iban");
@@ -48,7 +50,7 @@ if (form) {
 
 🕒 الوقت: ${trainingTime}
 
-💰 الرسوم: 375 ريال
+💰 الرسوم: ${OPENING_PRICE} ريال
 
 هل تريد تأكيد التسجيل؟
 
@@ -62,7 +64,7 @@ if (form) {
       phone,
       trainingDate,
       trainingTime,
-      price: 375,
+      price: OPENING_PRICE,
       status: "Pending Payment",
       createdAt: new Date().toISOString()
     };
