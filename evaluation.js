@@ -212,7 +212,9 @@ document.getElementById("saveEvaluation").addEventListener("click", async ()=>{
 
         await saveEvaluation(data);
 
-        alert("✅ تم حفظ التقييم في Firebase بنجاح");
+downloadPDF();
+
+alert("✅ تم حفظ التقييم في Firebase بنجاح");
 
     }catch(error){
 
@@ -223,3 +225,36 @@ document.getElementById("saveEvaluation").addEventListener("click", async ()=>{
     }
 
 });
+// =====================================
+// إنشاء PDF
+// =====================================
+
+function downloadPDF(){
+
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+
+    doc.setFontSize(18);
+
+    doc.text("TDrive Evaluation Report",20,20);
+
+    doc.setFontSize(12);
+
+    doc.text("Student: " + document.getElementById("studentName").value,20,40);
+
+    doc.text("Practical: " + document.getElementById("practicalResult").textContent,20,55);
+
+    doc.text("Road Test: " + document.getElementById("roadResult").textContent,20,70);
+
+    doc.text("Theory: " + document.getElementById("theoryResult").textContent,20,85);
+
+    doc.text("Final: " + document.getElementById("finalResult").textContent,20,100);
+
+    doc.text("Notes:",20,120);
+
+    doc.text(document.getElementById("notes").value || "-",20,135);
+
+    doc.save("TDrive-Evaluation.pdf");
+
+}
