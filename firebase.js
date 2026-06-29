@@ -38,7 +38,6 @@ export async function saveBooking(data){
 
         console.log("تم الحفظ", docRef.id);
 
-alert("Firebase ID: " + docRef.id);
 
 return docRef.id;
 
