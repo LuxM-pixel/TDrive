@@ -27,30 +27,26 @@ measurementId: "G-QBEPEKERXV"
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
-
 export async function saveBooking(data){
-
-    alert("دخلنا saveBooking");
 
     try{
 
         const docRef = await addDoc(collection(db,"bookings"), data);
 
-        alert("تم الحفظ داخل Firebase");
-
         return docRef.id;
 
     }catch(error){
 
-        alert("خطأ Firebase:\n" + error.message);
+        console.error("Firebase Error:", error);
 
-        console.error(error);
+        alert(error.message);
 
         throw error;
 
     }
 
 }
+
 export async function saveEvaluation(data){
 
     try{
