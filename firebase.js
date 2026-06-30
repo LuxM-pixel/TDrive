@@ -30,23 +30,19 @@ const db = getFirestore(app);
 
 export async function saveBooking(data){
 
-    alert("دخلت saveBooking");
-
-    console.log("سيتم الحفظ...", data);
+    alert("دخلنا saveBooking");
 
     try{
 
         const docRef = await addDoc(collection(db,"bookings"), data);
 
-        alert("تم الحفظ في Firebase");
-
-        console.log("تم الحفظ", docRef.id);
+        alert("تم الحفظ داخل Firebase");
 
         return docRef.id;
 
     }catch(error){
 
-        alert("Firebase Error: " + error.message);
+        alert("خطأ Firebase:\n" + error.message);
 
         console.error(error);
 
