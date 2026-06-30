@@ -73,9 +73,11 @@ if (form) {
 
  console.log("قبل الحفظ");
 
+alert("قبل استدعاء saveBooking");
+
 const id = await saveBooking(booking);
 
-console.log("تم الحفظ برقم:", id);
+alert("رجعنا من saveBooking");
 
 alert("تم التسجيل بنجاح");
           
