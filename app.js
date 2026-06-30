@@ -71,11 +71,7 @@ if (form) {
 
     try {
 
-  alert("1");
-
   const id = await saveBooking(booking);
-
-  alert("2");
 
   console.log("تم الحفظ برقم:", id);
 
