@@ -912,11 +912,9 @@ padding:55px 20px;
 
 .hero-car{
     text-align:center;
-    font-size:80px;
-    margin-top:25px;
-    margin-bottom:-20px;
+    font-size:130px;
+    margin:25px 0;
 }
-
 .program-title{
     text-align:center;
     color:#65b7c3;
@@ -952,4 +950,19 @@ padding:55px 20px;
 .card p{
     font-size:17px;
     line-height:1.7;
+}
+.program-title{
+    display:inline-block;
+    background:#65b7c3;
+    color:#fff;
+    padding:10px 22px;
+    border-radius:40px;
+    font-size:22px;
+    font-weight:700;
+    margin:20px auto;
+    animation:pulse 2s infinite;
+}
+
+.program-title-container{
+    text-align:center;
 }
