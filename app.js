@@ -25,23 +25,35 @@ const dateInput = document.getElementById("trainingDate");
 
 if (dateInput) {
 
-    flatpickr(dateInput, {
+    const dateInput = document.getElementById("trainingDate");
 
-        locale: "ar",
+if (dateInput) {
 
-        dateFormat: "Y-m-d",
+    new AirDatepicker("#trainingDate", {
 
-        minDate: "today",
+        locale: {
+            days: ['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],
+            daysShort: ['أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة','سبت'],
+            daysMin: ['ح','ن','ث','ر','خ','ج','س'],
+            months: ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],
+            monthsShort: ['ينا','فبر','مار','أبر','ماي','يون','يول','أغس','سبت','أكت','نوف','ديس'],
+            today: 'اليوم',
+            clear: 'مسح',
+            dateFormat: 'yyyy-MM-dd',
+            firstDay: 0
+        },
 
-        disable: [
-            function(date) {
+        minDate: new Date(),
 
-                // الجمعة = 5
-                // السبت = 6
-                return date.getDay() === 5 || date.getDay() === 6;
+        autoClose: true,
 
-            }
-        ]
+        onBeforeSelect({date}) {
+
+            const day = date.getDay();
+
+            return day !== 5 && day !== 6;
+
+        }
 
     });
 
