@@ -43,10 +43,23 @@ if (dateInput) {
 
         autoClose: true,
 
-        onBeforeSelect({ date }) {
-            const day = date.getDay();
-            return day !== 5 && day !== 6;
+        onRenderCell({ date, cellType }) {
+
+    if (cellType === "day") {
+
+        const day = date.getDay();
+
+        if (day === 5 || day === 6) {
+
+            return {
+                disabled: true
+            };
+
         }
+
+    }
+
+}
 
     });
 
