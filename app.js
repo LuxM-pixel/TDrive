@@ -26,6 +26,9 @@ const dateInput = document.getElementById("trainingDate");
 if (dateInput) {
 
     const today = new Date();
+
+    alert(today.toString());
+
     today.setHours(0, 0, 0, 0);
 
     dateInput.min = today.toISOString().split("T")[0];
