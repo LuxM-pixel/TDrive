@@ -188,8 +188,10 @@ margin:auto auto 40px;
     text-align:center;
     transition:.3s;
 
-    width:100%;
-    margin:0;
+    .card{
+    width:85%;
+    max-width:500px;
+    margin:0 auto;
 }
 
 .card{
