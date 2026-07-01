@@ -25,7 +25,7 @@ const form = document.getElementById("bookingForm");
 const dateInput = document.getElementById("trainingDate");
 
 if (dateInput) {
-alert(typeof AirDatepicker);
+
     new AirDatepicker("#trainingDate", {
 
         locale: {
