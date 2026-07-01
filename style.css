@@ -180,12 +180,16 @@ margin:auto auto 40px;
    Cards
 ========================== */
 
-.cards{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:18px;
-    max-width:700px;
-    margin:auto;
+.card{
+    background:#f7fbfd;
+    border:2px solid #d9edf5;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    transition:.3s;
+
+    width:100%;
+    margin:0;
 }
 
 .card{
