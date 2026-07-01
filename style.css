@@ -188,21 +188,7 @@ max-width:700px;
 margin:auto;
 }
 
-.card{
-background:#f7fbfd;
-border:2px solid #d9edf5;
-border-radius:18px;
-padding:18px;
-text-align:center;
-transition:.3s;
-   min-height:220px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-max-width:650px;
-margin:0 auto;
-}
-
+solid
 .card:hover{
 transform:translateY(-5px);
 }
@@ -609,13 +595,13 @@ height:70px;
 }
 
 .features-grid{
-display:flex;
-flex-direction:column;
-gap:18px;
-max-width:700px;
-margin:25px auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    max-width:700px;
+    margin:25px auto;
 }
-
 
 .coming-grid{
 display:grid;
