@@ -195,6 +195,10 @@ border-radius:18px;
 padding:18px;
 text-align:center;
 transition:.3s;
+   min-height:220px;
+display:flex;
+flex-direction:column;
+justify-content:center;
 max-width:650px;
 margin:0 auto;
 }
@@ -324,9 +328,10 @@ border-radius:14px;
 #bookingForm{
     max-width:550px;
     margin:auto;
+    display:flex;
+    flex-direction:column;
     gap:14px;
 }
-
 #bookingForm input,
 #bookingForm select{
     padding:14px;
