@@ -966,3 +966,54 @@ p,
 a {
     font-family: "Cairo", sans-serif !important;
 }
+.hero-subtitle{
+    font-size: 1.8rem;
+    color:#666;
+    margin-top:-10px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+.current-program{
+
+    background:#f7fbfd;
+
+    border:2px solid #d9edf5;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin:30px auto;
+
+    max-width:500px;
+
+}
+
+.current-program h3{
+
+    color:#4da6c8;
+
+    margin-bottom:12px;
+
+    font-size:1.2rem;
+
+}
+
+.current-program h2{
+
+    margin-bottom:15px;
+
+    color:#222;
+
+    font-size:2rem;
+
+}
+
+.current-program p{
+
+    color:#555;
+
+    line-height:1.8;
+
+}
