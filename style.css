@@ -948,3 +948,21 @@ background:#65b7c3;
 color:#fff;
 
 }
+/* تثبيت الخط في جميع عناصر الموقع */
+
+body,
+input,
+select,
+button,
+textarea,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+    font-family: "Cairo", sans-serif !important;
+}
