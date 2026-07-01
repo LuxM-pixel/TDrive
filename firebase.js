@@ -33,6 +33,8 @@ export async function saveBooking(data){
 
         const docRef = await addDoc(collection(db,"bookings"), data);
 
+        alert("تم الحفظ في Firebase\nID: " + docRef.id);
+
         return docRef.id;
 
     }catch(error){
@@ -46,7 +48,6 @@ export async function saveBooking(data){
     }
 
 }
-
 export async function saveEvaluation(data){
 
     try{
