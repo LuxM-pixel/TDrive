@@ -25,10 +25,6 @@ const dateInput = document.getElementById("trainingDate");
 
 if (dateInput) {
 
-    const dateInput = document.getElementById("trainingDate");
-
-if (dateInput) {
-
     new AirDatepicker("#trainingDate", {
 
         locale: {
@@ -47,12 +43,9 @@ if (dateInput) {
 
         autoClose: true,
 
-        onBeforeSelect({date}) {
-
+        onBeforeSelect({ date }) {
             const day = date.getDay();
-
             return day !== 5 && day !== 6;
-
         }
 
     });
