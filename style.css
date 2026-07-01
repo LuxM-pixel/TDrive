@@ -908,3 +908,48 @@ padding:55px 20px;
 }
 
 }
+/* ===== أعلى الصفحة ===== */
+
+.hero-car{
+    text-align:center;
+    font-size:80px;
+    margin-top:25px;
+    margin-bottom:-20px;
+}
+
+.program-title{
+    text-align:center;
+    color:#65b7c3;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.section-space{
+    height:70px;
+}
+
+/* ===== بطاقات المميزات ===== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.card{
+    background:#f7fbfd;
+    border:2px solid #d9edf5;
+    border-radius:20px;
+    padding:22px;
+}
+
+.card h3{
+    font-size:24px;
+    color:#65b7c3;
+    margin:12px 0;
+}
+
+.card p{
+    font-size:17px;
+    line-height:1.7;
+}
