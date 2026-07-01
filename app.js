@@ -27,15 +27,12 @@ if (dateInput) {
 
     const today = new Date();
 
-    alert(today.toString());
-
-    today.setHours(0, 0, 0, 0);
-
+    // ضبط التاريخ حسب التوقيت المحلي
     const year = today.getFullYear();
-const month = String(today.getMonth() + 1).padStart(2, "0");
-const day = String(today.getDate()).padStart(2, "0");
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
 
-dateInput.min = `${year}-${month}-${day}`;
+    dateInput.min = `${year}-${month}-${day}`;
 
 }
 if (form) {
