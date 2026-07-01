@@ -20,6 +20,19 @@ window.copyName = function () {
 
 const form = document.getElementById("bookingForm");
 
+// منع اختيار التواريخ الماضية
+const dateInput = document.getElementById("trainingDate");
+
+if (dateInput) {
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    dateInput.min = today.toISOString().split("T")[0];
+
+}
+
+if (form) {
 if (form) {
   form.addEventListener("submit", async function (e) {
 
