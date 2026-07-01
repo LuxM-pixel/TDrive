@@ -27,13 +27,17 @@ if (dateInput) {
 
     const today = new Date();
 
-    // ضبط التاريخ حسب التوقيت المحلي
     const year = today.getFullYear();
     const month = String(today.getMonth() + 1).padStart(2, "0");
     const day = String(today.getDate()).padStart(2, "0");
 
-    dateInput.min = `${year}-${month}-${day}`;
+    const todayString = `${year}-${month}-${day}`;
 
+    // يمنع اختيار الأيام السابقة
+    dateInput.min = todayString;
+
+    // يجعل التقويم يبدأ من تاريخ اليوم
+    dateInput.value = todayString;
 }
 if (form) {
   form.addEventListener("submit", async function (e) {
