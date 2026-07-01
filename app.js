@@ -1,4 +1,5 @@
 import { saveBooking } from "./firebase.js";
+alert("app.js يعمل");
 const ORIGINAL_PRICE = 500;
 const OPENING_PRICE = 375;
 const FIRST10_PRICE = 270;
