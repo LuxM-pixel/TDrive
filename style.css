@@ -597,10 +597,14 @@ height:70px;
 
 .features-grid{
 display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:1fr;
 gap:18px;
 margin-top:25px;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
 }
+
 
 .coming-grid{
 display:grid;
