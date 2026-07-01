@@ -333,6 +333,11 @@ border-radius:14px;
     padding:15px;
     font-size:17px;
     border-radius:12px;
+
+    background:#65b7c3;
+    color:#fff;
+    border:none;
+    cursor:pointer;
 }
 
 /* ==========================
