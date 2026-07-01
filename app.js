@@ -31,8 +31,6 @@ if (dateInput) {
     dateInput.min = today.toISOString().split("T")[0];
 
 }
-
-if (form) {
 if (form) {
   form.addEventListener("submit", async function (e) {
 
