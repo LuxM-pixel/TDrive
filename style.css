@@ -187,21 +187,11 @@ margin:auto auto 40px;
     padding:20px;
     text-align:center;
     transition:.3s;
-
-    .card{
     width:85%;
     max-width:500px;
     margin:0 auto;
 }
 
-.card{
-    background:#f7fbfd;
-    border:2px solid #d9edf5;
-    border-radius:18px;
-    padding:20px;
-    text-align:center;
-    transition:.3s;
-}
 
 .card:hover{
     transform:translateY(-5px);
