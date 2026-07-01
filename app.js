@@ -25,19 +25,26 @@ const dateInput = document.getElementById("trainingDate");
 
 if (dateInput) {
 
-    const today = new Date();
+    flatpickr(dateInput, {
 
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, "0");
-    const day = String(today.getDate()).padStart(2, "0");
+        locale: "ar",
 
-    const todayString = `${year}-${month}-${day}`;
+        dateFormat: "Y-m-d",
 
-    // يمنع اختيار الأيام السابقة
-    dateInput.min = todayString;
+        minDate: "today",
 
-    // يجعل التقويم يبدأ من تاريخ اليوم
-    dateInput.value = todayString;
+        disable: [
+            function(date) {
+
+                // الجمعة = 5
+                // السبت = 6
+                return date.getDay() === 5 || date.getDay() === 6;
+
+            }
+        ]
+
+    });
+
 }
 if (form) {
   form.addEventListener("submit", async function (e) {
