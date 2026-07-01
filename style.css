@@ -306,36 +306,42 @@ border-radius:14px;
 /* ==========================
    Booking
 ========================== */
+/* ===== قسم التسجيل ===== */
+
+#booking{
+    padding:45px 20px;
+}
+
+#booking h2{
+    font-size:32px;
+    line-height:1.4;
+    margin-bottom:25px;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+}
 
 #bookingForm{
-max-width:650px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:18px;
+    max-width:550px;
+    margin:auto;
+    gap:14px;
 }
 
 #bookingForm input,
 #bookingForm select{
-padding:16px;
-font-size:16px;
-border:1px solid #ddd;
-border-radius:12px;
+    padding:14px;
+    font-size:15px;
+}
+
+#bookingForm label{
+    font-size:15px;
+    margin-top:6px;
 }
 
 #bookingForm button{
-background:#65b7c3;
-color:#fff;
-border:none;
-padding:16px;
-font-size:18px;
-border-radius:12px;
-cursor:pointer;
-transition:.3s;
-}
-
-#bookingForm button:hover{
-background:#4fa5b3;
+    padding:15px;
+    font-size:17px;
+    border-radius:12px;
 }
 
 /* ==========================
