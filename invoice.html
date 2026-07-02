@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>فاتورة TDrive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+background:#f5f8fa;
+padding:30px;
+}
+
+.invoice{
+
+max-width:700px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.logo{
+
+text-align:center;
+margin-bottom:25px;
+
+}
+
+.logo h1{
+
+font-size:46px;
+color:#65b7c3;
+
+}
+
+.logo p{
+
+color:#666;
+
+}
+
+h2{
+
+text-align:center;
+margin-bottom:30px;
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+
+}
+
+td{
+
+padding:15px;
+border-bottom:1px solid #eee;
+
+}
+
+.title{
+
+font-weight:bold;
+color:#555;
+
+}
+
+.value{
+
+font-weight:bold;
+
+}
+
+.total{
+
+font-size:28px;
+color:#2E7D32;
+
+}
+
+button{
+
+margin-top:30px;
+width:100%;
+padding:16px;
+border:none;
+background:#65b7c3;
+color:white;
+font-size:18px;
+border-radius:12px;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="invoice">
+
+<div class="logo">
+
+<h1>TDrive</h1>
+
+<p>تكنولوجيا القيادة</p>
+
+</div>
+
+<h2>فاتورة تدريب</h2>
+
+<table>
+
+<tr>
+
+<td class="title">رقم الفاتورة</td>
+
+<td class="value">TDR-2026-0001</td>
+
+</tr>
+
+<tr>
+
+<td class="title">اسم المتدربة</td>
+
+<td class="value">...</td>
+
+</tr>
+
+<tr>
+
+<td class="title">رقم الجوال</td>
+
+<td class="value">05xxxxxxxx</td>
+
+</tr>
+
+<tr>
+
+<td class="title">عدد الساعات</td>
+
+<td class="value">5 ساعات</td>
+
+</tr>
+
+<tr>
+
+<td class="title">السعر الأساسي</td>
+
+<td class="value">500 ريال</td>
+
+</tr>
+
+<tr>
+
+<td class="title">الخصم</td>
+
+<td class="value">125 ريال</td>
+
+</tr>
+
+<tr>
+
+<td class="title">طريقة الدفع</td>
+
+<td class="value">تحويل بنكي</td>
+
+</tr>
+
+<tr>
+
+<td class="title total">المبلغ المدفوع</td>
+
+<td class="value total">375 ريال</td>
+
+</tr>
+
+</table>
+
+<button onclick="window.print()">
+
+🖨️ طباعة أو حفظ PDF
+
+</button>
+
+</div>
+
+</body>
+
+</html>
