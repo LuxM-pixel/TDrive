@@ -237,10 +237,10 @@ margin:12px 0;
 }
 
 .special-price{
-font-size:52px;
-font-weight:800;
-.special-price{
-    color:red !important;
+    font-size:52px;
+    font-weight:800;
+    color:#2E7D32;
+    margin:18px 0;
 }
 
 .vip-offer{
