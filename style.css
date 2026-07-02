@@ -236,10 +236,10 @@ color:#555;
 margin:12px 0;
 }
 
-.special-price{
+.offer-box .special-price{
     font-size:52px;
     font-weight:800;
-    color:#2E7D32;
+    color:#2E7D32 !important;
     margin:18px 0;
 }
 
