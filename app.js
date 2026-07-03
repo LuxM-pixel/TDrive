@@ -180,3 +180,69 @@ stars.forEach((star) => {
     });
 
 });
+const reviewForm = document.getElementById("reviewForm");
+
+if (reviewForm) {
+
+    reviewForm.addEventListener("submit", async (e) => {
+
+        e.preventDefault();
+
+        if (selectedRating === 0) {
+
+            alert("يرجى اختيار عدد النجوم.");
+
+            return;
+
+        }
+
+        const program = document.getElementById("reviewProgram").value;
+        const comment = document.getElementById("reviewComment").value;
+
+        if (!program || !comment) {
+
+            alert("يرجى تعبئة جميع الحقول.");
+
+            return;
+
+        }
+
+        try {
+
+            await saveReview({
+
+                program,
+
+                rating: selectedRating,
+
+                comment,
+
+                status: "pending",
+
+                createdAt: new Date()
+
+            });
+
+            alert("✅ شكرًا لمشاركتك.\n\nتم استلام تقييمك بنجاح، وسيساعدنا في تطوير خدمات TDrive.\n\nلن يتم نشر تقييمك إلا بعد مراجعته من إدارة TDrive.");
+
+            reviewForm.reset();
+
+            selectedRating = 0;
+
+            stars.forEach((star) => {
+
+                star.style.color = "#bbb";
+
+            });
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert("حدث خطأ أثناء إرسال التقييم.");
+
+        }
+
+    });
+
+}
