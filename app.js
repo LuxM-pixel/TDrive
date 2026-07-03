@@ -1,4 +1,4 @@
-import { saveBooking, saveReview } from "./firebase.js";
+import { saveBooking, saveReview, getApprovedReviews } from "./firebase.js";
 const ORIGINAL_PRICE = 500;
 const OPENING_PRICE = 375;
 const FIRST10_PRICE = 270;
@@ -244,5 +244,48 @@ if (reviewForm) {
         }
 
     });
+
+}
+const reviewsContainer = document.getElementById("reviewsContainer");
+
+if (reviewsContainer) {
+
+    loadReviews();
+
+}
+
+async function loadReviews() {
+
+    try {
+
+        const reviews = await getApprovedReviews();
+
+        reviewsContainer.innerHTML = "";
+
+        if (reviews.length === 0) {
+
+            reviewsContainer.innerHTML = "<p>لا توجد تقييمات منشورة حتى الآن.</p>";
+
+            return;
+
+        }
+
+        reviews.forEach((review) => {
+
+            reviewsContainer.innerHTML += `
+                <div class="review-card">
+                    <div class="review-stars">${"⭐".repeat(review.rating)}</div>
+                    <h4>${review.program}</h4>
+                    <p>${review.comment}</p>
+                </div>
+            `;
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+    }
 
 }
