@@ -110,7 +110,7 @@ if (form) {
     const trainingDate = document.getElementById("trainingDate").value;
     const trainingTime = document.getElementById("trainingTime").value;
 
-    if (!fullName || !address || !phone || !trainingDate) {
+    if (!fullName || !address || !phone || !trainingDate || !trainingTime) {
       alert("يرجى تعبئة جميع البيانات");
       return;
     }
@@ -156,8 +156,11 @@ if (form) {
 
   alert("تم التسجيل بنجاح");
           
-
+await updateAvailableTimes();
       form.reset();
+
+trainingTime.innerHTML =
+'<option value="">اختر وقت التدريب</option>';
 
       const message = `السلام عليكم،
 
