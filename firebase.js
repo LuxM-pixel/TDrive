@@ -64,3 +64,28 @@ export async function saveEvaluation(data){
     }
 
 }
+export async function saveReview(data){
+
+    try{
+
+        const docRef = await addDoc(collection(db,"reviews"),{
+
+            ...data,
+
+            status:"pending",
+
+            createdAt:new Date()
+
+        });
+
+        return docRef.id;
+
+    }catch(error){
+
+        console.error(error);
+
+        throw error;
+
+    }
+
+}
