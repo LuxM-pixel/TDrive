@@ -3,7 +3,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/fireba
 import {
 getFirestore,
 collection,
-addDoc
+addDoc,
+getDocs,
+query,
+where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -87,5 +90,17 @@ export async function saveReview(data){
         throw error;
 
     }
+
+}
+export async function getApprovedReviews() {
+
+    const q = query(
+        collection(db, "reviews"),
+        where("status", "==", "approved")
+    );
+
+    const snapshot = await getDocs(q);
+
+    return snapshot.docs.map(doc => doc.data());
 
 }
