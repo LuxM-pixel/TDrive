@@ -1,4 +1,4 @@
-import { saveBooking, saveReview, getApprovedReviews } from "./firebase.js";
+import { saveBooking, saveReview, getApprovedReviews, getBookedTimes } from "./firebase.js";
 const ORIGINAL_PRICE = 500;
 const OPENING_PRICE = 375;
 const FIRST10_PRICE = 270;
@@ -64,6 +64,41 @@ if (dateInput) {
     });
 
 }
+const trainingTime = document.getElementById("trainingTime");
+
+const allTimes = [
+"08:00 - 09:00 صباحًا",
+"09:30 - 10:30 صباحًا",
+"11:00 - 12:00 ظهرًا",
+"12:30 - 01:30 ظهرًا",
+"02:00 - 03:00 عصرًا"
+];
+
+async function updateAvailableTimes(){
+
+    const selectedDate = dateInput.value;
+
+    if(!selectedDate) return;
+
+    const bookedTimes = await getBookedTimes(selectedDate);
+
+    trainingTime.innerHTML =
+    '<option value="">اختر وقت التدريب</option>';
+
+    allTimes.forEach(time=>{
+
+        if(!bookedTimes.includes(time)){
+
+            trainingTime.innerHTML +=
+            `<option>${time}</option>`;
+
+        }
+
+    });
+
+}
+
+dateInput.addEventListener("change",updateAvailableTimes);
 if (form) {
   form.addEventListener("submit", async function (e) {
 
