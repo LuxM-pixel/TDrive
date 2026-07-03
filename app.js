@@ -153,3 +153,30 @@ if (form) {
   });
 
 }
+let selectedRating = 0;
+
+const stars = document.querySelectorAll("#reviewStars span");
+
+stars.forEach((star) => {
+
+    star.addEventListener("click", () => {
+
+        selectedRating = Number(star.dataset.rate);
+
+        stars.forEach((s) => {
+
+            if (Number(s.dataset.rate) <= selectedRating) {
+
+                s.style.color = "#FFD700";
+
+            } else {
+
+                s.style.color = "#bbb";
+
+            }
+
+        });
+
+    });
+
+});
