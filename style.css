@@ -618,3 +618,71 @@ height:70px;
     align-items:center;
     gap:20px;
 }
+/* ==========================
+   Reviews
+========================== */
+
+.reviews{
+background:#f8fbfc;
+text-align:center;
+}
+
+.reviews .card{
+max-width:700px;
+margin:auto;
+background:#fff;
+padding:28px;
+border-radius:20px;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.reviews p{
+color:#666;
+margin:8px 0 18px;
+}
+
+.reviews label{
+display:block;
+text-align:right;
+font-weight:bold;
+margin:14px 0 6px;
+color:#333;
+}
+
+.reviews select,
+.reviews textarea{
+width:100%;
+padding:14px;
+border:1px solid #ddd;
+border-radius:12px;
+font-size:16px;
+outline:none;
+}
+
+.reviews textarea{
+resize:vertical;
+min-height:120px;
+}
+
+.reviews select:focus,
+.reviews textarea:focus{
+border-color:#65b7c3;
+}
+
+.review-btn{
+width:100%;
+margin-top:20px;
+padding:16px;
+border:none;
+border-radius:12px;
+background:#65b7c3;
+color:#fff;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.review-btn:hover{
+opacity:.9;
+}
