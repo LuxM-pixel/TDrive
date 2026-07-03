@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إدارة التقييمات</title>
+
+<style>
+body{
+font-family:sans-serif;
+background:#f5f7fa;
+padding:25px;
+}
+
+h1{
+text-align:center;
+color:#65b7c3;
+}
+
+.card{
+background:#fff;
+padding:20px;
+margin:20px auto;
+max-width:700px;
+border-radius:16px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+button{
+padding:10px 18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:16px;
+margin-top:15px;
+background:#65b7c3;
+color:white;
+}
+</style>
+
+</head>
+<body>
+
+<h1>التقييمات الجديدة</h1>
+
+<div id="reviews"></div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+query,
+where,
+getDocs,
+doc,
+updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig={
+apiKey:"AIzaSyDEjf_HrBdJSn1EVaHeyvMubUkPjVZH5i0",
+authDomain:"tdrive-4fed8.firebaseapp.com",
+projectId:"tdrive-4fed8",
+storageBucket:"tdrive-4fed8.firebasestorage.app",
+messagingSenderId:"107257320648",
+appId:"1:107257320648:web:30d142684f936a374041fd"
+};
+
+const app=initializeApp(firebaseConfig);
+const db=getFirestore(app);
+
+const container=document.getElementById("reviews");
+
+const q=query(
+collection(db,"reviews"),
+where("status","==","pending")
+);
+
+const snap=await getDocs(q);
+
+snap.forEach(d=>{
+
+const data=d.data();
+
+container.innerHTML+=`
+<div class="card">
+
+<h3>${data.program}</h3>
+
+<p>⭐ ${data.rating}/5</p>
+
+<p>${data.comment}</p>
+
+<button onclick="approve('${d.id}')">
+نشر بالموقع
+</button>
+
+</div>
+`;
+
+});
+
+window.approve=async(id)=>{
+
+await updateDoc(doc(db,"reviews",id),{
+
+status:"approved"
+
+});
+
+alert("تم النشر");
+
+location.reload();
+
+};
+
+</script>
+
+</body>
+</html>
