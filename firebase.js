@@ -104,3 +104,15 @@ export async function getApprovedReviews() {
     return snapshot.docs.map(doc => doc.data());
 
 }
+export async function getBookedTimes(trainingDate){
+
+    const q = query(
+        collection(db,"bookings"),
+        where("trainingDate","==",trainingDate)
+    );
+
+    const snapshot = await getDocs(q);
+
+    return snapshot.docs.map(doc => doc.data().trainingTime);
+
+}
