@@ -1,4 +1,4 @@
-import { saveBooking } from "./firebase.js";
+import { saveBooking, saveReview } from "./firebase.js";
 const ORIGINAL_PRICE = 500;
 const OPENING_PRICE = 375;
 const FIRST10_PRICE = 270;
