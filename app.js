@@ -137,16 +137,59 @@ if (form) {
 
     if (!confirm(summary)) return;
 
-    const booking = {
-      fullName,
-      address,
-      phone,
-      trainingDate,
-      trainingTime,
-      price: OPENING_PRICE,
-      status: "Pending Payment",
-      createdAt: new Date().toISOString()
-    };
+    const bookingId = "BK-" + Date.now();
+
+let currentDate = new Date(trainingDate);
+
+let lessonNumber = 1;
+
+while (lessonNumber <= 5) {
+
+    const day = currentDate.getDay();
+
+    // الجمعة والسبت لا تُحسب
+    if (day !== 5 && day !== 6) {
+
+        const booking = {
+
+            bookingId,
+
+            lessonNumber,
+
+            totalLessons: 5,
+
+            fullName,
+
+            address,
+
+            phone,
+
+            trainingDate:
+            currentDate.toISOString().split("T")[0],
+
+            trainingTime,
+
+            price: OPENING_PRICE,
+
+            status: "Pending Payment",
+
+            createdAt: new Date().toISOString()
+
+        };
+
+        await saveBooking(booking);
+
+        lessonNumber++;
+
+    }
+
+    currentDate.setDate(
+        currentDate.getDate() + 1
+    );
+
+}
+
+console.log("تم حفظ جميع الحصص");
 
     try {
 
