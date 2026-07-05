@@ -137,75 +137,91 @@ if (form) {
 
     if (!confirm(summary)) return;
 
+try {
+
     const bookingId = "BK-" + Date.now();
+const bookingsToSave = [];
+    let currentDate = new Date(trainingDate);
 
-let currentDate = new Date(trainingDate);
+    let lessonNumber = 1;
 
-let lessonNumber = 1;
+    while (lessonNumber <= 5) {
 
-while (lessonNumber <= 5) {
+        const day = currentDate.getDay();
 
-    const day = currentDate.getDay();
+        // تخطي الجمعة والسبت
+        if (day !== 5 && day !== 6) {
 
-    // الجمعة والسبت لا تُحسب
-    if (day !== 5 && day !== 6) {
+const bookingData = {
 
-        const booking = {
+                bookingId,
 
-            bookingId,
+                lessonNumber,
 
-            lessonNumber,
+                totalLessons: 5,
 
-            totalLessons: 5,
+                fullName,
 
-            fullName,
+                address,
 
-            address,
+                phone,
 
-            phone,
+                trainingDate:
+                    currentDate.toISOString().split("T")[0],
 
-            trainingDate:
-            currentDate.toISOString().split("T")[0],
+                trainingTime,
 
-            trainingTime,
+                price: OPENING_PRICE,
 
-            price: OPENING_PRICE,
+                status: "Pending Payment",
 
-            status: "Pending Payment",
+                createdAt: new Date().toISOString()
 
-            createdAt: new Date().toISOString()
+            };
+bookingsToSave.push(bookingData);
 
-        };
+            lessonNumber++;
 
-        await saveBooking(booking);
+        }
 
-        lessonNumber++;
+        currentDate.setDate(currentDate.getDate() + 1);
 
     }
 
-    currentDate.setDate(
-        currentDate.getDate() + 1
+
+    for (const bookingData of bookingsToSave) {
+
+    const bookedTimes = await getBookedTimes(
+        bookingData.trainingDate
     );
 
+    if (bookedTimes.includes(bookingData.trainingTime)) {
+
+        throw new Error(
+            `يوجد حجز مسبق يوم ${bookingData.trainingDate} الساعة ${bookingData.trainingTime}`
+        );
+
+    }
+
 }
+  for (const bookingData of bookingsToSave) {
 
-console.log("تم حفظ جميع الحصص");
+    await saveBooking(bookingData);
 
-    try {
 
-  const id = await saveBooking(booking);
+}
+    console.log("تم حفظ جميع الحصص");
 
-  console.log("تم الحفظ برقم:", id);
+    alert("تم التسجيل بنجاح");
 
-  alert("تم التسجيل بنجاح");
-          
-await updateAvailableTimes();
-      form.reset();
+    await updateAvailableTimes();
 
-trainingTime.innerHTML =
-'<option value="">اختر وقت التدريب</option>';
+    form.reset();
 
-      const message = `السلام عليكم،
+    trainingTime.innerHTML =
+        '<option value="">اختر وقت التدريب</option>';
+
+    const message = `السلام عليكم،
 
 سجلت في دورة احترف القيادة.
 
@@ -219,18 +235,19 @@ trainingTime.innerHTML =
 
 شكراً لكم.`;
 
-      window.location.href =
+    window.location.href =
         "https://wa.me/966556117180?text=" +
         encodeURIComponent(message);
 
-    } catch (error) {
+} catch (error) {
 
-      console.error(error);
+    console.error(error);
 
-      alert("تعذر حفظ الحجز، حاول مرة أخرى.");
+    alert(error.message);
 
-    }
+}
 
+ 
   });
 
 }
