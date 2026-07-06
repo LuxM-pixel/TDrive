@@ -23,7 +23,9 @@ const tbody = document.getElementById("bookingsTable");
 
 async function loadBookings() {
 
-    const snapshot = await getDocs(collection(db, "bookings"));
+const snapshot = await getDocs(collection(db, "bookings"));
+
+alert(snapshot.size);
 
     
 const bookings = snapshot.docs.map(doc => doc.data());
