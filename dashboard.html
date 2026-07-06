@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>لوحة إدارة TDrive</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:Cairo,sans-serif;
+background:#f5f5f5;
+padding:20px;
+}
+
+h1{
+color:#4da7b7;
+text-align:center;
+margin-bottom:30px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+border-radius:12px;
+overflow:hidden;
+}
+
+th,td{
+padding:15px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+th{
+background:#4da7b7;
+color:white;
+}
+
+a.button{
+background:#4da7b7;
+color:white;
+padding:8px 15px;
+border-radius:8px;
+text-decoration:none;
+display:inline-block;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>لوحة إدارة TDrive</h1>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>الاسم</th>
+
+<th>الجوال</th>
+
+<th>التاريخ</th>
+
+<th>الوقت</th>
+
+<th>الحصة</th>
+
+<th>التقييم</th>
+
+</tr>
+
+</thead>
+
+<tbody id="bookingsTable">
+
+</tbody>
+
+</table>
+
+<script type="module" src="dashboard.js"></script>
+
+</body>
+
+</html>
