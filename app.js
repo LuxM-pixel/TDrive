@@ -67,10 +67,10 @@ if (dateInput) {
 const trainingTime = document.getElementById("trainingTime");
 
 const allTimes = [
-"08:00 - 10:00 صباحًا",
-"10:00 - 12:00 ظهرًا",
-"12:00 - 02:00 ظهرًا",
-"02:00 - 04:00 عصرًا"
+"08:00 - 09:00 صباحًا",
+"10:00 - 11:00 صباحًا",
+"12:00 - 01:00 ظهرًا",
+"02:00 - 03:00 عصرًا"
 ];
 
 async function updateAvailableTimes(){
