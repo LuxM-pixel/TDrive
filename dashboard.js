@@ -25,10 +25,20 @@ async function loadBookings() {
 
     const snapshot = await getDocs(collection(db, "bookings"));
 
-    tbody.innerHTML = "";
+const bookings = snapshot.docs.map(doc => doc.data());
 
-    snapshot.forEach(doc => {
+bookings.sort((a, b) => {
 
+    const dateA = new Date(a.trainingDate);
+    const dateB = new Date(b.trainingDate);
+
+    return dateA - dateB;
+
+});
+
+tbody.innerHTML = "";
+
+bookings.forEach(booking => {
         const booking = doc.data();
 
         tbody.innerHTML += `
