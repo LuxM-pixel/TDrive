@@ -27,9 +27,7 @@ async function loadBookings() {
 
     const bookings = snapshot.docs.map(doc => doc.data());
 
-    bookings.sort((a, b) => {
-        return new Date(a.trainingDate) - new Date(b.trainingDate);
-    });
+
 
     tbody.innerHTML = "";
 
