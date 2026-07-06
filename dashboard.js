@@ -25,7 +25,7 @@ async function loadBookings() {
 
     const snapshot = await getDocs(collection(db, "bookings"));
 
-    const bookings = snapshot.docs.map(doc => doc.data());
+    
 const bookings = snapshot.docs.map(doc => doc.data());
 
 bookings.sort((a, b) => {
@@ -33,7 +33,7 @@ bookings.sort((a, b) => {
         || a.trainingTime.localeCompare(b.trainingTime);
 });
 
-tbody.innerHTML = "";
+
 
 
     tbody.innerHTML = "";
