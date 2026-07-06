@@ -25,21 +25,15 @@ async function loadBookings() {
 
     const snapshot = await getDocs(collection(db, "bookings"));
 
-const bookings = snapshot.docs.map(doc => doc.data());
+    const bookings = snapshot.docs.map(doc => doc.data());
 
-bookings.sort((a, b) => {
+    bookings.sort((a, b) => {
+        return new Date(a.trainingDate) - new Date(b.trainingDate);
+    });
 
-    const dateA = new Date(a.trainingDate);
-    const dateB = new Date(b.trainingDate);
+    tbody.innerHTML = "";
 
-    return dateA - dateB;
-
-});
-
-tbody.innerHTML = "";
-
-bookings.forEach(booking => {
-        const booking = doc.data();
+    bookings.forEach(booking => {
 
         tbody.innerHTML += `
         <tr>
@@ -55,9 +49,8 @@ bookings.forEach(booking => {
             <td>${booking.lessonNumber}</td>
 
             <td>
-                <a class="button"
-                   href="evaluation.html?bookingId=${booking.bookingId}">
-                   تقييم
+                <a class="button" href="evaluation.html?bookingId=${booking.bookingId}">
+                    تقييم
                 </a>
             </td>
 
