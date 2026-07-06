@@ -58,7 +58,7 @@ async function loadBookings() {
         `;
 
     });
-
+    
 }
 
 loadBookings();
