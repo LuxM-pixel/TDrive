@@ -713,10 +713,6 @@ function selectOption(qIdx, optIdx) {
   updateScore();
   updateNav();
 
-  if (qIdx < QUESTIONS.length - 1) {
-    setTimeout(() => goQuestion(1), 1500);
-  }
-}
 
 // ── Navigation ───────────────────────────────────────────────────────────────
 function goQuestion(dir) {
