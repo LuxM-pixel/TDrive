@@ -235,38 +235,120 @@ button:hover{
 }
 
 /* ==========================================
-   6. Left Banner
+   Banner + Logo
 ========================================== */
 
 .left-banner{
 
     position:absolute;
 
-    top:0;
-
     left:0;
 
-    width:300px;
+    top:0;
+
+    width:290px;
 
     height:100%;
 
     background:linear-gradient(
         180deg,
-        #d8edf1 0%,
-        #c7e4ea 45%,
-        #b9dce4 100%
+        #d7edf2,
+        #bddfe6
     );
 
     clip-path:polygon(
         0 0,
         100% 0,
-        100% 73%,
-        50% 83%,
-        0 73%
+        100% 72%,
+        50% 86%,
+        0 72%
     );
 
 }
 
+.logo-circle{
+
+    position:absolute;
+
+    top:65px;
+
+    left:52px;
+
+    width:190px;
+
+    height:190px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}
+
+.logo-inner{
+
+    width:155px;
+
+    height:155px;
+
+    border-radius:50%;
+
+    border:4px solid #187b89;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+.logo-inner::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-12px;
+
+    border:4px dotted #187b89;
+
+    border-radius:50%;
+
+}
+
+.logo-title{
+
+    font-size:44px;
+
+    font-weight:800;
+
+    color:#187b89;
+
+}
+
+.logo-subtitle{
+
+    margin-top:10px;
+
+    font-size:20px;
+
+    color:#187b89;
+
+    font-weight:700;
+
+}
 
 /* ==========================================
    7. Logo
