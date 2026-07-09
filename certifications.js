@@ -55,10 +55,38 @@ updateCertificate();
 
 function printCertificate(){
 
-    // تحديث البيانات قبل الطباعة
+    // تحديث البيانات أولاً
     updateCertificate();
 
-    // طباعة الصفحة
-    window.print();
+    const certificate = document.getElementById("certificate");
+
+    const options = {
+
+        margin: 0,
+
+        filename: "TDrive-Certificate.pdf",
+
+        image: {
+            type: "jpeg",
+            quality: 1
+        },
+
+        html2canvas: {
+            scale: 3,
+            useCORS: true
+        },
+
+        jsPDF: {
+            unit: "mm",
+            format: "a4",
+            orientation: "landscape"
+        }
+
+    };
+
+    html2pdf()
+        .set(options)
+        .from(certificate)
+        .save();
 
 }
