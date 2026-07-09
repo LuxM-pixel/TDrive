@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>TDrive | الشهادات</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+background:#eef4f7;
+padding:40px;
+}
+
+.container{
+
+max-width:700px;
+margin:auto;
+background:#fff;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+h1{
+
+text-align:center;
+color:#1c7d8d;
+margin-bottom:35px;
+
+}
+
+label{
+
+display:block;
+font-size:20px;
+font-weight:700;
+margin-top:20px;
+margin-bottom:8px;
+
+}
+
+input,
+select{
+
+width:100%;
+padding:14px;
+font-size:18px;
+border:1px solid #ccc;
+border-radius:10px;
+
+}
+
+button{
+
+width:100%;
+margin-top:35px;
+padding:18px;
+font-size:22px;
+background:#1c7d8d;
+color:white;
+border:none;
+border-radius:12px;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>إصدار شهادة</h1>
+
+<label>اسم المتدربة</label>
+<input id="name" type="text" placeholder="اكتبي الاسم">
+
+<label>اسم البرنامج</label>
+
+<select id="program">
+
+<option>احترفِ القيادة على الطريق</option>
+
+<option>الكابتن المحترف</option>
+
+</select>
+
+<label>التاريخ</label>
+
+<input id="date" type="date">
+
+<button onclick="printCertificate()">
+
+🖨️ طباعة الشهادة
+
+</button>
+
+</div>
+
+<script src="certifications.js"></script>
+
+</body>
+
+</html>
