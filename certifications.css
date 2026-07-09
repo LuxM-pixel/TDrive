@@ -432,20 +432,210 @@ b{
    10. Decorations
 ========================================== */
 
+.certificate-intro{
+
+    text-align:center;
+
+    margin-top:45px;
+
+    font-size:34px;
+
+    color:#444;
+
+}
+
+.brand-name{
+
+    color:#187b89;
+
+    font-weight:800;
+
+}
+
+.name-line{
+
+    width:70%;
+
+    margin:25px auto;
+
+    border-bottom:2px solid #187b89;
+
+}
+
+.certificate-text{
+
+    text-align:center;
+
+    font-size:32px;
+
+    line-height:2.2;
+
+    margin-top:35px;
+
+    color:#444;
+
+}
+
+.certificate-message{
+
+    text-align:center;
+
+    font-size:30px;
+
+    line-height:2;
+
+    margin-top:45px;
+
+    color:#555;
+
+}
 
 
 /* ==========================================
    11. Footer
 ========================================== */
 
+.certificate-footer{
 
+    position:absolute;
+
+    bottom:90px;
+
+    left:80px;
+
+    right:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+}
+
+.manager-section,
+.date-section{
+
+    text-align:center;
+
+}
+
+.manager-title,
+.date-title{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#333;
+
+}
+
+.manager-name{
+
+    margin-top:18px;
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:#187b89;
+
+}
+
+.certificate-badge{
+
+    font-size:42px;
+
+    color:#187b89;
+
+}
 
 /* ==========================================
    12. Responsive
 ========================================== */
 
+@media (max-width:1500px){
 
+    .certificate{
+
+        transform:scale(.85);
+
+        transform-origin:top center;
+
+    }
+
+}
+
+@media (max-width:1200px){
+
+    .certificate{
+
+        transform:scale(.70);
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .row{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    label{
+
+        width:100%;
+
+    }
+
+}
 
 /* ==========================================
    13. Print
 ========================================== */
+
+@media print{
+
+    body{
+
+        background:#ffffff;
+
+        padding:0;
+
+    }
+
+    .toolbar{
+
+        display:none;
+
+    }
+
+    .certificate{
+
+        width:100%;
+
+        height:100vh;
+
+        margin:0;
+
+        border:none;
+
+        box-shadow:none;
+
+        border-radius:0;
+
+    }
+
+    .certificate::before,
+    .certificate::after{
+
+        display:none;
+
+    }
+
+}
