@@ -281,15 +281,10 @@ const invoiceNumber = await getNextInvoiceNumber();
 
 document.getElementById("invoice").value =
 "TDR-" + year + "-" +
-String(invoiceNumber).padStart(4,"0");}
-
-document.getElementById("invoice").value =
-"TDR-" + year + "-" +
 String(invoiceNumber).padStart(4,"0");
-
 calculateTotal();
-
 }
+
 function printInvoice(){
 
 const invoice = document.getElementById("invoice").value;
@@ -577,14 +572,7 @@ win.onload = function () {
 
     win.onafterprint = function () {
 
-        let nextInvoice =
-        parseInt(localStorage.getItem("invoiceNumber") || 1);
-
-        localStorage.setItem(
-            "invoiceNumber",
-            nextInvoice + 1
-        );
-
+        
         win.close();
 
     };
