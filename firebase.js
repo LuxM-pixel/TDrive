@@ -6,7 +6,9 @@ collection,
 addDoc,
 getDocs,
 query,
-where
+where,
+doc,
+runTransaction
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -114,5 +116,28 @@ export async function getBookedTimes(trainingDate){
     const snapshot = await getDocs(q);
 
     return snapshot.docs.map(doc => doc.data().trainingTime);
+
+}
+export async function getNextInvoiceNumber(){
+
+    const ref = doc(db, "settings", "invoice");
+
+    const invoiceNumber = await runTransaction(db, async (transaction) => {
+
+        const snap = await transaction.get(ref);
+
+        let lastNumber = snap.data().lastNumber || 0;
+
+        lastNumber++;
+
+        transaction.update(ref, {
+            lastNumber: lastNumber
+        });
+
+        return lastNumber;
+
+    });
+
+    return invoiceNumber;
 
 }
