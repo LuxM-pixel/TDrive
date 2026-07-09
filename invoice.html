@@ -277,7 +277,16 @@ hour + ":" + minute;
 
 // رقم الفاتورة
 
-const invoiceNumber = await getNextInvoiceNumber();
+try {
+    const invoiceNumber = await getNextInvoiceNumber();
+
+    document.getElementById("invoice").value =
+        "TDR-" + year + "-" + String(invoiceNumber).padStart(4, "0");
+
+} catch (e) {
+    console.error(e);
+    alert(e.message);
+}
 
 document.getElementById("invoice").value =
 "TDR-" + year + "-" +
