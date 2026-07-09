@@ -553,7 +553,7 @@ button:hover{
    12. Responsive
 ========================================== */
 
-@media (max-width:1500px){
+@media screen and (max-width:1500px){
 
     .certificate{
 
@@ -565,7 +565,7 @@ button:hover{
 
 }
 
-@media (max-width:1200px){
+@media screen and (max-width:1200px){
 
     .certificate{
 
@@ -575,7 +575,7 @@ button:hover{
 
 }
 
-@media (max-width:992px){
+@media screen and (max-width:992px){
 
     .row{
 
@@ -597,35 +597,62 @@ button:hover{
    13. Print
 ========================================== */
 
+@page{
+    size:A4 landscape;
+    margin:0;
+}
+
 @media print{
 
+    html,
     body{
+
+        width:297mm;
+        height:210mm;
+
+        margin:0;
+        padding:0;
 
         background:#ffffff;
 
-        padding:0;
+        overflow:hidden;
 
     }
 
     .toolbar{
 
-        display:none;
+        display:none !important;
+
+    }
+
+    .page{
+
+        margin:0;
+        padding:0;
 
     }
 
     .certificate{
 
-        width:100%;
+        width:297mm;
 
-        height:auto;
+        height:210mm;
+
+        max-width:none;
+
+        min-height:auto;
 
         margin:0;
 
         border:none;
 
+        border-radius:0;
+
         box-shadow:none;
 
-        border-radius:0;
+        overflow:hidden;
+
+        transform:none !important;
 
     }
 
