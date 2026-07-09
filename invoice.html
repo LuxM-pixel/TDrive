@@ -236,8 +236,8 @@ width:100%;
 </button>
 
 </div>
-<script>
-
+<script type="module">
+import { getNextInvoiceNumber } from "./firebase.js";
 function calculateTotal(){
 
 let price = parseFloat(document.getElementById("price").value) || 0;
@@ -277,15 +277,11 @@ hour + ":" + minute;
 
 // رقم الفاتورة
 
-let invoiceNumber =
-localStorage.getItem("invoiceNumber");
+const invoiceNumber = await getNextInvoiceNumber();
 
-if(invoiceNumber == null){
-
-invoiceNumber = 1;
-
-
-}
+document.getElementById("invoice").value =
+"TDR-" + year + "-" +
+String(invoiceNumber).padStart(4,"0");}
 
 document.getElementById("invoice").value =
 "TDR-" + year + "-" +
