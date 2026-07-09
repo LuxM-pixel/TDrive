@@ -3,590 +3,185 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TDrive | الشهادات</title>
+    <title>TDrive | الشهادات</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="certifications.css">
+    <link rel="stylesheet" href="certifications.css">
 
 </head>
-<body>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',sans-serif;
-}
 
-body{
-
-background:#edf3f5;
-padding:35px;
-
-}
-
-.page{
-
-max-width:1450px;
-margin:auto;
-
-}
-
-.toolbar{
-
-background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-margin-bottom:30px;
-
-}
-
-.toolbar h1{
-
-text-align:center;
-font-size:42px;
-color:#187b89;
-margin-bottom:35px;
-
-}
-
-.row{
-
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-margin-bottom:20px;
-
-}
-
-label{
-
-font-size:22px;
-font-weight:700;
-width:180px;
-
-}
-
-input,
-select{
-
-flex:1;
-padding:15px;
-font-size:20px;
-border-radius:10px;
-border:1px solid #ccc;
-
-}
-
-button{
-
-width:100%;
-padding:18px;
-margin-top:20px;
-border:none;
-border-radius:12px;
-background:#187b89;
-color:white;
-font-size:24px;
-cursor:pointer;
-
-}
-
-.certificate{
-
-width:1400px;
-height:990px;
-
-background:white;
-
-margin:auto;
-
-position:relative;
-
-overflow:hidden;
-
-border:3px solid #187b89;
-
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-
-}
-
-.left-banner{
-
-position:absolute;
-
-left:0;
-
-top:0;
-
-width:320px;
-
-height:100%;
-
-background:linear-gradient(
-180deg,
-#cbe7ec,
-#b9dce4
-);
-
-clip-path:polygon(
-0 0,
-100% 0,
-100% 74%,
-50% 84%,
-0 74%
-);
-
-}
-
-.logo-circle{
-
-position:absolute;
-
-left:70px;
-
-top:90px;
-
-width:180px;
-
-height:180px;
-
-background:white;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-box-shadow:0 8px 20px rgba(0,0,0,.15);
-
-border:5px solid #fff;
-
-}
-
-.logo-inner{
-
-width:150px;
-
-height:150px;
-
-border-radius:50%;
-
-border:4px solid #187b89;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-color:#187b89;
-
-}
-
-.logo-inner h2{
-
-font-size:42px;
-
-font-weight:800;
-
-}
-
-.logo-inner p{
-
-font-size:22px;
-
-font-weight:700;
-
-}
-
-.content{
-
-margin-left:320px;
-
-padding:70px;
-
-height:100%;
-
-position:relative;
-
-}
-
-.title{
-
-text-align:center;
-
-font-size:74px;
-
-font-weight:800;
-
-color:#187b89;
-
-}
-
-</style>
-
-</head>
 <body>
 
 <div class="page">
 
-<div class="toolbar">
+    <!-- لوحة التحكم -->
 
-<h1>إصدار شهادة</h1>
+    <div class="toolbar">
 
-<div class="row">
+        <h1>إصدار شهادة</h1>
 
-<label>اسم المتدربة</label>
+        <div class="row">
 
-<input
-type="text"
-id="name"
-placeholder="اكتبي اسم المتدربة">
+            <label>اسم المتدربة</label>
 
-</div>
+            <input
+                type="text"
+                id="name"
+                placeholder="اكتبي اسم المتدربة">
 
-<div class="row">
+        </div>
 
-<label>اسم البرنامج</label>
+        <div class="row">
 
-<select id="program">
+            <label>اسم البرنامج</label>
 
-<option>احترفِ القيادة على الطريق</option>
+            <select id="program">
 
-<option>الكابتن المحترف</option>
+                <option>احترفِ القيادة على الطريق</option>
+                <option>الكابتن المحترف</option>
 
-</select>
+            </select>
 
-</div>
+        </div>
 
-<div class="row">
+        <div class="row">
 
-<label>التاريخ</label>
+            <label>التاريخ</label>
 
-<input
-type="date"
-id="date">
+            <input
+                type="date"
+                id="date">
 
-</div>
+        </div>
 
-<button onclick="printCertificate()">
+        <button onclick="printCertificate()">
 
-🖨️ طباعة الشهادة
+            🖨️ طباعة الشهادة
 
-</button>
+        </button>
 
-</div>
+    </div>
 
-<div
-class="certificate"
-id="certificate">
+    <!-- الشهادة -->
 
-<div class="left-banner"></div>
+    <div class="certificate" id="certificate">
 
-<div class="logo-circle">
+        <div class="left-banner"></div>
 
-<div class="logo-inner">
+        <div class="logo-circle">
 
-<h2>T</h2>
+            <div class="logo-inner">
 
-<p>Drive</p>
+                <h2>T</h2>
 
-</div>
+                <p>Drive</p>
 
-</div>
+            </div>
 
-<div class="content">
+        </div>
 
-<div class="title">
+        <div class="content">
 
-شهادة إتمام دورة
+            <h2 class="title">
 
-</div>
+                شهادة إتمام دورة
 
-<div style="
+            </h2>
 
-text-align:center;
+            <div class="certificate-intro">
 
-margin-top:45px;
+                تشهد
 
-font-size:34px;
+                <span class="brand-name">
 
-color:#444;
+                    TDrive
 
-">
+                </span>
 
-تشهد
+                بأن المتدربة
 
-<b style="color:#187b89">
+            </div>
 
-TDrive
+            <div id="studentName">
 
-</b>
+            </div>
 
-بأن المتدربة
+            <div class="name-line"></div>
+                        <div class="certificate-text">
 
-</div>
+                قد أتمت بنجاح برنامج
 
-<div
+            </div>
 
-id="studentName"
+            <div id="programName">
 
-style="
+                احترفِ القيادة على الطريق
 
-margin-top:55px;
+            </div>
 
-text-align:center;
+            <div class="certificate-message">
 
-font-size:66px;
+                ونتمنى لها دوام التوفيق والنجاح
+                <br>
+                في مسيرتها المهنية.
 
-font-weight:800;
+            </div>
 
-color:#187b89;
+            <!-- التذييل -->
 
-">
+            <div class="certificate-footer">
 
+                <div class="manager-section">
 
-</div>
+                    <div class="manager-title">
 
-<div style="
+                        مدير TDrive
 
-width:70%;
+                    </div>
 
-margin:25px auto;
+                    <div class="manager-name">
 
-border-bottom:2px solid #187b89;
+                        منى حمود
 
-">
+                    </div>
 
-</div>
-<div style="
+                </div>
 
-text-align:center;
+                <div class="certificate-badge">
 
-font-size:32px;
+                    🏅
 
-line-height:2.2;
+                </div>
 
-margin-top:35px;
+                <div class="date-section">
 
-color:#444;
+                    <div class="date-title">
 
-">
+                        تاريخ الإصدار
 
-قد أتمت بنجاح برنامج
+                    </div>
 
-</div>
+                    <div id="certificateDate">
 
-<div
+                        09 / 07 / 2026
 
-id="programName"
+                    </div>
 
-style="
+                </div>
 
-text-align:center;
+            </div>
 
-font-size:44px;
+        </div>
 
-font-weight:800;
-
-color:#187b89;
-
-margin-top:25px;
-
-">
-
-احترفِ القيادة على الطريق
-
-</div>
-
-<div style="
-
-text-align:center;
-
-font-size:30px;
-
-line-height:2;
-
-margin-top:45px;
-
-color:#555;
-
-">
-
-ونتمنى لها دوام التوفيق والنجاح
-
-في مسيرتها المهنية.
-
-</div>
-
-<div style="
-
-position:absolute;
-
-bottom:110px;
-
-right:80px;
-
-text-align:center;
-
-">
-
-<div style="
-
-font-size:24px;
-
-font-weight:bold;
-
-">
-
-مدير TDrive
-
-</div>
-
-<div style="
-
-margin-top:18px;
-
-font-size:28px;
-
-font-weight:700;
-
-color:#187b89;
-
-">
-
-منى حمود
-
-</div>
-
-</div>
-
-<div style="
-
-position:absolute;
-
-bottom:110px;
-
-left:80px;
-
-text-align:center;
-
-">
-
-<div style="
-
-font-size:24px;
-
-font-weight:bold;
-
-">
-
-تاريخ الإصدار
-
-</div>
-
-<div
-
-id="certificateDate"
-
-style="
-
-margin-top:18px;
-
-font-size:28px;
-
-font-weight:700;
-
-color:#187b89;
-
-">
-
-09 / 07 / 2026
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-<script>
-
-document.getElementById("date").value =
-new Date().toISOString().split("T")[0];
-
-function updateCertificate(){
-
-const name =
-document.getElementById("name").value || "فلانة الفلاني";
-
-const program =
-document.getElementById("program").value;
-
-const date =
-document.getElementById("date").value;
-
-document.getElementById("studentName").innerHTML =
-name;
-
-document.getElementById("programName").innerHTML =
-program;
-
-document.getElementById("certificateDate").innerHTML =
-date;
-
-}
-
-document.getElementById("name")
-.addEventListener("input",updateCertificate);
-
-document.getElementById("program")
-.addEventListener("change",updateCertificate);
-
-document.getElementById("date")
-.addEventListener("change",updateCertificate);
-
-updateCertificate();
-
-function printCertificate(){
-
-updateCertificate();
-
-const original =
-document.body.innerHTML;
-
-const certificate =
-document.getElementById("certificate").outerHTML;
-
-document.body.innerHTML =
-certificate;
-
-window.print();
-
-document.body.innerHTML =
-original;
-
-location.reload();
-
-}
-
-</script>
+    </div>
+    </div>
 
 <script src="certifications.js"></script>
 
 </body>
 
 </html>
-
-  
