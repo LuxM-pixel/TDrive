@@ -664,3 +664,41 @@ button:hover{
     }
 
 }
+@page {
+    size: A4 landscape;
+    margin: 0;
+}
+
+@media print {
+
+    html,
+    body {
+        width: 297mm;
+        height: 210mm;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .toolbar {
+        display: none !important;
+    }
+
+    .page {
+        margin: 0;
+        padding: 0;
+    }
+
+    .certificate {
+        width: 297mm !important;
+        height: 210mm !important;
+        max-width: none;
+        min-height: auto;
+        margin: 0 auto;
+        transform: none !important;
+        box-shadow: none;
+        border: none;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+}
