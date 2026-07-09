@@ -1,0 +1,451 @@
+/* ==========================================
+   TDrive | Certifications
+   Version: 1.0
+========================================== */
+
+
+/* ==========================================
+   1. Reset
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+}
+
+
+/* ==========================================
+   2. General Layout
+========================================== */
+
+body{
+
+    background:#edf3f5;
+
+    padding:35px;
+
+}
+
+.page{
+
+    max-width:1450px;
+
+    margin:auto;
+
+}
+
+
+/* ==========================================
+   3. Toolbar
+========================================== */
+
+.toolbar{
+
+    background:#ffffff;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+
+}
+
+.toolbar h1{
+
+    text-align:center;
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:#187b89;
+
+    margin-bottom:35px;
+
+}
+
+/* ==========================================
+   4. Form Elements
+========================================== */
+.row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:20px;
+
+}
+
+label{
+
+    width:180px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#333;
+
+}
+
+input,
+select{
+
+    flex:1;
+
+    padding:15px;
+
+    font-size:20px;
+
+    border:1px solid #d5d5d5;
+
+    border-radius:10px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+input:focus,
+select:focus{
+
+    border-color:#187b89;
+
+    box-shadow:0 0 0 4px rgba(24,123,137,.15);
+
+}
+
+button{
+
+    width:100%;
+
+    padding:18px;
+
+    margin-top:20px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#187b89;
+
+    color:#fff;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:#146874;
+
+}
+
+
+/* ==========================================
+   5. Certificate Container
+========================================== */
+
+.certificate{
+
+    width:1400px;
+
+    height:990px;
+
+    margin:auto;
+
+    background:#ffffff;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:3px solid #187b89;
+
+    border-radius:8px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.certificate::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    bottom:18px;
+
+    left:18px;
+
+    border:1.5px solid #187b89;
+
+    pointer-events:none;
+
+}
+
+.certificate::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:30px;
+
+    right:30px;
+
+    bottom:30px;
+
+    left:30px;
+
+    border:1px solid rgba(24,123,137,.25);
+
+    pointer-events:none;
+
+}
+
+/* ==========================================
+   6. Left Banner
+========================================== */
+
+.left-banner{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:300px;
+
+    height:100%;
+
+    background:linear-gradient(
+        180deg,
+        #d8edf1 0%,
+        #c7e4ea 45%,
+        #b9dce4 100%
+    );
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 73%,
+        50% 83%,
+        0 73%
+    );
+
+}
+
+
+/* ==========================================
+   7. Logo
+========================================== */
+
+.logo-circle{
+
+    position:absolute;
+
+    top:75px;
+
+    left:58px;
+
+    width:185px;
+
+    height:185px;
+
+    background:#ffffff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:6px solid #ffffff;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.18);
+
+    z-index:10;
+
+}
+
+.logo-inner{
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    border:4px solid #187b89;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#187b89;
+
+    background:#ffffff;
+
+}
+
+.logo-inner h2{
+
+    font-size:56px;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+.logo-inner p{
+
+    margin-top:6px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+/* ==========================================
+   8. Certificate Content
+========================================== */
+
+.content{
+
+    position:relative;
+
+    height:100%;
+
+    margin-left:300px;
+
+    padding:70px 80px;
+
+}
+
+.title{
+
+    text-align:center;
+
+    font-size:72px;
+
+    font-weight:800;
+
+    color:#187b89;
+
+    margin-top:10px;
+
+    margin-bottom:35px;
+
+    letter-spacing:.5px;
+
+}
+
+/* ==========================================
+   9. Typography
+========================================== */
+
+#studentName{
+
+    text-align:center;
+
+    font-size:66px;
+
+    font-weight:800;
+
+    color:#187b89;
+
+    margin-top:55px;
+
+}
+
+#programName{
+
+    text-align:center;
+
+    font-size:44px;
+
+    font-weight:800;
+
+    color:#187b89;
+
+    margin-top:25px;
+
+}
+
+#certificateDate{
+
+    color:#187b89;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+b{
+
+    color:#187b89;
+
+}
+
+/* ==========================================
+   10. Decorations
+========================================== */
+
+
+
+/* ==========================================
+   11. Footer
+========================================== */
+
+
+
+/* ==========================================
+   12. Responsive
+========================================== */
+
+
+
+/* ==========================================
+   13. Print
+========================================== */
