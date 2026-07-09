@@ -431,26 +431,26 @@ button:hover{
 }
 
 /* ==========================================
-   8. Certificate Content
+   Certificate Content
 ========================================== */
 
 .content{
 
     position:relative;
 
+    margin-left:290px;
+
     height:100%;
 
-    margin-left:300px;
+    padding:60px 70px;
 
-    padding:70px 80px;
+    text-align:center;
 
 }
 
 .title{
 
-    text-align:center;
-
-    font-size:72px;
+    font-size:82px;
 
     font-weight:800;
 
@@ -458,12 +458,105 @@ button:hover{
 
     margin-top:10px;
 
-    margin-bottom:35px;
-
-    letter-spacing:.5px;
+    text-shadow:0 3px 8px rgba(0,0,0,.08);
 
 }
 
+.title-decoration{
+
+    margin:28px auto 45px;
+
+    font-size:34px;
+
+    color:#187b89;
+
+    letter-spacing:10px;
+
+}
+
+.certificate-intro{
+
+    font-size:34px;
+
+    color:#222;
+
+    line-height:2;
+
+}
+
+.brand-name{
+
+    color:#187b89;
+
+    font-weight:800;
+
+}
+
+#studentName{
+
+    margin-top:55px;
+
+    font-size:78px;
+
+    font-weight:800;
+
+    color:#187b89;
+
+    text-shadow:0 3px 8px rgba(0,0,0,.08);
+
+}
+
+.name-line{
+
+    width:72%;
+
+    margin:22px auto 40px;
+
+    border-bottom:2px dotted #187b89;
+
+}
+
+.certificate-text{
+
+    font-size:32px;
+
+    color:#333;
+
+    line-height:2;
+
+}
+
+#programName{
+
+    margin-top:18px;
+
+    font-size:52px;
+
+    font-weight:800;
+
+    color:#187b89;
+
+}
+
+.footer-slogan{
+
+    position:absolute;
+
+    bottom:35px;
+
+    left:0;
+
+    right:0;
+
+    text-align:center;
+
+    color:#187b89;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
 /* ==========================================
    9. Typography
 ========================================== */
