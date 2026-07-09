@@ -1,0 +1,602 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TDrive - فاتورة تدريب</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+background:#eef4f7;
+padding:20px;
+}
+
+.invoice{
+max-width:700px;
+margin:auto;
+background:#fff;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.logo{
+text-align:center;
+margin-bottom:25px;
+}
+
+.logo h1{
+font-size:50px;
+color:#6DB7C5;
+}
+
+.logo p{
+color:#666;
+font-size:18px;
+}
+
+.title{
+text-align:center;
+font-size:34px;
+font-weight:800;
+margin-bottom:30px;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+border-bottom:1px solid #ececec;
+gap:15px;
+}
+
+.label{
+font-size:22px;
+font-weight:700;
+color:#444;
+}
+
+input,
+select{
+
+width:240px;
+padding:12px;
+border:1px solid #ccc;
+border-radius:10px;
+font-size:18px;
+text-align:center;
+background:#fff;
+
+}
+
+.total{
+
+font-size:28px;
+font-weight:800;
+color:#2E7D32;
+
+}
+
+.buttons{
+
+margin-top:35px;
+display:flex;
+flex-direction:column;
+gap:15px;
+
+}
+
+button{
+
+padding:16px;
+border:none;
+border-radius:12px;
+font-size:20px;
+cursor:pointer;
+color:white;
+
+}
+
+#printBtn{
+background:#6DB7C5;
+}
+
+#calcBtn{
+background:#2E7D32;
+}
+
+@media(max-width:700px){
+
+.row{
+
+flex-direction:column;
+align-items:flex-start;
+
+}
+
+input,
+select{
+
+width:100%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="invoice">
+
+<div class="logo">
+
+<h1>TDrive</h1>
+
+<p>تكنولوجيا القيادة</p>
+
+</div>
+
+<div class="title">
+فاتورة تدريب
+</div>
+<div class="row">
+<label class="label">رقم الفاتورة</label>
+<input type="text" id="invoice" readonly>
+</div>
+
+<div class="row">
+<label class="label">تاريخ الفاتورة</label>
+<input type="date" id="date">
+</div>
+
+<div class="row">
+<label class="label">وقت الفاتورة</label>
+<input type="time" id="time">
+</div>
+
+<div class="row">
+<label class="label">اسم المتدربة</label>
+<input type="text" id="name" placeholder="اكتبي الاسم">
+</div>
+
+<div class="row">
+<label class="label">رقم الجوال</label>
+<input type="tel" id="phone" placeholder="05xxxxxxxx">
+</div>
+
+<div class="row">
+<label class="label">عدد الساعات</label>
+<input type="number" id="hours" value="5">
+</div>
+
+<div class="row">
+<label class="label">السعر الأساسي</label>
+<input type="number" id="price" value="500">
+</div>
+
+<div class="row">
+<label class="label">الخصم</label>
+<input type="number" id="discount" value="125">
+</div>
+
+<div class="row">
+<label class="label">طريقة الدفع</label>
+
+<select id="payment">
+
+<option>تحويل بنكي</option>
+
+<option>كاش</option>
+
+<option>مدى</option>
+
+<option>STC Pay</option>
+
+</select>
+
+</div>
+
+<div class="row">
+
+<label class="label total">
+المبلغ النهائي
+</label>
+
+<div class="total" id="total">
+375 ريال
+</div>
+
+</div>
+
+<div class="buttons">
+
+<button id="calcBtn" onclick="calculateTotal()">
+🧮 حساب المبلغ
+</button>
+
+<button id="printBtn" onclick="printInvoice()">
+🖨️ طباعة / حفظ PDF
+</button>
+
+</div>
+<script>
+
+function calculateTotal(){
+
+let price = parseFloat(document.getElementById("price").value) || 0;
+
+let discount = parseFloat(document.getElementById("discount").value) || 0;
+
+let total = price - discount;
+
+if(total < 0){
+total = 0;
+}
+
+document.getElementById("total").innerHTML = total + " ريال";
+
+}
+
+window.onload = function(){
+
+let today = new Date();
+
+let year = today.getFullYear();
+
+let month = String(today.getMonth()+1).padStart(2,'0');
+
+let day = String(today.getDate()).padStart(2,'0');
+
+document.getElementById("date").value =
+year + "-" + month + "-" + day;
+
+let hour = String(today.getHours()).padStart(2,'0');
+
+let minute = String(today.getMinutes()).padStart(2,'0');
+
+document.getElementById("time").value =
+hour + ":" + minute;
+
+
+// رقم الفاتورة
+
+let invoiceNumber =
+localStorage.getItem("invoiceNumber");
+
+if(invoiceNumber == null){
+
+invoiceNumber = 1;
+
+
+}
+
+document.getElementById("invoice").value =
+"TDR-" + year + "-" +
+String(invoiceNumber).padStart(4,"0");
+
+calculateTotal();
+
+}
+function printInvoice(){
+
+const invoice = document.getElementById("invoice").value;
+const date = document.getElementById("date").value;
+const time = document.getElementById("time").value;
+const name = document.getElementById("name").value;
+const phone = document.getElementById("phone").value;
+const hours = document.getElementById("hours").value;
+const price = document.getElementById("price").value;
+const discount = document.getElementById("discount").value;
+const payment = document.getElementById("payment").value;
+const total = document.getElementById("total").innerText;
+
+const win = window.open("", "_blank");
+
+win.document.write(`
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>فاتورة TDrive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+
+font-family:'Cairo',sans-serif;
+background:white;
+padding:50px;
+color:#333;
+
+}
+
+.invoice{
+
+max-width:800px;
+margin:auto;
+
+}
+
+.logo{
+
+text-align:center;
+margin-bottom:40px;
+
+}
+
+.logo h1{
+
+font-size:54px;
+color:#6DB7C5;
+margin:0;
+
+}
+
+.logo p{
+
+color:#666;
+font-size:18px;
+
+}
+
+.title{
+
+text-align:center;
+font-size:34px;
+font-weight:bold;
+margin-bottom:40px;
+
+}
+
+table{
+
+width:100%;
+border-collapse:collapse;
+margin-bottom:35px;
+
+}
+
+td{
+
+padding:14px;
+border-bottom:1px solid #ddd;
+font-size:18px;
+
+}
+
+.label{
+
+font-weight:bold;
+width:35%;
+
+}
+
+.summary{
+
+margin-top:25px;
+border:2px solid #6DB7C5;
+border-radius:12px;
+overflow:hidden;
+
+}
+
+.summary div{
+
+display:flex;
+justify-content:space-between;
+padding:15px 20px;
+font-size:20px;
+
+}
+
+.total{
+
+background:#6DB7C5;
+color:white;
+font-size:28px;
+font-weight:bold;
+
+}
+
+.footer{
+
+margin-top:60px;
+text-align:center;
+font-size:18px;
+color:#777;
+
+}
+
+@media print{
+
+body{
+
+padding:0;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="invoice">
+
+<div class="logo">
+
+<h1>TDrive</h1>
+
+<p>تكنولوجيا القيادة</p>
+
+</div>
+
+<div class="title">
+
+فاتورة تدريب
+
+</div>
+
+<table>
+
+<tr>
+
+<td class="label">رقم الفاتورة</td>
+
+<td>${invoice}</td>
+
+</tr>
+
+<tr>
+
+<td class="label">التاريخ</td>
+
+<td>${date}</td>
+
+</tr>
+
+<tr>
+
+<td class="label">الوقت</td>
+
+<td>${time}</td>
+
+</tr>
+
+<tr>
+
+<td class="label">اسم المتدربة</td>
+
+<td>${name}</td>
+
+</tr>
+
+<tr>
+
+<td class="label">رقم الجوال</td>
+
+<td>${phone}</td>
+
+</tr>
+
+<tr>
+
+<td class="label">اسم الخدمة</td>
+
+<td>احترف القيادة على الطريق</td>
+
+</tr>
+
+<tr>
+
+<td class="label">عدد الساعات</td>
+
+<td>${hours} ساعات</td>
+
+</tr>
+
+<tr>
+
+<td class="label">طريقة الدفع</td>
+
+<td>${payment}</td>
+
+</tr>
+
+</table>
+
+<div class="summary">
+
+<div>
+
+<span>السعر الأساسي</span>
+
+<span>${price} ريال</span>
+
+</div>
+
+<div>
+
+<span>الخصم</span>
+
+<span>${discount} ريال</span>
+
+</div>
+
+<div class="total">
+
+<span>المبلغ النهائي</span>
+
+<span>${total}</span>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+شكراً لاختياركم <b>TDrive</b><br><br>
+
+تعلم، قد بأمان، وامتلك سيارتك بثقة.
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+
+`);
+
+win.document.close();
+
+win.onload = function () {
+
+    win.print();
+
+    win.onafterprint = function () {
+
+        let nextInvoice =
+        parseInt(localStorage.getItem("invoiceNumber") || 1);
+
+        localStorage.setItem(
+            "invoiceNumber",
+            nextInvoice + 1
+        );
+
+        win.close();
+
+    };
+
+};
+}
+</script>
+
+</body>
+
+</html>
