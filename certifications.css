@@ -1,39 +1,33 @@
 /* ==========================================
    TDrive | Certifications
-   Version: 2.0
-========================================== */
+   ========================================== */
 
 
 /* ==========================================
-   1. Reset
+   Reset
 ========================================== */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
 
-html{
-    scroll-behavior:smooth;
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
 }
 
 body{
 
     font-family:'Cairo',sans-serif;
 
-    background:#edf3f5;
+    background:#eef4f6;
 
     padding:35px;
 
     color:#333;
 
 }
-
-
-/* ==========================================
-   2. Layout
-========================================== */
 
 .page{
 
@@ -45,20 +39,20 @@ body{
 
 
 /* ==========================================
-   3. Toolbar
+   Toolbar
 ========================================== */
 
 .toolbar{
 
-    background:#fff;
-
-    padding:30px;
+    background:#ffffff;
 
     border-radius:18px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    padding:30px;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
 
@@ -66,20 +60,15 @@ body{
 
     text-align:center;
 
-    font-size:42px;
+    color:#1d7d8b;
 
-    color:#187b89;
+    font-size:42px;
 
     font-weight:800;
 
     margin-bottom:35px;
 
 }
-
-
-/* ==========================================
-   4. Form
-========================================== */
 
 .row{
 
@@ -108,17 +97,17 @@ select{
 
     flex:1;
 
-    padding:15px;
-
-    background:#fff;
+    height:56px;
 
     border:1px solid #d6d6d6;
 
     border-radius:10px;
 
+    padding:0 18px;
+
     font-size:20px;
 
-    transition:.25s;
+    background:#fff;
 
 }
 
@@ -127,9 +116,9 @@ select:focus{
 
     outline:none;
 
-    border-color:#187b89;
+    border-color:#1d7d8b;
 
-    box-shadow:0 0 0 4px rgba(24,123,137,.15);
+    box-shadow:0 0 0 4px rgba(29,125,139,.12);
 
 }
 
@@ -137,13 +126,13 @@ button{
 
     width:100%;
 
-    padding:18px;
+    height:60px;
 
     border:none;
 
     border-radius:12px;
 
-    background:#187b89;
+    background:#1d7d8b;
 
     color:#fff;
 
@@ -159,33 +148,29 @@ button{
 
 button:hover{
 
-    background:#156673;
+    background:#166775;
 
 }
 
 /* ==========================================
-   5. Certificate
+   Certificate
 ========================================== */
 
 .certificate{
 
     position:relative;
 
-    width:100%;
+    width:1400px;
 
-    max-width:1400px;
-
-    min-height:990px;
+    height:990px;
 
     margin:auto;
 
-    background:#fff;
+    background:#ffffff;
+
+    border:3px solid #1d7d8b;
 
     overflow:hidden;
-
-    border:3px solid #187b89;
-
-    border-radius:8px;
 
     box-shadow:0 15px 40px rgba(0,0,0,.08);
 
@@ -197,9 +182,15 @@ button:hover{
 
     position:absolute;
 
-    inset:18px;
+    top:18px;
 
-    border:1.5px solid #187b89;
+    right:18px;
+
+    bottom:18px;
+
+    left:18px;
+
+    border:2px solid #1d7d8b;
 
     pointer-events:none;
 
@@ -211,9 +202,15 @@ button:hover{
 
     position:absolute;
 
-    inset:30px;
+    top:34px;
 
-    border:1px solid rgba(24,123,137,.25);
+    right:34px;
+
+    bottom:34px;
+
+    left:34px;
+
+    border:1px solid rgba(29,125,139,.35);
 
     pointer-events:none;
 
@@ -221,7 +218,7 @@ button:hover{
 
 
 /* ==========================================
-   6. Background Pattern
+   Background
 ========================================== */
 
 .certificate-pattern{
@@ -230,79 +227,90 @@ button:hover{
 
     inset:0;
 
-    opacity:.06;
-
-    pointer-events:none;
+    opacity:.05;
 
     background-image:
-    radial-gradient(circle,#187b89 1px,transparent 1px);
 
-    background-size:26px 26px;
+    radial-gradient(circle,#1d7d8b 1px,transparent 1px);
+
+    background-size:28px 28px;
 
 }
 
 
 /* ==========================================
-   7. Left Banner
+   Left Banner
 ========================================== */
 
 .left-banner{
 
     position:absolute;
 
-    left:0;
-
     top:0;
 
-    width:290px;
+    left:0;
+
+    width:300px;
 
     height:100%;
 
     background:linear-gradient(
+
         180deg,
-        #d7edf2,
-        #bddfe6
+
+        #d8edf2 0%,
+
+        #c7e4ea 45%,
+
+        #b8dde5 100%
+
     );
 
     clip-path:polygon(
+
         0 0,
+
         100% 0,
+
         100% 72%,
-        50% 86%,
+
+        50% 84%,
+
         0 72%
+
     );
 
 }
 
 /* ==========================================
-   8. Logo
+   Logo
 ========================================== */
 
 .logo-circle{
 
     position:absolute;
 
-    top:65px;
+    top:70px;
 
-    left:52px;
+    left:55px;
 
     width:190px;
 
     height:190px;
 
-    background:#ffffff;
-
     border-radius:50%;
+
+    background:#ffffff;
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.18);
+    align-items:center;
 
-    z-index:5;
+    box-shadow:0 12px 28px rgba(0,0,0,.18);
+
+    z-index:10;
 
 }
 
@@ -314,101 +322,90 @@ button:hover{
 
     border-radius:50%;
 
-    border:4px solid #187b89;
+    border:4px solid #1d7d8b;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:15px;
+
+}
+
+.logo-text{
 
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
-    justify-content:center;
-
-    position:relative;
-
-    background:#ffffff;
+    gap:10px;
 
 }
 
-.logo-inner::before{
+.logo-t{
 
-    content:"";
+    font-size:40px;
 
-    position:absolute;
+    font-weight:900;
 
-    inset:-12px;
-
-    border:4px dotted #187b89;
-
-    border-radius:50%;
+    color:#1d7d8b;
 
 }
 
-.logo-title{
+.logo-ar{
 
-    font-size:42px;
-
-    font-weight:800;
-
-    color:#187b89;
-
-    line-height:1;
-
-}
-
-.logo-subtitle{
-
-    margin-top:10px;
-
-    font-size:20px;
+    font-size:18px;
 
     font-weight:700;
 
-    color:#187b89;
+    color:#1d7d8b;
 
 }
 
+
 /* ==========================================
-   9. Content
+   Content
 ========================================== */
 
-.content{
+.certificate-content{
 
-    position:relative;
-
-    margin-left:290px;
+    margin-left:300px;
 
     height:100%;
 
-    padding:60px 70px;
+    padding:75px 85px;
+
+    position:relative;
 
     text-align:center;
 
 }
 
-.title{
+.certificate-title{
 
-    font-size:78px;
+    font-size:74px;
 
-    font-weight:800;
+    font-weight:900;
 
-    color:#187b89;
+    color:#1d7d8b;
 
-    margin-top:5px;
-
-    letter-spacing:.5px;
+    margin-bottom:15px;
 
 }
 
-.title-decoration{
+.title-divider{
 
-    margin:22px auto 40px;
+    font-size:28px;
 
-    font-size:34px;
-
-    color:#187b89;
+    color:#1d7d8b;
 
     letter-spacing:8px;
+
+    margin-bottom:35px;
 
 }
 
@@ -418,87 +415,69 @@ button:hover{
 
     color:#444;
 
-    line-height:2;
-
 }
 
 .brand-name{
 
-    color:#187b89;
+    color:#1d7d8b;
 
     font-weight:800;
 
 }
 
-#studentName{
+.student-name{
 
     margin-top:55px;
 
-    font-size:76px;
+    font-size:68px;
 
-    font-weight:800;
+    font-weight:900;
 
-    color:#187b89;
-
-    text-shadow:0 2px 8px rgba(0,0,0,.08);
+    color:#1d7d8b;
 
 }
 
-.name-line{
+.student-line{
 
     width:70%;
 
-    margin:25px auto;
+    margin:22px auto 35px;
 
-    border-bottom:2px dotted #187b89;
+    border-bottom:2px solid #1d7d8b;
 
 }
 
 .certificate-text{
 
-    margin-top:35px;
-
     font-size:32px;
 
-    color:#444;
+    color:#555;
 
 }
 
-#programName{
+.program-name{
 
     margin-top:25px;
 
-    font-size:48px;
+    font-size:46px;
 
     font-weight:800;
 
-    color:#187b89;
-
-}
-
-.certificate-message{
-
-    margin-top:45px;
-
-    font-size:30px;
-
-    line-height:2;
-
-    color:#666;
+    color:#1d7d8b;
 
 }
 
 /* ==========================================
-   10. Footer
+   Footer
 ========================================== */
 
 .certificate-footer{
 
     position:absolute;
 
-    left:70px;
+    left:80px;
 
-    right:70px;
+    right:80px;
 
     bottom:95px;
 
@@ -510,9 +489,9 @@ button:hover{
 
 }
 
-.signature,
-.center-footer,
-.manager{
+.signature-section,
+.date-section,
+.manager-section{
 
     width:30%;
 
@@ -520,17 +499,29 @@ button:hover{
 
 }
 
+.signature-image{
+
+    font-size:42px;
+
+    color:#1d7d8b;
+
+    margin-bottom:10px;
+
+}
+
 .signature-line{
 
     width:180px;
 
-    margin:0 auto 18px;
+    margin:0 auto 15px;
 
-    border-bottom:2px solid #187b89;
+    border-bottom:2px solid #1d7d8b;
 
 }
 
-.footer-title{
+.signature-title,
+.date-title,
+.manager-title{
 
     font-size:24px;
 
@@ -546,21 +537,45 @@ button:hover{
 
     font-size:30px;
 
-    font-weight:800;
+    font-weight:900;
 
-    color:#187b89;
+    color:#1d7d8b;
 
 }
 
-#certificateDate{
+.badge{
 
-    margin-top:12px;
+    width:72px;
 
-    font-size:28px;
+    height:72px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    border:3px solid #1d7d8b;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    color:#1d7d8b;
+
+}
+
+.certificate-date{
+
+    font-size:26px;
 
     font-weight:700;
 
-    color:#187b89;
+    color:#1d7d8b;
+
+    margin-bottom:10px;
 
 }
 
@@ -572,24 +587,24 @@ button:hover{
 
     right:0;
 
-    bottom:28px;
+    bottom:35px;
 
     text-align:center;
 
-    color:#187b89;
-
     font-size:28px;
 
-    font-weight:700;
+    font-weight:800;
+
+    color:#1d7d8b;
 
 }
 
 
 /* ==========================================
-   11. Responsive
+   Responsive
 ========================================== */
 
-@media screen and (max-width:1500px){
+@media(max-width:1500px){
 
     .certificate{
 
@@ -601,7 +616,7 @@ button:hover{
 
 }
 
-@media screen and (max-width:1200px){
+@media(max-width:1200px){
 
     .certificate{
 
@@ -611,7 +626,7 @@ button:hover{
 
 }
 
-@media screen and (max-width:992px){
+@media(max-width:992px){
 
     .row{
 
@@ -631,7 +646,7 @@ button:hover{
 
 
 /* ==========================================
-   12. Print
+   Print
 ========================================== */
 
 @page{
@@ -646,17 +661,15 @@ button:hover{
 
     body{
 
-        margin:0;
+        background:#fff;
 
         padding:0;
-
-        background:#fff;
 
     }
 
     .toolbar{
 
-        display:none !important;
+        display:none;
 
     }
 
@@ -674,19 +687,13 @@ button:hover{
 
         height:210mm;
 
-        max-width:none;
-
-        min-height:auto;
-
         margin:0;
 
         border:none;
 
-        border-radius:0;
-
         box-shadow:none;
 
-        transform:none !important;
+        transform:none;
 
     }
 
