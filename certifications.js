@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    alert("JS Loaded");
     // --- 1. DOM Elements Selection ---
     const inputName = document.getElementById('inputName');
     const inputHours = document.getElementById('inputHours');
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. Live Update Synchronization ---
     inputName.addEventListener('input', (e) => {
-        certName.textContent = e.target.value || 'فلانه الفلاني';
+        certName.textContent = e.target.value.trim() || 'فلانه الفلاني';
     });
 
     inputHours.addEventListener('input', (e) => {
@@ -26,19 +25,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     inputProgram.addEventListener('input', (e) => {
-        certProgram.textContent = e.target.value || 'برنامج احتراف القيادة على الطريق';
+        certProgram.textContent = e.target.value.trim() || 'برنامج احتراف القيادة على الطريق';
     });
 
     inputDate.addEventListener('input', (e) => {
-        certDate.textContent = e.target.value || '26 مايو 2024';
+        certDate.textContent = e.target.value.trim() || '26 مايو 2024';
     });
 
     inputManager.addEventListener('input', (e) => {
-        certManager.textContent = e.target.value || 'منى حمود';
+        certManager.textContent = e.target.value.trim() || 'منى حمود';
     });
 
-// --- Print Certificate ---
-downloadBtn.addEventListener("click", () => {
-    window.print();
-});
+    // --- 3. iOS Safari Printing Workaround (True A4 Landscape Vector Export) ---
+    downloadBtn.addEventListener('click', () => {
+        // Change button state temporarily to show progress safely
+        const originalBtnText = downloadBtn.textContent;
+        downloadBtn.textContent = 'جاري إعداد ملف PDF...';
+        downloadBtn.disabled = true;
+
+        // Custom config configured specifically to override mobile Safari viewport clipping
+        const options = {
+            margin:       0,
+            filename:     `certificate-${inputName.value.trim() || 'tdrive'}.pdf`,
+            image:        { type: 'jpeg', quality: 1.0 },
+            html2canvas:  { 
+                scale: 2,             // Increases resolution to high-definition printing density
+                useCORS: true,        // Safely loads modern web font engines (Google Fonts)
+                logging: false,
+                scrollX: 0,
+                scrollY: 0
+            },
+            jsPDF: { 
+                unit: 'mm', 
+                format: 'a4', 
+                orientation: 'landscape' // Forces strict canvas layout generation regardless of Safari settings
+            }
+        };
+
+        // Render target elements to structural landscape PDF binary blob
+        html2pdf().set(options).from(certificate).save().then(() => {
+            // Restore control elements once completed
+            downloadBtn.textContent = originalBtnText;
+            downloadBtn.disabled = false;
+        }).catch((err) => {
+            console.error('PDF Generation error:', err);
+            downloadBtn.textContent = originalBtnText;
+            downloadBtn.disabled = false;
+        });
     });
+});
