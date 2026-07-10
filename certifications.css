@@ -1,508 +1,210 @@
-/* ==========================================
-   1. CORE SETUP & EXACT COLOR PALETTE
-   ========================================== */
 :root {
-    --bg-light: #ffffff;
-    --primary-teal: #1a6470;       /* Samples directly from primary headers */
-    --accent-teal: #a9cbd1;        /* Samples directly from left ribbon */
-    --text-dark: #123d44;
-    --text-muted: #335d64;
-    --sidebar-width: 320px;
+    --primary-teal: #196472;
+    --light-teal: #b4d4db;
+    --dark-text: #134650;
+    --border-color: #196472;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Cairo', sans-serif;
 }
 
 body {
-    font-family: 'Cairo', 'Tajawal', sans-serif;
-    background-color: #e6ecee;
+    background-color: #f0f0f0;
     display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    color: var(--text-dark);
+    padding: 20px;
 }
 
-/* ==========================================
-   2. EDITOR CONTROL SIDEBAR (Control Interface)
-   ========================================== */
-.editor-sidebar {
-    width: var(--sidebar-width);
-    background: #ffffff;
-    padding: 30px 20px;
-    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: auto;
-}
-
-.editor-sidebar h2 {
-    font-size: 1.2rem;
-    color: var(--primary-teal);
-    border-bottom: 2px solid var(--accent-teal);
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.input-group label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-muted);
-}
-
-.input-group input {
-    padding: 10px 12px;
-    border: 1px solid #ccd9db;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-.input-group input:focus {
-    border-color: var(--primary-teal);
-}
-
-.btn-download {
-    background-color: var(--primary-teal);
-    color: #ffffff;
-    border: none;
-    padding: 14px;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-    margin-top: 10px;
-}
-
-.btn-download:hover {
-    background-color: #134b54;
-}
-
-/* ==========================================
-   3. CERTIFICATE CANVAS & BACKGROUND TEXTURE
-   ========================================== */
-.preview-container {
-    margin-right: var(--sidebar-width);
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    overflow-x: auto;
-}
-
-.certificate-canvas {
-    width: 297mm;
-    height: 210mm;
-    background-color: var(--bg-light);
+/* Certificate Container (A4 Landscape ratio) */
+.certificate {
+    background-color: #ffffff;
+    width: 1000px;
+    height: 700px;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 15px solid #ffffff;
+    outline: 2px solid var(--border-color);
+    outline-offset: -10px;
     display: flex;
-    flex-direction: row-reverse; /* Aligns left panel and main area correctly for RTL */
     overflow: hidden;
-    padding: 30px;
-    
-    /* Subtle Guilloche/Wavy Background Texture lines matching original sample corners */
-    background-image: 
-        radial-gradient(circle at 100% 150%, transparent 80%, rgba(26, 100, 112, 0.025) 80%, rgba(26, 100, 112, 0.025) 81%, transparent 81%),
-        radial-gradient(circle at 100% 150%, transparent 84%, rgba(26, 100, 112, 0.025) 84%, rgba(26, 100, 112, 0.025) 85%, transparent 85%),
-        radial-gradient(circle at 100% 150%, transparent 88%, rgba(26, 100, 112, 0.025) 88%, rgba(26, 100, 112, 0.025) 89%, transparent 89%),
-        radial-gradient(circle at 0% -50%, transparent 80%, rgba(26, 100, 112, 0.025) 80%, rgba(26, 100, 112, 0.025) 81%, transparent 81%),
-        radial-gradient(circle at 0% -50%, transparent 84%, rgba(26, 100, 112, 0.025) 84%, rgba(26, 100, 112, 0.025) 85%, transparent 85%);
-    background-size: 100% 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Double Frame Border Boundaries */
-.certificate-canvas::before {
+/* Corner Decorative Ornaments */
+.certificate::before, .certificate::after {
     content: '';
     position: absolute;
-    top: 25px;
-    left: 25px;
-    right: 25px;
-    bottom: 25px;
-    border: 1.5px solid var(--primary-teal);
-    pointer-events: none;
-    z-index: 5;
+    width: 25px;
+    height: 25px;
+    border: 2px solid var(--border-color);
+    z-index: 10;
 }
+.certificate::before { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+.certificate::after { bottom: 10px; left: 10px; border-right: none; border-top: none; }
 
-/* ==========================================
-   4. GEOMETRIC CORNER ORNAMENTS
-   ========================================== */
-.corner-border {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    z-index: 6;
-}
-.corner-border::before {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 1px solid var(--primary-teal);
-}
-.corner-border::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background-color: var(--primary-teal);
-}
-
-.top-right { top: 20px; right: 20px; }
-.top-right::before { right: 0; top: 0; border-left: none; border-bottom: none; }
-.top-right::after { right: 3px; top: 3px; }
-
-.top-left { top: 20px; left: 20px; }
-.top-left::before { left: 0; top: 0; border-right: none; border-bottom: none; }
-.top-left::after { left: 3px; top: 3px; }
-
-.bottom-right { bottom: 20px; right: 20px; }
-.bottom-right::before { right: 0; bottom: 0; border-left: none; border-top: none; }
-.bottom-right::after { right: 3px; bottom: 3px; }
-
-.bottom-left { bottom: 20px; left: 20px; }
-.bottom-left::before { left: 0; bottom: 0; border-right: none; border-top: none; }
-.bottom-left::after { left: 3px; bottom: 3px; }
-
-/* ==========================================
-   5. LEFT PANEL - DYNAMIC RIBBON WITH ARROW CUTOUT
-   ========================================== */
-.left-panel {
-    width: 19%;
-    height: 84%;
-    background-color: var(--accent-teal);
+/* Left Side Ribbon */
+.sidebar {
+    width: 22%;
+    background-color: var(--light-teal);
+    height: 85%;
     position: relative;
-    /* Custom clip-path coordinates map out the flat bottom and distinct pointing side arrow indentation */
-    clip-path: polygon(0% 0%, 100% 0%, 100% 64%, 93% 68%, 100% 72%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
     margin-right: 40px;
-    display: flex;
-    justify-content: center;
-    z-index: 4;
 }
 
-.badge-container {
-    position: absolute;
-    top: 60px;
-}
-
-.badge-circle {
-    width: 155px;
-    height: 155px;
-    background-color: var(--bg-light);
+/* Logo Badge inside Sidebar */
+.logo-badge {
+    background-color: #ffffff;
+    border: 2px dashed var(--primary-teal);
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 2px dotted var(--primary-teal);
-    outline: 6px solid var(--bg-light);
-    box-shadow: 0 6px 20px rgba(26, 100, 112, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 10px;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
-.badge-title {
-    font-size: 2.1rem;
-    font-weight: 700;
+.logo-badge h2 {
     color: var(--primary-teal);
-    font-family: 'Tajawal', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
 }
 
-.badge-subtitle {
-    font-size: 0.75rem;
+.logo-badge p {
+    color: var(--primary-teal);
+    font-size: 10px;
+    margin-top: 5px;
     font-weight: bold;
-    color: var(--text-muted);
-    margin-top: -2px;
 }
 
-.badge-decoration {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 8px;
-    width: 65%;
-}
-
-.badge-decoration .line {
-    flex: 1;
-    height: 1px;
-    background-color: var(--primary-teal);
-}
-
-.badge-decoration .dot {
-    width: 4px;
-    height: 4px;
-    background-color: var(--primary-teal);
-    border-radius: 50%;
-}
-
-/* ==========================================
-   6. MAIN CERTIFICATE CORE GRAPHICS
-   ========================================== */
-.main-content {
+/* Main Content Area */
+.content {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 45px;
-    padding-left: 50px;
-    z-index: 4;
-}
-
-.cert-title {
-    font-family: 'Cairo', sans-serif;
-    font-size: 4.4rem;
-    font-weight: 700;
-    color: var(--primary-teal);
-}
-
-/* Elegant Fine-line Title Underline Split Decorator */
-.title-divider {
-    display: flex;
-    align-items: center;
-    width: 32%;
-    margin-top: -10px;
-    margin-bottom: 30px;
-}
-
-.title-divider .line-left, .title-divider .line-right {
-    flex: 1;
-    height: 1.5px;
-    background: linear-gradient(to left, var(--primary-teal), transparent);
-}
-.title-divider .line-right {
-    background: linear-gradient(to right, var(--primary-teal), transparent);
-}
-
-.title-divider .center-dot {
-    width: 6px;
-    height: 6px;
-    background-color: var(--primary-teal);
-    border-radius: 50%;
-    margin: 0 12px;
-}
-
-.cert-witness {
-    font-size: 1.5rem;
-    color: #111111;
-    font-weight: 400;
-}
-
-.brand-text {
-    font-weight: 700;
-    color: var(--primary-teal);
-}
-
-.diamond-divider {
-    color: var(--primary-teal);
-    font-size: 1.4rem;
-    margin: 15px 0;
-    transform: scale(1.4, 0.9);
-}
-
-/* Recessed Student Name Area */
-.student-name {
-    font-family: 'Cairo', sans-serif;
-    font-size: 4.2rem;
-    color: var(--primary-teal);
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 75%;
-    border-bottom: 1px dotted rgba(26, 100, 112, 0.6);
-    padding-bottom: 5px;
-}
-
-.details-block {
-    text-align: center;
-    margin-top: 15px;
-}
-
-.cert-details {
-    font-size: 1.35rem;
-    color: #222222;
-}
-
-.program-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-teal);
-    margin-top: 8px;
-}
-
-/* ==========================================
-   7. FOOTER SECTION (SIGNATURE, DATE SEALS, MANAGEMENT)
-   ========================================== */
-.cert-footer {
-    display: flex;
     justify-content: space-between;
-    align-items: flex-end;
-    width: 92%;
-    margin-top: auto;
-    margin-bottom: 35px;
+    padding: 60px 40px 40px 40px;
+    text-align: center;
 }
 
-.footer-col {
+.main-title {
+    color: var(--primary-teal);
+    font-size: 55px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.divider-line {
+    width: 120px;
+    height: 2px;
+    background-color: var(--primary-teal);
+    position: relative;
+    margin-bottom: 25px;
+}
+.divider-line::after {
+    content: '♦';
+    position: absolute;
+    color: var(--primary-teal);
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 0 5px;
+}
+
+.intro-text {
+    font-size: 20px;
+    color: var(--dark-text);
+    margin-bottom: 20px;
+}
+
+.student-name {
+    font-size: 48px;
+    color: var(--primary-teal);
+    font-weight: 700;
+    width: 80%;
+    border-bottom: 2px dotted var(--primary-teal);
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+}
+
+.course-details {
+    font-size: 18px;
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+/* Footer / Signatures Grid */
+.footer-signatures {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: flex-end;
+    margin-top: 40px;
+}
+
+.sig-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1;
+    font-size: 14px;
+    color: var(--dark-text);
 }
 
-.col-label {
-    font-size: 1.1rem;
-    color: #111111;
-    font-weight: 500;
-    margin-top: 10px;
-}
-
-/* Signature Elements */
-.signature-wrap {
-    border-bottom: 1px solid var(--primary-teal);
-    width: 65%;
+.sig-line {
+    width: 140px;
+    border-top: 1px solid var(--dark-text);
+    margin-top: 5px;
+    padding-top: 5px;
     text-align: center;
-    padding-bottom: 4px;
 }
 
-.signature-svg {
-    display: block;
-    margin: 0 auto;
-}
-
-/* Center Column Elements & Geometric Seal */
-.seal-col {
-    position: relative;
-    max-width: 200px;
-}
-
-.divider-vertical {
-    width: 1px;
-    height: 60px;
-    background-color: rgba(26, 100, 112, 0.4);
-    position: absolute;
-    top: 5px;
-}
-.divider-vertical:first-of-type { right: -25px; }
-.divider-vertical:last-of-type { left: -25px; }
-
-.seal-wrap {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    border: 1.5px solid var(--primary-teal);
+/* Center Badge Design */
+.center-badge {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 6px;
+    border-left: 1px solid var(--light-teal);
+    border-right: 1px solid var(--light-teal);
+    padding: 0 20px;
 }
 
-.inner-seal {
-    width: 34px;
-    height: 34px;
-    background-color: var(--primary-teal);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-size: 0.9rem;
-}
-
-.date-val {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #111111;
-}
-
-/* Right Management Block Column */
-.manager-title {
-    font-size: 1.15rem;
-    font-weight: 500;
-    color: #111111;
-}
-
-.manager-name {
-    font-size: 1.3rem;
-    font-weight: 700;
+.star-icon {
+    font-size: 24px;
     color: var(--primary-teal);
-    margin-top: 6px;
+    margin-bottom: 5px;
 }
 
-/* Base Brand Motto Formatting */
-.bottom-motto {
+/* Bottom Slogan */
+.bottom-slogan {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    color: var(--primary-teal);
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
-    width: 100%;
-    margin-bottom: 10px;
+    gap: 10px;
 }
 
-.motto-line {
-    width: 45px;
+.bottom-slogan::before, .bottom-slogan::after {
+    content: '';
+    width: 40px;
     height: 1px;
     background-color: var(--primary-teal);
-    position: relative;
-}
-.motto-line::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background-color: var(--primary-teal);
-    border-radius: 50%;
-    top: -2px;
-}
-.motto-line:first-of-type::after { left: 0; }
-.motto-line:last-of-type::after { right: 0; }
-
-.motto-text {
-    font-size: 1rem;
-    color: var(--primary-teal);
-    font-weight: 600;
-}
-
-/* ==========================================
-   8. INTERFACE ADAPTIVE VIEWPORTS
-   ========================================== */
-@media (max-width: 1200px) {
-    body {
-        flex-direction: column;
-    }
-    .editor-sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-    }
-    .preview-container {
-        margin-right: 0;
-        padding: 20px;
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 1120px) {
-    .certificate-canvas {
-        transform: scale(0.72);
-        transform-origin: top right;
-    }
+    display: inline-block;
 }
