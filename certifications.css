@@ -201,15 +201,7 @@ body{
 
 }
 
-    clip-path:polygon(
-        0 0,
-        100% 0,
-        100% 84%,
-        50% 100%,
-        0 84%
-    );
-
-}
+    
 .logo-circle{
 
     width:120px;
@@ -262,7 +254,7 @@ body{
 
     top:35px;
 
-    left:230px;
+    left:285px;
 
     right:45px;
 
