@@ -1,72 +1,76 @@
-// =========================================================
-// TDrive — Certificate Generator
-// Handles live preview binding + print trigger
-// =========================================================
+document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. DOM Elements Selection ---
+    const inputName = document.getElementById('inputName');
+    const inputHours = document.getElementById('inputHours');
+    const inputProgram = document.getElementById('inputProgram');
+    const inputDate = document.getElementById('inputDate');
+    const inputManager = document.getElementById('inputManager');
 
-(function () {
-  "use strict";
+    const certName = document.getElementById('certName');
+    const certHours = document.getElementById('certHours');
+    const certProgram = document.getElementById('certProgram');
+    const certDate = document.getElementById('certDate');
+    const certManager = document.getElementById('certManager');
 
-  const arabicMonths = [
-    "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو",
-    "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
-  ];
+    const downloadBtn = document.getElementById('downloadBtn');
+    const certificate = document.getElementById('certificate');
 
-  // ---- element references ----
-  const studentNameInput = document.getElementById("studentName");
-  const programNameInput = document.getElementById("programName");
-  const hoursInput = document.getElementById("hoursCount");
-  const dateInput = document.getElementById("issueDate");
-  const printBtn = document.getElementById("printBtn");
+    // --- 2. Live Update Synchronization ---
+    inputName.addEventListener('input', (e) => {
+        certName.textContent = e.target.value || 'فلانه الفلاني';
+    });
 
-  const outName = document.getElementById("outName");
-  const outProgram = document.getElementById("outProgram");
-  const outHours = document.getElementById("outHours");
-  const outDate = document.getElementById("outDate");
+    inputHours.addEventListener('input', (e) => {
+        certHours.textContent = e.target.value || '5';
+    });
 
-  // ---- helpers ----
-  function formatArabicDate(dateValue) {
-    if (!dateValue) return "";
-    const parts = dateValue.split("-"); // YYYY-MM-DD
-    if (parts.length !== 3) return dateValue;
+    inputProgram.addEventListener('input', (e) => {
+        certProgram.textContent = e.target.value || 'برنامج احتراف القيادة على الطريق';
+    });
 
-    const year = parseInt(parts[0], 10);
-    const monthIndex = parseInt(parts[1], 10) - 1;
-    const day = parseInt(parts[2], 10);
+    inputDate.addEventListener('input', (e) => {
+        certDate.textContent = e.target.value || '26 مايو 2024';
+    });
 
-    const monthName = arabicMonths[monthIndex] || "";
-    return `${day} ${monthName} ${year}`;
-  }
+    inputManager.addEventListener('input', (e) => {
+        certManager.textContent = e.target.value || 'منى حمود';
+    });
 
-  function updatePreview() {
-    const name = studentNameInput.value.trim();
-    const program = programNameInput.value.trim();
-    const hours = hoursInput.value.trim();
-    const dateFormatted = formatArabicDate(dateInput.value);
+    // --- 3. Robust iOS Safari A4 Landscape PDF Generation ---
+    downloadBtn.addEventListener('click', () => {
+        // Change button state temporarily to show progress
+        const originalBtnText = downloadBtn.textContent;
+        downloadBtn.textContent = 'جاري إعداد الملف...';
+        downloadBtn.disabled = true;
 
-    outName.textContent = name || "فلانه الفلاني";
-    outProgram.textContent = program || "برنامج احتراف القيادة على الطريق";
-    outHours.textContent = hours || "5";
-    outDate.textContent = dateFormatted || "26 مايو 2024";
-  }
+        // Custom config tailored to override mobile Safari viewport restrictions
+        const options = {
+            margin:       0,
+            filename:     `certificate-${inputName.value.trim() || 'tdrive'}.pdf`,
+            image:        { type: 'jpeg', quality: 1.0 },
+            html2canvas:  { 
+                scale: 2,            // Increases resolution quality
+                useCORS: true,        // Handles potential loaded font/asset glitches
+                logging: false,
+                scrollX: 0,
+                scrollY: 0
+            },
+            jsPDF: { 
+                unit: 'mm', 
+                format: 'a4', 
+                orientation: 'landscape' // Explicitly hardcodes the landscape orientation
+            }
+        };
 
-  function setDefaultDateToToday() {
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, "0");
-    const dd = String(today.getDate()).padStart(2, "0");
-    dateInput.value = `${yyyy}-${mm}-${dd}`;
-  }
-
-  // ---- wire up events ----
-  [studentNameInput, programNameInput, hoursInput, dateInput].forEach((el) => {
-    el.addEventListener("input", updatePreview);
-  });
-
-  printBtn.addEventListener("click", () => {
-    window.print();
-  });
-
-  // ---- init ----
-  setDefaultDateToToday();
-  updatePreview();
-})();
+        // Render target element directly to a true landscape PDF binary blob
+        html2pdf().set(options).from(certificate).save().then(() => {
+            // Restore button properties once complete
+            downloadBtn.textContent = originalBtnText;
+            downloadBtn.disabled = false;
+        }).catch((err) => {
+            console.error('PDF Generation error:', err);
+            downloadBtn.textContent = originalBtnText;
+            downloadBtn.disabled = false;
+        });
+    });
+});
