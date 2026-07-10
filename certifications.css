@@ -600,3 +600,211 @@ body{
     color:var(--teal);
 
 }
+/* =========================
+   Footer
+========================= */
+
+.cert-footer{
+
+    width:100%;
+
+    margin-top:auto;
+
+    padding-top:70px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+}
+
+.footer-col{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.signature-script{
+
+    font-family:"Brush Script MT",cursive;
+
+    font-size:40px;
+
+    color:var(--navy);
+
+    transform:rotate(-5deg);
+
+    margin-bottom:12px;
+
+}
+
+.footer-line{
+
+    width:180px;
+
+    border-bottom:2px solid var(--teal);
+
+    margin-bottom:15px;
+
+}
+
+.footer-label{
+
+    font-size:22px;
+
+    color:#666;
+
+    font-weight:700;
+
+}
+
+.medal{
+
+    width:72px;
+
+    height:72px;
+
+    border-radius:50%;
+
+    border:3px solid var(--gold);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:var(--gold);
+
+    margin-bottom:15px;
+
+}
+
+.manager-title{
+
+    font-size:22px;
+
+    color:#666;
+
+    font-weight:700;
+
+}
+
+.manager-name{
+
+    margin-top:15px;
+
+    font-size:30px;
+
+    font-weight:900;
+
+    color:var(--teal);
+
+}
+
+.cert-tagline{
+
+    margin-top:50px;
+
+    text-align:center;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:var(--teal);
+
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media screen and (max-width:1500px){
+
+    .certificate{
+
+        transform:scale(.80);
+
+        transform-origin:top center;
+
+    }
+
+}
+
+@media screen and (max-width:1200px){
+
+    .certificate{
+
+        transform:scale(.65);
+
+    }
+
+}
+
+
+/* =========================
+   Print
+========================= */
+
+@page{
+
+    size:A4 landscape;
+
+    margin:0;
+
+}
+
+@media print{
+
+    .no-print{
+
+        display:none !important;
+
+    }
+
+    html,
+    body{
+
+        margin:0;
+
+        padding:0;
+
+        background:#fff;
+
+    }
+
+    .cert-stage{
+
+        padding:0;
+
+        display:block;
+
+    }
+
+    .certificate{
+
+        width:297mm;
+
+        height:210mm;
+
+        margin:0;
+
+        transform:none !important;
+
+        box-shadow:none;
+
+        border:none;
+
+    }
+
+}
