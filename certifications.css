@@ -1,477 +1,602 @@
 /* =========================================================
-   TDrive — Certificate Generator
-   Brand: Cairo font · Teal #2a8a8a · Navy #1a2e3b · Mist #B8D8D0
+   TDrive Certificate
    ========================================================= */
 
 :root{
-  --teal: #2a8a8a;
-  --teal-deep: #1f6b6b;
-  --navy: #1a2e3b;
-  --mist: #B8D8D0;
-  --mist-soft: #E4F0EC;
-  --gold: #c9a24b;
-  --paper: #fffdf9;
-  --ink: #1a2e3b;
-  --ink-soft: #4c6169;
 
-  --cert-w: 297mm;
-  --cert-h: 210mm;
+    --teal:#187b89;
+    --teal-light:#d7edf2;
+    --navy:#183340;
+    --gold:#c9a24b;
+    --paper:#fffdfb;
+    --text:#404040;
+
 }
 
-*{ box-sizing: border-box; }
+*{
 
-html, body{
-  margin: 0;
-  padding: 0;
-  font-family: "Cairo", "Segoe UI", sans-serif;
-  background: #eef3f2;
-  color: var(--ink);
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
 }
 
-/* =========================== TOOLBAR =========================== */
+html,
+body{
+
+    font-family:"Cairo",sans-serif;
+
+    background:#eef3f5;
+
+    color:var(--text);
+
+}
+
+
+/* =========================
+   Toolbar
+========================= */
 
 .toolbar{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: linear-gradient(180deg, var(--navy) 0%, #223c4c 100%);
-  border-bottom: 3px solid var(--gold);
-  box-shadow: 0 6px 18px rgba(0,0,0,.18);
+
+    position:sticky;
+
+    top:0;
+
+    z-index:50;
+
+    background:var(--navy);
+
+    padding:18px 0;
+
+    box-shadow:0 8px 24px rgba(0,0,0,.18);
+
 }
 
 .toolbar-inner{
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 16px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
+
+    width:min(1200px,95%);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
 }
 
 .toolbar-brand{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
 }
 
 .toolbar-logo{
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at 30% 30%, var(--mist), var(--teal));
-  color: var(--navy);
-  font-weight: 800;
-  font-size: 14px;
-  border: 2px solid var(--gold);
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:800;
+
+    color:white;
+
+    background:var(--teal);
+
 }
 
 .toolbar-brand h1{
-  margin: 0;
-  font-size: 16px;
-  font-weight: 800;
-  color: #fff;
+
+    color:#fff;
+
+    font-size:18px;
+
 }
 
 .toolbar-brand p{
-  margin: 2px 0 0;
-  font-size: 12px;
-  color: var(--mist);
-  font-weight: 500;
+
+    color:#d3e6ea;
+
+    font-size:13px;
+
 }
 
 .toolbar-fields{
-  display: flex;
-  align-items: end;
-  gap: 12px;
-  flex-wrap: wrap;
+
+    display:flex;
+
+    gap:14px;
+
+    align-items:flex-end;
+
+    flex-wrap:wrap;
+
 }
 
 .field{
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  font-size: 12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
 }
 
 .field span{
-  color: var(--mist);
-  font-weight: 600;
+
+    color:#d6ebef;
+
+    font-size:13px;
+
+    font-weight:700;
+
 }
 
 .field input{
-  font-family: inherit;
-  font-size: 13px;
-  padding: 9px 12px;
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.08);
-  color: #fff;
-  min-width: 150px;
-  outline: none;
-  transition: border-color .15s, background .15s;
-}
 
-.field input::placeholder{ color: rgba(255,255,255,.4); }
+    width:170px;
 
-.field input:focus{
-  border-color: var(--gold);
-  background: rgba(255,255,255,.14);
+    height:44px;
+
+    padding:0 14px;
+
+    border-radius:8px;
+
+    border:none;
+
+    background:#fff;
+
+    font-family:inherit;
+
+    font-size:14px;
+
 }
 
 .btn-print{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--navy);
-  background: linear-gradient(180deg, #d9bd77, var(--gold));
-  border: none;
-  padding: 11px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,.25);
-  transition: transform .12s, box-shadow .12s;
+
+    height:44px;
+
+    padding:0 20px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:var(--gold);
+
+    color:#1d2f39;
+
+    font-family:inherit;
+
+    font-weight:800;
+
+    cursor:pointer;
+
 }
-
-.btn-print:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0,0,0,.3);
-}
-
-.btn-print:active{ transform: translateY(0); }
-
-/* =========================== STAGE =========================== */
+/* =========================
+   Certificate
+========================= */
 
 .cert-stage{
-  display: flex;
-  justify-content: center;
-  padding: 36px 20px 60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:40px 20px 60px;
+
 }
 
 .certificate{
-  width: var(--cert-w);
-  height: var(--cert-h);
-  background: var(--paper);
-  box-shadow: 0 20px 50px rgba(20,40,45,.25);
-  position: relative;
-  flex-shrink: 0;
+
+    width:1400px;
+
+    height:990px;
+
+    background:var(--paper);
+
+    position:relative;
+
+    overflow:hidden;
+
+    border:3px solid var(--teal);
+
+    box-shadow:0 18px 45px rgba(0,0,0,.15);
+
 }
 
-/* =========================== BORDERS =========================== */
+
+/* =========================
+   Double Border
+========================= */
 
 .cert-border-outer{
-  position: absolute;
-  inset: 7mm;
-  border: 1.4pt solid var(--teal);
+
+    position:absolute;
+
+    inset:18px;
+
+    border:2px solid var(--teal);
+
 }
 
 .cert-border-inner{
-  position: absolute;
-  inset: 2.6mm;
-  border: 0.6pt solid var(--mist);
-  overflow: hidden;
+
+    position:absolute;
+
+    inset:18px;
+
+    border:1px solid rgba(24,123,137,.25);
+
 }
+
+
+/* =========================
+   Corners
+========================= */
 
 .corner{
-  position: absolute;
-  width: 15mm;
-  height: 15mm;
-  border: 2pt solid var(--gold);
+
+    position:absolute;
+
+    width:55px;
+
+    height:55px;
+
+    border:3px solid var(--gold);
+
 }
 
-.corner-tl{ top: -1.4mm; right: -1.4mm; border-left: none; border-bottom: none; }
-.corner-tr{ top: -1.4mm; left: -1.4mm; border-right: none; border-bottom: none; }
-.corner-bl{ bottom: -1.4mm; right: -1.4mm; border-left: none; border-top: none; }
-.corner-br{ bottom: -1.4mm; left: -1.4mm; border-right: none; border-top: none; }
+.corner-tl{
 
-/* =========================== RIBBON (left side) =========================== */
+    top:-2px;
+
+    right:-2px;
+
+    border-left:none;
+
+    border-bottom:none;
+
+}
+
+.corner-tr{
+
+    top:-2px;
+
+    left:-2px;
+
+    border-right:none;
+
+    border-bottom:none;
+
+}
+
+.corner-bl{
+
+    bottom:-2px;
+
+    right:-2px;
+
+    border-left:none;
+
+    border-top:none;
+
+}
+
+.corner-br{
+
+    bottom:-2px;
+
+    left:-2px;
+
+    border-right:none;
+
+    border-top:none;
+
+}
+
+
+/* =========================
+   Left Ribbon
+========================= */
 
 .ribbon{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 34mm;
-  height: 100%;
-  z-index: 2;
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:310px;
+
+    height:100%;
+
 }
 
 .ribbon-tail{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(200deg, var(--mist) 0%, #a9cdc3 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 62%, 50% 74%, 0 62%);
+
+    width:100%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        180deg,
+
+        #d7edf2,
+
+        #bddfe6
+
+    );
+
+    clip-path:polygon(
+
+        0 0,
+
+        100% 0,
+
+        100% 73%,
+
+        50% 84%,
+
+        0 73%
+
+    );
+
 }
 
+
+/* =========================
+   Logo
+========================= */
+
 .ribbon-seal{
-  position: absolute;
-  top: 20mm;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 26mm;
-  height: 26mm;
+
+    position:absolute;
+
+    top:65px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
 }
 
 .ribbon-seal-ring{
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: var(--paper);
-  border: 1.6pt solid var(--teal);
-  box-shadow: 0 0 0 2.2pt var(--paper), 0 0 0 3pt var(--mist);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 2px;
-}
 
-.ribbon-seal-ring::before{
-  content: "";
-  position: absolute;
-  width: 21mm;
-  height: 21mm;
-  border-radius: 50%;
-  border: 0.5pt dotted var(--teal);
+    width:185px;
+
+    height:185px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:4px solid var(--teal);
+
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+
 }
 
 .seal-word{
-  position: relative;
-  font-weight: 800;
-  font-size: 12.5pt;
-  color: var(--teal);
-  letter-spacing: .3px;
+
+    display:block;
+
+    text-align:center;
+
+    font-size:42px;
+
+    font-weight:900;
+
+    color:var(--teal);
+
 }
 
 .seal-sub{
-  position: relative;
-  font-size: 6.2pt;
-  font-weight: 600;
-  color: var(--navy);
-  max-width: 18mm;
-  line-height: 1.2;
-}
 
-/* =========================== CONTENT =========================== */
+    display:block;
+
+    margin-top:8px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    color:var(--navy);
+
+    font-weight:700;
+
+}
+/* =========================
+   Main Content
+========================= */
 
 .cert-content{
-  position: relative;
-  height: 100%;
-  margin-left: 34mm;
-  padding: 12mm 14mm 8mm 16mm;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+
+    position:relative;
+
+    height:100%;
+
+    margin-left:310px;
+
+    padding:70px 80px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+.cert-heading{
+
+    margin-top:10px;
+
 }
 
 .eyebrow{
-  margin: 0 0 2mm;
-  font-size: 10.5pt;
-  font-weight: 700;
-  color: var(--teal-deep);
-  letter-spacing: .5px;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:var(--teal);
+
+    margin-bottom:12px;
+
 }
 
 .cert-title{
-  margin: 0;
-  font-size: 33pt;
-  font-weight: 900;
-  color: var(--navy);
-  line-height: 1.15;
+
+    font-size:76px;
+
+    font-weight:900;
+
+    color:var(--teal);
+
+    line-height:1.15;
+
 }
 
 .divider{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin: 5mm auto 6mm;
-  width: 60mm;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:28px auto 40px;
+
 }
 
 .divider-line{
-  flex: 1;
-  height: 1.2pt;
-  background: var(--teal);
+
+    width:90px;
+
+    height:2px;
+
+    background:var(--teal);
+
 }
 
 .divider-dot{
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  flex-shrink: 0;
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
 }
 
 .cert-lead{
-  margin: 0 0 4mm;
-  font-size: 12.5pt;
-  color: var(--ink-soft);
-  font-weight: 500;
+
+    font-size:34px;
+
+    color:#555;
+
+    margin-bottom:40px;
+
 }
 
-.cert-lead strong{ color: var(--teal-deep); font-weight: 800; }
+.cert-lead strong{
+
+    color:var(--teal);
+
+}
 
 .student-block{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 6mm;
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    margin-bottom:40px;
+
 }
 
 .student-name{
-  margin: 0 0 3mm;
-  font-size: 30pt;
-  font-weight: 800;
-  color: var(--teal);
-  line-height: 1.2;
+
+    font-size:68px;
+
+    font-weight:900;
+
+    color:var(--teal);
+
+    line-height:1.2;
+
 }
 
 .student-underline{
-  width: 90mm;
-  max-width: 80%;
-  height: 0.6pt;
-  background: var(--mist);
+
+    width:72%;
+
+    margin-top:18px;
+
+    border-bottom:2px solid var(--teal);
+
 }
 
 .cert-body{
-  margin: 0 0 auto;
-  font-size: 13pt;
-  line-height: 1.9;
-  color: var(--ink);
-  font-weight: 500;
-  max-width: 200mm;
-}
 
-.cert-body strong{
-  color: var(--teal-deep);
-  font-weight: 800;
+    font-size:34px;
+
+    color:#444;
+
+    line-height:2;
+
+    margin-top:10px;
+
 }
 
 .program-name{
-  display: inline-block;
-  margin-top: 1mm;
-  font-size: 14.5pt;
-  font-weight: 700;
-  color: var(--navy);
-}
 
-/* =========================== FOOTER =========================== */
+    display:block;
 
-.cert-footer{
-  width: 100%;
-  max-width: 220mm;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: 8mm;
-}
+    margin-top:18px;
 
-.footer-col{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2mm;
-  flex: 1;
-}
+    font-size:48px;
 
-.footer-line{
-  width: 34mm;
-  height: 0.6pt;
-  background: var(--ink-soft);
-}
+    font-weight:900;
 
-.footer-label{
-  font-size: 9.5pt;
-  color: var(--ink-soft);
-  font-weight: 600;
-}
+    color:var(--teal);
 
-.signature-script{
-  font-family: "Segoe Script", "Brush Script MT", cursive;
-  font-size: 20pt;
-  color: var(--navy);
-  transform: rotate(-3deg);
-}
-
-.medal{
-  color: var(--gold);
-  width: 12mm;
-  height: 12mm;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  border: 1pt solid var(--gold);
-}
-
-.manager-col{ gap: 1mm; }
-
-.manager-title{
-  font-size: 9.5pt;
-  color: var(--ink-soft);
-  font-weight: 600;
-}
-
-.manager-name{
-  font-size: 13pt;
-  font-weight: 800;
-  color: var(--teal-deep);
-}
-
-.cert-tagline{
-  margin: 6mm 0 0;
-  font-size: 9.5pt;
-  color: var(--teal-deep);
-  font-weight: 600;
-  letter-spacing: .3px;
-}
-
-/* =========================== SCREEN SCALING =========================== */
-
-@media screen and (max-width: 1220px){
-  .cert-stage{ transform-origin: top center; }
-}
-
-/* =========================== PRINT =========================== */
-
-@page{
-  size: A4 landscape;
-  margin: 0;
-}
-
-@media print{
-  .no-print{ display: none !important; }
-
-  html, body{
-    background: #fff;
-    margin: 0;
-    padding: 0;
-  }
-
-  .cert-stage{
-    padding: 0;
-    display: block;
-  }
-
-  .certificate{
-    width: 297mm;
-    height: 210mm;
-    box-shadow: none;
-    margin: 0;
-    page-break-after: avoid;
-  }
 }
