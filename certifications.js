@@ -1,47 +1,72 @@
-// ==========================================
-// TDrive | Certifications
-// ==========================================
+// =========================================================
+// TDrive — Certificate Generator
+// Handles live preview binding + print trigger
+// =========================================================
 
-// تاريخ اليوم
-const dateInput = document.getElementById("date");
+(function () {
+  "use strict";
 
-dateInput.value = new Date().toISOString().split("T")[0];
+  const arabicMonths = [
+    "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو",
+    "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
+  ];
 
-// تحديث بيانات الشهادة
-function updateCertificate() {
+  // ---- element references ----
+  const studentNameInput = document.getElementById("studentName");
+  const programNameInput = document.getElementById("programName");
+  const hoursInput = document.getElementById("hoursCount");
+  const dateInput = document.getElementById("issueDate");
+  const printBtn = document.getElementById("printBtn");
 
-    document.getElementById("studentName").textContent =
-        document.getElementById("name").value || "فلانة الفلاني";
+  const outName = document.getElementById("outName");
+  const outProgram = document.getElementById("outProgram");
+  const outHours = document.getElementById("outHours");
+  const outDate = document.getElementById("outDate");
 
-    document.getElementById("programName").textContent =
-        document.getElementById("program").value;
+  // ---- helpers ----
+  function formatArabicDate(dateValue) {
+    if (!dateValue) return "";
+    const parts = dateValue.split("-"); // YYYY-MM-DD
+    if (parts.length !== 3) return dateValue;
 
-    document.getElementById("certificateDate").textContent =
-        document.getElementById("date").value;
+    const year = parseInt(parts[0], 10);
+    const monthIndex = parseInt(parts[1], 10) - 1;
+    const day = parseInt(parts[2], 10);
 
-}
+    const monthName = arabicMonths[monthIndex] || "";
+    return `${day} ${monthName} ${year}`;
+  }
 
-// مراقبة التغييرات
-document.getElementById("name")
-.addEventListener("input", updateCertificate);
+  function updatePreview() {
+    const name = studentNameInput.value.trim();
+    const program = programNameInput.value.trim();
+    const hours = hoursInput.value.trim();
+    const dateFormatted = formatArabicDate(dateInput.value);
 
-document.getElementById("program")
-.addEventListener("change", updateCertificate);
+    outName.textContent = name || "فلانه الفلاني";
+    outProgram.textContent = program || "برنامج احتراف القيادة على الطريق";
+    outHours.textContent = hours || "5";
+    outDate.textContent = dateFormatted || "26 مايو 2024";
+  }
 
-document.getElementById("date")
-.addEventListener("change", updateCertificate);
+  function setDefaultDateToToday() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    dateInput.value = `${yyyy}-${mm}-${dd}`;
+  }
 
-// تشغيل أول مرة
-updateCertificate();
+  // ---- wire up events ----
+  [studentNameInput, programNameInput, hoursInput, dateInput].forEach((el) => {
+    el.addEventListener("input", updatePreview);
+  });
 
-// ==========================================
-// طباعة الشهادة
-// ==========================================
-
-function printCertificate(){
-
-    updateCertificate();
-
+  printBtn.addEventListener("click", () => {
     window.print();
+  });
 
-}
+  // ---- init ----
+  setDefaultDateToToday();
+  updatePreview();
+})();
