@@ -204,21 +204,22 @@ body{
     
 .logo-circle{
 
-    width:120px;
-    height:120px;
+    width:180px;
+    height:180px;
 
-    margin:60px auto 0;
+    margin:45px auto 0;
 
     background:#fff;
 
     border-radius:50%;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
-    box-shadow:0 8px 18px rgba(0,0,0,.08);
+    border:4px solid #28a8bb;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
 
     overflow:hidden;
 
@@ -226,13 +227,12 @@ body{
 
 .logo-circle img{
 
-    width:105px;
-    height:105px;
+    width:165px;
+    height:165px;
 
     object-fit:contain;
 
 }
-
 
 .content{
 
