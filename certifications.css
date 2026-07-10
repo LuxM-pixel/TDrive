@@ -177,22 +177,22 @@ body{
 
     position:absolute;
 
-    left:55px;
+    left:40px;
 
     top:0;
 
-    width:185px;          /* كان 140 */
+    width:230px;
 
-    height:128mm;         /* نهاية السهم عند اسم البرنامج تقريباً */
+    height:120mm;
 
-    background:#d9eef2;   /* لون واحد */
+    background:#d9eef2;
 
     clip-path:polygon(
         0 0,
         100% 0,
-        100% 80%,
+        100% 82%,
         50% 100%,
-        0 80%
+        0 82%
     );
 
     display:flex;
@@ -254,7 +254,7 @@ body{
 
     top:35px;
 
-    left:285px;
+    left:320px;
 
     right:45px;
 
@@ -486,21 +486,25 @@ body{
 
 @media print{
 
+@page{
+    size:A4 landscape;
+    margin:0;
+}
+
 html,
 body{
 
     width:297mm;
-
     height:210mm;
 
-    margin:0;
+    margin:0 !important;
+    padding:0 !important;
 
-    padding:0;
+    overflow:hidden;
 
     background:#fff !important;
 
     -webkit-print-color-adjust:exact;
-
     print-color-adjust:exact;
 
 }
@@ -513,14 +517,15 @@ body{
 
 .preview-container{
 
-    margin:0;
+    margin:0 !important;
+    padding:0 !important;
 
-    padding:0;
+    width:297mm;
+    height:210mm;
 
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
 }
@@ -528,10 +533,15 @@ body{
 .certificate{
 
     width:297mm;
-
     height:210mm;
 
+    margin:0 !important;
+
     box-shadow:none;
+
+    page-break-after:avoid;
+    page-break-before:avoid;
+    page-break-inside:avoid;
 
 }
 
