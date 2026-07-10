@@ -4,14 +4,25 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>TDrive | الشهادات</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
 
-    <link rel="stylesheet" href="certifications.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="certifications.css">
+
 </head>
 
 <body>
@@ -20,29 +31,50 @@
 
     <!-- لوحة التحكم -->
 
-    <div class="toolbar">
+    <section class="toolbar">
 
-        <h1>إصدار شهادة</h1>
+        <h1>
+
+            إصدار شهادة
+
+        </h1>
 
         <div class="row">
 
-            <label>اسم المتدربة</label>
+            <label>
+
+                اسم المتدربة
+
+            </label>
 
             <input
-                type="text"
                 id="name"
+                type="text"
                 placeholder="اكتبي اسم المتدربة">
 
         </div>
 
         <div class="row">
 
-            <label>اسم البرنامج</label>
+            <label>
+
+                اسم البرنامج
+
+            </label>
 
             <select id="program">
 
-                <option>احترفِ القيادة على الطريق</option>
-                <option>الكابتن المحترف</option>
+                <option>
+
+                    احترفِ القيادة على الطريق
+
+                </option>
+
+                <option>
+
+                    الكابتن المحترف
+
+                </option>
 
             </select>
 
@@ -50,177 +82,77 @@
 
         <div class="row">
 
-            <label>التاريخ</label>
+            <label>
+
+                التاريخ
+
+            </label>
 
             <input
-                type="date"
-                id="date">
+                id="date"
+                type="date">
 
         </div>
 
-        <button onclick="printCertificate()">
+        <button
+            onclick="printCertificate()">
 
             🖨️ طباعة الشهادة
 
         </button>
 
-    </div>
+    </section>
+        <!-- الشهادة -->
 
-    <!-- الشهادة -->
+    <section
+        class="certificate"
+        id="certificate">
 
-    <div class="certificate" id="certificate">
+        <div class="certificate-pattern"></div>
 
-    <!-- الإطار -->
+        <div class="left-banner">
 
-    <div class="certificate-border"></div>
+            <div class="logo-circle">
 
-    <!-- الزخرفة -->
+                <div class="logo-inner">
 
-    <div class="certificate-pattern"></div>
+                    <div class="logo-text">
 
-    <!-- الشريط -->
+                        <span class="logo-t">
 
-    <div class="left-banner">
+                            TDrive
 
-        <div class="logo-circle">
+                        </span>
 
-            <div class="logo-inner">
+                        <span class="logo-ar">
 
-                <div class="logo-title">
+                            تكنولوجيا القيادة
 
-                    TDrive
+                        </span>
 
-                </div>
-
-                <div class="logo-subtitle">
-
-                    تكنولوجيا القيادة
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- المحتوى -->
-
-    <div class="content">
-
-        <h1 class="title">
-
-            شهادة إتمام دورة
-
-        </h1>
-
-        <div class="title-decoration">
-
-            ───── ● ─────
-
-        </div>
-
-        <div class="certificate-intro">
-
-            تشهد
-
-            <span class="brand-name">
-
-                TDrive
-
-            </span>
-
-            أنكِ المتدربة
-
-        </div>
-
-        <div id="studentName">
-
-            فلانة الفلاني
-
-        </div>
-
-        <div class="name-line"></div>
-
-        <div class="certificate-text">
-
-            قد أكملت 5 ساعات تدريب في
-
-        </div>
-
-        <div id="programName">
-
-            احترف القيادة على الطريق
-
-        </div>
-
-        <div class="certificate-footer">
-
-            <div class="signature">
-
-                <div class="signature-line"></div>
-
-                <div class="footer-title">
-
-                    التوقيع
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="center-footer">
-
-                🏅
-
-                <div id="certificateDate"></div>
-
-                <div class="footer-title">
-
-                    التاريخ
-
-                </div>
-
-            </div>
-
-            <div class="manager">
-
-                <div class="footer-title">
-
-                    مدير TDrive
-
-                </div>
-
-                <div class="manager-name">
-
-                    منى حمود
-
-                </div>
-
-            </div>
-
         </div>
 
-        <div class="footer-slogan">
+        <div class="certificate-content">
 
-            تعلم قد بأمان، وصلك سيارتك بثقة
-
-        </div>
-
-    </div>
-
-</div>
-
-        </div>
-
-        <div class="content">
-
-            <h2 class="title">
+            <h2 class="certificate-title">
 
                 شهادة إتمام دورة
 
             </h2>
 
-            <div class="certificate-intro">
+            <div class="title-divider">
+
+                ───── ● ─────
+
+            </div>
+
+            <p class="certificate-intro">
 
                 تشهد
 
@@ -232,37 +164,75 @@
 
                 بأن المتدربة
 
-            </div>
+            </p>
 
-            <div id="studentName">
+            <div
+                id="studentName"
+                class="student-name">
 
-            </div>
-
-            <div class="name-line"></div>
-                        <div class="certificate-text">
-
-                قد أتمت برنامج
+                فلانة الفلاني
 
             </div>
 
-            <div id="programName">
+            <div class="student-line"></div>
 
-                احترفِ القيادة على الطريق
+            <p class="certificate-text">
 
-            </div>
+                قد أكملت 5 ساعات تدريب في
 
-            <div class="certificate-message">
+            </p>
 
-                ونتمنى لها دوام التوفيق والنجاح
-                <br>
-    
-                في مسيرتها المهنية.
+         <div
+    id="programName"
+    class="program-name">
 
-            </div>
+    احترف القيادة على الطريق
 
-            <!-- التذييل -->
+</div>
 
-            <div class="certificate-footer">
+                           <div class="certificate-footer">
+
+                <div class="signature-section">
+
+                    <div class="signature-image">
+
+                        ✍️
+
+                    </div>
+
+                    <div class="signature-line"></div>
+
+                    <div class="signature-title">
+
+                        التوقيع
+
+                    </div>
+
+                </div>
+
+                <div class="date-section">
+
+                    <div class="badge">
+
+                        ★
+
+                    </div>
+
+                    <div
+                        id="certificateDate"
+                        class="certificate-date">
+
+                        26 مايو 2024
+
+                    </div>
+
+                    <div class="date-title">
+
+                        التاريخ
+
+                    </div>
+
+                </div>
 
                 <div class="manager-section">
 
@@ -280,37 +250,22 @@
 
                 </div>
 
-                <div class="certificate-badge">
+            </div>
 
-                    🏅
+            <div class="footer-slogan">
 
-                </div>
-
-                <div class="date-section">
-
-                    <div class="date-title">
-
-                        تاريخ الإصدار
-
-                    </div>
-
-                    <div id="certificateDate">
-
-                        09 / 07 / 2026
-
-                    </div>
-
-                </div>
+                تعلم قد بأمان، وصلك سيارتك بثقة
 
             </div>
 
         </div>
 
-    </div>
-    </div>
+    </section>
+
+</div>
 
 <script src="certifications.js"></script>
 
 </body>
 
-</html>
+</html> 
