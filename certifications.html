@@ -1,270 +1,247 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شهادة إتمام دورة - TDrive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="style.css">
 
-    <style>
-        :root {
-            --primary-teal: #196472;
-            --light-teal: #b4d4db;
-            --dark-text: #134650;
-            --border-color: #196472;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-        }
+<title>TDrive | الشهادات</title>
 
-        body {
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* Certificate Container (A4 Landscape ratio) */
-        .certificate {
-            background-color: #ffffff;
-            width: 1000px;
-            height: 700px;
-            position: relative;
-            border: 15px solid #ffffff;
-            outline: 2px solid var(--border-color);
-            outline-offset: -10px;
-            display: flex;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        /* Corner Decorative Ornaments */
-        .certificate::before, .certificate::after {
-            content: '';
-            position: absolute;
-            width: 25px;
-            height: 25px;
-            border: 2px solid var(--border-color);
-            z-index: 10;
-        }
-        .certificate::before { top: 10px; right: 10px; border-left: none; border-bottom: none; }
-        .certificate::after { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+<link rel="stylesheet" href="style.css">
 
-        /* Left Side Ribbon */
-        .sidebar {
-            width: 22%;
-            background-color: var(--light-teal);
-            height: 85%;
-            position: relative;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 50% 100%, 0% 85%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 100px;
-            margin-right: 40px;
-        }
-
-        /* Logo Badge inside Sidebar */
-        .logo-badge {
-            background-color: #ffffff;
-            border: 2px dashed var(--primary-teal);
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-
-        .logo-badge h2 {
-            color: var(--primary-teal);
-            font-size: 24px;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .logo-badge p {
-            color: var(--primary-teal);
-            font-size: 10px;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-        /* Main Content Area */
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 60px 40px 40px 40px;
-            text-align: center;
-        }
-
-        .main-title {
-            color: var(--primary-teal);
-            font-size: 55px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .divider-line {
-            width: 120px;
-            height: 2px;
-            background-color: var(--primary-teal);
-            position: relative;
-            margin-bottom: 25px;
-        }
-        .divider-line::after {
-            content: '♦';
-            position: absolute;
-            color: var(--primary-teal);
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #fff;
-            padding: 0 5px;
-        }
-
-        .intro-text {
-            font-size: 20px;
-            color: var(--dark-text);
-            margin-bottom: 20px;
-        }
-
-        .student-name {
-            font-size: 48px;
-            color: var(--primary-teal);
-            font-weight: 700;
-            width: 80%;
-            border-bottom: 2px dotted var(--primary-teal);
-            padding-bottom: 5px;
-            margin-bottom: 25px;
-        }
-
-        .course-details {
-            font-size: 18px;
-            color: var(--dark-text);
-            line-height: 1.6;
-        }
-
-        /* Footer / Signatures Grid */
-        .footer-signatures {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            align-items: flex-end;
-            margin-top: 40px;
-        }
-
-        .sig-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 14px;
-            color: var(--dark-text);
-        }
-
-        .sig-line {
-            width: 140px;
-            border-top: 1px solid var(--dark-text);
-            margin-top: 5px;
-            padding-top: 5px;
-            text-align: center;
-        }
-
-        /* Center Badge Design */
-        .center-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-left: 1px solid var(--light-teal);
-            border-right: 1px solid var(--light-teal);
-            padding: 0 20px;
-        }
-
-        .star-icon {
-            font-size: 24px;
-            color: var(--primary-teal);
-            margin-bottom: 5px;
-        }
-
-        /* Bottom Slogan */
-        .bottom-slogan {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 13px;
-            color: var(--primary-teal);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .bottom-slogan::before, .bottom-slogan::after {
-            content: '';
-            width: 40px;
-            height: 1px;
-            background-color: var(--primary-teal);
-            display: inline-block;
-        }
-    </style>
 </head>
+
 <body>
 
-    <div class="certificate">
-        <div class="sidebar">
-            <div class="logo-badge">
-                <h2>TDrive</h2>
-                <p>تكنولوجيا القيادة</p>
-            </div>
-        </div>
+<!-- لوحة التحكم -->
 
-        <div class="content">
-            <div>
-                <h1 class="main-title">شهادة إتمام دورة</h1>
-                <div class="divider-line"></div>
-                <p class="intro-text">تشهد <strong>TDrive</strong> أن المتدربة</p>
-                
-                <div class="student-name">فلانه الفلاني</div>
-                
-                <p class="course-details">
-                    قد أكملت 5 ساعات تدريب في <br>
-                    <strong>برنامج احتراف القيادة على الطريق</strong>
-                </p>
-            </div>
+<aside class="editor-sidebar">
 
-            <div class="footer-signatures">
-                <div class="sig-block">
-                    <span>مدير TDrive</span>
-                    <span style="font-weight: bold; margin-top: 5px;">منى حمود</span>
-                </div>
+<h2>بيانات الشهادة</h2>
 
-                <div class="center-badge">
-                    <div class="star-icon">✪</div>
-                    <span style="font-weight: bold;">26 مايو 2024</span>
-                    <span style="font-size: 12px; color: gray;">التاريخ</span>
-                </div>
+<div class="input-group">
+<label>اسم المتدربة</label>
+<input id="studentInput" value="فلانه الفلاني">
+</div>
 
-                <div class="sig-block">
-                    <span style="font-family: 'Cairo'; font-style: italic; color: #555;">Mona H.</span>
-                    <div class="sig-line">التوقيع</div>
-                </div>
-            </div>
-        </div>
+<div class="input-group">
+<label>اسم الدورة</label>
+<input id="programInput" value="برنامج احتراف القيادة على الطريق">
+</div>
 
-        <div class="bottom-slogan">تعلم قُد بأمان، وصل لسيارتك بثقة</div>
-    </div>
+<div class="input-group">
+<label>عدد الساعات</label>
+<input id="hoursInput" value="5">
+</div>
+
+<div class="input-group">
+<label>التاريخ</label>
+<input id="dateInput" value="26 مايو 2024">
+</div>
+
+<button id="printBtn" class="btn-download">
+طباعة الشهادة
+</button>
+
+</aside>
+
+<!-- منطقة المعاينة -->
+
+<div class="preview-container">
+
+<div class="certificate-canvas">
+
+<!-- الإطار -->
+
+<div class="corner-border top-left"></div>
+<div class="corner-border top-right"></div>
+<div class="corner-border bottom-left"></div>
+<div class="corner-border bottom-right"></div>
+
+<!-- الشريط -->
+
+<div class="left-ribbon">
+
+<div class="ribbon-circle">
+
+<div class="logo-title">TDrive</div>
+
+<div class="logo-sub">
+تكنولوجيا القيادة
+</div>
+
+</div>
+
+</div>
+
+<!-- المحتوى -->
+
+<div class="main-content">
+
+<h1 class="cert-title">
+شهادة إتمام دورة
+</h1>
+
+<div class="title-divider">
+
+<div class="line-left"></div>
+
+<div class="center-dot"></div>
+
+<div class="line-right"></div>
+
+</div>
+
+<p class="cert-witness">
+
+تشهد
+
+<span class="brand-text">
+TDrive
+</span>
+
+بأن المتدربة
+
+</p>
+
+<div class="diamond-divider">
+◆
+</div>
+
+<h2 id="studentName" class="student-name">
+
+فلانه الفلاني
+
+</h2>
+
+<div class="details-block">
+
+<p class="cert-details">
+
+قد أكملت
+
+<span id="hoursValue">
+
+5
+
+</span>
+
+ساعات تدريب في
+
+</p>
+
+<p id="programName" class="program-name">
+
+برنامج احتراف القيادة على الطريق
+
+</p>
+
+</div>
+
+<!-- الفوتر -->
+
+<div class="cert-footer">
+
+<!-- المدير -->
+
+<div class="footer-col">
+
+<div class="manager-title">
+
+مدير TDrive
+
+</div>
+
+<div class="manager-name">
+
+منى حمود
+
+</div>
+
+</div>
+
+<!-- التاريخ -->
+
+<div class="footer-col seal-col">
+
+<div class="seal-wrap">
+
+<div class="inner-seal">
+
+★
+
+</div>
+
+</div>
+
+<div id="dateValue" class="date-val">
+
+26 مايو 2024
+
+</div>
+
+<div class="col-label">
+
+التاريخ
+
+</div>
+
+</div>
+
+<!-- التوقيع -->
+
+<div class="footer-col">
+
+<div class="signature-wrap">
+
+<span class="signature-mock">
+
+Anna clae
+
+</span>
+
+</div>
+
+<div class="col-label">
+
+التوقيع
+
+</div>
+
+</div>
+
+</div>
+
+<!-- الشعار السفلي -->
+
+<div class="bottom-motto">
+
+<div class="motto-line"></div>
+
+<div class="motto-text">
+
+تعلم قد بأمان، وصلك سيارتك بثقة
+
+</div>
+
+<div class="motto-line"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
