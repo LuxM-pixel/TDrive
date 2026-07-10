@@ -1,136 +1,127 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مولّد شهادات TDrive</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="certifications.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مُنشئ شهادات TDrive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="certifications.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
-  <!-- ============ TOOLBAR (hidden on print) ============ -->
-  <div class="toolbar no-print">
-    <div class="toolbar-inner">
-      <div class="toolbar-brand">
-        <div class="toolbar-logo">TD</div>
-        <div>
-          <h1>مولّد شهادات TDrive</h1>
-          <p>أدخل بيانات المتدربة ثم اطبع الشهادة</p>
+    <div class="editor-sidebar" id="editorSidebar">
+        <h2>لوحة التحكم بالشهادة</h2>
+        <div class="input-group">
+            <label for="inputName">اسم المتدربة:</label>
+            <input type="text" id="inputName" value="فلانه الفلاني" placeholder="أدخل اسم المتدربة">
         </div>
-      </div>
-
-      <div class="toolbar-fields">
-        <label class="field">
-          <span>اسم المتدربة</span>
-          <input type="text" id="studentName" placeholder="مثال: سارة العتيبي" value="فلانه الفلاني">
-        </label>
-
-        <label class="field">
-          <span>اسم البرنامج</span>
-          <input type="text" id="programName" placeholder="مثال: برنامج احتراف القيادة على الطريق" value="برنامج احتراف القيادة على الطريق">
-        </label>
-
-        <label class="field">
-          <span>عدد ساعات التدريب</span>
-          <input type="text" id="hoursCount" placeholder="مثال: 5" value="5">
-        </label>
-
-        <label class="field">
-          <span>تاريخ الإصدار</span>
-          <input type="date" id="issueDate">
-        </label>
-
-        <button class="btn-print" id="printBtn">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          طباعة الشهادة
-        </button>
-      </div>
+        <div class="input-group">
+            <label for="inputHours">عدد الساعات:</label>
+            <input type="number" id="inputHours" value="5" placeholder="أدخل عدد الساعات">
+        </div>
+        <div class="input-group">
+            <label for="inputProgram">اسم البرنامج:</label>
+            <input type="text" id="inputProgram" value="برنامج احتراف القيادة على الطريق" placeholder="أدخل اسم البرنامج">
+        </div>
+        <div class="input-group">
+            <label for="inputDate">التاريخ:</label>
+            <input type="text" id="inputDate" value="26 مايو 2024" placeholder="أدخل التاريخ">
+        </div>
+        <div class="input-group">
+            <label for="inputManager">مدير TDrive:</label>
+            <input type="text" id="inputManager" value="منى حمود" placeholder="أدخل اسم المدير">
+        </div>
+        <button id="downloadBtn" class="btn-download">تحميل الشهادة (PDF)</button>
     </div>
-  </div>
 
-  <!-- ============ CERTIFICATE (printed) ============ -->
-  <div class="cert-stage">
-    <div class="certificate" id="certificate">
+    <div class="preview-container">
+        <div id="certificate" class="certificate-canvas">
+            
+            <div class="corner-border top-left"></div>
+            <div class="corner-border top-right"></div>
+            <div class="corner-border bottom-left"></div>
+            <div class="corner-border bottom-right"></div>
 
-      <div class="cert-border-outer">
-        <div class="cert-border-inner">
-
-          <!-- corner ornaments -->
-          <span class="corner corner-tl"></span>
-          <span class="corner corner-tr"></span>
-          <span class="corner corner-bl"></span>
-          <span class="corner corner-br"></span>
-
-          <!-- left ribbon -->
-          <div class="ribbon">
-            <div class="ribbon-tail"></div>
-            <div class="ribbon-seal">
-              <div class="ribbon-seal-ring">
-                <span class="seal-word">TDrive</span>
-                <span class="seal-sub">تكنولوجيا القيادة</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- main content -->
-          <div class="cert-content">
-
-            <div class="cert-heading">
-              <p class="eyebrow">مؤسسة تكنولوجيا القيادة</p>
-              <h1 class="cert-title">شهادة إتمام دورة</h1>
-              <div class="divider"><span class="divider-line"></span><span class="divider-dot"></span><span class="divider-line"></span></div>
-            </div>
-
-            <p class="cert-lead">تشهد <strong>TDrive</strong> أنّ المتدربة</p>
-
-            <div class="student-block">
-              <h2 class="student-name" id="outName">اسم المتدربة  </h2>
-              <span class="student-underline"></span>
-            </div>
-
-            <p class="cert-body">
-              قد أتمّت بنجاح <strong id="outHours">5</strong> ساعات تدريب ضمن
-              <br>
-              <span class="program-name" id="outProgram">برنامج احتراف القيادة على الطريق</span>
-            </p>
-
-            <div class="cert-footer">
-              <div class="footer-col signature-col">
-                <span class="signature-script"> </span>
-                <span class="footer-line"></span>
-                <span class="footer-label">التوقيع</span>
-              </div>
-
-              <div class="footer-col medal-col">
-                <div class="medal">
-                  <svg viewBox="0 0 48 48" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="24" cy="18" r="12"/>
-                    <path d="M17 28 L14 42 L24 36 L34 42 L31 28"/>
-                    <path d="M24 12 L26 16.5 L31 17 L27.3 20.2 L28.3 25 L24 22.5 L19.7 25 L20.7 20.2 L17 17 L22 16.5 Z" fill="currentColor" stroke="none"/>
-                  </svg>
+            <div class="left-panel">
+                <div class="badge-container">
+                    <div class="badge-circle">
+                        <div class="badge-title">TDrive</div>
+                        <div class="badge-subtitle">تكنولوجيا القيادة</div>
+                        <div class="badge-decoration">
+                            <span class="dot"></span>
+                            <span class="line"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
                 </div>
-                <span class="footer-line"></span>
-                <span class="footer-label" id="outDate">26 مايو 2024</span>
-              </div>
-
-              <div class="footer-col manager-col">
-                <span class="manager-title">مديرة TDrive</span>
-                <span class="manager-name">منى حمود</span>
-              </div>
             </div>
 
-            <p class="cert-tagline">تعلّم قد بأمان، وصلك سيارتك بثقة</p>
+            <div class="main-content">
+                
+                <h1 class="cert-title">شهادة إتمام دورة</h1>
+                
+                <div class="title-divider">
+                    <span class="line-left"></span>
+                    <span class="center-dot"></span>
+                    <span class="line-right"></span>
+                </div>
 
-          </div>
+                <p class="cert-witness">تشهد <span class="brand-text">TDrive</span> بأن المتدربة</p>
+
+                <div class="diamond-divider">♦</div>
+
+                <h2 class="student-name" id="certName">فلانه الفلاني</h2>
+
+                <div class="details-block">
+                    <p class="cert-details">
+                        قد أكملت <span id="certHours">5</span> ساعات تدريب في
+                    </p>
+                    <p class="program-name" id="certProgram">برنامج احتراف القيادة على الطريق</p>
+                </div>
+
+                <div class="cert-footer">
+                    
+                    <div class="footer-col signature-col">
+                        <div class="signature-wrap">
+                            <span class="signature-mock">Amna clae</span>
+                        </div>
+                        <div class="col-label">التوقيع</div>
+                    </div>
+
+                    <div class="footer-col seal-col">
+                        <div class="divider-vertical"></div>
+                        <div class="seal-wrap">
+                            <div class="inner-seal">
+                                <span class="star">★</span>
+                                <div class="laurel-wreath"></div>
+                            </div>
+                        </div>
+                        <div class="date-val" id="certDate">26 مايو 2024</div>
+                        <div class="col-label">التاريخ</div>
+                        <div class="divider-vertical"></div>
+                    </div>
+
+                    <div class="footer-col manager-col">
+                        <div class="manager-title">مديرة TDrive</div>
+                        <div class="manager-name" id="certManager">منى حمود</div>
+                    </div>
+
+                </div>
+
+                <div class="bottom-motto">
+                    <span class="motto-line"></span>
+                    <span class="motto-text">تعلم قد بأمان، وصلك سيارتك بثقة</span>
+                    <span class="motto-line"></span>
+                </div>
+
+            </div>
 
         </div>
-      </div>
     </div>
-  </div>
 
-<script src="certifications.js"></script>
+    <script src="certifications.js"></script>
 </body>
 </html>
