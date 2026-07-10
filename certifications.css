@@ -172,9 +172,11 @@ button:hover{
 
 .certificate{
 
-    width:1123px;
+    width:100%;
 
-    height:794px;
+    max-width:1400px;
+
+    min-height:990px;
 
     margin:auto;
 
