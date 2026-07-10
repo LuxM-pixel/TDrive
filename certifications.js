@@ -37,41 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
         certManager.textContent = e.target.value || 'منى حمود';
     });
 
-    // --- 3. Robust iOS Safari A4 Landscape PDF Generation ---
-    downloadBtn.addEventListener('click', () => {
-        // Change button state temporarily to show progress
-        const originalBtnText = downloadBtn.textContent;
-        downloadBtn.textContent = 'جاري إعداد الملف...';
-        downloadBtn.disabled = true;
-
-        // Custom config tailored to override mobile Safari viewport restrictions
-        const options = {
-            margin:       0,
-            filename:     `certificate-${inputName.value.trim() || 'tdrive'}.pdf`,
-            image:        { type: 'jpeg', quality: 1.0 },
-            html2canvas:  { 
-                scale: 2,            // Increases resolution quality
-                useCORS: true,        // Handles potential loaded font/asset glitches
-                logging: false,
-                scrollX: 0,
-                scrollY: 0
-            },
-            jsPDF: { 
-                unit: 'mm', 
-                format: 'a4', 
-                orientation: 'landscape' // Explicitly hardcodes the landscape orientation
-            }
-        };
-
-        // Render target element directly to a true landscape PDF binary blob
-        html2pdf().set(options).from(certificate).save().then(() => {
-            // Restore button properties once complete
-            downloadBtn.textContent = originalBtnText;
-            downloadBtn.disabled = false;
-        }).catch((err) => {
-            console.error('PDF Generation error:', err);
-            downloadBtn.textContent = originalBtnText;
-            downloadBtn.disabled = false;
-        });
-    });
+// --- Print Certificate ---
+downloadBtn.addEventListener("click", () => {
+    window.print();
 });
+    });
