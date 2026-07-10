@@ -205,48 +205,34 @@ body{
 .logo-circle{
 
     width:120px;
-
     height:120px;
+
+    margin:60px auto 0;
 
     background:#fff;
 
     border-radius:50%;
 
-    margin:60px auto 0;
-
     display:flex;
 
-    flex-direction:column;
-
     justify-content:center;
-
     align-items:center;
-
-    border:3px solid var(--primary);
 
     box-shadow:0 8px 18px rgba(0,0,0,.08);
 
-}
-
-.logo-circle h2{
-
-    color:var(--primary);
-
-    font-size:32px;
-
-    line-height:1;
+    overflow:hidden;
 
 }
 
-.logo-circle span{
+.logo-circle img{
 
-    color:var(--primary-dark);
+    width:105px;
+    height:105px;
 
-    font-size:12px;
-
-    font-weight:700;
+    object-fit:contain;
 
 }
+
 
 .content{
 
