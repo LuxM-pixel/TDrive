@@ -2,88 +2,46 @@
 // TDrive | Certifications
 // ==========================================
 
-// تعيين تاريخ اليوم
+// تاريخ اليوم
 const dateInput = document.getElementById("date");
+
 dateInput.value = new Date().toISOString().split("T")[0];
 
 // تحديث بيانات الشهادة
 function updateCertificate() {
 
-    const name =
-        document.getElementById("name").value.trim() || "فلانة الفلاني";
+    document.getElementById("studentName").textContent =
+        document.getElementById("name").value || "فلانة الفلاني";
 
-    const program =
+    document.getElementById("programName").textContent =
         document.getElementById("program").value;
 
-    const date =
+    document.getElementById("certificateDate").textContent =
         document.getElementById("date").value;
-
-    document.getElementById("studentName").textContent = name;
-    document.getElementById("programName").textContent = program;
-    document.getElementById("certificateDate").textContent = date;
 
 }
 
 // مراقبة التغييرات
 document.getElementById("name")
-    .addEventListener("input", updateCertificate);
+.addEventListener("input", updateCertificate);
 
 document.getElementById("program")
-    .addEventListener("change", updateCertificate);
+.addEventListener("change", updateCertificate);
 
 document.getElementById("date")
-    .addEventListener("change", updateCertificate);
+.addEventListener("change", updateCertificate);
 
-// تشغيل أولي
+// تشغيل أول مرة
 updateCertificate();
 
-
 // ==========================================
-// طباعة الشهادة PDF
+// طباعة الشهادة
 // ==========================================
 
-function printCertificate() {
+function printCertificate(){
 
     updateCertificate();
 
-    const certificate =
-        document.getElementById("certificate");
-
-    const options = {
-
-        margin: 0,
-
-        filename: "TDrive-Certificate.pdf",
-
-        image: {
-            type: "jpeg",
-            quality: 1
-        },
-
-        html2canvas: {
-            scale: 3,
-            useCORS: true
-        },
-
-        jsPDF: {
-            unit: "mm",
-            format: "a4",
-            orientation: "landscape"
-        }
-
-    };
-
-    if (typeof html2pdf === "undefined") {
-
-        alert("مكتبة html2pdf غير محملة.");
-
-        return;
-
-    }
-
-    html2pdf()
-        .set(options)
-        .from(certificate)
-        .save();
+    window.print();
 
 }
