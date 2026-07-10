@@ -2,63 +2,52 @@
 // TDrive | Certifications
 // ==========================================
 
-
-// تعيين تاريخ اليوم تلقائياً
-
-document.getElementById("date").value =
-new Date().toISOString().split("T")[0];
-
+// تعيين تاريخ اليوم
+const dateInput = document.getElementById("date");
+dateInput.value = new Date().toISOString().split("T")[0];
 
 // تحديث بيانات الشهادة
-
-function updateCertificate(){
+function updateCertificate() {
 
     const name =
-    document.getElementById("name").value || "فلانة الفلاني";
+        document.getElementById("name").value.trim() || "فلانة الفلاني";
 
     const program =
-    document.getElementById("program").value;
+        document.getElementById("program").value;
 
     const date =
-    document.getElementById("date").value;
+        document.getElementById("date").value;
 
-    document.getElementById("studentName").textContent =
-    name;
-
-    document.getElementById("programName").textContent =
-    program;
-
-    document.getElementById("certificateDate").textContent =
-    date;
+    document.getElementById("studentName").textContent = name;
+    document.getElementById("programName").textContent = program;
+    document.getElementById("certificateDate").textContent = date;
 
 }
 
-
 // مراقبة التغييرات
-
 document.getElementById("name")
-.addEventListener("input", updateCertificate);
+    .addEventListener("input", updateCertificate);
 
 document.getElementById("program")
-.addEventListener("change", updateCertificate);
+    .addEventListener("change", updateCertificate);
 
 document.getElementById("date")
-.addEventListener("change", updateCertificate);
-
+    .addEventListener("change", updateCertificate);
 
 // تشغيل أولي
-
 updateCertificate();
+
+
 // ==========================================
-// طباعة الشهادة
+// طباعة الشهادة PDF
 // ==========================================
 
-function printCertificate(){
+function printCertificate() {
 
-    // تحديث البيانات أولاً
     updateCertificate();
 
-    const certificate = document.getElementById("certificate");
+    const certificate =
+        document.getElementById("certificate");
 
     const options = {
 
@@ -83,6 +72,14 @@ function printCertificate(){
         }
 
     };
+
+    if (typeof html2pdf === "undefined") {
+
+        alert("مكتبة html2pdf غير محملة.");
+
+        return;
+
+    }
 
     html2pdf()
         .set(options)
