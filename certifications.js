@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    alert("JS Loaded");
     // --- 1. DOM Elements Selection ---
     const inputName = document.getElementById('inputName');
     const inputHours = document.getElementById('inputHours');
