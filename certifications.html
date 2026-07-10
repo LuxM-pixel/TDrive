@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TDrive | الشهادات</title>
+<title>إصدار شهادة | TDrive</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,22 +27,27 @@
 
 <div class="input-group">
 <label>اسم المتدربة</label>
-<input id="studentInput" value="فلانه الفلاني">
+<input id="studentInput" type="text" value="فلانة الفلاني">
 </div>
 
 <div class="input-group">
-<label>اسم الدورة</label>
-<input id="programInput" value="برنامج احتراف القيادة على الطريق">
+<label>اسم البرنامج</label>
+<input id="programInput" type="text" value="برنامج احتراف القيادة على الطريق">
 </div>
 
 <div class="input-group">
 <label>عدد الساعات</label>
-<input id="hoursInput" value="5">
+<input id="hoursInput" type="number" value="5">
 </div>
 
 <div class="input-group">
 <label>التاريخ</label>
-<input id="dateInput" value="26 مايو 2024">
+<input id="dateInput" type="text" value="26 مايو 2026">
+</div>
+
+<div class="input-group">
+<label>مديرة TDrive</label>
+<input id="managerInput" type="text" value="منى حمود">
 </div>
 
 <button id="printBtn" class="btn-download">
@@ -51,186 +56,111 @@
 
 </aside>
 
-<!-- منطقة المعاينة -->
+<!-- الشهادة -->
 
 <div class="preview-container">
 
-<div class="certificate-canvas">
+<div class="certificate">
 
-<!-- الإطار -->
+<div class="border"></div>
 
-<div class="corner-border top-left"></div>
-<div class="corner-border top-right"></div>
-<div class="corner-border bottom-left"></div>
-<div class="corner-border bottom-right"></div>
+<div class="ribbon">
 
-<!-- الشريط -->
+<div class="logo-circle">
 
-<div class="left-ribbon">
+<h2>TDrive</h2>
 
-<div class="ribbon-circle">
-
-<div class="logo-title">TDrive</div>
-
-<div class="logo-sub">
-تكنولوجيا القيادة
-</div>
+<span>تكنولوجيا القيادة</span>
 
 </div>
 
 </div>
 
-<!-- المحتوى -->
+<div class="content">
 
-<div class="main-content">
+<h1>شهادة إتمام دورة</h1>
 
-<h1 class="cert-title">
-شهادة إتمام دورة
-</h1>
+<div class="divider"></div>
 
-<div class="title-divider">
+<p class="subtitle">
 
-<div class="line-left"></div>
-
-<div class="center-dot"></div>
-
-<div class="line-right"></div>
-
-</div>
-
-<p class="cert-witness">
-
-تشهد
-
-<span class="brand-text">
-TDrive
-</span>
-
-بأن المتدربة
+تشهد <strong>TDrive</strong> بأن المتدربة
 
 </p>
 
-<div class="diamond-divider">
-◆
-</div>
+<h2 id="studentName">
 
-<h2 id="studentName" class="student-name">
-
-فلانه الفلاني
+فلانة الفلاني
 
 </h2>
 
-<div class="details-block">
-
-<p class="cert-details">
+<p class="details">
 
 قد أكملت
 
-<span id="hoursValue">
-
-5
-
-</span>
+<strong id="hoursText">5</strong>
 
 ساعات تدريب في
 
 </p>
 
-<p id="programName" class="program-name">
+<h3 id="programText">
 
 برنامج احتراف القيادة على الطريق
 
-</p>
+</h3>
+
+<div class="footer">
+
+<div>
+
+<div class="line"></div>
+
+<p>التوقيع</p>
 
 </div>
 
-<!-- الفوتر -->
+<div>
 
-<div class="cert-footer">
-
-<!-- المدير -->
-
-<div class="footer-col">
-
-<div class="manager-title">
-
-مدير TDrive
-
-</div>
-
-<div class="manager-name">
-
-منى حمود
-
-</div>
-
-</div>
-
-<!-- التاريخ -->
-
-<div class="footer-col seal-col">
-
-<div class="seal-wrap">
-
-<div class="inner-seal">
+<div class="seal">
 
 ★
 
 </div>
 
-</div>
+<p id="dateText">
 
-<div id="dateValue" class="date-val">
+26 مايو 2026
 
-26 مايو 2024
-
-</div>
-
-<div class="col-label">
-
-التاريخ
+</p>
 
 </div>
 
-</div>
+<div>
 
-<!-- التوقيع -->
+<p class="manager-title">
 
-<div class="footer-col">
+مديرة TDrive
 
-<div class="signature-wrap">
+</p>
 
-<span class="signature-mock">
+<h4 id="managerText">
 
-Anna clae
+منى حمود
 
-</span>
-
-</div>
-
-<div class="col-label">
-
-التوقيع
+</h4>
 
 </div>
 
 </div>
 
-</div>
+<div class="bottom">
 
-<!-- الشعار السفلي -->
+<span></span>
 
-<div class="bottom-motto">
+تعلمي بثقة • قدي بأمان
 
-<div class="motto-line"></div>
-
-<div class="motto-text">
-
-تعلم قد بأمان، وصلك سيارتك بثقة
-
-</div>
-
-<div class="motto-line"></div>
+<span></span>
 
 </div>
 
@@ -240,7 +170,7 @@ Anna clae
 
 </div>
 
-<script src="certifications.js"></script>
+<script src="app.js"></script>
 
 </body>
 
