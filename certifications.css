@@ -465,40 +465,33 @@ body{
 
 .signature-box{
 
-    position:relative;
+    height:70px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
 
 }
 
 .signature{
 
-    width:130px;
+    width:150px;
 
-    position:absolute;
+    height:auto;
 
-    bottom:18px;
+    display:block;
 
-    left:50%;
-
-    transform:translateX(-50%);
+    object-fit:contain;
 
 }
 
-.signature-box p{
+.signature-box + .line{
 
-    margin-top:65px;
-
-}
-
-.signature-box p{
-
-    margin-top:6px;
-
-    color:#666;
-
-    font-size:18px;
+    margin-top:-8px;
 
 }
-
 /* ==========================================
    PRINT
 ========================================== */
