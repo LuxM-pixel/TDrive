@@ -15,33 +15,72 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <div class="mini-sign">
     ${svgBump()}
+    <span>مطبات</span>
 </div>
 
 <div class="mini-sign">
     ${svgPedestrian()}
-</div>
-
-<div class="mini-sign">
-    ${svgGiveWay()}
-</div>
-
-<div class="mini-sign">
-    ${svgStop()}
+    <span>ممر مشاة</span>
 </div>
 
 `;
 
-    document.getElementById("regulatorySign").innerHTML =
-        svgNoEntry();
+document.getElementById("regulatorySigns").innerHTML = `
 
-    document.getElementById("guideSign").innerHTML =
-        svgStraightAhead();
+<div class="mini-sign">
+    ${svgNoEntry()}
+    <span>ممنوع الدخول</span>
+</div>
 
-    document.getElementById("workSign").innerHTML =
-        svgPedestrian();
+<div class="mini-sign">
+    ${svgNoStop()}
+    <span>ممنوع الوقوف</span>
+</div>
 
-    document.getElementById("prioritySign").innerHTML =
-        svgGiveWay();
+<div class="mini-sign">
+    ${svgNoVehicles()}
+    <span>ممنوع سير المركبات</span>
+</div>
+
+`;
+
+document.getElementById("guideSigns").innerHTML = `
+
+<div class="mini-sign">
+    ${svgStraightAhead()}
+    <span>اتجاه مستقيم</span>
+</div>
+
+<div class="mini-sign">
+    ${svgTurnRight()}
+    <span>اتجاه يمين</span>
+</div>
+
+`;
+
+document.getElementById("prioritySigns").innerHTML = `
+
+<div class="mini-sign">
+    ${svgGiveWay()}
+    <span>أفسح الطريق</span>
+</div>
+
+<div class="mini-sign">
+    ${svgStop()}
+    <span>قف</span>
+</div>
+
+`;
+
+document.getElementById("workSigns").innerHTML = `
+
+<div class="mini-sign">
+    ${svgPedestrian()}
+    <span>منطقة أعمال</span>
+</div>
+
+`;
+
 
     // =====================================
     // سيتم إضافة الميزات لاحقًا
