@@ -108,6 +108,18 @@ margin-bottom:25px;
 line-height:1.9;
 }
 
+.hero-car{
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+}
+
+.hero-car img{
+    width:350px;
+    max-width:90%;
+    height:auto;
+}
+
 /* ==========================
    Current Program
 ========================== */
