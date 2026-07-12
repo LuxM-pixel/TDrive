@@ -234,3 +234,99 @@ footer{
     }
 
 }
+/* ==========================
+   Traffic Points Table
+========================== */
+
+.traffic-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    background:#fff;
+    border-radius:16px;
+    overflow:hidden;
+}
+
+.traffic-table th{
+    background:#65b7c3;
+    color:#fff;
+    padding:16px;
+    font-size:18px;
+}
+
+.traffic-table td{
+    padding:14px 16px;
+    border-bottom:1px solid #ececec;
+    font-size:16px;
+}
+
+.traffic-table tbody tr:nth-child(even){
+    background:#f8fbfc;
+}
+
+.traffic-table tbody tr:hover{
+    background:#eef8fa;
+}
+
+.traffic-table td:last-child{
+    text-align:center;
+    width:120px;
+}
+
+/* ألوان النقاط */
+
+.points{
+    display:inline-block;
+    min-width:48px;
+    padding:6px 12px;
+    border-radius:20px;
+    color:#fff;
+    font-weight:700;
+    text-align:center;
+}
+
+.p24{
+    background:#d32f2f;
+}
+
+.p12{
+    background:#f57c00;
+}
+
+.p8{
+    background:#fbc02d;
+    color:#333;
+}
+
+.p6{
+    background:#1976d2;
+}
+
+.p4{
+    background:#43a047;
+}
+
+.p2{
+    background:#757575;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .traffic-table th,
+    .traffic-table td{
+
+        padding:10px;
+        font-size:14px;
+
+    }
+
+    .points{
+
+        min-width:40px;
+        font-size:14px;
+
+    }
+
+}
