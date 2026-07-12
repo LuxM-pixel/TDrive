@@ -55,19 +55,21 @@ nav{
 display:flex;
 justify-content:center;
 align-items:center;
-gap:35px;
-margin-top:20px;
 flex-wrap:nowrap;
+gap:18px;
+width:100%;
 overflow-x:auto;
+white-space:nowrap;
+padding:10px 0;
 }
 
 nav a{
 text-decoration:none;
 color:#333;
-font-size:22px;
 font-weight:700;
-transition:.3s;
-white-space:nowrap;
+font-size:18px;
+padding:8px 6px;
+flex-shrink:0;
 }
 
 nav a:hover{
