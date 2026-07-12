@@ -11,8 +11,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // عرض اللوحات داخل البطاقات
 
-    document.getElementById("warningSign").innerHTML =
-        svgBump();
+    document.getElementById("warningSigns").innerHTML = `
+
+<div class="mini-sign">
+    ${svgBump()}
+</div>
+
+<div class="mini-sign">
+    ${svgPedestrian()}
+</div>
+
+<div class="mini-sign">
+    ${svgGiveWay()}
+</div>
+
+<div class="mini-sign">
+    ${svgStop()}
+</div>
+
+`;
 
     document.getElementById("regulatorySign").innerHTML =
         svgNoEntry();
