@@ -533,6 +533,7 @@ color:#fff;
 ========================== */
 
 @media (max-width:900px){
+
 header{
 flex-direction:column;
 gap:18px;
@@ -540,8 +541,14 @@ padding:20px;
 }
 
 nav{
-flex-wrap:wrap;
-justify-content:center;
+justify-content:flex-start;
+flex-wrap:nowrap;
+overflow-x:auto;
+white-space:nowrap;
+padding-right:15px;
+}
+
+...
 }
 
 .hero{
@@ -607,11 +614,7 @@ padding:55px 20px;
 
 /* ===== أعلى الصفحة ===== */
 
-.hero-car{
-text-align:center;
-font-size:130px;
-margin:25px 0;
-}
+
 
 .program-title{
 text-align:center;
