@@ -53,14 +53,13 @@ color:#888;
 
 nav{
 display:flex;
-justify-content:center;
+justify-content:flex-start;
 align-items:center;
-flex-wrap:nowrap;
-gap:10px;
+gap:22px;
 width:100%;
+padding:10px 20px;
 overflow-x:auto;
 white-space:nowrap;
-padding:10px 0;
 }
 
 nav a{
