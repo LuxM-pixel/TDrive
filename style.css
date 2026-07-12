@@ -28,9 +28,9 @@ header{
 position:sticky;
 top:0;
 display:flex;
-justify-content:space-between;
+flex-direction:column;
 align-items:center;
-padding:20px 8%;
+padding:20px;
 background:#fff;
 box-shadow:0 8px 25px rgba(0,0,0,.05);
 z-index:999;
@@ -53,14 +53,21 @@ color:#888;
 
 nav{
 display:flex;
-gap:28px;
+justify-content:center;
+align-items:center;
+gap:35px;
+margin-top:20px;
+flex-wrap:nowrap;
+overflow-x:auto;
 }
 
 nav a{
 text-decoration:none;
 color:#333;
+font-size:22px;
 font-weight:700;
 transition:.3s;
+white-space:nowrap;
 }
 
 nav a:hover{
