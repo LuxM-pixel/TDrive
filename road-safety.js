@@ -34,7 +34,7 @@ document.getElementById("regulatorySigns").innerHTML = `
 
 <div class="mini-sign">
     ${svgNoStop()}
-    <span>ممنوع الوقوف</span>
+      <span>ممنوع الوقوف والانتظار</span>
 </div>
 
 <div class="mini-sign">
