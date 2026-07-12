@@ -330,39 +330,83 @@ footer{
     }
 
 }
-/* ==============================
+/* ===============================
    Traffic Signs Slider
-============================== */
+================================= */
 
 .signs-slider{
+
     display:flex;
-    gap:16px;
+    gap:18px;
+
+    margin:20px 0;
 
     overflow-x:auto;
     overflow-y:hidden;
 
-    padding:10px 0;
-
+    scroll-behavior:smooth;
     scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
+
+    padding-bottom:10px;
+
 }
 
 .signs-slider::-webkit-scrollbar{
-    display:none;
+
+    height:6px;
+
+}
+
+.signs-slider::-webkit-scrollbar-thumb{
+
+    background:#7dc7d9;
+    border-radius:20px;
+
 }
 
 .mini-sign{
-    flex:0 0 110px;
+
+    flex: 0 0 130px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:12px;
+
+    text-align:center;
+
     scroll-snap-align:center;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 
-    padding:10px;
+    transition:.3s;
+
+}
+
+.mini-sign:hover{
+
+    transform:translateY(-5px);
+
 }
 
 .mini-sign svg{
-    width:90px;
-    height:90px;
+
+    width:95px;
+    height:95px;
+
+}
+
+.mini-sign span{
+
+    display:block;
+
+    margin-top:10px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#1a3a5c;
+
 }
