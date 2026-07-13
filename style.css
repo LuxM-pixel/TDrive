@@ -154,7 +154,22 @@ line-height:1.9;
     color:#555;
 }
 
+/* ==========================
+   Quality Policy
+========================== */
 
+.quality-list{
+    max-width:850px;
+    margin:30px auto;
+    text-align:right;
+    line-height:2.2;
+    color:#555;
+    font-size:19px;
+}
+
+.quality-list li{
+    margin-bottom:14px;
+}
 /* ==========================
    Current Program
 ========================== */
