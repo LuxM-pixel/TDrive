@@ -477,10 +477,6 @@ font-size:14px;
 font-weight:bold;
 }
 
-/* ==========================
-   Contact
-========================== */
-
 .contact{
     background:#f8fbfc;
     text-align:center;
@@ -490,73 +486,34 @@ font-weight:bold;
 .contact-text{
     color:#666;
     margin-bottom:25px;
-    font-size:17px;
 }
 
-.contact-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    max-width:750px;
-    margin:30px auto 0;
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
 }
 
-.contact-card{
+.social-links a{
+    width:70px;
+    height:70px;
+    border-radius:50%;
     background:#fff;
-    padding:22px 15px;
-    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#65b7c3;
+    font-size:34px;
     text-decoration:none;
-    color:#333;
-    box-shadow:0 5px 15px rgba(0,0,0,.06);
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
     transition:.3s;
 }
 
-.contact-card:hover{
-    transform:translateY(-4px);
-}
-
-.contact-card .icon{
-    font-size:34px;
-    color:#65b7c3;
-    margin-bottom:10px;
-}
-
-.contact-card h3{
-    color:#65b7c3;
-    font-size:20px;
-    margin-bottom:6px;
-}
-
-.contact-card p{
-    color:#666;
-    font-size:14px;
-    margin:0;
-}
-
-/* الجوال */
-
-@media (max-width:768px){
-
-.contact-grid{
-    grid-template-columns:repeat(3,1fr);
-}
-
-.contact-card{
-    padding:18px 10px;
-}
-
-.contact-card .icon{
-    font-size:28px;
-}
-
-.contact-card h3{
-    font-size:17px;
-}
-
-.contact-card p{
-    font-size:12px;
-}
-
+.social-links a:hover{
+    background:#65b7c3;
+    color:#fff;
+    transform:translateY(-5px);
 }
 /* ==========================
    Footer
