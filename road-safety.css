@@ -83,10 +83,11 @@ nav a.active{
 }
 
 .hero-logo img{
-    width:220px;
-    max-width:80%;
+    width:500px;
+    max-width:95%;
     height:auto;
-}
+} height:auto;
+
 
 .hero p{
     max-width:750px;
