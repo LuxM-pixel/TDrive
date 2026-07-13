@@ -124,7 +124,22 @@ line-height:1.9;
 /* ==========================
    About / Vision
 ========================== */
+.about-header{
+    text-align:center;
+    margin:40px 0 25px;
+}
 
+.about-header h1{
+    color:#65b7c3;
+    font-size:48px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.about-header p{
+    color:#777;
+    font-size:22px;
+}
 .vision{
     max-width:850px;
     margin:25px auto;
@@ -151,15 +166,26 @@ line-height:1.9;
 }
 
 .quality-list{
+    list-style:none;
     margin:18px 0;
-    padding-right:20px;
+    padding:0;
     color:#555;
     font-size:16px;
     line-height:2;
 }
 
 .quality-list li{
-    margin-bottom:10px;
+    position:relative;
+    padding-right:28px;
+    margin-bottom:12px;
+}
+
+.quality-list li::before{
+    content:"✓";
+    position:absolute;
+    right:0;
+    color:#65b7c3;
+    font-weight:bold;
 }
 
 @media (max-width:768px){
@@ -180,8 +206,12 @@ line-height:1.9;
 }
 
 .quality-list{
-    font-size:15px;
-    line-height:1.9;
+    list-style:none;
+    padding:0;
+    margin:20px 0;
+    text-align:right;
+    font-size:16px;
+    line-height:2;
 }
 
 }
@@ -509,7 +539,6 @@ font-weight:bold;
 
 .contact-grid{
     grid-template-columns:repeat(3,1fr);
-    gap:10px;
 }
 
 .contact-card{
@@ -642,9 +671,6 @@ white-space:nowrap;
 padding-right:15px;
 }
 
-...
-}
-
 .hero{
 padding:50px 25px;
 }
@@ -675,7 +701,8 @@ grid-template-columns:1fr;
 }
 
 .contact-grid{
-grid-template-columns:1fr;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
 }
 
 .button{
