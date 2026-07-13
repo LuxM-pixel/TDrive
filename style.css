@@ -439,52 +439,83 @@ font-weight:bold;
 ========================== */
 
 .contact{
-background:#f8fbfc;
-text-align:center;
+    background:#f8fbfc;
+    text-align:center;
+    padding:60px 20px;
 }
 
 .contact-text{
-color:#666;
-margin-bottom:35px;
+    color:#666;
+    margin-bottom:25px;
+    font-size:17px;
 }
 
 .contact-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:900px;
-margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    max-width:750px;
+    margin:30px auto 0;
 }
 
 .contact-card{
-background:#fff;
-padding:30px;
-border-radius:20px;
-text-decoration:none;
-color:#333;
-box-shadow:0 8px 25px rgba(0,0,0,.08);
-transition:.3s;
+    background:#fff;
+    padding:22px 15px;
+    border-radius:18px;
+    text-decoration:none;
+    color:#333;
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
+    transition:.3s;
 }
 
 .contact-card:hover{
-transform:translateY(-6px);
+    transform:translateY(-4px);
 }
 
 .contact-card .icon{
-font-size:50px;
-color:#65b7c3;
-margin-bottom:15px;
+    font-size:34px;
+    color:#65b7c3;
+    margin-bottom:10px;
 }
 
 .contact-card h3{
-color:#65b7c3;
-margin-bottom:10px;
+    color:#65b7c3;
+    font-size:20px;
+    margin-bottom:6px;
 }
 
 .contact-card p{
-color:#666;
+    color:#666;
+    font-size:14px;
+    margin:0;
 }
 
+/* الجوال */
+
+@media (max-width:768px){
+
+.contact-grid{
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.contact-card{
+    padding:18px 10px;
+}
+
+.contact-card .icon{
+    font-size:28px;
+}
+
+.contact-card h3{
+    font-size:17px;
+}
+
+.contact-card p{
+    font-size:12px;
+}
+
+}
 /* ==========================
    Footer
 ========================== */
