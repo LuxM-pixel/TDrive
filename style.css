@@ -123,6 +123,31 @@ line-height:1.9;
 }
 
 /* ==========================
+   Vision
+========================== */
+
+.vision{
+    max-width:900px;
+    margin:50px auto;
+    padding:40px;
+    background:#f8fbfc;
+    border:2px solid #d9edf5;
+    border-radius:20px;
+    text-align:center;
+}
+
+.vision h2{
+    color:#65b7c3;
+    font-size:34px;
+    margin-bottom:20px;
+}
+
+.vision p{
+    font-size:20px;
+    line-height:2;
+    color:#555;
+}
+/* ==========================
    Current Program
 ========================== */
 
