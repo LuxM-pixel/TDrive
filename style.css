@@ -126,32 +126,34 @@ line-height:1.9;
 ========================== */
 
 .vision{
-    max-width:950px;
-    margin:40px auto;
-    padding:35px 45px;
+    max-width:850px;
+    margin:30px auto;
+    padding:28px 32px;
     background:#f8fbfc;
     border:2px solid #d9edf5;
-    border-radius:22px;
-    text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    border-radius:18px;
+    text-align:right;
+    box-shadow:0 8px 18px rgba(0,0,0,.05);
     transition:.3s;
 }
 
 .vision:hover{
-    transform:translateY(-4px);
+    transform:translateY(-3px);
 }
 
 .vision h2{
     color:#65b7c3;
-    font-size:34px;
-    margin-bottom:20px;
+    font-size:30px;
+    margin-bottom:18px;
     font-weight:800;
+    text-align:center;
 }
 
 .vision p{
-    font-size:20px;
-    line-height:2.2;
+    font-size:18px;
+    line-height:2;
     color:#555;
+    text-align:right;
 }
 
 /* ==========================
@@ -159,16 +161,16 @@ line-height:1.9;
 ========================== */
 
 .quality-list{
-    max-width:850px;
-    margin:30px auto;
+    margin:22px 0;
+    padding-right:22px;
     text-align:right;
-    line-height:2.2;
+    line-height:2;
     color:#555;
-    font-size:19px;
+    font-size:18px;
 }
 
 .quality-list li{
-    margin-bottom:14px;
+    margin-bottom:10px;
 }
 /* ==========================
    Current Program
