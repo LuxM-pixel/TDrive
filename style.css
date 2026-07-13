@@ -121,32 +121,40 @@ line-height:1.9;
     max-width:90%;
     height:auto;
 }
-
 /* ==========================
-   Vision
+   Vision & Mission
 ========================== */
 
 .vision{
-    max-width:900px;
-    margin:50px auto;
-    padding:40px;
+    max-width:950px;
+    margin:40px auto;
+    padding:35px 45px;
     background:#f8fbfc;
     border:2px solid #d9edf5;
-    border-radius:20px;
+    border-radius:22px;
     text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.vision:hover{
+    transform:translateY(-4px);
 }
 
 .vision h2{
     color:#65b7c3;
     font-size:34px;
     margin-bottom:20px;
+    font-weight:800;
 }
 
 .vision p{
     font-size:20px;
-    line-height:2;
+    line-height:2.2;
     color:#555;
 }
+
+
 /* ==========================
    Current Program
 ========================== */
