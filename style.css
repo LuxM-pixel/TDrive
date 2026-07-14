@@ -1041,3 +1041,14 @@ color:#555;
 .nav-register:hover{
     color:#65b7c3;
 }
+
+.top-badge{
+    display:inline-block;
+    background:#F59E0B;
+    color:#fff;
+    padding:8px 20px;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:700;
+    box-shadow:0 6px 15px rgba(245,158,11,.25);
+}
