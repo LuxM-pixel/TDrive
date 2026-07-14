@@ -427,3 +427,10 @@ footer{
     color:#1a3a5c;
 
 }
+
+.divider{
+    width:35%;
+    margin:20px auto;
+    border:0;
+    border-top:2px solid #d9edf5;
+}
