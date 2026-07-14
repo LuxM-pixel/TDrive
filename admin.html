@@ -78,14 +78,21 @@ collection(db,"reviews"),
 where("status","==","pending")
 );
 
-const snap=await getDocs(q);
+const snap = await getDocs(q);
 
-snap.forEach(d=>{
+container.innerHTML += `
+<p>عدد النتائج: ${snap.size}</p>
+`;
 
-const data=d.data();
+snap.forEach(doc => {
 
-container.innerHTML+=`
-<div class="card">
+    container.innerHTML += `
+    <p>${doc.id}</p>
+    <p>${JSON.stringify(doc.data())}</p>
+    <hr>
+    `;
+
+});
 
 <h3>${data.program}</h3>
 
