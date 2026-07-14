@@ -98,7 +98,7 @@ max-width:700px;
 }
 
 .hero-content h2{
-font-size:52px;
+font-size:40px;
 color:#65b7c3;
 margin-bottom:10px;
 }
@@ -276,9 +276,9 @@ padding:70px 8%;
 }
 
 section h2{
-font-size:38px;
+font-size:30px;
 text-align:center;
-margin-bottom:20px;
+margin-bottom:26px;
 color:#333;
 }
 
@@ -312,14 +312,14 @@ margin:auto auto 40px;
 }
 
 .card h3{
-    font-size:20px;
+    font-size:26px;
     margin:10px 0;
     color:#65b7c3;
 }
 
 .card p{
-    font-size:16px;
-    line-height:1.6;
+    font-size:17px;
+    line-height:1.8;
     color:#666;
 }
 
@@ -339,9 +339,9 @@ box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .offer-box h3{
-font-size:30px;
+font-size:28px;
 color:#ff9800;
-margin-bottom:18px;
+margin-bottom:16px;
 }
 
 .offer-box p{
@@ -351,14 +351,14 @@ margin:12px 0;
 }
 
 .offer-box .special-price{
-    font-size:52px;
-    font-weight:800;
+    font-size:40px;
+    font-weight:700;
     color:#66BB6A !important;
     margin:18px 0;
 }
 
 .vip-offer{
-font-size:22px;
+font-size:20px;
 font-weight:bold;
 color:#d62828;
 }
