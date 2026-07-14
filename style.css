@@ -837,3 +837,164 @@ color:#555;
     line-height:1.8;
 }
 
+/* =====================================
+   Featured Program - Home Page
+===================================== */
+
+.featured-program{
+    width:100%;
+    max-width:1100px;
+    margin:35px auto;
+    padding:0;
+}
+
+.featured-program .card{
+    width:100%;
+    max-width:none;
+    background:#fff;
+    border:2px solid #d9edf5;
+    border-radius:26px;
+    padding:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    text-align:right;
+}
+
+.top-badge{
+    display:inline-block;
+    background:#65b7c3;
+    color:#fff;
+    padding:7px 18px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.featured-program h2{
+    color:#2f8ea1;
+    font-size:28px;
+    font-weight:800;
+    text-align:right;
+    margin-bottom:15px;
+}
+
+.quote{
+    font-size:50px;
+    color:#65b7c3;
+    line-height:1;
+    margin-bottom:10px;
+}
+
+.featured-program p{
+    color:#555;
+    font-size:17px;
+    line-height:2;
+    text-align:right;
+    margin-bottom:20px;
+}
+
+.features{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.features div{
+    flex:1;
+    min-width:160px;
+    background:#f8fbfc;
+    border:1px solid #d9edf5;
+    border-radius:14px;
+    padding:14px;
+    text-align:center;
+    font-weight:700;
+    color:#444;
+}
+
+.old-price{
+    text-align:right;
+    color:#777;
+    font-size:16px;
+}
+
+.price-box{
+    text-align:center;
+    margin:25px 0;
+}
+
+.price{
+    font-size:58px;
+    font-weight:800;
+    color:#ff8a00;
+    line-height:1;
+}
+
+.price-text{
+    color:#ff8a00;
+    font-size:24px;
+    font-weight:700;
+}
+
+.offer{
+    display:inline-block;
+    margin-top:12px;
+    background:#fff3e4;
+    color:#ff8a00;
+    padding:8px 18px;
+    border-radius:20px;
+    font-size:15px;
+    font-weight:700;
+}
+
+.featured-program .register-btn{
+    display:block;
+    width:100%;
+    background:#ff8a00;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    padding:16px;
+    border-radius:16px;
+    font-size:20px;
+    font-weight:700;
+    margin-top:25px;
+    transition:.3s;
+}
+
+.featured-program .register-btn:hover{
+    background:#f57c00;
+}
+
+@media(max-width:768px){
+
+.featured-program .card{
+    padding:24px;
+}
+
+.featured-program h2{
+    font-size:22px;
+}
+
+.featured-program p{
+    font-size:15px;
+}
+
+.features{
+    flex-direction:column;
+}
+
+.price{
+    font-size:46px;
+}
+
+.price-text{
+    font-size:20px;
+}
+
+.featured-program .register-btn{
+    font-size:18px;
+}
+
+}
