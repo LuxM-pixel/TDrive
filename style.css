@@ -665,26 +665,86 @@ text-align:center;
 }
 
 @media (max-width:600px){
-.cards{
-grid-template-columns:1fr;
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .current-program{
+        padding:22px;
+    }
+
+    .offer-box{
+        padding:22px;
+    }
+
+    .special-price{
+        font-size:42px;
+    }
+
+    section{
+        padding:55px 20px;
+    }
+
+    /* Review - Mobile */
+
+    .reviews{
+        padding:35px 20px;
+    }
+
+    .reviews h2{
+        font-size:46px;
+        margin-bottom:18px;
+    }
+
+    .reviews .card{
+        padding:20px;
+    }
+
+    .reviews p{
+        font-size:15px;
+        line-height:1.7;
+    }
+
+    .stars span{
+        font-size:44px;
+    }
+
+    #reviewForm textarea{
+        min-height:90px;
+    }
+
+    .review-btn{
+        padding:14px;
+    }
+
+    /* Contact - Mobile */
+
+    .contact{
+        padding:40px 20px;
+    }
+
+    .contact h2{
+        font-size:52px;
+        margin-bottom:10px;
+    }
+
+    .contact-text{
+        margin-bottom:18px;
+        font-size:17px;
+    }
+
+    .social-links{
+        gap:18px;
+    }
+
+    .social-links a{
+        width:60px;
+        height:60px;
+        font-size:28px;
+    }
 }
 
-.current-program{
-padding:22px;
-}
-
-.offer-box{
-padding:22px;
-}
-
-.special-price{
-font-size:42px;
-}
-
-section{
-padding:55px 20px;
-}
-}
 
 /* ===== أعلى الصفحة ===== */
 
@@ -980,75 +1040,4 @@ color:#555;
 
 .nav-register:hover{
     color:#65b7c3;
-}
-
-/* ==========================
-   Reviews
-========================== */
-
-.reviews{
-    max-width:900px;
-    margin:0 auto;
-}
-
-.reviews .card{
-    max-width:700px;
-    margin:auto;
-    display:block;
-}
-
-#reviewForm{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-    margin-top:20px;
-}
-
-#reviewForm label{
-    display:block;
-    font-size:18px;
-    font-weight:700;
-    text-align:right;
-}
-
-#reviewForm select,
-#reviewForm textarea{
-    width:100%;
-    padding:14px;
-    font-size:16px;
-    border:1px solid #ddd;
-    border-radius:12px;
-}
-
-#reviewForm textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-.review-btn{
-    width:100%;
-    padding:16px;
-    background:#65b7c3;
-    color:#fff;
-    border:none;
-    border-radius:12px;
-    font-size:18px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.stars{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-}
-
-.stars span{
-    font-size:50px;
-    color:#bbb;
-    cursor:pointer;
-}
-
-.stars span.active{
-    color:#FFD700;
 }
