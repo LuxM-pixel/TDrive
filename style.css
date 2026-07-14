@@ -983,3 +983,113 @@ color:#555;
     color:#555;
     line-height:1.8;
 }
+
+.featured-program{
+    padding:40px 20px;
+}
+
+.featured-program .card{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    border:2px solid #d9edf5;
+    border-radius:28px;
+    padding:35px;
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
+    text-align:center;
+}
+
+.top-badge{
+    display:inline-block;
+    background:#65b7c3;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:30px;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.featured-program h2{
+    color:#2f8ea1;
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.quote{
+    font-size:55px;
+    color:#65b7c3;
+    line-height:1;
+}
+
+.featured-program p{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+    line-height:2;
+    color:#555;
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    margin:35px 0;
+    flex-wrap:wrap;
+}
+
+.features div{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    font-size:17px;
+}
+
+.old-price{
+    margin-top:20px;
+    color:#777;
+    font-size:18px;
+}
+
+.old-price s{
+    color:#999;
+}
+
+.price-box{
+    margin:25px 0;
+}
+
+.price{
+    font-size:70px;
+    color:#ff8800;
+    font-weight:800;
+}
+
+.price-text{
+    font-size:32px;
+    color:#ff8800;
+    font-weight:700;
+}
+
+.offer{
+    margin-top:12px;
+    display:inline-block;
+    background:#eef9fb;
+    color:#2f8ea1;
+    padding:8px 18px;
+    border-radius:20px;
+}
+
+.register-btn{
+    display:block;
+    width:100%;
+    max-width:500px;
+    margin:30px auto 0;
+    background:#ff8800;
+    color:#fff;
+    text-decoration:none;
+    padding:18px;
+    border-radius:16px;
+    font-size:24px;
+    font-weight:700;
+}
