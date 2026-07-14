@@ -715,42 +715,44 @@ height:70px;
     flex-direction:column;
     align-items:center;
     gap:20px;
-}
-/* ==========================
+}/* ==========================
    Reviews
 ========================== */
 
 .reviews{
 background:#f8fbfc;
 text-align:center;
+padding:50px 20px;
 }
 
 .reviews .card{
-max-width:700px;
+max-width:650px;
 margin:auto;
 background:#fff;
-padding:28px;
+padding:20px;
 border-radius:20px;
 box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 .reviews p{
 color:#666;
-margin:8px 0 18px;
+margin:6px 0 14px;
+line-height:1.7;
 }
 
 .reviews label{
 display:block;
 text-align:right;
 font-weight:bold;
-margin:14px 0 6px;
+margin:10px 0 5px;
 color:#333;
+font-size:16px;
 }
 
 .reviews select,
 .reviews textarea{
 width:100%;
-padding:14px;
+padding:12px;
 border:1px solid #ddd;
 border-radius:12px;
 font-size:16px;
@@ -759,7 +761,7 @@ outline:none;
 
 .reviews textarea{
 resize:vertical;
-min-height:120px;
+min-height:90px;
 }
 
 .reviews select:focus,
@@ -767,15 +769,35 @@ min-height:120px;
 border-color:#65b7c3;
 }
 
+.stars{
+display:flex;
+justify-content:center;
+gap:8px;
+margin:12px 0;
+}
+
+.stars span{
+font-size:34px;
+color:#bbb;
+cursor:pointer;
+transition:.3s;
+user-select:none;
+}
+
+.stars span:hover{
+transform:scale(1.15);
+color:#FFD700;
+}
+
 .review-btn{
 width:100%;
-margin-top:20px;
-padding:16px;
+margin-top:15px;
+padding:14px;
 border:none;
 border-radius:12px;
 background:#65b7c3;
 color:#fff;
-font-size:18px;
+font-size:17px;
 font-weight:bold;
 cursor:pointer;
 transition:.3s;
