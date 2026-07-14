@@ -155,8 +155,21 @@ section h2{
 }
 
 .card .icon{
-    font-size:55px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     margin-bottom:20px;
+}
+
+.card .icon img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    transition:.3s;
+}
+
+.card:hover .icon img{
+    transform:scale(1.08);
 }
 
 .card h3{
