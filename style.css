@@ -246,6 +246,50 @@ color:#666;
 line-height:1.8;
 }
 
+.featured-program{
+    padding:25px 20px;
+}
+
+.featured-program .card{
+    max-width:700px;
+    margin:auto;
+    background:#f7fbfd;
+    border:2px solid #d9edf5;
+    border-radius:20px;
+    padding:24px;
+    text-align:center;
+}
+
+.featured-program h2{
+    color:#65b7c3;
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.featured-program p{
+    color:#555;
+    font-size:17px;
+    line-height:1.9;
+    margin-bottom:15px;
+}
+
+.old-price{
+    font-size:17px;
+    color:#666;
+}
+
+.old-price s{
+    color:#999;
+}
+
+.new-price{
+    color:#4CAF50;
+    font-size:30px;
+    font-weight:700;
+    margin:12px 0 20px;
+}
+
 /* ==========================
    Button
 ========================== */
