@@ -442,3 +442,16 @@ footer{
     border:0;
     border-top:2px solid #d9edf5;
 }
+/* شعار الصفحة الرئيسية للسلامة المرورية */
+.main-logo img{
+    width:230px;
+    max-width:80%;
+    height:auto;
+}
+
+/* أيقونات الصفحات الداخلية */
+.hero-logo img{
+    width:170px;
+    max-width:65%;
+    height:auto;
+}
