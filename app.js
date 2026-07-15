@@ -254,29 +254,29 @@ let selectedRating = 0;
 
 const stars = document.querySelectorAll("#reviewStars span");
 
-stars.forEach((star) => {
+if (stars.length > 0) {
 
-    star.addEventListener("click", () => {
+    stars.forEach((star) => {
 
-        selectedRating = Number(star.dataset.rate);
+        star.addEventListener("click", function () {
 
-        stars.forEach((s) => {
+            selectedRating = Number(this.dataset.rate);
 
-            if (Number(s.dataset.rate) <= selectedRating) {
+            stars.forEach((s) => {
 
-                s.style.color = "#FFD700";
+                if (Number(s.dataset.rate) <= selectedRating) {
+                    s.style.color = "#FFD700";
+                } else {
+                    s.style.color = "#d0d0d0";
+                }
 
-            } else {
-
-                s.style.color = "#bbb";
-
-            }
+            });
 
         });
 
     });
 
-});
+}
 const reviewForm = document.getElementById("reviewForm");
 
 if (reviewForm) {
