@@ -249,7 +249,9 @@ bookingsToSave.push(bookingData);
  
   });
 
-}let selectedRating = 0;
+}
+
+let selectedRating = 0;
 
 const stars = document.querySelectorAll("#reviewStars span");
 
