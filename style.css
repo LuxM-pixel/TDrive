@@ -737,16 +737,23 @@ text-align:center;
         min-height:90px;
     }
 
-    .stars{
-        display:flex;
-        justify-content:center;
-        gap:6px;
-        margin:6px 0;
-    }
+ .stars{
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin:6px 0;
+    position:relative;
+    z-index:9999;
+}
 
-    .stars span{
-        font-size:34px;
-    }
+.stars span{
+    font-size:34px;
+    color:#bbb;
+    cursor:pointer;
+    user-select:none;
+    pointer-events:auto;
+    transition:.3s;
+}
 
     .review-btn{
         width:100%;
