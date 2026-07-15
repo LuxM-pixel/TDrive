@@ -445,3 +445,8 @@ footer{
     max-width:65%;
     height:auto;
 }
+.main-logo img{
+    width:240px;
+    max-width:80%;
+    height:auto;
+}
