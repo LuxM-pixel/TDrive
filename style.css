@@ -1081,13 +1081,16 @@ color:#555;
 .about-intro p{
     color:#666;
     font-size:20px;
-    max-width:650px;
-    margin:auto;
     line-height:1.9;
+    max-width:650px;
+    margin:0 auto;
+}
+
+.about-page section{
+    padding:35px 0;
 }
 
 .about-section{
-    padding:35px 0;
     border-top:1px solid #d9edf5;
 }
 
@@ -1098,6 +1101,7 @@ color:#555;
 .about-section h2{
     color:#65b7c3;
     font-size:32px;
+    font-weight:800;
     margin-bottom:18px;
     text-align:right;
 }
@@ -1106,47 +1110,42 @@ color:#555;
     color:#555;
     font-size:18px;
     line-height:2;
+    text-align:right;
+}
+
+.about-section .quality-list{
+    text-align:right;
 }
 
 .quality-note{
     margin-top:30px;
+    text-align:right;
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
 
-.about-icon{
-    width:180px;
-}
+    .about-page{
+        padding:25px 20px 60px;
+    }
 
-}
+    .about-icon{
+        width:180px;
+    }
 
-.about-page{
-    padding:25px 20px 60px;
-}
+    .about-intro h1{
+        font-size:38px;
+    }
 
-.about-icon{
-    width:100px;
-}
+    .about-intro p{
+        font-size:18px;
+    }
 
-.about-intro h1{
-    font-size:38px;
-}
+    .about-section h2{
+        font-size:26px;
+    }
 
-.about-intro p{
-    font-size:18px;
-}
-
-.about-section h2{
-    font-size:26px;
-}
-
-.about-section p{
-    font-size:17px;
-}
+    .about-section p{
+        font-size:17px;
+    }
 
 }
-.about-page section{
-    padding:35px 0;
-}
-
-
