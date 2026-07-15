@@ -97,7 +97,10 @@ async function updateAvailableTimes(){
 
 }
 
-dateInput.addEventListener("change",updateAvailableTimes);
+if (dateInput) {
+    dateInput.addEventListener("change", updateAvailableTimes);
+}
+
 if (form) {
   form.addEventListener("submit", async function (e) {
 
