@@ -249,16 +249,19 @@ bookingsToSave.push(bookingData);
  
   });
 
-}
-let selectedRating = 0;
+}let selectedRating = 0;
 
 const stars = document.querySelectorAll("#reviewStars span");
+
+console.log("عدد النجوم:", stars.length);
 
 if (stars.length > 0) {
 
     stars.forEach((star) => {
 
         star.addEventListener("click", function () {
+
+            alert("تم الضغط على النجمة " + this.dataset.rate);
 
             selectedRating = Number(this.dataset.rate);
 
