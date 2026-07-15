@@ -264,23 +264,18 @@ if (stars.length > 0) {
 
     stars.forEach((star) => {
 
-        star.addEventListener("click", function () {
+      star.addEventListener("click", function () {
+    selectedRating = Number(this.dataset.rate);
 
-            alert("تم الضغط على النجمة " + this.dataset.rate);
+    stars.forEach((s) => {
+        if (Number(s.dataset.rate) <= selectedRating) {
+            s.style.color = "#FFD700";
+        } else {
+            s.style.color = "#d0d0d0";
+        }
+    });
+});
 
-            selectedRating = Number(this.dataset.rate);
-
-            stars.forEach((s) => {
-
-                if (Number(s.dataset.rate) <= selectedRating) {
-                    s.style.color = "#FFD700";
-                } else {
-                    s.style.color = "#d0d0d0";
-                }
-
-            });
-
-        });
 
     });
 
