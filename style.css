@@ -752,7 +752,20 @@ text-align:center;
         width:100%;
         padding:14px;
         font-size:17px;
+        font-weight:700;
+        color:#fff;
+        background:#65b7c3;
+        border:none;
         border-radius:12px;
+        cursor:pointer;
+        transition:.3s;
+        box-shadow:0 8px 18px rgba(101,183,195,.25);
+    }
+
+    .review-btn:hover,
+    .review-btn:active{
+        background:#56a9b6;
+        transform:translateY(-2px);
     }
 
     #reviewsContainer{
@@ -760,7 +773,6 @@ text-align:center;
     }
 
 }
-
     /* Contact - Mobile */
 
     .contact{
