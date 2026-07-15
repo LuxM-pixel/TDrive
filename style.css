@@ -1163,118 +1163,55 @@ color:#555;
     border-top:2px solid #d9edf5;
 }
 
-/* =====================================
+/* ==========================
    About Page
-===================================== */
+========================== */
 
 .about-page{
     max-width:900px;
-    margin:50px auto;
-    padding:0 25px;
-}
-
-.about-section{
-    padding:35px 0;
-    border-bottom:1px solid #dbeaf0;
-}
-
-.about-section:last-child{
-    border-bottom:none;
-}
-
-.about-section h2{
-    color:#65b7c3;
-    font-size:34px;
-    font-weight:800;
-    margin-bottom:18px;
-    text-align:right;
-}
-
-.about-section p{
-    font-size:18px;
-    line-height:2;
-    color:#555;
-    text-align:right;
-}
-
-.quality-list{
-    list-style:none;
-    padding:0;
-    margin-top:20px;
-}
-
-.quality-list li{
-    position:relative;
-    padding-right:28px;
-    margin-bottom:14px;
-    line-height:2;
-}
-
-.quality-list li::before{
-    content:"✓";
-    position:absolute;
-    right:0;
-    color:#65b7c3;
-    font-weight:bold;
-}
-
-@media(max-width:768px){
-
-.about-page{
-    padding:0 20px;
-}
-
-.about-section{
-    padding:28px 0;
-}
-
-.about-section h2{
-    font-size:28px;
-}
-
-.about-section p{
-    font-size:16px;
-}
-
-}
-/* =====================================
-   About Page
-===================================== */
-
-.about-page{
-    max-width:900px;
-    margin:50px auto;
-    padding:0 25px;
+    margin:0 auto;
+    padding:40px 25px 80px;
 }
 
 .about-intro{
     text-align:center;
-    margin-bottom:40px;
+    margin-bottom:50px;
+}
+
+.about-icon{
+    width:130px;
+    max-width:70%;
+    height:auto;
+    margin-bottom:20px;
 }
 
 .about-intro h1{
-    font-size:48px;
     color:#65b7c3;
-    margin-bottom:10px;
+    font-size:48px;
+    font-weight:800;
+    margin-bottom:15px;
 }
 
 .about-intro p{
-    color:#777;
+    color:#666;
     font-size:20px;
+    max-width:650px;
+    margin:auto;
+    line-height:1.9;
 }
 
 .about-section{
     padding:35px 0;
-    border-bottom:1px solid #d9edf5;
+    border-top:1px solid #d9edf5;
 }
 
-.about-section:last-child{
-    border-bottom:none;
+.about-section:first-of-type{
+    border-top:none;
 }
 
 .about-section h2{
     color:#65b7c3;
-    font-size:30px;
+    font-size:32px;
     margin-bottom:18px;
     text-align:right;
 }
@@ -1286,17 +1223,21 @@ color:#555;
 }
 
 .quality-note{
-    margin-top:25px;
+    margin-top:30px;
 }
 
 @media(max-width:768px){
 
 .about-page{
-    padding:0 20px;
+    padding:25px 20px 60px;
+}
+
+.about-icon{
+    width:100px;
 }
 
 .about-intro h1{
-    font-size:36px;
+    font-size:38px;
 }
 
 .about-intro p{
@@ -1304,11 +1245,11 @@ color:#555;
 }
 
 .about-section h2{
-    font-size:24px;
+    font-size:26px;
 }
 
 .about-section p{
-    font-size:16px;
+    font-size:17px;
 }
 
 }
