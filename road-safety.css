@@ -446,12 +446,9 @@ footer{
     height:auto;
 }
 .main-logo img {
-    width: 280px;        /* تم تكبير الشعار من 220px ليكون واضحاً ومميزاً */
-    max-width: 90%;
+    width: 380px;        /* تم تكبيره ليكون أكبر من حجمه الأصلي وأوضح */
+    max-width: 95%;
     height: auto;
     display: block;
-    margin: 0 auto 5px;  /* توسيط مع هوامش خفيفة جداً للمحافظة على ضغط المسافة */
+    margin: -10px auto 5px; /* رفعناه قليلاً للأعلى لتقليص أي مسافة إضافية */
 }
-
-
-
