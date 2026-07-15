@@ -439,8 +439,9 @@ border-radius:14px;
 #bookingForm input,
 #bookingForm select{
     padding:14px;
-    font-size:15px;
+    font-size:16px;
 }
+
 
 #bookingForm label{
     font-size:15px;
@@ -726,12 +727,13 @@ text-align:center;
         margin-bottom:4px;
     }
 
-    #reviewForm select,
-    #reviewForm textarea{
-        width:100%;
-        font-size:15px;
-        border-radius:12px;
-    }
+#reviewForm select,
+#reviewForm textarea{
+    width:100%;
+    font-size:16px;
+    border-radius:12px;
+}
+
 
     #reviewForm textarea{
         min-height:90px;
