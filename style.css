@@ -1057,44 +1057,25 @@ color:#555;
     margin:0 auto;
     padding:40px 25px 80px;
 }
-
 .about-intro{
     text-align:center;
-    margin-bottom:50px;
+    margin-bottom:10px;   /* كان 50px */
 }
 
 .about-icon{
-    width:220px;
-    max-width:100%;
+    width:320px;          /* كان 220px */
+    max-width:90%;
     height:auto;
     display:block;
-    margin:0 auto 25px;
-}
-
-.about-intro h1{
-    color:#65b7c3;
-    font-size:48px;
-    font-weight:800;
-    margin-bottom:15px;
-}
-
-.about-intro p{
-    color:#666;
-    font-size:20px;
-    line-height:1.9;
-    max-width:650px;
-    margin:0 auto;
+    margin:0 auto 10px;   /* كان 25px */
 }
 
 .about-page section{
-    padding:35px 0;
-}
-
-.about-section{
-    border-top:1px solid #d9edf5;
+    padding:20px 0;       /* كان 35px */
 }
 
 .about-section:first-of-type{
+    padding-top:0;        /* يمنع وجود فراغ فوق أول عنوان */
     border-top:none;
 }
 
@@ -1103,6 +1084,7 @@ color:#555;
     font-size:32px;
     font-weight:800;
     margin-bottom:18px;
+    margin-top:0;
     text-align:right;
 }
 
@@ -1129,7 +1111,7 @@ color:#555;
     }
 
     .about-icon{
-        width:180px;
+        width:260px;
     }
 
     .about-intro h1{
