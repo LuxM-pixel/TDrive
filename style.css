@@ -1052,36 +1052,38 @@ color:#555;
    About Page
 ========================== */
 
-.about-page{
+.about-page {
     max-width: 900px;
     margin: 0 auto;
-    padding: 10px 25px 60px; /* تقليل الفراغ العلوي للصفحة */
+    padding: 0px 25px 40px; /* إلغاء الفراغ العلوي تماماً */
 }
 
-/* تم حذف القوس الزائد هنا بنجاح */
+/* تم حذف القوس الزائد بنجاح */
 
-.about-intro{
+.about-intro {
     text-align: center;
-    margin: 0;
-    padding: 0; /* إلغاء أي حشو داخلي حول الشعار */
+    margin-top: -30px;    /* سحب الشعار للأعلى ليقترب جداً من القائمة */
+    margin-bottom: -40px; /* سحب المحتوى السفلي للأعلى ليقترب من الشعار */
+    padding: 0;
 }
 
-.about-icon{
-    width: 200px; /* حجم الشعار مناسب جداً للهاتف لمنع الفراغ البصري */
-    max-width: 80%;
+.about-icon {
+    width: 180px;         /* حجم مثالي ومتناسق جداً على الجوال */
+    max-width: 75%;
     height: auto;
     display: block;
-    margin: 10px auto 5px; /* تقليل الهوامش حول الشعار */
+    margin: 0 auto;       /* إلغاء أي هوامش إضافية */
 }
 
-.about-page section{
-    padding: 15px 0; /* تقليل الفراغ بين الأقسام (نبذة، رؤية، رسالة) */
+.about-page section {
+    padding: 5px 0;       /* تقليل الفراغات بين جميع أقسام الصفحة */
 }
 
-.about-section:first-of-type{
+.about-section:first-of-type {
     padding-top: 0;
     border-top: none;
 }
+
 
 
 .about-section h2{
