@@ -689,7 +689,7 @@ text-align:center;
 /* ==========================
    Reviews - Mobile
 ========================== */
-@media (max-width:768px){
+
 
     .reviews{
         padding:30px 12px;
@@ -737,6 +737,7 @@ text-align:center;
         min-height:90px;
     }
 
+   
  .stars{
     display:flex;
     justify-content:center;
@@ -775,10 +776,8 @@ text-align:center;
         transform:translateY(-2px);
     }
 
-    #reviewsContainer{
-        margin-top:20px;
-    }
-
+  #reviewsContainer{
+    margin-top:20px;
 }
     /* Contact - Mobile */
 
@@ -800,15 +799,15 @@ text-align:center;
         gap:18px;
     }
 
-    .social-links a{
-        width:60px;
-        height:60px;
-        font-size:28px;
-    }
+.social-links a{
+    width:60px;
+    height:60px;
+    font-size:28px;
 }
 
+}   /* هذا يقفل @media */
 
-/* ===== أعلى الصفحة ===== */
+ /* ===== أعلى الصفحة ===== */
 
 
 
