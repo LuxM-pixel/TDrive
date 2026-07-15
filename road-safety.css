@@ -445,10 +445,13 @@ footer{
     max-width:65%;
     height:auto;
 }
-.main-logo img{
-    width:340px;
-    max-width:95%;
-    height:auto;
+.main-logo img {
+    width: 280px;        /* تم تكبير الشعار من 220px ليكون واضحاً ومميزاً */
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto 5px;  /* توسيط مع هوامش خفيفة جداً للمحافظة على ضغط المسافة */
 }
+
 
 
