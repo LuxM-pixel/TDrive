@@ -1053,32 +1053,36 @@ color:#555;
 ========================== */
 
 .about-page{
-    max-width:900px;
-    margin:0 auto;
-    padding:20px 25px 80px;   /* بدل 40px */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 25px 60px; /* تقليل الفراغ العلوي للصفحة */
 }
-}
+
+/* تم حذف القوس الزائد هنا بنجاح */
+
 .about-intro{
-    text-align:center;
-    margin-bottom:10px;   /* كان 50px */
+    text-align: center;
+    margin: 0;
+    padding: 0; /* إلغاء أي حشو داخلي حول الشعار */
 }
 
 .about-icon{
-    width:320px;          /* كان 220px */
-    max-width:90%;
-    height:auto;
-    display:block;
-    margin:0 auto 10px;   /* كان 25px */
+    width: 200px; /* حجم الشعار مناسب جداً للهاتف لمنع الفراغ البصري */
+    max-width: 80%;
+    height: auto;
+    display: block;
+    margin: 10px auto 5px; /* تقليل الهوامش حول الشعار */
 }
 
 .about-page section{
-    padding:20px 0;       /* كان 35px */
+    padding: 15px 0; /* تقليل الفراغ بين الأقسام (نبذة، رؤية، رسالة) */
 }
 
 .about-section:first-of-type{
-    padding-top:0;        /* يمنع وجود فراغ فوق أول عنوان */
-    border-top:none;
+    padding-top: 0;
+    border-top: none;
 }
+
 
 .about-section h2{
     color:#65b7c3;
