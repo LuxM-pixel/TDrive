@@ -936,7 +936,7 @@ color:#555;
 .featured-program{
     width:100%;
     max-width:1100px;
-    margin:35px auto;
+    margin:20px auto;
     padding:0;
 }
 
@@ -946,7 +946,7 @@ color:#555;
     background:#fff;
     border:2px solid #d9edf5;
     border-radius:26px;
-    padding:35px;
+    padding:20px;
     box-shadow:0 10px 25px rgba(0,0,0,.06);
     text-align:right;
 }
@@ -955,19 +955,19 @@ color:#555;
     display:inline-block;
     background:#65b7c3;
     color:#fff;
-    padding:7px 18px;
+    padding:5px 14px;
     border-radius:30px;
-    font-size:14px;
+    font-size:13px;
     font-weight:700;
-    margin-bottom:18px;
+    margin-bottom:10px;
 }
 
 .featured-program h2{
     color:#2f8ea1;
-    font-size:28px;
+    font-size:20px;
     font-weight:800;
     text-align:right;
-    margin-bottom:15px;
+    margin-bottom:10px;
 }
 
 .quote{
@@ -979,18 +979,18 @@ color:#555;
 
 .featured-program p{
     color:#555;
-    font-size:17px;
-    line-height:2;
+    font-size:15px;
+    line-height:1.7;
     text-align:right;
-    margin-bottom:20px;
+    margin-bottom:14px;
 }
 
 .features{
     display:flex;
     justify-content:space-between;
-    gap:15px;
+    gap:10px;
     flex-wrap:wrap;
-    margin:25px 0;
+    margin:14px 0;
 }
 
 .features div{
@@ -999,25 +999,26 @@ color:#555;
     background:#f8fbfc;
     border:1px solid #d9edf5;
     border-radius:14px;
-    padding:14px;
+    padding:8px;
     text-align:center;
     font-weight:700;
     color:#444;
+    font-size:14px;
 }
 
 .old-price{
     text-align:right;
     color:#777;
-    font-size:16px;
+    font-size:14px;
 }
 
 .price-box{
     text-align:center;
-    margin:25px 0;
+    margin:14px 0;
 }
 
 .price{
-    font-size:58px;
+    font-size:40px;
     font-weight:800;
     color:#ff8a00;
     line-height:1;
@@ -1025,18 +1026,18 @@ color:#555;
 
 .price-text{
     color:#ff8a00;
-    font-size:24px;
+    font-size:18px;
     font-weight:700;
 }
 
 .offer{
     display:inline-block;
-    margin-top:12px;
+    margin-top:8px;
     background:#fff3e4;
     color:#ff8a00;
-    padding:8px 18px;
+    padding:5px 14px;
     border-radius:20px;
-    font-size:15px;
+    font-size:13px;
     font-weight:700;
 }
 
@@ -1047,11 +1048,11 @@ color:#555;
     color:#fff;
     text-align:center;
     text-decoration:none;
-    padding:16px;
+    padding:12px;
     border-radius:16px;
-    font-size:20px;
+    font-size:17px;
     font-weight:700;
-    margin-top:25px;
+    margin-top:14px;
     transition:.3s;
 }
 
@@ -1062,31 +1063,37 @@ color:#555;
 @media(max-width:768px){
 
 .featured-program .card{
-    padding:24px;
+    padding:16px;
 }
 
 .featured-program h2{
-    font-size:22px;
+    font-size:18px;
+    margin-bottom:8px;
 }
 
 .featured-program p{
-    font-size:15px;
+    font-size:14px;
+    margin-bottom:10px;
 }
 
 .features{
     flex-direction:column;
+    gap:8px;
+    margin:10px 0;
 }
 
 .price{
-    font-size:46px;
+    font-size:34px;
 }
 
 .price-text{
-    font-size:20px;
+    font-size:16px;
 }
 
 .featured-program .register-btn{
-    font-size:18px;
+    font-size:16px;
+    padding:10px;
+    margin-top:10px;
 }
 
 }
@@ -1107,22 +1114,23 @@ color:#555;
     display:inline-block;
     background:#F59E0B;
     color:#fff;
-    padding:8px 20px;
+    padding:6px 16px;
     border-radius:30px;
-    font-size:15px;
+    font-size:14px;
     font-weight:700;
     box-shadow:0 6px 15px rgba(245,158,11,.25);
 }
+
 /* بطاقة البرنامج المميز */
 .featured-program{
-    padding:40px 20px;
+    padding:20px 20px;
 }
 
 .featured-program .card{
     max-width:600px;
     width:100%;
     margin:0 auto;
-    padding:28px;
+    padding:18px;
     background:#FFF8EF;
     border:2px solid #FFE6BF;
     border-radius:24px;
