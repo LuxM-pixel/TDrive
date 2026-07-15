@@ -692,68 +692,71 @@ text-align:center;
 @media (max-width:768px){
 
     .reviews{
-        padding:35px 16px;
+        padding:30px 12px;
     }
 
     .reviews h2{
-        font-size:42px;
-        margin-bottom:20px;
+        font-size:38px;
+        margin-bottom:18px;
     }
 
     .reviews .card{
-        max-width:560px;
+        width:92%;
+        max-width:420px;
         margin:auto;
-        padding:22px 18px;
-        border-radius:22px;
+        padding:18px 14px;
+        border-radius:18px;
     }
 
     .reviews p{
-        font-size:15px;
-        line-height:1.8;
-        margin-bottom:18px;
+        font-size:14px;
+        line-height:1.7;
+        margin-bottom:14px;
     }
 
     #reviewForm{
         display:flex;
         flex-direction:column;
-        gap:16px;
+        gap:12px;
     }
 
     #reviewForm label{
-        font-size:18px;
+        font-size:16px;
         font-weight:700;
+        margin-bottom:4px;
     }
 
     #reviewForm select,
     #reviewForm textarea{
         width:100%;
-        font-size:16px;
-        border-radius:14px;
+        font-size:15px;
+        border-radius:12px;
     }
 
     #reviewForm textarea{
-        min-height:110px;
+        min-height:90px;
     }
 
     .stars{
         display:flex;
         justify-content:center;
-        gap:8px;
+        gap:6px;
+        margin:6px 0;
     }
 
     .stars span{
-        font-size:38px;
+        font-size:34px;
     }
 
     .review-btn{
         width:100%;
-        padding:16px;
-        font-size:18px;
-        border-radius:14px;
+        padding:14px;
+        font-size:17px;
+        border-radius:12px;
     }
 
     #reviewsContainer{
-        margin-top:25px;
+        margin-top:20px;
     }
 
 }
