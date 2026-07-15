@@ -1064,10 +1064,11 @@ color:#555;
 }
 
 .about-icon{
-    width:130px;
-    max-width:70%;
+    width:220px;
+    max-width:100%;
     height:auto;
-    margin-bottom:20px;
+    display:block;
+    margin:0 auto 25px;
 }
 
 .about-intro h1{
@@ -1112,6 +1113,12 @@ color:#555;
 }
 
 @media(max-width:768px){
+
+.about-icon{
+    width:180px;
+}
+
+}
 
 .about-page{
     padding:25px 20px 60px;
