@@ -1055,7 +1055,8 @@ color:#555;
 .about-page{
     max-width:900px;
     margin:0 auto;
-    padding:40px 25px 80px;
+    padding:20px 25px 80px;   /* بدل 40px */
+}
 }
 .about-intro{
     text-align:center;
