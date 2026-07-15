@@ -1163,3 +1163,77 @@ color:#555;
     border-top:2px solid #d9edf5;
 }
 
+/* =====================================
+   About Page
+===================================== */
+
+.about-page{
+    max-width:900px;
+    margin:50px auto;
+    padding:0 25px;
+}
+
+.about-section{
+    padding:35px 0;
+    border-bottom:1px solid #dbeaf0;
+}
+
+.about-section:last-child{
+    border-bottom:none;
+}
+
+.about-section h2{
+    color:#65b7c3;
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:18px;
+    text-align:right;
+}
+
+.about-section p{
+    font-size:18px;
+    line-height:2;
+    color:#555;
+    text-align:right;
+}
+
+.quality-list{
+    list-style:none;
+    padding:0;
+    margin-top:20px;
+}
+
+.quality-list li{
+    position:relative;
+    padding-right:28px;
+    margin-bottom:14px;
+    line-height:2;
+}
+
+.quality-list li::before{
+    content:"✓";
+    position:absolute;
+    right:0;
+    color:#65b7c3;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+
+.about-page{
+    padding:0 20px;
+}
+
+.about-section{
+    padding:28px 0;
+}
+
+.about-section h2{
+    font-size:28px;
+}
+
+.about-section p{
+    font-size:16px;
+}
+
+}
