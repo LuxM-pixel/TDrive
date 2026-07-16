@@ -241,6 +241,69 @@ function svgTurnRight() {
     </svg>`;
 }
 
+// ⬅️ اتجاه إجباري يسار
+function svgTurnLeft() {
+
+    return `
+    <svg viewBox="0 0 100 100">
+
+        <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="#2e6da4"
+            stroke="#1a3a5c"
+            stroke-width="2"/>
+
+        <path
+            d="M70 35 L70 65 L35 65"
+            fill="none"
+            stroke="white"
+            stroke-width="9"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <polygon
+            points="22,65 42,52 42,78"
+            fill="white"/>
+
+    </svg>`;
+}
+
+// ↩️ دوران للخلف
+function svgUTurn() {
+
+    return `
+    <svg viewBox="0 0 100 100">
+
+        <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="#2e6da4"
+            stroke="#1a3a5c"
+            stroke-width="2"/>
+
+        <path
+            d="
+                M50 82
+                L50 28
+                C50 15 28 15 28 32
+                C28 50 50 50 50 68
+            "
+            fill="none"
+            stroke="white"
+            stroke-width="9"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <polygon
+            points="50,82 42,68 58,68"
+            fill="white"/>
+
+    </svg>`;
+}
+
 // 🚸 ممر مشاة
 function svgPedestrian() {
 
