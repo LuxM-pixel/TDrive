@@ -7,7 +7,7 @@ road-safety.js
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("🚦 Road Safety Center Loaded");
+    console.log(" Road Safety Center Loaded");
 
     // عرض اللوحات داخل البطاقات
 
