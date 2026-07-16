@@ -721,7 +721,8 @@ text-align:center;
     box-shadow:0 4px 10px rgba(0,0,0,.05);
 }
 
-.review-card .rc-stars{
+.review-card .review-stars{
+
     color:#FFD700;
     font-size:14px;
     margin-bottom:4px;
