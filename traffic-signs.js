@@ -70,6 +70,66 @@ function svgNoVehicles() {
     </svg>`;
 }
 
+// 🚫 ممنوع التجاوز
+function svgNoOvertaking() {
+
+    return `
+    <svg viewBox="0 0 100 100">
+
+        <!-- الإطار الأحمر -->
+        <circle
+            cx="50"
+            cy="50"
+            r="45"
+            fill="white"
+            stroke="#dc2626"
+            stroke-width="8"/>
+
+        <!-- السيارة السوداء -->
+        <rect
+            x="28"
+            y="38"
+            width="16"
+            height="28"
+            rx="3"
+            fill="#1f2937"/>
+
+        <circle
+            cx="32"
+            cy="68"
+            r="3"
+            fill="#1f2937"/>
+
+        <circle
+            cx="40"
+            cy="68"
+            r="3"
+            fill="#1f2937"/>
+
+        <!-- السيارة الحمراء -->
+        <rect
+            x="56"
+            y="32"
+            width="16"
+            height="34"
+            rx="3"
+            fill="#dc2626"/>
+
+        <circle
+            cx="60"
+            cy="68"
+            r="3"
+            fill="#dc2626"/>
+
+        <circle
+            cx="68"
+            cy="68"
+            r="3"
+            fill="#dc2626"/>
+
+    </svg>`;
+}
+
 // 🚗 السرعة القصوى
 function svgMaxSpeed(speed = "60") {
 
