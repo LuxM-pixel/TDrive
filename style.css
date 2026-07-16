@@ -595,69 +595,77 @@ text-align:center;
     }
 
 /* ==========================
-   Reviews - Mobile (مصغّر)
+   Reviews - Mobile (نسخة حيوية)
 ========================== */
 
 .reviews{
-    padding:16px 10px;
+    padding:24px 12px;
+    background:linear-gradient(180deg, #ffffff 0%, #f0fbfc 100%);
 }
 
 .reviews h2{
-    font-size:24px;
-    margin-bottom:10px;
+    font-size:26px;
+    margin-bottom:12px;
     text-align:center;
+    color:#3a939f;
 }
 
 .reviews .card{
     width:94%;
     max-width:420px;
     margin:auto;
-    padding:12px 10px;
-    border-radius:14px;
+    padding:16px 14px;
+    border-radius:16px;
+    background:#fff;
+    box-shadow:0 6px 20px rgba(101,183,195,.15);
 }
 
 .reviews p{
-    font-size:12px;
-    line-height:1.5;
-    margin-bottom:8px;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:10px;
+    color:#555;
 }
 
 #reviewForm{
     display:flex;
     flex-direction:column;
-    gap:6px;
+    gap:8px;
 }
 
 #reviewForm label{
-    font-size:12px;
+    font-size:13px;
     font-weight:700;
     margin-bottom:2px;
+    color:#3a939f;
 }
 
 #reviewForm select,
 #reviewForm textarea{
     width:100%;
-    font-size:13px;
-    padding:8px 10px;
-    border-radius:8px;
+    font-size:14px;
+    padding:10px 12px;
+    border-radius:10px;
+    border:1.5px solid #cdeef2;
+    background:#fbfeff;
 }
 
 #reviewForm textarea{
-    min-height:50px;
+    min-height:60px;
 }
 
 .stars{
     display:flex;
     justify-content:center;
-    gap:4px;
-    margin:2px 0;
+    gap:6px;
+    margin:4px 0;
     position:relative;
     z-index:9999;
 }
 
 .stars span{
-    font-size:22px;
-    color:#bbb;
+    font-size:26px;
+    color:#e0c9a6;
     cursor:pointer;
     user-select:none;
     pointer-events:auto;
@@ -666,16 +674,16 @@ text-align:center;
 
 .review-btn{
     width:100%;
-    padding:9px;
-    font-size:13px;
+    padding:11px;
+    font-size:14px;
     font-weight:700;
     color:#fff;
-    background:#65b7c3;
+    background:linear-gradient(135deg, #65b7c3, #4a9ea9);
     border:none;
-    border-radius:8px;
+    border-radius:10px;
     cursor:pointer;
     transition:.3s;
-    box-shadow:0 6px 12px rgba(101,183,195,.25);
+    box-shadow:0 8px 16px rgba(101,183,195,.35);
 }
 
 .review-btn:hover,
@@ -685,61 +693,68 @@ text-align:center;
 }
 
 .reviews h3{
-    font-size:14px !important;
-    margin-top:10px !important;
+    font-size:16px !important;
+    margin-top:16px !important;
     text-align:center;
+    color:#3a939f;
 }
 
 /* ===== بطاقات الآراء - سلايدر أفقي ===== */
 #reviewsContainer{
-    margin-top:12px;
+    margin-top:14px;
     display:flex;
     flex-direction:row;
-    gap:10px;
+    gap:12px;
     overflow-x:auto;
     scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
-    padding-bottom:6px;
+    padding:4px 4px 10px;
 }
 
 #reviewsContainer::-webkit-scrollbar{
     height:4px;
 }
 #reviewsContainer::-webkit-scrollbar-thumb{
-    background:#c9e8ec;
+    background:#a8dee5;
     border-radius:10px;
 }
 
 .review-card{
     flex:0 0 auto;
     scroll-snap-align:start;
-    width:75%;
-    max-width:260px;
-    background:#f4fbfc;
-    border-radius:12px;
-    padding:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,.05);
+    width:80%;
+    max-width:270px;
+    min-height:150px;
+    background:linear-gradient(160deg, #ffffff, #eaf8fa);
+    border:1px solid #d3eef2;
+    border-radius:14px;
+    padding:14px;
+    box-shadow:0 6px 14px rgba(101,183,195,.18);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
 }
 
 .review-card .review-stars{
-
-    color:#FFD700;
-    font-size:14px;
-    margin-bottom:4px;
+    color:#FFC107;
+    font-size:15px;
+    margin-bottom:6px;
 }
 
 .review-card h4{
-    font-size:13px;
-    margin:0 0 4px;
-    color:#333;
+    font-size:14px;
+    margin:0 0 6px;
+    color:#2e7d8a;
+    font-weight:800;
 }
 
 .review-card p{
-    font-size:11px;
-    line-height:1.5;
+    font-size:12px;
+    line-height:1.6;
     margin:0;
     color:#555;
 }
+
 
     /* Contact - Mobile */
 
