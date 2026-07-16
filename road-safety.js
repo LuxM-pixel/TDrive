@@ -42,6 +42,11 @@ document.getElementById("regulatorySigns").innerHTML = `
     <span>ممنوع سير المركبات</span>
 </div>
 
+<div class="mini-sign">
+    ${svgNoOvertaking()}
+    <span>ممنوع التجاوز</span>
+</div>
+
 `;
 
 document.getElementById("guideSigns").innerHTML = `
