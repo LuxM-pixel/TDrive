@@ -276,6 +276,7 @@ function svgUTurn() {
     return `
     <svg viewBox="0 0 100 100">
 
+        <!-- الدائرة -->
         <circle
             cx="50"
             cy="50"
@@ -284,21 +285,28 @@ function svgUTurn() {
             stroke="#1a3a5c"
             stroke-width="2"/>
 
+        <!-- السهم -->
         <path
             d="
-                M50 82
-                L50 28
-                C50 15 28 15 28 32
-                C28 50 50 50 50 68
+                M55 80
+                L55 38
+                Q55 18 35 18
+                Q20 18 20 35
+                Q20 45 30 50
             "
             fill="none"
             stroke="white"
-            stroke-width="9"
+            stroke-width="10"
             stroke-linecap="round"
             stroke-linejoin="round"/>
 
+        <!-- رأس السهم -->
         <polygon
-            points="50,82 42,68 58,68"
+            points="
+                30,50
+                16,44
+                22,58
+            "
             fill="white"/>
 
     </svg>`;
