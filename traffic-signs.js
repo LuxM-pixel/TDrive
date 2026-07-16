@@ -270,47 +270,29 @@ function svgTurnLeft() {
     </svg>`;
 }
 
-// ↩️ دوران للخلف
+// ↩️ دوران للخلف - لوحة سعودية رسمية ومطابقة
 function svgUTurn() {
-
-    return `
-    <svg viewBox="0 0 100 100">
-
-        <!-- الدائرة -->
-        <circle
-            cx="50"
-            cy="50"
-            r="45"
-            fill="#2e6da4"
-            stroke="#1a3a5c"
-            stroke-width="2"/>
-
-        <!-- السهم -->
-        <path
-            d="
-                M55 80
-                L55 38
-                Q55 18 35 18
-                Q20 18 20 35
-                Q20 45 30 50
-            "
-            fill="none"
-            stroke="white"
-            stroke-width="10"
-            stroke-linecap="round"
-            stroke-linejoin="round"/>
-
-        <!-- رأس السهم -->
-        <polygon
-            points="
-                30,50
-                16,44
-                22,58
-            "
-            fill="white"/>
-
-    </svg>`;
+  return `
+  <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <!-- الخلفية الزرقاء للوحة الرسمية -->
+    <circle cx="50" cy="50" r="46" fill="#1d4ed8" stroke="#ffffff" stroke-width="3" />
+    
+    <!-- السهم المنحني (U-Turn) -->
+    <path d="M 62 70 
+             L 62 48 
+             A 12 12 0 0 0 38 48 
+             L 38 60" 
+          fill="none" 
+          stroke="#ffffff" 
+          stroke-width="7" 
+          stroke-linecap="square" />
+          
+    <!-- رأس السهم المتجه للأسفل بدقة -->
+    <polygon points="30,56 46,56 38,70" fill="#ffffff" />
+  </svg>
+  `;
 }
+
 
 // 🚸 ممر مشاة
 function svgPedestrian() {
