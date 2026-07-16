@@ -595,69 +595,68 @@ text-align:center;
     }
 
 /* ==========================
-   Reviews - Mobile
+   Reviews - Mobile (مصغّر)
 ========================== */
 
+.reviews{
+    padding:16px 10px;
+}
 
-    .reviews{
-        padding:30px 12px;
-    }
+.reviews h2{
+    font-size:24px;
+    margin-bottom:10px;
+    text-align:center;
+}
 
-    .reviews h2{
-        font-size:38px;
-        margin-bottom:18px;
-    }
+.reviews .card{
+    width:94%;
+    max-width:420px;
+    margin:auto;
+    padding:12px 10px;
+    border-radius:14px;
+}
 
-    .reviews .card{
-        width:92%;
-        max-width:420px;
-        margin:auto;
-        padding:18px 14px;
-        border-radius:18px;
-    }
+.reviews p{
+    font-size:12px;
+    line-height:1.5;
+    margin-bottom:8px;
+}
 
-    .reviews p{
-        font-size:14px;
-        line-height:1.7;
-        margin-bottom:14px;
-    }
+#reviewForm{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
 
-    #reviewForm{
-        display:flex;
-        flex-direction:column;
-        gap:12px;
-    }
-
-    #reviewForm label{
-        font-size:16px;
-        font-weight:700;
-        margin-bottom:4px;
-    }
+#reviewForm label{
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:2px;
+}
 
 #reviewForm select,
 #reviewForm textarea{
     width:100%;
-    font-size:16px;
-    border-radius:12px;
+    font-size:13px;
+    padding:8px 10px;
+    border-radius:8px;
 }
 
+#reviewForm textarea{
+    min-height:50px;
+}
 
-    #reviewForm textarea{
-        min-height:90px;
-    }
-
-   
- .stars{
+.stars{
     display:flex;
     justify-content:center;
-    gap:6px;
-    margin:6px 0;
+    gap:4px;
+    margin:2px 0;
     position:relative;
     z-index:9999;
 }
 
 .stars span{
-    font-size:34px;
+    font-size:22px;
     color:#bbb;
     cursor:pointer;
     user-select:none;
@@ -665,29 +664,82 @@ text-align:center;
     transition:.3s;
 }
 
-    .review-btn{
-        width:100%;
-        padding:14px;
-        font-size:17px;
-        font-weight:700;
-        color:#fff;
-        background:#65b7c3;
-        border:none;
-        border-radius:12px;
-        cursor:pointer;
-        transition:.3s;
-        box-shadow:0 8px 18px rgba(101,183,195,.25);
-    }
-
-    .review-btn:hover,
-    .review-btn:active{
-        background:#56a9b6;
-        transform:translateY(-2px);
-    }
-
-  #reviewsContainer{
-    margin-top:20px;
+.review-btn{
+    width:100%;
+    padding:9px;
+    font-size:13px;
+    font-weight:700;
+    color:#fff;
+    background:#65b7c3;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 6px 12px rgba(101,183,195,.25);
 }
+
+.review-btn:hover,
+.review-btn:active{
+    background:#56a9b6;
+    transform:translateY(-2px);
+}
+
+.reviews h3{
+    font-size:14px !important;
+    margin-top:10px !important;
+    text-align:center;
+}
+
+/* ===== بطاقات الآراء - سلايدر أفقي ===== */
+#reviewsContainer{
+    margin-top:12px;
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:6px;
+}
+
+#reviewsContainer::-webkit-scrollbar{
+    height:4px;
+}
+#reviewsContainer::-webkit-scrollbar-thumb{
+    background:#c9e8ec;
+    border-radius:10px;
+}
+
+.review-card{
+    flex:0 0 auto;
+    scroll-snap-align:start;
+    width:75%;
+    max-width:260px;
+    background:#f4fbfc;
+    border-radius:12px;
+    padding:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.05);
+}
+
+.review-card .rc-stars{
+    color:#FFD700;
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.review-card h4{
+    font-size:13px;
+    margin:0 0 4px;
+    color:#333;
+}
+
+.review-card p{
+    font-size:11px;
+    line-height:1.5;
+    margin:0;
+    color:#555;
+}
+
     /* Contact - Mobile */
 
     .contact{
