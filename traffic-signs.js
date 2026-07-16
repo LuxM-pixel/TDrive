@@ -76,56 +76,32 @@ function svgNoOvertaking() {
     return `
     <svg viewBox="0 0 100 100">
 
-        <!-- الإطار الأحمر -->
+        <!-- الإطار -->
         <circle
             cx="50"
             cy="50"
             r="45"
             fill="white"
-            stroke="#dc2626"
+            stroke="#d32f2f"
             stroke-width="8"/>
 
-        <!-- السيارة السوداء -->
-        <rect
-            x="28"
-            y="38"
-            width="16"
-            height="28"
-            rx="3"
-            fill="#1f2937"/>
+        <!-- السيارة الحمراء (أصغر) -->
+        <g transform="translate(20,34) scale(0.75)">
+            <rect x="8" y="16" width="22" height="10" rx="2" fill="#d32f2f"/>
+            <path d="M10 16 L15 9 H24 L29 16 Z" fill="#d32f2f"/>
+            <circle cx="13" cy="28" r="3" fill="#222"/>
+            <circle cx="25" cy="28" r="3" fill="#222"/>
+            <rect x="15" y="11" width="9" height="5" rx="1" fill="#ffffff"/>
+        </g>
 
-        <circle
-            cx="32"
-            cy="68"
-            r="3"
-            fill="#1f2937"/>
-
-        <circle
-            cx="40"
-            cy="68"
-            r="3"
-            fill="#1f2937"/>
-
-        <!-- السيارة الحمراء -->
-        <rect
-            x="56"
-            y="32"
-            width="16"
-            height="34"
-            rx="3"
-            fill="#dc2626"/>
-
-        <circle
-            cx="60"
-            cy="68"
-            r="3"
-            fill="#dc2626"/>
-
-        <circle
-            cx="68"
-            cy="68"
-            r="3"
-            fill="#dc2626"/>
+        <!-- السيارة السوداء (أكبر) -->
+        <g transform="translate(48,28) scale(1)">
+            <rect x="8" y="18" width="26" height="12" rx="2" fill="#222"/>
+            <path d="M10 18 L16 9 H28 L34 18 Z" fill="#222"/>
+            <circle cx="14" cy="32" r="3" fill="#222"/>
+            <circle cx="28" cy="32" r="3" fill="#222"/>
+            <rect x="17" y="11" width="10" height="6" rx="1" fill="#ffffff"/>
+        </g>
 
     </svg>`;
 }
