@@ -61,6 +61,22 @@ document.getElementById("guideSigns").innerHTML = `
     <span>اتجاه يمين</span>
 </div>
 
+<div class="mini-sign">
+
+    ${svgTurnLeft()}
+
+    <span>اتجاه يسار</span>
+
+</div>
+
+<div class="mini-sign">
+
+    ${svgUTurn()}
+
+    <span>دوران للخلف</span>
+
+</div>
+
 `;
 
 document.getElementById("prioritySigns").innerHTML = `
