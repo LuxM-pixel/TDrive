@@ -106,6 +106,35 @@ function svgNoOvertaking() {
     </svg>`;
 }
 
+// 🔄 دوار إجباري
+function svgRoundabout() {
+    return `
+    <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45"
+            fill="#2e6da4"
+            stroke="#1a3a5c"
+            stroke-width="2"/>
+
+        <!-- الأسهم الدائرية الثلاثة للتعامل مع الدوار -->
+        <g stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <!-- سهم 1 -->
+            <path d="M 45 25 A 25 25 0 0 1 71 40" />
+            <!-- سهم 2 -->
+            <path d="M 71 55 A 25 25 0 0 1 45 75" />
+            <!-- سهم 3 -->
+            <path d="M 33 65 A 25 25 0 0 1 33 35" />
+        </g>
+        
+        <!-- رؤوس الأسهم للاتجاهات -->
+        <polygon points="71,45 77,35 65,37" fill="white" />
+        <polygon points="38,74 48,78 43,67" fill="white" />
+        <polygon points="40,29 30,22 34,34" fill="white" />
+    </svg>`;
+}
+
+
+
+
 // 🚗 السرعة القصوى
 function svgMaxSpeed(speed = "60") {
 
@@ -293,6 +322,36 @@ function svgUTurn() {
   `;
 }
 
+// 🚳 ممنوع الدوران للخلف
+function svgNoUTurn() {
+    return `
+    <svg viewBox="0 0 100 100">
+        <!-- الإطار الخارجي الأحمر -->
+        <circle cx="50" cy="50" r="45"
+            fill="white"
+            stroke="#dc2626"
+            stroke-width="9"/>
+
+        <!-- السهم المنحني باللون الداكن -->
+        <path d="M 58 68 
+                 L 58 48 
+                 A 10 10 0 0 0 38 48 
+                 L 38 58" 
+              fill="none" 
+              stroke="#222" 
+              stroke-width="6" 
+              stroke-linecap="square" />
+              
+        <!-- رأس السهم -->
+        <polygon points="32,54 44,54 38,66" fill="#222" />
+
+        <!-- خط المنع المائل باللون الأحمر -->
+        <line x1="25" y1="25"
+              x2="75" y2="75"
+              stroke="#dc2626"
+              stroke-width="8"/>
+    </svg>`;
+}
 
 // 🚸 ممر مشاة
 function svgPedestrian() {
@@ -323,6 +382,26 @@ function svgPedestrian() {
             stroke-linecap="round"
             fill="none"/>
 
+    </svg>`;
+}
+// 🚦 أمامك إشارة ضوئية
+function svgTrafficLight() {
+    return `
+    <svg viewBox="0 0 100 90">
+        <!-- المثلث التحذيري الأصفر -->
+        <polygon
+            points="50,5 95,85 5,85"
+            fill="#f5c518"
+            stroke="#dc2626"
+            stroke-width="6"/>
+
+        <!-- جسم الإشارة الأسود في المنتصف -->
+        <rect x="42" y="32" width="16" height="38" rx="3" fill="#1a1a1a" />
+
+        <!-- الأضواء الثلاثة (أحمر، أصفر، أخضر) -->
+        <circle cx="50" cy="38" r="4.5" fill="#dc2626" />
+        <circle cx="50" cy="51" r="4.5" fill="#ffeb3b" />
+        <circle cx="50" cy="64" r="4.5" fill="#4caf50" />
     </svg>`;
 }
 
