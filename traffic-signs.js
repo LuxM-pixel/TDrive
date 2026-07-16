@@ -270,14 +270,14 @@ function svgTurnLeft() {
     </svg>`;
 }
 
-// ↩️ دوران للخلف - لوحة سعودية رسمية ومطابقة
+// ↩️ دوران للخلف - متناسق تماماً مع ألوان لوحات موقع TDrive
 function svgUTurn() {
   return `
   <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-    <!-- الخلفية الزرقاء للوحة الرسمية -->
-    <circle cx="50" cy="50" r="46" fill="#1d4ed8" stroke="#ffffff" stroke-width="3" />
+    <!-- الخلفية الزرقاء المطابقة لبقية اللوحات -->
+    <circle cx="50" cy="50" r="45" fill="#2f69a8" stroke="#1d3d63" stroke-width="3" />
     
-    <!-- السهم المنحني (U-Turn) -->
+    <!-- السهم المنحني (U-Turn) باللون الأبيض الناصع -->
     <path d="M 62 70 
              L 62 48 
              A 12 12 0 0 0 38 48 
@@ -287,7 +287,7 @@ function svgUTurn() {
           stroke-width="7" 
           stroke-linecap="square" />
           
-    <!-- رأس السهم المتجه للأسفل بدقة -->
+    <!-- رأس السهم المتجه للأسفل -->
     <polygon points="30,56 46,56 38,70" fill="#ffffff" />
   </svg>
   `;
