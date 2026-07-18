@@ -347,7 +347,17 @@ border-radius:14px;
 #bookingForm button{
     padding:13px;
     font-size:15px;
+    background:#65b7c3;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
 }
+
+#bookingForm button:hover{
+    background:#4a9ea9;
+}
+
 
 .booking-note h3{
     font-size:18px;
