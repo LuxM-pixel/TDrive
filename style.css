@@ -337,11 +337,7 @@ border-radius:14px;
     margin-right:auto;
 }
 
-#bookingForm input,
-#bookingForm select{
-    padding:12px;
-    font-size:14px;
-}
+
 
 #bookingForm label{
     font-size:13px;
@@ -361,6 +357,21 @@ border-radius:14px;
     font-size:15px;
 }
 
+#bookingForm{
+    max-width:550px;
+    margin:auto;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+#bookingForm input,
+#bookingForm select{
+    width:100%;
+    padding:12px;
+    font-size:14px;
+}
 
 /* ==========================
    Coming Soon
