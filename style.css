@@ -325,10 +325,11 @@ border-radius:14px;
 
 #booking{
     padding:45px 20px;
+    font-size:15px;
 }
 
 #booking h2{
-    font-size:32px;
+    font-size:22px;
     line-height:1.4;
     margin-bottom:25px;
     max-width:600px;
@@ -336,35 +337,30 @@ border-radius:14px;
     margin-right:auto;
 }
 
-#bookingForm{
-    max-width:550px;
-    margin:auto;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-}
 #bookingForm input,
 #bookingForm select{
-    padding:14px;
-    font-size:16px;
+    padding:12px;
+    font-size:14px;
 }
 
-
 #bookingForm label{
-    font-size:15px;
+    font-size:13px;
     margin-top:6px;
 }
 
 #bookingForm button{
-    padding:15px;
-    font-size:17px;
-    border-radius:12px;
-
-    background:#65b7c3;
-    color:#fff;
-    border:none;
-    cursor:pointer;
+    padding:13px;
+    font-size:15px;
 }
+
+.booking-note h3{
+    font-size:18px;
+}
+
+.booking-note p{
+    font-size:15px;
+}
+
 
 /* ==========================
    Coming Soon
