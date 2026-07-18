@@ -1213,3 +1213,53 @@ color:#555;
     }
 
 }
+#services{
+    font-size:15px;
+}
+
+#services .program-title{
+    font-size:26px;
+}
+
+#services .current-program h2{
+    font-size:32px;
+}
+
+#services .current-program h3,
+#services .current-program p{
+    font-size:16px;
+}
+
+#services .offer-box h3{
+    font-size:22px;
+}
+
+#services .offer-box p{
+    font-size:15px;
+}
+
+#services .offer-box .special-price{
+    font-size:30px;
+}
+
+#services .vip-offer{
+    font-size:16px;
+}
+
+#services h2{
+    font-size:24px;
+}
+
+#services .card h3{
+    font-size:19px;
+}
+
+#services .card p{
+    font-size:14px;
+}
+
+#services .button{
+    font-size:15px;
+    padding:13px 32px;
+}
+
