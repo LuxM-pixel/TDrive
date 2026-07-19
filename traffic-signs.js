@@ -31,10 +31,8 @@ function svgNoStop() {
 
 // ⛔ ممنوع الدخول
 function svgNoEntry() {
-
     return `
     <svg viewBox="0 0 100 100">
-
         <circle
             cx="50"
             cy="50"
@@ -42,23 +40,19 @@ function svgNoEntry() {
             fill="#dc2626"
             stroke="#8b0000"
             stroke-width="3"/>
-
         <rect
             x="20"
             y="42"
             width="60"
             height="16"
             fill="white"/>
-
     </svg>`;
 }
 
 // 🚫 ممنوع سير جميع المركبات
 function svgNoVehicles() {
-
     return `
     <svg viewBox="0 0 100 100">
-
         <circle
             cx="50"
             cy="50"
@@ -66,16 +60,13 @@ function svgNoVehicles() {
             fill="white"
             stroke="#dc2626"
             stroke-width="9"/>
-
     </svg>`;
 }
 
 // 🚫 ممنوع التجاوز
 function svgNoOvertaking() {
-
     return `
     <svg viewBox="0 0 100 100">
-
         <!-- الإطار -->
         <circle
             cx="50"
@@ -102,7 +93,6 @@ function svgNoOvertaking() {
             <circle cx="28" cy="32" r="3" fill="#222"/>
             <rect x="17" y="11" width="10" height="6" rx="1" fill="#ffffff"/>
         </g>
-
     </svg>`;
 }
 
@@ -132,15 +122,10 @@ function svgRoundabout() {
     </svg>`;
 }
 
-
-
-
 // 🚗 السرعة القصوى
 function svgMaxSpeed(speed = "60") {
-
     return `
     <svg viewBox="0 0 100 100">
-
         <circle
             cx="50"
             cy="50"
@@ -148,7 +133,6 @@ function svgMaxSpeed(speed = "60") {
             fill="white"
             stroke="#dc2626"
             stroke-width="9"/>
-
         <text
             x="50"
             y="63"
@@ -156,45 +140,35 @@ function svgMaxSpeed(speed = "60") {
             font-size="30"
             font-weight="bold"
             fill="#222">
-
             ${speed}
-
         </text>
-
     </svg>`;
 }
 
 // 🔻 أفسح الطريق
 function svgGiveWay() {
-
     return `
     <svg viewBox="0 0 100 90">
-
         <polygon
             points="50,85 5,5 95,5"
             fill="white"
             stroke="#dc2626"
             stroke-width="7"/>
-
         <polygon
             points="50,72 18,18 82,18"
             fill="#dc2626"/>
-
     </svg>`;
 }
 
 // 🛑 قف
 function svgStop() {
-
     return `
     <svg viewBox="0 0 100 100">
-
         <polygon
             points="35,5 65,5 95,35 95,65 65,95 35,95 5,65 5,35"
             fill="#dc2626"
             stroke="#8b0000"
             stroke-width="3"/>
-
         <text
             x="50"
             y="58"
@@ -203,20 +177,15 @@ function svgStop() {
             font-size="22"
             font-weight="bold"
             fill="white">
-
             قف
-
         </text>
-
     </svg>`;
 }
 
 // ⬆️ اتجاه إجباري مستقيم
 function svgStraightAhead() {
-
     return `
     <svg viewBox="0 0 100 100">
-
         <circle
             cx="50"
             cy="50"
@@ -224,7 +193,6 @@ function svgStraightAhead() {
             fill="#2e6da4"
             stroke="#1a3a5c"
             stroke-width="2"/>
-
         <line
             x1="50"
             y1="75"
@@ -233,20 +201,16 @@ function svgStraightAhead() {
             stroke="white"
             stroke-width="9"
             stroke-linecap="round"/>
-
         <polygon
             points="50,18 35,40 65,40"
             fill="white"/>
-
     </svg>`;
 }
 
 // ➡️ اتجاه إجباري يمين
 function svgTurnRight() {
-
     return `
     <svg viewBox="0 0 100 100">
-
         <circle
             cx="50"
             cy="50"
@@ -254,7 +218,6 @@ function svgTurnRight() {
             fill="#2e6da4"
             stroke="#1a3a5c"
             stroke-width="2"/>
-
         <path
             d="M30 35 L30 65 L65 65"
             fill="none"
@@ -262,20 +225,16 @@ function svgTurnRight() {
             stroke-width="9"
             stroke-linecap="round"
             stroke-linejoin="round"/>
-
         <polygon
             points="78,65 58,52 58,78"
             fill="white"/>
-
     </svg>`;
 }
 
 // ⬅️ اتجاه إجباري يسار
 function svgTurnLeft() {
-
     return `
     <svg viewBox="0 0 100 100">
-
         <circle
             cx="50"
             cy="50"
@@ -283,7 +242,6 @@ function svgTurnLeft() {
             fill="#2e6da4"
             stroke="#1a3a5c"
             stroke-width="2"/>
-
         <path
             d="M70 35 L70 65 L35 65"
             fill="none"
@@ -291,32 +249,22 @@ function svgTurnLeft() {
             stroke-width="9"
             stroke-linecap="round"
             stroke-linejoin="round"/>
-
         <polygon
             points="22,65 42,52 42,78"
             fill="white"/>
-
     </svg>`;
 }
 
-// ↩️ دوران للخلف - متناسق تماماً مع ألوان لوحات موقع TDrive
+// ↩️ دوران للخلف
 function svgUTurn() {
   return `
   <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-    <!-- الخلفية الزرقاء المطابقة لبقية اللوحات -->
     <circle cx="50" cy="50" r="45" fill="#2f69a8" stroke="#1d3d63" stroke-width="3" />
-    
-    <!-- السهم المنحني (U-Turn) باللون الأبيض الناصع -->
-    <path d="M 62 70 
-             L 62 48 
-             A 12 12 0 0 0 38 48 
-             L 38 60" 
+    <path d="M 62 70 L 62 48 A 12 12 0 0 0 38 48 L 38 60" 
           fill="none" 
           stroke="#ffffff" 
           stroke-width="7" 
           stroke-linecap="square" />
-          
-    <!-- رأس السهم المتجه للأسفل -->
     <polygon points="30,56 46,56 38,70" fill="#ffffff" />
   </svg>
   `;
@@ -326,66 +274,22 @@ function svgUTurn() {
 function svgNoUTurn() {
     return `
     <svg viewBox="0 0 100 100">
-        <!-- الإطار الخارجي الأحمر -->
         <circle cx="50" cy="50" r="45"
             fill="white"
             stroke="#dc2626"
             stroke-width="9"/>
-
-        <!-- السهم المنحني باللون الداكن -->
-        <path d="M 58 68 
-                 L 58 48 
-                 A 10 10 0 0 0 38 48 
-                 L 38 58" 
+        <path d="M 58 68 L 58 48 A 10 10 0 0 0 38 48 L 38 58" 
               fill="none" 
               stroke="#222" 
               stroke-width="6" 
               stroke-linecap="square" />
-              
-        <!-- رأس السهم -->
         <polygon points="32,54 44,54 38,66" fill="#222" />
-
-        <!-- خط المنع المائل باللون الأحمر -->
-        <line x1="25" y1="25"
-              x2="75" y2="75"
-              stroke="#dc2626"
-              stroke-width="8"/>
+        <line x1="25" y1="25" x2="75" y2="75" stroke="#dc2626" stroke-width="8"/>
     </svg>`;
 }
 
-// 🚸 ممر مشاة
+// 🚸 ممر مشاة - المطور والمعدل بالخطوط الأرضية الصحيحة
 function svgPedestrian() {
-
-    return `
-    <svg viewBox="0 0 100 90">
-
-        <polygon
-            points="50,5 95,85 5,85"
-            fill="#f5c518"
-            stroke="#dc2626"
-            stroke-width="6"/>
-
-        <circle
-            cx="50"
-            cy="38"
-            r="6"
-            fill="#1a1a1a"/>
-
-        <path
-            d="M50 46 L50 62
-               M50 50 L38 58
-               M50 50 L62 58
-               M50 62 L40 75
-               M50 62 L60 75"
-            stroke="#1a1a1a"
-            stroke-width="4"
-            stroke-linecap="round"
-            fill="none"/>
-
-    </svg>`;
-}
-// 🚦 أمامك إشارة ضوئية
-function svgTrafficLight() {
     return `
     <svg viewBox="0 0 100 90">
         <!-- المثلث التحذيري الأصفر -->
@@ -395,10 +299,44 @@ function svgTrafficLight() {
             stroke="#dc2626"
             stroke-width="6"/>
 
-        <!-- جسم الإشارة الأسود في المنتصف -->
-        <rect x="42" y="32" width="16" height="38" rx="3" fill="#1a1a1a" />
+        <!-- رمز الشخص (المشاة) -->
+        <circle
+            cx="50"
+            cy="33"
+            r="5.5"
+            fill="#1a1a1a"/>
 
-        <!-- الأضواء الثلاثة (أحمر، أصفر، أخضر) -->
+        <path
+            d="M50 40 L50 56
+               M50 44 L38 52
+               M50 44 L60 51
+               M50 56 L42 69
+               M50 56 L58 69"
+            stroke="#1a1a1a"
+            stroke-width="4.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            fill="none"/>
+
+        <!-- خطوط ممر المشاة الأرضية داخل اللوحة -->
+        <g stroke="#1a1a1a" stroke-width="4" stroke-linecap="round">
+            <line x1="32" y1="73" x2="42" y2="73" />
+            <line x1="45" y1="73" x2="55" y2="73" />
+            <line x1="58" y1="73" x2="68" y2="73" />
+        </g>
+    </svg>`;
+}
+
+// 🚦 أمامك إشارة ضوئية
+function svgTrafficLight() {
+    return `
+    <svg viewBox="0 0 100 90">
+        <polygon
+            points="50,5 95,85 5,85"
+            fill="#f5c518"
+            stroke="#dc2626"
+            stroke-width="6"/>
+        <rect x="42" y="32" width="16" height="38" rx="3" fill="#1a1a1a" />
         <circle cx="50" cy="38" r="4.5" fill="#dc2626" />
         <circle cx="50" cy="51" r="4.5" fill="#ffeb3b" />
         <circle cx="50" cy="64" r="4.5" fill="#4caf50" />
@@ -407,22 +345,18 @@ function svgTrafficLight() {
 
 // ⚠️ مطبات
 function svgBump() {
-
     return `
     <svg viewBox="0 0 100 90">
-
         <polygon
             points="50,5 95,85 5,85"
             fill="#f5c518"
             stroke="#dc2626"
             stroke-width="6"/>
-
         <path
             d="M20 70 Q50 45 80 70"
             fill="none"
             stroke="#1a1a1a"
             stroke-width="6"
             stroke-linecap="round"/>
-
     </svg>`;
 }
