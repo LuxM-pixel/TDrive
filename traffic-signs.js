@@ -360,3 +360,40 @@ function svgBump() {
             stroke-linecap="round"/>
     </svg>`;
 }
+
+// ⚠️ لوحات مناطق العمل - أعمال الطريق (عامل يحفر وبجانبه كومة تراب)
+function svgRoadWork() {
+    return `
+    <svg viewBox="0 0 100 90">
+        <!-- المثلث التحذيري الأصفر -->
+        <polygon
+            points="50,5 95,85 5,85"
+            fill="#f5c518"
+            stroke="#dc2626"
+            stroke-width="6"/>
+            
+        <!-- خط الأرضية السفلي -->
+        <line x1="25" y1="70" x2="75" y2="70" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+
+        <!-- كومة التراب على اليمين -->
+        <path d="M58 70 Q68 54 78 70 Z" fill="#1a1a1a"/>
+
+        <!-- رأس العامل -->
+        <circle cx="42" cy="38" r="5" fill="#1a1a1a"/>
+        
+        <!-- جسد العامل والأرجل -->
+        <path d="M42 43 L45 54 
+                 M45 54 L38 70 
+                 M45 54 L48 70" 
+              stroke="#1a1a1a" 
+              stroke-width="4.5" 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              fill="none"/>
+        
+        <!-- الذراع والمجرفة المتجهة نحو كومة التراب -->
+        <path d="M42 46 Q50 48 58 58" stroke="#1a1a1a" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <line x1="44" y1="50" x2="62" y2="66" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="60,62 65,67 59,68" fill="#1a1a1a"/>
+    </svg>`;
+}
