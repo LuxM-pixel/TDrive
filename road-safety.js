@@ -98,10 +98,10 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     `;
 
-    // 5. لوحات مناطق العمل
+    // 5. لوحات مناطق العمل (تم التعديل هنا لتظهر لوحة أعمال الطريق الصحيحة)
     document.getElementById("workSigns").innerHTML = `
         <div class="mini-sign">
-            ${svgPedestrian()}
+            ${svgRoadWork()}
             <span>منطقة أعمال</span>
         </div>
     `;
