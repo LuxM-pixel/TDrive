@@ -491,3 +491,9 @@ footer{
     top: 0;
     font-size: 20px;
 }
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
