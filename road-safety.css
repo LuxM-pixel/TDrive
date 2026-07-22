@@ -557,3 +557,9 @@ footer{
     font-size: 17px;
     line-height: 1.8;
 }
+.hero-car{
+    width: 220px;
+    height: auto;
+    display: block;
+    margin: 0 auto 25px;
+}
