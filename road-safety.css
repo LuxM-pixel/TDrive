@@ -127,10 +127,27 @@ section{
     padding:70px 8%;
 }
 
-section h2{
-    text-align:center;
-    font-size:28px;
-    margin-bottom:35px;
+section > h2{
+    position: relative;
+    display: table;
+    margin: 0 auto 55px;
+    padding-bottom: 18px;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    font-weight: 800;
+    color: #2f2f2f;
+    text-align: center;
+}
+
+section > h2::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 5px;
+    background: linear-gradient(90deg,#56c5d0,#9dddea);
+    border-radius: 50px;
 }
 
 .cards-grid{
