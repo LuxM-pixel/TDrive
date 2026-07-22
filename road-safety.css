@@ -498,44 +498,62 @@ footer{
     margin-top: 20px;
 }
 
-/* تنسيقات إضافية لملف road-safety.css لضمان توافق العناصر والصور */
+/* ===== صورة شرح إشارة المرور ===== */
 
-.interactive-scene {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto 20px auto;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+.traffic-guide{
+    text-align: center;
+    margin: 35px auto;
 }
 
-.interactive-scene img {
+.traffic-guide-img{
     width: 100%;
+    max-width: 1000px;
     height: auto;
     display: block;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* تنسيق عام للبطاقات والشبكات في الصفحات المرورية */
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+.traffic-list{
+    max-width: 1000px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
-.card {
+.traffic-item{
+    display: flex;
+    align-items: center;
+    gap: 16px;
     background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+    padding: 18px 22px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.num{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
-.card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+.green{background:#2ecc71;}
+.yellow{background:#f1c40f;color:#000;}
+.red{background:#e74c3c;}
+.purple{background:#8e44ad;}
+.blue{background:#3498db;}
+
+.traffic-item p{
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.8;
 }
