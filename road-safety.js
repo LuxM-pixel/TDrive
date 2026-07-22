@@ -88,6 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. لوحات الأسبقية
     document.getElementById("prioritySigns").innerHTML = `
         <div class="mini-sign">
+            ${svgPriorityRoad()}
+            <span>طريق ذو أولوية</span>
+        </div>
+
+        <div class="mini-sign">
             ${svgGiveWay()}
             <span>أفسح الطريق</span>
         </div>
