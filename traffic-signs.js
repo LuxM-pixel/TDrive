@@ -182,6 +182,27 @@ function svgStop() {
     </svg>`;
 }
 
+// 🟡 طريق ذو أولوية
+function svgPriorityRoad() {
+    return `
+    <svg viewBox="0 0 100 100">
+        <!-- المعين الخارجي بإطار أبيض أو أسود -->
+        <polygon
+            points="50,5 95,50 50,95 5,50"
+            fill="white"
+            stroke="#1a1a1a"
+            stroke-width="3"/>
+            
+        <!-- المعين الداخلي الأصفر -->
+        <polygon
+            points="50,15 85,50 50,85 15,50"
+            fill="#f5c518"
+            stroke="#1a1a1a"
+            stroke-width="1.5"/>
+    </svg>`;
+}
+
+
 // ⬆️ اتجاه إجباري مستقيم
 function svgStraightAhead() {
     return `
