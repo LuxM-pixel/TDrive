@@ -497,3 +497,45 @@ footer{
     gap: 25px;
     margin-top: 20px;
 }
+
+/* تنسيقات إضافية لملف road-safety.css لضمان توافق العناصر والصور */
+
+.interactive-scene {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.interactive-scene img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* تنسيق عام للبطاقات والشبكات في الصفحات المرورية */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
