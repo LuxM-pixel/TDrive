@@ -1263,3 +1263,42 @@ color:#555;
     padding:13px 32px;
 }
 
+/* ==========================
+   Footer Pages
+========================== */
+
+.footer-links{
+    max-width:700px;
+    margin:0 auto 50px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+}
+
+.footer-links a{
+    color:#555;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:600;
+    border-bottom:1px solid #d8eaf0;
+    padding-bottom:8px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:#65b7c3;
+    border-color:#65b7c3;
+}
+
+@media(max-width:768px){
+
+.footer-links{
+    margin:10px auto 40px;
+}
+
+.footer-links a{
+    font-size:17px;
+}
+
+}
