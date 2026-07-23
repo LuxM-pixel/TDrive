@@ -1269,20 +1269,22 @@ color:#555;
 
 .footer-links{
     max-width:700px;
-    margin:0 auto 50px;
+    margin:0 auto 40px;
     display:flex;
     flex-direction:column;
-    align-items:center;
-    gap:18px;
+    align-items:flex-end;
+    text-align:right;
+    padding:0 25px;
+    gap:12px;
 }
 
 .footer-links a{
     color:#555;
     text-decoration:none;
-    font-size:18px;
+    font-size:15px;
     font-weight:600;
     border-bottom:1px solid #d8eaf0;
-    padding-bottom:8px;
+    padding-bottom:6px;
     transition:.3s;
 }
 
@@ -1294,11 +1296,116 @@ color:#555;
 @media(max-width:768px){
 
 .footer-links{
-    margin:10px auto 40px;
+    align-items:flex-end;
+    text-align:right;
+    padding:0 20px;
 }
 
 .footer-links a{
+    font-size:15px;
+}
+
+}
+
+/* ==========================
+   Policy Pages
+========================== */
+
+.policy-page{
+    max-width:900px;
+    margin:50px auto;
+    padding:0 20px;
+}
+
+.policy-card{
+    background:#fff;
+    border:2px solid #d9edf5;
+    border-radius:22px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.policy-card h1{
+    color:#65b7c3;
+    font-size:34px;
+    margin-bottom:10px;
+    text-align:right;
+}
+
+.policy-update{
+    color:#888;
+    font-size:15px;
+    margin-bottom:25px;
+    text-align:right;
+}
+
+.policy-card h2{
+    color:#333;
+    font-size:24px;
+    margin:30px 0 15px;
+    text-align:right;
+}
+
+.policy-card p{
+    color:#555;
+    font-size:18px;
+    line-height:2;
+    text-align:right;
+}
+
+.policy-card ul{
+    margin:15px 25px;
+}
+
+.policy-card li{
+    color:#555;
+    font-size:18px;
+    line-height:2;
+    margin-bottom:10px;
+}
+
+.back-home{
+    display:inline-block;
+    margin-top:35px;
+    background:#65b7c3;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 30px;
+    border-radius:14px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.back-home:hover{
+    background:#4a9ea9;
+}
+
+@media(max-width:768px){
+
+.policy-page{
+    margin:30px auto;
+}
+
+.policy-card{
+    padding:22px;
+}
+
+.policy-card h1{
+    font-size:28px;
+}
+
+.policy-card h2{
+    font-size:22px;
+}
+
+.policy-card p,
+.policy-card li{
     font-size:17px;
+}
+
+.back-home{
+    width:100%;
+    text-align:center;
 }
 
 }
