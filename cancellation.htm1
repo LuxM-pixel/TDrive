@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>سياسة الإلغاء والاسترجاع | TDrive</title>
+
+<link rel="stylesheet" href="style.css?v=7">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+
+<h1>TDrive</h1>
+
+<p>تكنولوجيا القيادة</p>
+
+</div>
+
+<nav>
+
+<a href="index.html">الرئيسية</a>
+
+<a href="about.html">من نحن</a>
+
+<a href="services.html">الخدمات</a>
+
+<a href="booking.html" class="nav-register">تسجيل</a>
+
+<a href="road-safety.html">السلامة المرورية</a>
+
+<a href="index.html#contact">تواصل معنا</a>
+
+</nav>
+
+</header>
+
+<main class="policy-page">
+
+<div class="policy-card">
+
+<h1>سياسة الإلغاء والاسترجاع</h1>
+
+<p class="policy-update">
+آخر تحديث: يوليو 2026
+</p>
+
+<p>
+
+تهدف هذه السياسة إلى تنظيم إجراءات الإلغاء وإعادة الجدولة واسترجاع الرسوم بما يحقق العدالة للطرفين ويساعد على تقديم الخدمة بكفاءة.
+
+</p>
+
+<h2>قبل بدء البرنامج</h2>
+
+<ul>
+
+<li>يمكن للمتدرب طلب إعادة جدولة موعد التدريب عند إشعار TDrive قبل الموعد بوقت مناسب.</li>
+
+<li>تتم إعادة الجدولة حسب توفر المواعيد المتاحة.</li>
+
+</ul>
+
+<h2>التأخر</h2>
+
+<ul>
+
+<li>يُرجى الالتزام بالحضور في الموعد المحدد.</li>
+
+<li>قد يتم احتساب مدة التأخير ضمن وقت الحصة إذا تأخر المتدرب دون إشعار مسبق.</li>
+
+</ul>
+
+<h2>عدم الحضور</h2>
+
+<ul>
+
+<li>في حال عدم حضور المتدرب دون إشعار مسبق، يحق لـ TDrive اعتبار الحصة منفذة.</li>
+
+</ul>
+
+<h2>استرجاع الرسوم</h2>
+
+<p>
+
+تتم دراسة كل طلب استرجاع بشكل مستقل وفق طبيعة البرنامج أو الخدمة، والمدة المنفذة، والظروف المرتبطة بالحالة، ويجوز لـ TDrive قبول الطلب أو رفضه وفق ما تقتضيه كل حالة.
+
+</p>
+
+<h2>إلغاء من قبل TDrive</h2>
+
+<p>
+
+إذا تعذر تقديم الخدمة من قبل TDrive لأي سبب، يتم إعادة جدولة الموعد أو إعادة الرسوم المستحقة حسب الحالة.
+
+</p>
+
+<h2>تعديل السياسة</h2>
+
+<p>
+
+يحق لـ TDrive تحديث هذه السياسة في أي وقت، ويُعتبر استمرار استخدام الموقع أو الخدمات موافقة على النسخة المحدثة.
+
+</p>
+
+<a href="index.html" class="back-home">
+
+العودة إلى الصفحة الرئيسية
+
+</a>
+
+</div>
+
+</main>
+
+<footer>
+
+<p>
+
+© 2026 TDrive | تكنولوجيا القيادة
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
