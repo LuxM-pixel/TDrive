@@ -1268,14 +1268,12 @@ color:#555;
 ========================== */
 
 .footer-links{
-    max-width:700px;
-    margin:0 auto 40px;
+    width:100%;
+    padding:0 20px;
+    margin:0 0 40px;
     display:flex;
     flex-direction:column;
-    align-items:flex-end;
-    text-align:right;
-    padding:0 25px;
-    gap:12px;
+    align-items:flex-start;
 }
 
 .footer-links a{
@@ -1302,7 +1300,7 @@ color:#555;
 }
 
 .footer-links a{
-    font-size:15px;
+    font-size:10px;
 }
 
 }
