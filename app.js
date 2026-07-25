@@ -214,32 +214,22 @@ bookingsToSave.push(bookingData);
 }
     console.log("تم حفظ جميع الحصص");
 
-    alert("تم التسجيل بنجاح");
+alert("تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع.");
 
-    await updateAvailableTimes();
+await updateAvailableTimes();
 
-    form.reset();
+sessionStorage.setItem("bookingId", bookingId);
+sessionStorage.setItem("fullName", fullName);
+sessionStorage.setItem("phone", phone);
+sessionStorage.setItem("trainingDate", trainingDate);
+sessionStorage.setItem("trainingTime", trainingTime);
 
-    trainingTime.innerHTML =
-        '<option value="">اختر وقت التدريب</option>';
+form.reset();
 
-    const message = `السلام عليكم،
+trainingTime.innerHTML =
+    '<option value="">اختر وقت التدريب</option>';
 
-سجلت في دورة احترف القيادة.
-
-👤 الاسم: ${fullName}
-📱 الجوال: ${phone}
-
-📅 تاريخ بداية التدريب: ${trainingDate}
-🕒 وقت التدريب: ${trainingTime}
-
-أرغب بالحصول على بيانات الحساب البنكي لإتمام دفع الرسوم.
-
-شكراً لكم.`;
-
-    window.location.href =
-        "https://wa.me/966556117180?text=" +
-        encodeURIComponent(message);
+window.location.href = "payment-method.html";
 
 } catch (error) {
 
