@@ -309,29 +309,42 @@ async function createInvoice(paymentMethod){
   
 document.getElementById("bankBtn").addEventListener("click", async () => {
 
-    await createInvoice("Bank Transfer");
-
-    window.location.href = "payment.html";
+    try {
+        await createInvoice("Bank Transfer");
+        window.location.href = "payment.html";
+    } catch (error) {
+        console.error(error);
+        alert("حدث خطأ: " + error.message);
+    }
 
 });
 
 document.getElementById("appleBtn").addEventListener("click", async () => {
 
-    await createInvoice("Apple Pay");
-
-    // مؤقتًا حتى نربط Apple Pay
-    window.location.href = "customer-invoice.html";
+    try {
+        await createInvoice("Apple Pay");
+        // مؤقتًا حتى نربط Apple Pay
+        window.location.href = "customer-invoice.html";
+    } catch (error) {
+        console.error(error);
+        alert("حدث خطأ: " + error.message);
+    }
 
 });
 
 document.getElementById("tamaraBtn").addEventListener("click", async () => {
 
-    await createInvoice("Tamara");
-
-    // مؤقتًا حتى نربط تمارا
-    window.location.href = "customer-invoice.html";
+    try {
+        await createInvoice("Tamara");
+        // مؤقتًا حتى نربط تمارا
+        window.location.href = "customer-invoice.html";
+    } catch (error) {
+        console.error(error);
+        alert("حدث خطأ: " + error.message);
+    }
 
 });
+
   
 </script>
 
