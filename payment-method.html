@@ -336,14 +336,37 @@ document.getElementById("tamaraBtn").addEventListener("click", async () => {
 
     try {
         await createInvoice("Tamara");
-        // مؤقتًا حتى نربط تمارا
-        window.location.href = "customer-invoice.html";
+
+        const response = await fetch(
+            "https://t-drive-three.vercel.app/api/create-tamara-order",
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    bookingId,
+                    fullName,
+                    phone,
+                    trainingDate,
+                    trainingTime,
+                }),
+            }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error?.message || "فشل إنشاء طلب الدفع");
+        }
+
+        window.location.href = data.checkoutUrl;
+
     } catch (error) {
         console.error(error);
         alert("حدث خطأ: " + error.message);
     }
 
 });
+
 
   
 </script>
