@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>فاتورة العميل | TDrive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',sans-serif;
+}
+
+body{
+background:#eef4f7;
+padding:20px;
+}
+
+.invoice{
+
+max-width:800px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.logo{
+
+text-align:center;
+margin-bottom:30px;
+
+}
+
+.logo h1{
+
+font-size:50px;
+color:#6DB7C5;
+
+}
+
+.logo p{
+
+color:#666;
+
+}
+
+.title{
+
+text-align:center;
+font-size:34px;
+font-weight:bold;
+margin-bottom:30px;
+
+}
+
+.row{
+
+display:flex;
+justify-content:space-between;
+padding:14px 0;
+border-bottom:1px solid #eee;
+
+}
+
+.label{
+
+font-weight:bold;
+
+}
+
+.total{
+
+margin-top:25px;
+padding:18px;
+background:#6DB7C5;
+color:white;
+font-size:28px;
+font-weight:bold;
+border-radius:12px;
+display:flex;
+justify-content:space-between;
+
+}
+
+button{
+
+margin-top:30px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:12px;
+background:#6DB7C5;
+color:white;
+font-size:20px;
+cursor:pointer;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="invoice">
+
+<div class="logo">
+
+<h1>TDrive</h1>
+
+<p>تكنولوجيا القيادة</p>
+
+</div>
+
+<div class="title">
+
+فاتورة العميل
+
+</div>
+
+<div class="row">
+
+<span class="label">رقم الفاتورة</span>
+
+<span id="invoiceId"></span>
+
+</div>
+
+<div class="row">
+
+<span class="label">الاسم</span>
+
+<span id="fullName"></span>
+
+</div>
+
+<div class="row">
+
+<span class="label">رقم الجوال</span>
+
+<span id="phone"></span>
+
+</div>
+
+<div class="row">
+
+<span class="label">الخدمة</span>
+
+<span>احترف القيادة على الطريق</span>
+
+</div>
+
+<div class="row">
+
+<span class="label">عدد الساعات</span>
+
+<span>5 ساعات</span>
+
+</div>
+
+<div class="row">
+
+<span class="label">طريقة الدفع</span>
+
+<span id="paymentMethod"></span>
+
+</div>
+
+<div class="row">
+
+<span class="label">حالة الدفع</span>
+
+<span id="paymentStatus"></span>
+
+</div>
+
+<div class="row">
+
+<span class="label">تاريخ الفاتورة</span>
+
+<span id="invoiceDate"></span>
+
+</div>
+
+<div class="total">
+
+<span>المبلغ النهائي</span>
+
+<span id="amount"></span>
+
+</div>
+
+<button onclick="window.print()">
+
+🖨️ طباعة الفاتورة
+
+</button>
+
+</div>
+
+<script type="module" src="customer-invoice.js"></script>
+
+</body>
+
+</html>
