@@ -216,18 +216,11 @@ bookingsToSave.push(bookingData);
 
 alert("تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع.");
 
-await updateAvailableTimes();
-
 sessionStorage.setItem("bookingId", bookingId);
 sessionStorage.setItem("fullName", fullName);
 sessionStorage.setItem("phone", phone);
 sessionStorage.setItem("trainingDate", trainingDate);
 sessionStorage.setItem("trainingTime", trainingTime);
-
-form.reset();
-
-trainingTime.innerHTML =
-    '<option value="">اختر وقت التدريب</option>';
 
 window.location.href = "payment-method.html";
 
