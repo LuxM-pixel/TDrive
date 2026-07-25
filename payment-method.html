@@ -169,10 +169,8 @@ line-height:2;
 
 </p>
 
-<button onclick="window.location='payment.html'">
-
+<button id="bankBtn">
 متابعة
-
 </button>
 
 </div>
@@ -187,12 +185,9 @@ line-height:2;
 
 </p>
 
-<button>
-
-قريبًا
-
+<button id="appleBtn">
+Apple Pay
 </button>
-
 </div>
 
 <div class="card">
@@ -205,10 +200,8 @@ line-height:2;
 
 </p>
 
-<button>
-
-قريبًا
-
+<button id="tamaraBtn">
+تمارا
 </button>
 
 </div>
@@ -221,7 +214,13 @@ line-height:2;
 
 </div>
 
-<script>
+<script type="module">
+
+import {
+    saveCustomerInvoice,
+    getNextInvoiceNumber,
+    getCustomerInvoiceByBookingId
+} from "./firebase.js";
 
 const bookingId = sessionStorage.getItem("bookingId");
 const fullName = sessionStorage.getItem("fullName");
@@ -229,20 +228,111 @@ const phone = sessionStorage.getItem("phone");
 const trainingDate = sessionStorage.getItem("trainingDate");
 const trainingTime = sessionStorage.getItem("trainingTime");
 
-if(!bookingId){
+if (!bookingId) {
 
-alert("لا يوجد حجز مسجل.");
+    alert("لا يوجد حجز مسجل.");
 
-window.location="booking.html";
+    window.location = "booking.html";
 
 }
 
-document.getElementById("bookingId").textContent=bookingId;
-document.getElementById("fullName").textContent=fullName;
-document.getElementById("phone").textContent=phone;
-document.getElementById("trainingDate").textContent=trainingDate;
-document.getElementById("trainingTime").textContent=trainingTime;
+document.getElementById("bookingId").textContent = bookingId;
+document.getElementById("fullName").textContent = fullName;
+document.getElementById("phone").textContent = phone;
+document.getElementById("trainingDate").textContent = trainingDate;
+document.getElementById("trainingTime").textContent = trainingTime;
 
+async function createInvoice(paymentMethod){
+
+    const existingInvoice =
+        await getCustomerInvoiceByBookingId(bookingId);
+
+    if(existingInvoice){
+
+        sessionStorage.setItem(
+            "invoiceId",
+            existingInvoice.invoiceId
+        );
+
+        sessionStorage.setItem(
+            "paymentMethod",
+            paymentMethod
+        );
+
+        return;
+
+    }
+
+    const invoiceNumber = await getNextInvoiceNumber();
+
+    const year = new Date().getFullYear();
+
+    const invoiceId =
+        "TDR-" +
+        year +
+        "-" +
+        String(invoiceNumber).padStart(4,"0");
+
+    await saveCustomerInvoice({
+
+        invoiceId,
+
+        bookingId,
+
+        fullName,
+
+        phone,
+
+        trainingDate,
+
+        trainingTime,
+
+        paymentMethod,
+
+        paymentStatus: "Pending",
+
+        originalPrice: 500,
+
+        discount: 125,
+
+        finalPrice: 375,
+
+        createdAt: new Date().toISOString()
+
+    });
+
+    sessionStorage.setItem("invoiceId", invoiceId);
+
+    sessionStorage.setItem("paymentMethod", paymentMethod);
+
+}
+  
+document.getElementById("bankBtn").addEventListener("click", async () => {
+
+    await createInvoice("Bank Transfer");
+
+    window.location.href = "payment.html";
+
+});
+
+document.getElementById("appleBtn").addEventListener("click", async () => {
+
+    await createInvoice("Apple Pay");
+
+    // مؤقتًا حتى نربط Apple Pay
+    window.location.href = "customer-invoice.html";
+
+});
+
+document.getElementById("tamaraBtn").addEventListener("click", async () => {
+
+    await createInvoice("Tamara");
+
+    // مؤقتًا حتى نربط تمارا
+    window.location.href = "customer-invoice.html";
+
+});
+  
 </script>
 
 </body>
