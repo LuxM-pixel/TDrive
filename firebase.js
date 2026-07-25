@@ -141,3 +141,41 @@ export async function getNextInvoiceNumber(){
     return invoiceNumber;
 
 }
+
+export async function saveCustomerInvoice(data){
+
+    try{
+
+        const docRef = await addDoc(
+            collection(db,"customer-invoices"),
+            data
+        );
+
+        return docRef.id;
+
+    }catch(error){
+
+        console.error(error);
+
+        throw error;
+
+    }
+
+}
+
+export async function getCustomerInvoice(invoiceId){
+
+    const q = query(
+        collection(db,"customer-invoices"),
+        where("invoiceId","==",invoiceId)
+    );
+
+    const snapshot = await getDocs(q);
+
+    if(snapshot.empty){
+        return null;
+    }
+
+    return snapshot.docs[0].data();
+
+}
