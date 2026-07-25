@@ -179,3 +179,20 @@ export async function getCustomerInvoice(invoiceId){
     return snapshot.docs[0].data();
 
 }
+
+export async function getCustomerInvoiceByBookingId(bookingId){
+
+    const q = query(
+        collection(db,"customer-invoices"),
+        where("bookingId","==",bookingId)
+    );
+
+    const snapshot = await getDocs(q);
+
+    if(snapshot.empty){
+        return null;
+    }
+
+    return snapshot.docs[0].data();
+
+}
