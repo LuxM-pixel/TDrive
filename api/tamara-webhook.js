@@ -46,7 +46,9 @@ export default async function handler(req, res) {
 
     console.log("Webhook body received:", JSON.stringify(req.body));
 
-const { order_id, order_reference_id, status } = req.body;
+const { order_id, order_reference_id, order_status } = req.body;
+const status = order_status;
+
 
 console.log("Extracted status:", status, "| bookingId:", order_reference_id);
 
