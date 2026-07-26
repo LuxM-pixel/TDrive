@@ -28,17 +28,23 @@ export default async function handler(req, res) {
   }
 
   try {
-    const tamaraToken = req.query.tamaraToken;
-    if (tamaraToken !== process.env.TAMARA_NOTIFICATION_TOKEN) {
-      return res.status(401).json({ error: "Invalid notification token" });
-    }
+  const tamaraToken = req.query.tamaraToken;
 
-    const { order_id, order_reference_id, status } = req.body;
+  console.log("Query Token:", tamaraToken);
+  console.log("Env Token:", process.env.TAMARA_NOTIFICATION_TOKEN);
 
-    const successStatuses = ["approved", "authorised", "captured", "fully_captured"];
-    if (!successStatuses.includes((status || "").toLowerCase())) {
-      return res.status(200).json({ received: true, skipped: true });
-    }
+  if (tamaraToken !== process.env.TAMARA_NOTIFICATION_TOKEN) {
+    return res.status(401).json({ error: "Invalid notification token" });
+  }
+
+  const { order_id, order_reference_id, status } = req.body;
+
+  const successStatuses = ["approved", "authorised", "captured", "fully_captured"];
+  if (!successStatuses.includes((status || "").toLowerCase())) {
+    return res.status(200).json({ received: true, skipped: true });
+  }
+
+  // باقي الكود...
 
     const q = query(
       collection(db, "customer-invoices"),
