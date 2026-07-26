@@ -373,33 +373,35 @@ async function loadReviews() {
 
 }
 
-const serviceType = document.getElementById("serviceType");
-const drivingTitle = document.getElementById("drivingTitle");
-const drivingNote = document.getElementById("drivingNote");
-const captainSection = document.getElementById("captainSection");
+const tabButtons = document.querySelectorAll(".tab-btn");
+const drivingPanel = document.getElementById("drivingPanel");
+const captainPanel = document.getElementById("captainPanel");
 
-if (serviceType) {
+tabButtons.forEach(btn => {
 
-    serviceType.addEventListener("change", function(){
+    btn.addEventListener("click", function(){
 
-        if(this.value === "captain"){
-            drivingTitle.style.display = "none";
-            drivingNote.style.display = "none";
-            form.style.display = "none";
-            captainSection.style.display = "block";
-        } else if(this.value === "driving"){
-            drivingTitle.style.display = "block";
-            drivingNote.style.display = "block";
-            form.style.display = "flex";
-            captainSection.style.display = "none";
-        } else if(this.value === "car"){
+        const service = this.dataset.service;
+
+        if(service === "car"){
             alert("قريبًا 🚗");
-            this.value = "driving";
+            return;
+        }
+
+        tabButtons.forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+
+        if(service === "driving"){
+            drivingPanel.style.display = "block";
+            captainPanel.style.display = "none";
+        } else if(service === "captain"){
+            drivingPanel.style.display = "none";
+            captainPanel.style.display = "block";
         }
 
     });
 
-}
+});
 
 const captainForm = document.getElementById("captainForm");
 
@@ -430,4 +432,3 @@ if (captainForm) {
     });
 
 }
-
