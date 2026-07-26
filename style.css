@@ -1398,86 +1398,164 @@ color:#555;
 }
 
 /* ==========================
-   Service Selector
+   Booking Hero
 ========================== */
 
-.service-selector{
-    max-width:550px;
-    margin:25px auto 30px;
+.booking-hero{
     text-align:center;
+    margin-bottom:30px;
 }
 
-.service-selector label{
-    display:block;
-    font-size:14px;
-    font-weight:700;
-    color:#444;
+.booking-hero h2{
+    font-size:26px;
+    font-weight:800;
+    color:#2f8ea1;
     margin-bottom:8px;
 }
 
-.service-selector select{
-    width:100%;
-    padding:13px 14px;
-    font-size:14px;
-    border:1px solid #d9edf5;
-    border-radius:12px;
-    background:#f7fbfd;
-    color:#333;
-    font-family:'Cairo',sans-serif;
-    cursor:pointer;
-}
-
-.service-selector select:focus{
-    outline:none;
-    border-color:#65b7c3;
+.booking-hero .subtitle{
+    font-size:15px;
+    color:#777;
 }
 
 /* ==========================
-   Captain Section
+   Service Tabs
 ========================== */
 
-#captainSection{
+.service-tabs{
+    display:flex;
+    gap:10px;
+    max-width:560px;
+    margin:0 auto 35px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.tab-btn{
+    flex:1;
+    min-width:100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    padding:14px 8px;
+    border:1.5px solid #d9edf5;
+    border-radius:16px;
+    background:#f7fbfd;
+    color:#555;
+    font-family:'Cairo',sans-serif;
+    font-weight:700;
+    font-size:12.5px;
+    cursor:pointer;
+    transition:.25s ease;
+}
+
+.tab-btn i{
+    font-size:19px;
+    color:#65b7c3;
+    transition:.25s ease;
+}
+
+.tab-btn:hover{
+    transform:translateY(-2px);
+    border-color:#65b7c3;
+}
+
+.tab-btn.active{
+    background:#65b7c3;
+    border-color:#65b7c3;
+    color:#fff;
+}
+
+.tab-btn.active i{
+    color:#fff;
+}
+
+/* ==========================
+   Service Panel / Forms
+========================== */
+
+.service-panel{
     max-width:550px;
     margin:0 auto;
 }
 
+.booking-program-title{
+    font-size:20px;
+    font-weight:800;
+    line-height:1.5;
+    text-align:center;
+    color:#333;
+    margin-bottom:20px;
+}
+
+#bookingForm,
 #captainForm{
     display:flex;
     flex-direction:column;
     gap:14px;
+    width:100%;
 }
 
+#bookingForm label,
+#captainForm label{
+    font-size:13px;
+    font-weight:700;
+    color:#3a939f;
+    margin-top:2px;
+}
+
+#bookingForm input,
+#bookingForm select,
 #captainForm input{
     width:100%;
-    padding:12px;
+    padding:14px 16px;
     font-size:14px;
-    border:1px solid #ddd;
-    border-radius:10px;
+    border:1.5px solid #e2eef2;
+    border-radius:12px;
+    background:#fbfeff;
     font-family:'Cairo',sans-serif;
+    color:#333;
+    transition:.2s ease;
 }
 
+#bookingForm input:focus,
+#bookingForm select:focus,
+#captainForm input:focus{
+    outline:none;
+    border-color:#65b7c3;
+    box-shadow:0 0 0 3px rgba(101,183,195,.15);
+}
+
+#bookingForm button,
 #captainForm button{
-    padding:13px;
+    padding:15px;
     font-size:15px;
+    font-weight:700;
     background:#65b7c3;
     color:#fff;
     border:none;
     border-radius:12px;
     cursor:pointer;
-    font-weight:700;
+    transition:.2s ease;
 }
 
+#bookingForm button:hover,
 #captainForm button:hover{
     background:#4a9ea9;
+    transform:translateY(-1px);
 }
 
-.booking-program-title{
-    font-size:22px;
-    line-height:1.4;
-    margin-bottom:25px;
-    max-width:600px;
-    margin-left:auto;
-    margin-right:auto;
-    text-align:center;
-    color:#333;
+#bookingForm button:active,
+#captainForm button:active{
+    transform:scale(.97);
+}
+
+@media (max-width:480px){
+    .tab-btn span{
+        font-size:11.5px;
+    }
+    .tab-btn i{
+        font-size:17px;
+    }
 }
