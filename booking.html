@@ -47,20 +47,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <section id="booking">
 
 <div class="booking-hero">
-<h2>سجلي معنا</h2>
-<p class="subtitle">اختاري الخدمة المناسبة لك وابدئي رحلتك مع TDrive</p>
+<h2> تسعدنا خدمتكم</h2>
+<p class="subtitle">اختار الخدمة المناسبة لك وابدء رحلتك مع TDrive</p>
 </div>
 
 <div class="service-tabs">
 
 <button type="button" class="tab-btn active" data-service="driving">
 <i class="fa-solid fa-car"></i>
-<span>احترفي القيادة</span>
+<span>احترفي القيادة على الطريق</span>
 </button>
 
 <button type="button" class="tab-btn" data-service="captain">
 <i class="fa-solid fa-id-badge"></i>
-<span>الكابتن المحترف</span>
+<span>دورةالكابتن المحترف</span>
 </button>
 
 <button type="button" class="tab-btn" data-service="car">
@@ -85,29 +85,82 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 </p>
 </div>
 
+<div class="stepper">
+
+<div class="step-item">
+<div class="step-circle active" data-step="1">1</div>
+<span>البيانات</span>
+</div>
+
+<div class="step-line"></div>
+
+<div class="step-item">
+<div class="step-circle" data-step="2">2</div>
+<span>الموعد</span>
+</div>
+
+<div class="step-line"></div>
+
+<div class="step-item">
+<div class="step-circle" data-step="3">3</div>
+<span>الدفع</span>
+</div>
+
+</div>
+
 <form id="bookingForm">
 
-<input type="text" id="fullName" placeholder="الاسم الكامل" required>
-<input type="text" id="address" placeholder="عنوان المتدربة" required>
-<input type="tel" id="phone" placeholder="رقم الجوال" required>
+<div class="form-step active" data-step="1">
 
-<label>اختيار تاريخ التدريب</label>
+<h4 class="step-title"><i class="fa-solid fa-user"></i> البيانات الشخصية</h4>
+
+<label>الاسم الكامل</label>
+<div class="input-icon">
+<input type="text" id="fullName" placeholder="اكتبي اسمك الكامل" required>
+<i class="fa-solid fa-user"></i>
+</div>
+
+<label>عنوان المتدربة</label>
+<div class="input-icon">
+<input type="text" id="address" placeholder="اكتبي عنوانك (الحي - المدينة)" required>
+<i class="fa-solid fa-location-dot"></i>
+</div>
+
+<label>رقم الجوال</label>
+<div class="input-icon">
+<input type="tel" id="phone" placeholder="05xxxxxxxx" required>
+<i class="fa-solid fa-phone"></i>
+</div>
+
+<button type="button" class="next-btn" data-next="2">التالي</button>
+
+</div>
+
+<div class="form-step" data-step="2">
+
+<h4 class="step-title"><i class="fa-solid fa-calendar-days"></i> اختيار الموعد</h4>
+
+<label>تاريخ التدريب</label>
+<div class="input-icon">
 <input type="text" id="trainingDate" placeholder="اختر تاريخ التدريب" readonly>
+<i class="fa-solid fa-calendar"></i>
+</div>
 
-<label>اختيار الوقت</label>
-<select id="trainingTime">
-<option value="">اختر وقت التدريب</option>
-<option>08:00 - 09:00 صباحًا</option>
-<option>10:00 - 11:00 صباحًا</option>
-<option>12:00 - 01:00 ظهرًا</option>
-<option>02:00 - 03:00 عصرًا</option>
-</select>
+<label>وقت التدريب</label>
+<div id="timeSlotsGrid" class="time-slots-grid"></div>
+<input type="hidden" id="trainingTime" required>
 
-<button type="submit">تأكيد التسجيل</button>
+<div class="step-buttons">
+<button type="button" class="back-btn" data-back="1">السابق</button>
+<button type="submit" class="next-btn">تأكيد التسجيل</button>
+</div>
+
+</div>
 
 </form>
 
 </div>
+
 
 <div id="captainPanel" class="service-panel" style="display:none;">
 
