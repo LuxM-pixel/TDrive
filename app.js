@@ -65,6 +65,7 @@ if (dateInput) {
 
 }
 const trainingTime = document.getElementById("trainingTime");
+const timeSlotsGrid = document.getElementById("timeSlotsGrid");
 
 const allTimes = [
 "08:00 - 09:00 صباحًا",
@@ -81,21 +82,34 @@ async function updateAvailableTimes(){
 
     const bookedTimes = await getBookedTimes(selectedDate);
 
-    trainingTime.innerHTML =
-    '<option value="">اختر وقت التدريب</option>';
+    trainingTime.value = "";
+    timeSlotsGrid.innerHTML = "";
 
     allTimes.forEach(time=>{
 
-        if(!bookedTimes.includes(time)){
+        const isBooked = bookedTimes.includes(time);
 
-            trainingTime.innerHTML +=
-            `<option>${time}</option>`;
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "time-slot-btn";
+        btn.textContent = time;
 
+        if(isBooked){
+            btn.disabled = true;
+        } else {
+            btn.addEventListener("click", function(){
+                document.querySelectorAll(".time-slot-btn").forEach(b => b.classList.remove("selected"));
+                this.classList.add("selected");
+                trainingTime.value = time;
+            });
         }
+
+        timeSlotsGrid.appendChild(btn);
 
     });
 
 }
+
 
 if (dateInput) {
     dateInput.addEventListener("change", updateAvailableTimes);
@@ -432,3 +446,56 @@ if (captainForm) {
     });
 
 }
+
+// ============ Booking Stepper ============
+
+const formSteps = document.querySelectorAll(".form-step");
+const stepCircles = document.querySelectorAll(".step-circle");
+const stepLines = document.querySelectorAll(".step-line");
+
+function goToStep(stepNum){
+
+    formSteps.forEach(step => {
+        step.classList.toggle("active", Number(step.dataset.step) === stepNum);
+    });
+
+    stepCircles.forEach(circle => {
+        const num = Number(circle.dataset.step);
+        circle.classList.toggle("active", num === stepNum);
+        circle.classList.toggle("done", num < stepNum);
+    });
+
+    stepLines.forEach((line, index) => {
+        line.classList.toggle("active", index < stepNum - 1);
+    });
+
+}
+
+document.querySelectorAll("[data-next]").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        const currentStep = this.closest(".form-step");
+        const requiredInputs = currentStep.querySelectorAll("[required]");
+
+        for (const input of requiredInputs) {
+            if (!input.value.trim()) {
+                alert("يرجى تعبئة جميع الحقول المطلوبة");
+                input.focus();
+                return;
+            }
+        }
+
+        goToStep(Number(this.dataset.next));
+
+    });
+
+});
+
+document.querySelectorAll("[data-back]").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+        goToStep(Number(this.dataset.back));
+    });
+
+});
