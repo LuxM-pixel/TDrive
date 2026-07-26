@@ -1559,3 +1559,195 @@ color:#555;
         font-size:17px;
     }
 }
+
+/* ==========================
+   Stepper
+========================== */
+
+.stepper{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    margin:30px auto 25px;
+}
+
+.step-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+}
+
+.step-circle{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#e2eef2;
+    color:#888;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    font-size:15px;
+    transition:.25s ease;
+}
+
+.step-circle.active,
+.step-circle.done{
+    background:#65b7c3;
+    color:#fff;
+}
+
+.step-item span{
+    font-size:11.5px;
+    color:#666;
+    font-weight:700;
+}
+
+.step-line{
+    width:40px;
+    height:3px;
+    background:#e2eef2;
+    border-radius:2px;
+    margin-bottom:20px;
+}
+
+.step-line.active{
+    background:#65b7c3;
+}
+
+/* ==========================
+   Form Steps
+========================== */
+
+.form-step{
+    display:none;
+    flex-direction:column;
+    gap:14px;
+}
+
+.form-step.active{
+    display:flex;
+}
+
+.step-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-size:16px;
+    color:#333;
+    margin-bottom:4px;
+}
+
+.step-title i{
+    color:#65b7c3;
+}
+
+.input-icon{
+    position:relative;
+}
+
+.input-icon input{
+    width:100%;
+    padding:14px 44px 14px 16px;
+    border:1.5px solid #e2eef2;
+    border-radius:12px;
+    font-family:'Cairo',sans-serif;
+    font-size:14px;
+    background:#fbfeff;
+}
+
+.input-icon input:focus{
+    outline:none;
+    border-color:#65b7c3;
+    box-shadow:0 0 0 3px rgba(101,183,195,.15);
+}
+
+.input-icon i{
+    position:absolute;
+    right:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#65b7c3;
+    font-size:15px;
+}
+
+#bookingForm label{
+    font-size:13px;
+    font-weight:700;
+    color:#3a939f;
+}
+
+/* ==========================
+   Time Slots
+========================== */
+
+.time-slots-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.time-slot-btn{
+    padding:12px 6px;
+    border:1.5px solid #e2eef2;
+    border-radius:10px;
+    background:#fbfeff;
+    font-family:'Cairo',sans-serif;
+    font-size:13px;
+    font-weight:700;
+    color:#444;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.time-slot-btn.selected{
+    background:#65b7c3;
+    border-color:#65b7c3;
+    color:#fff;
+}
+
+.time-slot-btn:disabled{
+    opacity:.4;
+    cursor:not-allowed;
+    text-decoration:line-through;
+}
+
+/* ==========================
+   Step Buttons
+========================== */
+
+.step-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.step-buttons button{
+    flex:1;
+}
+
+.back-btn{
+    background:#f0f0f0 !important;
+    color:#555 !important;
+}
+
+.back-btn:hover{
+    background:#e2e2e2 !important;
+}
+
+.next-btn{
+    background:#65b7c3;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    padding:14px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s ease;
+}
+
+.next-btn:hover{
+    background:#4a9ea9;
+}
