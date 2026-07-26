@@ -55,8 +55,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 اختر الخدمة المناسبة للبدء.
 </p>
 
-</div>
-
 <div class="service-selector">
 
 <label for="serviceType">
@@ -80,10 +78,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 </select>
 
 </div>
-<h2 class="booking-program-title">
+
+<h2 class="booking-program-title" id="drivingTitle">
 التسجيل في برنامج احترفي القيادة على الطريق
 </h2>
-<div class="booking-note">
+
+<div class="booking-note" id="drivingNote">
 
 <h3>💛 شكرًا لاختياركم TDrive.</h3>
 
@@ -171,24 +171,19 @@ readonly>
 
 </div>
 
-<form action="payment-method.html" method="GET">
+<form id="captainForm">
 
 <input
 type="text"
-name="fullName"
+id="captainName"
 placeholder="الاسم الكامل"
 required>
 
 <input
 type="tel"
-name="phone"
+id="captainPhone"
 placeholder="رقم الجوال"
 required>
-
-<input
-type="hidden"
-name="service"
-value="captain">
 
 <button type="submit">
 متابعة إلى الدفع
@@ -197,6 +192,7 @@ value="captain">
 </form>
 
 </div>
+
 <!-- فيديوهات TDrive -->
 
 <section class="videos-section">
