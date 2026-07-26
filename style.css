@@ -1304,10 +1304,13 @@ color:#555;
     line-height:1.8;
 }
 
+.services-hero{
+    padding:20px 15px 10px;
+}
+
 .services-hero-art{
-    flex:1;
-    min-width:220px;
-    max-width:420px;
+    max-width:700px;
+    margin:0 auto;
 }
 
 .services-hero-art img{
@@ -1317,22 +1320,13 @@ color:#555;
 }
 
 
+
 .services-hero-art svg{
     width:100%;
     height:auto;
     display:block;
 }
 
-@media(max-width:600px){
-    .services-hero{
-        flex-direction:column-reverse;
-        text-align:center;
-    }
-    .services-hero-art{
-        max-width:220px;
-        margin:0 auto;
-    }
-}
 
 
 /* ==========================
