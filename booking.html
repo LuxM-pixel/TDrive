@@ -1,193 +1,85 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>التسجيل | TDrive</title>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="style.css?v=5">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-</head>
-
-<body>
-
-<header>
-
-<div class="logo">
-<h1>TDrive</h1>
-<p>تكنولوجيا القيادة</p>
-</div>
-
-<nav>
-
-<a href="index.html">الرئيسية</a>
-<a href="about.html">من نحن</a>
-<a href="services.html">الخدمات</a>
-<a href="road-safety.html">السلامة المرورية</a>
-<a href="index.html#contact">تواصل معنا</a>
-<a href="booking.html" class="register-btn">تسجيل</a>
-
-</nav>
-
-</header>
-
 <section id="booking">
-  
 
-<p>
-نقدم لكم مجموعة من البرامج والخدمات المتخصصة في القيادة والتنقل.
-</p>
+<div class="booking-hero">
+<h2>سجلي معنا</h2>
+<p class="subtitle">اختاري الخدمة المناسبة لك وابدئي رحلتك مع TDrive</p>
+</div>
 
-<p>
-اختر الخدمة المناسبة للبدء.
-</p>
+<div class="service-tabs">
 
-<div class="service-selector">
+<button type="button" class="tab-btn active" data-service="driving">
+<i class="fa-solid fa-car"></i>
+<span>احترفي القيادة</span>
+</button>
 
-<label for="serviceType">
-اختر الخدمة
-</label>
+<button type="button" class="tab-btn" data-service="captain">
+<i class="fa-solid fa-id-badge"></i>
+<span>الكابتن المحترف</span>
+</button>
 
-<select id="serviceType">
-
-<option value="driving">
-🚘 احترفي القيادة على الطريق
-</option>
-
-<option value="captain">
-👨🏻‍🏫 دورة الكابتن المحترف
-</option>
-
-<option value="car">
-🚗 شراء سيارة
-</option>
-
-</select>
+<button type="button" class="tab-btn" data-service="car">
+<i class="fa-solid fa-car-side"></i>
+<span>شراء سيارة</span>
+</button>
 
 </div>
 
-<h2 class="booking-program-title" id="drivingTitle">
+<div id="drivingPanel" class="service-panel">
+
+<h3 class="booking-program-title">
 التسجيل في برنامج احترفي القيادة على الطريق
-</h2>
+</h3>
 
-<div class="booking-note" id="drivingNote">
-
-<h3>💛 شكرًا لاختياركم TDrive.</h3>
-
+<div class="booking-note">
+<h3>💛 عزيزتي المتدربة، شكرًا لاختيارك TDrive.</h3>
 <p>
 📅 يُفضّل بدء البرنامج التدريبي يوم
 <strong>الأحد</strong>
 لضمان انتظام الخطة التدريبية وتحقيق أفضل استفادة من البرنامج.
 </p>
-
 </div>
 
 <form id="bookingForm">
 
-<input
-type="text"
-id="fullName"
-placeholder="الاسم الكامل"
-required>
+<input type="text" id="fullName" placeholder="الاسم الكامل" required>
+<input type="text" id="address" placeholder="عنوان المتدربة" required>
+<input type="tel" id="phone" placeholder="رقم الجوال" required>
 
-<input
-type="text"
-id="address"
-placeholder="عنوان المتدربة"
-required>
+<label>اختيار تاريخ التدريب</label>
+<input type="text" id="trainingDate" placeholder="اختر تاريخ التدريب" readonly>
 
-<input
-type="tel"
-id="phone"
-placeholder="رقم الجوال"
-required>
-
-<label>
-اختيار تاريخ التدريب
-</label>
-
-<input
-type="text"
-id="trainingDate"
-placeholder="اختر تاريخ التدريب"
-readonly>
-
-<label>
-اختيار الوقت
-</label>
-
+<label>اختيار الوقت</label>
 <select id="trainingTime">
-
 <option value="">اختر وقت التدريب</option>
-
 <option>08:00 - 09:00 صباحًا</option>
-
 <option>10:00 - 11:00 صباحًا</option>
-
 <option>12:00 - 01:00 ظهرًا</option>
-
 <option>02:00 - 03:00 عصرًا</option>
-
 </select>
 
-<button type="submit">
-
-تأكيد التسجيل
-
-</button>
+<button type="submit">تأكيد التسجيل</button>
 
 </form>
 
-  <!-- =========================
-     دورة الكابتن المحترف
-========================= -->
+</div>
 
-<div id="captainSection" style="display:none;">
+<div id="captainPanel" class="service-panel" style="display:none;">
 
-<h2 class="booking-program-title">
+<h3 class="booking-program-title">
 👨🏻‍🏫 التسجيل في دورة الكابتن المحترف
-</h2>
+</h3>
 
 <div class="booking-note">
-
 <h3>💙 شكرًا لاختياركم TDrive.</h3>
-
-<p>
-يرجى تعبئة البيانات التالية لإتمام التسجيل في دورة الكابتن المحترف، ثم المتابعة إلى صفحة الدفع.
-</p>
-
+<p>يرجى تعبئة البيانات التالية لإتمام التسجيل في دورة الكابتن المحترف، ثم المتابعة إلى صفحة الدفع.</p>
 </div>
 
 <form id="captainForm">
 
-<input
-type="text"
-id="captainName"
-placeholder="الاسم الكامل"
-required>
+<input type="text" id="captainName" placeholder="الاسم الكامل" required>
+<input type="tel" id="captainPhone" placeholder="رقم الجوال" required>
 
-<input
-type="tel"
-id="captainPhone"
-placeholder="رقم الجوال"
-required>
-
-<button type="submit">
-متابعة إلى الدفع
-</button>
+<button type="submit">متابعة إلى الدفع</button>
 
 </form>
 
@@ -206,27 +98,13 @@ required>
 <div class="video-grid">
 
 <div class="video-card">
-
 <h3>طريقة التسجيل</h3>
-
-<iframe
-src="https://www.youtube.com/embed/ZViyJllY8MQ"
-title="طريقة التسجيل"
-allowfullscreen>
-</iframe>
-
+<iframe src="https://www.youtube.com/embed/ZViyJllY8MQ" title="طريقة التسجيل" allowfullscreen></iframe>
 </div>
 
 <div class="video-card">
-
 <h3>مقتطفات من دورة احترفِ القيادة على الطريق</h3>
-
-<iframe
-src="https://www.youtube.com/embed/A9d0v3xpJrQ"
-title="احترف القيادة"
-allowfullscreen>
-</iframe>
-
+<iframe src="https://www.youtube.com/embed/A9d0v3xpJrQ" title="احترف القيادة" allowfullscreen></iframe>
 </div>
 
 </div>
@@ -234,16 +112,3 @@ allowfullscreen>
 </section>
 
 </section>
-<footer>
-
-<p>© 2026 TDrive | تكنولوجيا القيادة</p>
-
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
-
-<script type="module" src="app.js?v=2"></script>
-
-</body>
-
-</html>
