@@ -44,7 +44,12 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: "Invalid notification token" });
     }
 
-    const { order_id, order_reference_id, status } = req.body;
+    console.log("Webhook body received:", JSON.stringify(req.body));
+
+const { order_id, order_reference_id, status } = req.body;
+
+console.log("Extracted status:", status, "| bookingId:", order_reference_id);
+
 
     const successStatuses = [
       "approved",
