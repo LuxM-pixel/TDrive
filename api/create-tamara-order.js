@@ -49,7 +49,8 @@ export default async function handler(req, res) {
       },
     };
 
-    const response = await fetch("https://api-sandbox.tamara.co/checkout", {
+    const response = await fetch("https://api.tamara.co/checkout", {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json",
