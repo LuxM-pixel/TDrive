@@ -1310,9 +1310,16 @@ color:#555;
 
 
 .services-hero-art{
-    max-width:700px;
-    margin:0 auto;
+    width:112vw;
+    max-width:112vw;
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-56vw;
+    margin-right:-56vw;
+    overflow:hidden;
 }
+
 
 .services-hero-art img{
     width:100%;
