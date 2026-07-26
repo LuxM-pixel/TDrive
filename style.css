@@ -1306,9 +1306,16 @@ color:#555;
 
 .services-hero-art{
     flex:1;
-    min-width:180px;
-    max-width:280px;
+    min-width:220px;
+    max-width:420px;
 }
+
+.services-hero-art img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
 
 .services-hero-art svg{
     width:100%;
