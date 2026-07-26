@@ -1213,55 +1213,118 @@ color:#555;
     }
 
 }
-#services{
-    font-size:15px;
+#services .program-title{
+    font-size:22px;
 }
 
-#services .program-title{
-    font-size:26px;
+#services .section-text{
+    font-size:14px;
+}
+
+#services .current-program{
+    padding:20px;
 }
 
 #services .current-program h2{
-    font-size:32px;
+    font-size:24px;
 }
 
 #services .current-program h3,
 #services .current-program p{
-    font-size:16px;
-}
-
-#services .offer-box h3{
-    font-size:22px;
-}
-
-#services .offer-box p{
-    font-size:15px;
-}
-
-#services .offer-box .special-price{
-    font-size:30px;
-}
-
-#services .vip-offer{
-    font-size:16px;
-}
-
-#services h2{
-    font-size:24px;
-}
-
-#services .card h3{
-    font-size:19px;
-}
-
-#services .card p{
     font-size:14px;
 }
 
-#services .button{
-    font-size:15px;
-    padding:13px 32px;
+#services .offer-box{
+    padding:20px;
 }
+
+#services .offer-box h3{
+    font-size:18px;
+}
+
+#services .offer-box p{
+    font-size:14px;
+}
+
+#services .offer-box .special-price{
+    font-size:26px;
+}
+
+#services .vip-offer{
+    font-size:14px;
+}
+
+#services h2{
+    font-size:20px;
+}
+
+#services .button{
+    font-size:14px;
+    padding:12px 28px;
+}
+
+#services .card h3{
+    font-size:16px;
+}
+
+#services .card p{
+    font-size:13px;
+}
+
+#services .card{
+    padding:16px;
+}
+.services-hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    padding:20px 15px 10px;
+    flex-wrap:wrap;
+}
+
+.services-hero-text{
+    flex:1;
+    min-width:220px;
+}
+
+.services-hero-text h2{
+    font-size:20px;
+    color:#2f8ea1;
+    line-height:1.5;
+    margin-bottom:10px;
+    font-weight:800;
+}
+
+.services-hero-text p{
+    font-size:13.5px;
+    color:#666;
+    line-height:1.8;
+}
+
+.services-hero-art{
+    flex:1;
+    min-width:180px;
+    max-width:280px;
+}
+
+.services-hero-art svg{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+@media(max-width:600px){
+    .services-hero{
+        flex-direction:column-reverse;
+        text-align:center;
+    }
+    .services-hero-art{
+        max-width:220px;
+        margin:0 auto;
+    }
+}
+
 
 /* ==========================
    Footer Pages
