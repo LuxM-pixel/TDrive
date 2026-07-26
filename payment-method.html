@@ -57,38 +57,67 @@ margin-bottom:30px;
 .booking-info{
 
 background:white;
-padding:20px;
+padding:20px 25px;
 border-radius:15px;
 box-shadow:0 5px 20px rgba(0,0,0,.08);
 margin-bottom:25px;
+border-right:5px solid #6DB7C5;
 
 }
 
 .booking-info p{
 margin:8px 0;
-font-size:18px;
+font-size:17px;
+display:flex;
+justify-content:space-between;
+}
+
+.booking-info p strong{
+color:#444;
 }
 
 .card{
 
 background:white;
-padding:25px;
+padding:22px 25px;
 border-radius:18px;
 box-shadow:0 5px 20px rgba(0,0,0,.08);
-margin-bottom:20px;
+margin-bottom:18px;
 text-align:center;
+transition:transform .15s ease, box-shadow .15s ease;
 
 }
 
+.card:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+.card-header{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+margin-bottom:14px;
+}
+
+.card img.payment-icon{
+width:40px;
+height:40px;
+object-fit:contain;
+flex-shrink:0;
+}
+
 .card h3{
-font-size:28px;
-margin-bottom:10px;
+font-size:22px;
+color:#222;
 }
 
 .card p{
 color:#666;
 margin-bottom:20px;
 line-height:1.8;
+font-size:15px;
 }
 
 button{
@@ -96,26 +125,35 @@ button{
 background:#6DB7C5;
 color:white;
 border:none;
-padding:14px 30px;
+padding:14px 40px;
 border-radius:12px;
-font-size:18px;
+font-size:17px;
+font-weight:600;
 cursor:pointer;
+width:100%;
+max-width:260px;
+transition:opacity .15s ease, transform .1s ease;
 
 }
 
 button:hover{
-
 opacity:.9;
+}
 
+button:active{
+transform:scale(.97);
 }
 
 .note{
 
-margin-top:30px;
-padding:20px;
+margin-top:25px;
+padding:18px 20px;
 background:#FFF8E6;
 border-radius:15px;
-line-height:2;
+line-height:1.9;
+font-size:15px;
+border-right:5px solid #E8C15A;
+text-align:right;
 
 }
 
@@ -161,7 +199,10 @@ line-height:2;
 
 <div class="card">
 
-<h3>🏦 التحويل البنكي</h3>
+<div class="card-header">
+<img class="payment-icon" src="7F11FB71-5E3D-450C-A4AC-DC788B4FF81A.png" alt="التحويل البنكي">
+<h3>التحويل البنكي</h3>
+</div>
 
 <p>
 
@@ -177,7 +218,10 @@ line-height:2;
 
 <div class="card">
 
-<h3>🍎 Apple Pay</h3>
+<div class="card-header">
+<img class="payment-icon" src="B9985242-C117-4959-8279-7B443D4540EE.png" alt="Apple Pay">
+<h3>Apple Pay</h3>
+</div>
 
 <p>
 
@@ -192,7 +236,10 @@ Apple Pay
 
 <div class="card">
 
-<h3>💚 تمارا</h3>
+<div class="card-header">
+<img class="payment-icon" src="521489E7-4F1B-468D-8B38-79FCF0A5496F.png" alt="تمارا">
+<h3>تمارا</h3>
+</div>
 
 <p>
 
