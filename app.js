@@ -372,3 +372,62 @@ async function loadReviews() {
     }
 
 }
+
+const serviceType = document.getElementById("serviceType");
+const drivingTitle = document.getElementById("drivingTitle");
+const drivingNote = document.getElementById("drivingNote");
+const captainSection = document.getElementById("captainSection");
+
+if (serviceType) {
+
+    serviceType.addEventListener("change", function(){
+
+        if(this.value === "captain"){
+            drivingTitle.style.display = "none";
+            drivingNote.style.display = "none";
+            form.style.display = "none";
+            captainSection.style.display = "block";
+        } else if(this.value === "driving"){
+            drivingTitle.style.display = "block";
+            drivingNote.style.display = "block";
+            form.style.display = "flex";
+            captainSection.style.display = "none";
+        } else if(this.value === "car"){
+            alert("قريبًا 🚗");
+            this.value = "driving";
+        }
+
+    });
+
+}
+
+const captainForm = document.getElementById("captainForm");
+
+if (captainForm) {
+
+    captainForm.addEventListener("submit", function(e){
+
+        e.preventDefault();
+
+        const captainName = document.getElementById("captainName").value.trim();
+        const captainPhone = document.getElementById("captainPhone").value.trim();
+
+        if(!captainName || !captainPhone){
+            alert("يرجى تعبئة الاسم ورقم الجوال");
+            return;
+        }
+
+        const bookingId = "CPT-" + Date.now();
+
+        sessionStorage.setItem("bookingId", bookingId);
+        sessionStorage.setItem("fullName", captainName);
+        sessionStorage.setItem("phone", captainPhone);
+        sessionStorage.setItem("trainingDate", "دورة الكابتن المحترف");
+        sessionStorage.setItem("trainingTime", "-");
+
+        window.location.href = "payment-method.html";
+
+    });
+
+}
+
