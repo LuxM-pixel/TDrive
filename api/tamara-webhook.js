@@ -7,6 +7,7 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
+import jwt from "jsonwebtoken";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDEjf_HrBdJSn1EVaHeyvMubUkPjVZH5i0",
@@ -28,36 +29,46 @@ export default async function handler(req, res) {
   }
 
   try {
-  const tamaraToken = req.query.tamaraToken;
+    const tamaraToken = req.query.tamaraToken;
 
-  console.log("Query Token:", tamaraToken);
-  console.log("Env Token:", process.env.TAMARA_NOTIFICATION_TOKEN);
+    if (!tamaraToken) {
+      return res.status(401).json({ error: "Missing notification token" });
+    }
 
-  if (tamaraToken !== process.env.TAMARA_NOTIFICATION_TOKEN) {
-    return res.status(401).json({ error: "Invalid notification token" });
-  }
+    try {
+      jwt.verify(tamaraToken, process.env.TAMARA_NOTIFICATION_TOKEN, {
+        algorithms: ["HS256"],
+      });
+    } catch (jwtError) {
+      console.error("JWT verification failed:", jwtError.message);
+      return res.status(401).json({ error: "Invalid notification token" });
+    }
 
-  const { order_id, order_reference_id, status } = req.body;
+    const { order_id, order_reference_id, status } = req.body;
 
-  const successStatuses = ["approved", "authorised", "captured", "fully_captured"];
-  if (!successStatuses.includes((status || "").toLowerCase())) {
-    return res.status(200).json({ received: true, skipped: true });
-  }
+    const successStatuses = [
+      "approved",
+      "authorised",
+      "captured",
+      "fully_captured",
+    ];
 
-  // باقي الكود...
+    if (!successStatuses.includes((status || "").toLowerCase())) {
+      return res.status(200).json({ received: true, skipped: true });
+    }
 
     const q = query(
       collection(db, "customer-invoices"),
       where("bookingId", "==", order_reference_id)
     );
+
     const snapshot = await getDocs(q);
 
     if (snapshot.empty) {
       return res.status(404).json({ error: "Invoice not found" });
     }
 
-    const docRef = snapshot.docs[0].ref;
-    await updateDoc(docRef, {
+    await updateDoc(snapshot.docs[0].ref, {
       paymentStatus: "Paid",
       tamaraOrderId: order_id,
       tamaraStatus: status,
