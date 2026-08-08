@@ -157,7 +157,16 @@ border-right:5px solid #E8C15A;
 text-align:right;
 
 }
+.coming-soon-btn{
+    background:#e8eef0;
+    color:#6DB7C5;
+    cursor:not-allowed;
+    opacity:1;
+}
 
+.apple-pay-card{
+    position:relative;
+}
 </style>
 
 </head>
@@ -217,7 +226,7 @@ text-align:right;
 
 </div>
 
-<div class="card">
+<div class="card apple-pay-card">
 
 <div class="card-header">
 <img class="payment-icon" src="B9985242-C117-4959-8279-7B443D4540EE.png" alt="Apple Pay">
@@ -226,13 +235,15 @@ text-align:right;
 
 <p>
 
-الدفع باستخدام Apple Pay.
+سيتم توفير الدفع باستخدام Apple Pay قريبًا.
+نعمل حاليًا على إتاحة الخدمة لتوفير تجربة دفع أسهل وأسرع.
 
 </p>
 
-<button id="appleBtn">
-Apple Pay
+<button class="coming-soon-btn" disabled>
+متوفر قريبًا
 </button>
+
 </div>
 
 <div class="card">
@@ -367,18 +378,7 @@ document.getElementById("bankBtn").addEventListener("click", async () => {
 
 });
 
-document.getElementById("appleBtn").addEventListener("click", async () => {
 
-    try {
-        await createInvoice("Apple Pay");
-        // مؤقتًا حتى نربط Apple Pay
-        window.location.href = "customer-invoice.html";
-    } catch (error) {
-        console.error(error);
-        alert("حدث خطأ: " + error.message);
-    }
-
-});
 
 document.getElementById("tamaraBtn").addEventListener("click", async () => {
 
