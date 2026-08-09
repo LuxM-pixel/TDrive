@@ -2332,3 +2332,23 @@ color:#555;
     }
 
 }
+
+.site-branding {
+    width: 100%;
+    display: flex !important;
+    flex-direction: row !important; /* بدل row-reverse، أوضح وأثبت */
+    justify-content: space-between !important;
+    align-items: center;
+    padding: 22px 7% 18px;
+    box-sizing: border-box;
+    gap: 40px; /* مسافة أدنى مضمونة حتى لو space-between اتلغت */
+}
+
+.vision-logo {
+    order: 2; /* يفضل يسار (لأن row + RTL هيقلب الترتيب البصري) */
+}
+
+.logo {
+    order: 1; /* يفضل يمين */
+}
+
