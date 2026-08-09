@@ -2214,3 +2214,310 @@ color:#555;
         line-height: 1.4;
     }
 }
+
+/* =========================================
+   شعارات الهيدر
+========================================= */
+
+.site-branding{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+
+    padding:18px 35px 12px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    direction:ltr;
+    box-sizing:border-box;
+}
+
+
+/* =========================================
+   TDrive - يمين
+========================================= */
+
+.tdrive-logo{
+    text-align:right;
+    direction:rtl;
+    flex-shrink:0;
+}
+
+.tdrive-name{
+    font-family:Arial, sans-serif;
+    font-size:48px;
+    font-weight:700;
+    line-height:1;
+
+    color:#65B7C3;
+}
+
+.tdrive-tagline{
+    margin-top:8px;
+
+    font-size:20px;
+    font-weight:400;
+
+    color:#888;
+}
+
+
+/* =========================================
+   رؤية 2030 - يسار
+========================================= */
+
+.vision-logo{
+    width:205px;
+
+    color:#aaa;
+
+    text-align:center;
+    line-height:1;
+
+    flex-shrink:0;
+}
+
+
+/* VISION + رؤية */
+
+.vision-top{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:5px;
+
+    font-family:Arial,sans-serif;
+    font-size:20px;
+    font-weight:400;
+}
+
+.vision-ar{
+    font-family:Arial,sans-serif;
+    font-size:20px;
+}
+
+
+/* =========================================
+   2030
+========================================= */
+
+.vision-number{
+    height:72px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:2px;
+
+    font-family:Arial,sans-serif;
+    font-weight:700;
+}
+
+.vision-2,
+.vision-3,
+.vision-0{
+    font-size:70px;
+    line-height:.8;
+    color:#aaa;
+}
+
+.vision-emblem{
+    position:relative;
+
+    width:62px;
+    height:62px;
+
+    margin:0 -2px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* =========================================
+   شبكة مربعات شعار الرؤية
+========================================= */
+
+.vision-diamonds{
+    position:absolute;
+
+    width:57px;
+    height:57px;
+
+    display:grid;
+
+    grid-template-columns:repeat(5,7px);
+    grid-template-rows:repeat(5,7px);
+
+    gap:5px;
+
+    transform:rotate(45deg);
+}
+
+.vision-diamonds i{
+    width:7px;
+    height:7px;
+
+    display:block;
+
+    background:#2FA7B4;
+}
+
+.vision-diamonds i:nth-child(2n){
+    background:#75B82A;
+}
+
+.vision-diamonds i:nth-child(3n){
+    background:#777;
+}
+
+.vision-diamonds i:nth-child(5n){
+    background:#1D477D;
+}
+
+
+/* =========================================
+   النخلة والسيفين
+========================================= */
+
+.vision-palm{
+    position:absolute;
+
+    top:16px;
+
+    font-size:20px;
+
+    color:#777;
+
+    z-index:3;
+
+    transform:scaleX(1.2);
+}
+
+.vision-swords{
+    position:absolute;
+
+    bottom:10px;
+
+    font-size:18px;
+
+    color:#777;
+
+    z-index:3;
+
+    transform:rotate(-8deg);
+}
+
+
+/* =========================================
+   النص السفلي
+========================================= */
+
+.vision-arabic{
+    margin-top:5px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:13px;
+    font-weight:400;
+
+    color:#aaa;
+}
+
+.vision-english{
+    margin-top:4px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+    letter-spacing:.5px;
+
+    color:#aaa;
+}
+
+
+/* =========================================
+   الجوال
+========================================= */
+
+@media(max-width:700px){
+
+    .site-branding{
+        padding:14px 18px 10px;
+    }
+
+    .tdrive-name{
+        font-size:32px;
+    }
+
+    .tdrive-tagline{
+        font-size:14px;
+        margin-top:5px;
+    }
+
+    .vision-logo{
+        width:145px;
+    }
+
+    .vision-top{
+        font-size:14px;
+    }
+
+    .vision-ar{
+        font-size:14px;
+    }
+
+    .vision-number{
+        height:50px;
+    }
+
+    .vision-2,
+    .vision-3,
+    .vision-0{
+        font-size:49px;
+    }
+
+    .vision-emblem{
+        width:43px;
+        height:43px;
+    }
+
+    .vision-diamonds{
+        width:40px;
+        height:40px;
+
+        grid-template-columns:repeat(5,5px);
+        grid-template-rows:repeat(5,5px);
+
+        gap:3px;
+    }
+
+    .vision-diamonds i{
+        width:5px;
+        height:5px;
+    }
+
+    .vision-palm{
+        top:11px;
+        font-size:14px;
+    }
+
+    .vision-swords{
+        bottom:7px;
+        font-size:13px;
+    }
+
+    .vision-arabic{
+        font-size:9px;
+        margin-top:3px;
+    }
+
+    .vision-english{
+        font-size:7px;
+        margin-top:2px;
+    }
+}
