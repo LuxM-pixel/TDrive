@@ -1827,44 +1827,50 @@ color:#555;
 }
 
 /* =========================================
-   TDrive Verification
+   TDrive Verification + Payment
+   نفس أسلوب قسم التقييم
 ========================================= */
 
-.tdrive-verification {
-    width: 100%;
-    padding: 35px 20px 10px;
+.tdrive-verification{
+    padding:24px 12px;
+    background:linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #f0fbfc 100%
+    );
 }
 
-.verification-card {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 45px 35px 30px;
+/* بطاقة التوثيق */
 
-    background: #f8fbfc;
-    border: 1px solid #c9e7ec;
-    border-radius: 30px;
-
-    text-align: center;
-
-    box-sizing: border-box;
+.verification-card{
+    width:94%;
+    max-width:700px;
+    margin:auto;
+    padding:22px 18px;
+    background:#fff;
+    border:1.5px solid #cdeef2;
+    border-radius:18px;
+    box-shadow:0 6px 20px rgba(101,183,195,.15);
+    text-align:center;
 }
 
 
-/* الدرع */
+/* =========================================
+   الدرع
+========================================= */
 
-.verification-shield {
-    width: 90px;
-    height: 90px;
+.verification-shield{
+    width:72px;
+    height:72px;
+    margin:0 auto 16px;
 
-    margin: 0 auto 22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background:#3a939f;
 
-    background: #3f91a3;
-
-    clip-path: polygon(
+    clip-path:polygon(
         50% 0%,
         86% 15%,
         86% 58%,
@@ -1874,335 +1880,313 @@ color:#555;
     );
 }
 
-.verification-shield i {
-    color: #fff;
-    font-size: 42px;
+/* إلغاء الأيقونة القديمة نهائياً */
+
+.verification-shield i{
+    font-size:0;
+    color:transparent;
 }
 
+/* علامة صح نظيفة */
 
-/* اسم المؤسسة */
-
-.verification-card h2 {
-    margin: 0;
-
-    color: #222;
-    font-size: 31px;
-    font-weight: 800;
-    line-height: 1.5;
-}
-
-.verification-card h2 span {
-    color: #238ca1;
-    direction: ltr;
-    display: inline-block;
-    margin-right: 8px;
-}
-
-
-/* الوصف */
-
-.verification-description {
-    margin: 12px 0 25px;
-
-    color: #777;
-    font-size: 21px;
-    line-height: 1.8;
-}
-
-
-/* الخط */
-
-.verification-line {
-    width: 85%;
-    height: 1px;
-
-    margin: 0 auto 28px;
-
-    background: #cddfe3;
-}
-
-
-/* نص التوثيق */
-
-.verification-text {
-    margin: 0 auto;
-
-    color: #222;
-    font-size: 21px;
-    line-height: 2;
-
-    max-width: 760px;
-}
-
-.verification-text strong {
-    color: #258ca0;
-    font-weight: 800;
-    direction: ltr;
-    display: inline-block;
-}
-
-
-/* الشعارات الرسمية */
-
-.official-logos {
-    margin-top: 25px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.official-logos img {
-    width: 360px;
-    max-width: 80%;
-    height: auto;
-
-    object-fit: contain;
+.verification-shield i::before{
+    content:"✓";
+    display:block;
+    color:#fff;
+    font-family:Arial,sans-serif;
+    font-size:38px;
+    font-weight:700;
+    line-height:1;
 }
 
 
 /* =========================================
-   Payment Section
+   عنوان المؤسسة
 ========================================= */
 
-.payment-section {
-    width: 100%;
-    max-width: 900px;
-
-    margin: 15px auto 0;
-    padding: 25px 20px 45px;
-
-    box-sizing: border-box;
-
-    text-align: center;
+.verification-card h2{
+    margin:0;
+    color:#333;
+    font-size:26px;
+    font-weight:800;
+    line-height:1.5;
 }
 
-.payment-section h2 {
-    margin: 0;
-
-    color: #238ca1;
-
-    font-size: 30px;
-    font-weight: 800;
+.verification-card h2 span{
+    color:#3a939f;
+    direction:ltr;
+    display:block;
+    margin:2px 0 0;
+    font-size:25px;
 }
 
-.payment-section h2 i {
-    font-size: 24px;
-    margin-left: 8px;
+
+/* =========================================
+   الوصف
+========================================= */
+
+.verification-description{
+    margin:8px 0 18px;
+    color:#666;
+    font-size:17px;
+    line-height:1.8;
 }
 
-.payment-description {
-    margin: 8px 0 25px;
 
-    color: #777;
+/* =========================================
+   الخط
+========================================= */
 
-    font-size: 19px;
-    line-height: 1.7;
+.verification-line{
+    width:88%;
+    height:1px;
+    margin:0 auto 20px;
+    background:#cdeef2;
+}
+
+
+/* =========================================
+   نص التوثيق
+========================================= */
+
+.verification-text{
+    margin:0 auto;
+    max-width:650px;
+
+    color:#333;
+    font-size:17px;
+    line-height:1.9;
+}
+
+/* رقم الوثيقة فقط هو الملون */
+
+.verification-text strong{
+    color:#3a939f;
+    font-weight:800;
+    direction:ltr;
+    display:inline;
+}
+
+/* لا تجعل كلمة "وثيقة" أو أي كلمة أخرى ضخمة */
+
+
+/* =========================================
+   الشعارات الرسمية
+========================================= */
+
+.official-logos{
+    margin-top:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.official-logos img{
+    width:330px;
+    max-width:95%;
+    height:auto;
+    object-fit:contain;
+}
+
+
+/* =========================================
+   الدفع
+========================================= */
+
+.payment-section{
+    width:100%;
+    max-width:700px;
+    margin:15px auto 0;
+    padding:24px 12px 35px;
+    text-align:center;
+}
+
+.payment-section h2{
+    margin:0 0 8px;
+    color:#3a939f;
+    font-size:26px;
+    font-weight:800;
+}
+
+.payment-section h2 i{
+    font-size:24px;
+    margin-left:6px;
+}
+
+.payment-description{
+    margin:0 0 18px;
+    color:#666;
+    font-size:16px;
+    line-height:1.7;
 }
 
 
 /* بطاقات الدفع */
 
-.payment-methods {
-    display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 20px;
+.payment-methods{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
 }
 
-.payment-card {
-    min-height: 150px;
+.payment-card{
+    width:94%;
+    max-width:420px;
+    min-height:125px;
 
-    padding: 25px;
+    margin:auto;
+    padding:16px 14px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
 
-    background: #fff;
+    background:#fff;
+    border:1.5px solid #cdeef2;
+    border-radius:16px;
 
-    border: 1px solid #cfe7eb;
-    border-radius: 25px;
-
-    box-sizing: border-box;
+    box-shadow:0 6px 14px rgba(101,183,195,.15);
 }
 
 
-/* أيقونة التحويل */
+/* أيقونة البنك */
 
-.payment-icon {
-    flex-shrink: 0;
+.payment-icon{
+    flex-shrink:0;
 
-    width: 80px;
-    height: 80px;
+    width:64px;
+    height:64px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    background: #eef8fa;
+    background:#eef8fa;
+    color:#3a939f;
 
-    color: #238ca1;
-
-    font-size: 40px;
+    font-size:30px;
 }
 
 
 /* شعار تمارا */
 
-.payment-logo {
-    flex-shrink: 0;
+.payment-logo{
+    flex-shrink:0;
+    width:115px;
 
-    width: 150px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.payment-logo img {
-    width: 150px;
-    max-width: 100%;
-    height: auto;
-
-    object-fit: contain;
+.payment-logo img{
+    width:115px;
+    max-width:100%;
+    height:auto;
 }
 
 
 /* النص */
 
-.payment-info {
-    flex: 1;
+.payment-info{
+    flex:1;
 }
 
-.payment-info h3 {
-    margin: 0 0 7px;
-
-    color: #238ca1;
-
-    font-size: 25px;
-    font-weight: 800;
+.payment-info h3{
+    margin:0 0 5px;
+    color:#3a939f;
+    font-size:20px;
+    font-weight:800;
 }
 
-.payment-info p {
-    margin: 0;
-
-    color: #444;
-
-    font-size: 17px;
-    line-height: 1.7;
+.payment-info p{
+    margin:0;
+    color:#555;
+    font-size:13px;
+    line-height:1.6;
 }
 
 
 /* =========================================
-   Mobile
+   الجوال
 ========================================= */
 
-@media (max-width: 700px) {
+@media(max-width:700px){
 
-    .tdrive-verification {
-        padding: 20px 12px 5px;
+    .verification-card{
+        width:94%;
+        padding:20px 14px;
+        border-radius:16px;
     }
 
-    .verification-card {
-        padding: 35px 20px 25px;
-
-        border-radius: 25px;
+    .verification-shield{
+        width:68px;
+        height:68px;
+        margin-bottom:14px;
     }
 
-    .verification-shield {
-        width: 78px;
-        height: 78px;
-
-        margin-bottom: 18px;
+    .verification-shield i::before{
+        font-size:35px;
     }
 
-    .verification-shield i {
-        font-size: 36px;
+    .verification-card h2{
+        font-size:24px;
     }
 
-    .verification-card h2 {
-        font-size: 25px;
-        line-height: 1.6;
+    .verification-card h2 span{
+        font-size:23px;
     }
 
-    .verification-card h2 span {
-        display: block;
-        margin: 0;
+    .verification-description{
+        font-size:16px;
     }
 
-    .verification-description {
-        font-size: 17px;
-        margin-top: 8px;
+    .verification-text{
+        font-size:16px;
+        line-height:1.9;
     }
 
-    .verification-line {
-        width: 90%;
-        margin-bottom: 22px;
+    .official-logos img{
+        width:310px;
+        max-width:95%;
     }
 
-    .verification-text {
-        font-size: 17px;
-        line-height: 2;
+    .payment-section h2{
+        font-size:25px;
     }
 
-    .official-logos img {
-        width: 330px;
-        max-width: 95%;
+    .payment-description{
+        font-size:15px;
     }
 
-
-    /* الدفع */
-
-    .payment-section {
-        padding: 30px 12px 35px;
+    .payment-card{
+        width:94%;
+        min-height:120px;
+        padding:14px;
     }
 
-    .payment-section h2 {
-        font-size: 25px;
+    .payment-icon{
+        width:60px;
+        height:60px;
+        font-size:28px;
     }
 
-    .payment-description {
-        font-size: 17px;
+    .payment-logo{
+        width:105px;
     }
 
-    .payment-methods {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .payment-logo img{
+        width:105px;
     }
 
-    .payment-card {
-        min-height: 135px;
-
-        padding: 20px;
-
-        gap: 18px;
+    .payment-info h3{
+        font-size:19px;
     }
 
-    .payment-icon {
-        width: 68px;
-        height: 68px;
-
-        font-size: 32px;
-    }
-
-    .payment-logo {
-        width: 120px;
-    }
-
-    .payment-logo img {
-        width: 120px;
-    }
-
-    .payment-info h3 {
-        font-size: 22px;
-    }
-
-    .payment-info p {
-        font-size: 15px;
+    .payment-info p{
+        font-size:13px;
     }
 }
