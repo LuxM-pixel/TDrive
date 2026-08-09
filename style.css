@@ -2222,6 +2222,7 @@ color:#555;
 .site-branding {
     width: 100%;
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
 
@@ -2233,8 +2234,17 @@ color:#555;
 /* شعار TDrive */
 
 .site-branding .logo {
+    width: 180px;
+    height: 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
     text-align: center;
     flex-shrink: 0;
+    box-sizing: border-box;
 }
 
 .site-branding .logo h1 {
@@ -2250,13 +2260,14 @@ color:#555;
     font-size: 21px;
     font-weight: 400;
     color: #888;
+    line-height: 1.2;
 }
 
 
 /* شعار رؤية 2030 */
 
 .vision-logo {
-    width: 155px;
+    width: 180px;
     height: 90px;
 
     display: flex;
@@ -2264,10 +2275,11 @@ color:#555;
     justify-content: center;
 
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .vision-logo img {
-    width: 155px;
+    width: 180px;
     height: auto;
     display: block;
 }
@@ -2283,6 +2295,11 @@ color:#555;
         padding: 18px 6% 15px;
     }
 
+    .site-branding .logo {
+        width: 140px;
+        height: 72px;
+    }
+
     .site-branding .logo h1 {
         font-size: 36px;
     }
@@ -2293,12 +2310,12 @@ color:#555;
     }
 
     .vision-logo {
-        width: 125px;
+        width: 140px;
         height: 72px;
     }
 
     .vision-logo img {
-        width: 125px;
+        width: 140px;
     }
 
 }
