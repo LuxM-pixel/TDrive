@@ -2018,98 +2018,121 @@ color:#555;
 
 
 /* بطاقات الدفع */
+/* =========================================
+   الدفع
+========================================= */
 
-.payment-methods{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-    gap:10px;
-    width:94%;
-    max-width:420px;
-    margin:auto;
-}
-
-.payment-card{
+.payment-section{
     width:100%;
-    height:210px;
-    min-height:0;
-    box-sizing:border-box;
-
-    padding:14px 8px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-
-    border-radius:16px;
+    max-width:700px;
+    margin:15px auto 0;
+    padding:24px 12px 35px;
+    text-align:center;
 }
-/* أيقونة البنك */
 
-.payment-icon{
-    flex-shrink:0;
-
-    width:56px;
-    height:56px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:#eef8fa;
+.payment-section h2{
+    margin:0 0 8px;
     color:#3a939f;
-
     font-size:26px;
-}
-
-
-/* شعار تمارا */
-
-.payment-logo{
-    flex-shrink:0;
-    width:100px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.payment-logo img{
-    width:100px;
-    max-width:100%;
-    height:auto;
-}
-
-
-/* النص */
-
-.payment-info{
-    flex:1;
-}
-
-.payment-info h3{
-    margin:0 0 5px;
-    color:#3a939f;
-    font-size:20px;
     font-weight:800;
 }
 
+.payment-section h2 i{
+    font-size:24px;
+    margin-left:6px;
+}
+
+.payment-description{
+    margin:0 0 18px;
+    color:#666;
+    font-size:16px;
+    line-height:1.7;
+}
+
+/* بطاقات الدفع بجانب بعضها بشكل متناسق وصغير */
+.payment-methods{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 550px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.payment-card{
+    background: #fff;
+    border: 2px solid #d9edf5;
+    border-radius: 16px;
+    padding: 16px 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* أيقونة البنك */
+.payment-icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eef8fa;
+    color: #3a939f;
+    font-size: 20px;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+/* شعار تمارا */
+.payment-logo{
+    width: 80px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.payment-logo img{
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* النصوص داخل البطاقة */
+.payment-info{
+    width: 100%;
+}
+
+.payment-info h3{
+    margin: 0 0 4px;
+    color: #3a939f;
+    font-size: 15px;
+    font-weight: 800;
+}
+
 .payment-info p{
-    margin:0;
-    color:#555;
-    font-size:13px;
-    line-height:1.6;
+    margin: 0;
+    color: #555;
+    font-size: 11.5px;
+    line-height: 1.5;
 }
 
 
 /* =========================================
-   الجوال
+   التجاوب مع الشاشات الصغيرة (الجوال)
 ========================================= */
 @media(max-width:700px){
 
-    /* التوثيق */
     .verification-card{
         width:94%;
         padding:20px 14px;
@@ -2144,61 +2167,50 @@ color:#555;
         max-width:95%;
     }
 
-
-    /* طرق الدفع */
     .payment-section h2{
-        font-size:25px;
+        font-size:22px;
     }
 
     .payment-description{
-        font-size:15px;
+        font-size:14px;
     }
 
+    /* الحفاظ على ظهور البطاقات بجانب بعضها حتى على الشاشات الصغيرة بحجم متناسق */
     .payment-methods{
-        grid-template-columns:repeat(2, 1fr);
-        gap:10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 0 4px;
     }
 
     .payment-card{
-        width:100%;
-        min-height:150px;
-        padding:14px 8px;
-
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        gap:8px;
-
-        border-radius:16px;
+        padding: 12px 6px;
+        border-radius: 14px;
     }
 
     .payment-icon{
-        width:58px;
-        height:58px;
-        font-size:27px;
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+        margin-bottom: 6px;
     }
 
     .payment-logo{
-        width:100px;
+        width: 65px;
+        height: 38px;
+        margin-bottom: 6px;
     }
 
     .payment-logo img{
-        width:100px;
-    }
-
-    .payment-info{
-        width:100%;
-        text-align:center;
+        max-width: 65px;
     }
 
     .payment-info h3{
-        font-size:18px;
-        margin-bottom:4px;
+        font-size: 13.5px;
+        margin-bottom: 3px;
     }
 
     .payment-info p{
-        font-size:12px;
-        line-height:1.5;
+        font-size: 10.5px;
+        line-height: 1.4;
     }
 }
