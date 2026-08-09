@@ -1825,3 +1825,297 @@ color:#555;
 .next-btn:hover{
     background:#4a9ea9;
 }
+
+/* =========================
+   التوثيق وطرق الدفع
+========================= */
+
+.trust-payment {
+    width: 92%;
+    max-width: 900px;
+    margin: 55px auto;
+    text-align: center;
+}
+
+/* بطاقة التوثيق */
+
+.trust-card {
+    background: #f8fbfc;
+    border: 1px solid #d5edf1;
+    border-radius: 28px;
+    padding: 35px 25px 30px;
+    box-shadow: 0 8px 25px rgba(60, 150, 165, 0.08);
+}
+
+.trust-shield {
+    width: 82px;
+    height: 92px;
+    margin: 0 auto 18px;
+
+    background: #078b9d;
+
+    clip-path: polygon(
+        50% 0%,
+        91% 15%,
+        91% 52%,
+        76% 77%,
+        50% 100%,
+        24% 77%,
+        9% 52%,
+        9% 15%
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 34px;
+}
+
+.trust-shield i {
+    transform: translateY(-2px);
+}
+
+.trust-card h2 {
+    margin: 0;
+    color: #222;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.trust-subtitle {
+    margin: 10px 0 22px;
+    color: #666;
+    font-size: 17px;
+}
+
+.trust-divider {
+    width: 85%;
+    height: 1px;
+    background: #d5e3e6;
+    margin: 0 auto 25px;
+}
+
+.trust-text {
+    color: #222;
+    font-size: 20px;
+    line-height: 2;
+    margin: 0;
+}
+
+.freelance-number {
+    width: fit-content;
+    min-width: 270px;
+
+    margin: 22px auto;
+
+    padding: 12px 28px;
+
+    border: 1px dashed #69bdc8;
+    border-radius: 15px;
+
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.freelance-number span {
+    color: #666;
+    font-size: 14px;
+}
+
+.freelance-number strong {
+    color: #168c9d;
+    font-size: 22px;
+    direction: ltr;
+}
+
+.official-logos {
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid #d5e3e6;
+}
+
+.official-logos img {
+    width: 330px;
+    max-width: 80%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* =========================
+   طرق الدفع
+========================= */
+
+.payment-section {
+    margin-top: 45px;
+}
+
+.payment-section h2 {
+    color: #168c9d;
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.payment-section h2 i {
+    font-size: 20px;
+    margin-right: 7px;
+}
+
+.payment-section > p {
+    color: #777;
+    font-size: 16px;
+    margin-bottom: 22px;
+}
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.payment-option {
+    min-height: 150px;
+
+    border: 1px solid #d8e6e9;
+    border-radius: 22px;
+
+    background: #fff;
+
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+}
+
+.payment-option h3 {
+    margin: 0 0 7px;
+    color: #168c9d;
+    font-size: 22px;
+}
+
+.payment-option span {
+    display: block;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.bank-icon {
+    width: 72px;
+    height: 72px;
+
+    border-radius: 50%;
+
+    background: #eef8fa;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #168c9d;
+    font-size: 36px;
+
+    flex-shrink: 0;
+}
+
+.tamara-logo {
+    width: 125px;
+    height: auto;
+    object-fit: contain;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   الجوال
+========================= */
+
+@media (max-width: 600px) {
+
+    .trust-payment {
+        width: 92%;
+        margin: 40px auto;
+    }
+
+    .trust-card {
+        padding: 28px 16px 25px;
+        border-radius: 22px;
+    }
+
+    .trust-shield {
+        width: 68px;
+        height: 77px;
+        font-size: 28px;
+    }
+
+    .trust-card h2 {
+        font-size: 22px;
+    }
+
+    .trust-subtitle {
+        font-size: 15px;
+    }
+
+    .trust-text {
+        font-size: 17px;
+        line-height: 1.9;
+    }
+
+    .freelance-number {
+        min-width: 0;
+        width: 85%;
+        padding: 10px 15px;
+    }
+
+    .freelance-number strong {
+        font-size: 19px;
+    }
+
+    .official-logos img {
+        width: 280px;
+        max-width: 90%;
+    }
+
+    .payment-section h2 {
+        font-size: 23px;
+    }
+
+    .payment-options {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .payment-option {
+        min-height: 125px;
+        padding: 17px;
+        gap: 15px;
+    }
+
+    .payment-option h3 {
+        font-size: 20px;
+    }
+
+    .payment-option span {
+        font-size: 13px;
+    }
+
+    .bank-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 28px;
+    }
+
+    .tamara-logo {
+        width: 105px;
+    }
+}
