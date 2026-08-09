@@ -2223,15 +2223,17 @@ color:#555;
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
-    padding: 22px 7% 18px;
+    padding: 22px 20px 18px;
     box-sizing: border-box;
+
+    gap: 150px;
 }
 
 
-/* شعار TDrive */
+/* شعار TDrive — اليمين */
 
 .site-branding .logo {
     width: 180px;
@@ -2264,7 +2266,7 @@ color:#555;
 }
 
 
-/* شعار رؤية 2030 */
+/* شعار رؤية 2030 — اليسار */
 
 .vision-logo {
     width: 180px;
@@ -2292,7 +2294,8 @@ color:#555;
 @media (max-width: 600px) {
 
     .site-branding {
-        padding: 18px 6% 15px;
+        padding: 18px 15px 15px;
+        gap: 70px;
     }
 
     .site-branding .logo {
