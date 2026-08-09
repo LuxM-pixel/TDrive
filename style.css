@@ -2216,36 +2216,28 @@ color:#555;
 }
 
 /* =========================
-   هوية الهيدر
+   هوية الهيدر — نسخة موحّدة واحدة فقط
 ========================= */
 
 .site-branding {
     width: 100%;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-
-    padding: 22px 20px 18px;
+    padding: 22px 7% 18px;
     box-sizing: border-box;
-
-    gap: 110px;
+    gap: 40px;
 }
 
-
-/* =========================
-   شعار TDrive — اليمين
-========================= */
-
 .site-branding .logo {
+    order: 1;              /* TDrive → يمين */
     width: 180px;
     height: 90px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     text-align: center;
     flex-shrink: 0;
     box-sizing: border-box;
@@ -2267,19 +2259,13 @@ color:#555;
     line-height: 1.2;
 }
 
-
-/* =========================
-   شعار رؤية 2030 — اليسار
-========================= */
-
 .site-branding .vision-logo {
+    order: 2;              /* رؤية 2030 → يسار */
     width: 180px;
     height: 90px;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     overflow: hidden;
     flex-shrink: 0;
     box-sizing: border-box;
@@ -2291,21 +2277,10 @@ color:#555;
     display: block;
 }
 
-
-/* =========================
-   الجوال
-========================= */
-
 @media (max-width: 600px) {
-
     .site-branding {
-        width: 100%;
-        padding: 18px 10px 15px;
-
-        gap: 95px;
-
-        justify-content: center;
-        align-items: center;
+        padding: 18px 5% 15px;
+        gap: 24px;
     }
 
     .site-branding .logo {
@@ -2330,19 +2305,9 @@ color:#555;
     .site-branding .vision-logo img {
         width: 140px;
     }
-
 }
 
-.site-branding {
-    width: 100%;
-    display: flex !important;
-    flex-direction: row !important; /* بدل row-reverse، أوضح وأثبت */
-    justify-content: space-between !important;
-    align-items: center;
-    padding: 22px 7% 18px;
-    box-sizing: border-box;
-    gap: 40px; /* مسافة أدنى مضمونة حتى لو space-between اتلغت */
-}
+
 
 .vision-logo {
     order: 2; /* يفضل يسار (لأن row + RTL هيقلب الترتيب البصري) */
