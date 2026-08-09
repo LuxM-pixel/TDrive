@@ -1904,20 +1904,18 @@ color:#555;
    عنوان المؤسسة
 ========================================= */
 .verification-card h2{
-    margin:0;
-    color:#65b7c3;
+    color:#222;
     font-size:27px;
     font-weight:800;
     line-height:1.5;
 }
 
 .verification-card h2 span{
-    color:#65b7c3;
+    color:#222;
     direction:ltr;
     display:inline-block;
     margin-right:8px;
 }
-
 
 /* =========================================
    الوصف
@@ -1952,7 +1950,7 @@ color:#555;
     max-width:650px;
 
     color:#333;
-    font-size:17px;
+    font-size:14px;
     line-height:1.9;
 }
 
@@ -2038,7 +2036,7 @@ color:#555;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:16px;
+    gap:14px;
 
     background:#fff;
     border:1.5px solid #cdeef2;
@@ -2053,8 +2051,8 @@ color:#555;
 .payment-icon{
     flex-shrink:0;
 
-    width:64px;
-    height:64px;
+    width:56px;
+    height:56px;
 
     border-radius:50%;
 
@@ -2065,7 +2063,7 @@ color:#555;
     background:#eef8fa;
     color:#3a939f;
 
-    font-size:30px;
+    font-size:26px;
 }
 
 
@@ -2073,7 +2071,7 @@ color:#555;
 
 .payment-logo{
     flex-shrink:0;
-    width:115px;
+    width:100px;
 
     display:flex;
     align-items:center;
@@ -2081,7 +2079,7 @@ color:#555;
 }
 
 .payment-logo img{
-    width:115px;
+    width:100px;
     max-width:100%;
     height:auto;
 }
