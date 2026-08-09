@@ -1826,296 +1826,383 @@ color:#555;
     background:#4a9ea9;
 }
 
-/* =========================
-   التوثيق وطرق الدفع
-========================= */
+/* =========================================
+   TDrive Verification
+========================================= */
 
-.trust-payment {
-    width: 92%;
+.tdrive-verification {
+    width: 100%;
+    padding: 35px 20px 10px;
+}
+
+.verification-card {
     max-width: 900px;
-    margin: 55px auto;
-    text-align: center;
-}
+    margin: 0 auto;
+    padding: 45px 35px 30px;
 
-/* بطاقة التوثيق */
-
-.trust-card {
     background: #f8fbfc;
-    border: 1px solid #d5edf1;
-    border-radius: 28px;
-    padding: 35px 25px 30px;
-    box-shadow: 0 8px 25px rgba(60, 150, 165, 0.08);
+    border: 1px solid #c9e7ec;
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-sizing: border-box;
 }
 
-.trust-shield {
-    width: 82px;
-    height: 92px;
-    margin: 0 auto 18px;
 
-    background: #078b9d;
+/* الدرع */
+
+.verification-shield {
+    width: 90px;
+    height: 90px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #3f91a3;
 
     clip-path: polygon(
         50% 0%,
-        91% 15%,
-        91% 52%,
-        76% 77%,
+        86% 15%,
+        86% 58%,
         50% 100%,
-        24% 77%,
-        9% 52%,
-        9% 15%
+        14% 58%,
+        14% 15%
     );
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-    font-size: 34px;
 }
 
-.trust-shield i {
-    transform: translateY(-2px);
+.verification-shield i {
+    color: #fff;
+    font-size: 42px;
 }
 
-.trust-card h2 {
+
+/* اسم المؤسسة */
+
+.verification-card h2 {
     margin: 0;
+
     color: #222;
-    font-size: 28px;
-    font-weight: 700;
+    font-size: 31px;
+    font-weight: 800;
+    line-height: 1.5;
 }
 
-.trust-subtitle {
-    margin: 10px 0 22px;
-    color: #666;
-    font-size: 17px;
-}
-
-.trust-divider {
-    width: 85%;
-    height: 1px;
-    background: #d5e3e6;
-    margin: 0 auto 25px;
-}
-
-.trust-text {
-    color: #222;
-    font-size: 20px;
-    line-height: 2;
-    margin: 0;
-}
-
-.freelance-number {
-    width: fit-content;
-    min-width: 270px;
-
-    margin: 22px auto;
-
-    padding: 12px 28px;
-
-    border: 1px dashed #69bdc8;
-    border-radius: 15px;
-
-    background: white;
-
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.freelance-number span {
-    color: #666;
-    font-size: 14px;
-}
-
-.freelance-number strong {
-    color: #168c9d;
-    font-size: 22px;
+.verification-card h2 span {
+    color: #238ca1;
     direction: ltr;
-}
-
-.official-logos {
-    margin-top: 25px;
-    padding-top: 22px;
-    border-top: 1px solid #d5e3e6;
-}
-
-.official-logos img {
-    width: 330px;
-    max-width: 80%;
-    height: auto;
-    object-fit: contain;
+    display: inline-block;
+    margin-right: 8px;
 }
 
 
-/* =========================
-   طرق الدفع
-========================= */
+/* الوصف */
 
-.payment-section {
-    margin-top: 45px;
-}
+.verification-description {
+    margin: 12px 0 25px;
 
-.payment-section h2 {
-    color: #168c9d;
-    font-size: 27px;
-    margin-bottom: 8px;
-}
-
-.payment-section h2 i {
-    font-size: 20px;
-    margin-right: 7px;
-}
-
-.payment-section > p {
     color: #777;
-    font-size: 16px;
-    margin-bottom: 22px;
-}
-
-.payment-options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-
-.payment-option {
-    min-height: 150px;
-
-    border: 1px solid #d8e6e9;
-    border-radius: 22px;
-
-    background: #fff;
-
-    padding: 20px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
-}
-
-.payment-option h3 {
-    margin: 0 0 7px;
-    color: #168c9d;
-    font-size: 22px;
-}
-
-.payment-option span {
-    display: block;
-    color: #555;
-    font-size: 14px;
+    font-size: 21px;
     line-height: 1.8;
 }
 
-.bank-icon {
-    width: 72px;
-    height: 72px;
+
+/* الخط */
+
+.verification-line {
+    width: 85%;
+    height: 1px;
+
+    margin: 0 auto 28px;
+
+    background: #cddfe3;
+}
+
+
+/* نص التوثيق */
+
+.verification-text {
+    margin: 0 auto;
+
+    color: #222;
+    font-size: 21px;
+    line-height: 2;
+
+    max-width: 760px;
+}
+
+.verification-text strong {
+    color: #258ca0;
+    font-weight: 800;
+    direction: ltr;
+    display: inline-block;
+}
+
+
+/* الشعارات الرسمية */
+
+.official-logos {
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.official-logos img {
+    width: 360px;
+    max-width: 80%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   Payment Section
+========================================= */
+
+.payment-section {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 15px auto 0;
+    padding: 25px 20px 45px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+}
+
+.payment-section h2 {
+    margin: 0;
+
+    color: #238ca1;
+
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.payment-section h2 i {
+    font-size: 24px;
+    margin-left: 8px;
+}
+
+.payment-description {
+    margin: 8px 0 25px;
+
+    color: #777;
+
+    font-size: 19px;
+    line-height: 1.7;
+}
+
+
+/* بطاقات الدفع */
+
+.payment-methods {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.payment-card {
+    min-height: 150px;
+
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    background: #fff;
+
+    border: 1px solid #cfe7eb;
+    border-radius: 25px;
+
+    box-sizing: border-box;
+}
+
+
+/* أيقونة التحويل */
+
+.payment-icon {
+    flex-shrink: 0;
+
+    width: 80px;
+    height: 80px;
 
     border-radius: 50%;
-
-    background: #eef8fa;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: #168c9d;
-    font-size: 36px;
+    background: #eef8fa;
 
-    flex-shrink: 0;
+    color: #238ca1;
+
+    font-size: 40px;
 }
 
-.tamara-logo {
-    width: 125px;
+
+/* شعار تمارا */
+
+.payment-logo {
+    flex-shrink: 0;
+
+    width: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-logo img {
+    width: 150px;
+    max-width: 100%;
     height: auto;
-    object-fit: contain;
 
-    flex-shrink: 0;
+    object-fit: contain;
 }
 
 
-/* =========================
-   الجوال
-========================= */
+/* النص */
 
-@media (max-width: 600px) {
+.payment-info {
+    flex: 1;
+}
 
-    .trust-payment {
-        width: 92%;
-        margin: 40px auto;
+.payment-info h3 {
+    margin: 0 0 7px;
+
+    color: #238ca1;
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.payment-info p {
+    margin: 0;
+
+    color: #444;
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 700px) {
+
+    .tdrive-verification {
+        padding: 20px 12px 5px;
     }
 
-    .trust-card {
-        padding: 28px 16px 25px;
-        border-radius: 22px;
+    .verification-card {
+        padding: 35px 20px 25px;
+
+        border-radius: 25px;
     }
 
-    .trust-shield {
-        width: 68px;
-        height: 77px;
-        font-size: 28px;
+    .verification-shield {
+        width: 78px;
+        height: 78px;
+
+        margin-bottom: 18px;
     }
 
-    .trust-card h2 {
-        font-size: 22px;
+    .verification-shield i {
+        font-size: 36px;
     }
 
-    .trust-subtitle {
-        font-size: 15px;
+    .verification-card h2 {
+        font-size: 25px;
+        line-height: 1.6;
     }
 
-    .trust-text {
+    .verification-card h2 span {
+        display: block;
+        margin: 0;
+    }
+
+    .verification-description {
         font-size: 17px;
-        line-height: 1.9;
+        margin-top: 8px;
     }
 
-    .freelance-number {
-        min-width: 0;
-        width: 85%;
-        padding: 10px 15px;
+    .verification-line {
+        width: 90%;
+        margin-bottom: 22px;
     }
 
-    .freelance-number strong {
-        font-size: 19px;
+    .verification-text {
+        font-size: 17px;
+        line-height: 2;
     }
 
     .official-logos img {
-        width: 280px;
-        max-width: 90%;
+        width: 330px;
+        max-width: 95%;
+    }
+
+
+    /* الدفع */
+
+    .payment-section {
+        padding: 30px 12px 35px;
     }
 
     .payment-section h2 {
-        font-size: 23px;
+        font-size: 25px;
     }
 
-    .payment-options {
+    .payment-description {
+        font-size: 17px;
+    }
+
+    .payment-methods {
         grid-template-columns: 1fr;
-        gap: 14px;
-    }
-
-    .payment-option {
-        min-height: 125px;
-        padding: 17px;
         gap: 15px;
     }
 
-    .payment-option h3 {
-        font-size: 20px;
+    .payment-card {
+        min-height: 135px;
+
+        padding: 20px;
+
+        gap: 18px;
     }
 
-    .payment-option span {
-        font-size: 13px;
+    .payment-icon {
+        width: 68px;
+        height: 68px;
+
+        font-size: 32px;
     }
 
-    .bank-icon {
-        width: 58px;
-        height: 58px;
-        font-size: 28px;
+    .payment-logo {
+        width: 120px;
     }
 
-    .tamara-logo {
-        width: 105px;
+    .payment-logo img {
+        width: 120px;
+    }
+
+    .payment-info h3 {
+        font-size: 22px;
+    }
+
+    .payment-info p {
+        font-size: 15px;
     }
 }
