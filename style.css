@@ -2113,9 +2113,9 @@ color:#555;
 /* =========================================
    الجوال
 ========================================= */
-
 @media(max-width:700px){
 
+    /* التوثيق */
     .verification-card{
         width:94%;
         padding:20px 14px;
@@ -2126,10 +2126,6 @@ color:#555;
         width:68px;
         height:68px;
         margin-bottom:14px;
-    }
-
-    .verification-shield i::before{
-        font-size:35px;
     }
 
     .verification-card h2{
@@ -2154,6 +2150,8 @@ color:#555;
         max-width:95%;
     }
 
+
+    /* طرق الدفع */
     .payment-section h2{
         font-size:25px;
     }
@@ -2162,31 +2160,51 @@ color:#555;
         font-size:15px;
     }
 
+    .payment-methods{
+        grid-template-columns:repeat(2, 1fr);
+        gap:10px;
+    }
+
     .payment-card{
-        width:94%;
-        min-height:120px;
-        padding:14px;
+        width:100%;
+        min-height:150px;
+        padding:14px 8px;
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:8px;
+
+        border-radius:16px;
     }
 
     .payment-icon{
-        width:60px;
-        height:60px;
-        font-size:28px;
+        width:58px;
+        height:58px;
+        font-size:27px;
     }
 
     .payment-logo{
-        width:105px;
+        width:100px;
     }
 
     .payment-logo img{
-        width:105px;
+        width:100px;
+    }
+
+    .payment-info{
+        width:100%;
+        text-align:center;
     }
 
     .payment-info h3{
-        font-size:19px;
+        font-size:18px;
+        margin-bottom:4px;
     }
 
     .payment-info p{
-        font-size:13px;
+        font-size:12px;
+        line-height:1.5;
     }
 }
