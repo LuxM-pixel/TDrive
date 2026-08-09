@@ -1960,11 +1960,11 @@ color:#555;
 
 /* رقم الوثيقة فقط هو الملون */
 
-.verification-text strong{
-    color:#3a939f;
-    font-weight:800;
-    direction:ltr;
-    display:inline;
+.verification-text strong {
+    color: #222;
+    font-weight: 800;
+    direction: ltr;
+    display: inline-block;
 }
 
 /* لا تجعل كلمة "وثيقة" أو أي كلمة أخرى ضخمة */
