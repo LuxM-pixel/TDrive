@@ -1903,21 +1903,19 @@ color:#555;
 /* =========================================
    عنوان المؤسسة
 ========================================= */
-
 .verification-card h2{
     margin:0;
-    color:#333;
-    font-size:26px;
+    color:#65b7c3;
+    font-size:27px;
     font-weight:800;
     line-height:1.5;
 }
 
 .verification-card h2 span{
-    color:#3a939f;
+    color:#65b7c3;
     direction:ltr;
-    display:block;
-    margin:2px 0 0;
-    font-size:25px;
+    display:inline-block;
+    margin-right:8px;
 }
 
 
@@ -2129,7 +2127,7 @@ color:#555;
     }
 
     .verification-card h2{
-        font-size:24px;
+        font-size:20px;
     }
 
     .verification-card h2 span{
