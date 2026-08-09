@@ -2215,144 +2215,90 @@ color:#555;
     }
 }
 
-/* =====================================
-   Saudi Vision 2030 Logo
-===================================== */
+/* =========================
+   هوية الهيدر
+========================= */
 
-.vision-logo{
-    width:145px;
-    height:auto;
-    flex-shrink:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+.site-branding {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-.vision-logo svg{
-    width:100%;
-    height:auto;
-    display:block;
-    overflow:visible;
+    padding: 22px 7% 18px;
+    box-sizing: border-box;
 }
 
 
-/* النصوص */
+/* شعار TDrive */
 
-.vision-en{
-    font-family:Arial,sans-serif;
-    font-size:9px;
-    font-weight:400;
-    fill:#8f8f8f;
-    letter-spacing:1px;
+.site-branding .logo {
+    text-align: center;
+    flex-shrink: 0;
 }
 
-.vision-ar{
-    font-family:'Cairo',sans-serif;
-    font-size:9px;
-    font-weight:400;
-    fill:#8f8f8f;
+.site-branding .logo h1 {
+    margin: 0;
+    font-size: 52px;
+    font-weight: 700;
+    color: #65b7c3;
+    line-height: 1;
 }
 
-.vision-number{
-    font-family:Arial,sans-serif;
-    font-size:42px;
-    font-weight:300;
-    fill:#8f8f8f;
-}
-
-.vision-sa{
-    font-family:'Cairo',sans-serif;
-    font-size:6px;
-    font-weight:400;
-    fill:#8f8f8f;
-}
-
-.vision-kingdom{
-    font-family:Arial,sans-serif;
-    font-size:4.5px;
-    font-weight:400;
-    fill:#8f8f8f;
-    letter-spacing:.5px;
+.site-branding .logo p {
+    margin: 8px 0 0;
+    font-size: 21px;
+    font-weight: 400;
+    color: #888;
 }
 
 
-/* =====================================
-   العلامة الهندسية
-===================================== */
+/* شعار رؤية 2030 */
 
-.vision-mark rect{
-    transform:rotate(45deg);
-    transform-origin:center;
+.vision-logo {
+    width: 155px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
 }
 
-/* تدرج الألوان */
-
-.vision-mark rect:nth-child(4n+1){
-    fill:#00843D;
-}
-
-.vision-mark rect:nth-child(4n+2){
-    fill:#00A6A6;
-}
-
-.vision-mark rect:nth-child(4n+3){
-    fill:#2B75B9;
-}
-
-.vision-mark rect:nth-child(4n){
-    fill:#8BC53F;
+.vision-logo img {
+    width: 155px;
+    height: auto;
+    display: block;
 }
 
 
-/* =====================================
-   ترتيب شعارَي الهيدر
-===================================== */
+/* =========================
+   الجوال
+========================= */
 
-.site-branding{
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    direction:rtl;
-    padding:0 5px;
-}
+@media (max-width: 600px) {
 
-.tdrive-logo{
-    text-align:center;
-    flex-shrink:0;
-}
-
-.tdrive-name{
-    font-size:34px;
-    font-weight:800;
-    color:#65b7c3;
-    line-height:1.1;
-}
-
-.tdrive-tagline{
-    font-size:15px;
-    color:#888;
-    line-height:1.4;
-}
-
-
-/* الجوال */
-
-@media(max-width:700px){
-
-    .site-branding{
-        padding:0 2px;
+    .site-branding {
+        padding: 18px 6% 15px;
     }
 
-    .vision-logo{
-        width:115px;
+    .site-branding .logo h1 {
+        font-size: 36px;
     }
 
-    .tdrive-name{
-        font-size:28px;
+    .site-branding .logo p {
+        font-size: 15px;
+        margin-top: 5px;
     }
 
-    .tdrive-tagline{
-        font-size:12px;
+    .vision-logo {
+        width: 125px;
+        height: 72px;
     }
+
+    .vision-logo img {
+        width: 125px;
+    }
+
 }
