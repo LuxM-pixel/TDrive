@@ -2215,10 +2215,6 @@ color:#555;
     }
 }
 
-/* =========================
-   هوية الهيدر — نسخة موحّدة واحدة فقط
-========================= */
-
 .site-branding {
     width: 100%;
     display: flex;
@@ -2228,10 +2224,11 @@ color:#555;
     padding: 22px 7% 18px;
     box-sizing: border-box;
     gap: 40px;
+    background: red; /* علامة اختبار - هنشيلها بعدين */
 }
 
 .site-branding .logo {
-    order: 1;              /* TDrive → يمين */
+    order: 1;
     width: 180px;
     height: 90px;
     display: flex;
@@ -2260,7 +2257,7 @@ color:#555;
 }
 
 .site-branding .vision-logo {
-    order: 2;              /* رؤية 2030 → يسار */
+    order: 2;
     width: 180px;
     height: 90px;
     display: flex;
@@ -2306,14 +2303,3 @@ color:#555;
         width: 140px;
     }
 }
-
-
-
-.vision-logo {
-    order: 2; /* يفضل يسار (لأن row + RTL هيقلب الترتيب البصري) */
-}
-
-.logo {
-    order: 1; /* يفضل يمين */
-}
-
