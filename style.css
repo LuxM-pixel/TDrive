@@ -2216,7 +2216,7 @@ color:#555;
 }
 
 /* =========================
-   هوية الهيدر — نسخة موحّدة واحدة فقط
+   هوية الهيدر — الشعارين على أقصى الطرفين
 ========================= */
 
 .site-branding {
@@ -2225,9 +2225,9 @@ color:#555;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 22px 7% 18px;
+    padding: 22px 1% 18px;
     box-sizing: border-box;
-    gap: 40px;
+    gap: 0;
 }
 
 .site-branding .logo {
@@ -2277,11 +2277,17 @@ color:#555;
     display: block;
 }
 
+
+/* =========================
+   الجوال
+========================= */
+
 @media (max-width: 600px) {
+
     .site-branding {
-        padding: 18px 5% 15px;
+        padding: 18px 1% 15px;
         justify-content: space-between;
-        gap: 20px;
+        gap: 0;
     }
 
     .site-branding .logo {
