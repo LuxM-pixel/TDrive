@@ -98,12 +98,13 @@ color:#65b7c3;
 }
 
 .site-branding .logo {
-    order: 2;
+    order: 1; /* TDrive تصير يمين */
 }
 
 .site-branding .vision-logo {
-    order: 1;
+    order: 2; /* رؤية 2030 تصير يسار */
 }
+
 /* =========================
    TDrive — اليمين
 ========================= */
