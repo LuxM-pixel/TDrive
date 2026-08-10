@@ -2227,7 +2227,7 @@ color:#555;
     align-items: center;
     padding: 22px 7% 18px;
     box-sizing: border-box;
-    gap: 130px;
+    gap: 40px;
 }
 
 .site-branding .logo {
@@ -2280,34 +2280,30 @@ color:#555;
 @media (max-width: 600px) {
     .site-branding {
         padding: 18px 5% 15px;
-        gap: 130px;
+        justify-content: center;
+        gap: 50px;
     }
 
     .site-branding .logo {
-        width: 140px;
-        height: 72px;
+        width: 130px;
+        height: 68px;
     }
 
     .site-branding .logo h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .site-branding .logo p {
-        font-size: 15px;
+        font-size: 14px;
         margin-top: 5px;
     }
 
     .site-branding .vision-logo {
-        width: 140px;
-        height: 72px;
+        width: 130px;
+        height: 68px;
     }
 
     .site-branding .vision-logo img {
-        width: 140px;
+        width: 130px;
     }
 }
-
-.site-branding {
-    background: #fff !important;
-}
-
