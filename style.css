@@ -2318,6 +2318,18 @@ color:#555;
 
 @media (max-width: 600px) {
 
+   @media (max-width: 600px) {
+
+    .site-branding .logo {
+        right: -55px;
+    }
+
+    .site-branding .vision-logo {
+        left: -15px;
+    }
+
+}
+
     .site-branding {
         width: 100vw;
         max-width: 100vw;
@@ -2340,6 +2352,7 @@ color:#555;
 
     .site-branding .logo p {
         font-size: 14px;
+      
         margin-top: 5px;
     }
 
