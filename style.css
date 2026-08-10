@@ -2216,14 +2216,19 @@ color:#555;
 }
 
 /* =========================
-   هوية الهيدر — الشعارين على حواف الصفحة
+   هوية الهيدر — الشعارين على حواف الشاشة
 ========================= */
 
 .site-branding {
-    width: 100%;
+    width: 100vw;
+    max-width: 100vw;
     position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
     display: flex;
     align-items: center;
+
     box-sizing: border-box;
     padding: 22px 12px 18px;
     min-height: 130px;
@@ -2231,7 +2236,7 @@ color:#555;
 
 
 /* =========================
-   TDrive → أقصى اليمين
+   TDrive — أقصى اليمين
 ========================= */
 
 .site-branding .logo {
@@ -2254,7 +2259,7 @@ color:#555;
 
 
 /* =========================
-   شعار رؤية 2030 → أقصى اليسار
+   رؤية 2030 — أقصى اليسار
 ========================= */
 
 .site-branding .vision-logo {
@@ -2314,6 +2319,11 @@ color:#555;
 @media (max-width: 600px) {
 
     .site-branding {
+        width: 100vw;
+        max-width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
+
         padding: 18px 12px 15px;
         min-height: 101px;
     }
