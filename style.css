@@ -2368,3 +2368,11 @@ color:#555;
         width: 130px;
     }
 }
+
+/* تحريك شعار TDrive فقط */
+@media (max-width: 600px) {
+    .site-branding .logo {
+        transform: translateX(15px);
+    }
+}
+
