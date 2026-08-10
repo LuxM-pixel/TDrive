@@ -2227,7 +2227,7 @@ color:#555;
     align-items: center;
     padding: 22px 12px 18px;
     box-sizing: border-box;
-    gap: 0;
+    gap: 130px;
 }
 
 .site-branding .logo {
@@ -2287,7 +2287,7 @@ color:#555;
     .site-branding {
         padding: 18px 12px 15px;
         justify-content: space-between;
-        gap: 0;
+        gap: 130px;
     }
 
     .site-branding .logo {
