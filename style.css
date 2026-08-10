@@ -2280,7 +2280,7 @@ color:#555;
 @media (max-width: 600px) {
     .site-branding {
         padding: 18px 5% 15px;
-        gap: 60px;
+        gap: 100px;
     }
 
     .site-branding .logo {
