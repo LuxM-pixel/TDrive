@@ -2280,8 +2280,8 @@ color:#555;
 @media (max-width: 600px) {
     .site-branding {
         padding: 18px 5% 15px;
-        justify-content: center;
-        gap: 50px;
+        justify-content: space-between;
+        gap: 20px;
     }
 
     .site-branding .logo {
