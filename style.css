@@ -93,9 +93,10 @@ color:#65b7c3;
     justify-content: space-between;
 
     box-sizing: border-box;
-    padding: 22px 15px 18px;
+    padding: 22px 8px 18px;
     min-height: 130px;
 }
+
 
 .site-branding .logo {
     order: 1; /* TDrive تصير يمين */
@@ -177,12 +178,11 @@ color:#65b7c3;
 /* =========================
    الجوال
 ========================= */
-
 @media (max-width: 600px) {
 
     .site-branding {
         width: 100%;
-        padding: 22px 15px 18px;
+        padding: 22px 8px 18px;
         min-height: 130px;
 
         display: flex;
@@ -215,6 +215,7 @@ color:#65b7c3;
         width: 130px;
     }
 }
+
 
 /* ==========================
    Hero
