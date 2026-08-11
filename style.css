@@ -78,142 +78,15 @@ nav a:hover{
 color:#65b7c3;
 }
 
-/* =========================
-   هوية الهيدر
-   الشعاران في منتصف مساحة الهيدر
-========================= */
-
 .site-branding {
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-
     display: flex;
     align-items: center;
-    justify-content: space-between;
-
-    box-sizing: border-box;
-    padding: 22px 8px 18px;
-    min-height: 130px;
 }
 
-
-.site-branding .logo {
-    order: 1; /* TDrive تصير يمين */
-}
-
-.site-branding .vision-logo {
-    order: 2; /* رؤية 2030 تصير يسار */
-}
-
-/* =========================
-   TDrive — اليمين
-========================= */
-
-.site-branding .logo {
-    width: 180px;
-    height: 90px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-    box-sizing: border-box;
-    flex-shrink: 0;
-}
-
-
-/* =========================
-   رؤية 2030 — اليسار
-========================= */
-
-.site-branding .vision-logo {
-    width: 180px;
-    height: 90px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    overflow: hidden;
-    box-sizing: border-box;
-    flex-shrink: 0;
-}
-
-
-/* =========================
-   TDrive
-========================= */
-
-.site-branding .logo h1 {
-    margin: 0;
-    font-size: 52px;
-    font-weight: 700;
-    color: #65b7c3;
-    line-height: 1;
-}
-
-.site-branding .logo p {
-    margin: 8px 0 0;
-    font-size: 21px;
-    font-weight: 400;
-    color: #888;
-    line-height: 1.2;
-}
-
-
-/* =========================
-   رؤية 2030
-========================= */
-
-.site-branding .vision-logo img {
-    width: 180px;
+.tdrive-header-logo {
+    width: 430px;
     height: auto;
     display: block;
-}
-
-
-/* =========================
-   الجوال
-========================= */
-@media (max-width: 600px) {
-
-    .site-branding {
-        width: 100%;
-        padding: 22px 8px 18px;
-        min-height: 130px;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .site-branding .logo {
-        width: 130px;
-        height: 68px;
-        transform: none;
-    }
-
-    .site-branding .logo h1 {
-        font-size: 32px;
-    }
-
-    .site-branding .logo p {
-        font-size: 14px;
-        margin-top: 5px;
-    }
-
-    .site-branding .vision-logo {
-        width: 130px;
-        height: 68px;
-        transform: none;
-    }
-
-    .site-branding .vision-logo img {
-        width: 130px;
-    }
 }
 
 
