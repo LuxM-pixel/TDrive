@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>بيانات الدفع | دورة الكابتن | TDrive</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.captain-booking-info{
+
+background:#ffffff;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.captain-booking-info p{
+
+margin:8px 0;
+
+}
+
+.captain-price{
+
+background:#eef9fb;
+padding:15px;
+border-radius:12px;
+margin-bottom:20px;
+text-align:center;
+
+}
+
+.captain-price strong{
+
+font-size:28px;
+color:#6DB7C5;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>TDrive</h1>
+
+<p>تكنولوجيا القيادة</p>
+
+<nav>
+
+<a href="index.html">الرئيسية</a>
+
+<a href="index.html#program">البرنامج</a>
+
+<a href="captain-payment-method.html">
+اختيار طريقة الدفع
+</a>
+
+<a href="booking.html">التسجيل</a>
+
+</nav>
+
+</header>
+
+
+<section id="payment">
+
+<h2>بيانات الدفع</h2>
+
+
+<div class="payment-card">
+
+
+<p>مرحباً بك في دورة الكابتن المحترف،</p>
+
+
+<!-- بيانات التسجيل -->
+
+<div class="captain-booking-info">
+
+<p>
+<strong>رقم التسجيل:</strong>
+<span id="bookingId"></span>
+</p>
+
+<p>
+<strong>الاسم:</strong>
+<span id="fullName"></span>
+</p>
+
+<p>
+<strong>رقم الهوية:</strong>
+<span id="identityNumber"></span>
+</p>
+
+<p>
+<strong>رقم الجوال:</strong>
+<span id="phone"></span>
+</p>
+
+</div>
+
+
+<!-- السعر -->
+
+<div class="captain-price">
+
+<p>رسوم دورة الكابتن المحترف</p>
+
+<strong>100 ريال</strong>
+
+<p>
+السعر الأساسي 300 ريال — خصم 66%
+</p>
+
+</div>
+
+
+<!-- الآيبان -->
+
+<label>رقم الآيبان</label>
+
+<div class="copy-box">
+
+<input
+id="iban"
+readonly
+value="SA8715134018966784773544">
+
+<button
+type="button"
+onclick="copyIBAN()">
+
+نسخ
+
+</button>
+
+</div>
+
+
+<!-- الاسم -->
+
+<label>الاسم</label>
+
+<div class="copy-box">
+
+<input
+id="name"
+readonly
+value="منى أحمد حمود الشمراني">
+
+<button
+type="button"
+onclick="copyName()">
+
+نسخ
+
+</button>
+
+</div>
+
+
+<!-- البنك -->
+
+<p>اسم البنك</p>
+
+<h3>بنك البلاد</h3>
+
+
+<p>
+
+❗ يرجى تحويل مبلغ <strong>100 ريال</strong> ثم إرسال إيصال التحويل بعد الدفع.
+
+</p>
+
+
+<a
+class="whatsapp"
+target="_blank"
+href="https://wa.me/message/VDGPVTYNXF4EP1">
+
+إرسال إيصال التحويل عبر واتساب
+
+</a>
+
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   بيانات الكابتن
+========================= */
+
+const bookingId =
+sessionStorage.getItem("bookingId");
+
+const fullName =
+sessionStorage.getItem("fullName");
+
+const identityNumber =
+sessionStorage.getItem("identityNumber");
+
+const phone =
+sessionStorage.getItem("phone");
+
+
+/* =========================
+   التحقق من وجود التسجيل
+========================= */
+
+if(!bookingId || !fullName || !phone){
+
+alert("لا يوجد تسجيل للكابتن.");
+
+window.location.href =
+"booking.html";
+
+}
+
+
+/* =========================
+   عرض بيانات التسجيل
+========================= */
+
+document.getElementById("bookingId").textContent =
+bookingId;
+
+document.getElementById("fullName").textContent =
+fullName;
+
+document.getElementById("identityNumber").textContent =
+identityNumber || "-";
+
+document.getElementById("phone").textContent =
+phone;
+
+
+/* =========================
+   نسخ الآيبان
+========================= */
+
+function copyIBAN(){
+
+const input =
+document.getElementById("iban");
+
+navigator.clipboard.writeText(
+input.value
+);
+
+alert("تم نسخ رقم الآيبان");
+
+}
+
+
+/* =========================
+   نسخ الاسم
+========================= */
+
+function copyName(){
+
+const input =
+document.getElementById("name");
+
+navigator.clipboard.writeText(
+input.value
+);
+
+alert("تم نسخ اسم المستفيد");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
