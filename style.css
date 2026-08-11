@@ -682,6 +682,62 @@ border-radius:14px;
     }
 
 }
+/* ========================================
+   أيقونات Booking
+======================================== */
+
+.booking-note-title,
+.captain-title,
+.captain-note-title,
+.videos-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+/* لون الأيقونات */
+
+.booking-note-title i,
+.captain-title i,
+.captain-note-title i,
+.videos-title i {
+    color: #65b7c3;
+    font-size: 0.9em;
+    flex-shrink: 0;
+}
+
+
+/* أيقونة التاريخ داخل صندوق المتدربة */
+
+.booking-note p > i {
+    color: #65b7c3;
+    margin-left: 5px;
+    font-size: 0.9em;
+}
+
+
+/* أيقونة عنوان الكابتن */
+
+.captain-title i {
+    font-size: 0.85em;
+}
+
+
+/* أيقونة جائزة الكابتن */
+
+.captain-note-title i {
+    font-size: 0.9em;
+}
+
+
+/* أيقونة الفيديو */
+
+.videos-title i {
+    font-size: 0.85em;
+}
+
 /* ==========================
    Coming Soon
 ========================== */
