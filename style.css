@@ -528,22 +528,25 @@ border-radius:14px;
    دورة الكابتن المحترف
 ======================================== */
 
-.captain-stepper {
-    /* تنسيق خطوات الكابتن */
+/* زر التالي للكابتن — بنفس عرض زر القيادة */
+#captainNextBtn {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
 }
 
-.captain-form-step {
-    /* تنسيق نموذج الكابتن */
+/* تصغير النص داخل الصندوق الأصفر فقط */
+.captain-form-step[data-captain-step="2"] .booking-note {
+    font-size: 20px;
 }
 
-#captainPanel {
-    /* تنسيق لوحة الكابتن */
+.captain-form-step[data-captain-step="2"] .booking-note p {
+    font-size: 20px;
 }
 
-#captainForm {
-    /* تنسيق النموذج */
+.captain-form-step[data-captain-step="2"] .booking-note strong {
+    font-size: 20px;
 }
-
 /* ==========================
    Coming Soon
 ========================== */
