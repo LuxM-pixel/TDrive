@@ -421,29 +421,267 @@ const captainForm = document.getElementById("captainForm");
 
 if (captainForm) {
 
-    captainForm.addEventListener("submit", function(e){
+    const captainNextBtn =
+        document.getElementById("captainNextBtn");
 
-        e.preventDefault();
+    const captainBackBtn =
+        document.getElementById("captainBackBtn");
 
-        const captainName = document.getElementById("captainName").value.trim();
-        const captainPhone = document.getElementById("captainPhone").value.trim();
+    const captainSteps =
+        document.querySelectorAll(".captain-form-step");
 
-        if(!captainName || !captainPhone){
-            alert("يرجى تعبئة الاسم ورقم الجوال");
-            return;
+    const captainStepCircles =
+        document.querySelectorAll("[data-captain-step]");
+
+
+    function goToCaptainStep(stepNumber) {
+
+        captainSteps.forEach(step => {
+
+            const stepValue =
+                Number(step.dataset.captainStep);
+
+            step.style.display =
+                stepValue === stepNumber
+                    ? "block"
+                    : "none";
+
+            step.classList.toggle(
+                "active",
+                stepValue === stepNumber
+            );
+
+        });
+
+
+        document
+            .querySelectorAll(
+                ".captain-stepper .step-circle"
+            )
+            .forEach(circle => {
+
+                const number =
+                    Number(circle.dataset.captainStep);
+
+                circle.classList.toggle(
+                    "active",
+                    number === stepNumber
+                );
+
+                circle.classList.toggle(
+                    "done",
+                    number < stepNumber
+                );
+
+            });
+
+
+        document
+            .querySelectorAll(
+                ".captain-stepper .step-line"
+            )
+            .forEach((line, index) => {
+
+                line.classList.toggle(
+                    "active",
+                    index < stepNumber - 1
+                );
+
+            });
+
+    }
+
+
+    /* =========================
+       التالي
+    ========================= */
+
+    if (captainNextBtn) {
+
+        captainNextBtn.addEventListener(
+            "click",
+            function () {
+
+                const name =
+                    document
+                        .getElementById("captainName")
+                        .value
+                        .trim();
+
+                const identity =
+                    document
+                        .getElementById("captainId")
+                        .value
+                        .trim();
+
+                const phone =
+                    document
+                        .getElementById("captainPhone")
+                        .value
+                        .trim();
+
+
+                if (!name || !identity || !phone) {
+
+                    alert(
+                        "يرجى تعبئة جميع البيانات المطلوبة."
+                    );
+
+                    return;
+
+                }
+
+
+                /* رقم الهوية السعودي */
+
+                if (!/^\d{10}$/.test(identity)) {
+
+                    alert(
+                        "رقم الهوية يجب أن يتكون من 10 أرقام."
+                    );
+
+                    document
+                        .getElementById("captainId")
+                        .focus();
+
+                    return;
+
+                }
+
+
+                /* رقم الجوال */
+
+                if (!/^05\d{8}$/.test(phone)) {
+
+                    alert(
+                        "يرجى إدخال رقم جوال صحيح يبدأ بـ 05."
+                    );
+
+                    document
+                        .getElementById("captainPhone")
+                        .focus();
+
+                    return;
+
+                }
+
+
+                goToCaptainStep(2);
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       السابق
+    ========================= */
+
+    if (captainBackBtn) {
+
+        captainBackBtn.addEventListener(
+            "click",
+            function () {
+
+                goToCaptainStep(1);
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       المتابعة إلى الدفع
+    ========================= */
+
+    captainForm.addEventListener(
+        "submit",
+        function (e) {
+
+            e.preventDefault();
+
+
+            const captainName =
+                document
+                    .getElementById("captainName")
+                    .value
+                    .trim();
+
+            const captainId =
+                document
+                    .getElementById("captainId")
+                    .value
+                    .trim();
+
+            const captainPhone =
+                document
+                    .getElementById("captainPhone")
+                    .value
+                    .trim();
+
+
+            const bookingId =
+                "CPT-" + Date.now();
+
+
+            sessionStorage.setItem(
+                "bookingId",
+                bookingId
+            );
+
+            sessionStorage.setItem(
+                "fullName",
+                captainName
+            );
+
+            sessionStorage.setItem(
+                "identityNumber",
+                captainId
+            );
+
+            sessionStorage.setItem(
+                "phone",
+                captainPhone
+            );
+
+            sessionStorage.setItem(
+                "program",
+                "دورة الكابتن المحترف"
+            );
+
+            sessionStorage.setItem(
+                "trainingDate",
+                ""
+            );
+
+            sessionStorage.setItem(
+                "trainingTime",
+                ""
+            );
+
+            sessionStorage.setItem(
+                "originalPrice",
+                "300"
+            );
+
+            sessionStorage.setItem(
+                "discount",
+                "66"
+            );
+
+            sessionStorage.setItem(
+                "finalPrice",
+                "100"
+            );
+
+
+            window.location.href =
+                "payment-method.html";
+
         }
-
-        const bookingId = "CPT-" + Date.now();
-
-        sessionStorage.setItem("bookingId", bookingId);
-        sessionStorage.setItem("fullName", captainName);
-        sessionStorage.setItem("phone", captainPhone);
-        sessionStorage.setItem("trainingDate", "دورة الكابتن المحترف");
-        sessionStorage.setItem("trainingTime", "-");
-
-        window.location.href = "payment-method.html";
-
-    });
+    );
 
 }
 
