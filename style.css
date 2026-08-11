@@ -547,6 +547,11 @@ border-radius:14px;
 .captain-form-step[data-captain-step="2"] .booking-note strong {
     font-size: 20px;
 }
+
+/* مسافة أسفل زر التالي في نموذج الكابتن */
+#captainNextBtn {
+    margin-bottom: 30px;
+}
 /* ==========================
    Coming Soon
 ========================== */
