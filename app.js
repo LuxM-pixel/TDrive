@@ -417,6 +417,10 @@ tabButtons.forEach(btn => {
 
 });
 
+// ========================================
+// دورة الكابتن المحترف
+// ========================================
+
 const captainForm = document.getElementById("captainForm");
 
 if (captainForm) {
@@ -430,9 +434,10 @@ if (captainForm) {
     const captainSteps =
         document.querySelectorAll(".captain-form-step");
 
-    const captainStepCircles =
-        document.querySelectorAll("[data-captain-step]");
 
+    // ========================================
+    // الانتقال بين خطوات الكابتن
+    // ========================================
 
     function goToCaptainStep(stepNumber) {
 
@@ -441,23 +446,27 @@ if (captainForm) {
             const stepValue =
                 Number(step.dataset.captainStep);
 
-            step.style.display =
-                stepValue === stepNumber
-                    ? "block"
-                    : "none";
+            if (stepValue === stepNumber) {
 
-            step.classList.toggle(
-                "active",
-                stepValue === stepNumber
-            );
+                step.style.display = "block";
+
+                step.classList.add("active");
+
+            } else {
+
+                step.style.display = "none";
+
+                step.classList.remove("active");
+
+            }
 
         });
 
 
+        // تحديث دوائر الخطوات
+
         document
-            .querySelectorAll(
-                ".captain-stepper .step-circle"
-            )
+            .querySelectorAll(".captain-stepper .step-circle")
             .forEach(circle => {
 
                 const number =
@@ -476,10 +485,10 @@ if (captainForm) {
             });
 
 
+        // تحديث الخط الفاصل
+
         document
-            .querySelectorAll(
-                ".captain-stepper .step-line"
-            )
+            .querySelectorAll(".captain-stepper .step-line")
             .forEach((line, index) => {
 
                 line.classList.toggle(
@@ -492,9 +501,10 @@ if (captainForm) {
     }
 
 
-    /* =========================
-       التالي
-    ========================= */
+    // ========================================
+    // الخطوة الأولى
+    // التحقق من بيانات الكابتن
+    // ========================================
 
     if (captainNextBtn) {
 
@@ -502,24 +512,29 @@ if (captainForm) {
             "click",
             function () {
 
+                const nameInput =
+                    document.getElementById("captainName");
+
+                const identityInput =
+                    document.getElementById("captainId");
+
+                const phoneInput =
+                    document.getElementById("captainPhone");
+
+
                 const name =
-                    document
-                        .getElementById("captainName")
-                        .value
-                        .trim();
+                    nameInput.value.trim();
 
                 const identity =
-                    document
-                        .getElementById("captainId")
-                        .value
-                        .trim();
+                    identityInput.value.trim();
 
                 const phone =
-                    document
-                        .getElementById("captainPhone")
-                        .value
-                        .trim();
+                    phoneInput.value.trim();
 
+
+                // -------------------------------
+                // التحقق من تعبئة البيانات
+                // -------------------------------
 
                 if (!name || !identity || !phone) {
 
@@ -532,7 +547,52 @@ if (captainForm) {
                 }
 
 
-                /* رقم الهوية السعودي */
+                // ========================================
+                // الاسم: ثنائي أو ثلاثي فقط
+                // ========================================
+
+                const nameParts =
+                    name.split(/\s+/).filter(Boolean);
+
+
+                if (
+                    nameParts.length < 2 ||
+                    nameParts.length > 3
+                ) {
+
+                    alert(
+                        "يرجى إدخال الاسم الثنائي أو الثلاثي فقط."
+                    );
+
+                    nameInput.focus();
+
+                    return;
+
+                }
+
+
+                // منع الأرقام والرموز في الاسم
+
+                const arabicNamePattern =
+                    /^[\u0600-\u06FF\u0750-\u077F\s]+$/;
+
+
+                if (!arabicNamePattern.test(name)) {
+
+                    alert(
+                        "يرجى إدخال الاسم باللغة العربية."
+                    );
+
+                    nameInput.focus();
+
+                    return;
+
+                }
+
+
+                // ========================================
+                // رقم الهوية
+                // ========================================
 
                 if (!/^\d{10}$/.test(identity)) {
 
@@ -540,31 +600,33 @@ if (captainForm) {
                         "رقم الهوية يجب أن يتكون من 10 أرقام."
                     );
 
-                    document
-                        .getElementById("captainId")
-                        .focus();
+                    identityInput.focus();
 
                     return;
 
                 }
 
 
-                /* رقم الجوال */
+                // ========================================
+                // رقم الجوال
+                // ========================================
 
                 if (!/^05\d{8}$/.test(phone)) {
 
                     alert(
-                        "يرجى إدخال رقم جوال صحيح يبدأ بـ 05."
+                        "يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام."
                     );
 
-                    document
-                        .getElementById("captainPhone")
-                        .focus();
+                    phoneInput.focus();
 
                     return;
 
                 }
 
+
+                // ========================================
+                // الانتقال إلى الخطوة الثانية
+                // ========================================
 
                 goToCaptainStep(2);
 
@@ -574,9 +636,9 @@ if (captainForm) {
     }
 
 
-    /* =========================
-       السابق
-    ========================= */
+    // ========================================
+    // زر السابق
+    // ========================================
 
     if (captainBackBtn) {
 
@@ -592,9 +654,9 @@ if (captainForm) {
     }
 
 
-    /* =========================
-       المتابعة إلى الدفع
-    ========================= */
+    // ========================================
+    // اختيار طريقة الدفع
+    // ========================================
 
     captainForm.addEventListener(
         "submit",
@@ -622,54 +684,78 @@ if (captainForm) {
                     .trim();
 
 
+            // ========================================
+            // إنشاء رقم حجز خاص بالكابتن
+            // ========================================
+
             const bookingId =
                 "CPT-" + Date.now();
 
+
+            // ========================================
+            // حفظ بيانات التسجيل مؤقتًا
+            // ========================================
 
             sessionStorage.setItem(
                 "bookingId",
                 bookingId
             );
 
+
             sessionStorage.setItem(
                 "fullName",
                 captainName
             );
+
 
             sessionStorage.setItem(
                 "identityNumber",
                 captainId
             );
 
+
             sessionStorage.setItem(
                 "phone",
                 captainPhone
             );
+
 
             sessionStorage.setItem(
                 "program",
                 "دورة الكابتن المحترف"
             );
 
+
+            // لا يوجد موعد محدد حاليًا
+            // سنضيف تاريخ ووقت الدورة لاحقًا
+
             sessionStorage.setItem(
                 "trainingDate",
                 ""
             );
+
 
             sessionStorage.setItem(
                 "trainingTime",
                 ""
             );
 
+
+            // ========================================
+            // بيانات السعر
+            // ========================================
+
             sessionStorage.setItem(
                 "originalPrice",
                 "300"
             );
 
+
             sessionStorage.setItem(
                 "discount",
                 "66"
             );
+
 
             sessionStorage.setItem(
                 "finalPrice",
@@ -677,8 +763,12 @@ if (captainForm) {
             );
 
 
+            // ========================================
+            // الانتقال إلى صفحة دفع الكابتن
+            // ========================================
+
             window.location.href =
-                "payment-method.html";
+                "captain-payment-method.html";
 
         }
     );
