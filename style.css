@@ -462,95 +462,225 @@ border-radius:14px;
 /* ==========================
    Booking
 ========================== */
+
 /* ===== قسم التسجيل ===== */
 
-#booking{
-    padding:45px 20px;
-    font-size:15px;
-}
-
-#booking h2{
-    font-size:22px;
-    line-height:1.4;
-    margin-bottom:25px;
-    max-width:600px;
-    margin-left:auto;
-    margin-right:auto;
+#booking {
+    padding: 45px 20px;
+    font-size: 15px;
 }
 
 
+/* ===== عنوان قسم التسجيل ===== */
 
-#bookingForm label{
-    font-size:13px;
-    margin-top:6px;
-}
-
-#bookingForm button{
-    padding:13px;
-    font-size:15px;
-    background:#65b7c3;
-    color:#fff;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-}
-
-#bookingForm button:hover{
-    background:#4a9ea9;
+#booking h2 {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
-.booking-note h3{
-    font-size:18px;
+/* ==========================
+   نموذج القيادة
+========================== */
+
+#bookingForm {
+    max-width: 550px;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
-.booking-note p{
-    font-size:15px;
+
+/* ===== العناوين ===== */
+
+#bookingForm label {
+    font-size: 13px;
+    margin-top: 6px;
 }
 
-#bookingForm{
-    max-width:550px;
-    margin:auto;
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-}
+
+/* ===== الحقول ===== */
 
 #bookingForm input,
-#bookingForm select{
-    width:100%;
-    padding:12px;
-    font-size:14px;
+#bookingForm select {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
 }
 
-/* ========================================
-   دورة الكابتن المحترف
-======================================== */
 
-/* زر التالي للكابتن — بنفس عرض زر القيادة */
+/* ===== أزرار القيادة ===== */
+
+#bookingForm button {
+    padding: 13px;
+    font-size: 15px;
+    background: #65b7c3;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#bookingForm button:hover {
+    background: #4a9ea9;
+}
+
+
+/* ==========================
+   صناديق الملاحظات
+   القيادة + الكابتن
+========================== */
+
+.booking-note h3 {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.booking-note p {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.booking-note strong {
+    font-size: 15px;
+}
+
+
+/* ==========================
+   دورة الكابتن المحترف
+========================== */
+
+
+/* ===== نموذج الكابتن ===== */
+
+#captainForm {
+    max-width: 550px;
+    margin: auto;
+    width: 100%;
+}
+
+
+/* ===== خطوات الكابتن ===== */
+
+.captain-stepper {
+    width: 100%;
+}
+
+
+/* ===== خطوات النموذج ===== */
+
+.captain-form-step {
+    width: 100%;
+}
+
+
+/* ===== لوحة الكابتن ===== */
+
+#captainPanel {
+    width: 100%;
+}
+
+
+/* ==========================
+   زر التالي للكابتن
+   بنفس عرض زر القيادة
+========================== */
+
 #captainNextBtn {
     width: 100%;
     display: block;
     box-sizing: border-box;
-}
-
-/* تصغير النص داخل الصندوق الأصفر فقط */
-.captain-form-step[data-captain-step="2"] .booking-note {
-    font-size: 20px;
-}
-
-.captain-form-step[data-captain-step="2"] .booking-note p {
-    font-size: 20px;
-}
-
-.captain-form-step[data-captain-step="2"] .booking-note strong {
-    font-size: 20px;
-}
-
-/* مسافة أسفل زر التالي في نموذج الكابتن */
-#captainNextBtn {
+    padding: 13px;
+    font-size: 15px;
+    background: #65b7c3;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
     margin-bottom: 30px;
+}
+
+#captainNextBtn:hover {
+    background: #4a9ea9;
+}
+
+
+/* ==========================
+   صندوق الكابتن
+   نفس حجم صندوق القيادة
+========================== */
+
+.captain-form-step .booking-note {
+    font-size: 15px;
+}
+
+.captain-form-step .booking-note h3 {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.captain-form-step .booking-note p {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.captain-form-step .booking-note strong {
+    font-size: 15px;
+}
+
+
+/* ==========================
+   أزرار الكابتن
+========================== */
+
+#captainForm button {
+    cursor: pointer;
+}
+
+
+/* ==========================
+   الجوال
+========================== */
+
+@media (max-width: 768px) {
+
+    #booking {
+        padding: 35px 20px;
+    }
+
+    #booking h2 {
+        font-size: 22px;
+    }
+
+    .booking-note h3 {
+        font-size: 18px;
+    }
+
+    .booking-note p,
+    .booking-note strong {
+        font-size: 15px;
+    }
+
+    .captain-form-step .booking-note h3 {
+        font-size: 18px;
+    }
+
+    .captain-form-step .booking-note p,
+    .captain-form-step .booking-note strong {
+        font-size: 15px;
+    }
+
+    #captainNextBtn {
+        width: 100%;
+        font-size: 15px;
+    }
+
 }
 /* ==========================
    Coming Soon
