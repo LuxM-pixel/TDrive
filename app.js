@@ -435,10 +435,6 @@ if (captainForm) {
         document.querySelectorAll(".captain-form-step");
 
 
-    // ========================================
-    // الانتقال بين خطوات الكابتن
-    // ========================================
-
     function goToCaptainStep(stepNumber) {
 
         captainSteps.forEach(step => {
@@ -446,24 +442,18 @@ if (captainForm) {
             const stepValue =
                 Number(step.dataset.captainStep);
 
-            if (stepValue === stepNumber) {
+            step.style.display =
+                stepValue === stepNumber
+                    ? "block"
+                    : "none";
 
-                step.style.display = "block";
-
-                step.classList.add("active");
-
-            } else {
-
-                step.style.display = "none";
-
-                step.classList.remove("active");
-
-            }
+            step.classList.toggle(
+                "active",
+                stepValue === stepNumber
+            );
 
         });
 
-
-        // تحديث دوائر الخطوات
 
         document
             .querySelectorAll(".captain-stepper .step-circle")
@@ -485,8 +475,6 @@ if (captainForm) {
             });
 
 
-        // تحديث الخط الفاصل
-
         document
             .querySelectorAll(".captain-stepper .step-line")
             .forEach((line, index) => {
@@ -502,8 +490,7 @@ if (captainForm) {
 
 
     // ========================================
-    // الخطوة الأولى
-    // التحقق من بيانات الكابتن
+    // التالي
     // ========================================
 
     if (captainNextBtn) {
@@ -532,10 +519,6 @@ if (captainForm) {
                     phoneInput.value.trim();
 
 
-                // -------------------------------
-                // التحقق من تعبئة البيانات
-                // -------------------------------
-
                 if (!name || !identity || !phone) {
 
                     alert(
@@ -554,7 +537,6 @@ if (captainForm) {
                 const nameParts =
                     name.split(/\s+/).filter(Boolean);
 
-
                 if (
                     nameParts.length < 2 ||
                     nameParts.length > 3
@@ -571,11 +553,10 @@ if (captainForm) {
                 }
 
 
-                // منع الأرقام والرموز في الاسم
+                // الاسم باللغة العربية فقط
 
                 const arabicNamePattern =
                     /^[\u0600-\u06FF\u0750-\u077F\s]+$/;
-
 
                 if (!arabicNamePattern.test(name)) {
 
@@ -624,9 +605,7 @@ if (captainForm) {
                 }
 
 
-                // ========================================
-                // الانتقال إلى الخطوة الثانية
-                // ========================================
+                // الانتقال للدفع
 
                 goToCaptainStep(2);
 
@@ -637,7 +616,7 @@ if (captainForm) {
 
 
     // ========================================
-    // زر السابق
+    // السابق
     // ========================================
 
     if (captainBackBtn) {
@@ -684,41 +663,33 @@ if (captainForm) {
                     .trim();
 
 
-            // ========================================
-            // إنشاء رقم حجز خاص بالكابتن
-            // ========================================
+            // رقم حجز خاص بالكابتن
 
             const bookingId =
                 "CPT-" + Date.now();
 
 
-            // ========================================
-            // حفظ بيانات التسجيل مؤقتًا
-            // ========================================
+            // حفظ البيانات
 
             sessionStorage.setItem(
                 "bookingId",
                 bookingId
             );
 
-
             sessionStorage.setItem(
                 "fullName",
                 captainName
             );
-
 
             sessionStorage.setItem(
                 "identityNumber",
                 captainId
             );
 
-
             sessionStorage.setItem(
                 "phone",
                 captainPhone
             );
-
 
             sessionStorage.setItem(
                 "program",
@@ -726,14 +697,12 @@ if (captainForm) {
             );
 
 
-            // لا يوجد موعد محدد حاليًا
-            // سنضيف تاريخ ووقت الدورة لاحقًا
+            // لا يوجد موعد للكابتن حاليًا
 
             sessionStorage.setItem(
                 "trainingDate",
                 ""
             );
-
 
             sessionStorage.setItem(
                 "trainingTime",
@@ -741,21 +710,17 @@ if (captainForm) {
             );
 
 
-            // ========================================
-            // بيانات السعر
-            // ========================================
+            // السعر
 
             sessionStorage.setItem(
                 "originalPrice",
                 "300"
             );
 
-
             sessionStorage.setItem(
                 "discount",
                 "66"
             );
-
 
             sessionStorage.setItem(
                 "finalPrice",
@@ -763,9 +728,7 @@ if (captainForm) {
             );
 
 
-            // ========================================
-            // الانتقال إلى صفحة دفع الكابتن
-            // ========================================
+            // صفحة دفع الكابتن
 
             window.location.href =
                 "captain-payment-method.html";
@@ -774,7 +737,6 @@ if (captainForm) {
     );
 
 }
-
 // ============ Booking Stepper ============
 
 const formSteps = document.querySelectorAll(".form-step");
