@@ -425,12 +425,13 @@ border-radius:14px;
 }
 
 
-/* ==========================
+/* =====================================================
    دورة الكابتن المحترف
-========================== */
+===================================================== */
 
-
-/* ===== نموذج الكابتن ===== */
+#captainPanel {
+    width: 100%;
+}
 
 #captainForm {
     max-width: 550px;
@@ -439,43 +440,394 @@ border-radius:14px;
 }
 
 
-/* ===== خطوات الكابتن ===== */
+/* =====================================================
+   صندوق التعريف بالكابتن
+===================================================== */
 
-.captain-stepper {
-    width: 100%;
+#captainPanel > .booking-note {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    padding: 28px 30px;
+    background: #fff9df;
+    border: 2px solid #f2cf57;
+    border-radius: 24px;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 
-/* ===== خطوات النموذج ===== */
+/* عنوان الصندوق */
+
+#captainPanel > .booking-note .captain-note-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    margin: 0 0 16px;
+
+    font-size: 25px;
+    line-height: 1.5;
+    font-weight: 800;
+    color: #a87500;
+}
+
+
+/* أيقونة الجائزة */
+
+#captainPanel > .booking-note .captain-note-title i {
+    color: #65b7c3;
+    font-size: 0.9em;
+    flex-shrink: 0;
+}
+
+
+/* وصف البرنامج */
+
+#captainPanel > .booking-note p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 2;
+    color: #555;
+}
+
+
+/* =====================================================
+   Stepper الكابتن
+===================================================== */
+
+#captainPanel .captain-stepper {
+    width: min(700px, 100%);
+    margin: 0 auto 42px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    direction: rtl;
+}
+
+
+/* عنصر الخطوة */
+
+#captainPanel .captain-stepper .step-item {
+    min-width: 95px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+
+    text-align: center;
+}
+
+
+/* الدوائر */
+
+#captainPanel .captain-stepper .step-circle {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f3f5f6;
+    border: 2px solid #e1e7e9;
+
+    color: #777;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    box-sizing: border-box;
+    transition: 0.2s ease;
+}
+
+
+/* الخطوة النشطة */
+
+#captainPanel .captain-stepper .step-circle.active {
+    background: #65b7c3;
+    border-color: #65b7c3;
+    color: #fff;
+}
+
+
+/* أسماء الخطوات */
+
+#captainPanel .captain-stepper .step-item span {
+    font-size: 15px;
+    font-weight: 700;
+    color: #555;
+}
+
+#captainPanel .captain-stepper .step-item
+.step-circle.active + span {
+    color: #3e9fad;
+}
+
+
+/* الخط بين الخطوات */
+
+#captainPanel .captain-stepper .step-line {
+    flex: 1;
+    max-width: 280px;
+    height: 3px;
+
+    margin-top: 28px;
+
+    background: #dfe8ea;
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   خطوات نموذج الكابتن
+===================================================== */
 
 .captain-form-step {
     width: 100%;
 }
 
 
-/* ===== لوحة الكابتن ===== */
+/* عنوان الخطوة */
 
-#captainPanel {
+#captainPanel .step-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+
+    margin: 0 0 22px;
+
+    font-size: 22px;
+    line-height: 1.5;
+    color: #333;
+}
+
+#captainPanel .step-title i {
+    color: #65b7c3;
+    font-size: 0.9em;
+}
+
+
+/* =====================================================
+   صندوق الأسعار — الخطوة الثانية
+===================================================== */
+
+#captainPanel
+.captain-form-step[data-captain-step="2"]
+.booking-note {
+    width: 100%;
+    margin: 0 auto 25px;
+
+    padding: 22px 28px;
+
+    background: #fff !important;
+
+    border: 1px solid #eeeeee !important;
+    border-radius: 22px !important;
+
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.06) !important;
+
+    box-sizing: border-box;
+}
+
+
+/* صفوف الأسعار */
+
+#captainPanel
+.captain-form-step[data-captain-step="2"]
+.booking-note p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin: 0;
+    padding: 15px 0;
+
+    font-size: 17px;
+    line-height: 1.6;
+
+    color: #333;
+}
+
+
+/* الخط بين الأسعار */
+
+#captainPanel
+.captain-form-step[data-captain-step="2"]
+.booking-note p + p {
+    border-top: 1px solid #e5e5e5;
+}
+
+
+/* السعر */
+
+#captainPanel
+.captain-form-step[data-captain-step="2"]
+.booking-note p strong {
+    font-size: 20px;
+    color: #333;
+}
+
+
+/* السعر الحالي */
+
+#captainPanel
+.captain-form-step[data-captain-step="2"]
+.booking-note p:nth-child(2) strong {
+    color: #65aebb;
+    font-size: 23px;
+}
+
+
+/* الخصم */
+
+#captainPanel
+.captain-form-step[data-captain-step="2"]
+.booking-note p:last-child {
+    display: block;
+
+    text-align: center;
+
+    padding: 18px 0 4px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    border-top: 1px solid #e5e5e5;
+}
+
+#captainPanel
+.captain-form-step[data-captain-step="2"]
+.booking-note p:last-child strong {
+    color: #65aebb;
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   النص التوضيحي قبل زر الدفع
+===================================================== */
+
+#captainPanel
+.captain-form-step[data-captain-step="2"]
+> p {
+    position: relative;
+
+    margin: 0 0 24px;
+    padding: 14px 18px;
+
+    background: #eef9fb;
+
+    border: 1px solid #c8e7eb;
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 1.8;
+
+    color: #555;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   أزرار الكابتن
+===================================================== */
+
+#captainForm button {
+    cursor: pointer;
+}
+
+
+/* حاوية الأزرار */
+
+#captainPanel .step-buttons {
+    display: flex;
+    gap: 14px;
+
     width: 100%;
 }
 
 
-/* ==========================
-   زر التالي للكابتن
-   بنفس عرض زر القيادة
-========================== */
+/* أزرار الخطوة الثانية */
+
+#captainPanel .step-buttons button {
+    flex: 1;
+
+    min-height: 58px;
+
+    padding: 13px 18px;
+
+    border-radius: 14px;
+
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+
+    box-sizing: border-box;
+}
+
+
+/* زر الدفع */
+
+#captainPanel .step-buttons .next-btn {
+    background: #65b7c3;
+    color: #fff;
+    border: none;
+}
+
+#captainPanel .step-buttons .next-btn:hover {
+    background: #4a9ea9;
+}
+
+
+/* زر السابق */
+
+#captainPanel .step-buttons .back-btn {
+    background: #f5f5f5;
+    color: #555;
+
+    border: 1px solid #e2e2e2;
+}
+
+#captainPanel .step-buttons .back-btn:hover {
+    background: #eeeeee;
+}
+
+
+/* =====================================================
+   زر التالي في الخطوة الأولى
+===================================================== */
 
 #captainNextBtn {
     width: 100%;
     display: block;
+
     box-sizing: border-box;
+
     padding: 13px;
+
     font-size: 15px;
+
     background: #65b7c3;
     color: #fff;
+
     border: none;
     border-radius: 12px;
+
     cursor: pointer;
+
     margin-bottom: 30px;
 }
 
@@ -484,80 +836,9 @@ border-radius:14px;
 }
 
 
-/* ==========================
-   صندوق الكابتن
-   نفس حجم صندوق القيادة
-========================== */
-
-.captain-form-step .booking-note {
-    font-size: 15px;
-}
-
-.captain-form-step .booking-note h3 {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.captain-form-step .booking-note p {
-    font-size: 15px;
-    line-height: 1.8;
-}
-
-.captain-form-step .booking-note strong {
-    font-size: 15px;
-}
-
-
-/* ==========================
-   أزرار الكابتن
-========================== */
-
-#captainForm button {
-    cursor: pointer;
-}
-
-
-/* ==========================
-   الجوال
-========================== */
-
-@media (max-width: 768px) {
-
-    #booking {
-        padding: 35px 20px;
-    }
-
-    #booking h2 {
-        font-size: 22px;
-    }
-
-    .booking-note h3 {
-        font-size: 18px;
-    }
-
-    .booking-note p,
-    .booking-note strong {
-        font-size: 15px;
-    }
-
-    .captain-form-step .booking-note h3 {
-        font-size: 18px;
-    }
-
-    .captain-form-step .booking-note p,
-    .captain-form-step .booking-note strong {
-        font-size: 15px;
-    }
-
-    #captainNextBtn {
-        width: 100%;
-        font-size: 15px;
-    }
-
-}
-/* ========================================
+/* =====================================================
    أيقونات Booking
-======================================== */
+===================================================== */
 
 .booking-note-title,
 .captain-title,
@@ -609,6 +890,184 @@ border-radius:14px;
 
 .videos-title i {
     font-size: 0.85em;
+}
+
+
+/* =====================================================
+   الجوال
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #booking {
+        padding: 30px 20px;
+    }
+
+
+    #booking h2 {
+        font-size: 22px;
+    }
+
+
+    /* --------------------------
+       صندوق الكابتن
+    -------------------------- */
+
+    #captainPanel > .booking-note {
+        margin-bottom: 28px;
+        padding: 22px 20px;
+
+        border-radius: 22px;
+    }
+
+
+    #captainPanel > .booking-note
+    .captain-note-title {
+        font-size: 22px;
+        line-height: 1.5;
+        gap: 9px;
+    }
+
+
+    #captainPanel > .booking-note p {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+
+    /* --------------------------
+       Stepper
+    -------------------------- */
+
+    #captainPanel .captain-stepper {
+        margin-bottom: 34px;
+    }
+
+
+    #captainPanel .captain-stepper .step-item {
+        min-width: 75px;
+    }
+
+
+    #captainPanel .captain-stepper .step-circle {
+        width: 54px;
+        height: 54px;
+
+        font-size: 19px;
+    }
+
+
+    #captainPanel .captain-stepper .step-item span {
+        font-size: 14px;
+    }
+
+
+    #captainPanel .captain-stepper .step-line {
+        max-width: none;
+        height: 3px;
+        margin-top: 26px;
+    }
+
+
+    /* --------------------------
+       عنوان الدفع
+    -------------------------- */
+
+    #captainPanel .step-title {
+        margin-bottom: 18px;
+        font-size: 21px;
+    }
+
+
+    /* --------------------------
+       صندوق الأسعار
+    -------------------------- */
+
+    #captainPanel
+    .captain-form-step[data-captain-step="2"]
+    .booking-note {
+        padding: 18px 20px;
+        margin-bottom: 22px;
+
+        border-radius: 20px !important;
+    }
+
+
+    #captainPanel
+    .captain-form-step[data-captain-step="2"]
+    .booking-note p {
+        padding: 13px 0;
+        font-size: 15px;
+    }
+
+
+    #captainPanel
+    .captain-form-step[data-captain-step="2"]
+    .booking-note p strong {
+        font-size: 18px;
+    }
+
+
+    #captainPanel
+    .captain-form-step[data-captain-step="2"]
+    .booking-note p:nth-child(2) strong {
+        font-size: 21px;
+    }
+
+
+    #captainPanel
+    .captain-form-step[data-captain-step="2"]
+    .booking-note p:last-child {
+        font-size: 14px;
+        padding-top: 16px;
+    }
+
+
+    #captainPanel
+    .captain-form-step[data-captain-step="2"]
+    .booking-note p:last-child strong {
+        font-size: 15px;
+    }
+
+
+    /* --------------------------
+       التنبيه
+    -------------------------- */
+
+    #captainPanel
+    .captain-form-step[data-captain-step="2"]
+    > p {
+        margin-bottom: 20px;
+        padding: 12px 14px;
+
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+
+    /* --------------------------
+       الأزرار
+    -------------------------- */
+
+    #captainPanel .step-buttons {
+        gap: 10px;
+    }
+
+
+    #captainPanel .step-buttons button {
+        min-height: 55px;
+        padding: 12px 10px;
+
+        font-size: 15px;
+        border-radius: 13px;
+    }
+
+
+    #captainNextBtn {
+        width: 100%;
+        font-size: 15px;
+    }
+
 }
 
 /* ==========================
