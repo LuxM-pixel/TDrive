@@ -1,47 +1,57 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-getFirestore,
-collection,
-addDoc,
-getDocs,
-query,
-where,
-doc,
-runTransaction
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    where,
+    doc,
+    runTransaction
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
 
 const firebaseConfig = {
 
-apiKey: "AIzaSyDEjf_HrBdJSn1EVaHeyvMubUkPjVZH5i0",
+    apiKey: "AIzaSyDEjf_HrBdJSn1EVaHeyvMubUkPjVZH5i0",
 
-authDomain: "tdrive-4fed8.firebaseapp.com",
+    authDomain: "tdrive-4fed8.firebaseapp.com",
 
-projectId: "tdrive-4fed8",
+    projectId: "tdrive-4fed8",
 
-storageBucket: "tdrive-4fed8.firebasestorage.app",
+    storageBucket: "tdrive-4fed8.firebasestorage.app",
 
-messagingSenderId: "107257320648",
+    messagingSenderId: "107257320648",
 
-appId: "1:107257320648:web:30d142684f936a374041fd",
+    appId: "1:107257320648:web:30d142684f936a374041fd",
 
-measurementId: "G-QBEPEKERXV"
+    measurementId: "G-QBEPEKERXV"
 
 };
+
 
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
-export async function saveBooking(data){
 
-    try{
 
-        const docRef = await addDoc(collection(db,"bookings"), data);
+// ==================================================
+// احترفي القيادة على الطريق
+// ==================================================
 
+export async function saveBooking(data) {
+
+    try {
+
+        const docRef = await addDoc(
+            collection(db, "bookings"),
+            data
+        );
 
         return docRef.id;
 
-    }catch(error){
+    } catch (error) {
 
         console.error("Firebase Error:", error);
 
@@ -52,108 +62,55 @@ export async function saveBooking(data){
     }
 
 }
-export async function saveEvaluation(data){
 
-    try{
 
-        const docRef = await addDoc(collection(db,"evaluations"), data);
+// ==================================================
+// دورة الكابتن المحترف
+// ==================================================
 
-        return docRef.id;
+export async function saveCaptainBooking(data) {
 
-    }catch(error){
-
-        console.error(error);
-
-        throw error;
-
-    }
-
-}
-export async function saveReview(data){
-
-    try{
-
-        const docRef = await addDoc(collection(db,"reviews"),{
-
-            ...data,
-
-            status:"pending",
-
-            createdAt:new Date()
-
-        });
-
-        return docRef.id;
-
-    }catch(error){
-
-        console.error(error);
-
-        throw error;
-
-    }
-
-}
-export async function getApprovedReviews() {
-
-    const q = query(
-        collection(db, "reviews"),
-        where("status", "==", "approved")
-    );
-
-    const snapshot = await getDocs(q);
-
-    return snapshot.docs.map(doc => doc.data());
-
-}
-export async function getBookedTimes(trainingDate){
-
-    const q = query(
-        collection(db,"bookings"),
-        where("trainingDate","==",trainingDate)
-    );
-
-    const snapshot = await getDocs(q);
-
-    return snapshot.docs.map(doc => doc.data().trainingTime);
-
-}
-export async function getNextInvoiceNumber(){
-
-    const ref = doc(db, "settings", "invoice");
-
-    const invoiceNumber = await runTransaction(db, async (transaction) => {
-
-        const snap = await transaction.get(ref);
-
-        let lastNumber = snap.data().lastNumber || 0;
-
-        lastNumber++;
-
-        transaction.update(ref, {
-            lastNumber: lastNumber
-        });
-
-        return lastNumber;
-
-    });
-
-    return invoiceNumber;
-
-}
-
-export async function saveCustomerInvoice(data){
-
-    try{
+    try {
 
         const docRef = await addDoc(
-            collection(db,"customer-invoices"),
+            collection(db, "captain-bookings"),
             data
         );
 
         return docRef.id;
 
-    }catch(error){
+    } catch (error) {
+
+        console.error(
+            "Captain Booking Firebase Error:",
+            error
+        );
+
+        alert(error.message);
+
+        throw error;
+
+    }
+
+}
+
+
+// ==================================================
+// التقييمات
+// ==================================================
+
+export async function saveEvaluation(data) {
+
+    try {
+
+        const docRef = await addDoc(
+            collection(db, "evaluations"),
+            data
+        );
+
+        return docRef.id;
+
+    } catch (error) {
 
         console.error(error);
 
@@ -163,35 +120,261 @@ export async function saveCustomerInvoice(data){
 
 }
 
-export async function getCustomerInvoice(invoiceId){
+
+// ==================================================
+// حفظ تقييم الموقع
+// ==================================================
+
+export async function saveReview(data) {
+
+    try {
+
+        const docRef = await addDoc(
+            collection(db, "reviews"),
+            {
+
+                ...data,
+
+                status: "pending",
+
+                createdAt: new Date()
+
+            }
+        );
+
+        return docRef.id;
+
+    } catch (error) {
+
+        console.error(error);
+
+        throw error;
+
+    }
+
+}
+
+
+// ==================================================
+// التقييمات المعتمدة
+// ==================================================
+
+export async function getApprovedReviews() {
 
     const q = query(
-        collection(db,"customer-invoices"),
-        where("invoiceId","==",invoiceId)
+
+        collection(db, "reviews"),
+
+        where(
+            "status",
+            "==",
+            "approved"
+        )
+
     );
 
     const snapshot = await getDocs(q);
 
-    if(snapshot.empty){
-        return null;
+    return snapshot.docs.map(
+        doc => doc.data()
+    );
+
+}
+
+
+// ==================================================
+// الأوقات المحجوزة لبرنامج القيادة
+// ==================================================
+
+export async function getBookedTimes(trainingDate) {
+
+    const q = query(
+
+        collection(db, "bookings"),
+
+        where(
+            "trainingDate",
+            "==",
+            trainingDate
+        )
+
+    );
+
+    const snapshot = await getDocs(q);
+
+    return snapshot.docs.map(
+        doc => doc.data().trainingTime
+    );
+
+}
+
+
+// ==================================================
+// رقم الفاتورة التالي
+// ==================================================
+
+export async function getNextInvoiceNumber() {
+
+    const ref = doc(
+        db,
+        "settings",
+        "invoice"
+    );
+
+
+    const invoiceNumber =
+        await runTransaction(
+            db,
+            async (transaction) => {
+
+                const snap =
+                    await transaction.get(ref);
+
+
+                let lastNumber =
+                    snap.exists()
+                        ? (snap.data().lastNumber || 0)
+                        : 0;
+
+
+                lastNumber++;
+
+
+                if (snap.exists()) {
+
+                    transaction.update(
+                        ref,
+                        {
+                            lastNumber: lastNumber
+                        }
+                    );
+
+                } else {
+
+                    transaction.set(
+                        ref,
+                        {
+                            lastNumber: lastNumber
+                        }
+                    );
+
+                }
+
+
+                return lastNumber;
+
+            }
+        );
+
+
+    return invoiceNumber;
+
+}
+
+
+// ==================================================
+// فواتير العملاء
+// ==================================================
+
+export async function saveCustomerInvoice(data) {
+
+    try {
+
+        const docRef = await addDoc(
+            collection(
+                db,
+                "customer-invoices"
+            ),
+            data
+        );
+
+        return docRef.id;
+
+    } catch (error) {
+
+        console.error(error);
+
+        throw error;
+
     }
+
+}
+
+
+// ==================================================
+// جلب فاتورة بواسطة رقم الفاتورة
+// ==================================================
+
+export async function getCustomerInvoice(
+    invoiceId
+) {
+
+    const q = query(
+
+        collection(
+            db,
+            "customer-invoices"
+        ),
+
+        where(
+            "invoiceId",
+            "==",
+            invoiceId
+        )
+
+    );
+
+
+    const snapshot =
+        await getDocs(q);
+
+
+    if (snapshot.empty) {
+
+        return null;
+
+    }
+
 
     return snapshot.docs[0].data();
 
 }
 
-export async function getCustomerInvoiceByBookingId(bookingId){
+
+// ==================================================
+// جلب فاتورة بواسطة رقم الحجز
+// ==================================================
+
+export async function getCustomerInvoiceByBookingId(
+    bookingId
+) {
 
     const q = query(
-        collection(db,"customer-invoices"),
-        where("bookingId","==",bookingId)
+
+        collection(
+            db,
+            "customer-invoices"
+        ),
+
+        where(
+            "bookingId",
+            "==",
+            bookingId
+        )
+
     );
 
-    const snapshot = await getDocs(q);
 
-    if(snapshot.empty){
+    const snapshot =
+        await getDocs(q);
+
+
+    if (snapshot.empty) {
+
         return null;
+
     }
+
 
     return snapshot.docs[0].data();
 
