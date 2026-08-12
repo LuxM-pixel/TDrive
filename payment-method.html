@@ -101,37 +101,48 @@ h2{
 ========================= */
 
 .payment-methods{
+
     display:grid;
+
     grid-template-columns:repeat(3, 1fr);
+
     gap:10px;
+
     width:100%;
+
     margin-top:10px;
 }
 
 
 /* =========================
-   بطاقة الدفع
+   بطاقات الدفع
 ========================= */
 
 .payment-methods .card{
 
     background:#fff;
 
-    padding:14px 8px;
-
     border:2px solid #d9f0f4;
 
-    border-radius:17px;
+    border-radius:18px;
 
-    box-shadow:0 4px 15px rgba(0,0,0,.04);
+    padding:16px 8px;
+
+    min-width:0;
+
+    min-height:190px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:space-between;
 
     text-align:center;
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-    min-width:0;
+    box-shadow:0 4px 15px rgba(0,0,0,.04);
 
     transition:
         transform .15s ease,
@@ -144,7 +155,6 @@ h2{
     transform:translateY(-2px);
 
     box-shadow:0 7px 20px rgba(0,0,0,.08);
-
 }
 
 
@@ -154,19 +164,20 @@ h2{
 
 .payment-methods .payment-icon{
 
-    width:75px !important;
-    height:75px !important;
+    width:82px !important;
+
+    height:82px !important;
 
     object-fit:contain;
 
     display:block;
 
-    margin:auto;
+    margin:0 auto 8px auto;
 }
 
 
 /* =========================
-   عنوان البطاقة
+   رأس البطاقة
 ========================= */
 
 .payment-methods .card-header{
@@ -176,44 +187,32 @@ h2{
     flex-direction:column;
 
     align-items:center;
+
     justify-content:center;
 
-    gap:5px;
-
-    margin-bottom:8px;
+    gap:4px;
 
     width:100%;
+
+    margin:0;
 }
 
+
+/* =========================
+   اسم طريقة الدفع
+========================= */
 
 .payment-methods .card h3{
 
     font-size:15px;
+
+    font-weight:700;
 
     color:#222;
 
     line-height:1.4;
 
     white-space:nowrap;
-}
-
-
-/* =========================
-   وصف البطاقة
-========================= */
-
-.payment-methods .card p{
-
-    color:#666;
-
-    font-size:10px;
-
-    line-height:1.6;
-
-    margin:0 0 12px 0;
-
-    min-height:50px;
-
 }
 
 
@@ -241,8 +240,23 @@ h2{
 
     width:100%;
 
-    max-width:none;
+    max-width:150px;
 
+    margin-top:10px;
+
+    transition:
+        opacity .15s ease,
+        transform .1s ease;
+}
+
+.payment-methods .card button:hover{
+
+    opacity:.9;
+}
+
+.payment-methods .card button:active{
+
+    transform:scale(.97);
 }
 
 
@@ -257,6 +271,32 @@ h2{
     color:#6DB7C5 !important;
 
     cursor:not-allowed !important;
+
+    opacity:1 !important;
+}
+
+
+/* =========================
+   ملاحظة الدفع
+========================= */
+
+.note{
+
+    margin-top:25px;
+
+    padding:18px 20px;
+
+    background:#FFF8E6;
+
+    border-radius:15px;
+
+    line-height:1.9;
+
+    font-size:15px;
+
+    border-right:5px solid #E8C15A;
+
+    text-align:right;
 }
 
 
@@ -265,6 +305,10 @@ h2{
 ========================= */
 
 @media (max-width:600px){
+
+    body{
+        padding:15px;
+    }
 
     .payment-methods{
 
@@ -276,9 +320,11 @@ h2{
 
     .payment-methods .card{
 
-        padding:10px 4px;
+        padding:13px 5px;
 
-        border-radius:14px;
+        min-height:170px;
+
+        border-radius:15px;
 
         border-width:1.5px;
 
@@ -286,16 +332,11 @@ h2{
 
     .payment-methods .payment-icon{
 
-        width:62px !important;
-        height:62px !important;
+        width:68px !important;
 
-    }
+        height:68px !important;
 
-    .payment-methods .card-header{
-
-        gap:3px;
-
-        margin-bottom:5px;
+        margin-bottom:6px;
 
     }
 
@@ -305,25 +346,23 @@ h2{
 
     }
 
-    .payment-methods .card p{
-
-        font-size:8px;
-
-        line-height:1.5;
-
-        min-height:48px;
-
-        margin-bottom:7px;
-
-    }
-
     .payment-methods .card button{
-
-        padding:7px 2px;
 
         font-size:9px;
 
+        padding:7px 2px;
+
         border-radius:7px;
+
+        margin-top:8px;
+
+    }
+
+    .note{
+
+        font-size:13px;
+
+        padding:15px;
 
     }
 
@@ -344,28 +383,23 @@ h2{
 
     .payment-methods .card{
 
-        padding:8px 3px;
+        padding:11px 3px;
+
+        min-height:155px;
 
     }
 
     .payment-methods .payment-icon{
 
-        width:55px !important;
-        height:55px !important;
+        width:62px !important;
+
+        height:62px !important;
 
     }
 
     .payment-methods .card h3{
 
         font-size:10px;
-
-    }
-
-    .payment-methods .card p{
-
-        font-size:7.5px;
-
-        min-height:45px;
 
     }
 
@@ -378,21 +412,7 @@ h2{
     }
 
 }
-/* =========================
-   ملاحظة الدفع
-========================= */
 
-.note{
-    margin-top:20px;
-    padding:14px 16px;
-    background:#FFF8E6;
-    border-radius:15px;
-    border-right:5px solid #E8C15A;
-    color:#444;
-    font-size:13px;
-    line-height:1.8;
-    text-align:center;
-}
 </style>
 
 </head>
@@ -483,56 +503,11 @@ h2{
         </div>
 
 
-        <p>
-            التحويل إلى حساب بنك البلاد
-            ثم إرسال الإيصال عبر واتساب.
-        </p>
-
-
         <button id="bankBtn">
             متابعة
         </button>
 
     </div>
-
-
-
-    <!-- =====================
-         Apple Pay
-    ====================== -->
-
-    <div class="card apple-pay-card">
-
-        <div class="card-header">
-
-            <img
-                class="payment-icon"
-                src="B9985242-C117-4959-8279-7B443D4540EE.png"
-                alt="Apple Pay">
-
-            <h3>
-                Apple Pay
-            </h3>
-
-        </div>
-
-
-        <p>
-            سيتم توفير الدفع باستخدام
-            Apple Pay قريبًا.
-        </p>
-
-
-        <button
-            class="coming-soon-btn"
-            disabled>
-
-            متوفر قريبًا
-
-        </button>
-
-    </div>
-
 
 
     <!-- =====================
@@ -555,14 +530,39 @@ h2{
         </div>
 
 
-        <p>
-            ادفعي الآن أو قسطي
-            رسوم الدورة مع تمارا.
-        </p>
-
-
         <button id="tamaraBtn">
             تمارا
+        </button>
+
+    </div>
+
+
+    <!-- =====================
+         Apple Pay
+    ====================== -->
+
+    <div class="card apple-pay-card">
+
+        <div class="card-header">
+
+            <img
+                class="payment-icon"
+                src="B9985242-C117-4959-8279-7B443D4540EE.png"
+                alt="Apple Pay">
+
+            <h3>
+                Apple Pay
+            </h3>
+
+        </div>
+
+
+        <button
+            class="coming-soon-btn"
+            disabled>
+
+            متوفر قريبًا
+
         </button>
 
     </div>
@@ -577,8 +577,7 @@ h2{
 
 <div class="note">
 
-     بعد التحويل البنكي، يرجى إرسال إيصال التحويل عبر الواتساب
-    لتأكيد الحجز.
+    💛 بعد الدفع بالتحويل البنكي يرجى إرسال إيصال التحويل عبر واتساب لتأكيد الحجز.
 
 </div>
 
@@ -665,8 +664,6 @@ async function createInvoice(paymentMethod){
         );
 
 
-    /* إذا كانت الفاتورة موجودة */
-
     if(existingInvoice){
 
         sessionStorage.setItem(
@@ -684,8 +681,6 @@ async function createInvoice(paymentMethod){
     }
 
 
-    /* الحصول على الرقم التالي */
-
     const invoiceNumber =
         await getNextInvoiceNumber();
 
@@ -701,8 +696,6 @@ async function createInvoice(paymentMethod){
         String(invoiceNumber)
             .padStart(4,"0");
 
-
-    /* حفظ الفاتورة */
 
     await saveCustomerInvoice({
 
@@ -737,8 +730,6 @@ async function createInvoice(paymentMethod){
 
     });
 
-
-    /* حفظ البيانات */
 
     sessionStorage.setItem(
         "invoiceId",
@@ -832,7 +823,7 @@ document
 
                                     trainingDate,
 
-                                    trainingTime,
+                                    trainingTime
 
                                 })
 
@@ -874,7 +865,6 @@ document
 
         }
     );
-
 
 </script>
 
