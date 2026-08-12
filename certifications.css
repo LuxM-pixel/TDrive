@@ -568,3 +568,23 @@ body{
 }
 
 }
+
+.identity-number{
+
+    margin-top:12px;
+
+    font-size:20px;
+
+    color:#666;
+
+}
+
+.identity-number strong{
+
+    color:var(--primary-dark);
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
