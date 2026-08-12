@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // تحديث اسم المتدربة
     studentInput.addEventListener("input", () => {
         studentName.textContent =
-            studentInput.value || "فلانة الفلاني";
+            studentInput.value || "المتدربة";
     });
 
     // تحديث رقم الهوية
@@ -41,10 +41,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // تحديث التاريخ
-    dateInput.addEventListener("input", () => {
-        dateText.textContent =
-            dateInput.value || "26 مايو 2026";
-    });
+    dateInput.addEventListener("change", () => {
+
+    if (!dateInput.value) {
+        dateText.textContent = "—";
+        return;
+    }
+
+    const [year, month, day] = dateInput.value.split("-");
+
+    const months = [
+        "يناير",
+        "فبراير",
+        "مارس",
+        "أبريل",
+        "مايو",
+        "يونيو",
+        "يوليو",
+        "أغسطس",
+        "سبتمبر",
+        "أكتوبر",
+        "نوفمبر",
+        "ديسمبر"
+    ];
+
+    dateText.textContent =
+        `${day} ${months[Number(month) - 1]} ${year}`;
+});
 
     // تحديث اسم المديرة
     managerInput.addEventListener("input", () => {
