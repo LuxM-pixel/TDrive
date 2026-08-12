@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>إصدار شهادة | الكابتن المحترف | TDrive</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- نفس تنسيق شهادة احتراف القيادة على الطريق -->
+<link rel="stylesheet" href="certifications.css">
+
+</head>
+
+<body>
+
+<!-- لوحة التحكم -->
+
+<aside class="editor-sidebar">
+
+<h2>بيانات الشهادة</h2>
+
+<div class="input-group">
+<label>اسم المتدربة / المتدرب</label>
+<input id="studentInput" type="text" value="أسم">
+</div>
+
+<div class="input-group">
+<label>رقم الهوية الوطنية</label>
+<input
+    id="identityInput"
+    type="text"
+    inputmode="numeric"
+    maxlength="10"
+    placeholder="أدخل رقم الهوية">
+</div>
+
+<div class="input-group">
+<label>اسم البرنامج</label>
+<input
+    id="programInput"
+    type="text"
+    value="دورة الكابتن المحترف">
+</div>
+
+<div class="input-group">
+<label>عدد الساعات</label>
+<input id="hoursInput" type="number" value="1.5">
+</div>
+
+<div class="input-group">
+<label>التاريخ</label>
+<input id="dateInput" type="text" value="12 أغسطس 2026">
+</div>
+
+<div class="input-group">
+<label>مديرة TDrive</label>
+<input id="managerInput" type="text" value="منى حمود">
+</div>
+
+<button id="printBtn" class="btn-download">
+طباعة الشهادة
+</button>
+
+</aside>
+
+
+<!-- الشهادة -->
+
+<div class="preview-container">
+
+<div class="certificate">
+
+<div class="border"></div>
+
+<div class="ribbon">
+
+<div class="logo-circle">
+
+<img
+    src="Untitled design.png"
+    alt="TDrive Logo">
+
+</div>
+
+</div>
+
+
+<div class="content">
+
+<h1>شهادة إتمام دورة</h1>
+
+<div class="divider"></div>
+
+<p class="subtitle">
+
+تشهد <strong>TDrive</strong> بأن المتدربة
+
+</p>
+
+
+<h2 id="studentName">
+أسم
+</h2>
+
+
+<p class="identity-number">
+
+رقم الهوية الوطنية:
+<strong id="identityText">—</strong>
+
+</p>
+
+
+<p class="details">
+
+قد أكملت
+
+<strong id="hoursText">1.5</strong>
+
+ساعات تدريب في
+
+</p>
+
+
+<h3 id="programText">
+
+دورة الكابتن المحترف
+
+</h3>
+
+
+<div class="footer">
+
+<!-- التوقيع -->
+
+<div>
+
+<div class="signature-box">
+
+<img
+    src="6EB33BF1-0328-436E-B507-D3655215F0AA.png"
+    class="signature"
+    alt="توقيع المديرة">
+
+</div>
+
+<div class="line"></div>
+
+<p>التوقيع</p>
+
+</div>
+
+
+<!-- التاريخ -->
+
+<div>
+
+<div class="seal">
+★
+</div>
+
+<p id="dateText">
+12 أغسطس 2026
+</p>
+
+</div>
+
+
+<!-- المديرة -->
+
+<div>
+
+<p class="manager-title">
+مديرة TDrive
+</p>
+
+<h4 id="managerText">
+منى حمود
+</h4>
+
+</div>
+
+</div>
+
+
+<div class="bottom">
+
+<span></span>
+
+تعلم • قد بأمان • وامتلك سيارتك بثقة
+
+<span></span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- نفس JavaScript المستخدم في الشهادة الأصلية -->
+
+<script src="certifications.js"></script>
+
+</body>
+
+</html>
