@@ -456,37 +456,29 @@ h2{
     color:#333;
 }
 
-   .payment-methods .card{
-    height:220px;
-}
-
-.payment-methods .card-header{
-    height:145px;
-    margin-bottom:0;
-    justify-content:flex-start;
-}
-
-.payment-methods .card button{
-    margin-top:auto;
-}
-
 /* === تعديل المسافة بين الأيقونة والاسم + شكل الكروت === */
 .payment-methods .card{
-    height:175px !important;
+    height:185px !important;
     padding:14px 8px 12px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
 }
 
 .payment-methods .card-header{
     position:static !important;
-    height:auto !important;
+    height:100px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
     justify-content:flex-start !important;
-    margin:0 0 6px !important;
+    margin:0 !important;
     gap:2px !important;
 }
 
 .payment-methods .card h3{
     position:static !important;
-    margin:2px 0 0 !important;
+    margin:4px 0 0 !important;
 }
 
 .payment-methods .payment-icon,
@@ -494,12 +486,20 @@ h2{
     margin:0 auto !important;
 }
 
+.payment-methods .card button,
+.payment-methods .coming-soon-btn{
+    margin-top:auto !important;
+    width:100% !important;
+}
+
 @media (max-width:600px){
-    .payment-methods .card{ height:150px !important; }
+    .payment-methods .card{ height:165px !important; }
+    .payment-methods .card-header{ height:88px !important; }
 }
 
 @media (max-width:380px){
-    .payment-methods .card{ height:140px !important; }
+    .payment-methods .card{ height:155px !important; }
+    .payment-methods .card-header{ height:80px !important; }
 }
 
    
