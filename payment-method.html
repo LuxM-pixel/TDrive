@@ -101,17 +101,11 @@ h2{
 ========================= */
 
 .payment-methods{
-
     display:grid;
-
-    /*
-       بطاقتين جنب بعض
-    */
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-
-    gap:15px;
-
-    margin-bottom:20px;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+    width:100%;
+    margin-top:10px;
 }
 
 
@@ -119,15 +113,15 @@ h2{
    بطاقة الدفع
 ========================= */
 
-.card{
+.payment-methods .card{
 
     background:#fff;
 
-    padding:18px 14px;
+    padding:14px 8px;
 
     border:2px solid #d9f0f4;
 
-    border-radius:18px;
+    border-radius:17px;
 
     box-shadow:0 4px 15px rgba(0,0,0,.04);
 
@@ -137,75 +131,88 @@ h2{
     flex-direction:column;
     align-items:center;
 
+    min-width:0;
+
     transition:
         transform .15s ease,
         box-shadow .15s ease;
 }
 
-.card:hover{
+
+.payment-methods .card:hover{
 
     transform:translateY(-2px);
 
-    box-shadow:
-        0 8px 22px rgba(0,0,0,.08);
+    box-shadow:0 7px 20px rgba(0,0,0,.08);
+
 }
 
 
 /* =========================
-   رأس البطاقة
+   الأيقونات
 ========================= */
 
-.card-header{
+.payment-methods .payment-icon{
+
+    width:75px !important;
+    height:75px !important;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:auto;
+}
+
+
+/* =========================
+   عنوان البطاقة
+========================= */
+
+.payment-methods .card-header{
 
     display:flex;
 
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
-    gap:7px;
+    gap:5px;
 
-    margin-bottom:10px;
+    margin-bottom:8px;
 
+    width:100%;
 }
 
-.card img.payment-icon{
 
-    width:48px;
-    height:48px;
+.payment-methods .card h3{
 
-    object-fit:contain;
-
-    flex-shrink:0;
-}
-
-.card h3{
-
-    font-size:17px;
+    font-size:15px;
 
     color:#222;
 
     line-height:1.4;
+
+    white-space:nowrap;
 }
 
 
 /* =========================
-   وصف الدفع
+   وصف البطاقة
 ========================= */
 
-.card p{
+.payment-methods .card p{
 
     color:#666;
 
-    margin-bottom:14px;
+    font-size:10px;
 
-    line-height:1.7;
+    line-height:1.6;
 
-    font-size:12px;
+    margin:0 0 12px 0;
 
-    min-height:61px;
+    min-height:50px;
 
 }
 
@@ -214,19 +221,19 @@ h2{
    الأزرار
 ========================= */
 
-.card button{
+.payment-methods .card button{
 
     background:#6DB7C5;
 
-    color:white;
+    color:#fff;
 
     border:none;
 
-    padding:10px 15px;
+    padding:9px 5px;
 
-    border-radius:10px;
+    border-radius:9px;
 
-    font-size:13px;
+    font-size:11px;
 
     font-weight:600;
 
@@ -234,57 +241,22 @@ h2{
 
     width:100%;
 
-    transition:
-        opacity .15s ease,
-        transform .1s ease;
-}
+    max-width:none;
 
-.card button:hover{
-    opacity:.9;
-}
-
-.card button:active{
-    transform:scale(.97);
 }
 
 
 /* =========================
-   Apple Pay
+   Apple Pay - قريباً
 ========================= */
 
-.coming-soon-btn{
+.payment-methods .coming-soon-btn{
 
     background:#e8eef0 !important;
 
     color:#6DB7C5 !important;
 
     cursor:not-allowed !important;
-
-    opacity:1 !important;
-}
-
-
-/* =========================
-   الملاحظة
-========================= */
-
-.note{
-
-    margin-top:20px;
-
-    padding:14px 16px;
-
-    background:#FFF8E6;
-
-    border-radius:15px;
-
-    line-height:1.8;
-
-    font-size:13px;
-
-    border-right:5px solid #E8C15A;
-
-    text-align:right;
 }
 
 
@@ -294,172 +266,133 @@ h2{
 
 @media (max-width:600px){
 
-    body{
-        padding:14px;
-    }
-
-    .container{
-        width:100%;
-    }
-
-    h2{
-        font-size:21px;
-    }
-
-    .subtitle{
-        font-size:12px;
-        margin-bottom:20px;
-    }
-
-
-    /* بيانات الحجز */
-
-    .booking-info{
-
-        padding:14px;
-
-        border-radius:15px;
-
-        margin-bottom:20px;
-    }
-
-    .booking-info p{
-
-        font-size:11px;
-
-        padding:7px 0;
-
-        gap:8px;
-    }
-
-
-    /* بطاقات الدفع */
-
     .payment-methods{
 
-        /*
-           مهم:
-           لا نغيرها إلى عمود واحد
-           تبقى بطاقتين جنب بعض
-        */
+        grid-template-columns:repeat(3, 1fr);
 
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
+        gap:7px;
 
-        gap:9px;
     }
 
+    .payment-methods .card{
 
-    .card{
+        padding:10px 4px;
 
-        padding:13px 8px;
-
-        border-radius:15px;
+        border-radius:14px;
 
         border-width:1.5px;
+
     }
 
+    .payment-methods .payment-icon{
 
-    .card-header{
+        width:62px !important;
+        height:62px !important;
 
-        gap:5px;
+    }
+
+    .payment-methods .card-header{
+
+        gap:3px;
+
+        margin-bottom:5px;
+
+    }
+
+    .payment-methods .card h3{
+
+        font-size:11px;
+
+    }
+
+    .payment-methods .card p{
+
+        font-size:8px;
+
+        line-height:1.5;
+
+        min-height:48px;
 
         margin-bottom:7px;
+
     }
 
+    .payment-methods .card button{
 
-    .card img.payment-icon{
+        padding:7px 2px;
 
-        width:38px;
-        height:38px;
-    }
+        font-size:9px;
 
+        border-radius:7px;
 
-    .card h3{
-
-        font-size:13px;
-
-        line-height:1.4;
-    }
-
-
-    .card p{
-
-        font-size:10px;
-
-        line-height:1.6;
-
-        margin-bottom:10px;
-
-        min-height:64px;
-    }
-
-
-    .card button{
-
-        padding:8px 5px;
-
-        font-size:11px;
-
-        border-radius:8px;
-
-        width:100%;
-    }
-
-
-    .note{
-
-        font-size:11px;
-
-        padding:12px;
-
-        margin-top:15px;
-
-        border-radius:12px;
     }
 
 }
 
 
 /* =========================
-   الشاشات الصغيرة جدًا
+   الجوال الصغير
 ========================= */
 
 @media (max-width:380px){
 
-    body{
-        padding:10px;
-    }
-
     .payment-methods{
-        gap:7px;
+
+        gap:5px;
+
     }
 
-    .card{
-        padding:11px 6px;
+    .payment-methods .card{
+
+        padding:8px 3px;
+
     }
 
-    .card img.payment-icon{
-        width:34px;
-        height:34px;
+    .payment-methods .payment-icon{
+
+        width:55px !important;
+        height:55px !important;
+
     }
 
-    .card h3{
-        font-size:12px;
-    }
+    .payment-methods .card h3{
 
-    .card p{
-        font-size:9px;
-        min-height:60px;
-    }
-
-    .card button{
         font-size:10px;
-        padding:7px 4px;
+
+    }
+
+    .payment-methods .card p{
+
+        font-size:7.5px;
+
+        min-height:45px;
+
+    }
+
+    .payment-methods .card button{
+
+        font-size:8px;
+
+        padding:6px 2px;
+
     }
 
 }
+/* =========================
+   ملاحظة الدفع
+========================= */
 
+.note{
+    margin-top:20px;
+    padding:14px 16px;
+    background:#FFF8E6;
+    border-radius:15px;
+    border-right:5px solid #E8C15A;
+    color:#444;
+    font-size:13px;
+    line-height:1.8;
+    text-align:center;
+}
 </style>
 
 </head>
@@ -644,8 +577,8 @@ h2{
 
 <div class="note">
 
-    💛 بعد الدفع بالتحويل البنكي أو Apple Pay
-    يرجى إرسال الإيصال عبر واتساب لتأكيد الحجز.
+    💛 بعد التحويل البنكي، يرجى إرسال إيصال التحويل عبر واتساب
+    لتأكيد الحجز.
 
 </div>
 
