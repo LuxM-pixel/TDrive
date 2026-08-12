@@ -181,11 +181,11 @@ h2{
 
     background:#fff;
 
-    padding:18px 8px 14px;
+    padding:16px 8px 12px;
 
     border:2px solid #d9f0f4;
 
-    border-radius:17px;
+    border-radius:16px;
 
     box-shadow:0 4px 15px rgba(0,0,0,.04);
 
@@ -196,6 +196,8 @@ h2{
     align-items:center;
 
     min-width:0;
+
+    height:205px;
 
     transition:
         transform .15s ease,
@@ -209,19 +211,32 @@ h2{
 
 
 /* =========================
-   الأيقونة
+   الأيقونات
 ========================= */
 
 .payment-methods .payment-icon{
 
-    width:88px !important;
-    height:88px !important;
+    width:70px !important;
+    height:70px !important;
 
     object-fit:contain;
 
     display:block;
 
-    margin:0 auto 2px;
+    margin:0 auto 4px;
+}
+
+
+/* مهم:
+   تمارا نفس حجم باقي الأيقونات
+*/
+
+.payment-methods .tamara-icon{
+
+    width:70px !important;
+    height:70px !important;
+
+    object-fit:contain;
 }
 
 
@@ -237,18 +252,20 @@ h2{
 
     align-items:center;
 
-    justify-content:center;
-
-    gap:0;
-
-    margin:0 0 14px 0;
+    justify-content:flex-start;
 
     width:100%;
+
+    margin:0;
+
+    padding:0;
+
+    gap:0;
 }
 
 .payment-methods .card h3{
 
-    font-size:17px;
+    font-size:16px;
 
     font-weight:700;
 
@@ -259,6 +276,8 @@ h2{
     white-space:nowrap;
 
     margin:0;
+
+    text-align:center;
 }
 
 
@@ -296,6 +315,8 @@ h2{
     width:100%;
 
     max-width:none;
+
+    margin-top:auto;
 }
 
 
@@ -327,7 +348,9 @@ h2{
 
     .payment-methods .card{
 
-        padding:14px 4px 12px;
+        height:190px;
+
+        padding:13px 4px 10px;
 
         border-radius:14px;
 
@@ -337,17 +360,17 @@ h2{
 
     .payment-methods .payment-icon{
 
-        width:78px !important;
-        height:78px !important;
+        width:62px !important;
+        height:62px !important;
 
-        margin-bottom:0;
+        margin-bottom:3px;
+
     }
 
-    .payment-methods .card-header{
+    .payment-methods .tamara-icon{
 
-        gap:0;
-
-        margin-bottom:12px;
+        width:62px !important;
+        height:62px !important;
 
     }
 
@@ -373,7 +396,7 @@ h2{
 
 
 /* =========================
-   الجوال الصغير جدًا
+   الجوال الصغير
 ========================= */
 
 @media (max-width:380px){
@@ -386,14 +409,17 @@ h2{
 
     .payment-methods .card{
 
-        padding:12px 3px 10px;
+        height:180px;
+
+        padding:11px 3px 9px;
 
     }
 
-    .payment-methods .payment-icon{
+    .payment-methods .payment-icon,
+    .payment-methods .tamara-icon{
 
-        width:70px !important;
-        height:70px !important;
+        width:57px !important;
+        height:57px !important;
 
     }
 
