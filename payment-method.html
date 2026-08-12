@@ -118,66 +118,64 @@ h2{
    بطاقات الدفع
 ========================= */
 
+.payment-methods{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:10px;
+    width:100%;
+    margin-top:10px;
+}
+
 .payment-methods .card{
 
     background:#fff;
 
+    padding:18px 8px 14px;
+
     border:2px solid #d9f0f4;
 
-    border-radius:18px;
+    border-radius:17px;
 
-    padding:16px 8px;
-
-    min-width:0;
-
-    min-height:190px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:space-between;
+    box-shadow:0 4px 15px rgba(0,0,0,.04);
 
     text-align:center;
 
-    box-shadow:0 4px 15px rgba(0,0,0,.04);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    min-width:0;
 
     transition:
         transform .15s ease,
         box-shadow .15s ease;
 }
 
-
 .payment-methods .card:hover{
-
     transform:translateY(-2px);
-
     box-shadow:0 7px 20px rgba(0,0,0,.08);
 }
 
 
 /* =========================
-   الأيقونات
+   الأيقونة
 ========================= */
 
 .payment-methods .payment-icon{
 
-    width:82px !important;
-
-    height:82px !important;
+    width:88px !important;
+    height:88px !important;
 
     object-fit:contain;
 
     display:block;
 
-    margin:0 auto 8px auto;
+    margin:0 auto 2px;
 }
 
 
 /* =========================
-   رأس البطاقة
+   اسم طريقة الدفع
 ========================= */
 
 .payment-methods .card-header{
@@ -190,29 +188,35 @@ h2{
 
     justify-content:center;
 
-    gap:4px;
+    gap:0;
+
+    margin:0 0 14px 0;
 
     width:100%;
+}
+
+.payment-methods .card h3{
+
+    font-size:17px;
+
+    font-weight:700;
+
+    color:#222;
+
+    line-height:1.3;
+
+    white-space:nowrap;
 
     margin:0;
 }
 
 
 /* =========================
-   اسم طريقة الدفع
+   إخفاء الوصف
 ========================= */
 
-.payment-methods .card h3{
-
-    font-size:15px;
-
-    font-weight:700;
-
-    color:#222;
-
-    line-height:1.4;
-
-    white-space:nowrap;
+.payment-methods .card p{
+    display:none;
 }
 
 
@@ -240,29 +244,11 @@ h2{
 
     width:100%;
 
-    max-width:150px;
-
-    margin-top:10px;
-
-    transition:
-        opacity .15s ease,
-        transform .1s ease;
-}
-
-.payment-methods .card button:hover{
-
-    opacity:.9;
-}
-
-.payment-methods .card button:active{
-
-    transform:scale(.97);
+    max-width:none;
 }
 
 
-/* =========================
-   Apple Pay - قريباً
-========================= */
+/* Apple Pay */
 
 .payment-methods .coming-soon-btn{
 
@@ -271,32 +257,6 @@ h2{
     color:#6DB7C5 !important;
 
     cursor:not-allowed !important;
-
-    opacity:1 !important;
-}
-
-
-/* =========================
-   ملاحظة الدفع
-========================= */
-
-.note{
-
-    margin-top:25px;
-
-    padding:18px 20px;
-
-    background:#FFF8E6;
-
-    border-radius:15px;
-
-    line-height:1.9;
-
-    font-size:15px;
-
-    border-right:5px solid #E8C15A;
-
-    text-align:right;
 }
 
 
@@ -305,10 +265,6 @@ h2{
 ========================= */
 
 @media (max-width:600px){
-
-    body{
-        padding:15px;
-    }
 
     .payment-methods{
 
@@ -320,11 +276,9 @@ h2{
 
     .payment-methods .card{
 
-        padding:13px 5px;
+        padding:14px 4px 12px;
 
-        min-height:170px;
-
-        border-radius:15px;
+        border-radius:14px;
 
         border-width:1.5px;
 
@@ -332,37 +286,35 @@ h2{
 
     .payment-methods .payment-icon{
 
-        width:68px !important;
+        width:78px !important;
+        height:78px !important;
 
-        height:68px !important;
+        margin-bottom:0;
+    }
 
-        margin-bottom:6px;
+    .payment-methods .card-header{
+
+        gap:0;
+
+        margin-bottom:12px;
 
     }
 
     .payment-methods .card h3{
 
-        font-size:11px;
+        font-size:14px;
+
+        line-height:1.3;
 
     }
 
     .payment-methods .card button{
 
-        font-size:9px;
+        padding:8px 2px;
 
-        padding:7px 2px;
+        font-size:10px;
 
         border-radius:7px;
-
-        margin-top:8px;
-
-    }
-
-    .note{
-
-        font-size:13px;
-
-        padding:15px;
 
     }
 
@@ -370,7 +322,7 @@ h2{
 
 
 /* =========================
-   الجوال الصغير
+   الجوال الصغير جدًا
 ========================= */
 
 @media (max-width:380px){
@@ -383,31 +335,28 @@ h2{
 
     .payment-methods .card{
 
-        padding:11px 3px;
-
-        min-height:155px;
+        padding:12px 3px 10px;
 
     }
 
     .payment-methods .payment-icon{
 
-        width:62px !important;
-
-        height:62px !important;
+        width:70px !important;
+        height:70px !important;
 
     }
 
     .payment-methods .card h3{
 
-        font-size:10px;
+        font-size:13px;
 
     }
 
     .payment-methods .card button{
 
-        font-size:8px;
+        font-size:9px;
 
-        padding:6px 2px;
+        padding:7px 2px;
 
     }
 
@@ -530,10 +479,9 @@ h2{
         </div>
 
 
-        <button id="tamaraBtn">
-            تمارا
-        </button>
-
+     <button id="tamaraBtn">
+    متابعة
+</button>
     </div>
 
 
