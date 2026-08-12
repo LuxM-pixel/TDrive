@@ -469,6 +469,39 @@ h2{
 .payment-methods .card button{
     margin-top:auto;
 }
+
+/* === تعديل المسافة بين الأيقونة والاسم + شكل الكروت === */
+.payment-methods .card{
+    height:175px !important;
+    padding:14px 8px 12px !important;
+}
+
+.payment-methods .card-header{
+    position:static !important;
+    height:auto !important;
+    justify-content:flex-start !important;
+    margin:0 0 6px !important;
+    gap:2px !important;
+}
+
+.payment-methods .card h3{
+    position:static !important;
+    margin:2px 0 0 !important;
+}
+
+.payment-methods .payment-icon,
+.payment-methods .tamara-icon{
+    margin:0 auto !important;
+}
+
+@media (max-width:600px){
+    .payment-methods .card{ height:150px !important; }
+}
+
+@media (max-width:380px){
+    .payment-methods .card{ height:140px !important; }
+}
+
    
 </style>
 
