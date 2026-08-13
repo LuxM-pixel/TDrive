@@ -127,10 +127,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <i class="fa-solid fa-user"></i>
 </div>
 
-<label>عنوان المتدربة</label>
+<label>مدينة التدريب</label>
 <div class="input-icon">
-<input type="text" id="address" placeholder="اكتبي عنوانك (الحي - المدينة)" required>
-<i class="fa-solid fa-location-dot"></i>
+    <select id="address" required>
+        <option value="">اختاري المدينة</option>
+        <option value="جدة">جدة</option>
+    </select>
+    <i class="fa-solid fa-location-dot"></i>
 </div>
 
 <label>رقم الجوال</label>
