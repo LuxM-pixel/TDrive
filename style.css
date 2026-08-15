@@ -1070,6 +1070,46 @@ border-radius:14px;
 
 }
 
+/* =========================
+   إعلان دورة الكابتن المحترف
+========================= */
+
+.captain-promo{
+    background:#fff;
+    border:1px solid #d9f0f4;
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:25px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.04);
+}
+
+.captain-promo h2{
+    font-size:23px;
+    margin-bottom:5px;
+    color:#222;
+}
+
+.captain-promo p{
+    color:#777;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.captain-promo-video{
+    width:100%;
+    aspect-ratio:16 / 9;
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.captain-promo-video iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+}
+
 /* ==========================
    Coming Soon
 ========================== */
