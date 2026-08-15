@@ -1110,6 +1110,93 @@ border-radius:14px;
     display:block;
 }
 
+
+/* =========================
+   فيديو المقتطفات
+========================= */
+
+.videos-section{
+    max-width:850px;
+    margin:35px auto 0;
+    padding:30px 20px;
+    background:#f7fbfc;
+    border-radius:20px;
+    text-align:center;
+}
+
+.videos-title{
+    margin:0 0 8px;
+    font-size:25px;
+    font-weight:800;
+    color:#333;
+}
+
+.videos-title i{
+    color:#6DB7C5;
+    margin-left:6px;
+}
+
+.videos-text{
+    margin:0 0 22px;
+    color:#777;
+    font-size:15px;
+}
+
+.video-card{
+    max-width:650px;
+    margin:auto;
+    background:#fff;
+    padding:15px;
+    border-radius:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+
+.video-card h3{
+    font-size:18px;
+    color:#444;
+    margin:5px 0 15px;
+}
+
+.video-card iframe{
+    display:block;
+    width:100%;
+    aspect-ratio:16 / 9;
+    height:auto;
+    border:0;
+    border-radius:14px;
+}
+
+/* الجوال */
+
+@media(max-width:700px){
+
+    .videos-section{
+        margin-top:25px;
+        padding:22px 12px;
+        border-radius:18px;
+    }
+
+    .videos-title{
+        font-size:21px;
+    }
+
+    .videos-text{
+        font-size:14px;
+        margin-bottom:17px;
+    }
+
+    .video-card{
+        padding:10px;
+        border-radius:15px;
+    }
+
+    .video-card h3{
+        font-size:16px;
+        line-height:1.6;
+    }
+
+}
+
 /* ==========================
    Coming Soon
 ========================== */
