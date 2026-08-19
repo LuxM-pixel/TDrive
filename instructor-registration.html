@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تسجيل مدربة | TDrive</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --teal: #1B9AAA;
+  --teal-dark: #147885;
+  --navy: #1F3A4D;
+
+  --bg: #F7F9FA;
+  --card: #FFFFFF;
+
+  --text: #2A2A2A;
+  --muted: #6B7A80;
+  --border: #E3E8EA;
+
+  --success: #1B8A4C;
+  --danger: #C94141;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  background: var(--navy);
+  color: #fff;
+  text-align: center;
+  padding: 34px 20px 30px;
+}
+
+.logo {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--teal);
+  letter-spacing: 1px;
+}
+
+.tagline {
+  font-size: 14px;
+  color: #C9D6DB;
+  margin-top: 3px;
+}
+
+header h1 {
+  font-size: 22px;
+  margin-top: 18px;
+  font-weight: 700;
+}
+
+header .subtitle {
+  font-size: 13px;
+  color: #C9D6DB;
+  margin-top: 5px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 25px 18px 60px;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+  background: #EAF6F7;
+  border: 1px solid #D2ECEF;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 18px;
+}
+
+.intro strong {
+  display: block;
+  color: var(--navy);
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 21px;
+  margin-bottom: 16px;
+}
+
+.card h2 {
+  font-size: 17px;
+  color: var(--navy);
+  border-right: 4px solid var(--teal);
+  padding-right: 10px;
+  margin-bottom: 16px;
+}
+
+/* =========================
+   FORM
+========================= */
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin: 14px 0 6px;
+}
+
+.required::after {
+  content: " *";
+  color: var(--danger);
+}
+
+input[type="text"],
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 12px 13px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: #fff;
+  color: var(--text);
+
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px;
+
+  outline: none;
+  transition: .2s;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+select:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(27,154,170,.10);
+}
+
+/* =========================
+   FILE INPUT
+========================= */
+
+.file-box {
+  margin-top: 13px;
+}
+
+.file-box input[type="file"] {
+  width: 100%;
+
+  padding: 10px;
+
+  border: 1px dashed #C9D5D8;
+  border-radius: 9px;
+
+  background: #FAFCFC;
+
+  font-family: 'Cairo', sans-serif;
+  font-size: 12px;
+}
+
+.file-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* =========================
+   CONDITIONAL AUTHORIZATION
+========================= */
+
+#authorizationBox {
+  display: none;
+}
+
+/* =========================
+   CHECKBOXES
+========================= */
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin: 12px 0;
+
+  font-size: 12px;
+  color: var(--text);
+}
+
+.checkbox-row input {
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+  width: 100%;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 14px;
+
+  background: var(--teal);
+  color: #fff;
+
+  font-family: 'Cairo', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .2s;
+}
+
+.btn:hover {
+  background: var(--teal-dark);
+}
+
+.btn:disabled {
+  background: #9FC6CB;
+  cursor: not-allowed;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+#progressBox {
+  display: none;
+  margin-top: 15px;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+
+  background: #E8EEF0;
+  border-radius: 20px;
+
+  overflow: hidden;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+
+  background: var(--teal);
+
+  transition: width .3s ease;
+}
+
+.progress-text {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 7px;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+#status {
+  text-align: center;
+  font-size: 14px;
+
+  margin-top: 15px;
+
+  min-height: 22px;
+}
+
+#status.ok {
+  color: var(--success);
+}
+
+#status.err {
+  color: var(--danger);
+}
+
+/* =========================
+   SUCCESS BOX
+========================= */
+
+.success-box {
+  display: none;
+
+  background: #F0FAF4;
+  border: 1px solid #C9EBD6;
+
+  border-radius: 14px;
+
+  padding: 22px;
+
+  text-align: center;
+
+  margin-top: 20px;
+}
+
+.success-icon {
+  width: 48px;
+  height: 48px;
+
+  margin: 0 auto 10px;
+
+  border-radius: 50%;
+
+  background: #DDF4E7;
+  color: var(--success);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.success-box h3 {
+  color: var(--success);
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.success-box p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+
+  padding: 25px 15px;
+
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+
+  header {
+    padding: 30px 18px 25px;
+  }
+
+  .logo {
+    font-size: 34px;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  .container {
+    padding: 20px 14px 50px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">TDrive</div>
+
+  <div class="tagline">
+    تكنولوجيا القيادة
+  </div>
+
+  <h1>
+    التسجيل للانضمام كمدربة
+  </h1>
+
+  <div class="subtitle">
+    ابدئي رحلتك التدريبية مع TDrive
+  </div>
+
+</header>
+
+
+<div class="container">
+
+  <div class="intro">
+
+    <strong>
+      طلب الانضمام كمدربة
+    </strong>
+
+    <p>
+      يرجى تعبئة البيانات وإرفاق المستندات المطلوبة بشكل واضح.
+      سيتم مراجعة الطلب والتواصل معك بعد اكتمال عملية المراجعة.
+    </p>
+
+  </div>
+
+
+  <form id="appForm">
+
+
+    <!-- =========================
+         البيانات الأساسية
+    ========================== -->
+
+    <div class="card">
+
+      <h2>
+        البيانات الأساسية
+      </h2>
+
+
+      <label class="required">
+        الاسم الكامل
+      </label>
+
+      <input
+        type="text"
+        id="fullName"
+        autocomplete="name"
+        required
+      >
+
+
+      <label class="required">
+        رقم الجوال
+      </label>
+
+      <input
+        type="tel"
+        id="phone"
+        inputmode="tel"
+        autocomplete="tel"
+        placeholder="05xxxxxxxx"
+        required
+      >
+
+
+      <label class="required">
+        رقم الهوية
+      </label>
+
+      <input
+        type="text"
+        id="nationalId"
+        inputmode="numeric"
+        required
+      >
+
+
+      <label class="required">
+        آخر مؤهل دراسي
+      </label>
+
+      <input
+        type="text"
+        id="qualification"
+        required
+      >
+
+
+      <label class="required">
+        هل السيارة مملوكة لكِ؟
+      </label>
+
+      <select id="ownsCar" required>
+
+        <option value="">
+          اختاري
+        </option>
+
+        <option value="yes">
+          نعم، السيارة ملكي
+        </option>
+
+        <option value="no">
+          لا، أملك تفويضًا
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <!-- =========================
+         المستندات
+    ========================== -->
+
+    <div class="card">
+
+      <h2>
+        المستندات المطلوبة
+      </h2>
+
+
+      <div class="file-box">
+
+        <label class="required">
+          صورة الهوية
+        </label>
+
+        <input
+          type="file"
+          id="idImage"
+          accept="image/*,.pdf"
+          required
+        >
+
+        <div class="file-hint">
+          صورة واضحة أو ملف PDF
+        </div>
+
+      </div>
+
+
+      <div class="file-box">
+
+        <label class="required">
+          رخصة القيادة
+        </label>
+
+        <input
+          type="file"
+          id="license"
+          accept="image/*,.pdf"
+          required
+        >
+
+      </div>
+
+
+      <div class="file-box">
+
+        <label class="required">
+          استمارة السيارة
+        </label>
+
+        <input
+          type="file"
+          id="carRegistration"
+          accept="image/*,.pdf"
+          required
+        >
+
+      </div>
+
+
+      <div
+        class="file-box"
+        id="authorizationBox"
+      >
+
+        <label class="required">
+          التفويض
+        </label>
+
+        <input
+          type="file"
+          id="authorization"
+          accept="image/*,.pdf"
+        >
+
+        <div class="file-hint">
+          مطلوب في حال كانت السيارة غير مملوكة لكِ.
+        </div>
+
+      </div>
+
+
+      <div class="file-box">
+
+        <label>
+          شهادة خدمة عملاء أو شهادة داعمة
+          (اختياري)
+        </label>
+
+        <input
+          type="file"
+          id="certificate"
+          accept="image/*,.pdf"
+        >
+
+      </div>
+
+
+      <div class="file-box">
+
+        <label class="required">
+          فيديو التقييم
+        </label>
+
+        <input
+          type="file"
+          id="video"
+          accept="video/*"
+          required
+        >
+
+        <div class="file-hint">
+          يجب أن يتضمن الفيديو تنفيذ الموقف العرضي بالخلف.
+        </div>
+
+      </div>
+
+
+      <div class="file-box">
+
+        <label class="required">
+          التسجيل الصوتي التعريفي
+        </label>
+
+        <input
+          type="file"
+          id="voiceRecording"
+          accept="audio/*"
+          required
+        >
+
+        <div class="file-hint">
+
+          النص المطلوب:
+
+          «السلام عليكم، أنا مدربتك أستاذة [الاسم]،
+          أتطلع لرحلة تعليم آمنة ومفيدة بإذن الله.»
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         الإقرار
+    ========================== -->
+
+    <div class="card">
+
+      <h2>
+        الإقرار والموافقة
+      </h2>
+
+
+      <label class="checkbox-row">
+
+        <input
+          type="checkbox"
+          required
+        >
+
+        <span>
+          أقر بأنني قرأت الشروط والأحكام والتعليمات الخاصة بالمدربات وفهمتها.
+        </span>
+
+      </label>
+
+
+      <label class="checkbox-row">
+
+        <input
+          type="checkbox"
+          required
+        >
+
+        <span>
+          أوافق على الالتزام بمحتوى البرنامج وتسلسل المهارات وعدم تجاوزها دون مبرر معتمد.
+        </span>
+
+      </label>
+
+
+      <label class="checkbox-row">
+
+        <input
+          type="checkbox"
+          required
+        >
+
+        <span>
+          أوافق على تسجيل أوقات توفري والالتزام بالحجوزات التي أقبلها.
+        </span>
+
+      </label>
+
+
+      <label class="checkbox-row">
+
+        <input
+          type="checkbox"
+          required
+        >
+
+        <span>
+          أوافق على توثيق الجلسات والمهارات وإرسال تأكيد الجلسة للمتدربة.
+        </span>
+
+      </label>
+
+
+      <label class="checkbox-row">
+
+        <input
+          type="checkbox"
+          required
+        >
+
+        <span>
+          ألتزم بسرية المنهج والمحتوى وعدم نسخه أو مشاركته خارج نطاق TDrive.
+        </span>
+
+      </label>
+
+    </div>
+
+
+    <!-- =========================
+         SUBMIT
+    ========================== -->
+
+    <button
+      type="submit"
+      class="btn"
+      id="submitBtn"
+    >
+      إرسال طلب الانضمام
+    </button>
+
+
+    <div id="progressBox">
+
+      <div class="progress-track">
+
+        <div
+          class="progress-bar"
+          id="progressBar"
+        ></div>
+
+      </div>
+
+      <div
+        class="progress-text"
+        id="progressText"
+      >
+        جاري تجهيز الطلب...
+      </div>
+
+    </div>
+
+
+    <div id="status"></div>
+
+
+  </form>
+
+
+  <!-- =========================
+       SUCCESS
+  ========================== -->
+
+  <div
+    class="success-box"
+    id="successBox"
+  >
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <h3>
+      تم إرسال طلبك بنجاح
+    </h3>
+
+    <p>
+      تم استلام طلب الانضمام كمدربة لدى TDrive.
+      سيتم مراجعة البيانات والمستندات والتواصل معك بعد انتهاء المراجعة.
+    </p>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  TDrive — تكنولوجيا القيادة
+
+</footer>
+
+
+
+<script type="module">
+
+/* ==========================================
+   FIREBASE
+========================================== */
+
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  updateDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+
+/*
+================================================
+ضعي بيانات مشروع Firebase الخاص بـ TDrive هنا
+================================================
+*/
+
+const firebaseConfig = {
+
+  apiKey: "YOUR_API_KEY",
+
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+
+  projectId: "YOUR_PROJECT_ID",
+
+  storageBucket: "YOUR_PROJECT.appspot.com",
+
+  messagingSenderId: "YOUR_SENDER_ID",
+
+  appId: "YOUR_APP_ID"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+const storage = getStorage(app);
+
+
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const form =
+  document.getElementById("appForm");
+
+const submitBtn =
+  document.getElementById("submitBtn");
+
+const statusEl =
+  document.getElementById("status");
+
+const ownsCar =
+  document.getElementById("ownsCar");
+
+const authorizationBox =
+  document.getElementById("authorizationBox");
+
+const authorization =
+  document.getElementById("authorization");
+
+const progressBox =
+  document.getElementById("progressBox");
+
+const progressBar =
+  document.getElementById("progressBar");
+
+const progressText =
+  document.getElementById("progressText");
+
+const successBox =
+  document.getElementById("successBox");
+
+
+
+/* ==========================================
+   إظهار التفويض
+========================================== */
+
+ownsCar.addEventListener(
+  "change",
+  () => {
+
+    if (ownsCar.value === "no") {
+
+      authorizationBox.style.display =
+        "block";
+
+      authorization.required = true;
+
+    } else {
+
+      authorizationBox.style.display =
+        "none";
+
+      authorization.required = false;
+
+      authorization.value = "";
+
+    }
+
+  }
+);
+
+
+
+/* ==========================================
+   PROGRESS
+========================================== */
+
+function setProgress(
+  percent,
+  message
+) {
+
+  progressBox.style.display =
+    "block";
+
+  progressBar.style.width =
+    percent + "%";
+
+  progressText.textContent =
+    message;
+
+}
+
+
+
+/* ==========================================
+   SUBMIT
+========================================== */
+
+form.addEventListener(
+  "submit",
+  async (e) => {
+
+    e.preventDefault();
+
+
+    submitBtn.disabled = true;
+
+    statusEl.className = "";
+
+    statusEl.textContent = "";
+
+
+    try {
+
+
+      /* ==============================
+         1 — قراءة البيانات
+      ============================== */
+
+      const fullName =
+        document
+          .getElementById("fullName")
+          .value
+          .trim();
+
+      const phone =
+        document
+          .getElementById("phone")
+          .value
+          .trim();
+
+      const nationalId =
+        document
+          .getElementById("nationalId")
+          .value
+          .trim();
+
+      const qualification =
+        document
+          .getElementById("qualification")
+          .value
+          .trim();
+
+      const ownsCarValue =
+        ownsCar.value;
+
+
+      setProgress(
+        10,
+        "جاري إنشاء طلب الانضمام..."
+      );
+
+
+      /* ==============================
+         2 — إنشاء طلب
+      ============================== */
+
+      const applicationData = {
+
+        fullName,
+
+        phone,
+
+        nationalId,
+
+        qualification,
+
+        ownsCar: ownsCarValue,
+
+        status: "pending",
+
+        applicationType:
+          "instructor",
+
+        createdAt:
+          serverTimestamp()
+
+      };
+
+
+      const docRef =
+        await addDoc(
+          collection(
+            db,
+            "instructorApplications"
+          ),
+          applicationData
+        );
+
+
+      const applicationId =
+        docRef.id;
+
+
+      setProgress(
+        20,
+        "تم إنشاء الطلب، جاري رفع المستندات..."
+      );
+
+
+      /* ==============================
+         3 — الملفات
+      ============================== */
+
+      const fileFields = [
+
+        "idImage",
+
+        "license",
+
+        "carRegistration",
+
+        "authorization",
+
+        "certificate",
+
+        "video",
+
+        "voiceRecording"
+
+      ];
+
+
+      const uploadedFiles = {};
+
+
+      let uploadedCount = 0;
+
+
+      for (
+        const field of fileFields
+      ) {
+
+
+        const input =
+          document.getElementById(field);
+
+
+        if (
+          input.files &&
+          input.files.length > 0
+        ) {
+
+
+          const file =
+            input.files[0];
+
+
+          /*
+          لا نستخدم instructors هنا.
+
+          الطلبات غير المقبولة تبقى داخل:
+          instructorApplications
+          */
+
+
+          const safeName =
+            file.name
+              .replace(
+                /[^a-zA-Z0-9._-]/g,
+                "_"
+              );
+
+
+          const path =
+            `instructorApplications/${applicationId}/${field}_${safeName}`;
+
+
+          const storageRef =
+            ref(
+              storage,
+              path
+            );
+
+
+          await uploadBytes(
+            storageRef,
+            file
+          );
+
+
+          const downloadURL =
+            await getDownloadURL(
+              storageRef
+            );
+
+
+          uploadedFiles[field] = {
+
+            url: downloadURL,
+
+            fileName: file.name,
+
+            storagePath: path,
+
+            contentType:
+              file.type
+
+          };
+
+
+          uploadedCount++;
+
+
+          const percent =
+            20 +
+            Math.round(
+              (
+                uploadedCount /
+                fileFields.length
+              ) * 65
+            );
+
+
+          setProgress(
+            percent,
+            `جاري رفع الملفات... ${uploadedCount}/${fileFields.length}`
+          );
+
+        }
+
+      }
+
+
+      /* ==============================
+         4 — تحديث الطلب
+      ============================== */
+
+      setProgress(
+        90,
+        "جاري حفظ بيانات الطلب..."
+      );
+
+
+      await updateDoc(
+        docRef,
+        {
+
+          files:
+            uploadedFiles,
+
+          submittedAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+      /* ==============================
+         5 — نجاح
+      ============================== */
+
+      setProgress(
+        100,
+        "تم إرسال الطلب بنجاح"
+      );
+
+
+      statusEl.className =
+        "ok";
+
+      statusEl.textContent =
+        "تم استلام طلبك بنجاح.";
+
+
+      form.style.display =
+        "none";
+
+
+      successBox.style.display =
+        "block";
+
+
+    } catch (error) {
+
+
+      console.error(
+        "Instructor registration error:",
+        error
+      );
+
+
+      statusEl.className =
+        "err";
+
+
+      statusEl.textContent =
+        "حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.";
+
+
+      progressBox.style.display =
+        "none";
+
+
+      submitBtn.disabled =
+        false;
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
