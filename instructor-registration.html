@@ -833,459 +833,473 @@ footer {
 </footer>
 
 
-
 <script type="module">
 
-/* ==========================================
-   FIREBASE
-========================================== */
-
 import {
-  initializeApp
+    initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-  getFirestore,
-  collection,
-  addDoc,
-  updateDoc,
-  serverTimestamp
+    getFirestore,
+    collection,
+    addDoc,
+    updateDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
-/*
-================================================
-ضعي بيانات مشروع Firebase الخاص بـ TDrive هنا
-================================================
-*/
+/* ==================================================
+   Firebase TDrive
+================================================== */
 
 const firebaseConfig = {
 
-  apiKey: "YOUR_API_KEY",
+    apiKey: "AIzaSyDEjf_HrBdJSn1EVaHeyvMubUkPjVZH5i0",
 
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
+    authDomain: "tdrive-4fed8.firebaseapp.com",
 
-  projectId: "YOUR_PROJECT_ID",
+    projectId: "tdrive-4fed8",
 
-  storageBucket: "YOUR_PROJECT.appspot.com",
+    storageBucket: "tdrive-4fed8.firebasestorage.app",
 
-  messagingSenderId: "YOUR_SENDER_ID",
+    messagingSenderId: "107257320648",
 
-  appId: "YOUR_APP_ID"
+    appId: "1:107257320648:web:30d142684f936a374041fd",
+
+    measurementId: "G-QBEPEKERXV"
 
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+    initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
+const db =
+    getFirestore(app);
 
-const storage = getStorage(app);
+const storage =
+    getStorage(app);
 
 
-
-/* ==========================================
-   ELEMENTS
-========================================== */
+/* ==================================================
+   عناصر الصفحة
+================================================== */
 
 const form =
-  document.getElementById("appForm");
+    document.getElementById("appForm");
 
 const submitBtn =
-  document.getElementById("submitBtn");
+    document.getElementById("submitBtn");
 
 const statusEl =
-  document.getElementById("status");
+    document.getElementById("status");
 
 const ownsCar =
-  document.getElementById("ownsCar");
+    document.getElementById("ownsCar");
 
 const authorizationBox =
-  document.getElementById("authorizationBox");
+    document.getElementById("authorizationBox");
 
 const authorization =
-  document.getElementById("authorization");
+    document.getElementById("authorization");
 
 const progressBox =
-  document.getElementById("progressBox");
+    document.getElementById("progressBox");
 
 const progressBar =
-  document.getElementById("progressBar");
+    document.getElementById("progressBar");
 
 const progressText =
-  document.getElementById("progressText");
+    document.getElementById("progressText");
 
 const successBox =
-  document.getElementById("successBox");
+    document.getElementById("successBox");
 
 
-
-/* ==========================================
-   إظهار التفويض
-========================================== */
+/* ==================================================
+   التفويض
+================================================== */
 
 ownsCar.addEventListener(
-  "change",
-  () => {
+    "change",
+    () => {
 
-    if (ownsCar.value === "no") {
+        if (ownsCar.value === "no") {
 
-      authorizationBox.style.display =
-        "block";
+            authorizationBox.style.display =
+                "block";
 
-      authorization.required = true;
+            authorization.required =
+                true;
 
-    } else {
+        } else {
 
-      authorizationBox.style.display =
-        "none";
+            authorizationBox.style.display =
+                "none";
 
-      authorization.required = false;
+            authorization.required =
+                false;
 
-      authorization.value = "";
+            authorization.value = "";
+
+        }
 
     }
-
-  }
 );
 
 
-
-/* ==========================================
-   PROGRESS
-========================================== */
+/* ==================================================
+   شريط التقدم
+================================================== */
 
 function setProgress(
-  percent,
-  message
+    percent,
+    message
 ) {
 
-  progressBox.style.display =
-    "block";
+    progressBox.style.display =
+        "block";
 
-  progressBar.style.width =
-    percent + "%";
+    progressBar.style.width =
+        percent + "%";
 
-  progressText.textContent =
-    message;
+    progressText.textContent =
+        message;
 
 }
 
 
-
-/* ==========================================
-   SUBMIT
-========================================== */
+/* ==================================================
+   إرسال الطلب
+================================================== */
 
 form.addEventListener(
-  "submit",
-  async (e) => {
+    "submit",
+    async (e) => {
 
-    e.preventDefault();
+        e.preventDefault();
 
 
-    submitBtn.disabled = true;
+        submitBtn.disabled =
+            true;
 
-    statusEl.className = "";
+        statusEl.className = "";
 
-    statusEl.textContent = "";
+        statusEl.textContent = "";
 
 
-    try {
+        try {
 
 
-      /* ==============================
-         1 — قراءة البيانات
-      ============================== */
+            /* ==========================================
+               البيانات الأساسية
+            ========================================== */
 
-      const fullName =
-        document
-          .getElementById("fullName")
-          .value
-          .trim();
+            const fullName =
+                document
+                    .getElementById("fullName")
+                    .value
+                    .trim();
 
-      const phone =
-        document
-          .getElementById("phone")
-          .value
-          .trim();
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
 
-      const nationalId =
-        document
-          .getElementById("nationalId")
-          .value
-          .trim();
+            const nationalId =
+                document
+                    .getElementById("nationalId")
+                    .value
+                    .trim();
 
-      const qualification =
-        document
-          .getElementById("qualification")
-          .value
-          .trim();
+            const qualification =
+                document
+                    .getElementById("qualification")
+                    .value
+                    .trim();
 
-      const ownsCarValue =
-        ownsCar.value;
+            const ownsCarValue =
+                ownsCar.value;
 
 
-      setProgress(
-        10,
-        "جاري إنشاء طلب الانضمام..."
-      );
-
-
-      /* ==============================
-         2 — إنشاء طلب
-      ============================== */
-
-      const applicationData = {
-
-        fullName,
-
-        phone,
-
-        nationalId,
-
-        qualification,
-
-        ownsCar: ownsCarValue,
-
-        status: "pending",
-
-        applicationType:
-          "instructor",
-
-        createdAt:
-          serverTimestamp()
-
-      };
-
-
-      const docRef =
-        await addDoc(
-          collection(
-            db,
-            "instructorApplications"
-          ),
-          applicationData
-        );
-
-
-      const applicationId =
-        docRef.id;
-
-
-      setProgress(
-        20,
-        "تم إنشاء الطلب، جاري رفع المستندات..."
-      );
-
-
-      /* ==============================
-         3 — الملفات
-      ============================== */
-
-      const fileFields = [
-
-        "idImage",
-
-        "license",
-
-        "carRegistration",
-
-        "authorization",
-
-        "certificate",
-
-        "video",
-
-        "voiceRecording"
-
-      ];
-
-
-      const uploadedFiles = {};
-
-
-      let uploadedCount = 0;
-
-
-      for (
-        const field of fileFields
-      ) {
-
-
-        const input =
-          document.getElementById(field);
-
-
-        if (
-          input.files &&
-          input.files.length > 0
-        ) {
-
-
-          const file =
-            input.files[0];
-
-
-          /*
-          لا نستخدم instructors هنا.
-
-          الطلبات غير المقبولة تبقى داخل:
-          instructorApplications
-          */
-
-
-          const safeName =
-            file.name
-              .replace(
-                /[^a-zA-Z0-9._-]/g,
-                "_"
-              );
-
-
-          const path =
-            `instructorApplications/${applicationId}/${field}_${safeName}`;
-
-
-          const storageRef =
-            ref(
-              storage,
-              path
+            setProgress(
+                10,
+                "جاري إنشاء طلب الانضمام..."
             );
 
 
-          await uploadBytes(
-            storageRef,
-            file
-          );
+            /* ==========================================
+               إنشاء طلب المدربة
+            ========================================== */
+
+            const applicationData = {
+
+                fullName:
+                    fullName,
+
+                phone:
+                    phone,
+
+                nationalId:
+                    nationalId,
+
+                qualification:
+                    qualification,
+
+                ownsCar:
+                    ownsCarValue,
+
+                status:
+                    "pending",
+
+                applicationType:
+                    "instructor",
+
+                createdAt:
+                    serverTimestamp()
+
+            };
 
 
-          const downloadURL =
-            await getDownloadURL(
-              storageRef
+            const docRef =
+                await addDoc(
+                    collection(
+                        db,
+                        "instructorApplications"
+                    ),
+                    applicationData
+                );
+
+
+            const applicationId =
+                docRef.id;
+
+
+            setProgress(
+                20,
+                "تم إنشاء الطلب، جاري رفع المستندات..."
             );
 
 
-          uploadedFiles[field] = {
+            /* ==========================================
+               الملفات
+            ========================================== */
 
-            url: downloadURL,
+            const fileFields = [
 
-            fileName: file.name,
+                "idImage",
 
-            storagePath: path,
+                "license",
 
-            contentType:
-              file.type
+                "carRegistration",
 
-          };
+                "authorization",
+
+                "certificate",
+
+                "video",
+
+                "voiceRecording"
+
+            ];
 
 
-          uploadedCount++;
+            const uploadedFiles = {};
+
+            let uploadedCount = 0;
 
 
-          const percent =
-            20 +
-            Math.round(
-              (
-                uploadedCount /
-                fileFields.length
-              ) * 65
+            for (
+                const field of fileFields
+            ) {
+
+                const input =
+                    document.getElementById(
+                        field
+                    );
+
+
+                if (
+                    input.files &&
+                    input.files.length > 0
+                ) {
+
+
+                    const file =
+                        input.files[0];
+
+
+                    /*
+                    تنظيف اسم الملف
+                    */
+
+                    const safeName =
+                        file.name
+                            .replace(
+                                /[^a-zA-Z0-9._-]/g,
+                                "_"
+                            );
+
+
+                    /*
+                    مكان تخزين ملفات طلب المدربة
+
+                    مهم:
+                    لا نستخدم instructors/
+
+                    لأن المدربة لم تعتمد بعد.
+                    */
+
+                    const storagePath =
+                        `instructorApplications/${applicationId}/${field}_${safeName}`;
+
+
+                    const storageRef =
+                        ref(
+                            storage,
+                            storagePath
+                        );
+
+
+                    await uploadBytes(
+                        storageRef,
+                        file
+                    );
+
+
+                    const downloadURL =
+                        await getDownloadURL(
+                            storageRef
+                        );
+
+
+                    uploadedFiles[field] = {
+
+                        url:
+                            downloadURL,
+
+                        fileName:
+                            file.name,
+
+                        storagePath:
+                            storagePath,
+
+                        contentType:
+                            file.type,
+
+                        size:
+                            file.size
+
+                    };
+
+
+                    uploadedCount++;
+
+
+                    const percent =
+                        20 +
+                        Math.round(
+                            (
+                                uploadedCount /
+                                fileFields.length
+                            ) * 65
+                        );
+
+
+                    setProgress(
+                        percent,
+                        `جاري رفع الملفات... ${uploadedCount}/${fileFields.length}`
+                    );
+
+                }
+
+            }
+
+
+            /* ==========================================
+               حفظ روابط الملفات
+            ========================================== */
+
+            setProgress(
+                90,
+                "جاري حفظ بيانات الطلب..."
             );
 
 
-          setProgress(
-            percent,
-            `جاري رفع الملفات... ${uploadedCount}/${fileFields.length}`
-          );
+            await updateDoc(
+                docRef,
+                {
+
+                    files:
+                        uploadedFiles,
+
+                    submittedAt:
+                        serverTimestamp()
+
+                }
+            );
+
+
+            /* ==========================================
+               نجاح
+            ========================================== */
+
+            setProgress(
+                100,
+                "تم إرسال الطلب بنجاح"
+            );
+
+
+            statusEl.className =
+                "ok";
+
+            statusEl.textContent =
+                "تم استلام طلبك بنجاح.";
+
+
+            form.style.display =
+                "none";
+
+
+            successBox.style.display =
+                "block";
+
+
+        } catch (error) {
+
+
+            console.error(
+                "Instructor registration error:",
+                error
+            );
+
+
+            statusEl.className =
+                "err";
+
+
+            statusEl.textContent =
+                "حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.";
+
+
+            progressBox.style.display =
+                "none";
+
+
+            submitBtn.disabled =
+                false;
 
         }
-
-      }
-
-
-      /* ==============================
-         4 — تحديث الطلب
-      ============================== */
-
-      setProgress(
-        90,
-        "جاري حفظ بيانات الطلب..."
-      );
-
-
-      await updateDoc(
-        docRef,
-        {
-
-          files:
-            uploadedFiles,
-
-          submittedAt:
-            serverTimestamp()
-
-        }
-      );
-
-
-      /* ==============================
-         5 — نجاح
-      ============================== */
-
-      setProgress(
-        100,
-        "تم إرسال الطلب بنجاح"
-      );
-
-
-      statusEl.className =
-        "ok";
-
-      statusEl.textContent =
-        "تم استلام طلبك بنجاح.";
-
-
-      form.style.display =
-        "none";
-
-
-      successBox.style.display =
-        "block";
-
-
-    } catch (error) {
-
-
-      console.error(
-        "Instructor registration error:",
-        error
-      );
-
-
-      statusEl.className =
-        "err";
-
-
-      statusEl.textContent =
-        "حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.";
-
-
-      progressBox.style.display =
-        "none";
-
-
-      submitBtn.disabled =
-        false;
 
     }
-
-  }
 );
 
 </script>
