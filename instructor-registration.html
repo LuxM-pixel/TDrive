@@ -1155,15 +1155,32 @@ footer{
         required
       >
 
-      <label class="required">
-        آخر مؤهل دراسي
-      </label>
+ <label class="required">
+  آخر مؤهل دراسي
+</label>
 
-      <input
-        type="text"
-        id="qualification"
-        required
-      >
+<input
+  type="text"
+  id="qualification"
+  required
+>
+
+
+<label class="required">
+  مدينة التدريب
+</label>
+
+<select id="city" required>
+
+  <option value="">
+    اختاري المدينة
+  </option>
+
+  <option value="جدة">
+    جدة
+  </option>
+
+</select>
 
       <label class="required">
         هل السيارة مملوكة لكِ؟
@@ -2135,14 +2152,20 @@ form.addEventListener(
 
 
       const qualification =
-        document
-          .getElementById("qualification")
-          .value
-          .trim();
+  document
+    .getElementById("qualification")
+    .value
+    .trim();
 
 
-      const ownsCarValue =
-        ownsCar.value;
+const city =
+  document
+    .getElementById("city")
+    .value;
+
+
+const ownsCarValue =
+  ownsCar.value;
 
 
       setProgress(
@@ -2185,6 +2208,9 @@ form.addEventListener(
 
         qualification:
           qualification,
+
+        city:
+  city,
 
         ownsCar:
           ownsCarValue,
