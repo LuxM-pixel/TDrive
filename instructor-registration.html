@@ -10,396 +10,325 @@
 
 <style>
 :root {
-  --teal: #1B9AAA;
-  --teal-dark: #147885;
-  --navy: #1F3A4D;
-
-  --bg: #F7F9FA;
-  --card: #FFFFFF;
-
-  --text: #2A2A2A;
-  --muted: #6B7A80;
-  --border: #E3E8EA;
-
-  --success: #1B8A4C;
-  --danger: #C94141;
+  --teal:#1B9AAA;
+  --teal-dark:#147885;
+  --navy:#1F3A4D;
+  --bg:#F7F9FA;
+  --card:#FFFFFF;
+  --text:#2A2A2A;
+  --muted:#6B7A80;
+  --border:#E3E8EA;
+  --success:#1B8A4C;
+  --danger:#C94141;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 body {
-  font-family: 'Cairo', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 header {
-  background: var(--navy);
-  color: #fff;
-  text-align: center;
-  padding: 34px 20px 30px;
+  background:var(--navy);
+  color:#fff;
+  text-align:center;
+  padding:34px 20px 30px;
 }
 
 .logo {
-  font-size: 38px;
-  font-weight: 800;
-  color: var(--teal);
-  letter-spacing: 1px;
+  font-size:38px;
+  font-weight:800;
+  color:var(--teal);
+  letter-spacing:1px;
 }
 
 .tagline {
-  font-size: 14px;
-  color: #C9D6DB;
-  margin-top: 3px;
+  font-size:14px;
+  color:#C9D6DB;
+  margin-top:3px;
 }
 
 header h1 {
-  font-size: 22px;
-  margin-top: 18px;
-  font-weight: 700;
+  font-size:22px;
+  margin-top:18px;
+  font-weight:700;
 }
 
 header .subtitle {
-  font-size: 13px;
-  color: #C9D6DB;
-  margin-top: 5px;
+  font-size:13px;
+  color:#C9D6DB;
+  margin-top:5px;
 }
-
-/* =========================
-   CONTAINER
-========================= */
 
 .container {
-  max-width: 680px;
-  margin: 0 auto;
-  padding: 25px 18px 60px;
+  max-width:680px;
+  margin:0 auto;
+  padding:25px 18px 60px;
 }
 
-/* =========================
-   INTRO
-========================= */
-
 .intro {
-  background: #EAF6F7;
-  border: 1px solid #D2ECEF;
-  border-radius: 14px;
-  padding: 16px 18px;
-  margin-bottom: 18px;
+  background:#EAF6F7;
+  border:1px solid #D2ECEF;
+  border-radius:14px;
+  padding:16px 18px;
+  margin-bottom:18px;
 }
 
 .intro strong {
-  display: block;
-  color: var(--navy);
-  font-size: 15px;
-  margin-bottom: 5px;
+  display:block;
+  color:var(--navy);
+  font-size:15px;
+  margin-bottom:5px;
 }
 
 .intro p {
-  color: var(--muted);
-  font-size: 13px;
+  color:var(--muted);
+  font-size:13px;
 }
 
-/* =========================
-   CARDS
-========================= */
-
 .card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 21px;
-  margin-bottom: 16px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:21px;
+  margin-bottom:16px;
 }
 
 .card h2 {
-  font-size: 17px;
-  color: var(--navy);
-  border-right: 4px solid var(--teal);
-  padding-right: 10px;
-  margin-bottom: 16px;
+  font-size:17px;
+  color:var(--navy);
+  border-right:4px solid var(--teal);
+  padding-right:10px;
+  margin-bottom:16px;
 }
 
-/* =========================
-   FORM
-========================= */
-
 label {
-  display: block;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--muted);
-  margin: 14px 0 6px;
+  display:block;
+  font-size:13px;
+  font-weight:600;
+  color:var(--muted);
+  margin:14px 0 6px;
 }
 
 .required::after {
-  content: " *";
-  color: var(--danger);
+  content:" *";
+  color:var(--danger);
 }
 
 input[type="text"],
 input[type="tel"],
 select {
-  width: 100%;
-  padding: 12px 13px;
-
-  border: 1px solid var(--border);
-  border-radius: 9px;
-
-  background: #fff;
-  color: var(--text);
-
-  font-family: 'Cairo', sans-serif;
-  font-size: 14px;
-
-  outline: none;
-  transition: .2s;
+  width:100%;
+  padding:12px 13px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:#fff;
+  color:var(--text);
+  font-family:'Cairo',sans-serif;
+  font-size:14px;
+  outline:none;
+  transition:.2s;
 }
 
 input[type="text"]:focus,
 input[type="tel"]:focus,
 select:focus {
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(27,154,170,.10);
+  border-color:var(--teal);
+  box-shadow:0 0 0 3px rgba(27,154,170,.10);
 }
 
-/* =========================
-   FILE INPUT
-========================= */
-
 .file-box {
-  margin-top: 13px;
+  margin-top:13px;
 }
 
 .file-box input[type="file"] {
-  width: 100%;
-
-  padding: 10px;
-
-  border: 1px dashed #C9D5D8;
-  border-radius: 9px;
-
-  background: #FAFCFC;
-
-  font-family: 'Cairo', sans-serif;
-  font-size: 12px;
+  width:100%;
+  padding:10px;
+  border:1px dashed #C9D5D8;
+  border-radius:9px;
+  background:#FAFCFC;
+  font-family:'Cairo',sans-serif;
+  font-size:12px;
 }
 
 .file-hint {
-  font-size: 11px;
-  color: var(--muted);
-  margin-top: 4px;
+  font-size:11px;
+  color:var(--muted);
+  margin-top:4px;
 }
-
-/* =========================
-   CONDITIONAL AUTHORIZATION
-========================= */
 
 #authorizationBox {
-  display: none;
+  display:none;
 }
 
-/* =========================
-   CHECKBOXES
-========================= */
-
 .checkbox-row {
-  display: flex;
-  align-items: flex-start;
-
-  gap: 10px;
-
-  margin: 12px 0;
-
-  font-size: 12px;
-  color: var(--text);
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin:12px 0;
+  font-size:12px;
+  color:var(--text);
 }
 
 .checkbox-row input {
-  margin-top: 5px;
-  flex-shrink: 0;
+  margin-top:5px;
+  flex-shrink:0;
 }
 
-/* =========================
-   BUTTON
-========================= */
-
 .btn {
-  width: 100%;
-
-  border: none;
-  border-radius: 10px;
-
-  padding: 14px;
-
-  background: var(--teal);
-  color: #fff;
-
-  font-family: 'Cairo', sans-serif;
-  font-size: 15px;
-  font-weight: 700;
-
-  cursor: pointer;
-
-  transition: .2s;
+  width:100%;
+  border:none;
+  border-radius:10px;
+  padding:14px;
+  background:var(--teal);
+  color:#fff;
+  font-family:'Cairo',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
 }
 
 .btn:hover {
-  background: var(--teal-dark);
+  background:var(--teal-dark);
 }
 
 .btn:disabled {
-  background: #9FC6CB;
-  cursor: not-allowed;
+  background:#9FC6CB;
+  cursor:not-allowed;
 }
 
-/* =========================
-   PROGRESS
-========================= */
-
 #progressBox {
-  display: none;
-  margin-top: 15px;
+  display:none;
+  margin-top:15px;
 }
 
 .progress-track {
-  width: 100%;
-  height: 8px;
-
-  background: #E8EEF0;
-  border-radius: 20px;
-
-  overflow: hidden;
+  width:100%;
+  height:8px;
+  background:#E8EEF0;
+  border-radius:20px;
+  overflow:hidden;
 }
 
 .progress-bar {
-  width: 0%;
-  height: 100%;
-
-  background: var(--teal);
-
-  transition: width .3s ease;
+  width:0%;
+  height:100%;
+  background:var(--teal);
+  transition:width .3s ease;
 }
 
 .progress-text {
-  text-align: center;
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 7px;
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:7px;
 }
 
-/* =========================
-   STATUS
-========================= */
-
 #status {
-  text-align: center;
-  font-size: 14px;
-
-  margin-top: 15px;
-
-  min-height: 22px;
+  text-align:center;
+  font-size:14px;
+  margin-top:15px;
+  min-height:22px;
 }
 
 #status.ok {
-  color: var(--success);
+  color:var(--success);
 }
 
 #status.err {
-  color: var(--danger);
+  color:var(--danger);
 }
 
-/* =========================
-   SUCCESS BOX
-========================= */
-
 .success-box {
-  display: none;
-
-  background: #F0FAF4;
-  border: 1px solid #C9EBD6;
-
-  border-radius: 14px;
-
-  padding: 22px;
-
-  text-align: center;
-
-  margin-top: 20px;
+  display:none;
+  background:#F0FAF4;
+  border:1px solid #C9EBD6;
+  border-radius:14px;
+  padding:22px;
+  text-align:center;
+  margin-top:20px;
 }
 
 .success-icon {
-  width: 48px;
-  height: 48px;
-
-  margin: 0 auto 10px;
-
-  border-radius: 50%;
-
-  background: #DDF4E7;
-  color: var(--success);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 24px;
-  font-weight: 700;
+  width:48px;
+  height:48px;
+  margin:0 auto 10px;
+  border-radius:50%;
+  background:#DDF4E7;
+  color:var(--success);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  font-weight:700;
 }
 
 .success-box h3 {
-  color: var(--success);
-  font-size: 17px;
-  margin-bottom: 6px;
+  color:var(--success);
+  font-size:17px;
+  margin-bottom:6px;
 }
 
 .success-box p {
-  color: var(--muted);
-  font-size: 13px;
+  color:var(--muted);
+  font-size:13px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+.application-number {
+  display:inline-block;
+  margin:12px 0;
+  padding:9px 18px;
+  background:#EAF6F7;
+  border:1px solid #CDE8EB;
+  border-radius:9px;
+  color:var(--navy);
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:1px;
+  direction:ltr;
+}
+
+.number-hint {
+  font-size:11px;
+  color:var(--muted);
+  margin-top:4px;
+}
 
 footer {
-  text-align: center;
-
-  padding: 25px 15px;
-
-  color: var(--muted);
-
-  font-size: 12px;
+  text-align:center;
+  padding:25px 15px;
+  color:var(--muted);
+  font-size:12px;
 }
 
-@media (max-width: 600px) {
+@media (max-width:600px) {
 
   header {
-    padding: 30px 18px 25px;
+    padding:30px 18px 25px;
   }
 
   .logo {
-    font-size: 34px;
+    font-size:34px;
   }
 
   header h1 {
-    font-size: 20px;
+    font-size:20px;
   }
 
   .container {
-    padding: 20px 14px 50px;
+    padding:20px 14px 50px;
   }
 
   .card {
-    padding: 18px;
+    padding:18px;
   }
 }
 </style>
@@ -425,7 +354,6 @@ footer {
 
 </header>
 
-
 <div class="container">
 
   <div class="intro">
@@ -441,20 +369,13 @@ footer {
 
   </div>
 
-
   <form id="appForm">
-
-
-    <!-- =========================
-         البيانات الأساسية
-    ========================== -->
 
     <div class="card">
 
       <h2>
         البيانات الأساسية
       </h2>
-
 
       <label class="required">
         الاسم الكامل
@@ -466,7 +387,6 @@ footer {
         autocomplete="name"
         required
       >
-
 
       <label class="required">
         رقم الجوال
@@ -481,7 +401,6 @@ footer {
         required
       >
 
-
       <label class="required">
         رقم الهوية
       </label>
@@ -493,7 +412,6 @@ footer {
         required
       >
 
-
       <label class="required">
         آخر مؤهل دراسي
       </label>
@@ -503,7 +421,6 @@ footer {
         id="qualification"
         required
       >
-
 
       <label class="required">
         هل السيارة مملوكة لكِ؟
@@ -527,17 +444,11 @@ footer {
 
     </div>
 
-
-    <!-- =========================
-         المستندات
-    ========================== -->
-
     <div class="card">
 
       <h2>
         المستندات المطلوبة
       </h2>
-
 
       <div class="file-box">
 
@@ -558,7 +469,6 @@ footer {
 
       </div>
 
-
       <div class="file-box">
 
         <label class="required">
@@ -574,7 +484,6 @@ footer {
 
       </div>
 
-
       <div class="file-box">
 
         <label class="required">
@@ -589,7 +498,6 @@ footer {
         >
 
       </div>
-
 
       <div
         class="file-box"
@@ -612,7 +520,6 @@ footer {
 
       </div>
 
-
       <div class="file-box">
 
         <label>
@@ -627,7 +534,6 @@ footer {
         >
 
       </div>
-
 
       <div class="file-box">
 
@@ -647,7 +553,6 @@ footer {
         </div>
 
       </div>
-
 
       <div class="file-box">
 
@@ -675,24 +580,15 @@ footer {
 
     </div>
 
-
-    <!-- =========================
-         الإقرار
-    ========================== -->
-
     <div class="card">
 
       <h2>
         الإقرار والموافقة
       </h2>
 
-
       <label class="checkbox-row">
 
-        <input
-          type="checkbox"
-          required
-        >
+        <input type="checkbox" required>
 
         <span>
           أقر بأنني قرأت الشروط والأحكام والتعليمات الخاصة بالمدربات وفهمتها.
@@ -700,13 +596,9 @@ footer {
 
       </label>
 
-
       <label class="checkbox-row">
 
-        <input
-          type="checkbox"
-          required
-        >
+        <input type="checkbox" required>
 
         <span>
           أوافق على الالتزام بمحتوى البرنامج وتسلسل المهارات وعدم تجاوزها دون مبرر معتمد.
@@ -714,13 +606,9 @@ footer {
 
       </label>
 
-
       <label class="checkbox-row">
 
-        <input
-          type="checkbox"
-          required
-        >
+        <input type="checkbox" required>
 
         <span>
           أوافق على تسجيل أوقات توفري والالتزام بالحجوزات التي أقبلها.
@@ -728,13 +616,9 @@ footer {
 
       </label>
 
-
       <label class="checkbox-row">
 
-        <input
-          type="checkbox"
-          required
-        >
+        <input type="checkbox" required>
 
         <span>
           أوافق على توثيق الجلسات والمهارات وإرسال تأكيد الجلسة للمتدربة.
@@ -742,13 +626,9 @@ footer {
 
       </label>
 
-
       <label class="checkbox-row">
 
-        <input
-          type="checkbox"
-          required
-        >
+        <input type="checkbox" required>
 
         <span>
           ألتزم بسرية المنهج والمحتوى وعدم نسخه أو مشاركته خارج نطاق TDrive.
@@ -758,11 +638,6 @@ footer {
 
     </div>
 
-
-    <!-- =========================
-         SUBMIT
-    ========================== -->
-
     <button
       type="submit"
       class="btn"
@@ -770,7 +645,6 @@ footer {
     >
       إرسال طلب الانضمام
     </button>
-
 
     <div id="progressBox">
 
@@ -792,16 +666,9 @@ footer {
 
     </div>
 
-
     <div id="status"></div>
 
-
   </form>
-
-
-  <!-- =========================
-       SUCCESS
-  ========================== -->
 
   <div
     class="success-box"
@@ -818,40 +685,52 @@ footer {
 
     <p>
       تم استلام طلب الانضمام كمدربة لدى TDrive.
-      سيتم مراجعة البيانات والمستندات والتواصل معك بعد انتهاء المراجعة.
     </p>
+
+    <div
+      class="application-number"
+      id="applicationNumber"
+    >
+      APP-0001
+    </div>
+
+    <p>
+      احتفظي برقم الطلب لمتابعة طلبك.
+    </p>
+
+    <div class="number-hint">
+      رقم الطلب لا يعني قبول الطلب، ويُستخدم لمتابعة حالة طلب الانضمام.
+    </div>
 
   </div>
 
 </div>
 
-
 <footer>
-
   TDrive — تكنولوجيا القيادة
-
 </footer>
-
 
 <script type="module">
 
 import {
-    initializeApp
+  initializeApp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 import {
-    getFirestore,
-    collection,
-    addDoc,
-    updateDoc,
-    serverTimestamp
+  getFirestore,
+  collection,
+  addDoc,
+  updateDoc,
+  doc,
+  runTransaction,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import {
-    getStorage,
-    ref,
-    uploadBytes,
-    getDownloadURL
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
@@ -861,31 +740,38 @@ import {
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyDEjf_HrBdJSn1EVaHeyvMubUkPjVZH5i0",
+  apiKey:
+    "AIzaSyDEjf_HrBdJSn1EVaHeyvMubUkPjVZH5i0",
 
-    authDomain: "tdrive-4fed8.firebaseapp.com",
+  authDomain:
+    "tdrive-4fed8.firebaseapp.com",
 
-    projectId: "tdrive-4fed8",
+  projectId:
+    "tdrive-4fed8",
 
-    storageBucket: "tdrive-4fed8.firebasestorage.app",
+  storageBucket:
+    "tdrive-4fed8.firebasestorage.app",
 
-    messagingSenderId: "107257320648",
+  messagingSenderId:
+    "107257320648",
 
-    appId: "1:107257320648:web:30d142684f936a374041fd",
+  appId:
+    "1:107257320648:web:30d142684f936a374041fd",
 
-    measurementId: "G-QBEPEKERXV"
+  measurementId:
+    "G-QBEPEKERXV"
 
 };
 
 
 const app =
-    initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
 const db =
-    getFirestore(app);
+  getFirestore(app);
 
 const storage =
-    getStorage(app);
+  getStorage(app);
 
 
 /* ==================================================
@@ -893,34 +779,37 @@ const storage =
 ================================================== */
 
 const form =
-    document.getElementById("appForm");
+  document.getElementById("appForm");
 
 const submitBtn =
-    document.getElementById("submitBtn");
+  document.getElementById("submitBtn");
 
 const statusEl =
-    document.getElementById("status");
+  document.getElementById("status");
 
 const ownsCar =
-    document.getElementById("ownsCar");
+  document.getElementById("ownsCar");
 
 const authorizationBox =
-    document.getElementById("authorizationBox");
+  document.getElementById("authorizationBox");
 
 const authorization =
-    document.getElementById("authorization");
+  document.getElementById("authorization");
 
 const progressBox =
-    document.getElementById("progressBox");
+  document.getElementById("progressBox");
 
 const progressBar =
-    document.getElementById("progressBar");
+  document.getElementById("progressBar");
 
 const progressText =
-    document.getElementById("progressText");
+  document.getElementById("progressText");
 
 const successBox =
-    document.getElementById("successBox");
+  document.getElementById("successBox");
+
+const applicationNumberEl =
+  document.getElementById("applicationNumber");
 
 
 /* ==================================================
@@ -928,30 +817,30 @@ const successBox =
 ================================================== */
 
 ownsCar.addEventListener(
-    "change",
-    () => {
+  "change",
+  () => {
 
-        if (ownsCar.value === "no") {
+    if (ownsCar.value === "no") {
 
-            authorizationBox.style.display =
-                "block";
+      authorizationBox.style.display =
+        "block";
 
-            authorization.required =
-                true;
+      authorization.required =
+        true;
 
-        } else {
+    } else {
 
-            authorizationBox.style.display =
-                "none";
+      authorizationBox.style.display =
+        "none";
 
-            authorization.required =
-                false;
+      authorization.required =
+        false;
 
-            authorization.value = "";
-
-        }
+      authorization.value = "";
 
     }
+
+  }
 );
 
 
@@ -960,18 +849,76 @@ ownsCar.addEventListener(
 ================================================== */
 
 function setProgress(
-    percent,
-    message
+  percent,
+  message
 ) {
 
-    progressBox.style.display =
-        "block";
+  progressBox.style.display =
+    "block";
 
-    progressBar.style.width =
-        percent + "%";
+  progressBar.style.width =
+    percent + "%";
 
-    progressText.textContent =
-        message;
+  progressText.textContent =
+    message;
+
+}
+
+
+/* ==================================================
+   إنشاء رقم الطلب
+================================================== */
+
+async function createApplicationNumber() {
+
+  const counterRef =
+    doc(
+      db,
+      "settings",
+      "instructorApplicationNumber"
+    );
+
+  const applicationNumber =
+    await runTransaction(
+      db,
+      async transaction => {
+
+        const counterSnap =
+          await transaction.get(
+            counterRef
+          );
+
+        let lastNumber =
+          counterSnap.exists()
+            ? Number(
+                counterSnap.data().lastNumber || 0
+              )
+            : 0;
+
+        const nextNumber =
+          lastNumber + 1;
+
+        transaction.set(
+          counterRef,
+          {
+            lastNumber:
+              nextNumber
+          },
+          {
+            merge:true
+          }
+        );
+
+        return (
+          "APP-" +
+          String(nextNumber)
+            .padStart(4, "0")
+        );
+
+      }
+    );
+
+  return applicationNumber;
 
 }
 
@@ -981,325 +928,325 @@ function setProgress(
 ================================================== */
 
 form.addEventListener(
-    "submit",
-    async (e) => {
+  "submit",
+  async (e) => {
 
-        e.preventDefault();
+    e.preventDefault();
+
+    submitBtn.disabled =
+      true;
+
+    statusEl.className =
+      "";
+
+    statusEl.textContent =
+      "";
+
+    try {
+
+      /* ==========================================
+         البيانات الأساسية
+      ========================================== */
+
+      const fullName =
+        document
+          .getElementById("fullName")
+          .value
+          .trim();
+
+      const phone =
+        document
+          .getElementById("phone")
+          .value
+          .trim();
+
+      const nationalId =
+        document
+          .getElementById("nationalId")
+          .value
+          .trim();
+
+      const qualification =
+        document
+          .getElementById("qualification")
+          .value
+          .trim();
+
+      const ownsCarValue =
+        ownsCar.value;
 
 
-        submitBtn.disabled =
-            true;
-
-        statusEl.className = "";
-
-        statusEl.textContent = "";
+      setProgress(
+        5,
+        "جاري إنشاء رقم الطلب..."
+      );
 
 
-        try {
+      /* ==========================================
+         رقم الطلب
+      ========================================== */
+
+      const applicationNumber =
+        await createApplicationNumber();
 
 
-            /* ==========================================
-               البيانات الأساسية
-            ========================================== */
-
-            const fullName =
-                document
-                    .getElementById("fullName")
-                    .value
-                    .trim();
-
-            const phone =
-                document
-                    .getElementById("phone")
-                    .value
-                    .trim();
-
-            const nationalId =
-                document
-                    .getElementById("nationalId")
-                    .value
-                    .trim();
-
-            const qualification =
-                document
-                    .getElementById("qualification")
-                    .value
-                    .trim();
-
-            const ownsCarValue =
-                ownsCar.value;
+      setProgress(
+        10,
+        "جاري إنشاء طلب الانضمام..."
+      );
 
 
-            setProgress(
-                10,
-                "جاري إنشاء طلب الانضمام..."
+      /* ==========================================
+         إنشاء طلب المدربة
+      ========================================== */
+
+      const applicationData = {
+
+        applicationNumber:
+          applicationNumber,
+
+        fullName:
+          fullName,
+
+        phone:
+          phone,
+
+        nationalId:
+          nationalId,
+
+        qualification:
+          qualification,
+
+        ownsCar:
+          ownsCarValue,
+
+        status:
+          "pending",
+
+        applicationType:
+          "instructor",
+
+        createdAt:
+          serverTimestamp()
+
+      };
+
+
+      const docRef =
+        await addDoc(
+          collection(
+            db,
+            "instructorApplications"
+          ),
+          applicationData
+        );
+
+
+      const applicationId =
+        docRef.id;
+
+
+      setProgress(
+        20,
+        "تم إنشاء الطلب، جاري رفع المستندات..."
+      );
+
+
+      /* ==========================================
+         الملفات
+      ========================================== */
+
+      const fileFields = [
+
+        "idImage",
+
+        "license",
+
+        "carRegistration",
+
+        "authorization",
+
+        "certificate",
+
+        "video",
+
+        "voiceRecording"
+
+      ];
+
+
+      const uploadedFiles = {};
+
+      let uploadedCount = 0;
+
+
+      for (
+        const field of fileFields
+      ) {
+
+        const input =
+          document.getElementById(
+            field
+          );
+
+
+        if (
+          input.files &&
+          input.files.length > 0
+        ) {
+
+          const file =
+            input.files[0];
+
+
+          const safeName =
+            file.name
+              .replace(
+                /[^a-zA-Z0-9._-]/g,
+                "_"
+              );
+
+
+          const storagePath =
+            `instructorApplications/${applicationId}/${field}_${safeName}`;
+
+
+          const storageRef =
+            ref(
+              storage,
+              storagePath
             );
 
 
-            /* ==========================================
-               إنشاء طلب المدربة
-            ========================================== */
-
-            const applicationData = {
-
-                fullName:
-                    fullName,
-
-                phone:
-                    phone,
-
-                nationalId:
-                    nationalId,
-
-                qualification:
-                    qualification,
-
-                ownsCar:
-                    ownsCarValue,
-
-                status:
-                    "pending",
-
-                applicationType:
-                    "instructor",
-
-                createdAt:
-                    serverTimestamp()
-
-            };
+          await uploadBytes(
+            storageRef,
+            file
+          );
 
 
-            const docRef =
-                await addDoc(
-                    collection(
-                        db,
-                        "instructorApplications"
-                    ),
-                    applicationData
-                );
-
-
-            const applicationId =
-                docRef.id;
-
-
-            setProgress(
-                20,
-                "تم إنشاء الطلب، جاري رفع المستندات..."
+          const downloadURL =
+            await getDownloadURL(
+              storageRef
             );
 
 
-            /* ==========================================
-               الملفات
-            ========================================== */
+          uploadedFiles[field] = {
 
-            const fileFields = [
+            url:
+              downloadURL,
 
-                "idImage",
+            fileName:
+              file.name,
 
-                "license",
+            storagePath:
+              storagePath,
 
-                "carRegistration",
+            contentType:
+              file.type,
 
-                "authorization",
+            size:
+              file.size
 
-                "certificate",
-
-                "video",
-
-                "voiceRecording"
-
-            ];
+          };
 
 
-            const uploadedFiles = {};
-
-            let uploadedCount = 0;
+          uploadedCount++;
 
 
-            for (
-                const field of fileFields
-            ) {
-
-                const input =
-                    document.getElementById(
-                        field
-                    );
-
-
-                if (
-                    input.files &&
-                    input.files.length > 0
-                ) {
-
-
-                    const file =
-                        input.files[0];
-
-
-                    /*
-                    تنظيف اسم الملف
-                    */
-
-                    const safeName =
-                        file.name
-                            .replace(
-                                /[^a-zA-Z0-9._-]/g,
-                                "_"
-                            );
-
-
-                    /*
-                    مكان تخزين ملفات طلب المدربة
-
-                    مهم:
-                    لا نستخدم instructors/
-
-                    لأن المدربة لم تعتمد بعد.
-                    */
-
-                    const storagePath =
-                        `instructorApplications/${applicationId}/${field}_${safeName}`;
-
-
-                    const storageRef =
-                        ref(
-                            storage,
-                            storagePath
-                        );
-
-
-                    await uploadBytes(
-                        storageRef,
-                        file
-                    );
-
-
-                    const downloadURL =
-                        await getDownloadURL(
-                            storageRef
-                        );
-
-
-                    uploadedFiles[field] = {
-
-                        url:
-                            downloadURL,
-
-                        fileName:
-                            file.name,
-
-                        storagePath:
-                            storagePath,
-
-                        contentType:
-                            file.type,
-
-                        size:
-                            file.size
-
-                    };
-
-
-                    uploadedCount++;
-
-
-                    const percent =
-                        20 +
-                        Math.round(
-                            (
-                                uploadedCount /
-                                fileFields.length
-                            ) * 65
-                        );
-
-
-                    setProgress(
-                        percent,
-                        `جاري رفع الملفات... ${uploadedCount}/${fileFields.length}`
-                    );
-
-                }
-
-            }
-
-
-            /* ==========================================
-               حفظ روابط الملفات
-            ========================================== */
-
-            setProgress(
-                90,
-                "جاري حفظ بيانات الطلب..."
+          const percent =
+            20 +
+            Math.round(
+              (
+                uploadedCount /
+                fileFields.length
+              ) * 65
             );
 
 
-            await updateDoc(
-                docRef,
-                {
-
-                    files:
-                        uploadedFiles,
-
-                    submittedAt:
-                        serverTimestamp()
-
-                }
-            );
-
-
-            /* ==========================================
-               نجاح
-            ========================================== */
-
-            setProgress(
-                100,
-                "تم إرسال الطلب بنجاح"
-            );
-
-
-            statusEl.className =
-                "ok";
-
-            statusEl.textContent =
-                "تم استلام طلبك بنجاح.";
-
-
-            form.style.display =
-                "none";
-
-
-            successBox.style.display =
-                "block";
-
-
-        } catch (error) {
-
-
-            console.error(
-                "Instructor registration error:",
-                error
-            );
-
-
-            statusEl.className =
-                "err";
-
-
-            statusEl.textContent =
-                "حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.";
-
-
-            progressBox.style.display =
-                "none";
-
-
-            submitBtn.disabled =
-                false;
+          setProgress(
+            percent,
+            `جاري رفع الملفات... ${uploadedCount}/${fileFields.length}`
+          );
 
         }
 
+      }
+
+
+      /* ==========================================
+         حفظ الملفات
+      ========================================== */
+
+      setProgress(
+        90,
+        "جاري حفظ بيانات الطلب..."
+      );
+
+
+      await updateDoc(
+        docRef,
+        {
+
+          files:
+            uploadedFiles,
+
+          submittedAt:
+            serverTimestamp()
+
+        }
+      );
+
+
+      /* ==========================================
+         نجاح
+      ========================================== */
+
+      setProgress(
+        100,
+        "تم إرسال الطلب بنجاح"
+      );
+
+
+      applicationNumberEl.textContent =
+        applicationNumber;
+
+
+      statusEl.className =
+        "ok";
+
+      statusEl.textContent =
+        "تم استلام طلبك بنجاح.";
+
+
+      form.style.display =
+        "none";
+
+      successBox.style.display =
+        "block";
+
+
+    } catch (error) {
+
+      console.error(
+        "Instructor registration error:",
+        error
+      );
+
+      statusEl.className =
+        "err";
+
+      statusEl.textContent =
+        "حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.";
+
+      progressBox.style.display =
+        "none";
+
+      submitBtn.disabled =
+        false;
+
     }
+
+  }
 );
 
 </script>
