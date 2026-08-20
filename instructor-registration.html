@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
 
 <title>تسجيل مدربة | TDrive</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
 
 <style>
+
 :root {
   --teal:#1B9AAA;
   --teal-dark:#147885;
@@ -20,6 +29,7 @@
   --border:#E3E8EA;
   --success:#1B8A4C;
   --danger:#C94141;
+  --warning:#D97706;
 }
 
 * {
@@ -205,6 +215,35 @@ select:focus {
   cursor:not-allowed;
 }
 
+.terms-button {
+  width:100%;
+  border:1px solid #CDE8EB;
+  background:#EAF6F7;
+  color:var(--teal-dark);
+  border-radius:10px;
+  padding:11px;
+  font-family:'Cairo',sans-serif;
+  font-size:13px;
+  font-weight:700;
+  cursor:pointer;
+  margin-bottom:12px;
+}
+
+.terms-button:hover {
+  background:#DFF2F4;
+}
+
+.terms-status {
+  display:none;
+  background:#F0FAF4;
+  border:1px solid #C9EBD6;
+  color:var(--success);
+  border-radius:9px;
+  padding:9px 11px;
+  font-size:11px;
+  margin-bottom:12px;
+}
+
 #progressBox {
   display:none;
   margin-top:15px;
@@ -309,6 +348,137 @@ footer {
   font-size:12px;
 }
 
+
+/* ==================================================
+   TERMS MODAL
+================================================== */
+
+.terms-modal {
+  position:fixed;
+  inset:0;
+  background:rgba(31,58,77,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  z-index:1000;
+}
+
+.terms-modal.show {
+  display:flex;
+}
+
+.terms-box {
+  width:100%;
+  max-width:620px;
+  max-height:90vh;
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 15px 50px rgba(0,0,0,.18);
+  display:flex;
+  flex-direction:column;
+}
+
+.terms-header {
+  background:var(--navy);
+  color:#fff;
+  padding:17px 20px;
+  text-align:center;
+  flex-shrink:0;
+}
+
+.terms-header h2 {
+  font-size:18px;
+}
+
+.terms-header p {
+  color:#C9D6DB;
+  font-size:11px;
+  margin-top:2px;
+}
+
+.terms-content {
+  padding:20px;
+  overflow-y:auto;
+  font-size:12px;
+  color:var(--text);
+}
+
+.terms-intro {
+  background:#EAF6F7;
+  border:1px solid #D2ECEF;
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:14px;
+  color:var(--muted);
+}
+
+.terms-list {
+  padding-right:20px;
+}
+
+.terms-list li {
+  margin-bottom:11px;
+  padding-right:3px;
+}
+
+.terms-list strong {
+  color:var(--navy);
+}
+
+.terms-footer {
+  padding:14px 18px;
+  border-top:1px solid var(--border);
+  background:#FAFCFC;
+  flex-shrink:0;
+}
+
+.terms-accept {
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  font-size:12px;
+  color:var(--text);
+  cursor:pointer;
+}
+
+.terms-accept input {
+  margin-top:5px;
+  flex-shrink:0;
+}
+
+.terms-actions {
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+
+.terms-actions button {
+  flex:1;
+  border:none;
+  border-radius:9px;
+  padding:10px;
+  font-family:'Cairo',sans-serif;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.terms-cancel {
+  background:#EEF2F3;
+  color:var(--muted);
+}
+
+.terms-confirm {
+  background:var(--teal);
+  color:#fff;
+}
+
+.terms-confirm:disabled {
+  opacity:.5;
+  cursor:not-allowed;
+}
+
 @media (max-width:600px) {
 
   header {
@@ -330,8 +500,19 @@ footer {
   .card {
     padding:18px;
   }
+
+  .terms-box {
+    max-height:92vh;
+  }
+
+  .terms-content {
+    padding:16px;
+  }
+
 }
+
 </style>
+
 </head>
 
 <body>
@@ -354,6 +535,7 @@ footer {
 
 </header>
 
+
 <div class="container">
 
   <div class="intro">
@@ -369,7 +551,12 @@ footer {
 
   </div>
 
+
   <form id="appForm">
+
+    <!-- ==================================================
+         البيانات الأساسية
+    ================================================== -->
 
     <div class="card">
 
@@ -443,6 +630,11 @@ footer {
       </select>
 
     </div>
+
+
+    <!-- ==================================================
+         المستندات
+    ================================================== -->
 
     <div class="card">
 
@@ -523,7 +715,7 @@ footer {
       <div class="file-box">
 
         <label>
-          شهادة خدمة عملاء أو شهادة 
+          شهادة خدمة عملاء أو شهادة
         </label>
 
         <input
@@ -579,6 +771,11 @@ footer {
 
     </div>
 
+
+    <!-- ==================================================
+         الإقرارات الأساسية
+    ================================================== -->
+
     <div class="card">
 
       <h2>
@@ -587,17 +784,23 @@ footer {
 
       <label class="checkbox-row">
 
-        <input type="checkbox" required>
+        <input
+          type="checkbox"
+          required
+        >
 
         <span>
-          أقر بأنني قرأت الشروط والأحكام والتعليمات الخاصة بالمدربات وفهمتها.
+          أقر بأنني قرأت الشروط والأحكام الخاصة بالمدربات وفهمتها.
         </span>
 
       </label>
 
       <label class="checkbox-row">
 
-        <input type="checkbox" required>
+        <input
+          type="checkbox"
+          required
+        >
 
         <span>
           أوافق على الالتزام بمحتوى البرنامج وتسلسل المهارات وعدم تجاوزها دون مبرر معتمد.
@@ -607,7 +810,10 @@ footer {
 
       <label class="checkbox-row">
 
-        <input type="checkbox" required>
+        <input
+          type="checkbox"
+          required
+        >
 
         <span>
           أوافق على تسجيل أوقات توفري والالتزام بالحجوزات التي أقبلها.
@@ -617,7 +823,10 @@ footer {
 
       <label class="checkbox-row">
 
-        <input type="checkbox" required>
+        <input
+          type="checkbox"
+          required
+        >
 
         <span>
           أوافق على توثيق الجلسات والمهارات وإرسال تأكيد الجلسة للمتدربة.
@@ -627,7 +836,10 @@ footer {
 
       <label class="checkbox-row">
 
-        <input type="checkbox" required>
+        <input
+          type="checkbox"
+          required
+        >
 
         <span>
           ألتزم بسرية المنهج والمحتوى وعدم نسخه أو مشاركته خارج نطاق TDrive.
@@ -635,7 +847,33 @@ footer {
 
       </label>
 
+
+      <!-- زر الشروط -->
+
+      <button
+        type="button"
+        class="terms-button"
+        id="openTermsBtn"
+      >
+        📄 قراءة الشروط والأحكام كاملة
+      </button>
+
+
+      <!-- حالة الموافقة -->
+
+      <div
+        class="terms-status"
+        id="termsStatus"
+      >
+        ✓ تمت الموافقة على الشروط والأحكام
+      </div>
+
     </div>
+
+
+    <!-- ==================================================
+         إرسال
+    ================================================== -->
 
     <button
       type="submit"
@@ -644,6 +882,7 @@ footer {
     >
       إرسال طلب الانضمام
     </button>
+
 
     <div id="progressBox">
 
@@ -668,6 +907,11 @@ footer {
     <div id="status"></div>
 
   </form>
+
+
+  <!-- ==================================================
+       SUCCESS
+  ================================================== -->
 
   <div
     class="success-box"
@@ -705,9 +949,212 @@ footer {
 
 </div>
 
+
 <footer>
   TDrive — تكنولوجيا القيادة
 </footer>
+
+
+<!-- ==================================================
+     TERMS MODAL
+================================================== -->
+
+<div
+  class="terms-modal"
+  id="termsModal"
+>
+
+  <div class="terms-box">
+
+    <div class="terms-header">
+
+      <h2>
+        الشروط والأحكام الخاصة بالمدربات
+      </h2>
+
+      <p>
+        يرجى قراءة الشروط كاملة قبل الموافقة
+      </p>
+
+    </div>
+
+
+    <div class="terms-content">
+
+      <div class="terms-intro">
+
+        بانضمامك إلى منصة TDrive كمدربة، فإنك تقرين بقراءة وفهم
+        الشروط التالية والموافقة على الالتزام بها أثناء فترة انتسابك للمنصة.
+
+      </div>
+
+
+      <ol class="terms-list">
+
+        <li>
+          <strong>صحة البيانات:</strong>
+          تلتزم المدربة بتقديم بيانات صحيحة ومطابقة للواقع،
+          بما في ذلك الاسم، رقم الجوال، رقم الهوية، وبيانات السيارة.
+          ويحق للمنصة تعليق أو إيقاف سجل التدريب والحساب عند اكتشاف
+          اختلاف جوهري أو بيانات غير صحيحة.
+        </li>
+
+        <li>
+          <strong>دقة نتائج التدريب:</strong>
+          تلتزم المدربة بتسجيل نتائج التدريب والتقييمات كما حدثت فعليًا،
+          دون تعديل أو تلاعب أو رفع مستوى المتدربة بشكل غير مستحق.
+          ويحق للمنصة تعليق أو إيقاف سجل التدريب عند ثبوت التلاعب بالنتائج.
+        </li>
+
+        <li>
+          <strong>سرية المعلومات:</strong>
+          تلتزم المدربة بالمحافظة على سرية جميع البيانات والمعلومات
+          المتعلقة بالمنصة والمتدربات والمنهج والعمليات الداخلية،
+          وعدم إفشائها أو مشاركتها مع أي طرف خارج نطاق العمل.
+        </li>
+
+        <li>
+          <strong>معدات التدريب:</strong>
+          تلتزم المدربة بتوفير ما لا يقل عن أربعة أقماع ولا يزيد عن ستة أقماع،
+          على ألا يقل ارتفاع القمع عن 70 سم، لاستخدامها عند الحاجة في التدريب.
+        </li>
+
+        <li>
+          <strong>السلوك المهني:</strong>
+          تلتزم المدربة بالتحلي بالسلوك المهني والأخلاقي أثناء التدريب،
+          ويحق للمنصة تعليق أو إيقاف سجل التدريب والحساب عند وجود سلوك
+          غير مهني أو غير أخلاقي.
+        </li>
+
+        <li>
+          <strong>التدخين:</strong>
+          يمنع التدخين أثناء جلسات التدريب أو داخل المركبة أثناء وجود المتدربة.
+        </li>
+
+        <li>
+          <strong>نظافة المركبة:</strong>
+          تلتزم المدربة بالمحافظة على نظافة المركبة وترتيبها وتهيئتها
+          بشكل مناسب قبل بدء جلسة التدريب.
+        </li>
+
+        <li>
+          <strong>سلامة المتدربة:</strong>
+          تلتزم المدربة بتطبيق تعليمات السلامة المرورية،
+          وعدم تعريض المتدربة أو أي مستخدم للطريق لخطر متعمد أو غير مبرر.
+        </li>
+
+        <li>
+          <strong>سمعة المنصة:</strong>
+          تلتزم المدربة بالمحافظة على سمعة TDrive وتمثيل المنصة
+          بصورة مهنية ومحترمة أمام المتدربات وأفراد المجتمع.
+        </li>
+
+        <li>
+          <strong>الحجوزات والمواعيد:</strong>
+          تلتزم المدربة بالمواعيد والحجوزات التي تقبلها،
+          وفي حال تعذر تنفيذ الحجز يجب إبلاغ المنصة وفق الإجراءات المعتمدة
+          في أقرب وقت ممكن.
+        </li>
+
+        <li>
+          <strong>توثيق التدريب:</strong>
+          تلتزم المدربة بتوثيق الجلسات والمهارات والتقييمات
+          وفق النموذج والإجراءات المعتمدة في TDrive.
+        </li>
+
+        <li>
+          <strong>عدم مشاركة الحساب:</strong>
+          حساب المدربة ورقم الملف والرمز السري مخصصة للمدربة نفسها،
+          ولا يجوز مشاركة بيانات الدخول أو تمكين أي شخص آخر من استخدام الحساب.
+        </li>
+
+        <li>
+          <strong>المدفوعات:</strong>
+          تتم المستحقات المالية للمدربة بشكل دوري وفق آلية المنصة،
+          ويتم استقطاع النسبة المتفق عليها من كل عملية تسجيل ناجحة ومكتملة
+          وفق السياسة المالية المعتمدة لدى TDrive.
+        </li>
+
+        <li>
+          <strong>المدفوعات خارج المنصة:</strong>
+          لا يجوز تحصيل مبالغ من المتدربة خارج الآلية المعتمدة
+          أو الاتفاق على خدمات أو مبالغ غير مسجلة في النظام دون موافقة الإدارة.
+        </li>
+
+        <li>
+          <strong>تحديث البيانات:</strong>
+          تلتزم المدربة بإبلاغ TDrive عن أي تغيير في بياناتها الشخصية
+          أو بيانات السيارة أو الرخصة أو التفويض أو أي مستند مرتبط بملفها.
+        </li>
+
+        <li>
+          <strong>حق المنصة في المراجعة:</strong>
+          يحق لـTDrive مراجعة سجلات التدريب والتقييمات والالتزام بالإجراءات،
+          وتعليق الحساب مؤقتًا عند وجود مخالفة تستدعي المراجعة إلى حين اتخاذ القرار.
+        </li>
+
+        <li>
+          <strong>الالتزام بالتعليمات:</strong>
+          تلتزم المدربة بالتعليمات والإجراءات التشغيلية المعتمدة في TDrive
+          وأي تحديثات يتم اعتمادها لاحقًا وإبلاغ المدربات بها.
+        </li>
+
+        <li>
+          <strong>إيقاف الانتساب:</strong>
+          في حال وجود مخالفة جوهرية للشروط أو تكرار المخالفات،
+          يحق للمنصة اتخاذ الإجراءات المناسبة، بما في ذلك تعليق أو إيقاف
+          سجل التدريب أو حساب المدربة وفق الحالة.
+        </li>
+
+      </ol>
+
+    </div>
+
+
+    <div class="terms-footer">
+
+      <label class="terms-accept">
+
+        <input
+          type="checkbox"
+          id="termsCheckbox"
+        >
+
+        <span>
+          أقر بأنني قرأت الشروط والأحكام أعلاه وفهمتها،
+          وأوافق على الالتزام بها أثناء انتسابي إلى TDrive.
+        </span>
+
+      </label>
+
+
+      <div class="terms-actions">
+
+        <button
+          type="button"
+          class="terms-cancel"
+          id="closeTermsBtn"
+        >
+          إلغاء
+        </button>
+
+        <button
+          type="button"
+          class="terms-confirm"
+          id="confirmTermsBtn"
+          disabled
+        >
+          أوافق على الشروط
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
 
 <script type="module">
 
@@ -812,6 +1259,130 @@ const applicationNumberEl =
 
 
 /* ==================================================
+   الشروط والأحكام
+================================================== */
+
+const termsModal =
+  document.getElementById("termsModal");
+
+const openTermsBtn =
+  document.getElementById("openTermsBtn");
+
+const closeTermsBtn =
+  document.getElementById("closeTermsBtn");
+
+const termsCheckbox =
+  document.getElementById("termsCheckbox");
+
+const confirmTermsBtn =
+  document.getElementById("confirmTermsBtn");
+
+const termsStatus =
+  document.getElementById("termsStatus");
+
+
+let termsAccepted =
+  false;
+
+
+/* فتح الشروط */
+
+openTermsBtn.addEventListener(
+  "click",
+  () => {
+
+    termsModal.classList.add(
+      "show"
+    );
+
+  }
+);
+
+
+/* إغلاق الشروط */
+
+closeTermsBtn.addEventListener(
+  "click",
+  () => {
+
+    termsModal.classList.remove(
+      "show"
+    );
+
+  }
+);
+
+
+/* تفعيل زر الموافقة */
+
+termsCheckbox.addEventListener(
+  "change",
+  () => {
+
+    confirmTermsBtn.disabled =
+      !termsCheckbox.checked;
+
+  }
+);
+
+
+/* تأكيد الموافقة */
+
+confirmTermsBtn.addEventListener(
+  "click",
+  () => {
+
+    if (
+      !termsCheckbox.checked
+    ) {
+
+      return;
+
+    }
+
+
+    termsAccepted =
+      true;
+
+
+    termsStatus.style.display =
+      "block";
+
+
+    openTermsBtn.textContent =
+      "✓ تم الاطلاع والموافقة على الشروط والأحكام";
+
+
+    termsModal.classList.remove(
+      "show"
+    );
+
+  }
+);
+
+
+/* إغلاق النافذة عند الضغط خارجها */
+
+termsModal.addEventListener(
+  "click",
+  (event) => {
+
+    if (
+      event.target ===
+      termsModal
+    ) {
+
+      termsModal.classList.remove(
+        "show"
+      );
+
+    }
+
+  }
+);
+
+
+/* ==================================================
    التفويض
 ================================================== */
 
@@ -819,7 +1390,9 @@ ownsCar.addEventListener(
   "change",
   () => {
 
-    if (ownsCar.value === "no") {
+    if (
+      ownsCar.value === "no"
+    ) {
 
       authorizationBox.style.display =
         "block";
@@ -835,7 +1408,8 @@ ownsCar.addEventListener(
       authorization.required =
         false;
 
-      authorization.value = "";
+      authorization.value =
+        "";
 
     }
 
@@ -877,6 +1451,7 @@ async function createApplicationNumber() {
       "instructorApplicationNumber"
     );
 
+
   const applicationNumber =
     await runTransaction(
       db,
@@ -887,6 +1462,7 @@ async function createApplicationNumber() {
             counterRef
           );
 
+
         let lastNumber =
           counterSnap.exists()
             ? Number(
@@ -894,8 +1470,10 @@ async function createApplicationNumber() {
               )
             : 0;
 
+
         const nextNumber =
           lastNumber + 1;
+
 
         transaction.set(
           counterRef,
@@ -908,6 +1486,7 @@ async function createApplicationNumber() {
           }
         );
 
+
         return (
           "APP-" +
           String(nextNumber)
@@ -916,6 +1495,7 @@ async function createApplicationNumber() {
 
       }
     );
+
 
   return applicationNumber;
 
@@ -932,8 +1512,36 @@ form.addEventListener(
 
     e.preventDefault();
 
+
+    /* ==========================================
+       التحقق من الشروط أولًا
+    ========================================== */
+
+    if (
+      !termsAccepted
+    ) {
+
+      statusEl.className =
+        "err";
+
+      statusEl.textContent =
+        "يرجى قراءة الشروط والأحكام والموافقة عليها قبل إرسال الطلب.";
+
+
+      openTermsBtn.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+      });
+
+
+      return;
+
+    }
+
+
     submitBtn.disabled =
       true;
+
 
     statusEl.className =
       "";
@@ -941,7 +1549,9 @@ form.addEventListener(
     statusEl.textContent =
       "";
 
+
     try {
+
 
       /* ==========================================
          البيانات الأساسية
@@ -953,11 +1563,13 @@ form.addEventListener(
           .value
           .trim();
 
+
       const phone =
         document
           .getElementById("phone")
           .value
           .trim();
+
 
       const nationalId =
         document
@@ -965,11 +1577,13 @@ form.addEventListener(
           .value
           .trim();
 
+
       const qualification =
         document
           .getElementById("qualification")
           .value
           .trim();
+
 
       const ownsCarValue =
         ownsCar.value;
@@ -996,7 +1610,7 @@ form.addEventListener(
 
 
       /* ==========================================
-         إنشاء طلب المدربة
+         إنشاء الطلب
       ========================================== */
 
       const applicationData = {
@@ -1024,6 +1638,19 @@ form.addEventListener(
 
         applicationType:
           "instructor",
+
+        /*
+         * إثبات الموافقة على الشروط
+         */
+
+        termsAccepted:
+          true,
+
+        termsVersion:
+          "2026-08-20",
+
+        termsAcceptedAt:
+          serverTimestamp(),
 
         createdAt:
           serverTimestamp()
@@ -1099,11 +1726,10 @@ form.addEventListener(
 
 
           const safeName =
-            file.name
-              .replace(
-                /[^a-zA-Z0-9._-]/g,
-                "_"
-              );
+            file.name.replace(
+              /[^a-zA-Z0-9._-]/g,
+              "_"
+            );
 
 
           const storagePath =
@@ -1197,7 +1823,7 @@ form.addEventListener(
 
 
       /* ==========================================
-         نجاح
+         النجاح
       ========================================== */
 
       setProgress(
@@ -1213,12 +1839,14 @@ form.addEventListener(
       statusEl.className =
         "ok";
 
+
       statusEl.textContent =
         "تم استلام طلبك بنجاح.";
 
 
       form.style.display =
         "none";
+
 
       successBox.style.display =
         "block";
@@ -1231,14 +1859,18 @@ form.addEventListener(
         error
       );
 
+
       statusEl.className =
         "err";
+
 
       statusEl.textContent =
         "حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.";
 
+
       progressBox.style.display =
         "none";
+
 
       submitBtn.disabled =
         false;
