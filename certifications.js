@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // الحقول
     const studentInput = document.getElementById("studentInput");
-    const identityInput = document.getElementById("identityInput");
     const programInput = document.getElementById("programInput");
     const hoursInput = document.getElementById("hoursInput");
     const dateInput = document.getElementById("dateInput");
@@ -10,73 +9,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // عناصر الشهادة
     const studentName = document.getElementById("studentName");
-    const identityText = document.getElementById("identityText");
     const programText = document.getElementById("programText");
     const hoursText = document.getElementById("hoursText");
     const dateText = document.getElementById("dateText");
     const managerText = document.getElementById("managerText");
 
-    // تحديث اسم المتدربة
+
+    // اسم المتدربة
     studentInput.addEventListener("input", () => {
         studentName.textContent =
             studentInput.value || "المتدربة";
     });
 
-    // تحديث رقم الهوية
-    identityInput.addEventListener("input", () => {
-        identityText.textContent =
-            identityInput.value || "—";
-    });
 
-    programInput.addEventListener("change", () => {
-    programText.textContent =
-        programInput.value;
-});
+    // اسم البرنامج
+    function updateProgramName() {
+        programText.textContent =
+            programInput.value || "احترفي القيادة على الطريق";
+    }
 
-    // تحديث عدد الساعات
+    programInput.addEventListener("change", updateProgramName);
+    programInput.addEventListener("input", updateProgramName);
+
+
+    // عدد الساعات
     hoursInput.addEventListener("input", () => {
         hoursText.textContent =
             hoursInput.value || "5";
     });
 
-    // تحديث التاريخ
+
+    // التاريخ
     dateInput.addEventListener("change", () => {
 
-    if (!dateInput.value) {
-        dateText.textContent = "—";
-        return;
-    }
+        if (!dateInput.value) {
+            dateText.textContent = "—";
+            return;
+        }
 
-    const [year, month, day] = dateInput.value.split("-");
+        const [year, month, day] = dateInput.value.split("-");
 
-    const months = [
-        "يناير",
-        "فبراير",
-        "مارس",
-        "أبريل",
-        "مايو",
-        "يونيو",
-        "يوليو",
-        "أغسطس",
-        "سبتمبر",
-        "أكتوبر",
-        "نوفمبر",
-        "ديسمبر"
-    ];
+        const months = [
+            "يناير",
+            "فبراير",
+            "مارس",
+            "أبريل",
+            "مايو",
+            "يونيو",
+            "يوليو",
+            "أغسطس",
+            "سبتمبر",
+            "أكتوبر",
+            "نوفمبر",
+            "ديسمبر"
+        ];
 
-    dateText.textContent =
-        `${day} ${months[Number(month) - 1]} ${year}`;
-});
+        dateText.textContent =
+            `${day} ${months[Number(month) - 1]} ${year}`;
+    });
 
-    // تحديث اسم المديرة
+
+    // اسم المديرة
     managerInput.addEventListener("input", () => {
         managerText.textContent =
             managerInput.value || "منى حمود";
     });
 
-    // زر الطباعة
+
+    // الطباعة
     document.getElementById("printBtn").addEventListener("click", () => {
-        window.print();
+
+        // مهم جدًا:
+        // نعيد أخذ البرنامج المختار مباشرة قبل الطباعة
+        updateProgramName();
+
+        setTimeout(() => {
+            window.print();
+        }, 100);
+
     });
 
 });
