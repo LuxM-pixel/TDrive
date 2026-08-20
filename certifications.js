@@ -15,39 +15,63 @@ document.addEventListener("DOMContentLoaded", () => {
     const managerText = document.getElementById("managerText");
 
 
-    // اسم المتدربة
-    studentInput.addEventListener("input", () => {
+    /* ==============================
+       اسم المتدربة
+    ============================== */
+
+    function updateStudentName() {
         studentName.textContent =
             studentInput.value || "المتدربة";
-    });
-
-
-    // اسم البرنامج
-    function updateProgramName() {
-        programText.textContent =
-            programInput.value || "احترفي القيادة على الطريق";
     }
 
+    studentInput.addEventListener("input", updateStudentName);
+
+
+    /* ==============================
+       اسم البرنامج
+    ============================== */
+
+    function updateProgramName() {
+
+        // نأخذ القيمة المختارة مباشرة من القائمة
+        const selectedProgram = programInput.value;
+
+        programText.textContent =
+            selectedProgram || "احترفي القيادة على الطريق";
+    }
+
+    // عند تغيير الاختيار
     programInput.addEventListener("change", updateProgramName);
+
+    // للتوافق مع المتصفحات المختلفة
     programInput.addEventListener("input", updateProgramName);
 
 
-    // عدد الساعات
-    hoursInput.addEventListener("input", () => {
+    /* ==============================
+       عدد الساعات
+    ============================== */
+
+    function updateHours() {
         hoursText.textContent =
             hoursInput.value || "5";
-    });
+    }
+
+    hoursInput.addEventListener("input", updateHours);
 
 
-    // التاريخ
-    dateInput.addEventListener("change", () => {
+    /* ==============================
+       التاريخ
+    ============================== */
+
+    function updateDate() {
 
         if (!dateInput.value) {
             dateText.textContent = "—";
             return;
         }
 
-        const [year, month, day] = dateInput.value.split("-");
+        const [year, month, day] =
+            dateInput.value.split("-");
 
         const months = [
             "يناير",
@@ -66,27 +90,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
         dateText.textContent =
             `${day} ${months[Number(month) - 1]} ${year}`;
-    });
+    }
+
+    dateInput.addEventListener("change", updateDate);
 
 
-    // اسم المديرة
-    managerInput.addEventListener("input", () => {
+    /* ==============================
+       اسم المديرة
+    ============================== */
+
+    function updateManagerName() {
         managerText.textContent =
             managerInput.value || "منى حمود";
+    }
+
+    managerInput.addEventListener("input", updateManagerName);
+
+
+    /* ==============================
+       تحديث كل بيانات الشهادة
+    ============================== */
+
+    function updateCertificate() {
+
+        updateStudentName();
+        updateProgramName();
+        updateHours();
+        updateDate();
+        updateManagerName();
+
+    }
+
+
+    /* ==============================
+       مهم جدًا للطباعة
+    ============================== */
+
+    window.addEventListener("beforeprint", () => {
+
+        // نعيد قراءة كل البيانات
+        // مباشرة قبل دخول وضع الطباعة
+        updateCertificate();
+
     });
 
 
-    // الطباعة
+    /* ==============================
+       زر الطباعة
+    ============================== */
+
     document.getElementById("printBtn").addEventListener("click", () => {
 
-        // مهم جدًا:
-        // نعيد أخذ البرنامج المختار مباشرة قبل الطباعة
-        updateProgramName();
+        // تحديث الشهادة أولًا
+        updateCertificate();
 
-        setTimeout(() => {
-            window.print();
-        }, 100);
+        // إعطاء Safari فرصة لتحديث DOM
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                window.print();
+
+            });
+
+        });
 
     });
+
+
+    /* ==============================
+       التشغيل الأول
+    ============================== */
+
+    updateCertificate();
 
 });
