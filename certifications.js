@@ -28,11 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
             identityInput.value || "—";
     });
 
-    // تحديث اسم البرنامج
-    programInput.addEventListener("input", () => {
-        programText.textContent =
-            programInput.value || "برنامج احتراف القيادة على الطريق";
-    });
+    programInput.addEventListener("change", () => {
+    programText.textContent =
+        programInput.value;
+});
 
     // تحديث عدد الساعات
     hoursInput.addEventListener("input", () => {
