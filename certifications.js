@@ -28,16 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ==============================
-       اسم البرنامج
+       اسم البرنامج (تم التعديل)
     ============================== */
 
     function updateProgramName() {
-
-        // نأخذ القيمة المختارة مباشرة من القائمة
         const selectedProgram = programInput.value;
 
+        // التحقق من أن القيمة المختارة موجودة وليست فارغة
         programText.textContent =
-            selectedProgram || "احترفي القيادة على الطريق";
+            (selectedProgram !== "" && selectedProgram !== null && selectedProgram !== undefined)
+            ? selectedProgram
+            : "احترفي القيادة على الطريق";
     }
 
     // عند تغيير الاختيار
