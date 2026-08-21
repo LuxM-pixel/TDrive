@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>الشروط والأحكام الخاصة بالمدربات | TDrive</title>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+:root{
+
+  --tdrive:#65b7c3;
+  --tdrive-dark:#3a939f;
+  --tdrive-light:#eaf8fa;
+  --tdrive-soft:#f7fbfd;
+
+  --bg:#f7fbfd;
+  --card:#ffffff;
+
+  --text:#333333;
+  --muted:#707d82;
+
+  --border:#d9edf5;
+  --border-soft:#e6f1f4;
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+*{
+
+  box-sizing:border-box;
+
+  margin:0;
+
+  padding:0;
+
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+  font-family:'Cairo',sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f7fbfd 55%,
+      #eef9fb 100%
+    );
+
+  color:var(--text);
+
+  min-height:100vh;
+
+  line-height:1.8;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+
+  background:#fff;
+
+  text-align:center;
+
+  padding:28px 20px 24px;
+
+  border-bottom:1px solid var(--border);
+
+}
+
+
+.logo{
+
+  direction:ltr;
+
+  font-size:40px;
+
+  font-weight:800;
+
+  color:var(--tdrive);
+
+  letter-spacing:-1px;
+
+  line-height:1.1;
+
+}
+
+
+.tagline{
+
+  color:#777;
+
+  font-size:14px;
+
+  font-weight:500;
+
+  margin-top:6px;
+
+}
+
+
+header h1{
+
+  color:#333;
+
+  font-size:21px;
+
+  font-weight:800;
+
+  margin-top:17px;
+
+  line-height:1.6;
+
+}
+
+
+header p{
+
+  color:var(--muted);
+
+  font-size:12px;
+
+  margin-top:4px;
+
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+  width:100%;
+
+  max-width:760px;
+
+  margin:0 auto;
+
+  padding:30px 18px 55px;
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f0fafb
+    );
+
+  border:1.5px solid var(--border);
+
+  border-radius:20px;
+
+  padding:20px;
+
+  margin-bottom:18px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(101,183,195,.06);
+
+}
+
+
+.intro strong{
+
+  display:block;
+
+  color:var(--tdrive-dark);
+
+  font-size:16px;
+
+  font-weight:800;
+
+  margin-bottom:6px;
+
+}
+
+
+.intro p{
+
+  color:var(--muted);
+
+  font-size:12px;
+
+  line-height:1.9;
+
+}
+
+
+/* =========================
+   TERMS CARD
+========================= */
+
+.terms-card{
+
+  background:#fff;
+
+  border:1.5px solid var(--border);
+
+  border-radius:20px;
+
+  padding:23px;
+
+  box-shadow:
+    0 7px 22px
+    rgba(101,183,195,.045);
+
+}
+
+
+/* =========================
+   TERMS LIST
+========================= */
+
+.terms-list{
+
+  padding-right:22px;
+
+}
+
+
+.terms-list li{
+
+  margin-bottom:17px;
+
+  padding-right:4px;
+
+  color:#59676c;
+
+  font-size:13px;
+
+  line-height:2;
+
+}
+
+
+.terms-list strong{
+
+  color:var(--tdrive-dark);
+
+  font-weight:800;
+
+}
+
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+
+  background:var(--tdrive-light);
+
+  border:1px solid #d2edf1;
+
+  border-radius:13px;
+
+  padding:14px;
+
+  margin-top:8px;
+
+  margin-bottom:20px;
+
+  color:#64747a;
+
+  font-size:12px;
+
+  line-height:1.9;
+
+}
+
+
+/* =========================
+   BACK INFO
+========================= */
+
+.back-info{
+
+  text-align:center;
+
+  background:#fbfeff;
+
+  border:1px solid var(--border);
+
+  border-radius:14px;
+
+  padding:14px;
+
+  margin-top:18px;
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  line-height:1.8;
+
+}
+
+
+.back-info strong{
+
+  color:var(--tdrive-dark);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+  text-align:center;
+
+  padding:25px 15px 30px;
+
+  border-top:1px solid var(--border);
+
+  color:#89959c;
+
+  font-size:11px;
+
+}
+
+
+footer strong{
+
+  color:var(--tdrive-dark);
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  header{
+
+    padding:24px 15px 21px;
+
+  }
+
+
+  .logo{
+
+    font-size:37px;
+
+  }
+
+
+  header h1{
+
+    font-size:19px;
+
+  }
+
+
+  .container{
+
+    padding:24px 14px 45px;
+
+  }
+
+
+  .intro{
+
+    border-radius:17px;
+
+    padding:17px;
+
+  }
+
+
+  .terms-card{
+
+    padding:18px;
+
+    border-radius:17px;
+
+  }
+
+
+  .terms-list{
+
+    padding-right:20px;
+
+  }
+
+
+  .terms-list li{
+
+    font-size:12px;
+
+    margin-bottom:15px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header>
+
+  <div class="logo">
+    TDrive
+  </div>
+
+  <div class="tagline">
+    تكنولوجيا القيادة
+  </div>
+
+  <h1>
+    الشروط والأحكام الخاصة بالمدربات
+  </h1>
+
+  <p>
+    يرجى قراءة الشروط والأحكام كاملة قبل الموافقة عليها
+  </p>
+
+</header>
+
+
+<!-- ==================================================
+     CONTENT
+================================================== -->
+
+<main class="container">
+
+
+  <div class="intro">
+
+    <strong>
+      شروط الانضمام كمدربة لدى TDrive
+    </strong>
+
+    <p>
+      بانضمامك إلى منصة TDrive كمدربة، فإنك تقرين بقراءة وفهم
+      الشروط التالية والموافقة على الالتزام بها أثناء فترة انتسابك للمنصة.
+    </p>
+
+  </div>
+
+
+  <div class="terms-card">
+
+
+    <div class="notice">
+
+      هذه الصفحة مخصصة لعرض الشروط والأحكام كاملة.
+      بعد الانتهاء من قراءتها، يمكنك استخدام زر الرجوع في المتصفح
+      للعودة إلى صفحة التسجيل، ثم إتمام الموافقة من نموذج التسجيل.
+
+    </div>
+
+
+    <ol class="terms-list">
+
+
+      <li>
+
+        <strong>
+          صحة البيانات:
+        </strong>
+
+        تلتزم المدربة بتقديم بيانات صحيحة ومطابقة للواقع،
+        بما في ذلك الاسم، رقم الجوال، رقم الهوية، وبيانات السيارة.
+        ويحق للمنصة تعليق أو إيقاف سجل التدريب والحساب عند اكتشاف
+        اختلاف جوهري أو بيانات غير صحيحة.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          دقة نتائج التدريب:
+        </strong>
+
+        تلتزم المدربة بتسجيل نتائج التدريب والتقييمات كما حدثت فعليًا،
+        دون تعديل أو تلاعب أو رفع مستوى المتدربة بشكل غير مستحق.
+        ويحق للمنصة تعليق أو إيقاف سجل التدريب عند ثبوت التلاعب بالنتائج.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          سرية المعلومات:
+        </strong>
+
+        تلتزم المدربة بالمحافظة على سرية جميع البيانات والمعلومات
+        المتعلقة بالمنصة والمتدربات والمنهج والعمليات الداخلية،
+        وعدم إفشائها أو مشاركتها مع أي طرف خارج نطاق العمل.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          معدات التدريب:
+        </strong>
+
+        تلتزم المدربة بتوفير ما لا يقل عن أربعة أقماع ولا يزيد عن ستة أقماع،
+        على ألا يقل ارتفاع القمع عن 70 سم، لاستخدامها عند الحاجة في التدريب.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          السلوك المهني:
+        </strong>
+
+        تلتزم المدربة بالتحلي بالسلوك المهني والأخلاقي أثناء التدريب،
+        ويحق للمنصة تعليق أو إيقاف سجل التدريب والحساب عند وجود سلوك
+        غير مهني أو غير أخلاقي.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          التدخين:
+        </strong>
+
+        يمنع التدخين أثناء جلسات التدريب أو داخل المركبة أثناء وجود المتدربة.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          نظافة المركبة:
+        </strong>
+
+        تلتزم المدربة بالمحافظة على نظافة المركبة وترتيبها وتهيئتها
+        بشكل مناسب قبل بدء جلسة التدريب.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          سلامة المتدربة:
+        </strong>
+
+        تلتزم المدربة بتطبيق تعليمات السلامة المرورية،
+        وعدم تعريض المتدربة أو أي مستخدم للطريق لخطر متعمد أو غير مبرر.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          سمعة المنصة:
+        </strong>
+
+        تلتزم المدربة بالمحافظة على سمعة TDrive وتمثيل المنصة
+        بصورة مهنية ومحترمة أمام المتدربات وأفراد المجتمع.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          الحجوزات والمواعيد:
+        </strong>
+
+        تلتزم المدربة بالمواعيد والحجوزات التي تقبلها،
+        وفي حال تعذر تنفيذ الحجز يجب إبلاغ المنصة وفق الإجراءات المعتمدة
+        في أقرب وقت ممكن.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          توثيق التدريب:
+        </strong>
+
+        تلتزم المدربة بتوثيق الجلسات والمهارات والتقييمات
+        وفق النموذج والإجراءات المعتمدة في TDrive.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          عدم مشاركة الحساب:
+        </strong>
+
+        حساب المدربة ورقم الملف والرمز السري مخصصة للمدربة نفسها،
+        ولا يجوز مشاركة بيانات الدخول أو تمكين أي شخص آخر من استخدام الحساب.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          المدفوعات:
+        </strong>
+
+        تتم المستحقات المالية للمدربة بشكل دوري وفق آلية المنصة،
+        ويتم استقطاع النسبة المتفق عليها من كل عملية تسجيل ناجحة ومكتملة
+        وفق السياسة المالية المعتمدة لدى TDrive.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          المدفوعات خارج المنصة:
+        </strong>
+
+        لا يجوز تحصيل مبالغ من المتدربة خارج الآلية المعتمدة
+        أو الاتفاق على خدمات أو مبالغ غير مسجلة في النظام دون موافقة الإدارة.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          تحديث البيانات:
+        </strong>
+
+        تلتزم المدربة بإبلاغ TDrive عن أي تغيير في بياناتها الشخصية
+        أو بيانات السيارة أو الرخصة أو التفويض أو أي مستند مرتبط بملفها.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          حق المنصة في المراجعة:
+        </strong>
+
+        يحق لـTDrive مراجعة سجلات التدريب والتقييمات والالتزام بالإجراءات،
+        وتعليق الحساب مؤقتًا عند وجود مخالفة تستدعي المراجعة إلى حين اتخاذ القرار.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          الالتزام بالتعليمات:
+        </strong>
+
+        تلتزم المدربة بالتعليمات والإجراءات التشغيلية المعتمدة في TDrive
+        وأي تحديثات يتم اعتمادها لاحقًا وإبلاغ المدربات بها.
+
+      </li>
+
+
+      <li>
+
+        <strong>
+          إيقاف الانتساب:
+        </strong>
+
+        في حال وجود مخالفة جوهرية للشروط أو تكرار المخالفات،
+        يحق للمنصة اتخاذ الإجراءات المناسبة، بما في ذلك تعليق أو إيقاف
+        سجل التدريب أو حساب المدربة وفق الحالة.
+
+      </li>
+
+
+    </ol>
+
+
+    <div class="back-info">
+
+      بعد الانتهاء من القراءة،
+      <strong>استخدمي زر الرجوع في المتصفح</strong>
+      للعودة إلى صفحة التسجيل.
+
+      <br>
+
+      ستبقى البيانات التي أدخلتها المدربة في نموذج التسجيل محفوظة
+      في صفحة التسجيل ما دامت الصفحة الأصلية مفتوحة.
+
+    </div>
+
+
+  </div>
+
+
+</main>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+  <strong>
+    TDrive — تكنولوجيا القيادة
+  </strong>
+
+  <br>
+
+  الشروط والأحكام الخاصة بالمدربات
+
+</footer>
+
+
+</body>
+
+</html>
