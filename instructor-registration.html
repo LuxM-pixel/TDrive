@@ -1316,6 +1316,10 @@ footer{
 
 <script type="module">
 
+/* ==================================================
+   IMPORTS
+================================================== */
+
 import {
   createClient
 } from
@@ -1323,7 +1327,8 @@ import {
 
 import * as tus from
 "https://cdn.jsdelivr.net/npm/tus-js-client@4/+esm";
-  
+
+
 /* ==================================================
    SUPABASE CONFIG
 ================================================== */
@@ -1331,10 +1336,8 @@ import * as tus from
 const supabaseUrl =
   "https://ytesjbrtkqnjqqeoswkc.supabase.co";
 
-
 const supabaseKey =
   "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j";
-
 
 const supabaseClient =
   createClient(
@@ -1350,9 +1353,11 @@ const supabaseClient =
 const TABLE_NAME =
   "instructor_applications";
 
-
 const BUCKET_NAME =
   "instructor-documents";
+
+const PROJECT_ID =
+  "ytesjbrtkqnjqqeoswkc";
 
 
 /* ==================================================
@@ -1364,60 +1369,50 @@ const form =
     "appForm"
   );
 
-
 const submitBtn =
   document.getElementById(
     "submitBtn"
   );
-
 
 const statusEl =
   document.getElementById(
     "status"
   );
 
-
 const ownsCar =
   document.getElementById(
     "ownsCar"
   );
-
 
 const authorizationBox =
   document.getElementById(
     "authorizationBox"
   );
 
-
 const authorization =
   document.getElementById(
     "authorization"
   );
-
 
 const progressBox =
   document.getElementById(
     "progressBox"
   );
 
-
 const progressBar =
   document.getElementById(
     "progressBar"
   );
-
 
 const progressText =
   document.getElementById(
     "progressText"
   );
 
-
 const successBox =
   document.getElementById(
     "successBox"
   );
-
 
 const applicationNumberEl =
   document.getElementById(
@@ -1425,9 +1420,6 @@ const applicationNumberEl =
   );
 
 
-/* ==================================================
-   TERMS
-================================================== */
 /* ==================================================
    FILE CONFIG
 ================================================== */
@@ -1476,6 +1468,7 @@ const fileLabels = {
 
 };
 
+
 /* ==================================================
    CAR OWNERSHIP
 ================================================== */
@@ -1492,7 +1485,6 @@ ownsCar.addEventListener(
       authorizationBox.style.display =
         "block";
 
-
       authorization.required =
         true;
 
@@ -1501,10 +1493,8 @@ ownsCar.addEventListener(
       authorizationBox.style.display =
         "none";
 
-
       authorization.required =
         false;
-
 
       authorization.value =
         "";
@@ -1527,10 +1517,8 @@ function setProgress(
   progressBox.style.display =
     "block";
 
-
   progressBar.style.width =
     percent + "%";
-
 
   progressText.textContent =
     message;
@@ -1539,13 +1527,12 @@ function setProgress(
 
 
 /* ==================================================
-   VALIDATE FILES
+   SELECTED FILES
 ================================================== */
 
 function getSelectedFiles() {
 
   const files = {};
-
 
   for (
     const field of fileFields
@@ -1556,7 +1543,6 @@ function getSelectedFiles() {
         field
       );
 
-
     if (
       !input
     ) {
@@ -1564,7 +1550,6 @@ function getSelectedFiles() {
       continue;
 
     }
-
 
     if (
       input.files &&
@@ -1578,14 +1563,13 @@ function getSelectedFiles() {
 
   }
 
-
   return files;
 
 }
 
 
 /* ==================================================
-   CHECK REQUIRED FILES
+   REQUIRED FILES
 ================================================== */
 
 function validateRequiredFiles() {
@@ -1628,6 +1612,7 @@ function validateRequiredFiles() {
 
 
     if (
+      !input ||
       !input.files ||
       input.files.length === 0
     ) {
@@ -1648,7 +1633,7 @@ function validateRequiredFiles() {
 
 
 /* ==================================================
-   CREATE FILE METADATA
+   FILE METADATA
 ================================================== */
 
 function createFileMetadata(
@@ -1720,81 +1705,83 @@ function createFileMetadata(
 
 
 /* ==================================================
-   UPLOAD ONE FILE
+   SMALL FILE UPLOAD
 ================================================== */
-async function uploadFile(
+
+async function uploadSmallFile(
   file,
   storagePath,
   field
 ) {
 
-  const isLargeFile =
-    file.size > 6 * 1024 * 1024;
+  setProgress(
+    5,
+    `جاري رفع ${fileLabels[field]}...`
+  );
 
 
-  /*
-    الملفات الصغيرة:
-    نستخدم الرفع العادي
-  */
+  const {
+    error
+  } =
+    await supabaseClient
+      .storage
+      .from(
+        BUCKET_NAME
+      )
+      .upload(
+        storagePath,
+        file,
+        {
 
-  if (!isLargeFile) {
+          contentType:
+            file.type ||
+            "application/octet-stream",
 
-    const {
-      error
-    } =
-      await supabaseClient
-        .storage
-        .from(
-          BUCKET_NAME
-        )
-        .upload(
-          storagePath,
-          file,
-          {
+          upsert:
+            true
 
-            contentType:
-              file.type,
-
-            upsert:
-              true
-
-          }
-        );
-
-
-    if (error) {
-
-      throw new Error(
-        error.message ||
-        "تعذر رفع الملف."
+        }
       );
 
-    }
 
+  if (
+    error
+  ) {
 
-    return;
+    throw new Error(
+      `تعذر رفع ${fileLabels[field]}: ${error.message}`
+    );
 
   }
 
 
-  /*
-    الملفات الكبيرة:
-    TUS Resumable Upload
-  */
+  setProgress(
+    5,
+    `تم رفع ${fileLabels[field]} ✓`
+  );
 
-  const projectId =
-    "ytesjbrtkqnjqqeoswkc";
+}
 
 
-  const uploadEndpoint =
-    `https://${projectId}.storage.supabase.co/storage/v1/upload/resumable`;
+/* ==================================================
+   LARGE FILE UPLOAD - TUS
+================================================== */
 
+function uploadLargeFile(
+  file,
+  storagePath,
+  field
+) {
 
   return new Promise(
     async (
       resolve,
       reject
     ) => {
+
+
+      const uploadEndpoint =
+        `https://${PROJECT_ID}.storage.supabase.co/storage/v1/upload/resumable`;
 
 
       const upload =
@@ -1827,16 +1814,13 @@ async function uploadFile(
                 `Bearer ${supabaseKey}`,
 
               apikey:
-                supabaseKey,
-
-              "x-upsert":
-                "true"
+                supabaseKey
 
             },
 
 
             uploadDataDuringCreation:
-              true,
+              false,
 
 
             removeFingerprintOnSuccess:
@@ -1869,15 +1853,14 @@ async function uploadFile(
               function(error) {
 
                 console.error(
-                  "TUS upload error:",
+                  "TUS ERROR:",
                   error
                 );
 
 
                 reject(
                   new Error(
-                    error.message ||
-                    "تعذر رفع الملف."
+                    `تعذر رفع ${fileLabels[field]}: ${error.message || "Load failed"}`
                   )
                 );
 
@@ -1912,12 +1895,6 @@ async function uploadFile(
             onSuccess:
               function() {
 
-                console.log(
-                  "TUS upload complete:",
-                  upload.url
-                );
-
-
                 progressBar.style.width =
                   "100%";
 
@@ -1941,7 +1918,8 @@ async function uploadFile(
 
 
         if (
-          previousUploads.length
+          previousUploads &&
+          previousUploads.length > 0
         ) {
 
           upload.resumeFromPreviousUpload(
@@ -1953,9 +1931,13 @@ async function uploadFile(
 
         upload.start();
 
-      } catch(error) {
+      } catch (
+        error
+      ) {
 
-        reject(error);
+        reject(
+          error
+        );
 
       }
 
@@ -1966,7 +1948,50 @@ async function uploadFile(
 
 
 /* ==================================================
-   SUBMIT
+   UPLOAD FILE
+================================================== */
+
+async function uploadFile(
+  file,
+  storagePath,
+  field
+) {
+
+  /*
+    أي ملف أكبر من 6MB
+    يستخدم TUS.
+  */
+
+  const LARGE_FILE_LIMIT =
+    6 * 1024 * 1024;
+
+
+  if (
+    file.size >
+    LARGE_FILE_LIMIT
+  ) {
+
+    await uploadLargeFile(
+      file,
+      storagePath,
+      field
+    );
+
+  } else {
+
+    await uploadSmallFile(
+      file,
+      storagePath,
+      field
+    );
+
+  }
+
+}
+
+
+/* ==================================================
+   SUBMIT FORM
 ================================================== */
 
 form.addEventListener(
@@ -1976,9 +2001,9 @@ form.addEventListener(
     event.preventDefault();
 
 
-    /* ==========================================
-       NATIVE FORM VALIDATION
-    ========================================== */
+    /* ----------------------------------------------
+       FORM VALIDATION
+    ---------------------------------------------- */
 
     if (
       !form.checkValidity()
@@ -1991,16 +2016,9 @@ form.addEventListener(
     }
 
 
-    /* ==========================================
-       TERMS
-    ========================================== */
-
-
-
-
-    /* ==========================================
+    /* ----------------------------------------------
        REQUIRED FILES
-    ========================================== */
+    ---------------------------------------------- */
 
     const missingFile =
       validateRequiredFiles();
@@ -2013,23 +2031,23 @@ form.addEventListener(
       statusEl.className =
         "err";
 
-
       statusEl.textContent =
         `يرجى إرفاق: ${missingFile}`;
-
 
       return;
 
     }
 
 
+    /* ----------------------------------------------
+       START
+    ---------------------------------------------- */
+
     submitBtn.disabled =
       true;
 
-
     statusEl.className =
       "";
-
 
     statusEl.textContent =
       "";
@@ -2038,9 +2056,9 @@ form.addEventListener(
     try {
 
 
-      /* ==========================================
-         DATA
-      ========================================== */
+      /* --------------------------------------------
+         BASIC DATA
+      -------------------------------------------- */
 
       const fullName =
         document
@@ -2090,17 +2108,17 @@ form.addEventListener(
         ownsCar.value;
 
 
-      /* ==========================================
-         CREATE CLIENT ID
-      ========================================== */
+      /* --------------------------------------------
+         APPLICATION ID
+      -------------------------------------------- */
 
       const applicationId =
         crypto.randomUUID();
 
 
-      /* ==========================================
-         FILE METADATA
-      ========================================== */
+      /* --------------------------------------------
+         FILES
+      -------------------------------------------- */
 
       const filesMetadata =
         createFileMetadata(
@@ -2118,16 +2136,20 @@ form.addEventListener(
         ).length;
 
 
-      /* ==========================================
-         UPLOAD FILES FIRST
-         ثم نحفظ الطلب بعد نجاح الرفع
-      ========================================== */
+      if (
+        totalFiles === 0
+      ) {
 
-      setProgress(
-        5,
-        "جاري تجهيز المستندات..."
-      );
+        throw new Error(
+          "لم يتم اختيار أي ملف."
+        );
 
+      }
+
+
+      /* --------------------------------------------
+         UPLOAD
+      -------------------------------------------- */
 
       let uploadedCount =
         0;
@@ -2154,57 +2176,54 @@ form.addEventListener(
           filesMetadata[field];
 
 
-        setProgress(
+        uploadedCount++;
 
-          5 +
-          Math.round(
-            (
-              uploadedCount /
-              totalFiles
-            ) * 70
-          ),
 
-          `جاري رفع ${fileLabels[field]}...`
-
-        );
+        progressText.textContent =
+          `جاري رفع ${fileLabels[field]}...`;
 
 
         await uploadFile(
 
-  file,
+          file,
 
-  metadata.storagePath,
+          metadata.storagePath,
 
-  field
+          field
 
-);
-
-        uploadedCount++;
+        );
 
 
-        setProgress(
+        /*
+          لا ننتقل للملف التالي
+          إلا بعد نجاح الحالي.
+        */
 
-          5 +
+        const overallPercent =
           Math.round(
             (
               uploadedCount /
               totalFiles
-            ) * 70
-          ),
+            ) * 75
+          );
 
-          `تم رفع الملفات ${uploadedCount}/${totalFiles}`
 
-        );
+        progressBar.style.width =
+          overallPercent + "%";
+
+
+        progressText.textContent =
+          `تم رفع ${fileLabels[field]} ✓ (${uploadedCount}/${totalFiles})`;
 
       }
 
 
-      /* ==========================================
+      /* --------------------------------------------
          SAVE APPLICATION
-      ========================================== */
+      -------------------------------------------- */
 
       setProgress(
-        80,
+        85,
         "جاري حفظ طلب الانضمام..."
       );
 
@@ -2288,9 +2307,9 @@ form.addEventListener(
       }
 
 
-      /* ==========================================
+      /* --------------------------------------------
          SUCCESS
-      ========================================== */
+      -------------------------------------------- */
 
       setProgress(
         100,
