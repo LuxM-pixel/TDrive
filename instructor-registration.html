@@ -2228,83 +2228,84 @@ form.addEventListener(
       );
 
 
-      const {
-        data,
-        error
-      } =
-        await supabaseClient
-          .from(
-            TABLE_NAME
-          )
-          .insert({
+const {
+  data,
+  error
+} =
+  await supabaseClient.rpc(
+    "submit_instructor_application",
+    {
 
-            id:
-              applicationId,
+      p_id:
+        applicationId,
 
-            full_name:
-              fullName,
+      p_full_name:
+        fullName,
 
-            phone:
-              phone,
+      p_phone:
+        phone,
 
-            national_id:
-              nationalId,
+      p_national_id:
+        nationalId,
 
-            qualification:
-              qualification,
+      p_qualification:
+        qualification,
 
-            city:
-              city,
+      p_city:
+        city,
 
-            owns_car:
-              ownsCarValue,
+      p_owns_car:
+        ownsCarValue,
 
-            status:
-              "pending",
+      p_status:
+        "pending",
 
-            application_type:
-              "instructor",
+      p_application_type:
+        "instructor",
 
-            terms_accepted:
-              true,
+      p_terms_accepted:
+        true,
 
-            terms_version:
-              "2026-08-20",
+      p_terms_version:
+        "2026-08-20",
 
-            terms_accepted_at:
-              new Date().toISOString(),
+      p_terms_accepted_at:
+        new Date().toISOString(),
 
-            files:
-              filesMetadata,
+      p_files:
+        filesMetadata,
 
-            submitted_at:
-              new Date().toISOString()
+      p_submitted_at:
+        new Date().toISOString()
 
-          })
-
-          .select(
-            "id, application_number"
-          )
-
-          .single();
+    }
+  );
 
 
-      if (
-        error
-      ) {
+if (
+  error
+) {
 
-        console.error(
-          "Supabase insert error:",
-          error
-        );
+  console.error(
+    "Supabase RPC error:",
+    error
+  );
+
+  throw new Error(
+    error.message ||
+    "تعذر حفظ طلب الانضمام."
+  );
+
+}
 
 
-        throw new Error(
-          error.message ||
-          "تعذر حفظ طلب الانضمام."
-        );
+const application =
+  Array.isArray(data)
+    ? data[0]
+    : data;
 
-      }
+
+
 
 
       /* --------------------------------------------
@@ -2318,8 +2319,7 @@ form.addEventListener(
 
 
       applicationNumberEl.textContent =
-        data.application_number;
-
+  application.application_number;
 
       statusEl.className =
         "ok";
