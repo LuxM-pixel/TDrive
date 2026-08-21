@@ -1321,7 +1321,9 @@ import {
 } from
 "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-
+import * as tus from
+"https://cdn.jsdelivr.net/npm/tus-js-client@4/+esm";
+  
 /* ==================================================
    SUPABASE CONFIG
 ================================================== */
@@ -1720,45 +1722,245 @@ function createFileMetadata(
 /* ==================================================
    UPLOAD ONE FILE
 ================================================== */
-
 async function uploadFile(
   file,
-  storagePath
+  storagePath,
+  field
 ) {
 
-  const {
-    error
-  } =
-    await supabaseClient
-      .storage
-      .from(
-        BUCKET_NAME
-      )
-      .upload(
-        storagePath,
-        file,
-        {
+  const isLargeFile =
+    file.size > 6 * 1024 * 1024;
 
-          contentType:
-            file.type,
 
-          upsert:
-            true
+  /*
+    الملفات الصغيرة:
+    نستخدم الرفع العادي
+  */
 
-        }
+  if (!isLargeFile) {
+
+    const {
+      error
+    } =
+      await supabaseClient
+        .storage
+        .from(
+          BUCKET_NAME
+        )
+        .upload(
+          storagePath,
+          file,
+          {
+
+            contentType:
+              file.type,
+
+            upsert:
+              true
+
+          }
+        );
+
+
+    if (error) {
+
+      throw new Error(
+        error.message ||
+        "تعذر رفع الملف."
       );
 
+    }
 
-  if (
-    error
-  ) {
 
-    throw new Error(
-      error.message ||
-      "تعذر رفع الملف."
-    );
+    return;
 
   }
+
+
+  /*
+    الملفات الكبيرة:
+    TUS Resumable Upload
+  */
+
+  const projectId =
+    "ytesjbrtkqnjqqeoswkc";
+
+
+  const uploadEndpoint =
+    `https://${projectId}.storage.supabase.co/storage/v1/upload/resumable`;
+
+
+  return new Promise(
+    async (
+      resolve,
+      reject
+    ) => {
+
+
+      const upload =
+        new tus.Upload(
+          file,
+          {
+
+            endpoint:
+              uploadEndpoint,
+
+
+            retryDelays: [
+
+              0,
+
+              3000,
+
+              5000,
+
+              10000,
+
+              20000
+
+            ],
+
+
+            headers: {
+
+              authorization:
+                `Bearer ${supabaseKey}`,
+
+              apikey:
+                supabaseKey,
+
+              "x-upsert":
+                "true"
+
+            },
+
+
+            uploadDataDuringCreation:
+              true,
+
+
+            removeFingerprintOnSuccess:
+              true,
+
+
+            chunkSize:
+              6 * 1024 * 1024,
+
+
+            metadata: {
+
+              bucketName:
+                BUCKET_NAME,
+
+              objectName:
+                storagePath,
+
+              contentType:
+                file.type ||
+                "application/octet-stream",
+
+              cacheControl:
+                "3600"
+
+            },
+
+
+            onError:
+              function(error) {
+
+                console.error(
+                  "TUS upload error:",
+                  error
+                );
+
+
+                reject(
+                  new Error(
+                    error.message ||
+                    "تعذر رفع الملف."
+                  )
+                );
+
+              },
+
+
+            onProgress:
+              function(
+                bytesUploaded,
+                bytesTotal
+              ) {
+
+                const percent =
+                  Math.round(
+                    (
+                      bytesUploaded /
+                      bytesTotal
+                    ) * 100
+                  );
+
+
+                progressBar.style.width =
+                  percent + "%";
+
+
+                progressText.textContent =
+                  `جاري رفع ${fileLabels[field]}... ${percent}%`;
+
+              },
+
+
+            onSuccess:
+              function() {
+
+                console.log(
+                  "TUS upload complete:",
+                  upload.url
+                );
+
+
+                progressBar.style.width =
+                  "100%";
+
+
+                progressText.textContent =
+                  `تم رفع ${fileLabels[field]} ✓`;
+
+
+                resolve();
+
+              }
+
+          }
+        );
+
+
+      try {
+
+        const previousUploads =
+          await upload.findPreviousUploads();
+
+
+        if (
+          previousUploads.length
+        ) {
+
+          upload.resumeFromPreviousUpload(
+            previousUploads[0]
+          );
+
+        }
+
+
+        upload.start();
+
+      } catch(error) {
+
+        reject(error);
+
+      }
+
+    }
+  );
 
 }
 
@@ -1969,12 +2171,13 @@ form.addEventListener(
 
         await uploadFile(
 
-          file,
+  file,
 
-          metadata.storagePath
+  metadata.storagePath,
 
-        );
+  field
 
+);
 
         uploadedCount++;
 
