@@ -1052,14 +1052,15 @@ footer{
 
       <div class="file-box">
 
-        <label>
-         الشهادة الجامعية/ الثانوي
-        </label>
+     <label class="required">
+  الشهادة الجامعية / الثانوية
+</label>
 
         <input
           type="file"
           id="certificate"
           accept="image/*,.pdf"
+          required
         >
 
       </div>
@@ -1576,18 +1577,19 @@ function validateRequiredFiles() {
 
   const requiredFields = [
 
-    "idImage",
+  "idImage",
 
-    "license",
+  "license",
 
-    "carRegistration",
+  "carRegistration",
 
-    "video",
+  "certificate",
 
-    "voiceRecording"
+  "video",
 
-  ];
+  "voiceRecording"
 
+];
 
   if (
     ownsCar.value ===
