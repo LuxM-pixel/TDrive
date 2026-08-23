@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="mini-sign">
             ${svgNoOvertaking()}
-            <span>ممنوع التجاوز</span>
+            <span>مسموح التجاوز</span>
         </div>
 
         <div class="mini-sign">
