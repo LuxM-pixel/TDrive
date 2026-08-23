@@ -73,74 +73,334 @@ if (dateInput) {
     });
 
 }
-const trainingTime = document.getElementById("trainingTime");
+/* ==================================================
+   BOOKING DATE & TIME
+   مرتبط بالمدربة المختارة
+================================================== */
+
+const trainingTimeInput = document.getElementById("trainingTime");
 const timeSlotsGrid = document.getElementById("timeSlotsGrid");
+const dateInput = document.getElementById("trainingDate");
 
 const allTimes = [
-"08:00 - 09:00 صباحًا",
-"10:00 - 11:00 صباحًا",
-"12:00 - 01:00 ظهرًا",
-"02:00 - 03:00 عصرًا"
+    "08:00 - 09:00 صباحًا",
+    "10:00 - 11:00 صباحًا",
+    "12:00 - 01:00 ظهرًا",
+    "02:00 - 03:00 عصرًا"
 ];
 
-async function updateAvailableTimes(){
 
-    const selectedDate = dateInput.value;
+/* ==================================================
+   جلب المواعيد المحجوزة للمدربة المختارة فقط
+================================================== */
 
-    if(!selectedDate) return;
+async function getInstructorBookedTimes(instructorId, date) {
 
-    const bookedTimes = await getBookedTimes(selectedDate);
-
-    trainingTime.value = "";
-    timeSlotsGrid.innerHTML = "";
-
-    allTimes.forEach(time=>{
-
-        const isBooked = bookedTimes.includes(time);
-
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "time-slot-btn";
-        btn.textContent = time;
-
-        if(isBooked){
-            btn.disabled = true;
-        } else {
-            btn.addEventListener("click", function(){
-                document.querySelectorAll(".time-slot-btn").forEach(b => b.classList.remove("selected"));
-                this.classList.add("selected");
-                trainingTime.value = time;
-            });
-        }
-
-        timeSlotsGrid.appendChild(btn);
-
-    });
-
-}
-
-
-if (dateInput) {
-    dateInput.addEventListener("change", updateAvailableTimes);
-}
-
-if (form) {
-  form.addEventListener("submit", async function (e) {
-
-    e.preventDefault();
-
-    const fullName = document.getElementById("fullName").value.trim();
-    const address = document.getElementById("address").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const trainingDate = document.getElementById("trainingDate").value;
-    const trainingTime = document.getElementById("trainingTime").value;
-
-    if (!fullName || !address || !phone || !trainingDate || !trainingTime) {
-      alert("يرجى تعبئة جميع البيانات");
-      return;
+    if (!instructorId || !date) {
+        return [];
     }
 
-    const summary = `
+    /*
+      سيتم ربط هذه الدالة بجدول الحجوزات الجديد
+      بعد تعديل firebase.js.
+
+      مؤقتًا ترجع قائمة فارغة حتى لا نستدعي
+      جدول المواعيد القديم.
+    */
+
+    return [];
+}
+
+
+/* ==================================================
+   تحديث الأوقات المتاحة للمدربة المختارة
+================================================== */
+
+async function updateAvailableTimes() {
+
+    const selectedDate = dateInput?.value;
+    const instructorId = selectedTrainerInput?.value;
+
+    if (!selectedDate || !instructorId) {
+
+        if (timeSlotsGrid) {
+            timeSlotsGrid.innerHTML = `
+                <p style="
+                    text-align:center;
+                    color:#8b999f;
+                    font-size:13px;
+                    width:100%;
+                ">
+                    اختاري المدربة أولًا ثم اختاري التاريخ.
+                </p>
+            `;
+        }
+
+        return;
+    }
+
+
+    trainingTimeInput.value = "";
+
+    timeSlotsGrid.innerHTML = `
+        <p style="
+            text-align:center;
+            color:#8b999f;
+            font-size:13px;
+            width:100%;
+        ">
+            جاري التحقق من المواعيد...
+        </p>
+    `;
+
+
+    try {
+
+        /*
+          مهم:
+          هنا نتحقق من حجوزات المدربة المحددة فقط.
+        */
+
+        const bookedTimes =
+            await getInstructorBookedTimes(
+                instructorId,
+                selectedDate
+            );
+
+
+        timeSlotsGrid.innerHTML = "";
+
+
+        allTimes.forEach(time => {
+
+            const isBooked =
+                bookedTimes.includes(time);
+
+
+            const btn =
+                document.createElement("button");
+
+
+            btn.type = "button";
+
+            btn.className =
+                "time-slot-btn";
+
+            btn.textContent =
+                isBooked
+                    ? `${time} - محجوز`
+                    : time;
+
+
+            if (isBooked) {
+
+                btn.disabled = true;
+
+                btn.classList.add("booked");
+
+            } else {
+
+                btn.addEventListener(
+                    "click",
+                    function () {
+
+                        document
+                            .querySelectorAll(".time-slot-btn")
+                            .forEach(b =>
+                                b.classList.remove("selected")
+                            );
+
+
+                        this.classList.add("selected");
+
+
+                        trainingTimeInput.value =
+                            time;
+
+                    }
+                );
+
+            }
+
+
+            timeSlotsGrid.appendChild(btn);
+
+        });
+
+
+    } catch (error) {
+
+        console.error(
+            "Error loading instructor availability:",
+            error
+        );
+
+
+        timeSlotsGrid.innerHTML = `
+            <p style="
+                text-align:center;
+                color:#c0392b;
+                font-size:13px;
+                width:100%;
+            ">
+                تعذر تحميل المواعيد المتاحة.
+            </p>
+        `;
+
+    }
+
+}
+
+
+/* ==================================================
+   عند تغيير التاريخ
+================================================== */
+
+if (dateInput) {
+
+    dateInput.addEventListener(
+        "change",
+        updateAvailableTimes
+    );
+
+}
+
+
+/* ==================================================
+   عند اختيار المدربة
+   نعيد تحميل أوقات المدربة
+================================================== */
+
+function refreshTrainerSchedule() {
+
+    trainingTimeInput.value = "";
+
+    if (dateInput) {
+        dateInput.value = "";
+    }
+
+    if (timeSlotsGrid) {
+
+        timeSlotsGrid.innerHTML = `
+            <p style="
+                text-align:center;
+                color:#8b999f;
+                font-size:13px;
+                width:100%;
+            ">
+                اختاري تاريخ التدريب لعرض المواعيد المتاحة.
+            </p>
+        `;
+
+    }
+
+}
+
+
+/* ==================================================
+   الحجز
+================================================== */
+
+if (form) {
+
+    form.addEventListener(
+        "submit",
+        async function (e) {
+
+            e.preventDefault();
+
+
+            const fullName =
+                document
+                    .getElementById("fullName")
+                    .value
+                    .trim();
+
+
+            const address =
+                document
+                    .getElementById("address")
+                    .value
+                    .trim();
+
+
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
+
+
+            const trainingDate =
+                document
+                    .getElementById("trainingDate")
+                    .value;
+
+
+            const trainingTime =
+                document
+                    .getElementById("trainingTime")
+                    .value;
+
+
+            /* ===============================
+               المدربة المختارة
+            =============================== */
+
+            const instructorId =
+                selectedTrainerInput.value;
+
+
+            if (
+                !fullName ||
+                !address ||
+                !phone ||
+                !instructorId ||
+                !trainingDate ||
+                !trainingTime
+            ) {
+
+                alert(
+                    "يرجى تعبئة جميع البيانات واختيار المدربة والموعد."
+                );
+
+                return;
+
+            }
+
+
+            /* ===============================
+               الحصول على بيانات المدربة
+            =============================== */
+
+            const selectedInstructor =
+                loadedInstructors.find(
+                    instructor =>
+                        String(instructor.instructor_id) ===
+                        String(instructorId)
+                );
+
+
+            if (!selectedInstructor) {
+
+                alert(
+                    "تعذر العثور على بيانات المدربة المختارة."
+                );
+
+                return;
+
+            }
+
+
+            const instructorName =
+                selectedInstructor.full_name || "";
+
+
+            /* ===============================
+               التأكيد
+            =============================== */
+
+            const summary = `
 
 تأكيد التسجيل
 
@@ -148,7 +408,9 @@ if (form) {
 
 📱 الجوال: ${phone}
 
-📍 العنوان: ${address}
+📍 المدينة: ${address}
+
+👩🏻‍🏫 المدربة: أ. ${instructorName}
 
 📅 بداية التدريب: ${trainingDate}
 
@@ -160,103 +422,215 @@ if (form) {
 
 `;
 
-    if (!confirm(summary)) return;
 
-try {
+            if (!confirm(summary)) {
+                return;
+            }
 
-    const bookingId = "BK-" + Date.now();
-const bookingsToSave = [];
-    let currentDate = new Date(trainingDate);
 
-    let lessonNumber = 1;
+            try {
 
-    while (lessonNumber <= 5) {
+                const bookingId =
+                    "BK-" + Date.now();
 
-        const day = currentDate.getDay();
 
-        // تخطي الجمعة والسبت
-        if (day !== 5 && day !== 6) {
+                const bookingsToSave = [];
 
-const bookingData = {
 
-                bookingId,
+                let currentDate =
+                    new Date(trainingDate);
 
-                lessonNumber,
 
-                totalLessons: 5,
+                let lessonNumber = 1;
 
-                fullName,
 
-                address,
+                /* ===============================
+                   إنشاء 5 حصص
+                =============================== */
 
-                phone,
+                while (lessonNumber <= 5) {
 
-                trainingDate:
-                    currentDate.toISOString().split("T")[0],
+                    const day =
+                        currentDate.getDay();
 
-                trainingTime,
 
-                price: OPENING_PRICE,
+                    // تخطي الجمعة والسبت
 
-                status: "Pending Payment",
+                    if (
+                        day !== 5 &&
+                        day !== 6
+                    ) {
 
-                createdAt: new Date().toISOString()
+                        const lessonDate =
+                            currentDate
+                                .toISOString()
+                                .split("T")[0];
 
-            };
-bookingsToSave.push(bookingData);
 
-            lessonNumber++;
+                        const bookingData = {
+
+                            bookingId,
+
+                            lessonNumber,
+
+                            totalLessons: 5,
+
+                            fullName,
+
+                            address,
+
+                            phone,
+
+                            /* =========================
+                               المدربة
+                            ========================= */
+
+                            instructorId,
+
+                            instructorName,
+
+
+                            /* =========================
+                               الموعد
+                            ========================= */
+
+                            trainingDate:
+                                lessonDate,
+
+                            trainingTime,
+
+
+                            price:
+                                OPENING_PRICE,
+
+
+                            status:
+                                "Pending Payment",
+
+
+                            createdAt:
+                                new Date().toISOString()
+
+                        };
+
+
+                        bookingsToSave.push(
+                            bookingData
+                        );
+
+
+                        lessonNumber++;
+
+                    }
+
+
+                    currentDate.setDate(
+                        currentDate.getDate() + 1
+                    );
+
+                }
+
+
+                /* ===============================
+                   حفظ الحجوزات
+                   سيتم ربط saveBooking
+                   بالجدول الجديد في firebase.js
+                =============================== */
+
+                for (
+                    const bookingData
+                    of bookingsToSave
+                ) {
+
+                    await saveBooking(
+                        bookingData
+                    );
+
+                }
+
+
+                console.log(
+                    "تم حفظ جميع الحصص للمدربة:",
+                    instructorName
+                );
+
+
+                /* ===============================
+                   بيانات الدفع
+                =============================== */
+
+                sessionStorage.setItem(
+                    "bookingId",
+                    bookingId
+                );
+
+
+                sessionStorage.setItem(
+                    "fullName",
+                    fullName
+                );
+
+
+                sessionStorage.setItem(
+                    "phone",
+                    phone
+                );
+
+
+                sessionStorage.setItem(
+                    "trainingDate",
+                    trainingDate
+                );
+
+
+                sessionStorage.setItem(
+                    "trainingTime",
+                    trainingTime
+                );
+
+
+                /* ===============================
+                   حفظ المدربة
+                =============================== */
+
+                sessionStorage.setItem(
+                    "instructorId",
+                    instructorId
+                );
+
+
+                sessionStorage.setItem(
+                    "instructorName",
+                    instructorName
+                );
+
+
+                alert(
+                    "تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع."
+                );
+
+
+                window.location.href =
+                    "payment-method.html";
+
+
+            } catch (error) {
+
+                console.error(
+                    "Booking error:",
+                    error
+                );
+
+
+                alert(
+                    error.message ||
+                    "حدث خطأ أثناء حفظ التسجيل."
+                );
+
+            }
 
         }
-
-        currentDate.setDate(currentDate.getDate() + 1);
-
-    }
-
-
-    for (const bookingData of bookingsToSave) {
-
-    const bookedTimes = await getBookedTimes(
-        bookingData.trainingDate
     );
-
-    if (bookedTimes.includes(bookingData.trainingTime)) {
-
-        throw new Error(
-            `يوجد حجز مسبق يوم ${bookingData.trainingDate} الساعة ${bookingData.trainingTime}`
-        );
-
-    }
-
-}
-  for (const bookingData of bookingsToSave) {
-
-    await saveBooking(bookingData);
-
-
-}
-    console.log("تم حفظ جميع الحصص");
-
-alert("تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع.");
-
-sessionStorage.setItem("bookingId", bookingId);
-sessionStorage.setItem("fullName", fullName);
-sessionStorage.setItem("phone", phone);
-sessionStorage.setItem("trainingDate", trainingDate);
-sessionStorage.setItem("trainingTime", trainingTime);
-
-window.location.href = "payment-method.html";
-
-} catch (error) {
-
-    console.error(error);
-
-    alert(error.message);
-
-}
-
- 
-  });
 
 }
 
@@ -894,7 +1268,7 @@ function attachTrainerCardEvents() {
       card.classList.add("selected");
 
       selectedTrainerInput.value = card.dataset.trainerId;
-
+refreshTrainerSchedule();
     });
 
   });
