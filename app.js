@@ -1290,24 +1290,29 @@ refreshTrainerSchedule();
 
 }
 
-document.querySelectorAll('[data-next="2"]').forEach(btn => {
-  btn.addEventListener("click", () => {
-    const currentStep = btn.closest(".form-step");
-    const requiredInputs = currentStep.querySelectorAll("[required]");
+document.querySelectorAll("[data-next]").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const currentStep = this.closest(".form-step");
+        const requiredInputs = currentStep.querySelectorAll("[required]");
 
-    for (const input of requiredInputs) {
-      if (!input.value.trim()) {
-        alert("يرجى تعبئة جميع الحقول المطلوبة");
-        input.focus();
-        return;
-      }
-    }
+        for (const input of requiredInputs) {
+            if (!input.value.trim()) {
+                alert("يرجى تعبئة جميع الحقول المطلوبة");
+                input.focus();
+                return;
+            }
+        }
 
-    const city = cityInput.value.trim();
-    if (city) {
-      loadInstructorsByCity(city);
-    }
+        const nextStepNum = Number(this.dataset.next);
 
-    goToStep(2);
-  });
+        // إذا كان الانتقال إلى الخطوة الثانية، نقوم بجلب المدربات حسب المدينة
+        if (nextStepNum === 2) {
+            const city = cityInput ? cityInput.value.trim() : "";
+            if (city) {
+                loadInstructorsByCity(city);
+            }
+        }
+
+        goToStep(nextStepNum);
+    });
 });
