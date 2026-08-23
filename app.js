@@ -2319,3 +2319,41 @@ console.log(
     "TDrive Booking System loaded successfully."
 );
 
+
+/* ==================================================
+   ربط أزرار التالي والسابق بالخطوات
+================================================== */
+
+document.querySelectorAll("[data-next]").forEach(btn => {
+
+    btn.addEventListener("click", function () {
+
+        const currentStep =
+            this.closest(".form-step");
+
+        if (!validateStep(currentStep)) {
+            return;
+        }
+
+        const nextStepNum =
+            Number(this.dataset.next);
+
+        goToStep(nextStepNum);
+
+        if (nextStepNum === 2 && cityInput) {
+            loadInstructorsByCity(cityInput.value.trim());
+        }
+
+    });
+
+});
+
+document.querySelectorAll("[data-back]").forEach(btn => {
+
+    btn.addEventListener("click", function () {
+
+        goToStep(Number(this.dataset.back));
+
+    });
+
+});
