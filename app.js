@@ -1291,10 +1291,23 @@ refreshTrainerSchedule();
 }
 
 document.querySelectorAll('[data-next="2"]').forEach(btn => {
-
   btn.addEventListener("click", () => {
-    const city = cityInput.value.trim();
-    if (city) loadInstructorsByCity(city);
-  });
+    const currentStep = btn.closest(".form-step");
+    const requiredInputs = currentStep.querySelectorAll("[required]");
 
+    for (const input of requiredInputs) {
+      if (!input.value.trim()) {
+        alert("يرجى تعبئة جميع الحقول المطلوبة");
+        input.focus();
+        return;
+      }
+    }
+
+    const city = cityInput.value.trim();
+    if (city) {
+      loadInstructorsByCity(city);
+    }
+
+    goToStep(2);
+  });
 });
