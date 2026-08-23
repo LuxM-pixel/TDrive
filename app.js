@@ -7,8 +7,13 @@ const supabaseKey = "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j";
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
 
-import { saveBooking, saveReview, getApprovedReviews, getBookedTimes } from "./firebase.js";
-const ORIGINAL_PRICE = 500;
+import {
+    saveBooking,
+    saveReview,
+    getApprovedReviews,
+    getInstructorBookedTimes
+} from "./firebase.js";
+
 const OPENING_PRICE = 375;
 const FIRST10_PRICE = 270;
 // نسخ الآيبان
@@ -89,27 +94,6 @@ const allTimes = [
     "02:00 - 03:00 عصرًا"
 ];
 
-
-/* ==================================================
-   جلب المواعيد المحجوزة للمدربة المختارة فقط
-================================================== */
-
-async function getInstructorBookedTimes(instructorId, date) {
-
-    if (!instructorId || !date) {
-        return [];
-    }
-
-    /*
-      سيتم ربط هذه الدالة بجدول الحجوزات الجديد
-      بعد تعديل firebase.js.
-
-      مؤقتًا ترجع قائمة فارغة حتى لا نستدعي
-      جدول المواعيد القديم.
-    */
-
-    return [];
-}
 
 
 /* ==================================================
@@ -537,16 +521,7 @@ if (form) {
                    بالجدول الجديد في firebase.js
                 =============================== */
 
-                for (
-                    const bookingData
-                    of bookingsToSave
-                ) {
-
-                    await saveBooking(
-                        bookingData
-                    );
-
-                }
+            await saveBooking(bookingsToSave);
 
 
                 console.log(
