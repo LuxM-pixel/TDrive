@@ -39,23 +39,131 @@ const db = getFirestore(app);
 // ==================================================
 // احترفي القيادة على الطريق
 // ==================================================
+// ==================================================
+// حفظ حجز برنامج احترفي القيادة على الطريق
+// فحص جميع الحصص قبل الحفظ
+// ==================================================
 
-export async function saveBooking(data) {
+export async function saveBooking(bookings) {
 
     try {
 
-        const docRef = await addDoc(
-            collection(db, "bookings"),
-            data
+        // التأكد أن البيانات عبارة عن قائمة حجوزات
+        if (!Array.isArray(bookings) || bookings.length === 0) {
+
+            throw new Error(
+                "بيانات الحجز غير مكتملة."
+            );
+
+        }
+
+
+        // ==================================================
+        // فحص البيانات
+        // ==================================================
+
+        for (const booking of bookings) {
+
+            if (
+                !booking.instructorId ||
+                !booking.trainingDate ||
+                !booking.trainingTime
+            ) {
+
+                throw new Error(
+                    "بيانات إحدى حصص الحجز غير مكتملة."
+                );
+
+            }
+
+        }
+
+
+        // ==================================================
+        // فحص جميع الحصص قبل الحفظ
+        // ==================================================
+
+        for (const booking of bookings) {
+
+            const q = query(
+
+                collection(db, "bookings"),
+
+                where(
+                    "instructorId",
+                    "==",
+                    booking.instructorId
+                ),
+
+                where(
+                    "trainingDate",
+                    "==",
+                    booking.trainingDate
+                ),
+
+                where(
+                    "trainingTime",
+                    "==",
+                    booking.trainingTime
+                )
+
+            );
+
+
+            const snapshot =
+                await getDocs(q);
+
+
+            if (!snapshot.empty) {
+
+                throw new Error(
+                    `الموعد ${booking.trainingTime} بتاريخ ${booking.trainingDate} محجوز مسبقًا لهذه المدربة.`
+                );
+
+            }
+
+        }
+
+
+        // ==================================================
+        // جميع الحصص متاحة
+        // الآن نحفظها
+        // ==================================================
+
+        const savedBookingIds = [];
+
+
+        for (const booking of bookings) {
+
+            const docRef =
+                await addDoc(
+                    collection(db, "bookings"),
+                    booking
+                );
+
+
+            savedBookingIds.push(
+                docRef.id
+            );
+
+        }
+
+
+        console.log(
+            "تم حفظ جميع الحصص:",
+            savedBookingIds
         );
 
-        return docRef.id;
+
+        return savedBookingIds;
+
 
     } catch (error) {
 
-        console.error("Firebase Error:", error);
-
-        alert(error.message);
+        console.error(
+            "Firebase Booking Error:",
+            error
+        );
 
         throw error;
 
@@ -182,15 +290,29 @@ export async function getApprovedReviews() {
 }
 
 
+
 // ==================================================
-// الأوقات المحجوزة لبرنامج القيادة
+// الأوقات المحجوزة لمدربة محددة في تاريخ محدد
 // ==================================================
 
-export async function getBookedTimes(trainingDate) {
+export async function getInstructorBookedTimes(
+    instructorId,
+    trainingDate
+) {
+
+    if (!instructorId || !trainingDate) {
+        return [];
+    }
 
     const q = query(
 
         collection(db, "bookings"),
+
+        where(
+            "instructorId",
+            "==",
+            instructorId
+        ),
 
         where(
             "trainingDate",
@@ -205,69 +327,6 @@ export async function getBookedTimes(trainingDate) {
     return snapshot.docs.map(
         doc => doc.data().trainingTime
     );
-
-}
-
-
-// ==================================================
-// رقم الفاتورة التالي
-// ==================================================
-
-export async function getNextInvoiceNumber() {
-
-    const ref = doc(
-        db,
-        "settings",
-        "invoice"
-    );
-
-
-    const invoiceNumber =
-        await runTransaction(
-            db,
-            async (transaction) => {
-
-                const snap =
-                    await transaction.get(ref);
-
-
-                let lastNumber =
-                    snap.exists()
-                        ? (snap.data().lastNumber || 0)
-                        : 0;
-
-
-                lastNumber++;
-
-
-                if (snap.exists()) {
-
-                    transaction.update(
-                        ref,
-                        {
-                            lastNumber: lastNumber
-                        }
-                    );
-
-                } else {
-
-                    transaction.set(
-                        ref,
-                        {
-                            lastNumber: lastNumber
-                        }
-                    );
-
-                }
-
-
-                return lastNumber;
-
-            }
-        );
-
-
-    return invoiceNumber;
 
 }
 
