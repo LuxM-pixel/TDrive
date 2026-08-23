@@ -428,154 +428,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                 </p>
 
 
+<div class="trainer-selection" id="trainerList">
+    <p style="text-align:center; color:#8b999f; font-size:13px;">
+        يرجى تعبئة مدينة التدريب أولًا في الخطوة السابقة.
+    </p>
+</div>
 
-                <!-- =========================
-                     TRAINER CARD
-                ========================== -->
 
-                <div
-                    class="trainer-selection">
 
+                <!-- تحفظ القيمة المختارة -->
 
-                    <div
-                        class="trainer-card"
-                        data-trainer-id="mona-hamoud">
-
-
-                        <!-- علامة الاختيار -->
-
-                        <div class="trainer-select-mark">
-
-                            ✓
-
-                        </div>
-
-
-
-                        <!-- =========================
-                             مساحة الرسم
-                             سنضع الرسم هنا لاحقًا
-                        ========================== -->
-
-                        <div class="trainer-illustration">
-
-                            <div class="trainer-placeholder">
-
-                                TDrive
-
-                            </div>
-
-                        </div>
-
-
-
-                        <!-- =========================
-                             بيانات المدربة
-                        ========================== -->
-
-                        <div class="trainer-info">
-
-
-                            <h5>
-                                أ. منى حمود
-                            </h5>
-
-
-                            <span class="trainer-role">
-                                مؤسس TDrive
-                            </span>
-
-
-
-                            <!-- =========================
-                                 AUDIO
-                            ========================== -->
-
-                            <div class="trainer-audio">
-
-
-                                <button
-                                    type="button"
-                                    class="audio-play-btn"
-                                    id="trainerAudioBtn"
-                                    aria-label="تشغيل التسجيل الصوتي">
-
-                                    <i class="fa-solid fa-play"></i>
-
-                                </button>
-
-
-                                <div class="audio-content">
-
-                                    <strong>
-                                        استمعي لتعريف المدربة
-                                    </strong>
-
-
-                                    <div class="audio-progress">
-
-                                        <span
-                                            id="trainerAudioProgress">
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <!-- الصوت الحقيقي -->
-
-                            <audio
-                                id="trainerAudio"
-                                preload="metadata">
-
-                                <!--
-                                ضعي ملف التسجيل هنا لاحقًا:
-
-                                <source
-                                    src="audio/mona-intro.mp3"
-                                    type="audio/mpeg">
-                                -->
-
-                            </audio>
-
-
-                        </div>
-
-
-
-                        <!-- =========================
-                             اختيار المدربة
-                        ========================== -->
-
-                        <label class="trainer-radio-option">
-
-
-                            <input
-                                type="radio"
-                                name="selectedTrainer"
-                                value="mona-hamoud"
-                                id="monaTrainer">
-
-
-                            <span class="custom-radio"></span>
-
-
-                            <span>
-                                اختيار المدربة
-                            </span>
-
-
-                        </label>
-
-
-                    </div>
-
-
-                </div>
 
 
 
@@ -1200,6 +1062,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 ================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script
     type="module"
