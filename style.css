@@ -3305,86 +3305,13 @@ color:#555;
 }
 
 /* ==================================================
-   ترتيب بطاقة المدربة
-================================================== */
-
-.trainer-card {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-
-    width: 100%;
-    box-sizing: border-box;
-
-    padding: 24px 22px;
-
-    background: #f5fbfc;
-
-    border: 2px solid #d9eef1;
-    border-radius: 28px;
-
-    cursor: pointer;
-
-    transition: all 0.25s ease;
-}
-
-
-/* البطاقة عند الاختيار */
-
-.trainer-card.selected {
-    border-color: #62b8c7;
-    background: #f1fafb;
-
-    box-shadow:
-        0 8px 25px rgba(98, 184, 199, 0.12);
-}
-
-
-/* ==================================================
-   علامة الاختيار ✓
-================================================== */
-
-.trainer-select-mark {
-    position: absolute;
-
-    top: 18px;
-    left: 18px;
-
-    width: 30px;
-    height: 30px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 2px solid #62b8c7;
-    border-radius: 50%;
-
-    background: white;
-
-    color: transparent;
-
-    font-size: 15px;
-    font-weight: 800;
-
-    transition: 0.25s ease;
-}
-
-
-.trainer-card.selected .trainer-select-mark {
-    background: #62b8c7;
-    color: white;
-}
-
-
-/* ==================================================
-   صورة / مربع المدربة
+   تحسين أيقونة TDrive داخل بطاقة المدربة
+   بدون تغيير ترتيب البطاقة
 ================================================== */
 
 .trainer-illustration {
-    width: 105px;
-    height: 105px;
+    width: 110px;
+    height: 110px;
 
     flex-shrink: 0;
 
@@ -3392,165 +3319,28 @@ color:#555;
     align-items: center;
     justify-content: center;
 
-    background: #e4f4f6;
+    background: #e8f6f8;
 
-    border-radius: 22px;
+    border-radius: 24px;
+
+    border: 1px solid #d7edf0;
+
+    box-sizing: border-box;
 }
 
+
+/* كلمة TDrive داخل الأيقونة */
 
 .trainer-placeholder {
     color: #62b8c7;
 
     font-size: 20px;
-    font-weight: 800;
-}
 
-
-/* ==================================================
-   معلومات المدربة
-================================================== */
-
-.trainer-info {
-    flex: 1;
-    min-width: 0;
-}
-
-
-.trainer-info h5 {
-    margin: 0 0 7px;
-
-    color: #26343a;
-
-    font-size: 25px;
     font-weight: 800;
 
-    line-height: 1.4;
-}
+    letter-spacing: -0.5px;
 
-
-.trainer-role {
-    display: block;
-
-    color: #4ca9b9;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    line-height: 1.7;
-}
-
-
-/* ==================================================
-   التسجيل الصوتي
-================================================== */
-
-.trainer-audio {
-    display: flex;
-    align-items: center;
-
-    gap: 12px;
-
-    margin-top: 18px;
-
-    padding: 10px 14px;
-
-    background: white;
-
-    border: 1px solid #d9eef1;
-
-    border-radius: 18px;
-}
-
-
-.audio-play-btn {
-    width: 50px;
-    height: 50px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: none;
-    border-radius: 15px;
-
-    background: #62b8c7;
-
-    color: white;
-
-    font-size: 17px;
-
-    cursor: pointer;
-}
-
-
-.audio-content {
-    display: flex;
-    flex-direction: column;
-
-    gap: 2px;
-}
-
-
-.audio-content strong {
-    color: #40545b;
-
-    font-size: 14px;
-}
-
-
-.audio-content span {
-    color: #91a3a8;
-
-    font-size: 12px;
-}
-
-
-/* ==================================================
-   اختيار المدربة
-================================================== */
-
-.trainer-radio-option {
-    display: flex;
-    align-items: center;
-
-    gap: 8px;
-
-    margin-top: 15px;
-
-    color: #53656a;
-
-    font-size: 14px;
-    font-weight: 600;
-
-    cursor: pointer;
-}
-
-
-.trainer-radio-option input {
-    display: none;
-}
-
-
-.custom-radio {
-    width: 20px;
-    height: 20px;
-
-    flex-shrink: 0;
-
-    border: 2px solid #62b8c7;
-    border-radius: 50%;
-
-    background: white;
-}
-
-
-.trainer-radio-option input:checked + .custom-radio {
-    box-shadow:
-        inset 0 0 0 5px white;
-
-    background: #62b8c7;
+    text-align: center;
 }
 
 
@@ -3560,76 +3350,15 @@ color:#555;
 
 @media (max-width: 600px) {
 
-    .trainer-card {
-        padding: 20px 15px;
-
-        gap: 12px;
-
-        border-radius: 24px;
-    }
-
-
     .trainer-illustration {
-        width: 82px;
-        height: 82px;
+        width: 92px;
+        height: 92px;
 
-        border-radius: 18px;
+        border-radius: 21px;
     }
-
 
     .trainer-placeholder {
-        font-size: 17px;
-    }
-
-
-    .trainer-info h5 {
-        font-size: 21px;
-    }
-
-
-    .trainer-role {
-        font-size: 13px;
-    }
-
-
-    .trainer-select-mark {
-        top: 12px;
-        left: 12px;
-
-        width: 27px;
-        height: 27px;
-    }
-
-
-    .trainer-audio {
-        margin-top: 14px;
-
-        padding: 8px 10px;
-
-        border-radius: 15px;
-    }
-
-
-    .audio-play-btn {
-        width: 44px;
-        height: 44px;
-
-        border-radius: 13px;
-    }
-
-
-    .audio-content strong {
-        font-size: 12px;
-    }
-
-
-    .audio-content span {
-        font-size: 11px;
-    }
-
-
-    .trainer-radio-option {
-        font-size: 13px;
+        font-size: 18px;
     }
 
 }
