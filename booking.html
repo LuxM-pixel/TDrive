@@ -138,11 +138,105 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <label>رقم الجوال</label>
 <div class="input-icon">
-<input type="tel" id="phone" placeholder="05xxxxxxxx" required>
-<i class="fa-solid fa-phone"></i>
+    <input
+        type="tel"
+        id="phone"
+        placeholder="05xxxxxxxx"
+        required
+    >
+    <i class="fa-solid fa-phone"></i>
 </div>
 
-<button type="button" class="next-btn" data-next="2">التالي</button>
+
+<!-- =========================================
+     اختيار المدربة
+========================================= -->
+
+<div class="trainer-selection">
+
+    <h4 class="trainer-selection-title">
+        اختاري المدربة
+    </h4>
+
+    <p class="trainer-selection-description">
+        اختاري المدربة المناسبة لك للاستفادة من جدولها ومواعيدها المتاحة.
+    </p>
+
+
+    <div class="trainer-card" data-trainer-id="mona-hamoud">
+
+        <div class="trainer-select-mark">
+            ✓
+        </div>
+
+
+        <div class="trainer-illustration">
+            <!-- الرسم الخاص بالمدربة يوضع هنا لاحقًا -->
+            <div class="trainer-placeholder">
+                TDrive
+            </div>
+        </div>
+
+
+        <div class="trainer-info">
+
+            <h5>
+                أ. منى حمود
+            </h5>
+
+            <span class="trainer-role">
+                مؤسس TDrive
+            </span>
+
+
+            <!-- التسجيل الصوتي -->
+
+            <div class="trainer-audio">
+
+                <button
+                    type="button"
+                    class="audio-play-btn"
+                    id="trainerAudioBtn"
+                    aria-label="تشغيل التسجيل الصوتي">
+
+                    <i class="fa-solid fa-play"></i>
+
+                </button>
+
+                <div class="audio-content">
+
+                    <strong>
+                        استمعي لتعريف المدربة
+                    </strong>
+
+                    <div class="audio-progress">
+                        <span id="trainerAudioProgress"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <input
+        type="hidden"
+        id="selectedTrainer"
+        value=""
+    >
+
+</div>
+
+
+<button
+    type="button"
+    class="next-btn"
+    data-next="2">
+    التالي
+</button>
 
 </div>
 
