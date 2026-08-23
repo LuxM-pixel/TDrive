@@ -2197,3 +2197,131 @@ document.querySelectorAll("[data-back]").forEach(btn => {
     });
 
 });
+
+/* ==================================================
+   إرسال نموذج الحجز وحفظه
+================================================== */
+
+if (form) {
+
+    form.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        const fullName =
+            document.getElementById("fullName")?.value?.trim() || "";
+
+        const address =
+            cityInput?.value?.trim() || "";
+
+        const phone =
+            document.getElementById("phone")?.value?.trim() || "";
+
+        const instructorId =
+            selectedTrainerInput?.value?.trim() || "";
+
+        const trainingDate =
+            dateInput?.value?.trim() || "";
+
+        const trainingTime =
+            trainingTimeInput?.value?.trim() || "";
+
+        if (!fullName || !address || !phone || !instructorId || !trainingDate || !trainingTime) {
+            alert("يرجى تعبئة جميع البيانات واختيار المدربة والموعد.");
+            return;
+        }
+
+        const instructor = findInstructor(instructorId);
+
+        const summary = `
+تأكيد التسجيل
+
+👤 الاسم: ${fullName}
+📱 الجوال: ${phone}
+📍 المدينة: ${address}
+👩‍🏫 المدربة: ${instructor?.full_name || ""}
+📅 بداية التدريب: ${trainingDate}
+🕒 الوقت: ${trainingTime}
+💰 الرسوم: ${OPENING_PRICE} ريال
+
+هل تريد تأكيد التسجيل؟
+`;
+
+        if (!confirm(summary)) return;
+
+        try {
+
+            const bookingId = "BK-" + Date.now();
+            const bookingsToSave = [];
+
+            let currentDate = createLocalDate(trainingDate);
+            let lessonNumber = 1;
+
+            while (lessonNumber <= 5) {
+
+                const day = currentDate.getDay();
+
+                if (day !== 5 && day !== 6) {
+
+                    bookingsToSave.push({
+                        bookingId,
+                        lessonNumber,
+                        totalLessons: 5,
+                        fullName,
+                        address,
+                        phone,
+                        instructorId,
+                        trainingDate: formatLocalDate(currentDate),
+                        trainingTime,
+                        price: OPENING_PRICE,
+                        status: "Pending Payment",
+                        createdAt: new Date().toISOString()
+                    });
+
+                    lessonNumber++;
+
+                }
+
+                currentDate.setDate(currentDate.getDate() + 1);
+
+            }
+
+            for (const bookingData of bookingsToSave) {
+
+                const bookedTimes = await getInstructorBookedTimes(
+                    bookingData.instructorId,
+                    bookingData.trainingDate
+                );
+
+                if (Array.isArray(bookedTimes) && bookedTimes.includes(bookingData.trainingTime)) {
+                    throw new Error(
+                        `يوجد حجز مسبق يوم ${bookingData.trainingDate} الساعة ${bookingData.trainingTime}`
+                    );
+                }
+
+            }
+
+            for (const bookingData of bookingsToSave) {
+                await saveBooking(bookingData);
+            }
+
+            alert("تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع.");
+
+            sessionStorage.setItem("bookingId", bookingId);
+            sessionStorage.setItem("fullName", fullName);
+            sessionStorage.setItem("phone", phone);
+            sessionStorage.setItem("trainingDate", trainingDate);
+            sessionStorage.setItem("trainingTime", trainingTime);
+
+            window.location.href = "payment-method.html";
+
+        } catch (error) {
+
+            console.error(error);
+            alert(error.message || "تعذر إتمام الحجز.");
+
+        }
+
+    });
+
+}
