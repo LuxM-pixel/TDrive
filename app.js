@@ -1,3 +1,12 @@
+/* ==================================================
+   SUPABASE (بيانات المدربات)
+================================================== */
+
+const supabaseUrl = "https://ytesjbrtkqnjqqeoswkc.supabase.co";
+const supabaseKey = "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j";
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+
 import { saveBooking, saveReview, getApprovedReviews, getBookedTimes } from "./firebase.js";
 const ORIGINAL_PRICE = 500;
 const OPENING_PRICE = 375;
@@ -792,48 +801,151 @@ document.querySelectorAll("[data-back]").forEach(btn => {
 });
 
 /* ==================================================
-   TRAINER SELECTION
+   TRAINER SELECTION (ديناميكي حسب المدينة)
 ================================================== */
 
-const trainerCard =
-    document.querySelector(".trainer-card");
+const trainerListBox = document.getElementById("trainerList");
+const selectedTrainerInput = document.getElementById("selectedTrainer");
+const cityInput = document.getElementById("address");
 
-const selectedTrainerInput =
-    document.getElementById("selectedTrainer");
+let loadedInstructors = [];
 
+async function loadInstructorsByCity(city) {
 
-if (trainerCard) {
+  if (!trainerListBox) return;
 
-    trainerCard.addEventListener("click", function(event) {
+  trainerListBox.innerHTML = `
+    <p style="text-align:center; color:#8b999f; font-size:13px;">
+      جاري تحميل المدربات...
+    </p>
+  `;
 
-        /*
-          إذا ضغطت المتدربة على زر الصوت
-          لا نعتبره اختيارًا للبطاقة.
-        */
+  try {
 
-        if (
-            event.target.closest(".audio-play-btn")
-        ) {
-            return;
-        }
+    const { data, error } =
+      await supabaseClient
+        .from("instructors")
+        .select("*")
+        .eq("city", city)
+        .eq("status", "active");
 
+    if (error) throw error;
 
-        trainerCard.classList.toggle("selected");
+    loadedInstructors = data || [];
 
+    if (loadedInstructors.length === 0) {
+      trainerListBox.innerHTML = `
+        <p style="text-align:center; color:#8b999f; font-size:13px;">
+          لا توجد مدربات متاحات في مدينتك حاليًا.
+        </p>
+      `;
+      return;
+    }
 
-        if (
-            trainerCard.classList.contains("selected")
-        ) {
+    trainerListBox.innerHTML = loadedInstructors.map(instructor => `
+      <div class="trainer-card" data-trainer-id="${instructor.instructor_id}">
+        <div class="trainer-select-mark">✓</div>
+        <div class="trainer-illustration">
+          <div class="trainer-placeholder">TDrive</div>
+        </div>
+        <div class="trainer-info">
+          <h5>أ. ${instructor.full_name || "مدربة"}</h5>
+          <span class="trainer-role">مدربة معتمدة في TDrive</span>
+          <div class="trainer-audio">
+            <button type="button" class="audio-play-btn" data-audio-for="${instructor.instructor_id}" aria-label="تشغيل التسجيل الصوتي">
+              <i class="fa-solid fa-play"></i>
+            </button>
+            <div class="audio-content">
+              <strong>استمعي لتعريف المدربة</strong>
+            </div>
+          </div>
+          <audio id="audio_${instructor.instructor_id}" preload="none"></audio>
+        </div>
+        <label class="trainer-radio-option">
+          <input type="radio" name="selectedTrainer" value="${instructor.instructor_id}">
+          <span class="custom-radio"></span>
+          <span>اختيار المدربة</span>
+        </label>
+      </div>
+    `).join("");
 
-            selectedTrainerInput.value =
-                trainerCard.dataset.trainerId;
+    attachTrainerCardEvents();
 
-        } else {
+  } catch (error) {
+    console.error("Load instructors error:", error);
+    trainerListBox.innerHTML = `
+      <p style="text-align:center; color:#8b999f; font-size:13px;">
+        تعذر تحميل قائمة المدربات.
+      </p>
+    `;
+  }
 
-            selectedTrainerInput.value = "";
+}
 
-        }
+function attachTrainerCardEvents() {
+
+  document.querySelectorAll(".trainer-card").forEach(card => {
+
+    card.addEventListener("click", function (event) {
+
+      if (event.target.closest(".audio-play-btn")) return;
+
+      document.querySelectorAll(".trainer-card").forEach(c => c.classList.remove("selected"));
+      card.classList.add("selected");
+
+      selectedTrainerInput.value = card.dataset.trainerId;
 
     });
 
+  });
+
+  document.querySelectorAll(".audio-play-btn").forEach(btn => {
+
+    btn.addEventListener("click", async function (event) {
+
+      event.stopPropagation();
+
+      const instructorId = btn.dataset.audioFor;
+      const audioEl = document.getElementById(`audio_${instructorId}`);
+      if (!audioEl) return;
+
+      if (!audioEl.src) {
+
+        const instructor = loadedInstructors.find(i => i.instructor_id === instructorId);
+        if (!instructor || !instructor.voice_recording_path) return;
+
+        const { data: signed } =
+          await supabaseClient
+            .storage
+            .from("instructor-documents")
+            .createSignedUrl(instructor.voice_recording_path, 3600);
+
+        if (signed?.signedUrl) audioEl.src = signed.signedUrl;
+      }
+
+      if (audioEl.paused) {
+        audioEl.play();
+        btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      } else {
+        audioEl.pause();
+        btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+      }
+
+      audioEl.onended = () => {
+        btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+      };
+
+    });
+
+  });
+
 }
+
+document.querySelectorAll('[data-next="2"]').forEach(btn => {
+
+  btn.addEventListener("click", () => {
+    const city = cityInput.value.trim();
+    if (city) loadInstructorsByCity(city);
+  });
+
+});
