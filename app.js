@@ -2301,9 +2301,7 @@ if (form) {
 
             }
 
-            for (const bookingData of bookingsToSave) {
-                await saveBooking(bookingData);
-            }
+            await saveBooking(bookingsToSave);
 
             alert("تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع.");
 
