@@ -63,7 +63,7 @@ function svgNoVehicles() {
     </svg>`;
 }
 
-// 🚫 ممنوع التجاوز
+// 🚫 مسموح التجاوز
 function svgNoOvertaking() {
     return `
     <svg viewBox="0 0 100 100">
