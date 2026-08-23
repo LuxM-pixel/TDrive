@@ -1,11 +1,30 @@
 /* ==================================================
-   SUPABASE (بيانات المدربات)
+   TDRIVE BOOKING SYSTEM
+   SUPABASE + BOOKING + TRAINERS + REVIEWS
 ================================================== */
 
-const supabaseUrl = "https://ytesjbrtkqnjqqeoswkc.supabase.co";
-const supabaseKey = "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j";
-const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+/* ==================================================
+   SUPABASE
+   بيانات المدربات + جداول المدربات
+================================================== */
+
+const supabaseUrl =
+    "https://ytesjbrtkqnjqqeoswkc.supabase.co";
+
+const supabaseKey =
+    "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j";
+
+const supabaseClient =
+    window.supabase.createClient(
+        supabaseUrl,
+        supabaseKey
+    );
+
+
+/* ==================================================
+   FIREBASE
+================================================== */
 
 import {
     saveBooking,
@@ -14,222 +33,814 @@ import {
     getInstructorBookedTimes
 } from "./firebase.js";
 
+
+/* ==================================================
+   الأسعار
+================================================== */
+
 const OPENING_PRICE = 375;
-const FIRST10_PRICE = 270;
-// نسخ الآيبان
-window.copyIBAN = function () {
-  const input = document.getElementById("iban");
-  if (!input) return;
-  navigator.clipboard.writeText(input.value);
-  alert("تم نسخ رقم الآيبان");
-};
-
-// نسخ الاسم
-window.copyName = function () {
-  const input = document.getElementById("name");
-  if (!input) return;
-  navigator.clipboard.writeText(input.value);
-  alert("تم نسخ اسم المستفيد");
-};
-
-const form = document.getElementById("bookingForm");
-
-// منع اختيار التواريخ الماضية
-const dateInput = document.getElementById("trainingDate");
-
-if (dateInput) {
-
-    new AirDatepicker("#trainingDate", {
-
-        locale: {
-            days: ['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],
-            daysShort: ['أحد','إثنين','ثلاثاء','أربعاء','خميس','جمعة','سبت'],
-            daysMin: ['ح','ن','ث','ر','خ','ج','س'],
-            months: ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],
-            monthsShort: ['ينا','فبر','مار','أبر','ماي','يون','يول','أغس','سبت','أكت','نوف','ديس'],
-            today: 'اليوم',
-            clear: 'مسح',
-            dateFormat: 'yyyy-MM-dd',
-            firstDay: 0
-        },
-
-        minDate: new Date(),
-
-        autoClose: true,
-
-        onRenderCell({ date, cellType }) {
-
-    if (cellType === "day") {
-
-        const day = date.getDay();
-
-        if (day === 5 || day === 6) {
-
-            return {
-                disabled: true
-            };
-
-        }
-
-    }
-
-}
-
-    });
-
-}
-/* ==================================================
-   BOOKING DATE & TIME
-   مرتبط بالمدربة المختارة
-================================================== */
-
-const trainingTimeInput = document.getElementById("trainingTime");
-const timeSlotsGrid = document.getElementById("timeSlotsGrid");
-const dateInput = document.getElementById("trainingDate");
-
-const allTimes = [
-    "08:00 - 09:00 صباحًا",
-    "10:00 - 11:00 صباحًا",
-    "12:00 - 01:00 ظهرًا",
-    "02:00 - 03:00 عصرًا"
-];
-
 
 
 /* ==================================================
-   تحديث الأوقات المتاحة للمدربة المختارة
+   عناصر الحجز
 ================================================== */
 
-async function updateAvailableTimes() {
+const form =
+    document.getElementById("bookingForm");
 
-    const selectedDate = dateInput?.value;
-    const instructorId = selectedTrainerInput?.value;
+const dateInput =
+    document.getElementById("trainingDate");
 
-    if (!selectedDate || !instructorId) {
+const trainingTimeInput =
+    document.getElementById("trainingTime");
 
-        if (timeSlotsGrid) {
-            timeSlotsGrid.innerHTML = `
-                <p style="
-                    text-align:center;
-                    color:#8b999f;
-                    font-size:13px;
-                    width:100%;
-                ">
-                    اختاري المدربة أولًا ثم اختاري التاريخ.
-                </p>
-            `;
-        }
+const timeSlotsGrid =
+    document.getElementById("timeSlotsGrid");
 
-        return;
+const trainerListBox =
+    document.getElementById("trainerList");
+
+const selectedTrainerInput =
+    document.getElementById("selectedTrainer");
+
+const cityInput =
+    document.getElementById("address");
+
+
+let loadedInstructors = [];
+
+
+/* ==================================================
+   أدوات مساعدة
+================================================== */
+
+function escapeHTML(value) {
+
+    return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+function formatLocalDate(date) {
+
+    const year =
+        date.getFullYear();
+
+    const month =
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0");
+
+    const day =
+        String(
+            date.getDate()
+        ).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+
+}
+
+
+function createLocalDate(dateString) {
+
+    const parts =
+        String(dateString)
+            .split("-")
+            .map(Number);
+
+    if (parts.length !== 3) {
+        return null;
     }
 
+    const [
+        year,
+        month,
+        day
+    ] = parts;
 
-    trainingTimeInput.value = "";
+    const date =
+        new Date(
+            year,
+            month - 1,
+            day
+        );
 
-    timeSlotsGrid.innerHTML = `
-        <p style="
-            text-align:center;
-            color:#8b999f;
-            font-size:13px;
-            width:100%;
-        ">
-            جاري التحقق من المواعيد...
-        </p>
-    `;
+    if (
+        date.getFullYear() !== year ||
+        date.getMonth() !== month - 1 ||
+        date.getDate() !== day
+    ) {
+        return null;
+    }
 
+    return date;
+
+}
+
+
+function normalizeTime(time) {
+
+    return String(time ?? "")
+        .trim()
+        .replace(/\s+/g, " ");
+
+}
+
+
+/* ==================================================
+   نسخ الآيبان
+================================================== */
+
+window.copyIBAN = async function () {
+
+    const input =
+        document.getElementById("iban");
+
+    if (!input) return;
 
     try {
 
-        /*
-          مهم:
-          هنا نتحقق من حجوزات المدربة المحددة فقط.
-        */
+        await navigator.clipboard.writeText(
+            input.value
+        );
 
-        const bookedTimes =
-            await getInstructorBookedTimes(
-                instructorId,
-                selectedDate
-            );
-
-
-        timeSlotsGrid.innerHTML = "";
-
-
-        allTimes.forEach(time => {
-
-            const isBooked =
-                bookedTimes.includes(time);
-
-
-            const btn =
-                document.createElement("button");
-
-
-            btn.type = "button";
-
-            btn.className =
-                "time-slot-btn";
-
-            btn.textContent =
-                isBooked
-                    ? `${time} - محجوز`
-                    : time;
-
-
-            if (isBooked) {
-
-                btn.disabled = true;
-
-                btn.classList.add("booked");
-
-            } else {
-
-                btn.addEventListener(
-                    "click",
-                    function () {
-
-                        document
-                            .querySelectorAll(".time-slot-btn")
-                            .forEach(b =>
-                                b.classList.remove("selected")
-                            );
-
-
-                        this.classList.add("selected");
-
-
-                        trainingTimeInput.value =
-                            time;
-
-                    }
-                );
-
-            }
-
-
-            timeSlotsGrid.appendChild(btn);
-
-        });
-
+        alert("تم نسخ رقم الآيبان");
 
     } catch (error) {
 
         console.error(
-            "Error loading instructor availability:",
+            "Clipboard error:",
             error
         );
 
+        input.select();
 
-        timeSlotsGrid.innerHTML = `
-            <p style="
-                text-align:center;
-                color:#c0392b;
-                font-size:13px;
-                width:100%;
-            ">
-                تعذر تحميل المواعيد المتاحة.
-            </p>
-        `;
+        document.execCommand("copy");
+
+        alert("تم نسخ رقم الآيبان");
+
+    }
+
+};
+
+
+/* ==================================================
+   نسخ اسم المستفيد
+================================================== */
+
+window.copyName = async function () {
+
+    const input =
+        document.getElementById("name");
+
+    if (!input) return;
+
+    try {
+
+        await navigator.clipboard.writeText(
+            input.value
+        );
+
+        alert("تم نسخ اسم المستفيد");
+
+    } catch (error) {
+
+        console.error(
+            "Clipboard error:",
+            error
+        );
+
+        input.select();
+
+        document.execCommand("copy");
+
+        alert("تم نسخ اسم المستفيد");
+
+    }
+
+};
+
+
+/* ==================================================
+   DATEPICKER
+   منع التواريخ الماضية
+   منع الجمعة والسبت
+================================================== */
+
+if (
+    dateInput &&
+    typeof AirDatepicker !== "undefined"
+) {
+
+    new AirDatepicker(
+        "#trainingDate",
+        {
+
+            locale: {
+
+                days: [
+                    "الأحد",
+                    "الإثنين",
+                    "الثلاثاء",
+                    "الأربعاء",
+                    "الخميس",
+                    "الجمعة",
+                    "السبت"
+                ],
+
+                daysShort: [
+                    "أحد",
+                    "إثنين",
+                    "ثلاثاء",
+                    "أربعاء",
+                    "خميس",
+                    "جمعة",
+                    "سبت"
+                ],
+
+                daysMin: [
+                    "ح",
+                    "ن",
+                    "ث",
+                    "ر",
+                    "خ",
+                    "ج",
+                    "س"
+                ],
+
+                months: [
+                    "يناير",
+                    "فبراير",
+                    "مارس",
+                    "أبريل",
+                    "مايو",
+                    "يونيو",
+                    "يوليو",
+                    "أغسطس",
+                    "سبتمبر",
+                    "أكتوبر",
+                    "نوفمبر",
+                    "ديسمبر"
+                ],
+
+                monthsShort: [
+                    "ينا",
+                    "فبر",
+                    "مار",
+                    "أبر",
+                    "ماي",
+                    "يون",
+                    "يول",
+                    "أغس",
+                    "سبت",
+                    "أكت",
+                    "نوف",
+                    "ديس"
+                ],
+
+                today: "اليوم",
+
+                clear: "مسح",
+
+                dateFormat: "yyyy-MM-dd",
+
+                firstDay: 0
+
+            },
+
+            minDate: new Date(),
+
+            autoClose: true,
+
+            onRenderCell({
+                date,
+                cellType
+            }) {
+
+                if (
+                    cellType === "day"
+                ) {
+
+                    const day =
+                        date.getDay();
+
+                    if (
+                        day === 5 ||
+                        day === 6
+                    ) {
+
+                        return {
+                            disabled: true
+                        };
+
+                    }
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   أسماء أيام الأسبوع
+================================================== */
+
+function getArabicDayName(
+    dayNumber
+) {
+
+    const days = [
+
+        "الأحد",
+        "الإثنين",
+        "الثلاثاء",
+        "الأربعاء",
+        "الخميس",
+        "الجمعة",
+        "السبت"
+
+    ];
+
+    return days[dayNumber] || "";
+
+}
+
+
+/* ==================================================
+   قراءة جدول المدربة
+================================================== */
+
+function getInstructorSchedule(
+    instructor
+) {
+
+    if (!instructor) {
+        return {};
+    }
+
+    let schedule =
+        instructor.schedule;
+
+    if (!schedule) {
+        return {};
+    }
+
+    if (
+        typeof schedule === "string"
+    ) {
+
+        try {
+
+            schedule =
+                JSON.parse(schedule);
+
+        } catch (error) {
+
+            console.error(
+                "تعذر قراءة جدول المدربة:",
+                error
+            );
+
+            return {};
+
+        }
+
+    }
+
+    return schedule || {};
+
+}
+
+
+/* ==================================================
+   استخراج أوقات المدربة في تاريخ معين
+================================================== */
+
+function getTimesForInstructorDate(
+    instructor,
+    selectedDate
+) {
+
+    if (
+        !instructor ||
+        !selectedDate
+    ) {
+        return [];
+    }
+
+    const date =
+        createLocalDate(
+            selectedDate
+        );
+
+    if (!date) {
+        return [];
+    }
+
+    const dayNumber =
+        date.getDay();
+
+    const dayName =
+        getArabicDayName(
+            dayNumber
+        );
+
+    const schedule =
+        getInstructorSchedule(
+            instructor
+        );
+
+    if (
+        schedule &&
+        typeof schedule === "object" &&
+        !Array.isArray(schedule)
+    ) {
+
+        let times =
+            schedule[dayName];
+
+        if (!times) {
+
+            times =
+                schedule[
+                    String(dayNumber)
+                ];
+
+        }
+
+        if (!times) {
+
+            const englishDays = [
+
+                "sunday",
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thursday",
+                "friday",
+                "saturday"
+
+            ];
+
+            times =
+                schedule[
+                    englishDays[dayNumber]
+                ];
+
+        }
+
+        if (!times) {
+            return [];
+        }
+
+        if (
+            Array.isArray(times)
+        ) {
+
+            return times
+                .map(normalizeTime)
+                .filter(Boolean);
+
+        }
+
+        if (
+            typeof times === "string"
+        ) {
+
+            return times
+                .split(",")
+                .map(normalizeTime)
+                .filter(Boolean);
+
+        }
+
+        return [];
+
+    }
+
+
+    if (
+        Array.isArray(schedule)
+    ) {
+
+        const daySchedule =
+            schedule.find(item => {
+
+                if (!item) {
+                    return false;
+                }
+
+                return (
+
+                    item.day === dayName ||
+
+                    item.day_name === dayName ||
+
+                    String(item.day) ===
+                        String(dayNumber) ||
+
+                    String(item.day_of_week) ===
+                        String(dayNumber)
+
+                );
+
+            });
+
+        if (!daySchedule) {
+            return [];
+        }
+
+        const times =
+            daySchedule.times ||
+            daySchedule.time_slots ||
+            daySchedule.slots ||
+            [];
+
+        if (
+            Array.isArray(times)
+        ) {
+
+            return times
+                .map(normalizeTime)
+                .filter(Boolean);
+
+        }
+
+        if (
+            typeof times === "string"
+        ) {
+
+            return times
+                .split(",")
+                .map(normalizeTime)
+                .filter(Boolean);
+
+        }
+
+    }
+
+    return [];
+
+}
+
+
+/* ==================================================
+   الحصول على المدربة
+================================================== */
+
+function findInstructor(
+    instructorId
+) {
+
+    return loadedInstructors.find(
+        instructor =>
+            String(
+                instructor.instructor_id
+            ) ===
+            String(
+                instructorId
+            )
+    );
+
+}
+
+
+/* ==================================================
+   عرض رسالة داخل جدول الأوقات
+================================================== */
+
+function showTimeMessage(
+    message,
+    color = "#8b999f"
+) {
+
+    if (!timeSlotsGrid) {
+        return;
+    }
+
+    timeSlotsGrid.innerHTML = `
+
+        <p style="
+            text-align:center;
+            color:${color};
+            font-size:13px;
+            width:100%;
+        ">
+
+            ${escapeHTML(message)}
+
+        </p>
+
+    `;
+
+}
+
+
+/* ==================================================
+   تحديث الأوقات المتاحة
+================================================== */
+
+async function updateAvailableTimes() {
+
+    const selectedDate =
+        dateInput?.value?.trim();
+
+    const instructorId =
+        selectedTrainerInput?.value?.trim();
+
+    if (
+        trainingTimeInput
+    ) {
+
+        trainingTimeInput.value = "";
+
+    }
+
+    if (
+        !selectedDate ||
+        !instructorId
+    ) {
+
+        showTimeMessage(
+            "اختاري المدربة أولًا ثم اختاري التاريخ."
+        );
+
+        return;
+
+    }
+
+    showTimeMessage(
+        "جاري التحقق من المواعيد..."
+    );
+
+    try {
+
+        const instructor =
+            findInstructor(
+                instructorId
+            );
+
+        if (!instructor) {
+
+            throw new Error(
+                "تعذر العثور على بيانات المدربة."
+            );
+
+        }
+
+        const instructorTimes =
+            getTimesForInstructorDate(
+                instructor,
+                selectedDate
+            );
+
+        if (
+            instructorTimes.length === 0
+        ) {
+
+            showTimeMessage(
+                "المدربة غير متاحة في هذا اليوم."
+            );
+
+            return;
+
+        }
+
+        let bookedTimes = [];
+
+        try {
+
+            bookedTimes =
+                await getInstructorBookedTimes(
+                    instructorId,
+                    selectedDate
+                );
+
+        } catch (error) {
+
+            console.error(
+                "تعذر تحميل الحجوزات:",
+                error
+            );
+
+            showTimeMessage(
+                "تعذر التحقق من المواعيد المحجوزة. حاولي مرة أخرى.",
+                "#c0392b"
+            );
+
+            return;
+
+        }
+
+        bookedTimes =
+            Array.isArray(bookedTimes)
+                ? bookedTimes.map(normalizeTime)
+                : [];
+
+        if (timeSlotsGrid) {
+
+            timeSlotsGrid.innerHTML = "";
+
+        }
+
+        instructorTimes.forEach(
+            time => {
+
+                const normalizedTime =
+                    normalizeTime(time);
+
+                const isBooked =
+                    bookedTimes.includes(
+                        normalizedTime
+                    );
+
+                const btn =
+                    document.createElement(
+                        "button"
+                    );
+
+                btn.type =
+                    "button";
+
+                btn.className =
+                    "time-slot-btn";
+
+                btn.textContent =
+                    isBooked
+                        ? `${normalizedTime} - محجوز`
+                        : normalizedTime;
+
+                if (isBooked) {
+
+                    btn.disabled =
+                        true;
+
+                    btn.classList.add(
+                        "booked"
+                    );
+
+                } else {
+
+                    btn.addEventListener(
+                        "click",
+                        function () {
+
+                            document
+                                .querySelectorAll(
+                                    ".time-slot-btn"
+                                )
+                                .forEach(
+                                    button =>
+                                        button.classList.remove(
+                                            "selected"
+                                        )
+                                );
+
+                            this.classList.add(
+                                "selected"
+                            );
+
+                            if (
+                                trainingTimeInput
+                            ) {
+
+                                trainingTimeInput.value =
+                                    normalizedTime;
+
+                            }
+
+                        }
+                    );
+
+                }
+
+                timeSlotsGrid.appendChild(
+                    btn
+                );
+
+            }
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Error loading instructor schedule:",
+            error
+        );
+
+        showTimeMessage(
+            "تعذر تحميل مواعيد المدربة.",
+            "#c0392b"
+        );
 
     }
 
@@ -237,7 +848,7 @@ async function updateAvailableTimes() {
 
 
 /* ==================================================
-   عند تغيير التاريخ
+   تغيير التاريخ
 ================================================== */
 
 if (dateInput) {
@@ -251,28 +862,241 @@ if (dateInput) {
 
 
 /* ==================================================
-   عند اختيار المدربة
-   نعيد تحميل أوقات المدربة
+   عند تغيير المدربة
 ================================================== */
 
 function refreshTrainerSchedule() {
 
-    trainingTimeInput.value = "";
+    if (
+        trainingTimeInput
+    ) {
 
-    if (dateInput) {
-        dateInput.value = "";
+        trainingTimeInput.value = "";
+
     }
 
-    if (timeSlotsGrid) {
+    if (
+        dateInput
+    ) {
 
-        timeSlotsGrid.innerHTML = `
+        dateInput.value = "";
+
+    }
+
+    showTimeMessage(
+        "اختاري تاريخ التدريب لعرض مواعيد المدربة."
+    );
+
+}
+
+
+/* ==================================================
+   تحميل المدربات حسب المدينة
+================================================== */
+
+async function loadInstructorsByCity(
+    city
+) {
+
+    if (!trainerListBox) {
+        return;
+    }
+
+    const cleanCity =
+        String(city || "").trim();
+
+    if (!cleanCity) {
+
+        trainerListBox.innerHTML = `
             <p style="
                 text-align:center;
                 color:#8b999f;
                 font-size:13px;
-                width:100%;
             ">
-                اختاري تاريخ التدريب لعرض المواعيد المتاحة.
+                اختاري مدينة التدريب أولًا.
+            </p>
+        `;
+
+        return;
+
+    }
+
+    trainerListBox.innerHTML = `
+        <p style="
+            text-align:center;
+            color:#8b999f;
+            font-size:13px;
+        ">
+            جاري تحميل المدربات...
+        </p>
+    `;
+
+    loadedInstructors = [];
+
+    if (
+        selectedTrainerInput
+    ) {
+
+        selectedTrainerInput.value = "";
+
+    }
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .from("instructors")
+                .select("*")
+                .eq("city", cleanCity)
+                .eq("status", "active");
+
+        if (error) {
+            throw error;
+        }
+
+        loadedInstructors =
+            Array.isArray(data)
+                ? data
+                : [];
+
+        if (
+            loadedInstructors.length === 0
+        ) {
+
+            trainerListBox.innerHTML = `
+                <p style="
+                    text-align:center;
+                    color:#8b999f;
+                    font-size:13px;
+                ">
+                    لا توجد مدربات متاحات في مدينتك حاليًا.
+                </p>
+            `;
+
+            return;
+
+        }
+
+        trainerListBox.innerHTML =
+            loadedInstructors
+                .map(
+                    instructor => {
+
+                        const instructorId =
+                            escapeHTML(
+                                instructor.instructor_id
+                            );
+
+                        const instructorName =
+                            escapeHTML(
+                                instructor.full_name ||
+                                "مدربة"
+                            );
+
+                        return `
+
+                            <div
+                                class="trainer-card"
+                                data-trainer-id="${instructorId}"
+                            >
+
+                                <div class="trainer-select-mark">
+                                    ✓
+                                </div>
+
+                                <div class="trainer-illustration">
+
+                                    <div class="trainer-placeholder">
+                                        TDrive
+                                    </div>
+
+                                </div>
+
+                                <div class="trainer-info">
+
+                                    <h5>
+                                        أ. ${instructorName}
+                                    </h5>
+
+                                    <span class="trainer-role">
+                                        مدربة معتمدة في TDrive
+                                    </span>
+
+                                    <div class="trainer-audio">
+
+                                        <button
+                                            type="button"
+                                            class="audio-play-btn"
+                                            data-audio-for="${instructorId}"
+                                            aria-label="تشغيل التسجيل الصوتي"
+                                        >
+
+                                            <i class="fa-solid fa-play"></i>
+
+                                        </button>
+
+                                        <div class="audio-content">
+
+                                            <strong>
+                                                استمعي لتعريف المدربة
+                                            </strong>
+
+                                        </div>
+
+                                    </div>
+
+                                    <audio
+                                        id="audio_${instructorId}"
+                                        preload="none"
+                                    ></audio>
+
+                                </div>
+
+                                <label class="trainer-radio-option">
+
+                                    <input
+                                        type="radio"
+                                        name="selectedTrainer"
+                                        value="${instructorId}"
+                                    >
+
+                                    <span class="custom-radio"></span>
+
+                                    <span>
+                                        اختيار المدربة
+                                    </span>
+
+                                </label>
+
+                            </div>
+
+                        `;
+
+                    }
+                )
+                .join("");
+
+        attachTrainerCardEvents();
+
+    } catch (error) {
+
+        console.error(
+            "Load instructors error:",
+            error
+        );
+
+        loadedInstructors = [];
+
+        trainerListBox.innerHTML = `
+            <p style="
+                text-align:center;
+                color:#c0392b;
+                font-size:13px;
+            ">
+                تعذر تحميل قائمة المدربات.
             </p>
         `;
 
@@ -282,70 +1106,443 @@ function refreshTrainerSchedule() {
 
 
 /* ==================================================
-   الحجز
+   أحداث بطاقات المدربات
 ================================================== */
 
-if (form) {
+function attachTrainerCardEvents() {
 
-    form.addEventListener(
+    if (!trainerListBox) {
+        return;
+    }
+
+    trainerListBox
+        .querySelectorAll(
+            ".trainer-card"
+        )
+        .forEach(
+            card => {
+
+                card.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (
+                            event.target.closest(
+                                ".audio-play-btn"
+                            )
+                        ) {
+
+                            return;
+
+                        }
+
+                        trainerListBox
+                            .querySelectorAll(
+                                ".trainer-card"
+                            )
+                            .forEach(
+                                otherCard =>
+                                    otherCard.classList.remove(
+                                        "selected"
+                                    )
+                            );
+
+                        card.classList.add(
+                            "selected"
+                        );
+
+                        const trainerId =
+                            card.dataset.trainerId;
+
+                        if (
+                            selectedTrainerInput
+                        ) {
+
+                            selectedTrainerInput.value =
+                                trainerId;
+
+                        }
+
+                        const radio =
+                            card.querySelector(
+                                'input[type="radio"]'
+                            );
+
+                        if (radio) {
+
+                            radio.checked =
+                                true;
+
+                        }
+
+                        refreshTrainerSchedule();
+
+                    }
+                );
+
+            }
+        );
+
+
+    trainerListBox
+        .querySelectorAll(
+            ".audio-play-btn"
+        )
+        .forEach(
+            btn => {
+
+                btn.addEventListener(
+                    "click",
+                    async function (event) {
+
+                        event.stopPropagation();
+
+                        const instructorId =
+                            String(
+                                btn.dataset.audioFor
+                            );
+
+                        const audioEl =
+                            document.getElementById(
+                                `audio_${instructorId}`
+                            );
+
+                        if (!audioEl) {
+                            return;
+                        }
+
+                        try {
+
+                            if (
+                                !audioEl.src
+                            ) {
+
+                                const instructor =
+                                    loadedInstructors.find(
+                                        item =>
+                                            String(
+                                                item.instructor_id
+                                            ) ===
+                                            instructorId
+                                    );
+
+                                if (
+                                    !instructor ||
+                                    !instructor.voice_recording_path
+                                ) {
+
+                                    alert(
+                                        "لا يوجد تسجيل صوتي لهذه المدربة حاليًا."
+                                    );
+
+                                    return;
+
+                                }
+
+                                const {
+                                    data: signed,
+                                    error
+                                } =
+                                    await supabaseClient
+                                        .storage
+                                        .from(
+                                            "instructor-documents"
+                                        )
+                                        .createSignedUrl(
+                                            instructor.voice_recording_path,
+                                            3600
+                                        );
+
+                                if (error) {
+                                    throw error;
+                                }
+
+                                if (
+                                    signed?.signedUrl
+                                ) {
+
+                                    audioEl.src =
+                                        signed.signedUrl;
+
+                                } else {
+
+                                    throw new Error(
+                                        "تعذر إنشاء رابط التسجيل الصوتي."
+                                    );
+
+                                }
+
+                            }
+
+                            if (
+                                audioEl.paused
+                            ) {
+
+                                await audioEl.play();
+
+                                btn.innerHTML =
+                                    '<i class="fa-solid fa-pause"></i>';
+
+                            } else {
+
+                                audioEl.pause();
+
+                                btn.innerHTML =
+                                    '<i class="fa-solid fa-play"></i>';
+
+                            }
+
+                            audioEl.onended =
+                                function () {
+
+                                    btn.innerHTML =
+                                        '<i class="fa-solid fa-play"></i>';
+
+                                };
+
+                        } catch (error) {
+
+                            console.error(
+                                "Audio error:",
+                                error
+                            );
+
+                            alert(
+                                "تعذر تشغيل التسجيل الصوتي."
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* ==================================================
+   BOOKING STEPPER
+================================================== */
+
+const formSteps =
+    document.querySelectorAll(
+        ".form-step"
+    );
+
+const stepCircles =
+    document.querySelectorAll(
+        ".step-circle[data-step]"
+    );
+
+const stepLines =
+    document.querySelectorAll(
+        ".step-line"
+    );
+
+
+function goToStep(
+    stepNum
+) {
+
+    formSteps.forEach(
+        step => {
+
+            step.classList.toggle(
+                "active",
+                Number(
+                    step.dataset.step
+                ) === stepNum
+            );
+
+        }
+    );
+
+    stepCircles.forEach(
+        circle => {
+
+            const num =
+                Number(
+                    circle.dataset.step
+                );
+
+            circle.classList.toggle(
+                "active",
+                num === stepNum
+            );
+
+            circle.classList.toggle(
+                "done",
+                num < stepNum
+            );
+
+        }
+    );
+
+    stepLines.forEach(
+        (line, index) => {
+
+            if (
+                line.closest(
+                    ".captain-stepper"
+                )
+            ) {
+
+                return;
+
+            }
+
+            line.classList.toggle(
+                "active",
+                index < stepNum - 1
+            );
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   التحقق من الحقول المطلوبة
+================================================== */
+
+function validateStep(
+    currentStep
+) {
+
+    if (!currentStep) {
+        return false;
+    }
+
+    const requiredInputs =
+        currentStep.querySelectorAll(
+            "[required]"
+        );
+
+    for (
+        const input
+        of requiredInputs
+    ) {
+
+        if (
+            !String(
+                input.value || ""
+            ).trim()
+        ) {
+
+            alert(
+                "يرجى تعبئة جميع الحقول المطلوبة."
+            );
+
+            input.focus();
+
+            return false;
+
+        }
+
+    }
+
+    return true;
+
+}
+
+/* ==================================================
+   التقييمات
+================================================== */
+
+let selectedRating = 0;
+
+
+const stars =
+    document.querySelectorAll(
+        "#reviewStars span"
+    );
+
+
+console.log(
+    "عدد النجوم:",
+    stars.length
+);
+
+
+if (
+    stars.length > 0
+) {
+
+    stars.forEach(
+        star => {
+
+            star.addEventListener(
+                "click",
+                function () {
+
+                    selectedRating =
+                        Number(
+                            this.dataset.rate
+                        );
+
+
+                    stars.forEach(
+                        currentStar => {
+
+                            if (
+                                Number(
+                                    currentStar.dataset.rate
+                                ) <=
+                                selectedRating
+                            ) {
+
+                                currentStar.style.color =
+                                    "#FFD700";
+
+                            } else {
+
+                                currentStar.style.color =
+                                    "#d0d0d0";
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   نموذج التقييم
+================================================== */
+
+const reviewForm =
+    document.getElementById(
+        "reviewForm"
+    );
+
+
+if (
+    reviewForm
+) {
+
+    reviewForm.addEventListener(
         "submit",
         async function (e) {
 
             e.preventDefault();
 
 
-            const fullName =
-                document
-                    .getElementById("fullName")
-                    .value
-                    .trim();
-
-
-            const address =
-                document
-                    .getElementById("address")
-                    .value
-                    .trim();
-
-
-            const phone =
-                document
-                    .getElementById("phone")
-                    .value
-                    .trim();
-
-
-            const trainingDate =
-                document
-                    .getElementById("trainingDate")
-                    .value;
-
-
-            const trainingTime =
-                document
-                    .getElementById("trainingTime")
-                    .value;
-
-
-            /* ===============================
-               المدربة المختارة
-            =============================== */
-
-            const instructorId =
-                selectedTrainerInput.value;
-
-
             if (
-                !fullName ||
-                !address ||
-                !phone ||
-                !instructorId ||
-                !trainingDate ||
-                !trainingTime
+                selectedRating === 0
             ) {
 
                 alert(
-                    "يرجى تعبئة جميع البيانات واختيار المدربة والموعد."
+                    "يرجى اختيار عدد النجوم."
                 );
 
                 return;
@@ -353,253 +1550,92 @@ if (form) {
             }
 
 
-            /* ===============================
-               الحصول على بيانات المدربة
-            =============================== */
-
-            const selectedInstructor =
-                loadedInstructors.find(
-                    instructor =>
-                        String(instructor.instructor_id) ===
-                        String(instructorId)
-                );
+            const program =
+                document
+                    .getElementById(
+                        "reviewProgram"
+                    )
+                    ?.value
+                    ?.trim() || "";
 
 
-            if (!selectedInstructor) {
+            const comment =
+                document
+                    .getElementById(
+                        "reviewComment"
+                    )
+                    ?.value
+                    ?.trim() || "";
+
+
+            if (
+                !program ||
+                !comment
+            ) {
 
                 alert(
-                    "تعذر العثور على بيانات المدربة المختارة."
+                    "يرجى تعبئة جميع الحقول."
                 );
 
                 return;
 
-            }
-
-
-            const instructorName =
-                selectedInstructor.full_name || "";
-
-
-            /* ===============================
-               التأكيد
-            =============================== */
-
-            const summary = `
-
-تأكيد التسجيل
-
-👤 الاسم: ${fullName}
-
-📱 الجوال: ${phone}
-
-📍 المدينة: ${address}
-
-👩🏻‍🏫 المدربة: أ. ${instructorName}
-
-📅 بداية التدريب: ${trainingDate}
-
-🕒 الوقت: ${trainingTime}
-
-💰 الرسوم: ${OPENING_PRICE} ريال
-
-هل تريد تأكيد التسجيل؟
-
-`;
-
-
-            if (!confirm(summary)) {
-                return;
             }
 
 
             try {
 
-                const bookingId =
-                    "BK-" + Date.now();
+                await saveReview({
 
+                    program,
 
-                const bookingsToSave = [];
+                    rating:
+                        selectedRating,
 
+                    comment,
 
-                let currentDate =
-                    new Date(trainingDate);
+                    status:
+                        "pending",
 
+                    createdAt:
+                        new Date()
 
-                let lessonNumber = 1;
-
-
-                /* ===============================
-                   إنشاء 5 حصص
-                =============================== */
-
-                while (lessonNumber <= 5) {
-
-                    const day =
-                        currentDate.getDay();
-
-
-                    // تخطي الجمعة والسبت
-
-                    if (
-                        day !== 5 &&
-                        day !== 6
-                    ) {
-
-                        const lessonDate =
-                            currentDate
-                                .toISOString()
-                                .split("T")[0];
-
-
-                        const bookingData = {
-
-                            bookingId,
-
-                            lessonNumber,
-
-                            totalLessons: 5,
-
-                            fullName,
-
-                            address,
-
-                            phone,
-
-                            /* =========================
-                               المدربة
-                            ========================= */
-
-                            instructorId,
-
-                            instructorName,
-
-
-                            /* =========================
-                               الموعد
-                            ========================= */
-
-                            trainingDate:
-                                lessonDate,
-
-                            trainingTime,
-
-
-                            price:
-                                OPENING_PRICE,
-
-
-                            status:
-                                "Pending Payment",
-
-
-                            createdAt:
-                                new Date().toISOString()
-
-                        };
-
-
-                        bookingsToSave.push(
-                            bookingData
-                        );
-
-
-                        lessonNumber++;
-
-                    }
-
-
-                    currentDate.setDate(
-                        currentDate.getDate() + 1
-                    );
-
-                }
-
-
-                /* ===============================
-                   حفظ الحجوزات
-                   سيتم ربط saveBooking
-                   بالجدول الجديد في firebase.js
-                =============================== */
-
-            await saveBooking(bookingsToSave);
-
-
-                console.log(
-                    "تم حفظ جميع الحصص للمدربة:",
-                    instructorName
-                );
-
-
-                /* ===============================
-                   بيانات الدفع
-                =============================== */
-
-                sessionStorage.setItem(
-                    "bookingId",
-                    bookingId
-                );
-
-
-                sessionStorage.setItem(
-                    "fullName",
-                    fullName
-                );
-
-
-                sessionStorage.setItem(
-                    "phone",
-                    phone
-                );
-
-
-                sessionStorage.setItem(
-                    "trainingDate",
-                    trainingDate
-                );
-
-
-                sessionStorage.setItem(
-                    "trainingTime",
-                    trainingTime
-                );
-
-
-                /* ===============================
-                   حفظ المدربة
-                =============================== */
-
-                sessionStorage.setItem(
-                    "instructorId",
-                    instructorId
-                );
-
-
-                sessionStorage.setItem(
-                    "instructorName",
-                    instructorName
-                );
+                });
 
 
                 alert(
-                    "تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع."
+                    "🩵 شكرًا لتقييمك.\n\n" +
+                    "تم استلام تقييمك بنجاح، ونقدّر وقتك ومشاركتك. " +
+                    "سيساعدنا رأيك في تطوير خدمات TDrive."
                 );
 
 
-                window.location.href =
-                    "payment-method.html";
+                reviewForm.reset();
+
+
+                selectedRating =
+                    0;
+
+
+                stars.forEach(
+                    star => {
+
+                        star.style.color =
+                            "#bbb";
+
+                    }
+                );
 
 
             } catch (error) {
 
                 console.error(
-                    "Booking error:",
+                    "Review error:",
                     error
                 );
 
 
                 alert(
-                    error.message ||
-                    "حدث خطأ أثناء حفظ التسجيل."
+                    "حدث خطأ أثناء إرسال التقييم."
                 );
 
             }
@@ -609,275 +1645,402 @@ if (form) {
 
 }
 
-let selectedRating = 0;
 
-const stars = document.querySelectorAll("#reviewStars span");
+/* ==================================================
+   عرض التقييمات
+================================================== */
 
-console.log("عدد النجوم:", stars.length);
-
-if (stars.length > 0) {
-
-    stars.forEach((star) => {
-
-      star.addEventListener("click", function () {
-    selectedRating = Number(this.dataset.rate);
-
-    stars.forEach((s) => {
-        if (Number(s.dataset.rate) <= selectedRating) {
-            s.style.color = "#FFD700";
-        } else {
-            s.style.color = "#d0d0d0";
-        }
-    });
-});
+const reviewsContainer =
+    document.getElementById(
+        "reviewsContainer"
+    );
 
 
-    });
-
-}
-const reviewForm = document.getElementById("reviewForm");
-
-if (reviewForm) {
-
-    reviewForm.addEventListener("submit", async (e) => {
-
-        e.preventDefault();
-
-        if (selectedRating === 0) {
-
-            alert("يرجى اختيار عدد النجوم.");
-
-            return;
-
-        }
-
-        const program = document.getElementById("reviewProgram").value;
-        const comment = document.getElementById("reviewComment").value;
-
-        if (!program || !comment) {
-
-            alert("يرجى تعبئة جميع الحقول.");
-
-            return;
-
-        }
-
-        try {
-
-            await saveReview({
-
-                program,
-
-                rating: selectedRating,
-
-                comment,
-
-                status: "pending",
-
-                createdAt: new Date()
-
-            });
-
-            alert("🩵 شكرًا لتقييمك.\n\nتم استلام تقييمك بنجاح، ونقدّر وقتك ومشاركتك. سيساعدنا رأيك في تطوير خدمات TDrive.");
-
-            reviewForm.reset();
-
-            selectedRating = 0;
-
-            stars.forEach((star) => {
-
-                star.style.color = "#bbb";
-
-            });
-
-        } catch (error) {
-
-            console.error(error);
-
-            alert("حدث خطأ أثناء إرسال التقييم.");
-
-        }
-
-    });
-
-}
-const reviewsContainer = document.getElementById("reviewsContainer");
-
-if (reviewsContainer) {
+if (
+    reviewsContainer
+) {
 
     loadReviews();
 
 }
 
+
 async function loadReviews() {
 
     try {
 
-        const reviews = await getApprovedReviews();
+        const reviews =
+            await getApprovedReviews();
 
-        reviewsContainer.innerHTML = "";
 
-        if (reviews.length === 0) {
+        reviewsContainer.innerHTML =
+            "";
 
-            reviewsContainer.innerHTML = "<p>لا توجد تقييمات منشورة حتى الآن.</p>";
+
+        if (
+            !Array.isArray(reviews) ||
+            reviews.length === 0
+        ) {
+
+            reviewsContainer.innerHTML =
+                "<p>لا توجد تقييمات منشورة حتى الآن.</p>";
 
             return;
 
         }
 
-        reviews.forEach((review) => {
 
-            reviewsContainer.innerHTML += `
-                <div class="review-card">
-                    <div class="review-stars">${"⭐".repeat(review.rating)}</div>
-                    <h4>${review.program}</h4>
-                    <p>${review.comment}</p>
-                </div>
-            `;
+        reviews.forEach(
+            review => {
 
-        });
+                const rating =
+                    Math.max(
+                        0,
+                        Math.min(
+                            5,
+                            Number(
+                                review.rating
+                            ) || 0
+                        )
+                    );
+
+
+                const program =
+                    escapeHTML(
+                        review.program
+                    );
+
+
+                const comment =
+                    escapeHTML(
+                        review.comment
+                    );
+
+
+                reviewsContainer.innerHTML += `
+
+                    <div class="review-card">
+
+                        <div class="review-stars">
+                            ${"⭐".repeat(rating)}
+                        </div>
+
+                        <h4>
+                            ${program}
+                        </h4>
+
+                        <p>
+                            ${comment}
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+        );
+
 
     } catch (error) {
 
-        console.error(error);
+        console.error(
+            "Load reviews error:",
+            error
+        );
 
     }
 
 }
 
-const tabButtons = document.querySelectorAll(".tab-btn");
-const drivingPanel = document.getElementById("drivingPanel");
-const captainPanel = document.getElementById("captainPanel");
 
-tabButtons.forEach(btn => {
+/* ==================================================
+   تبويبات الخدمات
+================================================== */
 
-    btn.addEventListener("click", function(){
+const tabButtons =
+    document.querySelectorAll(
+        ".tab-btn"
+    );
 
-        const service = this.dataset.service;
 
-        if(service === "car"){
-            alert("قريبًا 🚗");
-            return;
-        }
+const drivingPanel =
+    document.getElementById(
+        "drivingPanel"
+    );
 
-        tabButtons.forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
 
-        if(service === "driving"){
-            drivingPanel.style.display = "block";
-            captainPanel.style.display = "none";
-        } else if(service === "captain"){
-            drivingPanel.style.display = "none";
-            captainPanel.style.display = "block";
-        }
+const captainPanel =
+    document.getElementById(
+        "captainPanel"
+    );
 
-    });
 
-});
+tabButtons.forEach(
+    btn => {
 
-// ========================================
-// دورة الكابتن المحترف
-// ========================================
+        btn.addEventListener(
+            "click",
+            function () {
 
-const captainForm = document.getElementById("captainForm");
+                const service =
+                    this.dataset.service;
 
-if (captainForm) {
+
+                if (
+                    service === "car"
+                ) {
+
+                    alert(
+                        "قريبًا 🚗"
+                    );
+
+                    return;
+
+                }
+
+
+                tabButtons.forEach(
+                    button =>
+                        button.classList.remove(
+                            "active"
+                        )
+                );
+
+
+                this.classList.add(
+                    "active"
+                );
+
+
+                if (
+                    service === "driving"
+                ) {
+
+                    if (
+                        drivingPanel
+                    ) {
+
+                        drivingPanel.style.display =
+                            "block";
+
+                    }
+
+
+                    if (
+                        captainPanel
+                    ) {
+
+                        captainPanel.style.display =
+                            "none";
+
+                    }
+
+                }
+
+
+                else if (
+                    service === "captain"
+                ) {
+
+                    if (
+                        drivingPanel
+                    ) {
+
+                        drivingPanel.style.display =
+                            "none";
+
+                    }
+
+
+                    if (
+                        captainPanel
+                    ) {
+
+                        captainPanel.style.display =
+                            "block";
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* ==================================================
+   دورة الكابتن المحترف
+================================================== */
+
+const captainForm =
+    document.getElementById(
+        "captainForm"
+    );
+
+
+if (
+    captainForm
+) {
 
     const captainNextBtn =
-        document.getElementById("captainNextBtn");
+        document.getElementById(
+            "captainNextBtn"
+        );
+
 
     const captainBackBtn =
-        document.getElementById("captainBackBtn");
+        document.getElementById(
+            "captainBackBtn"
+        );
+
 
     const captainSteps =
-        document.querySelectorAll(".captain-form-step");
+        document.querySelectorAll(
+            ".captain-form-step"
+        );
 
 
-    function goToCaptainStep(stepNumber) {
+    function goToCaptainStep(
+        stepNumber
+    ) {
 
-        captainSteps.forEach(step => {
+        captainSteps.forEach(
+            step => {
 
-            const stepValue =
-                Number(step.dataset.captainStep);
+                const stepValue =
+                    Number(
+                        step.dataset
+                            .captainStep
+                    );
 
-            step.style.display =
-                stepValue === stepNumber
-                    ? "block"
-                    : "none";
 
-            step.classList.toggle(
-                "active",
-                stepValue === stepNumber
+                step.style.display =
+                    stepValue ===
+                    stepNumber
+                        ? "block"
+                        : "none";
+
+
+                step.classList.toggle(
+                    "active",
+                    stepValue ===
+                    stepNumber
+                );
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(
+                ".captain-stepper .step-circle"
+            )
+            .forEach(
+                circle => {
+
+                    const number =
+                        Number(
+                            circle.dataset
+                                .captainStep
+                        );
+
+
+                    circle.classList.toggle(
+                        "active",
+                        number ===
+                        stepNumber
+                    );
+
+
+                    circle.classList.toggle(
+                        "done",
+                        number <
+                        stepNumber
+                    );
+
+                }
             );
 
-        });
-
 
         document
-            .querySelectorAll(".captain-stepper .step-circle")
-            .forEach(circle => {
+            .querySelectorAll(
+                ".captain-stepper .step-line"
+            )
+            .forEach(
+                (line, index) => {
 
-                const number =
-                    Number(circle.dataset.captainStep);
+                    line.classList.toggle(
+                        "active",
+                        index <
+                        stepNumber - 1
+                    );
 
-                circle.classList.toggle(
-                    "active",
-                    number === stepNumber
-                );
-
-                circle.classList.toggle(
-                    "done",
-                    number < stepNumber
-                );
-
-            });
-
-
-        document
-            .querySelectorAll(".captain-stepper .step-line")
-            .forEach((line, index) => {
-
-                line.classList.toggle(
-                    "active",
-                    index < stepNumber - 1
-                );
-
-            });
+                }
+            );
 
     }
 
 
-    // ========================================
-    // التالي
-    // ========================================
+    /* ==========================================
+       التالي للكابتن
+    ========================================== */
 
-    if (captainNextBtn) {
+    if (
+        captainNextBtn
+    ) {
 
         captainNextBtn.addEventListener(
             "click",
             function () {
 
                 const nameInput =
-                    document.getElementById("captainName");
+                    document.getElementById(
+                        "captainName"
+                    );
+
 
                 const identityInput =
-                    document.getElementById("captainId");
+                    document.getElementById(
+                        "captainId"
+                    );
+
 
                 const phoneInput =
-                    document.getElementById("captainPhone");
+                    document.getElementById(
+                        "captainPhone"
+                    );
+
+
+                if (
+                    !nameInput ||
+                    !identityInput ||
+                    !phoneInput
+                ) {
+
+                    return;
+
+                }
 
 
                 const name =
                     nameInput.value.trim();
 
+
                 const identity =
                     identityInput.value.trim();
+
 
                 const phone =
                     phoneInput.value.trim();
 
 
-                if (!name || !identity || !phone) {
+                if (
+                    !name ||
+                    !identity ||
+                    !phone
+                ) {
 
                     alert(
                         "يرجى تعبئة جميع البيانات المطلوبة."
@@ -888,12 +2051,15 @@ if (captainForm) {
                 }
 
 
-                // ========================================
-                // الاسم: ثنائي أو ثلاثي فقط
-                // ========================================
+                /*
+                   الاسم ثنائي أو ثلاثي
+                */
 
                 const nameParts =
-                    name.split(/\s+/).filter(Boolean);
+                    name
+                        .split(/\s+/)
+                        .filter(Boolean);
+
 
                 if (
                     nameParts.length < 2 ||
@@ -911,12 +2077,19 @@ if (captainForm) {
                 }
 
 
-                // الاسم باللغة العربية فقط
+                /*
+                   الاسم عربي
+                */
 
                 const arabicNamePattern =
                     /^[\u0600-\u06FF\u0750-\u077F\s]+$/;
 
-                if (!arabicNamePattern.test(name)) {
+
+                if (
+                    !arabicNamePattern.test(
+                        name
+                    )
+                ) {
 
                     alert(
                         "يرجى إدخال الاسم باللغة العربية."
@@ -929,11 +2102,15 @@ if (captainForm) {
                 }
 
 
-                // ========================================
-                // رقم الهوية
-                // ========================================
+                /*
+                   الهوية
+                */
 
-                if (!/^\d{10}$/.test(identity)) {
+                if (
+                    !/^\d{10}$/.test(
+                        identity
+                    )
+                ) {
 
                     alert(
                         "رقم الهوية يجب أن يتكون من 10 أرقام."
@@ -946,11 +2123,15 @@ if (captainForm) {
                 }
 
 
-                // ========================================
-                // رقم الجوال
-                // ========================================
+                /*
+                   الجوال
+                */
 
-                if (!/^05\d{8}$/.test(phone)) {
+                if (
+                    !/^05\d{8}$/.test(
+                        phone
+                    )
+                ) {
 
                     alert(
                         "يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام."
@@ -962,11 +2143,12 @@ if (captainForm) {
 
                 }
 
-alert(
-    "قريبًا سينطلق التسجيل 🩵\n\n" +
-    "سيتم فتح التسجيل في دورة الكابتن المحترف قريبًا.\n" +
-    "تابعنا لمعرفة موعد بدء التسجيل."
-);
+
+                alert(
+                    "قريبًا سينطلق التسجيل 🩵\n\n" +
+                    "سيتم فتح التسجيل في دورة الكابتن المحترف قريبًا.\n" +
+                    "تابعنا لمعرفة موعد بدء التسجيل."
+                );
 
             }
         );
@@ -974,17 +2156,21 @@ alert(
     }
 
 
-    // ========================================
-    // السابق
-    // ========================================
+    /* ==========================================
+       السابق للكابتن
+    ========================================== */
 
-    if (captainBackBtn) {
+    if (
+        captainBackBtn
+    ) {
 
         captainBackBtn.addEventListener(
             "click",
             function () {
 
-                goToCaptainStep(1);
+                goToCaptainStep(
+                    1
+                );
 
             }
         );
@@ -992,9 +2178,9 @@ alert(
     }
 
 
-    // ========================================
-    // اختيار طريقة الدفع
-    // ========================================
+    /* ==========================================
+       إرسال نموذج الكابتن
+    ========================================== */
 
     captainForm.addEventListener(
         "submit",
@@ -1005,50 +2191,78 @@ alert(
 
             const captainName =
                 document
-                    .getElementById("captainName")
-                    .value
-                    .trim();
+                    .getElementById(
+                        "captainName"
+                    )
+                    ?.value
+                    ?.trim() || "";
+
 
             const captainId =
                 document
-                    .getElementById("captainId")
-                    .value
-                    .trim();
+                    .getElementById(
+                        "captainId"
+                    )
+                    ?.value
+                    ?.trim() || "";
+
 
             const captainPhone =
                 document
-                    .getElementById("captainPhone")
-                    .value
-                    .trim();
+                    .getElementById(
+                        "captainPhone"
+                    )
+                    ?.value
+                    ?.trim() || "";
 
 
-            // رقم حجز خاص بالكابتن
+            if (
+                !captainName ||
+                !captainId ||
+                !captainPhone
+            ) {
+
+                alert(
+                    "يرجى تعبئة جميع البيانات المطلوبة."
+                );
+
+                return;
+
+            }
+
 
             const bookingId =
-                "CPT-" + Date.now();
+                "CPT-" +
+                Date.now();
 
 
-            // حفظ البيانات
+            /*
+               حفظ بيانات الكابتن
+            */
 
             sessionStorage.setItem(
                 "bookingId",
                 bookingId
             );
 
+
             sessionStorage.setItem(
                 "fullName",
                 captainName
             );
+
 
             sessionStorage.setItem(
                 "identityNumber",
                 captainId
             );
 
+
             sessionStorage.setItem(
                 "phone",
                 captainPhone
             );
+
 
             sessionStorage.setItem(
                 "program",
@@ -1056,12 +2270,11 @@ alert(
             );
 
 
-            // لا يوجد موعد للكابتن حاليًا
-
             sessionStorage.setItem(
                 "trainingDate",
                 ""
             );
+
 
             sessionStorage.setItem(
                 "trainingTime",
@@ -1069,17 +2282,15 @@ alert(
             );
 
 
-            // السعر
+            /*
+               سعر دورة الكابتن
+            */
 
             sessionStorage.setItem(
                 "originalPrice",
                 "300"
             );
 
-            sessionStorage.setItem(
-                "discount",
-                "66"
-            );
 
             sessionStorage.setItem(
                 "finalPrice",
@@ -1087,7 +2298,9 @@ alert(
             );
 
 
-            // صفحة دفع الكابتن
+            /*
+               صفحة الدفع
+            */
 
             window.location.href =
                 "captain-payment-method.html";
@@ -1096,223 +2309,13 @@ alert(
     );
 
 }
-// ============ Booking Stepper ============
 
-const formSteps = document.querySelectorAll(".form-step");
-const stepCircles = document.querySelectorAll(".step-circle");
-const stepLines = document.querySelectorAll(".step-line");
-
-function goToStep(stepNum){
-
-    formSteps.forEach(step => {
-        step.classList.toggle("active", Number(step.dataset.step) === stepNum);
-    });
-
-    stepCircles.forEach(circle => {
-        const num = Number(circle.dataset.step);
-        circle.classList.toggle("active", num === stepNum);
-        circle.classList.toggle("done", num < stepNum);
-    });
-
-    stepLines.forEach((line, index) => {
-        line.classList.toggle("active", index < stepNum - 1);
-    });
-
-}
-
-document.querySelectorAll("[data-next]").forEach(btn => {
-
-    btn.addEventListener("click", function(){
-
-        const currentStep = this.closest(".form-step");
-        const requiredInputs = currentStep.querySelectorAll("[required]");
-
-        for (const input of requiredInputs) {
-            if (!input.value.trim()) {
-                alert("يرجى تعبئة جميع الحقول المطلوبة");
-                input.focus();
-                return;
-            }
-        }
-
-        goToStep(Number(this.dataset.next));
-
-    });
-
-});
-
-document.querySelectorAll("[data-back]").forEach(btn => {
-
-    btn.addEventListener("click", function(){
-        goToStep(Number(this.dataset.back));
-    });
-
-});
 
 /* ==================================================
-   TRAINER SELECTION (ديناميكي حسب المدينة)
+   النهاية
 ================================================== */
 
-const trainerListBox = document.getElementById("trainerList");
-const selectedTrainerInput = document.getElementById("selectedTrainer");
-const cityInput = document.getElementById("address");
+console.log(
+    "TDrive Booking System loaded successfully."
+);
 
-let loadedInstructors = [];
-
-async function loadInstructorsByCity(city) {
-
-  if (!trainerListBox) return;
-
-  trainerListBox.innerHTML = `
-    <p style="text-align:center; color:#8b999f; font-size:13px;">
-      جاري تحميل المدربات...
-    </p>
-  `;
-
-  try {
-
-    const { data, error } =
-      await supabaseClient
-        .from("instructors")
-        .select("*")
-        .eq("city", city)
-        .eq("status", "active");
-
-    if (error) throw error;
-
-    loadedInstructors = data || [];
-
-    if (loadedInstructors.length === 0) {
-      trainerListBox.innerHTML = `
-        <p style="text-align:center; color:#8b999f; font-size:13px;">
-          لا توجد مدربات متاحات في مدينتك حاليًا.
-        </p>
-      `;
-      return;
-    }
-
-    trainerListBox.innerHTML = loadedInstructors.map(instructor => `
-      <div class="trainer-card" data-trainer-id="${instructor.instructor_id}">
-        <div class="trainer-select-mark">✓</div>
-        <div class="trainer-illustration">
-          <div class="trainer-placeholder">TDrive</div>
-        </div>
-        <div class="trainer-info">
-          <h5>أ. ${instructor.full_name || "مدربة"}</h5>
-          <span class="trainer-role">مدربة معتمدة في TDrive</span>
-          <div class="trainer-audio">
-            <button type="button" class="audio-play-btn" data-audio-for="${instructor.instructor_id}" aria-label="تشغيل التسجيل الصوتي">
-              <i class="fa-solid fa-play"></i>
-            </button>
-            <div class="audio-content">
-              <strong>استمعي لتعريف المدربة</strong>
-            </div>
-          </div>
-          <audio id="audio_${instructor.instructor_id}" preload="none"></audio>
-        </div>
-        <label class="trainer-radio-option">
-          <input type="radio" name="selectedTrainer" value="${instructor.instructor_id}">
-          <span class="custom-radio"></span>
-          <span>اختيار المدربة</span>
-        </label>
-      </div>
-    `).join("");
-
-    attachTrainerCardEvents();
-
-  } catch (error) {
-    console.error("Load instructors error:", error);
-    trainerListBox.innerHTML = `
-      <p style="text-align:center; color:#8b999f; font-size:13px;">
-        تعذر تحميل قائمة المدربات.
-      </p>
-    `;
-  }
-
-}
-
-function attachTrainerCardEvents() {
-
-  document.querySelectorAll(".trainer-card").forEach(card => {
-
-    card.addEventListener("click", function (event) {
-
-      if (event.target.closest(".audio-play-btn")) return;
-
-      document.querySelectorAll(".trainer-card").forEach(c => c.classList.remove("selected"));
-      card.classList.add("selected");
-
-      selectedTrainerInput.value = card.dataset.trainerId;
-refreshTrainerSchedule();
-    });
-
-  });
-
-  document.querySelectorAll(".audio-play-btn").forEach(btn => {
-
-    btn.addEventListener("click", async function (event) {
-
-      event.stopPropagation();
-
-      const instructorId = btn.dataset.audioFor;
-      const audioEl = document.getElementById(`audio_${instructorId}`);
-      if (!audioEl) return;
-
-      if (!audioEl.src) {
-
-        const instructor = loadedInstructors.find(i => i.instructor_id === instructorId);
-        if (!instructor || !instructor.voice_recording_path) return;
-
-        const { data: signed } =
-          await supabaseClient
-            .storage
-            .from("instructor-documents")
-            .createSignedUrl(instructor.voice_recording_path, 3600);
-
-        if (signed?.signedUrl) audioEl.src = signed.signedUrl;
-      }
-
-      if (audioEl.paused) {
-        audioEl.play();
-        btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
-      } else {
-        audioEl.pause();
-        btn.innerHTML = '<i class="fa-solid fa-play"></i>';
-      }
-
-      audioEl.onended = () => {
-        btn.innerHTML = '<i class="fa-solid fa-play"></i>';
-      };
-
-    });
-
-  });
-
-}
-
-document.querySelectorAll("[data-next]").forEach(btn => {
-    btn.addEventListener("click", function () {
-        const currentStep = this.closest(".form-step");
-        const requiredInputs = currentStep.querySelectorAll("[required]");
-
-        for (const input of requiredInputs) {
-            if (!input.value.trim()) {
-                alert("يرجى تعبئة جميع الحقول المطلوبة");
-                input.focus();
-                return;
-            }
-        }
-
-        const nextStepNum = Number(this.dataset.next);
-
-        // إذا كان الانتقال إلى الخطوة الثانية، نقوم بجلب المدربات حسب المدينة
-        if (nextStepNum === 2) {
-            const city = cityInput ? cityInput.value.trim() : "";
-            if (city) {
-                loadInstructorsByCity(city);
-            }
-        }
-
-        goToStep(nextStepNum);
-    });
-});
