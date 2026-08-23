@@ -861,9 +861,9 @@ async function loadInstructorsByCity(
                                         أ. ${instructorName}
                                     </h5>
 
-                                    <span class="trainer-role">
-                                        مدربة معتمدة في TDrive
-                                    </span>
+                                   <span class="trainer-role">
+    مؤسس TDrive
+</span>
 
                                     <div class="trainer-audio">
 
