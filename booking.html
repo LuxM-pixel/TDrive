@@ -8,550 +8,1206 @@
 
 <title>التسجيل | TDrive</title>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css">
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="style.css?v=6">
 
-<link rel="stylesheet"
+<link
+rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
 
+
 <body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
 
 <header>
 
-<div class="logo">
-<h1>TDrive</h1>
-<p>تكنولوجيا القيادة</p>
-</div>
+    <div class="logo">
 
-<nav>
+        <h1>TDrive</h1>
 
-<a href="index.html">الرئيسية</a>
-<a href="about.html">من نحن</a>
-<a href="services.html">الخدمات</a>
-<a href="road-safety.html">السلامة المرورية</a>
-<a href="index.html#contact">تواصل معنا</a>
-<a href="booking.html" class="register-btn">تسجيل</a>
+        <p>تكنولوجيا القيادة</p>
 
-</nav>
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">الرئيسية</a>
+
+        <a href="about.html">من نحن</a>
+
+        <a href="services.html">الخدمات</a>
+
+        <a href="road-safety.html">السلامة المرورية</a>
+
+        <a href="index.html#contact">تواصل معنا</a>
+
+        <a href="booking.html" class="register-btn">
+            تسجيل
+        </a>
+
+    </nav>
 
 </header>
 
+
+
+<!-- ==================================================
+     BOOKING
+================================================== -->
+
 <section id="booking">
 
-<div class="booking-hero">
-<h2> تسعدنا خدمتكم</h2>
-<p class="subtitle">اختار الخدمة المناسبة لك وابدء رحلتك مع TDrive</p>
-</div>
 
-<div class="service-tabs">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-<button type="button" class="tab-btn active" data-service="driving">
-<i class="fa-solid fa-car"></i>
-<span>احترفي القيادة على الطريق</span>
-</button>
+    <div class="booking-hero">
 
-<button type="button" class="tab-btn" data-service="captain">
-<i class="fa-solid fa-id-badge"></i>
-<span>دورة الكابتن المحترف</span>
-</button>
+        <h2>
+            تسعدنا خدمتكم
+        </h2>
 
-<button type="button" class="tab-btn" data-service="car">
-<i class="fa-solid fa-car-side"></i>
-<span>شراء سيارة</span>
-</button>
+        <p class="subtitle">
+            اختار الخدمة المناسبة لك وابدء رحلتك مع TDrive
+        </p>
 
-</div>
-
-<div id="drivingPanel" class="service-panel">
-
-<h3 class="booking-program-title">
-التسجيل في برنامج احترفي القيادة على الطريق
-</h3>
-
-<div class="booking-note">
-
-    <h3 class="booking-note-title">
-        <i class="fa-solid fa-heart"></i>
-        عزيزتي المتدربة، شكرًا لاختيارك TDrive.
-    </h3>
-
-    <p>
-        <i class="fa-solid fa-calendar-days"></i>
-        يُفضّل بدء البرنامج التدريبي يوم
-        <strong>الأحد</strong>
-        لضمان انتظام الخطة التدريبية وتحقيق أفضل استفادة من البرنامج.
-    </p>
-
-</div>
-
-<div class="stepper">
-
-<div class="step-item">
-<div class="step-circle active" data-step="1">1</div>
-<span>البيانات</span>
-</div>
-
-<div class="step-line"></div>
-
-<div class="step-item">
-<div class="step-circle" data-step="2">2</div>
-<span>الموعد</span>
-</div>
-
-<div class="step-line"></div>
-
-<div class="step-item">
-<div class="step-circle" data-step="3">3</div>
-<span>الدفع</span>
-</div>
-
-</div>
-
-<form id="bookingForm">
-
-<div class="form-step active" data-step="1">
-
-<h4 class="step-title"><i class="fa-solid fa-user"></i> البيانات الشخصية</h4>
-
-<label>الاسم الكامل</label>
-<div class="input-icon">
-<input type="text" id="fullName" placeholder="اكتبي اسمك الكامل" required>
-<i class="fa-solid fa-user"></i>
-</div>
-
-<label>مدينة التدريب</label>
-<div class="input-icon">
-    <select id="address" required>
-        <option value="">اختاري المدينة</option>
-        <option value="جدة">جدة</option>
-    </select>
-    <i class="fa-solid fa-location-dot"></i>
-</div>
-
-<label>رقم الجوال</label>
-<div class="input-icon">
-    <input
-        type="tel"
-        id="phone"
-        placeholder="05xxxxxxxx"
-        required
-    >
-    <i class="fa-solid fa-phone"></i>
-</div>
+    </div>
 
 
-<!-- =========================================
-     اختيار المدربة
-========================================= -->
 
-<div class="trainer-selection">
+    <!-- =========================
+         SERVICE TABS
+    ========================== -->
 
-    <h4 class="trainer-selection-title">
-        اختاري المدربة
-    </h4>
+    <div class="service-tabs">
 
-    <p class="trainer-selection-description">
-        اختاري المدربة المناسبة لك للاستفادة من جدولها ومواعيدها المتاحة.
-    </p>
+        <button
+            type="button"
+            class="tab-btn active"
+            data-service="driving">
 
+            <i class="fa-solid fa-car"></i>
 
-    <div class="trainer-card" data-trainer-id="mona-hamoud">
-
-        <div class="trainer-select-mark">
-            ✓
-        </div>
-
-
-        <div class="trainer-illustration">
-            <!-- الرسم الخاص بالمدربة يوضع هنا لاحقًا -->
-            <div class="trainer-placeholder">
-                TDrive
-            </div>
-        </div>
-
-
-        <div class="trainer-info">
-
-            <h5>
-                أ. منى حمود
-            </h5>
-
-            <span class="trainer-role">
-                مؤسس TDrive
+            <span>
+                احترفي القيادة على الطريق
             </span>
 
+        </button>
 
-            <!-- التسجيل الصوتي -->
 
-            <div class="trainer-audio">
+        <button
+            type="button"
+            class="tab-btn"
+            data-service="captain">
+
+            <i class="fa-solid fa-id-badge"></i>
+
+            <span>
+                دورة الكابتن المحترف
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="tab-btn"
+            data-service="car">
+
+            <i class="fa-solid fa-car-side"></i>
+
+            <span>
+                شراء سيارة
+            </span>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         DRIVING PANEL
+    ================================================== -->
+
+    <div
+        id="drivingPanel"
+        class="service-panel">
+
+
+        <h3 class="booking-program-title">
+            التسجيل في برنامج احترفي القيادة على الطريق
+        </h3>
+
+
+
+        <!-- =========================
+             NOTE
+        ========================== -->
+
+        <div class="booking-note">
+
+            <h3 class="booking-note-title">
+
+                <i class="fa-solid fa-heart"></i>
+
+                عزيزتي المتدربة، شكرًا لاختيارك TDrive.
+
+            </h3>
+
+
+            <p>
+
+                <i class="fa-solid fa-calendar-days"></i>
+
+                يُفضّل بدء البرنامج التدريبي يوم
+
+                <strong>
+                    الأحد
+                </strong>
+
+                لضمان انتظام الخطة التدريبية وتحقيق أفضل استفادة من البرنامج.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             STEPPER
+             1 البيانات
+             2 المدربة
+             3 الموعد
+             4 الدفع
+        ================================================== -->
+
+        <div class="stepper">
+
+
+            <!-- STEP 1 -->
+
+            <div class="step-item">
+
+                <div
+                    class="step-circle active"
+                    data-step="1">
+
+                    1
+
+                </div>
+
+                <span>
+                    البيانات
+                </span>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="step-item">
+
+                <div
+                    class="step-circle"
+                    data-step="2">
+
+                    2
+
+                </div>
+
+                <span>
+                    المدربة
+                </span>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="step-item">
+
+                <div
+                    class="step-circle"
+                    data-step="3">
+
+                    3
+
+                </div>
+
+                <span>
+                    الموعد
+                </span>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <!-- STEP 4 -->
+
+            <div class="step-item">
+
+                <div
+                    class="step-circle"
+                    data-step="4">
+
+                    4
+
+                </div>
+
+                <span>
+                    الدفع
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             BOOKING FORM
+        ================================================== -->
+
+        <form id="bookingForm">
+
+
+
+            <!-- ==================================================
+                 STEP 1
+                 البيانات الشخصية
+            ================================================== -->
+
+            <div
+                class="form-step active"
+                data-step="1">
+
+
+                <h4 class="step-title">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    البيانات الشخصية
+
+                </h4>
+
+
+
+                <!-- الاسم -->
+
+                <label>
+                    الاسم الكامل
+                </label>
+
+                <div class="input-icon">
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="اكتبي اسمك الكامل"
+                        required>
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+
+                <!-- المدينة -->
+
+                <label>
+                    مدينة التدريب
+                </label>
+
+                <div class="input-icon">
+
+                    <select
+                        id="address"
+                        required>
+
+                        <option value="">
+                            اختاري المدينة
+                        </option>
+
+                        <option value="جدة">
+                            جدة
+                        </option>
+
+                    </select>
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                </div>
+
+
+
+                <!-- الجوال -->
+
+                <label>
+                    رقم الجوال
+                </label>
+
+                <div class="input-icon">
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="05xxxxxxxx"
+                        inputmode="numeric"
+                        maxlength="10"
+                        required>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </div>
+
+
+
+                <!-- الانتقال للمدربة -->
 
                 <button
                     type="button"
-                    class="audio-play-btn"
-                    id="trainerAudioBtn"
-                    aria-label="تشغيل التسجيل الصوتي">
+                    class="next-btn"
+                    data-next="2">
 
-                    <i class="fa-solid fa-play"></i>
+                    التالي
 
                 </button>
 
-                <div class="audio-content">
+            </div>
 
-                    <strong>
-                        استمعي لتعريف المدربة
-                    </strong>
 
-                    <div class="audio-progress">
-                        <span id="trainerAudioProgress"></span>
+
+            <!-- ==================================================
+                 STEP 2
+                 اختيار المدربة
+            ================================================== -->
+
+            <div
+                class="form-step"
+                data-step="2"
+                style="display:none;">
+
+
+                <h4 class="step-title">
+
+                    اختيار المدربة
+
+                </h4>
+
+
+                <p class="trainer-selection-description">
+
+                    اختاري المدربة المناسبة لك للاستفادة من جدولها ومواعيدها المتاحة.
+
+                </p>
+
+
+
+                <!-- =========================
+                     TRAINER CARD
+                ========================== -->
+
+                <div
+                    class="trainer-selection">
+
+
+                    <div
+                        class="trainer-card"
+                        data-trainer-id="mona-hamoud">
+
+
+                        <!-- علامة الاختيار -->
+
+                        <div class="trainer-select-mark">
+
+                            ✓
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             مساحة الرسم
+                             سنضع الرسم هنا لاحقًا
+                        ========================== -->
+
+                        <div class="trainer-illustration">
+
+                            <div class="trainer-placeholder">
+
+                                TDrive
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             بيانات المدربة
+                        ========================== -->
+
+                        <div class="trainer-info">
+
+
+                            <h5>
+                                أ. منى حمود
+                            </h5>
+
+
+                            <span class="trainer-role">
+                                مؤسس TDrive
+                            </span>
+
+
+
+                            <!-- =========================
+                                 AUDIO
+                            ========================== -->
+
+                            <div class="trainer-audio">
+
+
+                                <button
+                                    type="button"
+                                    class="audio-play-btn"
+                                    id="trainerAudioBtn"
+                                    aria-label="تشغيل التسجيل الصوتي">
+
+                                    <i class="fa-solid fa-play"></i>
+
+                                </button>
+
+
+                                <div class="audio-content">
+
+                                    <strong>
+                                        استمعي لتعريف المدربة
+                                    </strong>
+
+
+                                    <div class="audio-progress">
+
+                                        <span
+                                            id="trainerAudioProgress">
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- الصوت الحقيقي -->
+
+                            <audio
+                                id="trainerAudio"
+                                preload="metadata">
+
+                                <!--
+                                ضعي ملف التسجيل هنا لاحقًا:
+
+                                <source
+                                    src="audio/mona-intro.mp3"
+                                    type="audio/mpeg">
+                                -->
+
+                            </audio>
+
+
+                        </div>
+
+
+
+                        <!-- =========================
+                             اختيار المدربة
+                        ========================== -->
+
+                        <label class="trainer-radio-option">
+
+
+                            <input
+                                type="radio"
+                                name="selectedTrainer"
+                                value="mona-hamoud"
+                                id="monaTrainer">
+
+
+                            <span class="custom-radio"></span>
+
+
+                            <span>
+                                اختيار المدربة
+                            </span>
+
+
+                        </label>
+
+
                     </div>
+
+
+                </div>
+
+
+
+                <!-- تحفظ القيمة المختارة -->
+
+                <input
+                    type="hidden"
+                    id="selectedTrainer"
+                    value="">
+
+
+
+                <!-- أزرار الخطوة -->
+
+                <div class="step-buttons">
+
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        data-back="1">
+
+                        السابق
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="next-btn"
+                        data-next="3">
+
+                        التالي
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 STEP 3
+                 اختيار الموعد
+            ================================================== -->
+
+            <div
+                class="form-step"
+                data-step="3"
+                style="display:none;">
+
+
+                <h4 class="step-title">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    اختيار الموعد
+
+                </h4>
+
+
+
+                <!-- التاريخ -->
+
+                <label>
+                    تاريخ التدريب
+                </label>
+
+                <div class="input-icon">
+
+                    <input
+                        type="text"
+                        id="trainingDate"
+                        placeholder="اختر تاريخ التدريب"
+                        readonly
+                        required>
+
+                    <i class="fa-solid fa-calendar"></i>
+
+                </div>
+
+
+
+                <!-- الوقت -->
+
+                <label>
+                    وقت التدريب
+                </label>
+
+                <div
+                    id="timeSlotsGrid"
+                    class="time-slots-grid">
+                </div>
+
+
+                <input
+                    type="hidden"
+                    id="trainingTime"
+                    required>
+
+
+
+                <!-- أزرار -->
+
+                <div class="step-buttons">
+
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        data-back="2">
+
+                        السابق
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="next-btn"
+                        data-next="4">
+
+                        التالي
+
+                    </button>
+
 
                 </div>
 
             </div>
 
-        </div>
-
-    </div>
 
 
-    <input
-        type="hidden"
-        id="selectedTrainer"
-        value=""
-    >
-
-</div>
-
-
-<button
-    type="button"
-    class="next-btn"
-    data-next="2">
-    التالي
-</button>
-
-</div>
-
-<div class="form-step" data-step="2">
-
-<h4 class="step-title"><i class="fa-solid fa-calendar-days"></i> اختيار الموعد</h4>
-
-<label>تاريخ التدريب</label>
-<div class="input-icon">
-<input type="text" id="trainingDate" placeholder="اختر تاريخ التدريب" readonly>
-<i class="fa-solid fa-calendar"></i>
-</div>
-
-<label>وقت التدريب</label>
-<div id="timeSlotsGrid" class="time-slots-grid"></div>
-<input type="hidden" id="trainingTime" required>
-
-<div class="step-buttons">
-<button type="button" class="back-btn" data-back="1">السابق</button>
-<button type="submit" class="next-btn">تأكيد التسجيل</button>
-</div>
-
-</div>
-
-<!-- مقتطفات من دورة احترفي القيادة على الطريق -->
-
-<section class="videos-section">
-
-    <h2 class="videos-title">
-        <i class="fa-solid fa-video"></i>
-        تعرفي على TDrive
-    </h2>
-
-    <p class="videos-text">
-        مقتطفات من دورة احترفي القيادة على الطريق
-    </p>
-
-    <div class="video-card">
-
-        <h3>مقتطفات من دورة احترفي القيادة على الطريق</h3>
-
-        <iframe
-            src="https://www.youtube.com/embed/A9d0v3xpJrQ"
-            title="مقتطفات من دورة احترفي القيادة على الطريق"
-            allowfullscreen>
-        </iframe>
-
-    </div>
-
-</section>
-</form>
-
-</div>
-
-
-<div id="captainPanel" class="service-panel" style="display:none;">
-
-<div class="booking-note">
-
-    <h3 class="captain-note-title">
-        <i class="fa-solid fa-award"></i>
-        ارفع مستوى أدائك ككابتن
-    </h3>
-
-    <p>
-        تعلّم تطبيق مبادئ الجودة وفق ISO 9001:2015،
-        وطوّر أسلوبك في تقديم الخدمة للحفاظ على أداء
-        احترافي ومستوى عالٍ من الجودة.
-    </p>
-
-</div>
-
-
-    <!-- خطوات التسجيل -->
-
-    <div class="stepper captain-stepper">
-
-        <div class="step-item">
+            <!-- ==================================================
+                 STEP 4
+                 الدفع
+            ================================================== -->
 
             <div
-                class="step-circle active"
-                data-captain-step="1">
-                1
+                class="form-step"
+                data-step="4"
+                style="display:none;">
+
+
+                <h4 class="step-title">
+
+                    <i class="fa-solid fa-credit-card"></i>
+
+                    الدفع
+
+                </h4>
+
+
+
+                <div class="booking-note">
+
+
+                    <h3>
+                        مراجعة التسجيل
+                    </h3>
+
+
+                    <p>
+
+                        تم اختيار المدربة:
+
+                        <strong id="selectedTrainerName">
+                            أ. منى حمود
+                        </strong>
+
+                    </p>
+
+
+                    <p>
+
+                        بعد تأكيد التسجيل سيتم نقلك
+                        إلى صفحة اختيار طريقة الدفع.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- أزرار -->
+
+                <div class="step-buttons">
+
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        data-back="3">
+
+                        السابق
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="next-btn">
+
+                        تأكيد التسجيل
+
+                    </button>
+
+
+                </div>
+
             </div>
 
-            <span>البيانات</span>
-
-        </div>
 
 
-        <div class="step-line"></div>
+            <!-- ==================================================
+                 VIDEOS
+            ================================================== -->
+
+            <section class="videos-section">
 
 
-        <div class="step-item">
+                <h2 class="videos-title">
 
-            <div
-                class="step-circle"
-                data-captain-step="2">
-                2
-            </div>
+                    <i class="fa-solid fa-video"></i>
 
-            <span>الدفع</span>
+                    تعرفي على TDrive
 
-        </div>
+                </h2>
+
+
+                <p class="videos-text">
+
+                    مقتطفات من دورة احترفي القيادة على الطريق
+
+                </p>
+
+
+                <div class="video-card">
+
+
+                    <h3>
+                        مقتطفات من دورة احترفي القيادة على الطريق
+                    </h3>
+
+
+                    <iframe
+                        src="https://www.youtube.com/embed/A9d0v3xpJrQ"
+                        title="مقتطفات من دورة احترفي القيادة على الطريق"
+                        allowfullscreen>
+                    </iframe>
+
+
+                </div>
+
+
+            </section>
+
+
+        </form>
+
 
     </div>
 
 
-    <form id="captainForm">
+
+    <!-- ==================================================
+         CAPTAIN PANEL
+    ================================================== -->
+
+    <div
+        id="captainPanel"
+        class="service-panel"
+        style="display:none;">
 
 
-        <!-- =========================
-             الخطوة الأولى: البيانات
-        ========================== -->
-
-        <div
-            class="captain-form-step active"
-            data-captain-step="1">
+        <div class="booking-note">
 
 
-            <h4 class="step-title">
+            <h3 class="captain-note-title">
 
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-award"></i>
 
-                بيانات التسجيل
+                ارفع مستوى أدائك ككابتن
 
-            </h4>
-
-
-            <!-- الاسم -->
-
-            <label>الاسم</label>
-
-            <div class="input-icon">
-
-                <input
-                    type="text"
-                    id="captainName"
-                    placeholder="الاسم الثنائي أو الثلاثي"
-                    required>
-
-                <i class="fa-solid fa-user"></i>
-
-            </div>
+            </h3>
 
 
-            <!-- الهوية -->
+            <p>
 
-            <label>رقم الهوية</label>
-
-            <div class="input-icon">
-
-                <input
-                    type="text"
-                    id="captainId"
-                    placeholder="أدخل رقم الهوية"
-                    inputmode="numeric"
-                    maxlength="10"
-                    required>
-
-                <i class="fa-solid fa-id-card"></i>
-
-            </div>
-
-
-            <!-- الجوال -->
-
-            <label>رقم الجوال</label>
-
-            <div class="input-icon">
-
-                <input
-                    type="tel"
-                    id="captainPhone"
-                    placeholder="05xxxxxxxx"
-                    inputmode="numeric"
-                    maxlength="10"
-                    required>
-
-                <i class="fa-solid fa-phone"></i>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="next-btn"
-                id="captainNextBtn">
-
-                التالي
-
-            </button>
-
-        </div>
-
-
-        <!-- =========================
-             الخطوة الثانية: الدفع
-        ========================== -->
-
-        <div
-            class="captain-form-step"
-            data-captain-step="2"
-            style="display:none;">
-
-
-            <h4 class="step-title">
-
-                <i class="fa-solid fa-credit-card"></i>
-
-                الدفع
-
-            </h4>
-
-
-            <div class="booking-note">
-
-                <p>
-                    السعر الأساسي:
-                    <strong>300 ريال</strong>
-                </p>
-
-                <p>
-                    السعر الحالي:
-                    <strong>100 ريال</strong>
-                </p>
-
-                <p>
-                    <strong>
-                        خصم 66% بمناسبة انطلاق البرنامج
-                    </strong>
-                </p>
-
-            </div>
-
-
-            <p style="text-align:center;">
-
-                بعد الضغط على المتابعة سيتم نقلك
-                إلى صفحة اختيار طريقة الدفع.
+                تعلّم تطبيق مبادئ الجودة وفق ISO 9001:2015،
+                وطوّر أسلوبك في تقديم الخدمة للحفاظ على أداء
+                احترافي ومستوى عالٍ من الجودة.
 
             </p>
 
 
-            <div class="step-buttons">
-
-                <button
-                    type="button"
-                    class="back-btn"
-                    id="captainBackBtn">
-
-                    السابق
-
-                </button>
+        </div>
 
 
-                <button
-                    type="submit"
-                    class="next-btn">
 
-                    اختيار طريقة الدفع
+        <!-- خطوات التسجيل -->
 
-                </button>
+        <div class="stepper captain-stepper">
+
+
+            <div class="step-item">
+
+                <div
+                    class="step-circle active"
+                    data-captain-step="1">
+
+                    1
+
+                </div>
+
+                <span>
+                    البيانات
+                </span>
 
             </div>
 
-        </div>
 
-    </form>
+            <div class="step-line"></div>
 
-<!-- إعلان دورة الكابتن المحترف -->
 
-<section class="videos-section captain-video-section">
+            <div class="step-item">
 
-    <h2 class="videos-title">
-        <i class="fa-solid fa-video"></i>
-        قريبًا: دورة الكابتن المحترف
-    </h2>
+                <div
+                    class="step-circle"
+                    data-captain-step="2">
 
-    <p class="videos-text">
-        تعرّف على دورة الكابتن المحترف المقدمة من TDrive
-    </p>
+                    2
 
-    <div class="video-grid">
+                </div>
 
-        <div class="video-card">
+                <span>
+                    الدفع
+                </span>
 
-            <h3>إعلان دورة الكابتن المحترف</h3>
+            </div>
 
-            <iframe
-                src="https://www.youtube.com/embed/lemsGDDA0fE"
-                title="إعلان دورة الكابتن المحترف"
-                allowfullscreen>
-            </iframe>
 
         </div>
+
+
+
+        <form id="captainForm">
+
+
+
+            <!-- =========================
+                 CAPTAIN STEP 1
+            ========================== -->
+
+            <div
+                class="captain-form-step active"
+                data-captain-step="1">
+
+
+                <h4 class="step-title">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    بيانات التسجيل
+
+                </h4>
+
+
+
+                <!-- الاسم -->
+
+                <label>
+                    الاسم
+                </label>
+
+                <div class="input-icon">
+
+                    <input
+                        type="text"
+                        id="captainName"
+                        placeholder="الاسم الثنائي أو الثلاثي"
+                        required>
+
+                    <i class="fa-solid fa-user"></i>
+
+                </div>
+
+
+
+                <!-- الهوية -->
+
+                <label>
+                    رقم الهوية
+                </label>
+
+                <div class="input-icon">
+
+                    <input
+                        type="text"
+                        id="captainId"
+                        placeholder="أدخل رقم الهوية"
+                        inputmode="numeric"
+                        maxlength="10"
+                        required>
+
+                    <i class="fa-solid fa-id-card"></i>
+
+                </div>
+
+
+
+                <!-- الجوال -->
+
+                <label>
+                    رقم الجوال
+                </label>
+
+                <div class="input-icon">
+
+                    <input
+                        type="tel"
+                        id="captainPhone"
+                        placeholder="05xxxxxxxx"
+                        inputmode="numeric"
+                        maxlength="10"
+                        required>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </div>
+
+
+
+                <button
+                    type="button"
+                    class="next-btn"
+                    id="captainNextBtn">
+
+                    التالي
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =========================
+                 CAPTAIN STEP 2
+            ========================== -->
+
+            <div
+                class="captain-form-step"
+                data-captain-step="2"
+                style="display:none;">
+
+
+                <h4 class="step-title">
+
+                    <i class="fa-solid fa-credit-card"></i>
+
+                    الدفع
+
+                </h4>
+
+
+
+                <div class="booking-note">
+
+
+                    <p>
+
+                        السعر الأساسي:
+
+                        <strong>
+                            300 ريال
+                        </strong>
+
+                    </p>
+
+
+                    <p>
+
+                        السعر الحالي:
+
+                        <strong>
+                            100 ريال
+                        </strong>
+
+                    </p>
+
+
+                    <p>
+
+                        <strong>
+                            خصم 66% بمناسبة انطلاق البرنامج
+                        </strong>
+
+                    </p>
+
+
+                </div>
+
+
+
+                <p style="text-align:center;">
+
+                    بعد الضغط على المتابعة سيتم نقلك
+                    إلى صفحة اختيار طريقة الدفع.
+
+                </p>
+
+
+
+                <div class="step-buttons">
+
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        id="captainBackBtn">
+
+                        السابق
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="next-btn">
+
+                        اختيار طريقة الدفع
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+        </form>
+
+
+
+        <!-- =========================
+             CAPTAIN VIDEO
+        ========================== -->
+
+        <section class="videos-section captain-video-section">
+
+
+            <h2 class="videos-title">
+
+                <i class="fa-solid fa-video"></i>
+
+                قريبًا: دورة الكابتن المحترف
+
+            </h2>
+
+
+            <p class="videos-text">
+
+                تعرّف على دورة الكابتن المحترف المقدمة من TDrive
+
+            </p>
+
+
+            <div class="video-grid">
+
+
+                <div class="video-card">
+
+
+                    <h3>
+                        إعلان دورة الكابتن المحترف
+                    </h3>
+
+
+                    <iframe
+                        src="https://www.youtube.com/embed/lemsGDDA0fE"
+                        title="إعلان دورة الكابتن المحترف"
+                        allowfullscreen>
+                    </iframe>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
 
     </div>
 
-</section>
-
-</div>
-
 
 </section>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
 <footer>
 
-<p>© 2026 TDrive | تكنولوجيا القيادة</p>
+    <p>
+        © 2026 TDrive | تكنولوجيا القيادة
+    </p>
 
 </footer>
 
+
+
+<!-- ==================================================
+     SCRIPTS
+================================================== -->
+
 <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
 
-<script type="module" src="app.js?v=2"></script>
+<script
+    type="module"
+    src="app.js?v=2">
+</script>
+
 
 </body>
 
