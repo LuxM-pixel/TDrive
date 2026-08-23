@@ -790,3 +790,50 @@ document.querySelectorAll("[data-back]").forEach(btn => {
     });
 
 });
+
+/* ==================================================
+   TRAINER SELECTION
+================================================== */
+
+const trainerCard =
+    document.querySelector(".trainer-card");
+
+const selectedTrainerInput =
+    document.getElementById("selectedTrainer");
+
+
+if (trainerCard) {
+
+    trainerCard.addEventListener("click", function(event) {
+
+        /*
+          إذا ضغطت المتدربة على زر الصوت
+          لا نعتبره اختيارًا للبطاقة.
+        */
+
+        if (
+            event.target.closest(".audio-play-btn")
+        ) {
+            return;
+        }
+
+
+        trainerCard.classList.toggle("selected");
+
+
+        if (
+            trainerCard.classList.contains("selected")
+        ) {
+
+            selectedTrainerInput.value =
+                trainerCard.dataset.trainerId;
+
+        } else {
+
+            selectedTrainerInput.value = "";
+
+        }
+
+    });
+
+}
