@@ -375,222 +375,62 @@ function getArabicDayName(
 }
 
 
-/* ==================================================
-   قراءة جدول المدربة
-================================================== */
+function getTimesForInstructorDate(instructor, selectedDate) {
 
-function getInstructorSchedule(
-    instructor
-) {
-
-    if (!instructor) {
-        return {};
-    }
-
-    let schedule =
-        instructor.schedule;
-
-    if (!schedule) {
-        return {};
-    }
-
-    if (
-        typeof schedule === "string"
-    ) {
-
-        try {
-
-            schedule =
-                JSON.parse(schedule);
-
-        } catch (error) {
-
-            console.error(
-                "تعذر قراءة جدول المدربة:",
-                error
-            );
-
-            return {};
-
-        }
-
-    }
-
-    return schedule || {};
-
-}
-
-
-/* ==================================================
-   استخراج أوقات المدربة في تاريخ معين
-================================================== */
-
-function getTimesForInstructorDate(
-    instructor,
-    selectedDate
-) {
-
-    if (
-        !instructor ||
-        !selectedDate
-    ) {
+    if (!instructor || !selectedDate) {
         return [];
     }
 
-    const date =
-        createLocalDate(
-            selectedDate
-        );
+    const date = createLocalDate(selectedDate);
 
     if (!date) {
         return [];
     }
 
-    const dayNumber =
-        date.getDay();
+    const schedule = instructor.available_training_times;
 
-    const dayName =
-        getArabicDayName(
-            dayNumber
-        );
-
-    const schedule =
-        getInstructorSchedule(
-            instructor
-        );
-
-    if (
-        schedule &&
-        typeof schedule === "object" &&
-        !Array.isArray(schedule)
-    ) {
-
-        let times =
-            schedule[dayName];
-
-        if (!times) {
-
-            times =
-                schedule[
-                    String(dayNumber)
-                ];
-
-        }
-
-        if (!times) {
-
-            const englishDays = [
-
-                "sunday",
-                "monday",
-                "tuesday",
-                "wednesday",
-                "thursday",
-                "friday",
-                "saturday"
-
-            ];
-
-            times =
-                schedule[
-                    englishDays[dayNumber]
-                ];
-
-        }
-
-        if (!times) {
-            return [];
-        }
-
-        if (
-            Array.isArray(times)
-        ) {
-
-            return times
-                .map(normalizeTime)
-                .filter(Boolean);
-
-        }
-
-        if (
-            typeof times === "string"
-        ) {
-
-            return times
-                .split(",")
-                .map(normalizeTime)
-                .filter(Boolean);
-
-        }
-
+    if (!schedule || typeof schedule !== "object" || Array.isArray(schedule)) {
         return [];
-
     }
 
-
-    if (
-        Array.isArray(schedule)
-    ) {
-
-        const daySchedule =
-            schedule.find(item => {
-
-                if (!item) {
-                    return false;
-                }
-
-                return (
-
-                    item.day === dayName ||
-
-                    item.day_name === dayName ||
-
-                    String(item.day) ===
-                        String(dayNumber) ||
-
-                    String(item.day_of_week) ===
-                        String(dayNumber)
-
-                );
-
-            });
-
-        if (!daySchedule) {
-            return [];
-        }
-
-        const times =
-            daySchedule.times ||
-            daySchedule.time_slots ||
-            daySchedule.slots ||
-            [];
-
-        if (
-            Array.isArray(times)
-        ) {
-
-            return times
-                .map(normalizeTime)
-                .filter(Boolean);
-
-        }
-
-        if (
-            typeof times === "string"
-        ) {
-
-            return times
-                .split(",")
-                .map(normalizeTime)
-                .filter(Boolean);
-
-        }
-
+    if (!schedule.startDate) {
+        return [];
     }
 
-    return [];
+    const startDate = createLocalDate(schedule.startDate);
+
+    if (!startDate) {
+        return [];
+    }
+
+    const duration = Number(schedule.durationDays) || 30;
+
+    const diffDays = Math.round(
+        (date - startDate) / (1000 * 60 * 60 * 24)
+    );
+
+    if (diffDays < 0 || diffDays >= duration) {
+        return [];
+    }
+
+    const dayNumber = date.getDay();
+
+    const workDays = Array.isArray(schedule.workDays)
+        ? schedule.workDays.map(Number)
+        : [];
+
+    if (!workDays.includes(dayNumber)) {
+        return [];
+    }
+
+    const hours = Array.isArray(schedule.selectedHourLabels)
+        ? schedule.selectedHourLabels
+        : [];
+
+    return hours.map(normalizeTime).filter(Boolean);
 
 }
+
 
 
 /* ==================================================
