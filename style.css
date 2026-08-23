@@ -3304,3 +3304,52 @@ color:#555;
     }
 }
 
+/* =========================================
+   TRAINER RADIO OPTION
+========================================= */
+
+.trainer-radio-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-top: 18px;
+    padding-top: 16px;
+
+    border-top: 1px solid #d7edf1;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: #3a939f;
+}
+
+.trainer-radio-option input[type="radio"] {
+    display: none;
+}
+
+.custom-radio {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+
+    border-radius: 50%;
+    border: 2px solid #5bb6c4;
+
+    background: #fff;
+
+    position: relative;
+}
+
+.trainer-radio-option input[type="radio"]:checked + .custom-radio::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #5bb6c4;
+}
+
