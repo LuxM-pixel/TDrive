@@ -492,3 +492,58 @@ export async function getCustomerInvoiceByBookingId(
     return snapshot.docs[0].data();
 
 }
+
+
+// ==================================================
+// إنشاء الرقم التالي للفاتورة
+// ==================================================
+
+export async function getNextInvoiceNumber() {
+
+    const counterRef = doc(
+        db,
+        "counters",
+        "customer-invoices"
+    );
+
+    const nextNumber = await runTransaction(
+        db,
+        async (transaction) => {
+
+            const counterSnap =
+                await transaction.get(
+                    counterRef
+                );
+
+            let currentNumber = 0;
+
+            if (counterSnap.exists()) {
+
+                currentNumber =
+                    Number(
+                        counterSnap.data().lastNumber || 0
+                    );
+
+            }
+
+            const newNumber =
+                currentNumber + 1;
+
+            transaction.set(
+                counterRef,
+                {
+                    lastNumber: newNumber
+                },
+                {
+                    merge: true
+                }
+            );
+
+            return newNumber;
+
+        }
+    );
+
+    return nextNumber;
+
+}
