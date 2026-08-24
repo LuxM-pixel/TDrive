@@ -330,6 +330,60 @@ export async function getInstructorBookedTimes(
 
 }
 
+// ==================================================
+// جلب بيانات الحجز بواسطة bookingId
+// ==================================================
+
+export async function getBookingByBookingId(bookingId) {
+
+    if (!bookingId) {
+        return null;
+    }
+
+    const q = query(
+
+        collection(db, "bookings"),
+
+        where(
+            "bookingId",
+            "==",
+            bookingId
+        )
+
+    );
+
+    const snapshot =
+        await getDocs(q);
+
+
+    if (snapshot.empty) {
+        return null;
+    }
+
+
+    // الحجز الواحد يحتوي على 5 حصص
+    // نأخذ الحصة الأولى لأنها تحتوي على
+    // بيانات العميل وبيانات بداية التدريب
+
+    const bookings =
+        snapshot.docs.map(
+            doc => ({
+                id: doc.id,
+                ...doc.data()
+            })
+        );
+
+
+    bookings.sort(
+        (a, b) =>
+            Number(a.lessonNumber || 0) -
+            Number(b.lessonNumber || 0)
+    );
+
+
+    return bookings[0];
+
+}
 
 // ==================================================
 // فواتير العملاء
