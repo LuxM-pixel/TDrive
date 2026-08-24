@@ -684,9 +684,9 @@ h2{
 import {
     saveCustomerInvoice,
     getNextInvoiceNumber,
-    getCustomerInvoiceByBookingId
+    getCustomerInvoiceByBookingId,
+    getBookingByBookingId
 } from "./firebase.js";
-
 
 /* =========================
    بيانات الحجز
@@ -695,50 +695,158 @@ import {
 const bookingId =
     sessionStorage.getItem("bookingId");
 
-const fullName =
-    sessionStorage.getItem("fullName");
-
-const phone =
-    sessionStorage.getItem("phone");
-
-const trainingDate =
-    sessionStorage.getItem("trainingDate");
-
-const trainingTime =
-    sessionStorage.getItem("trainingTime");
+let fullName = "";
+let phone = "";
+let trainingDate = "";
+let trainingTime = "";
 
 
 /* =========================
-   التحقق من وجود الحجز
+   تحميل بيانات الحجز
 ========================= */
 
-if (!bookingId) {
+async function loadBookingData() {
 
-    alert("لا يوجد حجز مسجل.");
+    if (!bookingId) {
 
-    window.location = "booking.html";
+        alert("لا يوجد حجز مسجل.");
+
+        window.location.href =
+            "booking.html";
+
+        return;
+
+    }
+
+
+    try {
+
+        const booking =
+            await getBookingByBookingId(
+                bookingId
+            );
+
+
+        if (!booking) {
+
+            alert(
+                "تعذر العثور على بيانات الحجز."
+            );
+
+            window.location.href =
+                "booking.html";
+
+            return;
+
+        }
+
+
+        /* =========================
+           أخذ البيانات من Firebase
+        ========================= */
+
+        fullName =
+            booking.fullName || "";
+
+        phone =
+            booking.phone || "";
+
+        trainingDate =
+            booking.trainingDate || "";
+
+        trainingTime =
+            booking.trainingTime || "";
+
+
+        /* =========================
+           عرض البيانات
+        ========================= */
+
+        document
+            .getElementById("bookingId")
+            .textContent =
+                booking.bookingId || bookingId;
+
+
+        document
+            .getElementById("fullName")
+            .textContent =
+                fullName;
+
+
+        document
+            .getElementById("phone")
+            .textContent =
+                phone;
+
+
+        document
+            .getElementById("trainingDate")
+            .textContent =
+                trainingDate;
+
+
+        document
+            .getElementById("trainingTime")
+            .textContent =
+                trainingTime;
+
+
+        /* =========================
+           تحديث sessionStorage
+           كنسخة احتياطية
+        ========================= */
+
+        sessionStorage.setItem(
+            "fullName",
+            fullName
+        );
+
+        sessionStorage.setItem(
+            "phone",
+            phone
+        );
+
+        sessionStorage.setItem(
+            "trainingDate",
+            trainingDate
+        );
+
+        sessionStorage.setItem(
+            "trainingTime",
+            trainingTime
+        );
+
+
+        console.log(
+            "تم تحميل بيانات الحجز:",
+            booking
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Booking loading error:",
+            error
+        );
+
+        alert(
+            "حدث خطأ أثناء تحميل بيانات الحجز."
+        );
+
+    }
 
 }
 
 
 /* =========================
-   عرض بيانات الحجز
+   تشغيل تحميل الحجز
 ========================= */
 
-document.getElementById("bookingId").textContent =
-    bookingId;
+await loadBookingData();
 
-document.getElementById("fullName").textContent =
-    fullName;
 
-document.getElementById("phone").textContent =
-    phone;
-
-document.getElementById("trainingDate").textContent =
-    trainingDate;
-
-document.getElementById("trainingTime").textContent =
-    trainingTime;
 
 
 /* =========================
