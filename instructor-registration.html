@@ -733,9 +733,6 @@ footer{
 }
 
 
-
-
-
 /* =========================
    MOBILE
 ========================= */
@@ -962,6 +959,95 @@ footer{
 
       </select>
 
+
+      <!-- ==================================================
+           الحساب البنكي
+      ================================================== -->
+
+      <h2 style="margin-top:25px;">
+        الحساب البنكي
+      </h2>
+
+
+      <label class="required">
+        اسم البنك
+      </label>
+
+      <input
+        type="text"
+        id="bankName"
+        required
+      >
+
+
+      <label class="required">
+        رقم السويفت (SWIFT)
+      </label>
+
+      <input
+        type="text"
+        id="swiftCode"
+        dir="ltr"
+        required
+      >
+
+
+      <label class="required">
+        اسم صاحب الحساب
+      </label>
+
+      <input
+        type="text"
+        id="accountHolderName"
+        required
+      >
+
+
+      <label class="required">
+        رقم الآيبان (IBAN)
+      </label>
+
+      <input
+        type="text"
+        id="iban"
+        dir="ltr"
+        required
+      >
+
+
+      <div class="file-hint">
+        يجب أن يكون اسم صاحب الحساب مطابقًا للاسم المسجل في الطلب.
+      </div>
+
+
+      <!-- ==================================================
+           حساب التواصل الاجتماعي للتدريب
+      ================================================== -->
+
+      <h2 style="margin-top:25px;">
+        حساب التواصل الاجتماعي للتدريب
+      </h2>
+
+
+      <label class="required">
+        رابط حسابك على منصة التواصل الاجتماعي المخصص للتدريب
+      </label>
+
+
+      <input
+        type="text"
+        id="trainingSocialAccount"
+        placeholder="https://..."
+        dir="ltr"
+        required
+      >
+
+
+      <div class="file-hint">
+        أدخلي رابط الحساب المخصص للتدريب.
+      </div>
+
+
     </div>
 
 
@@ -1052,9 +1138,9 @@ footer{
 
       <div class="file-box">
 
-     <label class="required">
-  الشهادة الجامعية / الثانوية
-</label>
+        <label class="required">
+          الشهادة الجامعية / الثانوية
+        </label>
 
         <input
           type="file"
@@ -1127,10 +1213,10 @@ footer{
       <label class="checkbox-row">
 
         <input
-  type="checkbox"
-  id="termsMainCheckbox"
-  required
->
+          type="checkbox"
+          id="termsMainCheckbox"
+          required
+        >
 
         <span>
           أقر بأنني قرأت الشروط والأحكام الخاصة بالمدربات وفهمتها.
@@ -1194,19 +1280,20 @@ footer{
 
       </label>
 
-<a
-  href="instructor-terms.html"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="terms-button"
-  style="
-    display:block;
-    text-align:center;
-    text-decoration:none;
-  "
->
-   قراءة الشروط والأحكام كاملة
-</a>
+
+      <a
+        href="instructor-terms.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="terms-button"
+        style="
+          display:block;
+          text-align:center;
+          text-decoration:none;
+        "
+      >
+        قراءة الشروط والأحكام كاملة
+      </a>
 
 
       <div
@@ -1310,7 +1397,6 @@ footer{
 
 
 
-    
 <!-- ==================================================
      SUPABASE
 ================================================== -->
@@ -1577,19 +1663,20 @@ function validateRequiredFiles() {
 
   const requiredFields = [
 
-  "idImage",
+    "idImage",
 
-  "license",
+    "license",
 
-  "carRegistration",
+    "carRegistration",
 
-  "certificate",
+    "certificate",
 
-  "video",
+    "video",
 
-  "voiceRecording"
+    "voiceRecording"
 
-];
+  ];
+
 
   if (
     ownsCar.value ===
@@ -2111,6 +2198,59 @@ form.addEventListener(
 
 
       /* --------------------------------------------
+         BANK DATA
+      -------------------------------------------- */
+
+      const bankName =
+        document
+          .getElementById(
+            "bankName"
+          )
+          .value
+          .trim();
+
+
+      const swiftCode =
+        document
+          .getElementById(
+            "swiftCode"
+          )
+          .value
+          .trim();
+
+
+      const accountHolderName =
+        document
+          .getElementById(
+            "accountHolderName"
+          )
+          .value
+          .trim();
+
+
+      const iban =
+        document
+          .getElementById(
+            "iban"
+          )
+          .value
+          .trim();
+
+
+      /* --------------------------------------------
+         TRAINING SOCIAL ACCOUNT
+      -------------------------------------------- */
+
+      const trainingSocialAccount =
+        document
+          .getElementById(
+            "trainingSocialAccount"
+          )
+          .value
+          .trim();
+
+
+      /* --------------------------------------------
          APPLICATION ID
       -------------------------------------------- */
 
@@ -2230,84 +2370,96 @@ form.addEventListener(
       );
 
 
-const {
-  data,
-  error
-} =
-  await supabaseClient.rpc(
-    "submit_instructor_application",
-    {
+      const {
+        data,
+        error
+      } =
+        await supabaseClient.rpc(
+          "submit_instructor_application",
+          {
 
-      p_id:
-        applicationId,
+            p_id:
+              applicationId,
 
-      p_full_name:
-        fullName,
+            p_full_name:
+              fullName,
 
-      p_phone:
-        phone,
+            p_phone:
+              phone,
 
-      p_national_id:
-        nationalId,
+            p_national_id:
+              nationalId,
 
-      p_qualification:
-        qualification,
+            p_qualification:
+              qualification,
 
-      p_city:
-        city,
+            p_city:
+              city,
 
-      p_owns_car:
-        ownsCarValue,
+            p_owns_car:
+              ownsCarValue,
 
-      p_status:
-        "pending",
+            p_bank_name:
+              bankName,
 
-      p_application_type:
-        "instructor",
+            p_swift_code:
+              swiftCode,
 
-      p_terms_accepted:
-        true,
+            p_account_holder_name:
+              accountHolderName,
 
-      p_terms_version:
-        "2026-08-20",
+            p_iban:
+              iban,
 
-      p_terms_accepted_at:
-        new Date().toISOString(),
+            p_training_social_account:
+              trainingSocialAccount,
 
-      p_files:
-        filesMetadata,
+            p_status:
+              "pending",
 
-      p_submitted_at:
-        new Date().toISOString()
+            p_application_type:
+              "instructor",
 
-    }
-  );
+            p_terms_accepted:
+              true,
 
+            p_terms_version:
+              "2026-08-20",
 
-if (
-  error
-) {
+            p_terms_accepted_at:
+              new Date().toISOString(),
 
-  console.error(
-    "Supabase RPC error:",
-    error
-  );
+            p_files:
+              filesMetadata,
 
-  throw new Error(
-    error.message ||
-    "تعذر حفظ طلب الانضمام."
-  );
+            p_submitted_at:
+              new Date().toISOString()
 
-}
+          }
+        );
 
 
-const application =
-  Array.isArray(data)
-    ? data[0]
-    : data;
+      if (
+        error
+      ) {
+
+        console.error(
+          "Supabase RPC error:",
+          error
+        );
+
+        throw new Error(
+          error.message ||
+          "تعذر حفظ طلب الانضمام."
+        );
+
+      }
 
 
-
+      const application =
+        Array.isArray(data)
+          ? data[0]
+          : data;
 
 
       /* --------------------------------------------
@@ -2321,7 +2473,8 @@ const application =
 
 
       applicationNumberEl.textContent =
-  application.application_number;
+        application.application_number;
+
 
       statusEl.className =
         "ok";
