@@ -736,247 +736,127 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
         <!-- خطوات التسجيل -->
 
-        <div class="stepper captain-stepper">
+     <!-- خطوات التسجيل -->
+
+<div class="stepper captain-stepper">
+
+    <div class="step-item">
+        <div class="step-circle active" data-captain-step="1">1</div>
+        <span>البيانات</span>
+    </div>
+
+    <div class="step-line"></div>
+
+    <div class="step-item">
+        <div class="step-circle" data-captain-step="2">2</div>
+        <span>الموعد</span>
+    </div>
+
+    <div class="step-line"></div>
+
+    <div class="step-item">
+        <div class="step-circle" data-captain-step="3">3</div>
+        <span>الدفع</span>
+    </div>
+
+</div>
 
 
-            <div class="step-item">
-
-                <div
-                    class="step-circle active"
-                    data-captain-step="1">
-
-                    1
-
-                </div>
-
-                <span>
-                    البيانات
-                </span>
-
-            </div>
+<form id="captainForm">
 
 
-            <div class="step-line"></div>
+    <!-- =========================
+         CAPTAIN STEP 1
+    ========================== -->
 
+    <div class="captain-form-step active" data-captain-step="1">
 
-            <div class="step-item">
+        <h4 class="step-title">
+            <i class="fa-solid fa-user"></i>
+            بيانات التسجيل
+        </h4>
 
-                <div
-                    class="step-circle"
-                    data-captain-step="2">
-
-                    2
-
-                </div>
-
-                <span>
-                    الدفع
-                </span>
-
-            </div>
-
-
+        <label>الاسم</label>
+        <div class="input-icon">
+            <input type="text" id="captainName" placeholder="الاسم الثنائي أو الثلاثي" required>
+            <i class="fa-solid fa-user"></i>
         </div>
 
+        <label>رقم الهوية</label>
+        <div class="input-icon">
+            <input type="text" id="captainId" placeholder="أدخل رقم الهوية" inputmode="numeric" maxlength="10" required>
+            <i class="fa-solid fa-id-card"></i>
+        </div>
 
+        <label>رقم الجوال</label>
+        <div class="input-icon">
+            <input type="tel" id="captainPhone" placeholder="05xxxxxxxx" inputmode="numeric" maxlength="10" required>
+            <i class="fa-solid fa-phone"></i>
+        </div>
 
-        <form id="captainForm">
+        <button type="button" class="next-btn" id="captainNextBtn">التالي</button>
 
+    </div>
 
 
-            <!-- =========================
-                 CAPTAIN STEP 1
-            ========================== -->
+    <!-- =========================
+         CAPTAIN STEP 2 - الموعد
+    ========================== -->
 
-            <div
-                class="captain-form-step active"
-                data-captain-step="1">
+    <div class="captain-form-step" data-captain-step="2" style="display:none;">
 
+        <h4 class="step-title">
+            <i class="fa-solid fa-calendar-days"></i>
+            اختيار الموعد
+        </h4>
 
-                <h4 class="step-title">
+        <div id="captainSessionsList" class="trainer-selection">
+            <p style="text-align:center; color:#8b999f; font-size:13px;">
+                جاري تحميل المواعيد المتاحة...
+            </p>
+        </div>
 
-                    <i class="fa-solid fa-user"></i>
+        <input type="hidden" id="selectedCaptainSession" value="">
 
-                    بيانات التسجيل
+        <div class="step-buttons">
+            <button type="button" class="back-btn" id="captainStep2BackBtn">السابق</button>
+            <button type="button" class="next-btn" id="captainStep2NextBtn">التالي</button>
+        </div>
 
-                </h4>
+    </div>
 
 
+    <!-- =========================
+         CAPTAIN STEP 3 - الدفع
+    ========================== -->
 
-                <!-- الاسم -->
+    <div class="captain-form-step" data-captain-step="3" style="display:none;">
 
-                <label>
-                    الاسم
-                </label>
+        <h4 class="step-title">
+            <i class="fa-solid fa-credit-card"></i>
+            الدفع
+        </h4>
 
-                <div class="input-icon">
+        <div class="booking-note">
+            <p>السعر الأساسي: <strong>300 ريال</strong></p>
+            <p>السعر الحالي: <strong>100 ريال</strong></p>
+            <p><strong>خصم 66% بمناسبة انطلاق البرنامج</strong></p>
+        </div>
 
-                    <input
-                        type="text"
-                        id="captainName"
-                        placeholder="الاسم الثنائي أو الثلاثي"
-                        required>
+        <p style="text-align:center;">
+            بعد الضغط على المتابعة سيتم نقلك إلى صفحة اختيار طريقة الدفع.
+        </p>
 
-                    <i class="fa-solid fa-user"></i>
+        <div class="step-buttons">
+            <button type="button" class="back-btn" id="captainBackBtn">السابق</button>
+            <button type="submit" class="next-btn">اختيار طريقة الدفع</button>
+        </div>
 
-                </div>
+    </div>
 
 
+</form>
 
-                <!-- الهوية -->
-
-                <label>
-                    رقم الهوية
-                </label>
-
-                <div class="input-icon">
-
-                    <input
-                        type="text"
-                        id="captainId"
-                        placeholder="أدخل رقم الهوية"
-                        inputmode="numeric"
-                        maxlength="10"
-                        required>
-
-                    <i class="fa-solid fa-id-card"></i>
-
-                </div>
-
-
-
-                <!-- الجوال -->
-
-                <label>
-                    رقم الجوال
-                </label>
-
-                <div class="input-icon">
-
-                    <input
-                        type="tel"
-                        id="captainPhone"
-                        placeholder="05xxxxxxxx"
-                        inputmode="numeric"
-                        maxlength="10"
-                        required>
-
-                    <i class="fa-solid fa-phone"></i>
-
-                </div>
-
-
-
-                <button
-                    type="button"
-                    class="next-btn"
-                    id="captainNextBtn">
-
-                    التالي
-
-                </button>
-
-
-            </div>
-
-
-
-            <!-- =========================
-                 CAPTAIN STEP 2
-            ========================== -->
-
-            <div
-                class="captain-form-step"
-                data-captain-step="2"
-                style="display:none;">
-
-
-                <h4 class="step-title">
-
-                    <i class="fa-solid fa-credit-card"></i>
-
-                    الدفع
-
-                </h4>
-
-
-
-                <div class="booking-note">
-
-
-                    <p>
-
-                        السعر الأساسي:
-
-                        <strong>
-                            300 ريال
-                        </strong>
-
-                    </p>
-
-
-                    <p>
-
-                        السعر الحالي:
-
-                        <strong>
-                            100 ريال
-                        </strong>
-
-                    </p>
-
-
-                    <p>
-
-                        <strong>
-                            خصم 66% بمناسبة انطلاق البرنامج
-                        </strong>
-
-                    </p>
-
-
-                </div>
-
-
-
-                <p style="text-align:center;">
-
-                    بعد الضغط على المتابعة سيتم نقلك
-                    إلى صفحة اختيار طريقة الدفع.
-
-                </p>
-
-
-
-                <div class="step-buttons">
-
-
-                    <button
-                        type="button"
-                        class="back-btn"
-                        id="captainBackBtn">
-
-                        السابق
-
-                    </button>
-
-
-                    <button
-                        type="submit"
-                        class="next-btn">
-
-                        اختيار طريقة الدفع
-
-                    </button>
-
-
-                </div>
-
-
-            </div>
-
-
-        </form>
 
 
 
