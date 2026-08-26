@@ -328,9 +328,9 @@ async function uploadReceipt() {
 
     submitBtn.disabled = true;
     submitBtn.style.background = "#ccc";
-    statusText.style.display = "block";
-    statusText.style.color = "#1b7a3d";
-    statusText.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
+    statusTest.style.display = "block";
+    statusTest.style.color = "#1b7a3d";
+    statusTest.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
 
     const fileName = `${phone}_${Date.now()}_${file.name}`;
 
@@ -367,11 +367,13 @@ async function uploadReceipt() {
     } catch (error) {
         console.error("خطأ:", error);
         statusText.style.color = "#c0392b";
-        statusText.textContent = "حدث خطأ أثناء الرفع. تأكد من اتصالك أو حجم الصورة.";
+        // 🛑 هنا بيطلع لنا الخطأ الحقيقي صريح على الشاشة
+        statusText.textContent = "خطأ تقني: " + (error.message || JSON.stringify(error));
         submitBtn.disabled = false;
         submitBtn.style.background = "#6DB7C5";
     }
 }
+
 </script>
 
 </body>
