@@ -47,29 +47,36 @@ h2{
     box-shadow:0 5px 20px rgba(0,0,0,.05);
     border:1px solid #e4f1f3;
 }
-.captain-booking-info{
+
+/* توحيد عرض وأبعاد جميع الصناديق والحقول لتكون بمتضاسق تام 100% */
+.captain-booking-info,
+.captain-price,
+.field-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.captain-booking-info,
+.captain-price{
     background:#eef9fb;
     padding:20px;
     border-radius:14px;
-    margin-bottom:20px;
 }
 
 .captain-booking-info p{
     display:flex;
     justify-content:space-between;
-    margin:8px 0;
-    font-size:14px;
+    align-items:center;
+    margin:10px 0;
+    font-size:15px;
     color:#444;
 }
 .captain-booking-info span{
     font-weight:700;
     color:#222;
 }
+
 .captain-price{
-    background:#eef9fb;
-    padding:18px;
-    border-radius:14px;
-    margin-bottom:20px;
     text-align:center;
 }
 .captain-price strong{
@@ -82,6 +89,7 @@ h2{
     font-size:13px;
     color:#666;
 }
+
 label{
     font-weight:700;
     font-size:14px;
@@ -90,13 +98,15 @@ label{
     margin-bottom:5px;
     margin-top:15px;
 }
+
+/* توحيد قياسات وأبعاد حقول الإدخال والنسخ وبنك البلاد */
 .copy-box{
     display:flex;
     gap:8px;
+    width: 100%;
 }
 .copy-box input, .bank-box-style {
     width:100%;
-    flex:1;
     padding:14px 16px;
     border:1px solid #d5dade;
     border-radius:10px;
@@ -108,7 +118,6 @@ label{
 .copy-box input {
     direction: ltr;
     text-align: right;
-
 }
 .bank-box-style {
     direction: rtl;
@@ -139,6 +148,7 @@ label{
     border:2px dashed #6DB7C5;
     border-radius:15px;
     text-align:center;
+    width: 100%;
 }
 .upload-box h3{
     color:#0d3b3e;
@@ -339,7 +349,7 @@ async function uploadReceipt() {
         
         const receiptUrl = publicUrlData.publicUrl;
 
-        // 3. تحديث السجل باستخدام الأعمدة الصحيحة (booking_id و receipt_url و status)
+        // 3. تحديث السجل في Supabase
         const { error: updateError } = await supabaseClient
             .from('captain_registrations')
             .update({ 
