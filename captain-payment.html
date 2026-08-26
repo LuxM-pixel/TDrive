@@ -328,19 +328,24 @@ async function uploadReceipt() {
 
     submitBtn.disabled = true;
     submitBtn.style.background = "#ccc";
-    statusTest.style.display = "block";
-    statusTest.style.color = "#1b7a3d";
-    statusTest.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
+    statusText.style.display = "block";
+    statusText.style.color = "#1b7a3d";
+    statusText.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
 
     const fileName = `${phone}_${Date.now()}_${file.name}`;
 
     try {
-        // 1. رفع الصورة لـ Storage
+        // 1. محاولة رفع الصورة لـ Storage
         const { data: uploadData, error: uploadError } = await supabaseClient.storage
             .from('receipts')
-            .upload(fileName, file);
+            .upload(fileName, file, {
+                cacheControl: '3600',
+                upsert: true
+            });
 
-        if (uploadError) throw uploadError;
+        if (uploadError) {
+            throw new Error("خطأ المخزن (Storage): " + uploadError.message);
+        }
 
         // 2. جلب رابط الصورة
         const { data: publicUrlData } = supabaseClient.storage
@@ -349,7 +354,7 @@ async function uploadReceipt() {
         
         const receiptUrl = publicUrlData.publicUrl;
 
-        // 3. تحديث السجل في Supabase
+        // 3. تحديث السجل في جدول captain_registrations
         const { error: updateError } = await supabaseClient
             .from('captain_registrations')
             .update({ 
@@ -358,7 +363,9 @@ async function uploadReceipt() {
             })
             .eq('booking_id', bookingId);
 
-        if (updateError) throw updateError;
+        if (updateError) {
+            throw new Error("خطأ الجدول (Database): " + updateError.message);
+        }
 
         statusText.style.color = "#1b7a3d";
         statusText.textContent = "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
@@ -367,12 +374,12 @@ async function uploadReceipt() {
     } catch (error) {
         console.error("خطأ:", error);
         statusText.style.color = "#c0392b";
-        // 🛑 هنا بيطلع لنا الخطأ الحقيقي صريح على الشاشة
-        statusText.textContent = "خطأ تقني: " + (error.message || JSON.stringify(error));
+        statusText.textContent = error.message; // إظهار سبب الخطأ بالتفصيل
         submitBtn.disabled = false;
         submitBtn.style.background = "#6DB7C5";
     }
 }
+
 
 </script>
 
