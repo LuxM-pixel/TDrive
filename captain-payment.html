@@ -330,36 +330,45 @@ async function uploadReceipt() {
     submitBtn.style.background = "#ccc";
     statusText.style.display = "block";
     statusText.style.color = "#1b7a3d";
-    statusText.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
+    statusText.textContent = "جاري رفع الإيصال وحفظ البيانات... الرجاء الانتظار.";
 
     const fileName = `${phone}_${Date.now()}_${file.name}`;
 
     try {
-        // 1. رفع الصورة لـ Storage (وهذي أصلاً كانت تنجح)
+        // 1. رفع الصورة إلى Storage
         const { error: uploadError } = await supabaseClient.storage
             .from('receipts')
             .upload(fileName, file);
 
         if (uploadError) throw new Error("خطأ المخزن: " + uploadError.message);
 
-        // 2. جلب رابط الصورة
+        // 2. جلب رابط الصورة العام
         const { data: publicUrlData } = supabaseClient.storage
             .from('receipts')
             .getPublicUrl(fileName);
         
         const receiptUrl = publicUrlData.publicUrl;
 
-        // 3. تحديث السجل باستخدام الدالة البرمجية (RPC) لتجنب مشكلة الصلاحيات
-        const { error: rpcError } = await supabaseClient.rpc('update_captain_receipt', {
-            p_booking_id: bookingId,
-            p_receipt_url: receiptUrl
-        });
+        // 3. حفظ أو تحديث بيانات الكابتن بالكامل في جدول captain_registrations مباشرة
+        const { error: dbError } = await supabaseClient
+            .from('captain_registrations')
+            .upsert([
+                {
+                    booking_id: bookingId,
+                    full_name: fullName,
+                    national_id: identityNumber || '',
+                    phone: phone,
+                    receipt_url: receiptUrl,
+                    status: 'pending' // قيد المراجعة
+                }
+            ], { onConflict: 'booking_id' });
 
-        if (rpcError) throw new Error("خطأ التحديث: " + rpcError.message);
+        if (dbError) throw new Error("خطأ حفظ البيانات: " + dbError.message);
 
+        // نجاح العملية بالكامل
         statusText.style.color = "#1b7a3d";
-        statusText.textContent = "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
-        alert("تم إرسال الإيصال بنجاح. شكراً لك!");
+        statusText.textContent = "تم استلام إيصالك بنجاح! سيتم مراجته وتأكيد حجزك قريباً.";
+        alert("تم إرسال الإيصال وحفظ التسجيل بنجاح!");
         
     } catch (error) {
         console.error("خطأ:", error);
