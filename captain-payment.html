@@ -94,34 +94,42 @@ label{
     display:flex;
     gap:8px;
 }
-.copy-box input{
+.copy-box input, .bank-box-style {
     width:100%;
-    padding:12px;
+    padding:14px 16px;
     border:1px solid #d5dade;
     border-radius:10px;
     background:#fdfdfd;
-    font-size:14px;
+    font-size:15px;
+    font-weight:700;
+    color:#333;
+}
+.copy-box input {
+    direction: ltr;
+    text-align: right;
+}
+.bank-box-style {
+    direction: rtl;
+    text-align: right;
+    display: flex;
+    align-items: center;
 }
 .copy-box button{
-    padding:0 20px;
+    padding:0 22px;
     background:#6DB7C5;
     color:#fff;
     border:none;
     border-radius:10px;
     font-weight:bold;
     cursor:pointer;
-}
-.bank-info-box{
-    margin-top:15px;
-    padding:12px;
-    background:#fff8e6;
-    border-radius:10px;
-    border:1px solid #f2cf57;
     font-size:14px;
-    color:#8a6d3b;
-    text-align:center;
+    flex-shrink: 0;
 }
-/* صندوق إرفاق الإيصال المعدل */
+.copy-box button:hover {
+    opacity: 0.9;
+}
+
+/* صندوق إرفاق الإيصال */
 .upload-box{
     margin-top:25px;
     padding:20px;
@@ -223,8 +231,10 @@ label{
         <button type="button" onclick="copyName()">نسخ</button>
     </div>
 
-    <div class="bank-info-box">
-        البنك: <strong>بنك البلاد</strong>
+    <!-- البنك -->
+    <label>اسم البنك</label>
+    <div class="bank-box-style">
+        بنك البلاد
     </div>
 
     <!-- صندوق إرفاق الإيصال -->
@@ -327,14 +337,14 @@ async function uploadReceipt() {
         
         const receiptUrl = publicUrlData.publicUrl;
 
-        // 3. تحديث السجل في جدول captain_registrations بناءً على رقم الجوال
+        // 3. تحديث السجل باستخدام الأعمدة الصحيحة (booking_id و receipt_url و status)
         const { error: updateError } = await supabaseClient
             .from('captain_registrations')
             .update({ 
                 receipt_url: receiptUrl, 
                 status: 'pending' 
             })
-            .eq('phone', phone);
+            .eq('booking_id', bookingId);
 
         if (updateError) throw updateError;
 
