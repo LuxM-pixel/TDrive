@@ -752,12 +752,16 @@ border-radius:14px;
 
 /* حاوية الأزرار */
 
+/* حاوية الأزرار */
+
 #captainPanel .step-buttons {
     display: flex;
     gap: 14px;
 
     width: 100%;
+    margin-top: 25px; /* هذا هو السطر اللي بيضيف المسافة */
 }
+
 
 
 /* أزرار الخطوة الثانية */
