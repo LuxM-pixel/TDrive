@@ -21,6 +21,21 @@ const supabaseClient =
         supabaseKey
     );
 
+/* ==================================================
+   SUPABASE - مشروع دورة الكابتن (TDrive Captain)
+================================================== */
+
+const captainSupabaseUrl =
+    "https://sbevfklawymyducaqerb.supabase.co";
+
+const captainSupabaseKey =
+    "sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2";
+
+const captainSupabaseClient =
+    window.supabase.createClient(
+        captainSupabaseUrl,
+        captainSupabaseKey
+    );
 
 /* ==================================================
    FIREBASE
@@ -1813,7 +1828,7 @@ if (captainForm) {
         try {
 
             const { data, error } =
-                await supabaseClient
+                await captainSupabaseClient
                     .from("captain_sessions")
                     .select("*")
                     .eq("active", true)
