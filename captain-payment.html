@@ -286,7 +286,7 @@ const fullName = sessionStorage.getItem("fullName");
 const identityNumber = sessionStorage.getItem("identityNumber");
 const phone = sessionStorage.getItem("phone");
 
-if(!bookingId || !fullName || !phone){
+if (!bookingId || !fullName || !phone) {
     alert("لا يوجد تسجيل للكابتن.");
     window.location.href = "booking.html";
 }
@@ -296,28 +296,59 @@ document.getElementById("fullName").textContent = fullName;
 document.getElementById("identityNumber").textContent = identityNumber || "-";
 document.getElementById("phone").textContent = phone;
 
-function copyIBAN(){
+
+/* =========================
+   نسخ الآيبان
+========================= */
+function copyIBAN() {
     const input = document.getElementById("iban");
-    navigator.clipboard.writeText(input.value);
-    alert("تم نسخ رقم الآيبان");
+
+    navigator.clipboard.writeText(input.value)
+        .then(() => {
+            alert("تم نسخ رقم الآيبان");
+        })
+        .catch(() => {
+            alert("تعذر نسخ رقم الآيبان");
+        });
 }
 
-function copyName(){
+
+/* =========================
+   نسخ اسم المستفيد
+========================= */
+function copyName() {
     const input = document.getElementById("name");
-    navigator.clipboard.writeText(input.value);
-    alert("تم نسخ اسم المستفيد");
+
+    navigator.clipboard.writeText(input.value)
+        .then(() => {
+            alert("تم نسخ اسم المستفيد");
+        })
+        .catch(() => {
+            alert("تعذر نسخ اسم المستفيد");
+        });
 }
+
 
 /* =========================
    إعداد Supabase
 ========================= */
 const supabaseUrl = 'https://sbevfklawymyducaqerb.supabase.co';
 const supabaseKey = 'sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2';
-const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+const supabaseClient = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+);
+
+
+/* =========================
+   رفع الإيصال وربطه بالتسجيل
+========================= */
 async function uploadReceipt() {
+
     const fileInput = document.getElementById('receiptFile');
     const file = fileInput.files[0];
+
     const statusText = document.getElementById('uploadStatus');
     const submitBtn = document.getElementById('submitReceiptBtn');
 
@@ -326,39 +357,122 @@ async function uploadReceipt() {
         return;
     }
 
+
+    /* منع الضغط المتكرر */
     submitBtn.disabled = true;
     submitBtn.style.background = "#ccc";
+
     statusText.style.display = "block";
     statusText.style.color = "#1b7a3d";
     statusText.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
 
-    // اسم الملف مرتب برقم الجوال والتاريخ
-    const fileName = `${phone}_${Date.now()}_${file.name}`;
+
+    /*
+       اسم ملف فريد:
+       bookingId + phone + timestamp
+    */
+    const safeFileName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+
+    const fileName = `${bookingId}_${phone}_${Date.now()}_${safeFileName}`;
+
 
     try {
-        // رفع الصورة مباشرة إلى حاوية receipts
+
+        /* ==========================================
+           1. رفع الإيصال إلى Supabase Storage
+        ========================================== */
+
         const { error: uploadError } = await supabaseClient.storage
             .from('receipts')
-            .upload(fileName, file);
+            .upload(fileName, file, {
+                cacheControl: '3600',
+                upsert: false
+            });
 
         if (uploadError) {
-            throw new Error(uploadError.message);
+            throw new Error("فشل رفع الإيصال: " + uploadError.message);
         }
 
-        // نجاح الرفع وإظهار الرسالة للكابتن
+
+        /* ==========================================
+           2. الحصول على الرابط العام للإيصال
+        ========================================== */
+
+        const { data: publicUrlData } = supabaseClient.storage
+            .from('receipts')
+            .getPublicUrl(fileName);
+
+        const receiptUrl = publicUrlData.publicUrl;
+
+
+        /* ==========================================
+           3. تحديث سجل الكابتن في قاعدة البيانات
+        ========================================== */
+
+        const { data: updatedRegistration, error: updateError } =
+            await supabaseClient
+                .from('captain_registrations')
+                .update({
+                    receipt_url: receiptUrl,
+                    status: 'pending'
+                })
+                .eq('booking_id', bookingId)
+                .select()
+                .single();
+
+
+        if (updateError) {
+            throw new Error(
+                "تم رفع الإيصال لكن تعذر تحديث بيانات التسجيل: " +
+                updateError.message
+            );
+        }
+
+
+        /* ==========================================
+           4. التأكد أن السجل موجود فعلًا
+        ========================================== */
+
+        if (!updatedRegistration) {
+            throw new Error(
+                "لم يتم العثور على تسجيل الكابتن برقم التسجيل: " +
+                bookingId
+            );
+        }
+
+
+        /* ==========================================
+           5. نجاح العملية
+        ========================================== */
+
         statusText.style.color = "#1b7a3d";
-        statusText.textContent = "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
+
+        statusText.textContent =
+            "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
+
         alert("تم إرسال الإيصال بنجاح. شكراً لك!");
-        
+
+
+        /*
+           منع إعادة إرسال نفس الإيصال بالضغط مرة أخرى
+        */
+        submitBtn.textContent = "تم إرسال الإيصال ✓";
+
+
     } catch (error) {
-        console.error("خطأ:", error);
+
+        console.error("خطأ في عملية الدفع:", error);
+
+        statusText.style.display = "block";
         statusText.style.color = "#c0392b";
-        statusText.textContent = "خطأ في الرفع: " + error.message;
+
+        statusText.textContent =
+            "تعذر إرسال الإيصال: " + error.message;
+
         submitBtn.disabled = false;
         submitBtn.style.background = "#6DB7C5";
     }
 }
-
 </script>
 
 </body>
