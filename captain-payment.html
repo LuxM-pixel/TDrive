@@ -4,151 +4,276 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>بيانات الدفع | دورة الكابتن | TDrive</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+body{
+    background:#f4f7fa;
+    padding:20px;
+    color:#222;
+}
+.container{
+    max-width:800px;
+    margin:auto;
+}
+.logo{
+    text-align:center;
+    margin-bottom:20px;
+}
+.logo h1{
+    font-size:42px;
+    color:#6DB7C5;
+}
+.logo p{
+    color:#666;
+    font-size:14px;
+}
+h2{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:20px;
+    color:#0d3b3e;
+}
+.payment-card{
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+    border:1px solid #e4f1f3;
+}
 .captain-booking-info{
-background:#ffffff;
-padding:20px;
-border-radius:15px;
-margin-bottom:20px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
+    background:#f8f9fa;
+    padding:18px;
+    border-radius:14px;
+    margin-bottom:20px;
+    border:1px solid #e9ecef;
 }
 .captain-booking-info p{
-margin:8px 0;
+    display:flex;
+    justify-content:space-between;
+    margin:8px 0;
+    font-size:14px;
+    color:#444;
+}
+.captain-booking-info span{
+    font-weight:700;
+    color:#222;
 }
 .captain-price{
-background:#eef9fb;
-padding:15px;
-border-radius:12px;
-margin-bottom:20px;
-text-align:center;
+    background:#eef9fb;
+    padding:18px;
+    border-radius:14px;
+    margin-bottom:20px;
+    text-align:center;
 }
 .captain-price strong{
-font-size:28px;
-color:#6DB7C5;
+    font-size:26px;
+    color:#6DB7C5;
+    display:block;
+    margin:5px 0;
+}
+.captain-price p{
+    font-size:13px;
+    color:#666;
+}
+label{
+    font-weight:700;
+    font-size:14px;
+    color:#333;
+    display:block;
+    margin-bottom:5px;
+    margin-top:15px;
+}
+.copy-box{
+    display:flex;
+    gap:8px;
+}
+.copy-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #d5dade;
+    border-radius:10px;
+    background:#fdfdfd;
+    font-size:14px;
+}
+.copy-box button{
+    padding:0 20px;
+    background:#6DB7C5;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.bank-info-box{
+    margin-top:15px;
+    padding:12px;
+    background:#fff8e6;
+    border-radius:10px;
+    border:1px solid #f2cf57;
+    font-size:14px;
+    color:#8a6d3b;
+    text-align:center;
+}
+/* صندوق إرفاق الإيصال المعدل */
+.upload-box{
+    margin-top:25px;
+    padding:20px;
+    background:#f8f9fa;
+    border:2px dashed #6DB7C5;
+    border-radius:15px;
+    text-align:center;
+}
+.upload-box h3{
+    color:#0d3b3e;
+    font-size:17px;
+    margin-bottom:8px;
+}
+.upload-box p{
+    font-size:13px;
+    color:#555;
+    margin-bottom:12px;
+}
+.upload-box input[type="file"]{
+    width:100%;
+    padding:10px;
+    background:#fff;
+    border-radius:8px;
+    border:1px solid #d5dade;
+    margin-bottom:15px;
+}
+.upload-btn{
+    width:100%;
+    padding:14px;
+    background:#6DB7C5;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+.upload-btn:hover{
+    opacity:0.9;
+}
+#uploadStatus{
+    margin-top:10px;
+    font-size:14px;
+    font-weight:bold;
+    display:none;
+}
+.whatsapp-box{
+    margin-top:20px;
+    text-align:center;
+}
+.whatsapp-box a{
+    color:#25D366;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>TDrive</h1>
-<p>تكنولوجيا القيادة</p>
-<nav>
-<a href="index.html">الرئيسية</a>
-<a href="index.html#program">البرنامج</a>
-<a href="captain-payment-method.html">اختيار طريقة الدفع</a>
-<a href="booking.html">التسجيل</a>
-</nav>
-</header>
+<div class="container">
 
-<section id="payment">
-<h2>بيانات الدفع</h2>
+<div class="logo">
+    <h1>TDrive</h1>
+    <p>تكنولوجيا القيادة</p>
+</div>
 
 <div class="payment-card">
-<p>مرحباً بك في دورة الكابتن المحترف،</p>
+    <h2>بيانات الدفع</h2>
+    <p style="text-align:center; color:#666; margin-bottom:20px; font-size:14px;">مرحباً بك في دورة الكابتن المحترف،</p>
 
-<!-- بيانات التسجيل -->
-<div class="captain-booking-info">
-<p><strong>رقم التسجيل:</strong> <span id="bookingId"></span></p>
-<p><strong>الاسم:</strong> <span id="fullName"></span></p>
-<p><strong>رقم الهوية:</strong> <span id="identityNumber"></span></p>
-<p><strong>رقم الجوال:</strong> <span id="phone"></span></p>
-</div>
+    <!-- بيانات التسجيل -->
+    <div class="captain-booking-info">
+        <p><strong>رقم التسجيل:</strong> <span id="bookingId">-</span></p>
+        <p><strong>الاسم:</strong> <span id="fullName">-</span></p>
+        <p><strong>رقم الهوية:</strong> <span id="identityNumber">-</span></p>
+        <p><strong>رقم الجوال:</strong> <span id="phone">-</span></p>
+    </div>
 
-<!-- السعر -->
-<div class="captain-price">
-<p>رسوم دورة الكابتن المحترف</p>
-<strong>100 ريال</strong>
-<p>السعر الأساسي 300 ريال — خصم 66%</p>
-</div>
+    <!-- السعر -->
+    <div class="captain-price">
+        <p>رسوم دورة الكابتن المحترف</p>
+        <strong>100 ريال</strong>
+        <p>السعر الأساسي 300 ريال — خصم 66% بمناسبة انطلاق البرنامج</p>
+    </div>
 
-<!-- الآيبان -->
-<label>رقم الآيبان</label>
-<div class="copy-box">
-<input id="iban" readonly value="SA8715134018966784773544">
-<button type="button" onclick="copyIBAN()">نسخ</button>
-</div>
+    <!-- الآيبان -->
+    <label>رقم الآيبان</label>
+    <div class="copy-box">
+        <input id="iban" readonly value="SA8715134018966784773544">
+        <button type="button" onclick="copyIBAN()">نسخ</button>
+    </div>
 
-<!-- الاسم -->
-<label>الاسم</label>
-<div class="copy-box">
-<input id="name" readonly value="منى أحمد حمود الشمراني">
-<button type="button" onclick="copyName()">نسخ</button>
-</div>
+    <!-- الاسم -->
+    <label>اسم المستفيد</label>
+    <div class="copy-box">
+        <input id="name" readonly value="منى أحمد حمود الشمراني">
+        <button type="button" onclick="copyName()">نسخ</button>
+    </div>
 
-<!-- البنك -->
-<p>اسم البنك</p>
-<h3>بنك البلاد</h3>
+    <div class="bank-info-box">
+        البنك: <strong>بنك البلاد</strong>
+    </div>
 
-<!-- =========================
-     صندوق إرفاق الإيصال الجديد
-========================= -->
-<div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border: 1px solid #e1e7e9; border-radius: 15px; text-align: center;">
-    <h3 style="margin-bottom: 12px; color: #0d3b3e; font-size: 18px;">إرفاق إيصال التحويل</h3>
-    <p style="font-size: 14px; color: #555; margin-bottom: 15px;">
-        ❗ يرجى تحويل مبلغ <strong>100 ريال</strong> ثم إرفاق صورة الإيصال هنا لتأكيد حجزك.
-    </p>
+    <!-- صندوق إرفاق الإيصال -->
+    <div class="upload-box">
+        <h3>إرفاق إيصال التحويل</h3>
+        <p>يرجى تحويل مبلغ <strong>100 ريال</strong> ثم إرفاق صورة الإيصال هنا لتأكيد حجزك فوراً.</p>
 
-    <input type="file" id="receiptFile" accept="image/*" style="width: 100%; padding: 10px; background: #fff; border-radius: 8px; border: 1px solid #d5dade; margin-bottom: 15px; box-sizing: border-box;">
+        <input type="file" id="receiptFile" accept="image/*">
 
-    <button type="button" id="submitReceiptBtn" onclick="uploadReceipt()" style="width: 100%; padding: 14px; background: #65b7c3; color: #fff; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer;">
-        تأكيد وإرسال الإيصال
-    </button>
-    
-    <p id="uploadStatus" style="margin-top: 10px; font-size: 14px; color: #1b7a3d; display: none; font-weight: bold;">
-        جاري رفع الإيصال... الرجاء الانتظار.
-    </p>
-</div>
+        <button type="button" id="submitReceiptBtn" class="upload-btn" onclick="uploadReceipt()">
+            تأكيد وإرسال الإيصال
+        </button>
+        
+        <p id="uploadStatus"></p>
+    </div>
 
-<!-- =========================
-     زر الدعم الفني (واتساب)
-========================= -->
-<div style="margin-top: 20px; text-align: center;">
-    <a target="_blank" href="https://wa.me/message/VDGPVTYNXF4EP1" style="display: inline-block; color: #25D366; text-decoration: none; font-weight: bold; font-size: 15px;">
-        للمساعدة أو الاستفسار، تواصل معنا عبر واتساب
-    </a>
+    <!-- الدعم الفني -->
+    <div class="whatsapp-box">
+        <a target="_blank" href="https://wa.me/message/VDGPVTYNXF4EP1">
+            للمساعدة أو الاستفسار، تواصل معنا عبر واتساب
+        </a>
+    </div>
+
 </div>
 
 </div>
-</section>
 
-<!-- =========================
-     مكتبة Supabase
-========================= -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
+<!-- مكتبة Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 /* =========================
-   بيانات الكابتن
+   بيانات الكابتن من الذاكرة
 ========================= */
 const bookingId = sessionStorage.getItem("bookingId");
 const fullName = sessionStorage.getItem("fullName");
 const identityNumber = sessionStorage.getItem("identityNumber");
 const phone = sessionStorage.getItem("phone");
 
-/* =========================
-   التحقق من وجود التسجيل
-========================= */
 if(!bookingId || !fullName || !phone){
     alert("لا يوجد تسجيل للكابتن.");
     window.location.href = "booking.html";
 }
 
-/* =========================
-   عرض بيانات التسجيل
-========================= */
 document.getElementById("bookingId").textContent = bookingId;
 document.getElementById("fullName").textContent = fullName;
 document.getElementById("identityNumber").textContent = identityNumber || "-";
 document.getElementById("phone").textContent = phone;
 
-/* =========================
-   نسخ الآيبان والاسم
-========================= */
 function copyIBAN(){
     const input = document.getElementById("iban");
     navigator.clipboard.writeText(input.value);
@@ -162,17 +287,12 @@ function copyName(){
 }
 
 /* =========================
-   إعداد Supabase لرفع الصورة
+   إعداد Supabase
 ========================= */
-// تم إصلاح الرابط وتغيير اسم المتغير لـ supabaseClient
 const supabaseUrl = 'https://sbevfklawymyducaqerb.supabase.co';
 const supabaseKey = 'sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2';
-
 const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-/* =========================
-   رفع الإيصال 
-========================= */
 async function uploadReceipt() {
     const fileInput = document.getElementById('receiptFile');
     const file = fileInput.files[0];
@@ -184,17 +304,16 @@ async function uploadReceipt() {
         return;
     }
 
-    // تعطيل الزر وإظهار حالة الرفع
     submitBtn.disabled = true;
     submitBtn.style.background = "#ccc";
     statusText.style.display = "block";
     statusText.style.color = "#1b7a3d";
     statusText.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
 
-    const fileName = `${bookingId}_${Date.now()}_${file.name}`;
+    const fileName = `${phone}_${Date.now()}_${file.name}`;
 
     try {
-        // 1. رفع الصورة لحاوية receipts باستخدام المتغير الجديد
+        // 1. رفع الصورة لـ Storage
         const { data: uploadData, error: uploadError } = await supabaseClient.storage
             .from('receipts')
             .upload(fileName, file);
@@ -208,31 +327,30 @@ async function uploadReceipt() {
         
         const receiptUrl = publicUrlData.publicUrl;
 
-        // 3. تحديث جدول التسجيلات
+        // 3. تحديث السجل في جدول captain_registrations بناءً على رقم الجوال
         const { error: updateError } = await supabaseClient
-            .from('captain_registrations') // تأكدي أن هذا هو اسم جدول التسجيلات
+            .from('captain_registrations')
             .update({ 
                 receipt_url: receiptUrl, 
                 status: 'pending' 
             })
-            .eq('id', bookingId);
+            .eq('phone', phone);
 
         if (updateError) throw updateError;
 
-        // 4. رسالة النجاح
+        statusText.style.color = "#1b7a3d";
         statusText.textContent = "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
         alert("تم إرسال الإيصال بنجاح. شكراً لك!");
         
     } catch (error) {
         console.error("خطأ:", error);
         statusText.style.color = "#c0392b";
-        statusText.textContent = "حدث خطأ أثناء الرفع. الرجاء المحاولة مجدداً.";
+        statusText.textContent = "حدث خطأ أثناء الرفع. تأكد من اتصالك أو حجم الصورة.";
         submitBtn.disabled = false;
-        submitBtn.style.background = "#65b7c3";
+        submitBtn.style.background = "#6DB7C5";
     }
 }
 </script>
-
 
 </body>
 </html>
