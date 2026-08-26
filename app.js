@@ -1714,306 +1714,313 @@ tabButtons.forEach(
    دورة الكابتن المحترف
 ================================================== */
 
+/* ==================================================
+   دورة الكابتن المحترف
+================================================== */
+
 const captainForm =
-    document.getElementById(
-        "captainForm"
-    );
+    document.getElementById("captainForm");
 
 
-if (
-    captainForm
-) {
+if (captainForm) {
 
     const captainNextBtn =
-        document.getElementById(
-            "captainNextBtn"
-        );
+        document.getElementById("captainNextBtn");
 
+    const captainStep2BackBtn =
+        document.getElementById("captainStep2BackBtn");
+
+    const captainStep2NextBtn =
+        document.getElementById("captainStep2NextBtn");
 
     const captainBackBtn =
-        document.getElementById(
-            "captainBackBtn"
-        );
-
+        document.getElementById("captainBackBtn");
 
     const captainSteps =
-        document.querySelectorAll(
-            ".captain-form-step"
-        );
+        document.querySelectorAll(".captain-form-step");
+
+    const captainSessionsList =
+        document.getElementById("captainSessionsList");
+
+    const selectedCaptainSessionInput =
+        document.getElementById("selectedCaptainSession");
+
+    let loadedCaptainSessions = [];
 
 
-    function goToCaptainStep(
-        stepNumber
-    ) {
+    function goToCaptainStep(stepNumber) {
 
-        captainSteps.forEach(
-            step => {
+        captainSteps.forEach(step => {
 
-                const stepValue =
-                    Number(
-                        step.dataset
-                            .captainStep
-                    );
+            const stepValue =
+                Number(step.dataset.captainStep);
 
+            step.style.display =
+                stepValue === stepNumber ? "block" : "none";
 
-                step.style.display =
-                    stepValue ===
-                    stepNumber
-                        ? "block"
-                        : "none";
+            step.classList.toggle(
+                "active",
+                stepValue === stepNumber
+            );
 
-
-                step.classList.toggle(
-                    "active",
-                    stepValue ===
-                    stepNumber
-                );
-
-            }
-        );
-
+        });
 
         document
-            .querySelectorAll(
-                ".captain-stepper .step-circle"
-            )
-            .forEach(
-                circle => {
+            .querySelectorAll(".captain-stepper .step-circle")
+            .forEach(circle => {
 
-                    const number =
-                        Number(
-                            circle.dataset
-                                .captainStep
+                const number =
+                    Number(circle.dataset.captainStep);
+
+                circle.classList.toggle(
+                    "active",
+                    number === stepNumber
+                );
+
+                circle.classList.toggle(
+                    "done",
+                    number < stepNumber
+                );
+
+            });
+
+        document
+            .querySelectorAll(".captain-stepper .step-line")
+            .forEach((line, index) => {
+
+                line.classList.toggle(
+                    "active",
+                    index < stepNumber - 1
+                );
+
+            });
+
+    }
+
+
+    /* ==========================================
+       تحميل المواعيد المتاحة
+    ========================================== */
+
+    async function loadCaptainSessions() {
+
+        captainSessionsList.innerHTML = `
+            <p style="text-align:center; color:#8b999f; font-size:13px;">
+                جاري تحميل المواعيد المتاحة...
+            </p>
+        `;
+
+        try {
+
+            const { data, error } =
+                await supabaseClient
+                    .from("captain_sessions")
+                    .select("*")
+                    .eq("active", true)
+                    .order("session_date", { ascending: true });
+
+            if (error) throw error;
+
+            loadedCaptainSessions =
+                Array.isArray(data) ? data : [];
+
+            const availableSessions =
+                loadedCaptainSessions.filter(
+                    s => s.booked_seats < s.max_seats
+                );
+
+            if (availableSessions.length === 0) {
+
+                captainSessionsList.innerHTML = `
+                    <p style="text-align:center; color:#8b999f; font-size:13px;">
+                        لا توجد مواعيد متاحة حاليًا.
+                    </p>
+                `;
+
+                return;
+
+            }
+
+            captainSessionsList.innerHTML =
+                availableSessions
+                    .map(session => {
+
+                        const remaining =
+                            session.max_seats - session.booked_seats;
+
+                        return `
+                            <div class="trainer-card" data-session-id="${session.id}">
+                                <div class="trainer-select-mark">✓</div>
+                                <div class="trainer-info">
+                                    <h5>${session.day_name} — ${session.time_slot}</h5>
+                                    <span class="trainer-role">
+                                        متبقي ${remaining} مقعد من ${session.max_seats}
+                                    </span>
+                                </div>
+                                <label class="trainer-radio-option">
+                                    <input type="radio" name="selectedCaptainSessionRadio" value="${session.id}">
+                                    <span class="custom-radio"></span>
+                                    <span>اختيار الموعد</span>
+                                </label>
+                            </div>
+                        `;
+
+                    })
+                    .join("");
+
+            attachCaptainSessionEvents();
+
+        } catch (error) {
+
+            console.error("Load captain sessions error:", error);
+
+            captainSessionsList.innerHTML = `
+                <p style="text-align:center; color:#c0392b; font-size:13px;">
+                    تعذر تحميل المواعيد.
+                </p>
+            `;
+
+        }
+
+    }
+
+
+    function attachCaptainSessionEvents() {
+
+        captainSessionsList
+            .querySelectorAll(".trainer-card")
+            .forEach(card => {
+
+                card.addEventListener("click", function () {
+
+                    captainSessionsList
+                        .querySelectorAll(".trainer-card")
+                        .forEach(other =>
+                            other.classList.remove("selected")
                         );
 
+                    card.classList.add("selected");
 
-                    circle.classList.toggle(
-                        "active",
-                        number ===
-                        stepNumber
-                    );
+                    const sessionId =
+                        card.dataset.sessionId;
 
+                    selectedCaptainSessionInput.value =
+                        sessionId;
 
-                    circle.classList.toggle(
-                        "done",
-                        number <
-                        stepNumber
-                    );
+                    const radio =
+                        card.querySelector('input[type="radio"]');
 
-                }
-            );
+                    if (radio) radio.checked = true;
 
+                });
 
-        document
-            .querySelectorAll(
-                ".captain-stepper .step-line"
-            )
-            .forEach(
-                (line, index) => {
-
-                    line.classList.toggle(
-                        "active",
-                        index <
-                        stepNumber - 1
-                    );
-
-                }
-            );
+            });
 
     }
 
 
     /* ==========================================
-       التالي للكابتن
+       التنقل بين الخطوات
     ========================================== */
 
-    if (
-        captainNextBtn
-    ) {
+    if (captainNextBtn) {
 
-        captainNextBtn.addEventListener(
-            "click",
-            function () {
+        captainNextBtn.addEventListener("click", function () {
 
-                const nameInput =
-                    document.getElementById(
-                        "captainName"
-                    );
+            const name =
+                document.getElementById("captainName").value.trim();
 
+            const identity =
+                document.getElementById("captainId").value.trim();
 
-                const identityInput =
-                    document.getElementById(
-                        "captainId"
-                    );
+            const phone =
+                document.getElementById("captainPhone").value.trim();
 
+            if (!name || !identity || !phone) {
 
-                const phoneInput =
-                    document.getElementById(
-                        "captainPhone"
-                    );
-
-
-                if (
-                    !nameInput ||
-                    !identityInput ||
-                    !phoneInput
-                ) {
-
-                    return;
-
-                }
-
-
-                const name =
-                    nameInput.value.trim();
-
-
-                const identity =
-                    identityInput.value.trim();
-
-
-                const phone =
-                    phoneInput.value.trim();
-
-
-                if (
-                    !name ||
-                    !identity ||
-                    !phone
-                ) {
-
-                    alert(
-                        "يرجى تعبئة جميع البيانات المطلوبة."
-                    );
-
-                    return;
-
-                }
-
-
-                /*
-                   الاسم ثنائي أو ثلاثي
-                */
-
-                const nameParts =
-                    name
-                        .split(/\s+/)
-                        .filter(Boolean);
-
-
-                if (
-                    nameParts.length < 2 ||
-                    nameParts.length > 3
-                ) {
-
-                    alert(
-                        "يرجى إدخال الاسم الثنائي أو الثلاثي فقط."
-                    );
-
-                    nameInput.focus();
-
-                    return;
-
-                }
-
-
-                /*
-                   الاسم عربي
-                */
-
-                const arabicNamePattern =
-                    /^[\u0600-\u06FF\u0750-\u077F\s]+$/;
-
-
-                if (
-                    !arabicNamePattern.test(
-                        name
-                    )
-                ) {
-
-                    alert(
-                        "يرجى إدخال الاسم باللغة العربية."
-                    );
-
-                    nameInput.focus();
-
-                    return;
-
-                }
-
-
-                /*
-                   الهوية
-                */
-
-                if (
-                    !/^\d{10}$/.test(
-                        identity
-                    )
-                ) {
-
-                    alert(
-                        "رقم الهوية يجب أن يتكون من 10 أرقام."
-                    );
-
-                    identityInput.focus();
-
-                    return;
-
-                }
-
-
-                /*
-                   الجوال
-                */
-
-                if (
-                    !/^05\d{8}$/.test(
-                        phone
-                    )
-                ) {
-
-                    alert(
-                        "يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام."
-                    );
-
-                    phoneInput.focus();
-
-                    return;
-
-                }
-
-
-                alert(
-                    "قريبًا سينطلق التسجيل 🩵\n\n" +
-                    "سيتم فتح التسجيل في دورة الكابتن المحترف قريبًا.\n" +
-                    "تابعنا لمعرفة موعد بدء التسجيل."
-                );
+                alert("يرجى تعبئة جميع البيانات المطلوبة.");
+                return;
 
             }
-        );
+
+            const nameParts =
+                name.split(/\s+/).filter(Boolean);
+
+            if (nameParts.length < 2 || nameParts.length > 3) {
+
+                alert("يرجى إدخال الاسم الثنائي أو الثلاثي فقط.");
+                return;
+
+            }
+
+            const arabicNamePattern =
+                /^[\u0600-\u06FF\u0750-\u077F\s]+$/;
+
+            if (!arabicNamePattern.test(name)) {
+
+                alert("يرجى إدخال الاسم باللغة العربية.");
+                return;
+
+            }
+
+            if (!/^\d{10}$/.test(identity)) {
+
+                alert("رقم الهوية يجب أن يتكون من 10 أرقام.");
+                return;
+
+            }
+
+            if (!/^05\d{8}$/.test(phone)) {
+
+                alert("يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام.");
+                return;
+
+            }
+
+            goToCaptainStep(2);
+            loadCaptainSessions();
+
+        });
 
     }
 
 
-    /* ==========================================
-       السابق للكابتن
-    ========================================== */
+    if (captainStep2BackBtn) {
 
-    if (
-        captainBackBtn
-    ) {
+        captainStep2BackBtn.addEventListener("click", function () {
 
-        captainBackBtn.addEventListener(
-            "click",
-            function () {
+            goToCaptainStep(1);
 
-                goToCaptainStep(
-                    1
-                );
+        });
+
+    }
+
+
+    if (captainStep2NextBtn) {
+
+        captainStep2NextBtn.addEventListener("click", function () {
+
+            if (!selectedCaptainSessionInput.value) {
+
+                alert("يرجى اختيار الموعد أولًا.");
+                return;
 
             }
-        );
+
+            goToCaptainStep(3);
+
+        });
+
+    }
+
+
+    if (captainBackBtn) {
+
+        captainBackBtn.addEventListener("click", function () {
+
+            goToCaptainStep(2);
+
+        });
 
     }
 
@@ -2022,131 +2029,44 @@ if (
        إرسال نموذج الكابتن
     ========================================== */
 
-    captainForm.addEventListener(
-        "submit",
-        function (e) {
+    captainForm.addEventListener("submit", function (e) {
 
-            e.preventDefault();
+        e.preventDefault();
 
+        const captainName =
+            document.getElementById("captainName").value.trim();
 
-            const captainName =
-                document
-                    .getElementById(
-                        "captainName"
-                    )
-                    ?.value
-                    ?.trim() || "";
+        const captainId =
+            document.getElementById("captainId").value.trim();
 
+        const captainPhone =
+            document.getElementById("captainPhone").value.trim();
 
-            const captainId =
-                document
-                    .getElementById(
-                        "captainId"
-                    )
-                    ?.value
-                    ?.trim() || "";
+        const sessionId =
+            selectedCaptainSessionInput.value;
 
+        if (!captainName || !captainId || !captainPhone || !sessionId) {
 
-            const captainPhone =
-                document
-                    .getElementById(
-                        "captainPhone"
-                    )
-                    ?.value
-                    ?.trim() || "";
-
-
-            if (
-                !captainName ||
-                !captainId ||
-                !captainPhone
-            ) {
-
-                alert(
-                    "يرجى تعبئة جميع البيانات المطلوبة."
-                );
-
-                return;
-
-            }
-
-
-            const bookingId =
-                "CPT-" +
-                Date.now();
-
-
-            /*
-               حفظ بيانات الكابتن
-            */
-
-            sessionStorage.setItem(
-                "bookingId",
-                bookingId
-            );
-
-
-            sessionStorage.setItem(
-                "fullName",
-                captainName
-            );
-
-
-            sessionStorage.setItem(
-                "identityNumber",
-                captainId
-            );
-
-
-            sessionStorage.setItem(
-                "phone",
-                captainPhone
-            );
-
-
-            sessionStorage.setItem(
-                "program",
-                "دورة الكابتن المحترف"
-            );
-
-
-            sessionStorage.setItem(
-                "trainingDate",
-                ""
-            );
-
-
-            sessionStorage.setItem(
-                "trainingTime",
-                ""
-            );
-
-
-            /*
-               سعر دورة الكابتن
-            */
-
-            sessionStorage.setItem(
-                "originalPrice",
-                "300"
-            );
-
-
-            sessionStorage.setItem(
-                "finalPrice",
-                "100"
-            );
-
-
-            /*
-               صفحة الدفع
-            */
-
-            window.location.href =
-                "captain-payment-method.html";
+            alert("يرجى إكمال جميع الخطوات قبل المتابعة.");
+            return;
 
         }
-    );
+
+        const bookingId =
+            "CPT-" + Date.now();
+
+        sessionStorage.setItem("bookingId", bookingId);
+        sessionStorage.setItem("fullName", captainName);
+        sessionStorage.setItem("identityNumber", captainId);
+        sessionStorage.setItem("phone", captainPhone);
+        sessionStorage.setItem("captainSessionId", sessionId);
+        sessionStorage.setItem("program", "دورة الكابتن المحترف");
+        sessionStorage.setItem("originalPrice", "300");
+        sessionStorage.setItem("finalPrice", "100");
+
+        window.location.href = "captain-payment-method.html";
+
+    });
 
 }
 
