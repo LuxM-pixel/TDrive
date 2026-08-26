@@ -207,109 +207,50 @@ function switchTab(tab) {
   }
 }
 
-async function loadSessionData() {
-  const selectedVal = document.getElementById("sessionSelect").value;
-  const confirmedDiv = document.getElementById("confirmedList");
-  const pendingDiv = document.getElementById("pendingList");
+async function uploadReceipt() {
+    const fileInput = document.getElementById('receiptFile');
+    const file = fileInput.files[0];
+    const statusText = document.getElementById('uploadStatus');
+    const submitBtn = document.getElementById('submitReceiptBtn');
 
-  if (selectedVal === "session_2") {
-    confirmedDiv.innerHTML = `<div class="emptyState">جاري التحميل... لا توجد جلسة نشطة هنا حالياً.</div>`;
-    pendingDiv.innerHTML = `<div class="emptyState">جاري التحميل... لا توجد جلسة نشطة هنا حالياً.</div>`;
-    document.getElementById("confCount").textContent = "0";
-    document.getElementById("pendCount").textContent = "0";
-    return;
-  }
+    if (!file) {
+        alert("الرجاء اختيار صورة الإيصال أولاً.");
+        return;
+    }
 
-  // جلب البيانات من Supabase
-  const { data: registrations, error } = await supabaseClient
-    .from('captain_registrations')
-    .select('*');
+    submitBtn.disabled = true;
+    submitBtn.style.background = "#ccc";
+    statusText.style.display = "block";
+    statusText.style.color = "#1b7a3d";
+    statusText.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
 
-  if (error) {
-    console.error("خطأ في الجلب:", error);
-    return;
-  }
+    // اسم الملف مرتب برقم الجوال والتاريخ
+    const fileName = `${phone}_${Date.now()}_${file.name}`;
 
-  // فصل القوائم وتصنيفها
-  let confirmedList = registrations.filter(r => r.status === "confirmed");
-  let pendingList = registrations.filter(r => r.status === "pending" || r.status === "under_review" || !r.status);
+    try {
+        // رفع الصورة مباشرة إلى حاوية receipts
+        const { error: uploadError } = await supabaseClient.storage
+            .from('receipts')
+            .upload(fileName, file);
 
-  // الترتيب الأبجدي حسب الاسم (full_name)
-  confirmedList.sort((a, b) => (a.full_name || "").localeCompare(b.full_name || 'ar'));
-  pendingList.sort((a, b) => (a.full_name || "").localeCompare(b.full_name || 'ar'));
+        if (uploadError) {
+            throw new Error(uploadError.message);
+        }
 
-  document.getElementById("confCount").textContent = confirmedList.length;
-  document.getElementById("pendCount").textContent = pendingList.length;
-
-  confirmedDiv.innerHTML = "";
-  pendingDiv.innerHTML = "";
-
-  // تعبئة المؤكدين
-  if (confirmedList.length === 0) {
-    confirmedDiv.innerHTML = `<div class="emptyState">لا يوجد متدربون مؤكدون بعد</div>`;
-  } else {
-    confirmedList.forEach(r => {
-      const name = r.full_name || 'بدون اسم';
-      const phone = r.phone || '';
-      
-      // تجهيز نص رسالة الواتساب المطلوبة
-      const waMessage = `عزيزي الكابتن المحترف "${name}"\nسعداء جداً بانضمامك معنا لدورة الكابتن المحترف وقد تم إرفاق مرفقات تخص الدورة:\n١- ملف الدورة يحتوي على جداول مفصلة\n٢- صفحة الاداء التشغيلي\n٣- ملصق الحساب البنكي\n\nشكراً لأختيار TDrive || تكنولوجيا القيادة 🩵`;
-      const waUrl = `https://wa.me/${phone}?text=${encodeURIComponent(waMessage)}`;
-
-      confirmedDiv.innerHTML += `
-        <div class="card">
-          <div class="info">
-            <b>${name}</b>
-            <span>الجوال: ${phone} | الهوية: ${r.national_id || '-'}</span>
-            <span>حساب نشط ✅ | طريقة الدفع: تحويل بنكي</span>
-          </div>
-          <div>
-            <a href="sticker.html?name=${encodeURIComponent(name)}&id=${r.national_id || ''}" target="_blank" class="actionBtn sticker-btn">توليد ملصق الحساب</a>
-            <a href="${waUrl}" target="_blank" class="actionBtn whatsapp-btn">رسالة واتساب</a>
-          </div>
-        </div>`;
-    });
-  }
-
-  // تعبئة قيد المراجعة
-  if (pendingList.length === 0) {
-    pendingDiv.innerHTML = `<div class="emptyState">لا توجد تحويلات قيد المراجعة حالياً</div>`;
-  } else {
-    pendingList.forEach(r => {
-      const name = r.full_name || 'بدون اسم';
-      const receipt = r.receipt_url ? `<a href="${r.receipt_url}" target="_blank"><img src="${r.receipt_url}" class="receipt-thumb" title="اضغط لعرض الإيصال كاملاً"></a>` : "<span style='color:red;'>لم يُرفق إيصال</span>";
-
-      pendingDiv.innerHTML += `
-        <div class="card">
-          <div class="info">
-            <b>${name}</b>
-            <span>الجوال: ${r.phone || '-'} | الهوية: ${r.national_id || '-'}</span>
-            <span>رقم التسجيل: ${r.booking_id || '-'}</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 15px;">
-            ${receipt}
-            <button class="actionBtn approve" onclick="approveRegistration('${r.booking_id}')">تأكيد التسجيل</button>
-          </div>
-        </div>`;
-    });
-  }
+        // نجاح الرفع وإظهار الرسالة للكابتن
+        statusText.style.color = "#1b7a3d";
+        statusText.textContent = "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
+        alert("تم إرسال الإيصال بنجاح. شكراً لك!");
+        
+    } catch (error) {
+        console.error("خطأ:", error);
+        statusText.style.color = "#c0392b";
+        statusText.textContent = "خطأ في الرفع: " + error.message;
+        submitBtn.disabled = false;
+        submitBtn.style.background = "#6DB7C5";
+    }
 }
 
-async function approveRegistration(bookingId) {
-  if (!confirm("هل أنت متأكد من تأكيد تسجيل هذا المتدرب ونقله للمؤكدين؟")) return;
-
-  const { error } = await supabaseClient
-    .from('captain_registrations')
-    .update({ status: 'confirmed' })
-    .eq('booking_id', bookingId);
-
-  if (error) {
-    alert("حدث خطأ: " + error.message);
-  } else {
-    alert("تم تأكيد التسجيل بنجاح!");
-    loadSessionData();
-  }
-}
 </script>
 </body>
 </html>
