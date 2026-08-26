@@ -119,6 +119,8 @@ color:#6DB7C5;
 ========================= -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 /* =========================
    بيانات الكابتن
@@ -145,7 +147,7 @@ document.getElementById("identityNumber").textContent = identityNumber || "-";
 document.getElementById("phone").textContent = phone;
 
 /* =========================
-   نسخ الآيبان
+   نسخ الآيبان والاسم
 ========================= */
 function copyIBAN(){
     const input = document.getElementById("iban");
@@ -153,9 +155,6 @@ function copyIBAN(){
     alert("تم نسخ رقم الآيبان");
 }
 
-/* =========================
-   نسخ الاسم
-========================= */
 function copyName(){
     const input = document.getElementById("name");
     navigator.clipboard.writeText(input.value);
@@ -165,11 +164,15 @@ function copyName(){
 /* =========================
    إعداد Supabase لرفع الصورة
 ========================= */
-// 🔴 حطي روابط مشروعك هنا 🔴
-const supabaseUrl = 'https://sbevfklawymyducaqerb.supabase.co/rest/v1/';
+// تم إصلاح الرابط وتغيير اسم المتغير لـ supabaseClient
+const supabaseUrl = 'https://sbevfklawymyducaqerb.supabase.co';
 const supabaseKey = 'sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2';
-const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+/* =========================
+   رفع الإيصال 
+========================= */
 async function uploadReceipt() {
     const fileInput = document.getElementById('receiptFile');
     const file = fileInput.files[0];
@@ -181,6 +184,7 @@ async function uploadReceipt() {
         return;
     }
 
+    // تعطيل الزر وإظهار حالة الرفع
     submitBtn.disabled = true;
     submitBtn.style.background = "#ccc";
     statusText.style.display = "block";
@@ -190,21 +194,23 @@ async function uploadReceipt() {
     const fileName = `${bookingId}_${Date.now()}_${file.name}`;
 
     try {
-        const { data: uploadData, error: uploadError } = await supabase.storage
+        // 1. رفع الصورة لحاوية receipts باستخدام المتغير الجديد
+        const { data: uploadData, error: uploadError } = await supabaseClient.storage
             .from('receipts')
             .upload(fileName, file);
 
         if (uploadError) throw uploadError;
 
-        const { data: publicUrlData } = supabase.storage
+        // 2. جلب رابط الصورة
+        const { data: publicUrlData } = supabaseClient.storage
             .from('receipts')
             .getPublicUrl(fileName);
         
         const receiptUrl = publicUrlData.publicUrl;
 
-        // تحديث جدول التسجيلات
-        const { error: updateError } = await supabase
-            .from('captain_registrations') // تأكدي أن هذا هو اسم جدول التسجيلات عندك
+        // 3. تحديث جدول التسجيلات
+        const { error: updateError } = await supabaseClient
+            .from('captain_registrations') // تأكدي أن هذا هو اسم جدول التسجيلات
             .update({ 
                 receipt_url: receiptUrl, 
                 status: 'pending' 
@@ -213,6 +219,7 @@ async function uploadReceipt() {
 
         if (updateError) throw updateError;
 
+        // 4. رسالة النجاح
         statusText.textContent = "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
         alert("تم إرسال الإيصال بنجاح. شكراً لك!");
         
@@ -225,6 +232,7 @@ async function uploadReceipt() {
     }
 }
 </script>
+
 
 </body>
 </html>
