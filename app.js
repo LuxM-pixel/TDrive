@@ -2044,7 +2044,7 @@ if (captainForm) {
        إرسال نموذج الكابتن
     ========================================== */
 
-    captainForm.addEventListener("submit", function (e) {
+    captainForm.addEventListener("submit", async function (e) {
 
         e.preventDefault();
 
@@ -2078,6 +2078,32 @@ if (captainForm) {
         sessionStorage.setItem("program", "دورة الكابتن المحترف");
         sessionStorage.setItem("originalPrice", "300");
         sessionStorage.setItem("finalPrice", "100");
+
+
+       try {
+
+    const { error: insertError } =
+        await captainSupabaseClient
+            .from("captain_registrations")
+            .insert({
+                booking_id: bookingId,
+                session_id: sessionId,
+                full_name: captainName,
+                national_id: captainId,
+                phone: captainPhone,
+                payment_method: "bank_transfer",
+                status: "pending"
+            });
+
+    if (insertError) throw insertError;
+
+} catch (error) {
+
+    console.error("Insert registration error:", error);
+    alert("حدث خطأ أثناء حفظ التسجيل: " + error.message);
+    return;
+
+}
 
         window.location.href = "captain-payment-method.html";
 
