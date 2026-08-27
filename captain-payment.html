@@ -345,10 +345,8 @@ const supabaseClient = window.supabase.createClient(
    رفع الإيصال وربطه بالتسجيل
 ========================= */
 async function uploadReceipt() {
-
     const fileInput = document.getElementById('receiptFile');
     const file = fileInput.files[0];
-
     const statusText = document.getElementById('uploadStatus');
     const submitBtn = document.getElementById('submitReceiptBtn');
 
@@ -357,113 +355,67 @@ async function uploadReceipt() {
         return;
     }
 
+    if (!bookingId) {
+        alert("رقم التسجيل غير موجود. يرجى إعادة التسجيل.");
+        return;
+    }
 
-    /* منع الضغط المتكرر */
     submitBtn.disabled = true;
     submitBtn.style.background = "#ccc";
-
     statusText.style.display = "block";
     statusText.style.color = "#1b7a3d";
     statusText.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
 
-
-    /*
-       اسم ملف فريد:
-       bookingId + phone + timestamp
-    */
-    const safeFileName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-
-    const fileName = `${bookingId}_${phone}_${Date.now()}_${safeFileName}`;
-
+    const fileName = `${phone}_${Date.now()}_${file.name}`;
 
     try {
 
-        /* ==========================================
-           1. رفع الإيصال إلى Supabase Storage
-        ========================================== */
-
+        // 1️⃣ رفع الإيصال إلى Storage
         const { error: uploadError } = await supabaseClient.storage
             .from('receipts')
-            .upload(fileName, file, {
-                cacheControl: '3600',
-                upsert: false
-            });
+            .upload(fileName, file);
 
         if (uploadError) {
             throw new Error("فشل رفع الإيصال: " + uploadError.message);
         }
 
-
-        /* ==========================================
-           2. الحصول على الرابط العام للإيصال
-        ========================================== */
-
+        // 2️⃣ الحصول على رابط الإيصال
         const { data: publicUrlData } = supabaseClient.storage
             .from('receipts')
             .getPublicUrl(fileName);
 
         const receiptUrl = publicUrlData.publicUrl;
 
-
-        /* ==========================================
-           3. تحديث سجل الكابتن في قاعدة البيانات
-        ========================================== */
-
+        // 3️⃣ تحديث تسجيل الكابتن
+        // لا نستخدم single() ولا updatedRegistration
         const { error: updateError } = await supabaseClient
-    .from('captain_registrations')
-    .update({
-        receipt_url: receiptUrl,
-        status: 'pending'
-    })
-    .eq('booking_id', bookingId);
+            .from('captain_registrations')
+            .update({
+                receipt_url: receiptUrl,
+                status: 'pending'
+            })
+            .eq('booking_id', bookingId);
 
-if (updateError) {
-    throw new Error(
-        "تم رفع الإيصال لكن تعذر تحديث بيانات التسجيل: " +
-        updateError.message
-    );
-}
-
-
-        /* ==========================================
-           4. التأكد أن السجل موجود فعلًا
-        ========================================== */
-
-        if (!updatedRegistration) {
-            throw new Error(
-                "لم يتم العثور على تسجيل الكابتن برقم التسجيل: " +
-                bookingId
-            );
+        if (updateError) {
+            throw new Error("تم رفع الإيصال لكن تعذر تحديث بيانات التسجيل: " + updateError.message);
         }
 
-
-        /* ==========================================
-           5. نجاح العملية
-        ========================================== */
-
+        // 4️⃣ نجاح العملية
         statusText.style.color = "#1b7a3d";
-
         statusText.textContent =
             "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
 
         alert("تم إرسال الإيصال بنجاح. شكراً لك!");
 
-
-        /*
-           منع إعادة إرسال نفس الإيصال بالضغط مرة أخرى
-        */
-        submitBtn.textContent = "تم إرسال الإيصال ✓";
-
+        submitBtn.disabled = true;
 
     } catch (error) {
 
-        console.error("خطأ في عملية الدفع:", error);
+        console.error("خطأ في إرسال الإيصال:", error);
 
         statusText.style.display = "block";
         statusText.style.color = "#c0392b";
-
-        statusText.textContent =
-            "تعذر إرسال الإيصال: " + error.message;
+        statusText.textContent = "تعذر إرسال الإيصال: " + error.message;
 
         submitBtn.disabled = false;
         submitBtn.style.background = "#6DB7C5";
