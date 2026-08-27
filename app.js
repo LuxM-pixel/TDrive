@@ -1817,7 +1817,7 @@ if (captainForm) {
        تحميل المواعيد المتاحة
     ========================================== */
 
-    async function loadCaptainSessions() {
+      async function loadCaptainSessions() {
 
         captainSessionsList.innerHTML = `
             <p style="text-align:center; color:#8b999f; font-size:13px;">
@@ -1826,8 +1826,8 @@ if (captainForm) {
         `;
 
         try {
-
-            const { data, error } =
+            // 1. جلب الجلسات
+            const { data: sessions, error } =
                 await captainSupabaseClient
                     .from("captain_sessions")
                     .select("*")
@@ -1837,12 +1837,29 @@ if (captainForm) {
             if (error) throw error;
 
             loadedCaptainSessions =
-                Array.isArray(data) ? data : [];
+                Array.isArray(sessions) ? sessions : [];
 
-            const availableSessions =
-                loadedCaptainSessions.filter(
-                    s => s.booked_seats < s.max_seats
-                );
+            // 2. جلب عدد الحجوزات الفعلية لكل جلسة من جدول التسجيلات لضمان الدقة المطلقة
+            const { data: registrations, error: regError } =
+                await captainSupabaseClient
+                    .from("captain_registrations")
+                    .select("session_id");
+
+            if (regError) throw regError;
+
+            // حساب عدد الحجوزات لكل جلسة
+            const countsMap = {};
+            if (Array.isArray(registrations)) {
+                registrations.forEach(reg => {
+                    countsMap[reg.session_id] = (countsMap[reg.session_id] || 0) + 1;
+                });
+            }
+
+            // دمج الحساب مع الجلسات
+            const availableSessions = loadedCaptainSessions.filter(session => {
+                const bookedCount = countsMap[session.id] || 0;
+                return bookedCount < session.max_seats;
+            });
 
             if (availableSessions.length === 0) {
 
@@ -1860,8 +1877,8 @@ if (captainForm) {
                 availableSessions
                     .map(session => {
 
-                        const remaining =
-                            session.max_seats - session.booked_seats;
+                        const bookedCount = countsMap[session.id] || 0;
+                        const remaining = session.max_seats - bookedCount;
 
                         return `
                             <div class="trainer-card" data-session-id="${session.id}">
@@ -1898,6 +1915,7 @@ if (captainForm) {
         }
 
     }
+
 
 
     function attachCaptainSessionEvents() {
