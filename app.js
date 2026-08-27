@@ -2080,30 +2080,31 @@ if (captainForm) {
         sessionStorage.setItem("finalPrice", "100");
 
 
-       try {
+            try {
 
-    const { error: insertError } =
-        await captainSupabaseClient
-            .from("captain_registrations")
-            .insert({
-                booking_id: bookingId,
-                session_id: sessionId,
-                full_name: captainName,
-                national_id: captainId,
-                phone: captainPhone,
-                payment_method: "bank_transfer",
-                status: "pending"
-            });
+            const { error: insertError } =
+                await captainSupabaseClient
+                    .from("captain_registrations")
+                    .insert({
+                        booking_id: bookingId,
+                        session_id: sessionId,
+                        full_name: captainName,
+                        national_id: captainId,
+                        phone: captainPhone,
+                        payment_method: "bank_transfer",
+                        status: "pending"
+                    });
 
-    if (insertError) throw insertError;
+            if (insertError) throw insertError;
 
-} catch (error) {
+        } catch (error) {
 
-    console.error("Insert registration error:", error);
-    alert("حدث خطأ أثناء حفظ التسجيل: " + error.message);
-    return;
+            console.error("Insert registration error:", error);
+            alert("حدث خطأ أثناء حفظ التسجيل: " + error.message);
+            return;
 
-}
+        }
+
 
         window.location.href = "captain-payment-method.html";
 
