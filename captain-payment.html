@@ -409,24 +409,20 @@ async function uploadReceipt() {
            3. تحديث سجل الكابتن في قاعدة البيانات
         ========================================== */
 
-        const { data: updatedRegistration, error: updateError } =
-            await supabaseClient
-                .from('captain_registrations')
-                .update({
-                    receipt_url: receiptUrl,
-                    status: 'pending'
-                })
-                .eq('booking_id', bookingId)
-                .select()
-                .single();
+        const { error: updateError } = await supabaseClient
+    .from('captain_registrations')
+    .update({
+        receipt_url: receiptUrl,
+        status: 'pending'
+    })
+    .eq('booking_id', bookingId);
 
-
-        if (updateError) {
-            throw new Error(
-                "تم رفع الإيصال لكن تعذر تحديث بيانات التسجيل: " +
-                updateError.message
-            );
-        }
+if (updateError) {
+    throw new Error(
+        "تم رفع الإيصال لكن تعذر تحديث بيانات التسجيل: " +
+        updateError.message
+    );
+}
 
 
         /* ==========================================
