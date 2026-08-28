@@ -12,25 +12,35 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { bookingId, fullName, phone, trainingDate, trainingTime } = req.body;
+    const { bookingId, fullName, phone, trainingDate, trainingTime, program, price } = req.body;
+
+    let courseName = "TDrive Driving Course";
+    let amountStr = "375.00";
+
+    if (program === "دورة الكابتن المحترف") {
+      courseName = "دورة الكابتن المحترف";
+      amountStr = "100.00";
+    } else if (price) {
+      amountStr = Number(price).toFixed(2);
+    }
 
     const orderData = {
       order_reference_id: bookingId,
-      total_amount: { amount: "375.00", currency: "SAR" },
+      total_amount: { amount: amountStr, currency: "SAR" },
       shipping_amount: { amount: "0.00", currency: "SAR" },
       tax_amount: { amount: "0.00", currency: "SAR" },
       order_number: bookingId,
       items: [
         {
-          name: "TDrive Driving Course",
+          name: courseName,
           type: "Service",
           reference_id: "tdrive-course",
           sku: "tdrive-course",
           quantity: 1,
           discount_amount: { amount: "0.00", currency: "SAR" },
           tax_amount: { amount: "0.00", currency: "SAR" },
-          unit_price: { amount: "375.00", currency: "SAR" },
-          total_amount: { amount: "375.00", currency: "SAR" },
+          unit_price: { amount: amountStr, currency: "SAR" },
+          total_amount: { amount: amountStr, currency: "SAR" },
         },
       ],
       consumer: {
@@ -40,7 +50,7 @@ export default async function handler(req, res) {
         email: "no-email@tdrive.sa",
       },
       country_code: "SA",
-      description: "TDrive Driving Course Booking",
+      description: courseName + " Booking",
       merchant_url: {
         success: "https://luxm-pixel.github.io/TDrive/customer-invoice.html",
         failure: "https://luxm-pixel.github.io/TDrive/payment-method.html",
@@ -50,7 +60,6 @@ export default async function handler(req, res) {
     };
 
     const response = await fetch("https://api.tamara.co/checkout", {
-
       method: "POST",
       headers: {
         "Content-Type": "application/json",
