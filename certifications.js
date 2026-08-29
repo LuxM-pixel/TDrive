@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // الحقول
     const studentInput = document.getElementById("studentInput");
-    const identityInput = document.getElementById("identityInput"); // حقل الهوية
     const programInput = document.getElementById("programInput");
     const hoursInput = document.getElementById("hoursInput");
     const dateInput = document.getElementById("dateInput");
@@ -10,28 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // عناصر الشهادة
     const studentName = document.getElementById("studentName");
-    const identityText = document.getElementById("identityText"); // نص الهوية في الشهادة
     const programText = document.getElementById("programText");
     const hoursText = document.getElementById("hoursText");
     const dateText = document.getElementById("dateText");
     const managerText = document.getElementById("managerText");
-
-
-    /* ==============================
-       قراءة البيانات من الرابط (تلقائي من الإدارة)
-    ============================== */
-    const urlParams = new URLSearchParams(window.location.search);
-    const paramName = urlParams.get("name");
-    const paramId = urlParams.get("id");
-
-    if (paramName && studentInput) {
-        studentInput.value = paramName;
-    }
-
-    if (paramId) {
-        if (identityInput) identityInput.value = paramId;
-        if (identityText) identityText.textContent = paramId;
-    }
 
 
     /* ==============================
@@ -53,13 +34,17 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateProgramName() {
         const selectedProgram = programInput.value;
 
+        // التحقق من أن القيمة المختارة موجودة وليست فارغة
         programText.textContent =
             (selectedProgram !== "" && selectedProgram !== null && selectedProgram !== undefined)
             ? selectedProgram
             : "احترفي القيادة على الطريق";
     }
 
+    // عند تغيير الاختيار
     programInput.addEventListener("change", updateProgramName);
+
+    // للتوافق مع المتصفحات المختلفة
     programInput.addEventListener("input", updateProgramName);
 
 
@@ -69,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateHours() {
         hoursText.textContent =
-            hoursInput.value || "1.5";
+            hoursInput.value || "5";
     }
 
     hoursInput.addEventListener("input", updateHours);
@@ -128,16 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================== */
 
     function updateCertificate() {
+
         updateStudentName();
         updateProgramName();
         updateHours();
         updateDate();
         updateManagerName();
-        
-        // تحديث الهوية لو وُجدت
-        if (identityInput && identityText) {
-            identityText.textContent = identityInput.value || "—";
-        }
+
     }
 
 
@@ -146,7 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================== */
 
     window.addEventListener("beforeprint", () => {
+
+        // نعيد قراءة كل البيانات
+        // مباشرة قبل دخول وضع الطباعة
         updateCertificate();
+
     });
 
 
@@ -155,13 +141,21 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================== */
 
     document.getElementById("printBtn").addEventListener("click", () => {
+
+        // تحديث الشهادة أولًا
         updateCertificate();
 
+        // إعطاء Safari فرصة لتحديث DOM
         requestAnimationFrame(() => {
+
             requestAnimationFrame(() => {
+
                 window.print();
+
             });
+
         });
+
     });
 
 
