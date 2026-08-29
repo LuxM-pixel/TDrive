@@ -1817,7 +1817,7 @@ if (captainForm) {
        تحميل المواعيد المتاحة
     ========================================== */
 
-      async function loadCaptainSessions() {
+          async function loadCaptainSessions() {
 
         captainSessionsList.innerHTML = `
             <p style="text-align:center; color:#8b999f; font-size:13px;">
@@ -1839,19 +1839,26 @@ if (captainForm) {
             loadedCaptainSessions =
                 Array.isArray(sessions) ? sessions : [];
 
-            // 2. جلب عدد الحجوزات الفعلية لكل جلسة من جدول التسجيلات لضمان الدقة المطلقة
+            // 2. جلب التسجيلات مع مراعاة مهلة الساعتين للحجوزات المعلقة (pending)
             const { data: registrations, error: regError } =
                 await captainSupabaseClient
                     .from("captain_registrations")
-                    .select("session_id");
+                    .select("session_id, status, expires_at");
 
             if (regError) throw regError;
 
-            // حساب عدد الحجوزات لكل جلسة
+            // حساب عدد المقاعد المشغولة فعلياً (المؤكدة + المعلقة التي لم تنتهِ مهلتها)
+            const now = new Date();
             const countsMap = {};
+            
             if (Array.isArray(registrations)) {
                 registrations.forEach(reg => {
-                    countsMap[reg.session_id] = (countsMap[reg.session_id] || 0) + 1;
+                    const isConfirmed = reg.status === "confirmed";
+                    const isPendingValid = reg.status === "pending" && reg.expires_at && new Date(reg.expires_at) > now;
+
+                    if (isConfirmed || isPendingValid) {
+                        countsMap[reg.session_id] = (countsMap[reg.session_id] || 0) + 1;
+                    }
                 });
             }
 
@@ -2098,7 +2105,9 @@ if (captainForm) {
         sessionStorage.setItem("finalPrice", "100");
 
 
-            try {
+        try {
+            // حساب وقت انتهاء الحجز المؤقت (بعد ساعتين من الآن)
+            const expiresAt = new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString();
 
             const { error: insertError } =
                 await captainSupabaseClient
@@ -2110,7 +2119,8 @@ if (captainForm) {
                         national_id: captainId,
                         phone: captainPhone,
                         payment_method: "bank_transfer",
-                        status: "pending"
+                        status: "pending",
+                        expires_at: expiresAt // حفظ وقت انتهاء المهلة
                     });
 
             if (insertError) throw insertError;
@@ -2122,6 +2132,7 @@ if (captainForm) {
             return;
 
         }
+
 
 
         window.location.href = "captain-payment-method.html";
