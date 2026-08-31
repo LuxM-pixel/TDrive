@@ -65,22 +65,21 @@
        HERO
     ========================== */
 
- .course-hero {
-    position: relative;
+    .course-hero {
+        position: relative;
 
-    overflow: hidden;
+        overflow: hidden;
 
-    min-height: 620px;
+        min-height: 620px;
 
-    border-radius: 26px;
+        border-radius: 26px;
 
-    background: transparent;   /* كانت gradient */
+        background: transparent;
 
-    text-align: center;
+        text-align: center;
 
-    border: none;   /* كانت 1px solid #E4F0F2 */
-}
-
+        border: none;
+    }
 
 
 
@@ -123,7 +122,7 @@
 
 
     /* =========================
-       ISO CIRCLE
+       ISO SEAL (medallion style)
     ========================== */
 
     .iso-badge {
@@ -131,18 +130,23 @@
 
         left: 50%;
 
-        bottom: 14px; /* كانت 30px - نزلناها شوية عشان تقرب من السيارة */
+        bottom: 14px;
 
         transform:
             translateX(-50%);
 
-        width: 76px;
+        width: 88px;
 
-        height: 76px;
+        height: 88px;
 
         border-radius: 50%;
 
-        background: #FFFFFF;
+        background:
+            radial-gradient(
+                circle at 50% 40%,
+                #FFFFFF 0%,
+                #F3FAFB 100%
+            );
 
         color: var(--tdrive-dark);
 
@@ -157,8 +161,8 @@
         font-weight: 800;
 
         box-shadow:
-            0 6px 18px
-            rgba(22, 76, 92, 0.20);
+            0 8px 20px
+            rgba(22, 76, 92, 0.22);
 
         z-index: 3;
     }
@@ -167,21 +171,21 @@
     .iso-badge-ring {
         position: absolute;
 
-        inset: -9px;
+        inset: -10px;
 
         width:
-            calc(100% + 18px);
+            calc(100% + 20px);
 
         height:
-            calc(100% + 18px);
+            calc(100% + 20px);
 
         fill: none;
 
         stroke: var(--tdrive);
 
-        stroke-width: 6;
+        stroke-width: 5;
 
-        stroke-dasharray: 5 4;
+        stroke-dasharray: 4 5;
     }
 
 
@@ -190,34 +194,61 @@
 
         position: absolute;
 
-        inset: 6px;
+        inset: 7px;
 
         border:
-            1px solid var(--tdrive);
+            1.5px solid var(--tdrive);
 
         border-radius: 50%;
+    }
+
+
+    .iso-badge-label {
+        position: absolute;
+
+        inset: 0;
+
+        border-radius: 50%;
+    }
+
+
+    .iso-badge-label svg {
+        width: 100%;
+
+        height: 100%;
+    }
+
+
+    .iso-badge-label text {
+        font-size: 6.6px;
+
+        letter-spacing: 1.2px;
+
+        fill: var(--tdrive);
+
+        font-weight: 700;
     }
 
 
     .iso-ribbons {
         position: absolute;
 
-        bottom: -13px;
+        bottom: -14px;
 
         display: flex;
 
-        gap: 28px;
+        gap: 32px;
 
         z-index: -1;
     }
 
 
     .ribbon {
-        width: 13px;
+        width: 14px;
 
-        height: 20px;
+        height: 22px;
 
-        background: var(--tdrive);
+        background: var(--tdrive-dark);
 
         clip-path:
             polygon(
@@ -243,22 +274,30 @@
 
 
     .iso-badge .iso-number {
-        font-size: 13px;
+        font-size: 15px;
 
         line-height: 1;
 
         letter-spacing: 0.5px;
+
+        position: relative;
+
+        z-index: 2;
     }
 
 
     .iso-badge .iso-text {
-        font-size: 8px;
+        font-size: 8.5px;
 
         line-height: 1.2;
 
         margin-top: 3px;
 
         letter-spacing: 0.4px;
+
+        position: relative;
+
+        z-index: 2;
     }
 
 
@@ -326,6 +365,36 @@
         line-height: 1.35;
 
         letter-spacing: 0;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 10px;
+    }
+
+
+    .hero-content h1 .wheel-icon {
+        width: 30px;
+
+        height: 30px;
+
+        flex-shrink: 0;
+    }
+
+
+    .hero-content h1 .wheel-icon svg {
+        width: 100%;
+
+        height: 100%;
+
+        stroke: var(--tdrive);
+
+        fill: none;
+
+        stroke-width: 3;
     }
 
 
@@ -412,6 +481,30 @@
         height: 1px;
 
         background: var(--tdrive);
+
+        position: relative;
+    }
+
+
+    .section-title::before {
+        background:
+            linear-gradient(
+                to left,
+                var(--tdrive) 0%,
+                var(--tdrive) 6px,
+                transparent 6px
+            );
+    }
+
+
+    .section-title::after {
+        background:
+            linear-gradient(
+                to right,
+                var(--tdrive) 0%,
+                var(--tdrive) 6px,
+                transparent 6px
+            );
     }
 
 
@@ -431,10 +524,10 @@
 
 
     .benefit-card {
-        min-height: 155px;
+        min-height: 170px;
 
         padding:
-            15px 10px;
+            18px 12px;
 
         background: #FFFFFF;
 
@@ -453,16 +546,22 @@
                 92,
                 0.05
             );
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
     }
 
 
     .benefit-icon {
-        width: 50px;
+        width: 54px;
 
-        height: 50px;
+        height: 54px;
 
         margin:
-            0 auto 10px;
+            0 auto 12px;
 
         display: flex;
 
@@ -480,9 +579,9 @@
 
 
     .benefit-icon svg {
-        width: 27px;
+        width: 26px;
 
-        height: 27px;
+        height: 26px;
 
         display: block;
 
@@ -519,6 +618,21 @@
     }
 
 
+    .benefit-underline {
+        margin-top: auto;
+
+        padding-top: 10px;
+
+        width: 28px;
+
+        height: 3px;
+
+        border-radius: 3px;
+
+        background: var(--tdrive);
+    }
+
+
 
     /* =========================
        QUALITY ISO BOX
@@ -529,11 +643,11 @@
 
         align-items: center;
 
-        gap: 12px;
+        gap: 14px;
 
         margin-top: 18px;
 
-        padding: 15px;
+        padding: 16px;
 
         border-radius: 20px;
 
@@ -547,11 +661,11 @@
 
     .quality-icon {
         flex:
-            0 0 50px;
+            0 0 52px;
 
-        width: 50px;
+        width: 52px;
 
-        height: 50px;
+        height: 52px;
 
         display: flex;
 
@@ -559,22 +673,35 @@
 
         justify-content: center;
 
-        border-radius: 16px;
+        border-radius: 50%;
 
         background: #FFFFFF;
 
         color: var(--tdrive);
+
+        box-shadow:
+            0 4px 10px
+            rgba(22, 76, 92, 0.10);
     }
 
 
     .quality-icon svg {
-        width: 28px;
+        width: 26px;
 
-        height: 28px;
+        height: 26px;
 
         stroke: currentColor;
 
         fill: none;
+    }
+
+
+    .quality-divider {
+        flex: 0 0 1px;
+
+        align-self: stretch;
+
+        background: rgba(var(--tdrive-rgb), 0.35);
     }
 
 
@@ -614,7 +741,13 @@
     ========================== */
 
     .register-button {
-        display: block;
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 10px;
 
         width: 100%;
 
@@ -745,7 +878,7 @@
 
 
         .course-hero {
-            min-height: 560px; /* زودناها شوية عشان تبان مسافة تحت السيارة */
+            min-height: 560px;
 
             border-radius: 20px;
         }
@@ -753,9 +886,9 @@
 
         .hero-content {
 
-        padding: 14px 14px 0; /* كانت 22px - قللناها */
+        padding: 14px 14px 0;
 
-transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب المسافة اللي فوق النص */
+transform: translateY(55px);
 
     }
 
@@ -785,6 +918,13 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
             letter-spacing: 0;
 
             font-weight: 700;
+        }
+
+
+        .hero-content h1 .wheel-icon {
+            width: 25px;
+
+            height: 25px;
         }
 
 
@@ -819,7 +959,7 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
 
             left: 3%;
 
-            bottom: 20px; /* رفعناها شوية عشان تبان مسافة تحتها فوق حافة الهيرو */
+            bottom: 20px;
         }
 
 
@@ -828,53 +968,53 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
         ========================== */
 
         .iso-badge {
-            width: 64px;
+            width: 74px;
 
-            height: 64px;
+            height: 74px;
 
-            bottom: 22px; /* اتنزلت نسبة للسيارة اللي اترفعت */
+            bottom: 22px;
         }
 
 
         .iso-badge-ring {
-            inset: -8px;
+            inset: -9px;
 
             width:
-                calc(100% + 16px);
+                calc(100% + 18px);
 
             height:
-                calc(100% + 16px);
+                calc(100% + 18px);
 
-            stroke-width: 5;
+            stroke-width: 4.5;
         }
 
 
         .iso-badge::before {
-            inset: 5px;
+            inset: 6px;
         }
 
 
         .iso-ribbons {
-            gap: 22px;
+            gap: 26px;
 
-            bottom: -10px;
+            bottom: -11px;
         }
 
 
         .ribbon {
-            width: 10px;
+            width: 11px;
 
-            height: 16px;
+            height: 18px;
         }
 
 
         .iso-badge .iso-number {
-            font-size: 11px;
+            font-size: 13px;
         }
 
 
         .iso-badge .iso-text {
-            font-size: 7px;
+            font-size: 7.5px;
         }
 
 
@@ -906,28 +1046,28 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
 
 
         .benefit-card {
-            min-height: 145px;
+            min-height: 160px;
 
             padding:
-                13px 8px;
+                14px 9px;
 
             border-radius: 16px;
         }
 
 
         .benefit-icon {
-            width: 46px;
+            width: 48px;
 
-            height: 46px;
+            height: 48px;
 
-            margin-bottom: 8px;
+            margin-bottom: 9px;
         }
 
 
         .benefit-icon svg {
-            width: 25px;
+            width: 23px;
 
-            height: 25px;
+            height: 23px;
         }
 
 
@@ -971,8 +1111,6 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
             width: 46px;
 
             height: 46px;
-
-            border-radius: 12px;
         }
 
 
@@ -1068,11 +1206,19 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
             class="hero-image"
         >
 
-        <!-- دائرة ISO المرسومة بالكود -->
+        <!-- ختم ISO -->
         <div class="iso-badge">
             <svg class="iso-badge-ring" viewBox="0 0 100 100" aria-hidden="true">
                 <circle cx="50" cy="50" r="47" />
             </svg>
+            <div class="iso-badge-label" aria-hidden="true">
+                <svg viewBox="0 0 100 100">
+                    <path id="isoCurveTop" d="M 20,50 A 30,30 0 0 1 80,50" fill="none" />
+                    <text>
+                        <textPath href="#isoCurveTop" startOffset="50%" text-anchor="middle">QUALITY MANAGEMENT</textPath>
+                    </text>
+                </svg>
+            </div>
             <span class="iso-number">ISO</span>
             <span class="iso-text">9001:2015</span>
             <div class="iso-ribbons">
@@ -1088,8 +1234,14 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
             </div>
 
             <h1>
-                دورة<br>
-                الكابتن المحترف
+                دورة الكابتن المحترف
+                <span class="wheel-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="9.5" />
+                        <circle cx="12" cy="12" r="2.6" />
+                        <path d="M12 2.5v4.4M12 17.1v4.4M4.6 7.2l3.8 2.2M15.6 14.6l3.8 2.2M19.4 7.2l-3.8 2.2M8.4 14.6l-3.8 2.2" stroke-linecap="round"/>
+                    </svg>
+                </span>
             </h1>
 
             <h2>
@@ -1130,18 +1282,14 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                 <svg viewBox="0 0 64 64" aria-hidden="true">
 
                     <path
-                        d="M12 10h30c6 0 10 4 10 10v34H22c-6 0-10-4-10-10V10Z"
+                        d="M32 18c-4-4-11-5-18-3v30c7-2 14-1 18 3 4-4 11-5 18-3V15c-7-2-14-1-18 3Z"
                         stroke-width="3.5"
                         stroke-linejoin="round"
+                        stroke-linecap="round"
                     />
 
                     <path
-                        d="M22 54V20c0-6 4-10 10-10"
-                        stroke-width="3.5"
-                    />
-
-                    <path
-                        d="M30 24h13M30 32h13M30 40h9"
+                        d="M32 18v30"
                         stroke-width="3.5"
                         stroke-linecap="round"
                     />
@@ -1159,6 +1307,8 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                 لتطوير معرفتك وتعميق فهمك.
             </p>
 
+            <div class="benefit-underline"></div>
+
         </div>
 
 
@@ -1174,20 +1324,20 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                         x="10"
                         y="12"
                         width="44"
-                        height="38"
+                        height="32"
                         rx="5"
                         stroke-width="3.5"
                     />
 
                     <path
-                        d="M18 42l9-10 7 6 12-15"
+                        d="M17 38l9-10 7 6 13-14"
                         stroke-width="3.5"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     />
 
                     <path
-                        d="M18 19h10"
+                        d="M28 52h8M32 44v8"
                         stroke-width="3.5"
                         stroke-linecap="round"
                     />
@@ -1205,6 +1355,8 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                 وتحسينه بشكل مستمر.
             </p>
 
+            <div class="benefit-underline"></div>
+
         </div>
 
 
@@ -1217,29 +1369,38 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                 <svg viewBox="0 0 64 64" aria-hidden="true">
 
                     <rect
-                        x="9"
-                        y="15"
-                        width="46"
-                        height="34"
+                        x="8"
+                        y="16"
+                        width="40"
+                        height="30"
                         rx="5"
                         stroke-width="3.5"
                     />
 
                     <path
-                        d="M9 25h46"
+                        d="M8 25h40"
                         stroke-width="3.5"
                     />
 
                     <path
-                        d="M17 39h13"
+                        d="M15 37h12"
                         stroke-width="3.5"
                         stroke-linecap="round"
                     />
 
+                    <circle
+                        cx="48"
+                        cy="42"
+                        r="11"
+                        fill="white"
+                        stroke-width="3.5"
+                    />
+
                     <path
-                        d="M42 35v10M37 40h10"
+                        d="M43 42l3.5 3.5L53 38"
                         stroke-width="3.5"
                         stroke-linecap="round"
+                        stroke-linejoin="round"
                     />
 
                 </svg>
@@ -1255,6 +1416,8 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                 لاستخدامه في عملك.
             </p>
 
+            <div class="benefit-underline"></div>
+
         </div>
 
 
@@ -1267,29 +1430,36 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                 <svg viewBox="0 0 64 64" aria-hidden="true">
 
                     <rect
-                        x="14"
-                        y="8"
-                        width="36"
-                        height="46"
+                        x="12"
+                        y="9"
+                        width="34"
+                        height="30"
                         rx="4"
                         stroke-width="3.5"
                     />
 
                     <path
-                        d="M22 19h20M22 27h20M22 35h12"
+                        d="M19 18h20M19 25h20M19 32h12"
                         stroke-width="3.5"
                         stroke-linecap="round"
                     />
 
                     <circle
-                        cx="42"
-                        cy="43"
-                        r="7"
+                        cx="29"
+                        cy="46"
+                        r="9"
                         stroke-width="3.5"
                     />
 
                     <path
-                        d="M38 49l-2 8 6-4 6 4-2-8"
+                        d="M25 45l3 3 6-6"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M24 53l-2 7 7-4 7 4-2-7"
                         stroke-width="3.5"
                         stroke-linejoin="round"
                     />
@@ -1306,6 +1476,8 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                 شهادة حضور معتمدة بعد إتمام الدورة.
             </p>
 
+            <div class="benefit-underline"></div>
+
         </div>
 
     </section>
@@ -1321,15 +1493,14 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
 
             <svg viewBox="0 0 64 64" aria-hidden="true">
 
-                <circle
-                    cx="32"
-                    cy="32"
-                    r="23"
+                <path
+                    d="M32 8l19 7v14c0 13-8 21-19 27C21 50 13 42 13 29V15l19-7Z"
                     stroke-width="3.5"
+                    stroke-linejoin="round"
                 />
 
                 <path
-                    d="M21 32l7 7 15-16"
+                    d="M22 32l7 7 15-16"
                     stroke-width="3.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -1338,6 +1509,8 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
             </svg>
 
         </div>
+
+        <div class="quality-divider"></div>
 
         <div class="quality-text">
 
@@ -1362,8 +1535,8 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
     ========================== -->
 
     <a href="#" class="register-button">
+        <span>←</span>
         سجل الآن في دورة الكابتن المحترف
-        ←
     </a>
 
 
@@ -1416,18 +1589,14 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                 <svg viewBox="0 0 64 64" aria-hidden="true">
 
                     <path
-                        d="M12 10h30c6 0 10 4 10 10v34H22c-6 0-10-4-10-10V10Z"
+                        d="M32 18c-4-4-11-5-18-3v30c7-2 14-1 18 3 4-4 11-5 18-3V15c-7-2-14-1-18 3Z"
                         stroke-width="3.5"
                         stroke-linejoin="round"
+                        stroke-linecap="round"
                     />
 
                     <path
-                        d="M22 54V20c0-6 4-10 10-10"
-                        stroke-width="3.5"
-                    />
-
-                    <path
-                        d="M30 24h13M30 32h13M30 40h9"
+                        d="M32 18v30"
                         stroke-width="3.5"
                         stroke-linecap="round"
                     />
@@ -1455,13 +1624,13 @@ transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب
                         x="14"
                         y="8"
                         width="36"
-                        height="46"
+                        height="30"
                         rx="4"
                         stroke-width="3.5"
                     />
 
                     <path
-                        d="M22 19h20M22 27h20M22 35h12"
+                        d="M22 17h20M22 24h20M22 31h12"
                         stroke-width="3.5"
                         stroke-linecap="round"
                     />
