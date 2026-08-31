@@ -41,7 +41,7 @@
                 Arial,
                 sans-serif;
 
-            background: #f6f8fa;
+            background: #f4fcfc;
 
             color: #1f2937;
 
@@ -60,7 +60,7 @@
 
             text-align: center;
 
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e0f2f1;
         }
 
 
@@ -69,14 +69,14 @@
 
             font-size: 28px;
 
-            color: #111827;
+            color: #00796b;
         }
 
 
         .payment-header p {
             margin: 0 0 18px;
 
-            color: #6b7280;
+            color: #00897b;
         }
 
 
@@ -94,11 +94,17 @@
 
 
         .payment-header nav a {
-            color: #374151;
+            color: #004d40;
 
             text-decoration: none;
 
             font-size: 14px;
+
+            font-weight: 500;
+        }
+
+        .payment-header nav a:hover {
+            color: #00897b;
         }
 
 
@@ -124,7 +130,7 @@
 
             font-size: 26px;
 
-            color: #111827;
+            color: #004d40;
         }
 
 
@@ -141,7 +147,9 @@
 
             box-shadow:
                 0 8px 30px
-                rgba(0, 0, 0, 0.07);
+                rgba(0, 137, 123, 0.08);
+
+            border: 1px solid #e0f2f1;
         }
 
 
@@ -165,6 +173,8 @@
             margin-bottom: 8px;
 
             font-size: 15px;
+
+            color: #004d40;
         }
 
 
@@ -188,13 +198,13 @@
 
             height: 48px;
 
-            border: 1px solid #d1d5db;
+            border: 1px solid #b2dfdb;
 
             border-radius: 10px;
 
             padding: 0 12px;
 
-            background: #f9fafb;
+            background: #f4fcfc;
 
             color: #111827;
 
@@ -211,6 +221,11 @@
             user-select: text;
         }
 
+        .copy-box input:focus {
+            border-color: #00897b;
+            box-shadow: 0 0 0 3px rgba(0, 137, 123, 0.15);
+        }
+
 
         /* ===============================
            COPY BUTTON
@@ -225,7 +240,7 @@
 
             padding: 0 18px;
 
-            background: #111827;
+            background: #00897b;
 
             color: #ffffff;
 
@@ -239,7 +254,7 @@
 
             transition:
                 transform 0.15s ease,
-                opacity 0.15s ease;
+                background-color 0.15s ease;
         }
 
 
@@ -249,7 +264,7 @@
 
 
         .copy-box button:hover {
-            opacity: 0.88;
+            background: #00796b;
         }
 
 
@@ -261,6 +276,8 @@
             margin: 0 0 22px;
 
             font-size: 19px;
+
+            color: #00695c;
         }
 
 
@@ -273,16 +290,20 @@
 
             padding: 13px;
 
-            background: #fff7ed;
+            background: #e0f2f1;
+
+            color: #004d40;
 
             border-radius: 10px;
 
             line-height: 1.7;
+
+            border-right: 4px solid #00897b;
         }
 
 
         /* ===============================
-           WHATSAPP
+           WHATSAPP (تم توحيده مع هوية التركواز المائي النظيف)
            =============================== */
 
         .whatsapp {
@@ -292,7 +313,7 @@
 
             padding: 14px;
 
-            background: #25d366;
+            background: #00897b;
 
             color: #ffffff;
 
@@ -304,12 +325,16 @@
 
             font-weight: 700;
 
-            transition: opacity 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.15s ease;
         }
 
 
         .whatsapp:hover {
-            opacity: 0.9;
+            background: #00796b;
+        }
+
+        .whatsapp:active {
+            transform: scale(0.98);
         }
 
 
@@ -329,6 +354,8 @@
             font-weight: 600;
 
             line-height: 1.6;
+
+            color: #00796b;
         }
 
 
@@ -449,10 +476,6 @@
 
 
 
-        <!-- =========================
-             IBAN
-             ========================= -->
-
         <label for="iban">
             رقم الآيبان
         </label>
@@ -479,10 +502,6 @@
         </div>
 
 
-
-        <!-- =========================
-             NAME
-             ========================= -->
 
         <label for="accountName">
             الاسم
@@ -511,10 +530,6 @@
 
 
 
-        <!-- =========================
-             BANK
-             ========================= -->
-
         <p class="bank-label">
             اسم البنك
         </p>
@@ -526,19 +541,11 @@
 
 
 
-        <!-- =========================
-             NOTICE
-             ========================= -->
-
         <p class="notice">
             ❗ يرجى إرسال إيصال التحويل بعد الدفع.
         </p>
 
 
-
-        <!-- =========================
-             WHATSAPP
-             ========================= -->
 
         <a
             class="whatsapp"
@@ -550,10 +557,6 @@
         </a>
 
 
-
-        <!-- =========================
-             STATUS
-             ========================= -->
 
         <div
             id="copyStatus"
@@ -737,7 +740,6 @@
         /*
          * المحاولة الأولى:
          * Clipboard API
-         * (لازم تكون الصفحة على https)
          */
 
         try {
