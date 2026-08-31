@@ -77,25 +77,30 @@
         /* =========================
            ISO CIRCLE
         ========================== */
+.iso-badge {
+    position: absolute;
+    left: 50%;
+    bottom: 55px;
+    transform: translateX(-50%);
 
-        .iso-badge {
-            position: absolute;
-            left: 50%;
-            bottom: 65px; /* نزلناها هنا تحت السيارة شوي — عدّلي الرقم لو محتاجة أكتر/أقل */
-            transform: translateX(-50%);
-            width: 76px;
-            height: 76px;
-            border-radius: 50%;
-            background: #FFFFFF;
-            color: var(--tdrive-dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            font-weight: 800;
-            box-shadow: 0 6px 18px rgba(22, 76, 92, 0.2);
-            z-index: 3;
-        }
+    width: 76px;
+    height: 76px;
+
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: var(--tdrive-dark);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    font-weight: 800;
+
+    box-shadow: 0 6px 18px rgba(22, 76, 92, 0.2);
+
+    z-index: 3;
+}
 
         /* الحلقة الخارجية المنقطة - بتدي شكل الختم الحقيقي */
         .iso-badge-ring {
@@ -516,10 +521,10 @@
                 margin-top: 13px;
             }
 
-        .iso-badge {
+  .iso-badge {
     width: 64px;
     height: 64px;
-    bottom: 55px;
+    bottom: 42px;
 }
 
             .iso-ribbons {
