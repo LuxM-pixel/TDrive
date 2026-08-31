@@ -54,9 +54,7 @@
         .course-hero {
             position: relative;
             overflow: hidden;
-
             min-height: 650px;
-
             border-radius: 26px;
 
             background: linear-gradient(
@@ -66,37 +64,28 @@
             );
 
             text-align: center;
-
             border: 1px solid #E4F0F2;
         }
 
-
-        /* صورة السيارة والخلفية */
-
         .hero-image {
             position: absolute;
-
             width: 100%;
             height: auto;
-
             left: 0;
             bottom: 0;
-
             z-index: 1;
         }
-
-
-        /* الكلام فوق الصورة */
 
         .hero-content {
             position: relative;
             z-index: 2;
-
             padding: 32px 25px 0;
         }
 
 
-        /* Badge */
+        /* =========================
+           Badge
+        ========================== */
 
         .registration-badge {
             display: inline-flex;
@@ -104,11 +93,9 @@
             gap: 7px;
 
             padding: 8px 18px;
-
             border-radius: 30px;
 
             background: rgba(79, 159, 174, 0.10);
-
             color: var(--tdrive);
 
             font-size: 15px;
@@ -119,54 +106,49 @@
             content: "";
             width: 7px;
             height: 7px;
-
             border-radius: 50%;
-
             background: var(--tdrive);
         }
 
 
-        /* Main title */
+        /* =========================
+           Main title
+        ========================== */
 
         .hero-content h1 {
             margin: 20px 0 8px;
-
             color: var(--tdrive-dark);
 
             font-size: clamp(32px, 7vw, 48px);
-
             font-weight: 800;
-
             line-height: 1.2;
         }
 
 
-        /* Subtitle */
+        /* =========================
+           Subtitle
+        ========================== */
 
         .hero-content h2 {
             margin: 0 auto;
-
             color: var(--tdrive);
 
             font-size: clamp(21px, 5vw, 29px);
-
             line-height: 1.5;
-
             font-weight: 800;
         }
 
 
-        /* Description */
+        /* =========================
+           Description
+        ========================== */
 
         .hero-description {
             max-width: 570px;
-
             margin: 17px auto 0;
 
             color: var(--muted);
-
             font-size: 16px;
-
             line-height: 1.9;
         }
 
@@ -182,28 +164,21 @@
         .section-title {
             display: flex;
             align-items: center;
-
             gap: 14px;
 
             margin: 32px 0 18px;
 
             color: var(--tdrive-dark);
-
             font-size: 25px;
-
             font-weight: 800;
-
             text-align: center;
         }
 
         .section-title::before,
         .section-title::after {
             content: "";
-
             flex: 1;
-
             height: 1px;
-
             background: var(--tdrive);
         }
 
@@ -214,21 +189,16 @@
 
         .benefits {
             display: grid;
-
             grid-template-columns: repeat(2, 1fr);
-
             gap: 14px;
         }
 
         .benefit-card {
             min-height: 180px;
-
             padding: 20px 15px;
 
             background: #FFFFFF;
-
             border: 1px solid var(--border);
-
             border-radius: 20px;
 
             text-align: center;
@@ -238,7 +208,9 @@
         }
 
 
-        /* Icon circle */
+        /* =========================
+           Icon circle
+        ========================== */
 
         .benefit-icon {
             width: 58px;
@@ -253,10 +225,17 @@
             border-radius: 50%;
 
             background: var(--tdrive-light);
-
             color: var(--tdrive);
+        }
 
-            font-size: 27px;
+        .benefit-icon svg {
+            width: 31px;
+            height: 31px;
+
+            display: block;
+
+            stroke: currentColor;
+            fill: none;
         }
 
 
@@ -266,7 +245,6 @@
             color: var(--tdrive-dark);
 
             font-size: 18px;
-
             line-height: 1.5;
         }
 
@@ -276,7 +254,6 @@
             color: var(--muted);
 
             font-size: 14px;
-
             line-height: 1.7;
         }
 
@@ -287,19 +264,15 @@
 
         .quality-box {
             display: flex;
-
             align-items: center;
-
             gap: 18px;
 
             margin-top: 18px;
-
             padding: 20px;
 
             border-radius: 20px;
 
             background: var(--tdrive-light);
-
             border: 1px solid #D9ECEF;
         }
 
@@ -316,7 +289,6 @@
             border-radius: 16px;
 
             background: #FFFFFF;
-
             color: var(--tdrive);
 
             font-size: 31px;
@@ -330,7 +302,6 @@
             margin: 0 0 6px;
 
             color: var(--tdrive);
-
             font-size: 20px;
         }
 
@@ -338,9 +309,7 @@
             margin: 0;
 
             color: var(--muted);
-
             font-size: 15px;
-
             line-height: 1.7;
         }
 
@@ -351,27 +320,21 @@
 
         .register-button {
             display: block;
-
             width: 100%;
 
             margin-top: 24px;
-
             padding: 17px 20px;
 
             border: 0;
-
             border-radius: 18px;
 
             background: var(--tdrive);
-
             color: white;
 
             font-size: 19px;
-
             font-weight: 800;
 
             text-align: center;
-
             text-decoration: none;
 
             box-shadow:
@@ -391,25 +354,20 @@
 
         .features {
             display: grid;
-
             grid-template-columns: repeat(3, 1fr);
-
             gap: 8px;
 
             margin-top: 20px;
-
             padding: 10px 0 5px;
         }
 
         .feature {
             text-align: center;
-
             color: var(--tdrive);
         }
 
         .feature-icon {
             font-size: 23px;
-
             margin-bottom: 5px;
         }
 
@@ -419,316 +377,235 @@
             color: var(--muted);
 
             font-size: 12px;
-
             line-height: 1.5;
         }
 
 
-        /* =========================
-           Mobile
-        ========================== */
+        /* =====================================
+           تصغير خط صفحة التست
+           TDrive - Compact Version
+        ===================================== */
+
+        .registration-badge {
+            font-size: 13px;
+            padding: 7px 15px;
+        }
+
+        .hero-content h1 {
+            font-size: 34px;
+            line-height: 1.2;
+        }
+
+        .hero-content h2 {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .hero-description {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .section-title {
+            font-size: 21px;
+            margin: 25px 0 15px;
+        }
+
+        .benefit-card {
+            min-height: 155px;
+            padding: 15px 10px;
+        }
+
+        .benefit-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .benefit-icon svg {
+            width: 27px;
+            height: 27px;
+        }
+
+        .benefit-card h3 {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+        }
+
+        .benefit-card p {
+            font-size: 12.5px;
+            line-height: 1.6;
+        }
+
+        .quality-box {
+            padding: 15px;
+            gap: 12px;
+        }
+
+        .quality-icon {
+            flex-basis: 50px;
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+        }
+
+        .quality-text h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .quality-text p {
+            font-size: 12.5px;
+            line-height: 1.7;
+        }
+
+        .register-button {
+            margin-top: 20px;
+            padding: 14px 16px;
+            font-size: 15px;
+            border-radius: 14px;
+        }
+
+        .features {
+            margin-top: 15px;
+            padding: 8px 0 3px;
+        }
+
+        .feature-icon {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        .feature span {
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+
+        /* =====================================
+           الجوال
+        ===================================== */
 
         @media (max-width: 520px) {
 
             .test-page {
-                padding: 12px;
+                padding: 10px;
             }
 
             .course-hero {
-                min-height: 570px;
-
-                border-radius: 22px;
+                min-height: 540px;
+                border-radius: 20px;
             }
 
             .hero-content {
-                padding: 25px 16px 0;
+                padding: 22px 14px 0;
+            }
+
+            .registration-badge {
+                font-size: 12px;
+                padding: 6px 13px;
             }
 
             .hero-content h1 {
-                font-size: 32px;
+                font-size: 28px;
+                line-height: 1.2;
+                margin: 16px 0 6px;
             }
 
             .hero-content h2 {
-                font-size: 21px;
+                font-size: 18px;
+                line-height: 1.5;
             }
 
             .hero-description {
-                font-size: 14px;
-                line-height: 1.8;
-            }
-
-            .benefits {
-                grid-template-columns: repeat(2, 1fr);
-
-                gap: 10px;
-            }
-
-            .benefit-card {
-                min-height: 170px;
-
-                padding: 16px 10px;
-            }
-
-            .benefit-card h3 {
-                font-size: 16px;
-            }
-
-            .benefit-card p {
                 font-size: 13px;
-            }
-
-            .quality-box {
-                padding: 15px;
-
-                gap: 12px;
-            }
-
-            .quality-icon {
-                flex-basis: 52px;
-
-                width: 52px;
-                height: 52px;
-            }
-
-            .quality-text h3 {
-                font-size: 17px;
-            }
-
-            .quality-text p {
-                font-size: 13px;
+                line-height: 1.75;
+                margin-top: 13px;
             }
 
             .section-title {
-                font-size: 22px;
+                font-size: 20px;
+                margin: 22px 0 13px;
+                gap: 10px;
+            }
+
+            .benefits {
+                gap: 8px;
+            }
+
+            .benefit-card {
+                min-height: 145px;
+                padding: 13px 8px;
+                border-radius: 16px;
+            }
+
+            .benefit-icon {
+                width: 46px;
+                height: 46px;
+                margin-bottom: 8px;
+            }
+
+            .benefit-icon svg {
+                width: 25px;
+                height: 25px;
+            }
+
+            .benefit-card h3 {
+                font-size: 14px;
+                line-height: 1.45;
+                margin-bottom: 5px;
+            }
+
+            .benefit-card p {
+                font-size: 11.5px;
+                line-height: 1.55;
+            }
+
+            .quality-box {
+                padding: 13px;
+                gap: 10px;
+                border-radius: 16px;
+            }
+
+            .quality-icon {
+                flex-basis: 46px;
+                width: 46px;
+                height: 46px;
+                border-radius: 12px;
+                font-size: 23px;
+            }
+
+            .quality-text h3 {
+                font-size: 15px;
+            }
+
+            .quality-text p {
+                font-size: 12px;
+                line-height: 1.65;
+            }
+
+            .register-button {
+                margin-top: 17px;
+                padding: 13px 12px;
+                font-size: 14px;
+                border-radius: 13px;
+            }
+
+            .features {
+                margin-top: 12px;
+                gap: 5px;
+            }
+
+            .feature-icon {
+                font-size: 18px;
+            }
+
+            .feature span {
+                font-size: 10.5px;
             }
         }
 
-/* =====================================
-   تصغير خط صفحة الموقف
-   TDrive - Compact Version
-===================================== */
-
-/* الشارة */
-.registration-badge {
-    font-size: 13px;
-    padding: 7px 15px;
-}
-
-/* العنوان الرئيسي */
-.hero-content h1 {
-    font-size: 34px;
-    line-height: 1.2;
-}
-
-/* العنوان الفرعي */
-.hero-content h2 {
-    font-size: 20px;
-    line-height: 1.5;
-}
-
-/* وصف الدورة */
-.hero-description {
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-/* عناوين الأقسام */
-.section-title {
-    font-size: 21px;
-    margin: 25px 0 15px;
-}
-
-/* بطاقات المميزات */
-.benefit-card {
-    min-height: 155px;
-    padding: 15px 10px;
-}
-
-.benefit-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-    font-size: 23px;
-}
-
-.benefit-card h3 {
-    font-size: 15px;
-    line-height: 1.5;
-    margin-bottom: 6px;
-}
-
-.benefit-card p {
-    font-size: 12.5px;
-    line-height: 1.6;
-}
-
-/* صندوق الجودة */
-.quality-box {
-    padding: 15px;
-    gap: 12px;
-}
-
-.quality-icon {
-    flex-basis: 50px;
-    width: 50px;
-    height: 50px;
-    font-size: 25px;
-}
-
-.quality-text h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.quality-text p {
-    font-size: 12.5px;
-    line-height: 1.7;
-}
-
-/* زر التسجيل */
-.register-button {
-    margin-top: 20px;
-    padding: 14px 16px;
-    font-size: 15px;
-    border-radius: 14px;
-}
-
-/* المميزات السفلية */
-.features {
-    margin-top: 15px;
-    padding: 8px 0 3px;
-}
-
-.feature-icon {
-    font-size: 20px;
-    margin-bottom: 3px;
-}
-
-.feature span {
-    font-size: 11px;
-    line-height: 1.4;
-}
-
-
-/* =====================================
-   الجوال
-===================================== */
-
-@media (max-width: 520px) {
-
-    .test-page {
-        padding: 10px;
-    }
-
-    .course-hero {
-        min-height: 540px;
-        border-radius: 20px;
-    }
-
-    .hero-content {
-        padding: 22px 14px 0;
-    }
-
-    .registration-badge {
-        font-size: 12px;
-        padding: 6px 13px;
-    }
-
-    .hero-content h1 {
-        font-size: 28px;
-        line-height: 1.2;
-        margin: 16px 0 6px;
-    }
-
-    .hero-content h2 {
-        font-size: 18px;
-        line-height: 1.5;
-    }
-
-    .hero-description {
-        font-size: 13px;
-        line-height: 1.75;
-        margin-top: 13px;
-    }
-
-    .section-title {
-        font-size: 20px;
-        margin: 22px 0 13px;
-        gap: 10px;
-    }
-
-    .benefits {
-        gap: 8px;
-    }
-
-    .benefit-card {
-        min-height: 145px;
-        padding: 13px 8px;
-        border-radius: 16px;
-    }
-
-    .benefit-icon {
-        width: 46px;
-        height: 46px;
-        margin-bottom: 8px;
-        font-size: 21px;
-    }
-
-    .benefit-card h3 {
-        font-size: 14px;
-        line-height: 1.45;
-        margin-bottom: 5px;
-    }
-
-    .benefit-card p {
-        font-size: 11.5px;
-        line-height: 1.55;
-    }
-
-    .quality-box {
-        padding: 13px;
-        gap: 10px;
-        border-radius: 16px;
-    }
-
-    .quality-icon {
-        flex-basis: 46px;
-        width: 46px;
-        height: 46px;
-        border-radius: 12px;
-        font-size: 23px;
-    }
-
-    .quality-text h3 {
-        font-size: 15px;
-    }
-
-    .quality-text p {
-        font-size: 12px;
-        line-height: 1.65;
-    }
-
-    .register-button {
-        margin-top: 17px;
-        padding: 13px 12px;
-        font-size: 14px;
-        border-radius: 13px;
-    }
-
-    .features {
-        margin-top: 12px;
-        gap: 5px;
-    }
-
-    .feature-icon {
-        font-size: 18px;
-    }
-
-    .feature span {
-        font-size: 10.5px;
-    }
-}
-        
     </style>
 </head>
 
@@ -744,7 +621,6 @@
 
     <section class="course-hero">
 
-        <!-- صورة السيارة والخلفية -->
         <img
             src="tdrive_car_background.svg"
             alt="سيارة TDrive"
@@ -796,7 +672,26 @@
         <div class="benefit-card">
 
             <div class="benefit-icon">
-                📖
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+                    <path
+                        d="M12 10h30c6 0 10 4 10 10v34H22c-6 0-10-4-10-10V10Z"
+                        stroke-width="3.5"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M22 54V20c0-6 4-10 10-10"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M30 24h13M30 32h13M30 40h9"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+                </svg>
+
             </div>
 
             <h3>
@@ -816,7 +711,33 @@
         <div class="benefit-card">
 
             <div class="benefit-icon">
-                📈
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <rect
+                        x="10"
+                        y="12"
+                        width="44"
+                        height="38"
+                        rx="5"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M18 42l9-10 7 6 12-15"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M18 19h10"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                </svg>
+
             </div>
 
             <h3>
@@ -836,7 +757,37 @@
         <div class="benefit-card">
 
             <div class="benefit-icon">
-                💳
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <rect
+                        x="9"
+                        y="15"
+                        width="46"
+                        height="34"
+                        rx="5"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M9 25h46"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M17 39h13"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                    <path
+                        d="M42 35v10M37 40h10"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                </svg>
+
             </div>
 
             <h3>
@@ -856,7 +807,39 @@
         <div class="benefit-card">
 
             <div class="benefit-icon">
-                🏅
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <rect
+                        x="14"
+                        y="8"
+                        width="36"
+                        height="46"
+                        rx="4"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M22 19h20M22 27h20M22 35h12"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                    <circle
+                        cx="42"
+                        cy="43"
+                        r="7"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M38 49l-2 8 6-4 6 4-2-8"
+                        stroke-width="3.5"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
             </div>
 
             <h3>
