@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>دورة الكابتن المحترف | TDrive</title>
+
+    <style>
+
+        /* =========================
+           TDrive Brand Colors
+        ========================== */
+
+        :root {
+            --tdrive: #4F9FAE;
+            --tdrive-rgb: 79, 159, 174;
+            --tdrive-dark: #164C5C;
+            --tdrive-light: #EEF8FA;
+            --text: #263B42;
+            --muted: #68777C;
+            --white: #FFFFFF;
+            --border: #DCECEF;
+        }
+
+
+        /* =========================
+           General
+        ========================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #FFFFFF;
+            font-family: Arial, "Tahoma", sans-serif;
+            color: var(--text);
+        }
+
+        .test-page {
+            width: 100%;
+            max-width: 760px;
+            margin: auto;
+            padding: 18px;
+        }
+
+
+        /* =========================
+           Hero
+        ========================== */
+
+        .course-hero {
+            position: relative;
+            overflow: hidden;
+
+            min-height: 650px;
+
+            border-radius: 26px;
+
+            background: linear-gradient(
+                180deg,
+                #F9FDFE 0%,
+                #EEF8FA 100%
+            );
+
+            text-align: center;
+
+            border: 1px solid #E4F0F2;
+        }
+
+
+        /* صورة السيارة والخلفية */
+
+        .hero-image {
+            position: absolute;
+
+            width: 100%;
+            height: auto;
+
+            left: 0;
+            bottom: 0;
+
+            z-index: 1;
+        }
+
+
+        /* الكلام فوق الصورة */
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            padding: 32px 25px 0;
+        }
+
+
+        /* Badge */
+
+        .registration-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 8px 18px;
+
+            border-radius: 30px;
+
+            background: rgba(79, 159, 174, 0.10);
+
+            color: var(--tdrive);
+
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .registration-badge::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--tdrive);
+        }
+
+
+        /* Main title */
+
+        .hero-content h1 {
+            margin: 20px 0 8px;
+
+            color: var(--tdrive-dark);
+
+            font-size: clamp(32px, 7vw, 48px);
+
+            font-weight: 800;
+
+            line-height: 1.2;
+        }
+
+
+        /* Subtitle */
+
+        .hero-content h2 {
+            margin: 0 auto;
+
+            color: var(--tdrive);
+
+            font-size: clamp(21px, 5vw, 29px);
+
+            line-height: 1.5;
+
+            font-weight: 800;
+        }
+
+
+        /* Description */
+
+        .hero-description {
+            max-width: 570px;
+
+            margin: 17px auto 0;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+        .hero-description strong {
+            color: var(--tdrive);
+        }
+
+
+        /* =========================
+           Section title
+        ========================== */
+
+        .section-title {
+            display: flex;
+            align-items: center;
+
+            gap: 14px;
+
+            margin: 32px 0 18px;
+
+            color: var(--tdrive-dark);
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            text-align: center;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: var(--tdrive);
+        }
+
+
+        /* =========================
+           Benefits
+        ========================== */
+
+        .benefits {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 14px;
+        }
+
+        .benefit-card {
+            min-height: 180px;
+
+            padding: 20px 15px;
+
+            background: #FFFFFF;
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            box-shadow:
+                0 5px 18px rgba(22, 76, 92, 0.05);
+        }
+
+
+        /* Icon circle */
+
+        .benefit-icon {
+            width: 58px;
+            height: 58px;
+
+            margin: 0 auto 13px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--tdrive-light);
+
+            color: var(--tdrive);
+
+            font-size: 27px;
+        }
+
+
+        .benefit-card h3 {
+            margin: 0 0 8px;
+
+            color: var(--tdrive-dark);
+
+            font-size: 18px;
+
+            line-height: 1.5;
+        }
+
+        .benefit-card p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           Quality ISO Box
+        ========================== */
+
+        .quality-box {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            margin-top: 18px;
+
+            padding: 20px;
+
+            border-radius: 20px;
+
+            background: var(--tdrive-light);
+
+            border: 1px solid #D9ECEF;
+        }
+
+        .quality-icon {
+            flex: 0 0 62px;
+
+            width: 62px;
+            height: 62px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: #FFFFFF;
+
+            color: var(--tdrive);
+
+            font-size: 31px;
+        }
+
+        .quality-text {
+            flex: 1;
+        }
+
+        .quality-text h3 {
+            margin: 0 0 6px;
+
+            color: var(--tdrive);
+
+            font-size: 20px;
+        }
+
+        .quality-text p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .register-button {
+            display: block;
+
+            width: 100%;
+
+            margin-top: 24px;
+
+            padding: 17px 20px;
+
+            border: 0;
+
+            border-radius: 18px;
+
+            background: var(--tdrive);
+
+            color: white;
+
+            font-size: 19px;
+
+            font-weight: 800;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            box-shadow:
+                0 8px 20px rgba(var(--tdrive-rgb), 0.22);
+
+            transition: 0.2s;
+        }
+
+        .register-button:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           Small footer features
+        ========================== */
+
+        .features {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 8px;
+
+            margin-top: 20px;
+
+            padding: 10px 0 5px;
+        }
+
+        .feature {
+            text-align: center;
+
+            color: var(--tdrive);
+        }
+
+        .feature-icon {
+            font-size: 23px;
+
+            margin-bottom: 5px;
+        }
+
+        .feature span {
+            display: block;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           Mobile
+        ========================== */
+
+        @media (max-width: 520px) {
+
+            .test-page {
+                padding: 12px;
+            }
+
+            .course-hero {
+                min-height: 570px;
+
+                border-radius: 22px;
+            }
+
+            .hero-content {
+                padding: 25px 16px 0;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-content h2 {
+                font-size: 21px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+
+            .benefits {
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 10px;
+            }
+
+            .benefit-card {
+                min-height: 170px;
+
+                padding: 16px 10px;
+            }
+
+            .benefit-card h3 {
+                font-size: 16px;
+            }
+
+            .benefit-card p {
+                font-size: 13px;
+            }
+
+            .quality-box {
+                padding: 15px;
+
+                gap: 12px;
+            }
+
+            .quality-icon {
+                flex-basis: 52px;
+
+                width: 52px;
+                height: 52px;
+            }
+
+            .quality-text h3 {
+                font-size: 17px;
+            }
+
+            .quality-text p {
+                font-size: 13px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="test-page">
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="course-hero">
+
+        <!-- صورة السيارة والخلفية -->
+        <img
+            src="tdrive_car_background.svg"
+            alt="سيارة TDrive"
+            class="hero-image"
+        >
+
+        <div class="hero-content">
+
+            <div class="registration-badge">
+                بدأ التسجيل
+            </div>
+
+            <h1>
+                دورة<br>
+                الكابتن المحترف
+            </h1>
+
+            <h2>
+                تطبيق أنظمة الايزو العالمية<br>
+                في نشاط النقل
+            </h2>
+
+            <p class="hero-description">
+                دورة عملية تساعدك على فهم وتطبيق متطلبات
+                الجودة العالمية وفق معيار
+                <strong>ISO 9001:2015</strong>
+                في عملك ككابتن نقل.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         WHAT YOU GET
+    ========================== -->
+
+    <h2 class="section-title">
+        ماذا ستحصل عليه؟
+    </h2>
+
+
+    <section class="benefits">
+
+
+        <!-- مواد إثراء إضافية -->
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+                📖
+            </div>
+
+            <h3>
+                مواد إثراء إضافية
+            </h3>
+
+            <p>
+                معلومات مختارة تحتاج إلى قراءة وتركيز
+                لتطوير معرفتك وتعميق فهمك.
+            </p>
+
+        </div>
+
+
+        <!-- متابعة الأداء التشغيلي -->
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+                📈
+            </div>
+
+            <h3>
+                صفحة متابعة الأداء التشغيلي
+            </h3>
+
+            <p>
+                أداة عملية تساعدك على متابعة أدائك
+                وتحسينه بشكل مستمر.
+            </p>
+
+        </div>
+
+
+        <!-- الحساب البنكي -->
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+                💳
+            </div>
+
+            <h3>
+                ملحق بيانات الحساب البنكي
+            </h3>
+
+            <p>
+                ملحق جاهز يحتوي على بيانات الحساب
+                لاستخدامه في عملك.
+            </p>
+
+        </div>
+
+
+        <!-- شهادة الحضور -->
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+                🏅
+            </div>
+
+            <h3>
+                شهادة حضور الدورة
+            </h3>
+
+            <p>
+                شهادة حضور معتمدة بعد إتمام الدورة.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ISO QUALITY
+    ========================== -->
+
+    <section class="quality-box">
+
+        <div class="quality-icon">
+            ✓
+        </div>
+
+        <div class="quality-text">
+
+            <h3>
+                منهج قائم على الجودة
+            </h3>
+
+            <p>
+                تدريب عملي وفق معيار
+                <strong>ISO 9001:2015</strong>
+                لتطبيق مبادئ الجودة في نشاط النقل
+                ورفع جودة أدائك وخدماتك.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         REGISTER
+    ========================== -->
+
+    <a href="#" class="register-button">
+        سجل الآن في دورة الكابتن المحترف
+        ←
+    </a>
+
+
+    <!-- =========================
+         FEATURES
+    ========================== -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ✓
+            </div>
+
+            <span>
+                جودة ومنهجية
+            </span>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ♧
+            </div>
+
+            <span>
+                مواد إثرائية
+            </span>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🏅
+            </div>
+
+            <span>
+                شهادة حضور
+            </span>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+</body>
+</html>
