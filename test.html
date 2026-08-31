@@ -80,47 +80,62 @@
 
         .iso-badge {
             position: absolute;
-
             left: 50%;
-            bottom: 125px;
-
+            bottom: 92px; /* نزلناها هنا تحت السيارة شوي — عدّلي الرقم لو محتاجة أكتر/أقل */
             transform: translateX(-50%);
-
-            width: 72px;
-            height: 72px;
-
+            width: 76px;
+            height: 76px;
             border-radius: 50%;
-
-            background: rgba(255, 255, 255, 0.96);
-
-            border: 4px solid var(--tdrive);
-
+            background: #FFFFFF;
             color: var(--tdrive-dark);
-
             display: flex;
             align-items: center;
             justify-content: center;
-
             flex-direction: column;
-
             font-weight: 800;
-
-            box-shadow:
-                0 5px 18px rgba(22, 76, 92, 0.15);
-
+            box-shadow: 0 6px 18px rgba(22, 76, 92, 0.2);
             z-index: 3;
         }
 
+        /* الحلقة الخارجية المنقطة - بتدي شكل الختم الحقيقي */
+        .iso-badge-ring {
+            position: absolute;
+            inset: -9px;
+            width: calc(100% + 18px);
+            height: calc(100% + 18px);
+            fill: none;
+            stroke: var(--tdrive);
+            stroke-width: 6;
+            stroke-dasharray: 5 4;
+        }
+
+        /* حلقة داخلية رفيعة */
         .iso-badge::before {
             content: "";
             position: absolute;
-
-            inset: 5px;
-
+            inset: 6px;
             border: 1px solid var(--tdrive);
-
             border-radius: 50%;
         }
+
+        /* الشريطين تحت الميدالية */
+        .iso-ribbons {
+            position: absolute;
+            bottom: -13px;
+            display: flex;
+            gap: 28px;
+            z-index: -1;
+        }
+
+        .ribbon {
+            width: 13px;
+            height: 20px;
+            background: var(--tdrive);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+        }
+
+        .ribbon-l { transform: rotate(-14deg); }
+        .ribbon-r { transform: rotate(14deg); }
 
         .iso-badge .iso-number {
             font-size: 13px;
@@ -502,10 +517,19 @@
             }
 
             .iso-badge {
-                width: 62px;
-                height: 62px;
-                bottom: 105px;
-                border-width: 3px;
+                width: 64px;
+                height: 64px;
+                bottom: 72px;
+            }
+
+            .iso-ribbons {
+                gap: 22px;
+                bottom: -10px;
+            }
+
+            .ribbon {
+                width: 10px;
+                height: 16px;
             }
 
             .iso-badge .iso-number {
@@ -626,8 +650,15 @@
 
         <!-- دائرة ISO المرسومة بالكود -->
         <div class="iso-badge">
+            <svg class="iso-badge-ring" viewBox="0 0 100 100" aria-hidden="true">
+                <circle cx="50" cy="50" r="47" />
+            </svg>
             <span class="iso-number">ISO</span>
             <span class="iso-text">9001:2015</span>
+            <div class="iso-ribbons">
+                <span class="ribbon ribbon-l"></span>
+                <span class="ribbon ribbon-r"></span>
+            </div>
         </div>
 
         <div class="hero-content">
