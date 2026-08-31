@@ -6,632 +6,776 @@
 
     <title>دورة الكابتن المحترف | TDrive</title>
 
-    <style>
+<style>
 
-        :root {
-            --tdrive: #4F9FAE;
-            --tdrive-rgb: 79, 159, 174;
-            --tdrive-dark: #164C5C;
-            --tdrive-light: #EEF8FA;
-            --text: #263B42;
-            --muted: #68777C;
-            --white: #FFFFFF;
-            --border: #DCECEF;
-        }
+    :root {
+        --tdrive: #4F9FAE;
+        --tdrive-rgb: 79, 159, 174;
+        --tdrive-dark: #164C5C;
+        --tdrive-light: #EEF8FA;
+        --text: #263B42;
+        --muted: #68777C;
+        --white: #FFFFFF;
+        --border: #DCECEF;
+    }
 
-        * {
-            box-sizing: border-box;
-        }
+    * {
+        box-sizing: border-box;
+    }
 
-        body {
-            margin: 0;
-            background: #FFFFFF;
-            font-family: Arial, "Tahoma", sans-serif;
-            color: var(--text);
-        }
+    body {
+        margin: 0;
+        background: #FFFFFF;
+        font-family: Arial, "Tahoma", sans-serif;
+        color: var(--text);
+    }
+
+    .test-page {
+        width: 100%;
+        max-width: 760px;
+        margin: auto;
+        padding: 18px;
+    }
+
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .course-hero {
+        position: relative;
+        overflow: hidden;
+
+        /* تقصير بطاقة السيارة */
+        min-height: 610px;
+
+        border-radius: 26px;
+
+        background: linear-gradient(
+            180deg,
+            #F9FDFE 0%,
+            #EEF8FA 100%
+        );
+
+        text-align: center;
+        border: 1px solid #E4F0F2;
+    }
+
+    .hero-image {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+
+        /* تنزيل الكلام شوي */
+        padding: 40px 25px 0;
+    }
+
+
+    /* =========================
+       ISO CIRCLE
+    ========================== */
+
+    .iso-badge {
+        position: absolute;
+
+        left: 50%;
+
+        /* تنزيل الدائرة أكثر */
+        bottom: 15px;
+
+        transform: translateX(-50%);
+
+        width: 76px;
+        height: 76px;
+
+        border-radius: 50%;
+
+        background: #FFFFFF;
+        color: var(--tdrive-dark);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        font-weight: 800;
+
+        box-shadow:
+            0 6px 18px rgba(22, 76, 92, 0.2);
+
+        z-index: 3;
+    }
+
+
+    /* الحلقة الخارجية المنقطة */
+
+    .iso-badge-ring {
+        position: absolute;
+
+        inset: -9px;
+
+        width: calc(100% + 18px);
+        height: calc(100% + 18px);
+
+        fill: none;
+
+        stroke: var(--tdrive);
+
+        stroke-width: 6;
+
+        stroke-dasharray: 5 4;
+    }
+
+
+    /* الحلقة الداخلية */
+
+    .iso-badge::before {
+        content: "";
+
+        position: absolute;
+
+        inset: 6px;
+
+        border: 1px solid var(--tdrive);
+
+        border-radius: 50%;
+    }
+
+
+    /* الشرائط */
+
+    .iso-ribbons {
+        position: absolute;
+
+        bottom: -13px;
+
+        display: flex;
+
+        gap: 28px;
+
+        z-index: -1;
+    }
+
+    .ribbon {
+        width: 13px;
+        height: 20px;
+
+        background: var(--tdrive);
+
+        clip-path:
+            polygon(
+                0 0,
+                100% 0,
+                100% 100%,
+                50% 78%,
+                0 100%
+            );
+    }
+
+    .ribbon-l {
+        transform: rotate(-14deg);
+    }
+
+    .ribbon-r {
+        transform: rotate(14deg);
+    }
+
+
+    .iso-badge .iso-number {
+        font-size: 13px;
+        line-height: 1;
+        letter-spacing: 0.5px;
+    }
+
+    .iso-badge .iso-text {
+        font-size: 8px;
+        line-height: 1.2;
+        margin-top: 3px;
+        letter-spacing: 0.4px;
+    }
+
+
+    /* =========================
+       REGISTRATION BADGE
+    ========================== */
+
+    .registration-badge {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 7px;
+
+        padding: 7px 15px;
+
+        border-radius: 30px;
+
+        background:
+            rgba(79, 159, 174, 0.10);
+
+        color: var(--tdrive);
+
+        font-size: 13px;
+
+        font-weight: 700;
+    }
+
+    .registration-badge::before {
+        content: "";
+
+        width: 7px;
+        height: 7px;
+
+        border-radius: 50%;
+
+        background: var(--tdrive);
+    }
+
+
+    /* =========================
+       MAIN TITLE
+    ========================== */
+
+    .hero-content h1 {
+        margin: 20px 0 8px;
+
+        color: var(--tdrive-dark);
+
+        font-size: 34px;
+
+        font-weight: 800;
+
+        line-height: 1.2;
+    }
+
+
+    /* =========================
+       SUBTITLE
+    ========================== */
+
+    .hero-content h2 {
+        margin: 0 auto;
+
+        color: var(--tdrive);
+
+        font-size: 20px;
+
+        line-height: 1.5;
+
+        font-weight: 800;
+    }
+
+
+    /* =========================
+       DESCRIPTION
+    ========================== */
+
+    .hero-description {
+        max-width: 570px;
+
+        margin: 17px auto 0;
+
+        color: var(--muted);
+
+        font-size: 14px;
+
+        line-height: 1.8;
+    }
+
+    .hero-description strong {
+        color: var(--tdrive);
+    }
+
+
+    /* =========================
+       SECTION TITLE
+    ========================== */
+
+    .section-title {
+        display: flex;
+
+        align-items: center;
+
+        gap: 14px;
+
+        margin: 25px 0 15px;
+
+        color: var(--tdrive-dark);
+
+        font-size: 21px;
+
+        font-weight: 800;
+
+        text-align: center;
+    }
+
+    .section-title::before,
+    .section-title::after {
+        content: "";
+
+        flex: 1;
+
+        height: 1px;
+
+        background: var(--tdrive);
+    }
+
+
+    /* =========================
+       BENEFITS
+    ========================== */
+
+    .benefits {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 14px;
+    }
+
+    .benefit-card {
+        min-height: 155px;
+
+        padding: 15px 10px;
+
+        background: #FFFFFF;
+
+        border: 1px solid var(--border);
+
+        border-radius: 20px;
+
+        text-align: center;
+
+        box-shadow:
+            0 5px 18px
+            rgba(22, 76, 92, 0.05);
+    }
+
+    .benefit-icon {
+        width: 50px;
+        height: 50px;
+
+        margin: 0 auto 10px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: var(--tdrive-light);
+
+        color: var(--tdrive);
+    }
+
+    .benefit-icon svg {
+        width: 27px;
+        height: 27px;
+
+        display: block;
+
+        stroke: currentColor;
+
+        fill: none;
+    }
+
+    .benefit-card h3 {
+        margin: 0 0 6px;
+
+        color: var(--tdrive-dark);
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+    .benefit-card p {
+        margin: 0;
+
+        color: var(--muted);
+
+        font-size: 12.5px;
+
+        line-height: 1.6;
+    }
+
+
+    /* =========================
+       QUALITY ISO BOX
+    ========================== */
+
+    .quality-box {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        margin-top: 18px;
+
+        padding: 15px;
+
+        border-radius: 20px;
+
+        background: var(--tdrive-light);
+
+        border: 1px solid #D9ECEF;
+    }
+
+    .quality-icon {
+        flex: 0 0 50px;
+
+        width: 50px;
+        height: 50px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 16px;
+
+        background: #FFFFFF;
+
+        color: var(--tdrive);
+    }
+
+    .quality-icon svg {
+        width: 28px;
+        height: 28px;
+
+        stroke: currentColor;
+
+        fill: none;
+    }
+
+    .quality-text {
+        flex: 1;
+    }
+
+    .quality-text h3 {
+        margin: 0 0 5px;
+
+        color: var(--tdrive);
+
+        font-size: 16px;
+    }
+
+    .quality-text p {
+        margin: 0;
+
+        color: var(--muted);
+
+        font-size: 12.5px;
+
+        line-height: 1.7;
+    }
+
+
+    /* =========================
+       REGISTER
+    ========================== */
+
+    .register-button {
+        display: block;
+
+        width: 100%;
+
+        margin-top: 20px;
+
+        padding: 14px 16px;
+
+        border: 0;
+
+        border-radius: 14px;
+
+        background: var(--tdrive);
+
+        color: white;
+
+        font-size: 15px;
+
+        font-weight: 800;
+
+        text-align: center;
+
+        text-decoration: none;
+
+        box-shadow:
+            0 8px 20px
+            rgba(var(--tdrive-rgb), 0.22);
+
+        transition: 0.2s;
+    }
+
+    .register-button:hover {
+        transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       FOOTER FEATURES
+    ========================== */
+
+    .features {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 8px;
+
+        margin-top: 15px;
+
+        padding: 8px 0 3px;
+    }
+
+    .feature {
+        text-align: center;
+
+        color: var(--tdrive);
+    }
+
+    .feature-icon {
+        width: 42px;
+        height: 42px;
+
+        margin: 0 auto 5px;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+
+        background: var(--tdrive-light);
+
+        color: var(--tdrive);
+    }
+
+    .feature-icon svg {
+        width: 23px;
+        height: 23px;
+
+        stroke: currentColor;
+
+        fill: none;
+    }
+
+    .feature span {
+        display: block;
+
+        color: var(--muted);
+
+        font-size: 11px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 520px) {
 
         .test-page {
-            width: 100%;
-            max-width: 760px;
-            margin: auto;
-            padding: 18px;
+            padding: 10px;
         }
-
-
-        /* =========================
-           HERO
-        ========================== */
 
         .course-hero {
-            position: relative;
-            overflow: hidden;
-            min-height: 650px;
-            border-radius: 26px;
 
-            background: linear-gradient(
-                180deg,
-                #F9FDFE 0%,
-                #EEF8FA 100%
-            );
+            /* تقصير البطاقة على الجوال */
+            min-height: 510px;
 
-            text-align: center;
-            border: 1px solid #E4F0F2;
-        }
-
-        .hero-image {
-            position: absolute;
-            width: 100%;
-            height: auto;
-            left: 0;
-            bottom: 0;
-            z-index: 1;
+            border-radius: 20px;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 32px 25px 0;
+
+            /* تنزيل الكلام شوي على الجوال */
+            padding: 30px 14px 0;
+        }
+
+        .registration-badge {
+            font-size: 12px;
+
+            padding: 6px 13px;
+        }
+
+        .hero-content h1 {
+            font-size: 28px;
+
+            line-height: 1.2;
+
+            margin: 16px 0 6px;
+        }
+
+        .hero-content h2 {
+            font-size: 18px;
+
+            line-height: 1.5;
+        }
+
+        .hero-description {
+            font-size: 13px;
+
+            line-height: 1.75;
+
+            margin-top: 13px;
         }
 
 
         /* =========================
-           ISO CIRCLE
+           ISO MOBILE
         ========================== */
-.iso-badge {
-    position: absolute;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
 
-    width: 76px;
-    height: 76px;
+        .iso-badge {
 
-    border-radius: 50%;
-    background: #FFFFFF;
-    color: var(--tdrive-dark);
+            width: 64px;
+            height: 64px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    font-weight: 800;
-
-    box-shadow: 0 6px 18px rgba(22, 76, 92, 0.2);
-
-    z-index: 3;
-}
-
-        /* الحلقة الخارجية المنقطة - بتدي شكل الختم الحقيقي */
-        .iso-badge-ring {
-            position: absolute;
-            inset: -9px;
-            width: calc(100% + 18px);
-            height: calc(100% + 18px);
-            fill: none;
-            stroke: var(--tdrive);
-            stroke-width: 6;
-            stroke-dasharray: 5 4;
+            /* ننزلها أكثر على الجوال */
+            bottom: 15px;
         }
 
-        /* حلقة داخلية رفيعة */
-        .iso-badge::before {
-            content: "";
-            position: absolute;
-            inset: 6px;
-            border: 1px solid var(--tdrive);
-            border-radius: 50%;
-        }
-
-        /* الشريطين تحت الميدالية */
         .iso-ribbons {
-            position: absolute;
-            bottom: -13px;
-            display: flex;
-            gap: 28px;
-            z-index: -1;
+            gap: 22px;
+
+            bottom: -10px;
         }
 
         .ribbon {
-            width: 13px;
-            height: 20px;
-            background: var(--tdrive);
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%);
+            width: 10px;
+            height: 16px;
         }
 
-        .ribbon-l { transform: rotate(-14deg); }
-        .ribbon-r { transform: rotate(14deg); }
-
         .iso-badge .iso-number {
-            font-size: 13px;
-            line-height: 1;
-            letter-spacing: 0.5px;
+            font-size: 11px;
         }
 
         .iso-badge .iso-text {
-            font-size: 8px;
-            line-height: 1.2;
-            margin-top: 3px;
-            letter-spacing: 0.4px;
+            font-size: 7px;
         }
 
-
-        /* =========================
-           BADGE
-        ========================== */
-
-        .registration-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
-            padding: 7px 15px;
-            border-radius: 30px;
-
-            background: rgba(79, 159, 174, 0.10);
-            color: var(--tdrive);
-
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .registration-badge::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--tdrive);
-        }
-
-
-        /* =========================
-           MAIN TITLE
-        ========================== */
-
-        .hero-content h1 {
-            margin: 20px 0 8px;
-
-            color: var(--tdrive-dark);
-
-            font-size: 34px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-
-        /* =========================
-           SUBTITLE
-        ========================== */
-
-        .hero-content h2 {
-            margin: 0 auto;
-
-            color: var(--tdrive);
-
-            font-size: 20px;
-            line-height: 1.5;
-            font-weight: 800;
-        }
-
-
-        /* =========================
-           DESCRIPTION
-        ========================== */
-
-        .hero-description {
-            max-width: 570px;
-
-            margin: 17px auto 0;
-
-            color: var(--muted);
-
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .hero-description strong {
-            color: var(--tdrive);
-        }
-
-
-        /* =========================
-           SECTION TITLE
-        ========================== */
 
         .section-title {
-            display: flex;
-            align-items: center;
-            gap: 14px;
+            font-size: 20px;
 
-            margin: 25px 0 15px;
+            margin: 22px 0 13px;
 
-            color: var(--tdrive-dark);
-
-            font-size: 21px;
-            font-weight: 800;
-            text-align: center;
+            gap: 10px;
         }
-
-        .section-title::before,
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--tdrive);
-        }
-
-
-        /* =========================
-           BENEFITS
-        ========================== */
 
         .benefits {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+            gap: 8px;
         }
 
         .benefit-card {
-            min-height: 155px;
-            padding: 15px 10px;
+            min-height: 145px;
 
-            background: #FFFFFF;
-            border: 1px solid var(--border);
-            border-radius: 20px;
+            padding: 13px 8px;
 
-            text-align: center;
-
-            box-shadow:
-                0 5px 18px rgba(22, 76, 92, 0.05);
+            border-radius: 16px;
         }
 
         .benefit-icon {
-            width: 50px;
-            height: 50px;
+            width: 46px;
+            height: 46px;
 
-            margin: 0 auto 10px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--tdrive-light);
-            color: var(--tdrive);
+            margin-bottom: 8px;
         }
 
         .benefit-icon svg {
-            width: 27px;
-            height: 27px;
-
-            display: block;
-
-            stroke: currentColor;
-            fill: none;
+            width: 25px;
+            height: 25px;
         }
 
         .benefit-card h3 {
-            margin: 0 0 6px;
+            font-size: 14px;
 
-            color: var(--tdrive-dark);
+            line-height: 1.45;
 
-            font-size: 15px;
-            line-height: 1.5;
+            margin-bottom: 5px;
         }
 
         .benefit-card p {
-            margin: 0;
+            font-size: 11.5px;
 
-            color: var(--muted);
-
-            font-size: 12.5px;
-            line-height: 1.6;
+            line-height: 1.55;
         }
 
-
-        /* =========================
-           QUALITY ISO BOX
-        ========================== */
-
         .quality-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            padding: 13px;
 
-            margin-top: 18px;
-            padding: 15px;
+            gap: 10px;
 
-            border-radius: 20px;
-
-            background: var(--tdrive-light);
-            border: 1px solid #D9ECEF;
+            border-radius: 16px;
         }
 
         .quality-icon {
-            flex: 0 0 50px;
+            flex-basis: 46px;
 
-            width: 50px;
-            height: 50px;
+            width: 46px;
+            height: 46px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 16px;
-
-            background: #FFFFFF;
-            color: var(--tdrive);
-        }
-
-        .quality-icon svg {
-            width: 28px;
-            height: 28px;
-
-            stroke: currentColor;
-            fill: none;
-        }
-
-        .quality-text {
-            flex: 1;
+            border-radius: 12px;
         }
 
         .quality-text h3 {
-            margin: 0 0 5px;
-
-            color: var(--tdrive);
-
-            font-size: 16px;
+            font-size: 15px;
         }
 
         .quality-text p {
-            margin: 0;
+            font-size: 12px;
 
-            color: var(--muted);
-
-            font-size: 12.5px;
-            line-height: 1.7;
+            line-height: 1.65;
         }
-
-
-        /* =========================
-           REGISTER
-        ========================== */
 
         .register-button {
-            display: block;
-            width: 100%;
+            margin-top: 17px;
 
-            margin-top: 20px;
-            padding: 14px 16px;
+            padding: 13px 12px;
 
-            border: 0;
-            border-radius: 14px;
+            font-size: 14px;
 
-            background: var(--tdrive);
-            color: white;
-
-            font-size: 15px;
-            font-weight: 800;
-
-            text-align: center;
-            text-decoration: none;
-
-            box-shadow:
-                0 8px 20px rgba(var(--tdrive-rgb), 0.22);
-
-            transition: 0.2s;
+            border-radius: 13px;
         }
-
-        .register-button:hover {
-            transform: translateY(-2px);
-        }
-
-
-        /* =========================
-           FOOTER FEATURES
-        ========================== */
 
         .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            margin-top: 12px;
 
-            margin-top: 15px;
-            padding: 8px 0 3px;
-        }
-
-        .feature {
-            text-align: center;
-            color: var(--tdrive);
+            gap: 5px;
         }
 
         .feature-icon {
-            width: 42px;
-            height: 42px;
-
-            margin: 0 auto 5px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--tdrive-light);
-            color: var(--tdrive);
+            width: 38px;
+            height: 38px;
         }
 
         .feature-icon svg {
-            width: 23px;
-            height: 23px;
-
-            stroke: currentColor;
-            fill: none;
+            width: 21px;
+            height: 21px;
         }
 
         .feature span {
-            display: block;
-
-            color: var(--muted);
-
-            font-size: 11px;
-            line-height: 1.4;
+            font-size: 10.5px;
         }
 
+    }
 
-        /* =========================
-           MOBILE
-        ========================== */
-
-        @media (max-width: 520px) {
-
-            .test-page {
-                padding: 10px;
-            }
-
-            .course-hero {
-                min-height: 540px;
-                border-radius: 20px;
-            }
-
-            .hero-content {
-                padding: 22px 14px 0;
-            }
-
-            .registration-badge {
-                font-size: 12px;
-                padding: 6px 13px;
-            }
-
-            .hero-content h1 {
-                font-size: 28px;
-                line-height: 1.2;
-                margin: 16px 0 6px;
-            }
-
-            .hero-content h2 {
-                font-size: 18px;
-                line-height: 1.5;
-            }
-
-            .hero-description {
-                font-size: 13px;
-                line-height: 1.75;
-                margin-top: 13px;
-            }
-            
-.iso-badge {
-    width: 64px;
-    height: 64px;
-    bottom: 30px;
-}
-            .iso-ribbons {
-                gap: 22px;
-                bottom: -10px;
-            }
-
-            .ribbon {
-                width: 10px;
-                height: 16px;
-            }
-
-            .iso-badge .iso-number {
-                font-size: 11px;
-            }
-
-            .iso-badge .iso-text {
-                font-size: 7px;
-            }
-
-            .section-title {
-                font-size: 20px;
-                margin: 22px 0 13px;
-                gap: 10px;
-            }
-
-            .benefits {
-                gap: 8px;
-            }
-
-            .benefit-card {
-                min-height: 145px;
-                padding: 13px 8px;
-                border-radius: 16px;
-            }
-
-            .benefit-icon {
-                width: 46px;
-                height: 46px;
-                margin-bottom: 8px;
-            }
-
-            .benefit-icon svg {
-                width: 25px;
-                height: 25px;
-            }
-
-            .benefit-card h3 {
-                font-size: 14px;
-                line-height: 1.45;
-                margin-bottom: 5px;
-            }
-
-            .benefit-card p {
-                font-size: 11.5px;
-                line-height: 1.55;
-            }
-
-            .quality-box {
-                padding: 13px;
-                gap: 10px;
-                border-radius: 16px;
-            }
-
-            .quality-icon {
-                flex-basis: 46px;
-                width: 46px;
-                height: 46px;
-                border-radius: 12px;
-            }
-
-            .quality-text h3 {
-                font-size: 15px;
-            }
-
-            .quality-text p {
-                font-size: 12px;
-                line-height: 1.65;
-            }
-
-            .register-button {
-                margin-top: 17px;
-                padding: 13px 12px;
-                font-size: 14px;
-                border-radius: 13px;
-            }
-
-            .features {
-                margin-top: 12px;
-                gap: 5px;
-            }
-
-            .feature-icon {
-                width: 38px;
-                height: 38px;
-            }
-
-            .feature-icon svg {
-                width: 21px;
-                height: 21px;
-            }
-
-            .feature span {
-                font-size: 10.5px;
-            }
-        }
-
-    </style>
+</style>
 </head>
 
 
