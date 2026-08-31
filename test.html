@@ -8,10 +8,6 @@
 
     <style>
 
-        /* =========================
-           TDrive Brand Colors
-        ========================== */
-
         :root {
             --tdrive: #4F9FAE;
             --tdrive-rgb: 79, 159, 174;
@@ -22,11 +18,6 @@
             --white: #FFFFFF;
             --border: #DCECEF;
         }
-
-
-        /* =========================
-           General
-        ========================== */
 
         * {
             box-sizing: border-box;
@@ -48,7 +39,7 @@
 
 
         /* =========================
-           Hero
+           HERO
         ========================== */
 
         .course-hero {
@@ -84,7 +75,69 @@
 
 
         /* =========================
-           Badge
+           ISO CIRCLE
+        ========================== */
+
+        .iso-badge {
+            position: absolute;
+
+            left: 50%;
+            bottom: 125px;
+
+            transform: translateX(-50%);
+
+            width: 72px;
+            height: 72px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.96);
+
+            border: 4px solid var(--tdrive);
+
+            color: var(--tdrive-dark);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            font-weight: 800;
+
+            box-shadow:
+                0 5px 18px rgba(22, 76, 92, 0.15);
+
+            z-index: 3;
+        }
+
+        .iso-badge::before {
+            content: "";
+            position: absolute;
+
+            inset: 5px;
+
+            border: 1px solid var(--tdrive);
+
+            border-radius: 50%;
+        }
+
+        .iso-badge .iso-number {
+            font-size: 13px;
+            line-height: 1;
+            letter-spacing: 0.5px;
+        }
+
+        .iso-badge .iso-text {
+            font-size: 8px;
+            line-height: 1.2;
+            margin-top: 3px;
+            letter-spacing: 0.4px;
+        }
+
+
+        /* =========================
+           BADGE
         ========================== */
 
         .registration-badge {
@@ -92,13 +145,13 @@
             align-items: center;
             gap: 7px;
 
-            padding: 8px 18px;
+            padding: 7px 15px;
             border-radius: 30px;
 
             background: rgba(79, 159, 174, 0.10);
             color: var(--tdrive);
 
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 700;
         }
 
@@ -112,44 +165,48 @@
 
 
         /* =========================
-           Main title
+           MAIN TITLE
         ========================== */
 
         .hero-content h1 {
             margin: 20px 0 8px;
+
             color: var(--tdrive-dark);
 
-            font-size: clamp(32px, 7vw, 48px);
+            font-size: 34px;
             font-weight: 800;
             line-height: 1.2;
         }
 
 
         /* =========================
-           Subtitle
+           SUBTITLE
         ========================== */
 
         .hero-content h2 {
             margin: 0 auto;
+
             color: var(--tdrive);
 
-            font-size: clamp(21px, 5vw, 29px);
+            font-size: 20px;
             line-height: 1.5;
             font-weight: 800;
         }
 
 
         /* =========================
-           Description
+           DESCRIPTION
         ========================== */
 
         .hero-description {
             max-width: 570px;
+
             margin: 17px auto 0;
 
             color: var(--muted);
-            font-size: 16px;
-            line-height: 1.9;
+
+            font-size: 14px;
+            line-height: 1.8;
         }
 
         .hero-description strong {
@@ -158,7 +215,7 @@
 
 
         /* =========================
-           Section title
+           SECTION TITLE
         ========================== */
 
         .section-title {
@@ -166,10 +223,11 @@
             align-items: center;
             gap: 14px;
 
-            margin: 32px 0 18px;
+            margin: 25px 0 15px;
 
             color: var(--tdrive-dark);
-            font-size: 25px;
+
+            font-size: 21px;
             font-weight: 800;
             text-align: center;
         }
@@ -184,7 +242,7 @@
 
 
         /* =========================
-           Benefits
+           BENEFITS
         ========================== */
 
         .benefits {
@@ -194,8 +252,8 @@
         }
 
         .benefit-card {
-            min-height: 180px;
-            padding: 20px 15px;
+            min-height: 155px;
+            padding: 15px 10px;
 
             background: #FFFFFF;
             border: 1px solid var(--border);
@@ -207,16 +265,11 @@
                 0 5px 18px rgba(22, 76, 92, 0.05);
         }
 
-
-        /* =========================
-           Icon circle
-        ========================== */
-
         .benefit-icon {
-            width: 58px;
-            height: 58px;
+            width: 50px;
+            height: 50px;
 
-            margin: 0 auto 13px;
+            margin: 0 auto 10px;
 
             display: flex;
             align-items: center;
@@ -229,8 +282,8 @@
         }
 
         .benefit-icon svg {
-            width: 31px;
-            height: 31px;
+            width: 27px;
+            height: 27px;
 
             display: block;
 
@@ -238,13 +291,12 @@
             fill: none;
         }
 
-
         .benefit-card h3 {
-            margin: 0 0 8px;
+            margin: 0 0 6px;
 
             color: var(--tdrive-dark);
 
-            font-size: 18px;
+            font-size: 15px;
             line-height: 1.5;
         }
 
@@ -253,22 +305,22 @@
 
             color: var(--muted);
 
-            font-size: 14px;
-            line-height: 1.7;
+            font-size: 12.5px;
+            line-height: 1.6;
         }
 
 
         /* =========================
-           Quality ISO Box
+           QUALITY ISO BOX
         ========================== */
 
         .quality-box {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 12px;
 
             margin-top: 18px;
-            padding: 20px;
+            padding: 15px;
 
             border-radius: 20px;
 
@@ -277,10 +329,10 @@
         }
 
         .quality-icon {
-            flex: 0 0 62px;
+            flex: 0 0 50px;
 
-            width: 62px;
-            height: 62px;
+            width: 50px;
+            height: 50px;
 
             display: flex;
             align-items: center;
@@ -290,8 +342,14 @@
 
             background: #FFFFFF;
             color: var(--tdrive);
+        }
 
-            font-size: 31px;
+        .quality-icon svg {
+            width: 28px;
+            height: 28px;
+
+            stroke: currentColor;
+            fill: none;
         }
 
         .quality-text {
@@ -299,39 +357,41 @@
         }
 
         .quality-text h3 {
-            margin: 0 0 6px;
+            margin: 0 0 5px;
 
             color: var(--tdrive);
-            font-size: 20px;
+
+            font-size: 16px;
         }
 
         .quality-text p {
             margin: 0;
 
             color: var(--muted);
-            font-size: 15px;
+
+            font-size: 12.5px;
             line-height: 1.7;
         }
 
 
         /* =========================
-           CTA
+           REGISTER
         ========================== */
 
         .register-button {
             display: block;
             width: 100%;
 
-            margin-top: 24px;
-            padding: 17px 20px;
+            margin-top: 20px;
+            padding: 14px 16px;
 
             border: 0;
-            border-radius: 18px;
+            border-radius: 14px;
 
             background: var(--tdrive);
             color: white;
 
-            font-size: 19px;
+            font-size: 15px;
             font-weight: 800;
 
             text-align: center;
@@ -349,7 +409,7 @@
 
 
         /* =========================
-           Small footer features
+           FOOTER FEATURES
         ========================== */
 
         .features {
@@ -357,8 +417,8 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
 
-            margin-top: 20px;
-            padding: 10px 0 5px;
+            margin-top: 15px;
+            padding: 8px 0 3px;
         }
 
         .feature {
@@ -367,8 +427,27 @@
         }
 
         .feature-icon {
-            font-size: 23px;
-            margin-bottom: 5px;
+            width: 42px;
+            height: 42px;
+
+            margin: 0 auto 5px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--tdrive-light);
+            color: var(--tdrive);
+        }
+
+        .feature-icon svg {
+            width: 23px;
+            height: 23px;
+
+            stroke: currentColor;
+            fill: none;
         }
 
         .feature span {
@@ -376,116 +455,14 @@
 
             color: var(--muted);
 
-            font-size: 12px;
-            line-height: 1.5;
-        }
-
-
-        /* =====================================
-           تصغير خط صفحة التست
-           TDrive - Compact Version
-        ===================================== */
-
-        .registration-badge {
-            font-size: 13px;
-            padding: 7px 15px;
-        }
-
-        .hero-content h1 {
-            font-size: 34px;
-            line-height: 1.2;
-        }
-
-        .hero-content h2 {
-            font-size: 20px;
-            line-height: 1.5;
-        }
-
-        .hero-description {
-            font-size: 14px;
-            line-height: 1.8;
-        }
-
-        .section-title {
-            font-size: 21px;
-            margin: 25px 0 15px;
-        }
-
-        .benefit-card {
-            min-height: 155px;
-            padding: 15px 10px;
-        }
-
-        .benefit-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
-
-        .benefit-icon svg {
-            width: 27px;
-            height: 27px;
-        }
-
-        .benefit-card h3 {
-            font-size: 15px;
-            line-height: 1.5;
-            margin-bottom: 6px;
-        }
-
-        .benefit-card p {
-            font-size: 12.5px;
-            line-height: 1.6;
-        }
-
-        .quality-box {
-            padding: 15px;
-            gap: 12px;
-        }
-
-        .quality-icon {
-            flex-basis: 50px;
-            width: 50px;
-            height: 50px;
-            font-size: 25px;
-        }
-
-        .quality-text h3 {
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .quality-text p {
-            font-size: 12.5px;
-            line-height: 1.7;
-        }
-
-        .register-button {
-            margin-top: 20px;
-            padding: 14px 16px;
-            font-size: 15px;
-            border-radius: 14px;
-        }
-
-        .features {
-            margin-top: 15px;
-            padding: 8px 0 3px;
-        }
-
-        .feature-icon {
-            font-size: 20px;
-            margin-bottom: 3px;
-        }
-
-        .feature span {
             font-size: 11px;
             line-height: 1.4;
         }
 
 
-        /* =====================================
-           الجوال
-        ===================================== */
+        /* =========================
+           MOBILE
+        ========================== */
 
         @media (max-width: 520px) {
 
@@ -522,6 +499,21 @@
                 font-size: 13px;
                 line-height: 1.75;
                 margin-top: 13px;
+            }
+
+            .iso-badge {
+                width: 62px;
+                height: 62px;
+                bottom: 105px;
+                border-width: 3px;
+            }
+
+            .iso-badge .iso-number {
+                font-size: 11px;
+            }
+
+            .iso-badge .iso-text {
+                font-size: 7px;
             }
 
             .section-title {
@@ -573,7 +565,6 @@
                 width: 46px;
                 height: 46px;
                 border-radius: 12px;
-                font-size: 23px;
             }
 
             .quality-text h3 {
@@ -598,7 +589,13 @@
             }
 
             .feature-icon {
-                font-size: 18px;
+                width: 38px;
+                height: 38px;
+            }
+
+            .feature-icon svg {
+                width: 21px;
+                height: 21px;
             }
 
             .feature span {
@@ -626,6 +623,12 @@
             alt="سيارة TDrive"
             class="hero-image"
         >
+
+        <!-- دائرة ISO المرسومة بالكود -->
+        <div class="iso-badge">
+            <span class="iso-number">ISO</span>
+            <span class="iso-text">9001:2015</span>
+        </div>
 
         <div class="hero-content">
 
@@ -674,6 +677,7 @@
             <div class="benefit-icon">
 
                 <svg viewBox="0 0 64 64" aria-hidden="true">
+
                     <path
                         d="M12 10h30c6 0 10 4 10 10v34H22c-6 0-10-4-10-10V10Z"
                         stroke-width="3.5"
@@ -690,6 +694,7 @@
                         stroke-width="3.5"
                         stroke-linecap="round"
                     />
+
                 </svg>
 
             </div>
@@ -791,11 +796,11 @@
             </div>
 
             <h3>
-                ملحق بيانات الحساب البنكي
+                ملصق بيانات الحساب البنكي
             </h3>
 
             <p>
-                ملحق جاهز يحتوي على بيانات الحساب
+                ملصق جاهز يحتوي على بيانات الحساب
                 لاستخدامه في عملك.
             </p>
 
@@ -862,7 +867,25 @@
     <section class="quality-box">
 
         <div class="quality-icon">
-            ✓
+
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                <circle
+                    cx="32"
+                    cy="32"
+                    r="23"
+                    stroke-width="3.5"
+                />
+
+                <path
+                    d="M21 32l7 7 15-16"
+                    stroke-width="3.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
+            </svg>
+
         </div>
 
         <div class="quality-text">
@@ -899,10 +922,31 @@
 
     <section class="features">
 
+
+        <!-- جودة ومنهجية -->
+
         <div class="feature">
 
             <div class="feature-icon">
-                ✓
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <circle
+                        cx="32"
+                        cy="32"
+                        r="23"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M21 32l7 7 15-16"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
             </div>
 
             <span>
@@ -912,10 +956,33 @@
         </div>
 
 
+        <!-- مواد إثرائية -->
+
         <div class="feature">
 
             <div class="feature-icon">
-                ♧
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <path
+                        d="M12 10h30c6 0 10 4 10 10v34H22c-6 0-10-4-10-10V10Z"
+                        stroke-width="3.5"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M22 54V20c0-6 4-10 10-10"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M30 24h13M30 32h13M30 40h9"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                </svg>
+
             </div>
 
             <span>
@@ -925,10 +992,44 @@
         </div>
 
 
+        <!-- شهادة حضور -->
+
         <div class="feature">
 
             <div class="feature-icon">
-                🏅
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <rect
+                        x="14"
+                        y="8"
+                        width="36"
+                        height="46"
+                        rx="4"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M22 19h20M22 27h20M22 35h12"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                    <circle
+                        cx="42"
+                        cy="43"
+                        r="7"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M38 49l-2 8 6-4 6 4-2-8"
+                        stroke-width="3.5"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
             </div>
 
             <span>
