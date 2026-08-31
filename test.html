@@ -102,7 +102,7 @@
 
         left: 4%;
 
-        bottom: 15px;
+        bottom: 0;
 
         z-index: 1;
     }
@@ -113,11 +113,17 @@
        HERO CONTENT
     ========================== */
 
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        padding: 40px 14px 0;
+  .hero-content {
+    position: relative;
+    z-index: 2;
+
+        .hero-content {
+
+        padding: 190px 14px 0;
+
     }
+
+}
 
 
 
@@ -130,7 +136,7 @@
 
         left: 50%;
 
-        bottom: -5px;
+        bottom: 14px; /* كانت 30px - نزلناها شوية عشان تقرب من السيارة */
 
         transform:
             translateX(-50%);
@@ -744,17 +750,21 @@
 
 
         .course-hero {
-            min-height: 520px;
+            min-height: 560px; /* زودناها شوية عشان تبان مسافة تحت السيارة */
 
             border-radius: 20px;
         }
 
 
         .hero-content {
-            padding: 20px 14px 0;
-            transform: none;
-        }
 
+        padding: 14px 14px 0; /* كانت 22px - قللناها */
+
+transform: translateY(55px); /* كانت 95px - قللناها عشان تقرب المسافة اللي فوق النص */
+
+    }
+
+}
         .registration-badge {
             font-size: 12px;
 
@@ -765,13 +775,17 @@
         }
 
 
+        /* =========================
+           MAIN TITLE
+        ========================== */
+
         .hero-content h1 {
             font-size: 27px;
 
             line-height: 1.4;
 
             margin:
-                10px 0 5px;
+                14px 0 5px;
 
             letter-spacing: 0;
 
@@ -795,40 +809,48 @@
 
             line-height: 1.8;
 
-            margin-top: 8px;
+            margin-top: 10px;
 
             font-weight: 400;
         }
 
+
+        /* =========================
+           CAR
+        ========================== */
 
         .hero-image {
             width: 94%;
 
             left: 3%;
 
-            bottom: -15px;
+            bottom: 20px; /* رفعناها شوية عشان تبان مسافة تحتها فوق حافة الهيرو */
         }
 
 
+        /* =========================
+           ISO
+        ========================== */
+
         .iso-badge {
-            width: 60px;
+            width: 64px;
 
-            height: 60px;
+            height: 64px;
 
-            bottom: 25px;
+            bottom: 22px; /* اتنزلت نسبة للسيارة اللي اترفعت */
         }
 
 
         .iso-badge-ring {
-            inset: -7px;
+            inset: -8px;
 
             width:
-                calc(100% + 14px);
+                calc(100% + 16px);
 
             height:
-                calc(100% + 14px);
+                calc(100% + 16px);
 
-            stroke-width: 4.5;
+            stroke-width: 5;
         }
 
 
@@ -838,28 +860,33 @@
 
 
         .iso-ribbons {
-            gap: 18px;
+            gap: 22px;
 
             bottom: -10px;
         }
 
 
         .ribbon {
-            width: 9px;
+            width: 10px;
 
-            height: 14px;
+            height: 16px;
         }
 
 
         .iso-badge .iso-number {
-            font-size: 10px;
+            font-size: 11px;
         }
 
 
         .iso-badge .iso-text {
-            font-size: 6.5px;
+            font-size: 7px;
         }
 
+
+
+        /* =========================
+           SECTION
+        ========================== */
 
         .section-title {
             font-size: 20px;
@@ -872,6 +899,11 @@
             font-weight: 700;
         }
 
+
+
+        /* =========================
+           BENEFITS
+        ========================== */
 
         .benefits {
             gap: 8px;
@@ -924,6 +956,11 @@
         }
 
 
+
+        /* =========================
+           QUALITY
+        ========================== */
+
         .quality-box {
             padding: 13px;
 
@@ -960,6 +997,11 @@
         }
 
 
+
+        /* =========================
+           REGISTER
+        ========================== */
+
         .register-button {
             margin-top: 17px;
 
@@ -973,6 +1015,11 @@
             font-weight: 700;
         }
 
+
+
+        /* =========================
+           FEATURES
+        ========================== */
 
         .features {
             margin-top: 12px;
@@ -1224,16 +1271,32 @@
 
                 <svg viewBox="0 0 64 64" aria-hidden="true">
 
-                    <path
-                        d="M20 12h24c3 0 5 2 5 5v30c0 3-2 5-5 5H20c-3 0-5-2-5-5V17c0-3 2-5 5-5z"
+                    <rect
+                        x="14"
+                        y="8"
+                        width="36"
+                        height="46"
+                        rx="4"
                         stroke-width="3.5"
-                        stroke-linejoin="round"
                     />
 
                     <path
-                        d="M26 22h12M26 30h12M26 38h8"
+                        d="M22 19h20M22 27h20M22 35h12"
                         stroke-width="3.5"
                         stroke-linecap="round"
+                    />
+
+                    <circle
+                        cx="42"
+                        cy="43"
+                        r="7"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M38 49l-2 8 6-4 6 4-2-8"
+                        stroke-width="3.5"
+                        stroke-linejoin="round"
                     />
 
                 </svg>
@@ -1393,16 +1456,32 @@
 
                 <svg viewBox="0 0 64 64" aria-hidden="true">
 
-                    <path
-                        d="M20 12h24c3 0 5 2 5 5v30c0 3-2 5-5 5H20c-3 0-5-2-5-5V17c0-3 2-5 5-5z"
+                    <rect
+                        x="14"
+                        y="8"
+                        width="36"
+                        height="46"
+                        rx="4"
                         stroke-width="3.5"
-                        stroke-linejoin="round"
                     />
 
                     <path
-                        d="M26 22h12M26 30h12M26 38h8"
+                        d="M22 19h20M22 27h20M22 35h12"
                         stroke-width="3.5"
                         stroke-linecap="round"
+                    />
+
+                    <circle
+                        cx="42"
+                        cy="43"
+                        r="7"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M38 49l-2 8 6-4 6 4-2-8"
+                        stroke-width="3.5"
+                        stroke-linejoin="round"
                     />
 
                 </svg>
