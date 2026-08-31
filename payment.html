@@ -622,10 +622,23 @@
 
     /* =====================================================
        تحديد النص
-       تستخدم كحل احتياطي على الآيفون
+       الحل هنا: نشيل readonly مؤقتاً
+       لأن iOS Safari مابيسمحش بعمل select()
+       على input فيه readonly
        ===================================================== */
 
     function selectText(input) {
+
+        const wasReadOnly =
+            input.hasAttribute("readonly");
+
+
+        if (wasReadOnly) {
+
+            input.removeAttribute("readonly");
+
+        }
+
 
         input.focus();
 
@@ -635,6 +648,21 @@
             0,
             input.value.length
         );
+
+
+        return wasReadOnly;
+
+    }
+
+
+
+    function restoreReadOnly(input, wasReadOnly) {
+
+        if (wasReadOnly) {
+
+            input.setAttribute("readonly", "");
+
+        }
 
     }
 
@@ -671,10 +699,11 @@
 
     function oldCopy(input) {
 
-        try {
-
+        const wasReadOnly =
             selectText(input);
 
+
+        try {
 
             const result =
                 document.execCommand("copy");
@@ -685,6 +714,10 @@
         } catch (error) {
 
             return false;
+
+        } finally {
+
+            restoreReadOnly(input, wasReadOnly);
 
         }
 
@@ -704,6 +737,7 @@
         /*
          * المحاولة الأولى:
          * Clipboard API
+         * (لازم تكون الصفحة على https)
          */
 
         try {
@@ -756,7 +790,7 @@
 
         /*
          * المحاولة الثالثة:
-         * تحديد النص للمستخدمة
+         * تحديد النص للمستخدمة يدوياً
          */
 
         selectText(input);
