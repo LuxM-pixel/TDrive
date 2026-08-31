@@ -8,6 +8,13 @@
 
 <style>
 
+    /* =========================
+       TDRIVE FONT + COLORS
+    ========================== */
+
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap');
+
+
     :root {
         --tdrive: #4F9FAE;
         --tdrive-rgb: 79, 159, 174;
@@ -19,23 +26,43 @@
         --border: #DCECEF;
     }
 
+
     * {
         box-sizing: border-box;
     }
 
+
     body {
         margin: 0;
+
         background: #FFFFFF;
-        font-family: Arial, "Tahoma", sans-serif;
+
+        /*
+         * نفس روح خط موقع TDrive
+         * مع دعم عربي واضح وناعم
+         */
+        font-family:
+            "Tajawal",
+            Arial,
+            Tahoma,
+            sans-serif;
+
         color: var(--text);
+
+        font-weight: 400;
     }
+
 
     .test-page {
         width: 100%;
+
         max-width: 760px;
+
         margin: auto;
+
         padding: 18px;
     }
+
 
 
     /* =========================
@@ -44,47 +71,61 @@
 
     .course-hero {
         position: relative;
+
         overflow: hidden;
 
-        /* البطاقة أقصر قليلًا */
         min-height: 620px;
 
         border-radius: 26px;
 
-        background: linear-gradient(
-            180deg,
-            #F9FDFE 0%,
-            #EEF8FA 100%
-        );
+        background:
+            linear-gradient(
+                180deg,
+                #F9FDFE 0%,
+                #EEF8FA 100%
+            );
 
         text-align: center;
-        border: 1px solid #E4F0F2;
+
+        border:
+            1px solid #E4F0F2;
     }
 
 
-    /* السيارة أصغر قليلًا */
+
+    /* =========================
+       CAR IMAGE
+    ========================== */
 
     .hero-image {
         position: absolute;
 
         width: 92%;
+
         height: auto;
 
         left: 4%;
+
         bottom: 0;
 
         z-index: 1;
     }
 
 
-    /* النص */
+
+    /* =========================
+       HERO CONTENT
+    ========================== */
 
     .hero-content {
         position: relative;
+
         z-index: 2;
 
-        padding: 28px 25px 0;
+        padding:
+            28px 25px 0;
     }
+
 
 
     /* =========================
@@ -95,41 +136,50 @@
         position: absolute;
 
         left: 50%;
+
         bottom: 30px;
 
-        transform: translateX(-50%);
+        transform:
+            translateX(-50%);
 
         width: 76px;
+
         height: 76px;
 
         border-radius: 50%;
 
         background: #FFFFFF;
+
         color: var(--tdrive-dark);
 
         display: flex;
+
         align-items: center;
+
         justify-content: center;
+
         flex-direction: column;
 
         font-weight: 800;
 
         box-shadow:
-            0 6px 18px rgba(22, 76, 92, 0.20);
+            0 6px 18px
+            rgba(22, 76, 92, 0.20);
 
         z-index: 3;
     }
 
-
-    /* الحلقة الخارجية */
 
     .iso-badge-ring {
         position: absolute;
 
         inset: -9px;
 
-        width: calc(100% + 18px);
-        height: calc(100% + 18px);
+        width:
+            calc(100% + 18px);
+
+        height:
+            calc(100% + 18px);
 
         fill: none;
 
@@ -141,8 +191,6 @@
     }
 
 
-    /* الحلقة الداخلية */
-
     .iso-badge::before {
         content: "";
 
@@ -150,13 +198,12 @@
 
         inset: 6px;
 
-        border: 1px solid var(--tdrive);
+        border:
+            1px solid var(--tdrive);
 
         border-radius: 50%;
     }
 
-
-    /* الشرائط */
 
     .iso-ribbons {
         position: absolute;
@@ -170,8 +217,10 @@
         z-index: -1;
     }
 
+
     .ribbon {
         width: 13px;
+
         height: 20px;
 
         background: var(--tdrive);
@@ -186,29 +235,38 @@
             );
     }
 
+
     .ribbon-l {
-        transform: rotate(-14deg);
+        transform:
+            rotate(-14deg);
     }
 
+
     .ribbon-r {
-        transform: rotate(14deg);
+        transform:
+            rotate(14deg);
     }
 
 
     .iso-badge .iso-number {
         font-size: 13px;
+
         line-height: 1;
+
         letter-spacing: 0.5px;
     }
 
+
     .iso-badge .iso-text {
         font-size: 8px;
+
         line-height: 1.2;
 
         margin-top: 3px;
 
         letter-spacing: 0.4px;
     }
+
 
 
     /* =========================
@@ -222,23 +280,36 @@
 
         gap: 7px;
 
-        padding: 7px 15px;
+        padding:
+            7px 15px;
 
         border-radius: 30px;
 
         background:
-            rgba(79, 159, 174, 0.10);
+            rgba(
+                79,
+                159,
+                174,
+                0.10
+            );
 
         color: var(--tdrive);
 
         font-size: 13px;
-        font-weight: 700;
+
+        /*
+         * أخف من الكود السابق
+         * ليكون أقرب لستايل الموقع
+         */
+        font-weight: 600;
     }
+
 
     .registration-badge::before {
         content: "";
 
         width: 7px;
+
         height: 7px;
 
         border-radius: 50%;
@@ -247,23 +318,29 @@
     }
 
 
+
     /* =========================
        MAIN TITLE
     ========================== */
 
     .hero-content h1 {
-        margin: 16px 0 6px;
+        margin:
+            16px 0 6px;
 
         color: var(--tdrive-dark);
 
         font-size: 32px;
 
-        font-weight: 800;
+        /*
+         * وزن قريب من عناوين الموقع
+         */
+        font-weight: 700;
 
-        line-height: 1.15;
+        line-height: 1.35;
 
-        letter-spacing: -0.5px;
+        letter-spacing: 0;
     }
+
 
 
     /* =========================
@@ -271,18 +348,20 @@
     ========================== */
 
     .hero-content h2 {
-        margin: 0 auto;
+        margin:
+            0 auto;
 
         color: var(--tdrive);
 
         font-size: 19px;
 
-        line-height: 1.45;
+        line-height: 1.6;
 
-        font-weight: 800;
+        font-weight: 600;
 
-        letter-spacing: -0.2px;
+        letter-spacing: 0;
     }
+
 
 
     /* =========================
@@ -292,18 +371,29 @@
     .hero-description {
         max-width: 500px;
 
-        margin: 12px auto 0;
+        margin:
+            12px auto 0;
 
         color: var(--muted);
 
         font-size: 13.5px;
 
-        line-height: 1.65;
+        line-height: 1.9;
+
+        /*
+         * النص الأساسي في الموقع
+         * أخف وأهدأ
+         */
+        font-weight: 400;
     }
+
 
     .hero-description strong {
         color: var(--tdrive);
+
+        font-weight: 700;
     }
+
 
 
     /* =========================
@@ -317,16 +407,18 @@
 
         gap: 14px;
 
-        margin: 25px 0 15px;
+        margin:
+            25px 0 15px;
 
         color: var(--tdrive-dark);
 
         font-size: 21px;
 
-        font-weight: 800;
+        font-weight: 700;
 
         text-align: center;
     }
+
 
     .section-title::before,
     .section-title::after {
@@ -338,6 +430,7 @@
 
         background: var(--tdrive);
     }
+
 
 
     /* =========================
@@ -357,7 +450,8 @@
     .benefit-card {
         min-height: 155px;
 
-        padding: 15px 10px;
+        padding:
+            15px 10px;
 
         background: #FFFFFF;
 
@@ -370,12 +464,18 @@
 
         box-shadow:
             0 5px 18px
-            rgba(22, 76, 92, 0.05);
+            rgba(
+                22,
+                76,
+                92,
+                0.05
+            );
     }
 
 
     .benefit-icon {
         width: 50px;
+
         height: 50px;
 
         margin:
@@ -384,6 +484,7 @@
         display: flex;
 
         align-items: center;
+
         justify-content: center;
 
         border-radius: 50%;
@@ -397,6 +498,7 @@
 
     .benefit-icon svg {
         width: 27px;
+
         height: 27px;
 
         display: block;
@@ -415,7 +517,9 @@
 
         font-size: 15px;
 
-        line-height: 1.5;
+        line-height: 1.6;
+
+        font-weight: 600;
     }
 
 
@@ -426,8 +530,11 @@
 
         font-size: 12.5px;
 
-        line-height: 1.6;
+        line-height: 1.8;
+
+        font-weight: 400;
     }
+
 
 
     /* =========================
@@ -460,11 +567,13 @@
             0 0 50px;
 
         width: 50px;
+
         height: 50px;
 
         display: flex;
 
         align-items: center;
+
         justify-content: center;
 
         border-radius: 16px;
@@ -477,6 +586,7 @@
 
     .quality-icon svg {
         width: 28px;
+
         height: 28px;
 
         stroke: currentColor;
@@ -497,6 +607,8 @@
         color: var(--tdrive);
 
         font-size: 16px;
+
+        font-weight: 700;
     }
 
 
@@ -507,12 +619,15 @@
 
         font-size: 12.5px;
 
-        line-height: 1.7;
+        line-height: 1.8;
+
+        font-weight: 400;
     }
 
 
+
     /* =========================
-       REGISTER
+       REGISTER BUTTON
     ========================== */
 
     .register-button {
@@ -522,7 +637,8 @@
 
         margin-top: 20px;
 
-        padding: 14px 16px;
+        padding:
+            14px 16px;
 
         border: 0;
 
@@ -534,7 +650,9 @@
 
         font-size: 15px;
 
-        font-weight: 800;
+        font-weight: 700;
+
+        line-height: 1.6;
 
         text-align: center;
 
@@ -542,7 +660,10 @@
 
         box-shadow:
             0 8px 20px
-            rgba(var(--tdrive-rgb), 0.22);
+            rgba(
+                var(--tdrive-rgb),
+                0.22
+            );
 
         transition: 0.2s;
     }
@@ -552,6 +673,7 @@
         transform:
             translateY(-2px);
     }
+
 
 
     /* =========================
@@ -582,6 +704,7 @@
 
     .feature-icon {
         width: 42px;
+
         height: 42px;
 
         margin:
@@ -590,6 +713,7 @@
         display: flex;
 
         align-items: center;
+
         justify-content: center;
 
         border-radius: 50%;
@@ -603,6 +727,7 @@
 
     .feature-icon svg {
         width: 23px;
+
         height: 23px;
 
         stroke: currentColor;
@@ -618,8 +743,11 @@
 
         font-size: 11px;
 
-        line-height: 1.4;
+        line-height: 1.6;
+
+        font-weight: 400;
     }
+
 
 
     /* =========================
@@ -651,28 +779,35 @@
 
             padding:
                 6px 13px;
+
+            font-weight: 600;
         }
 
 
-        /* العنوان أقصر وأقرب للنموذج */
+        /* =========================
+           MAIN TITLE
+        ========================== */
 
         .hero-content h1 {
             font-size: 27px;
 
-            line-height: 1.15;
+            line-height: 1.4;
 
             margin:
                 14px 0 5px;
 
-            letter-spacing:
-                -0.4px;
+            letter-spacing: 0;
+
+            font-weight: 700;
         }
 
 
         .hero-content h2 {
             font-size: 17px;
 
-            line-height: 1.4;
+            line-height: 1.55;
+
+            font-weight: 600;
         }
 
 
@@ -681,13 +816,17 @@
 
             font-size: 12.5px;
 
-            line-height: 1.6;
+            line-height: 1.8;
 
             margin-top: 10px;
+
+            font-weight: 400;
         }
 
 
-        /* السيارة أصغر على الجوال */
+        /* =========================
+           CAR
+        ========================== */
 
         .hero-image {
             width: 94%;
@@ -698,10 +837,13 @@
         }
 
 
-        /* دائرة ISO */
+        /* =========================
+           ISO
+        ========================== */
 
         .iso-badge {
             width: 64px;
+
             height: 64px;
 
             bottom: 30px;
@@ -750,6 +892,7 @@
         }
 
 
+
         /* =========================
            SECTION
         ========================== */
@@ -761,7 +904,10 @@
                 22px 0 13px;
 
             gap: 10px;
+
+            font-weight: 700;
         }
+
 
 
         /* =========================
@@ -785,6 +931,7 @@
 
         .benefit-icon {
             width: 46px;
+
             height: 46px;
 
             margin-bottom: 8px;
@@ -793,6 +940,7 @@
 
         .benefit-icon svg {
             width: 25px;
+
             height: 25px;
         }
 
@@ -800,17 +948,22 @@
         .benefit-card h3 {
             font-size: 14px;
 
-            line-height: 1.45;
+            line-height: 1.55;
 
             margin-bottom: 5px;
+
+            font-weight: 600;
         }
 
 
         .benefit-card p {
             font-size: 11.5px;
 
-            line-height: 1.55;
+            line-height: 1.7;
+
+            font-weight: 400;
         }
+
 
 
         /* =========================
@@ -830,6 +983,7 @@
             flex-basis: 46px;
 
             width: 46px;
+
             height: 46px;
 
             border-radius: 12px;
@@ -838,14 +992,19 @@
 
         .quality-text h3 {
             font-size: 15px;
+
+            font-weight: 700;
         }
 
 
         .quality-text p {
             font-size: 12px;
 
-            line-height: 1.65;
+            line-height: 1.75;
+
+            font-weight: 400;
         }
+
 
 
         /* =========================
@@ -861,7 +1020,10 @@
             font-size: 14px;
 
             border-radius: 13px;
+
+            font-weight: 700;
         }
+
 
 
         /* =========================
@@ -877,18 +1039,24 @@
 
         .feature-icon {
             width: 38px;
+
             height: 38px;
         }
 
 
         .feature-icon svg {
             width: 21px;
+
             height: 21px;
         }
 
 
         .feature span {
             font-size: 10.5px;
+
+            line-height: 1.5;
+
+            font-weight: 400;
         }
 
     }
