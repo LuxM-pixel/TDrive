@@ -3,85 +3,734 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>بيانات الدفع</title>
+    <title>بيانات الدفع | TDrive</title>
 
-<link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           TDrive - Payment Page
+           CSS مستقل تماماً عن المستودع
+           ========================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family: Arial, "Tahoma", sans-serif;
+            background: #f6f8fa;
+            color: #1f2937;
+            min-height: 100vh;
+        }
+
+
+        /* =========================
+           Header
+           ========================= */
+
+        .payment-header {
+            background: #ffffff;
+            padding: 22px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+
+        .payment-header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: #111827;
+        }
+
+
+        .payment-header > p {
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+
+
+        .payment-header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+
+        .payment-header nav a {
+            color: #374151;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+
+        .payment-header nav a:hover {
+            color: #111827;
+        }
+
+
+        /* =========================
+           Payment Section
+           ========================= */
+
+        #payment {
+            width: 100%;
+            max-width: 650px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+
+        #payment > h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 26px;
+            color: #111827;
+        }
+
+
+        /* =========================
+           Payment Card
+           ========================= */
+
+        .payment-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+        }
+
+
+        .welcome {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           Labels
+           ========================= */
+
+        .payment-card label,
+        .bank-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           Copy Box
+           ========================= */
+
+        .copy-box {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+
+        .copy-box input {
+            flex: 1;
+            min-width: 0;
+            height: 46px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+
+            padding: 0 12px;
+
+            background: #f9fafb;
+            color: #111827;
+
+            font-size: 14px;
+
+            direction: ltr;
+            text-align: left;
+
+            outline: none;
+        }
+
+
+        .copy-box input:focus {
+            border-color: #9ca3af;
+        }
+
+
+        /* =========================
+           Copy Button
+           ========================= */
+
+        .copy-box button {
+            border: none;
+            border-radius: 10px;
+
+            padding: 0 20px;
+            min-width: 70px;
+
+            background: #111827;
+            color: #ffffff;
+
+            cursor: pointer;
+            font-size: 14px;
+
+            transition: 0.2s ease;
+        }
+
+
+        .copy-box button:hover {
+            opacity: 0.85;
+        }
+
+
+        .copy-box button:active {
+            transform: scale(0.97);
+        }
+
+
+        /* =========================
+           Bank
+           ========================= */
+
+        .payment-card h3 {
+            margin-bottom: 22px;
+            font-size: 19px;
+            color: #111827;
+        }
+
+
+        /* =========================
+           Notice
+           ========================= */
+
+        .notice {
+            background: #fff7ed;
+
+            border-radius: 10px;
+
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           WhatsApp Button
+           ========================= */
+
+        .whatsapp {
+            display: block;
+
+            width: 100%;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            background: #25d366;
+
+            color: #ffffff;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            font-weight: bold;
+
+            transition: 0.2s ease;
+        }
+
+
+        .whatsapp:hover {
+            opacity: 0.9;
+        }
+
+
+        /* =========================
+           Copy Message
+           ========================= */
+
+        .copy-message {
+            text-align: center;
+
+            min-height: 22px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: #15803d;
+        }
+
+
+        /* =========================
+           Mobile
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            .payment-header {
+                padding: 18px 15px;
+            }
+
+
+            .payment-header h1 {
+                font-size: 24px;
+            }
+
+
+            .payment-header nav {
+                gap: 12px;
+            }
+
+
+            .payment-header nav a {
+                font-size: 13px;
+            }
+
+
+            #payment {
+                margin: 30px auto;
+                padding: 0 15px;
+            }
+
+
+            #payment > h2 {
+                font-size: 23px;
+            }
+
+
+            .payment-card {
+                padding: 22px 17px;
+                border-radius: 15px;
+            }
+
+
+            .copy-box {
+                gap: 6px;
+            }
+
+
+            .copy-box button {
+                padding: 0 14px;
+                min-width: 62px;
+            }
+
+
+            .copy-box input {
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<header>
 
-<h1>TDrive</h1>
+    <!-- =========================
+         Header
+         ========================= -->
 
-<p>تكنولوجيا القيادة</p>
+    <header class="payment-header">
 
-<nav>
+        <h1>TDrive</h1>
 
-<a href="index.html">الرئيسية</a>
+        <p>تكنولوجيا القيادة</p>
 
-<a href="index.html#program">البرنامج</a>
 
-<a href="payment.html">بيانات الدفع</a>
+        <nav>
 
-<a href="index.html#register">التسجيل</a>
+            <a href="index.html">
+                الرئيسية
+            </a>
 
-</nav>
+            <a href="index.html#program">
+                البرنامج
+            </a>
 
-</header>
-<section id="payment">
+            <a href="payment.html">
+                بيانات الدفع
+            </a>
 
-<h2>بيانات الدفع</h2>
+            <a href="index.html#register">
+                التسجيل
+            </a>
 
-<div class="payment-card">
+        </nav>
 
-<p>مرحباً عزيزي العميل،</p>
+    </header>
 
-<label>رقم الآيبان</label>
 
-<div class="copy-box">
 
-<input id="iban" readonly value="SA8715134018966784773544">
+    <!-- =========================
+         Payment
+         ========================= -->
 
-<button onclick="copyIBAN()">نسخ</button>
+    <section id="payment">
 
-</div>
+        <h2>
+            بيانات الدفع
+        </h2>
 
-<label>الاسم</label>
 
-<div class="copy-box">
+        <div class="payment-card">
 
-<input id="name" readonly value="منى أحمد حمود الشمراني">
 
-<button onclick="copyName()">نسخ</button>
+            <p class="welcome">
+                مرحباً عزيزي العميل،
+            </p>
 
-</div>
 
-<p>اسم البنك</p>
 
-<h3>بنك البلاد</h3>
+            <!-- IBAN -->
 
-<p>❗ يرجى إرسال إيصال التحويل بعد الدفع.</p>
+            <label for="iban">
+                رقم الآيبان
+            </label>
 
-<a
-class="whatsapp"
-target="_blank"
-href="https://wa.me/message/VDGPVTYNXF4EP1">
 
-إرسال إيصال التحويل عبر واتساب
+            <div class="copy-box">
 
-</a>
+                <input
+                    id="iban"
+                    type="text"
+                    readonly
+                    value="SA8715134018966784773544"
+                >
 
-</div>
 
-</section>
+                <button
+                    type="button"
+                    id="copyIbanBtn"
+                >
+                    نسخ
+                </button>
 
-<script src="app.js" type="module"></script>
+            </div>
+
+
+
+            <!-- Name -->
+
+            <label for="accountName">
+                الاسم
+            </label>
+
+
+            <div class="copy-box">
+
+                <input
+                    id="accountName"
+                    type="text"
+                    readonly
+                    value="منى أحمد حمود الشمراني"
+                >
+
+
+                <button
+                    type="button"
+                    id="copyNameBtn"
+                >
+                    نسخ
+                </button>
+
+            </div>
+
+
+
+            <!-- Bank -->
+
+            <p class="bank-label">
+                اسم البنك
+            </p>
+
+
+            <h3>
+                بنك البلاد
+            </h3>
+
+
+
+            <!-- Notice -->
+
+            <p class="notice">
+                ❗ يرجى إرسال إيصال التحويل بعد الدفع.
+            </p>
+
+
+
+            <!-- WhatsApp -->
+
+            <a
+                class="whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://wa.me/message/VDGPVTYNXF4EP1"
+            >
+                إرسال إيصال التحويل عبر واتساب
+            </a>
+
+
+
+            <!-- Copy Message -->
+
+            <div
+                id="copyMessage"
+                class="copy-message"
+                aria-live="polite"
+            ></div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         JavaScript
+         مستقل عن app.js
+         ========================= -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+
+            const ibanInput =
+                document.getElementById("iban");
+
+
+            const nameInput =
+                document.getElementById("accountName");
+
+
+            const copyIbanBtn =
+                document.getElementById("copyIbanBtn");
+
+
+            const copyNameBtn =
+                document.getElementById("copyNameBtn");
+
+
+            const copyMessage =
+                document.getElementById("copyMessage");
+
+
+
+            /* =========================
+               Show Message
+               ========================= */
+
+            function showMessage(message) {
+
+                copyMessage.textContent = message;
+
+
+                clearTimeout(
+                    window.copyMessageTimer
+                );
+
+
+                window.copyMessageTimer =
+                    setTimeout(function () {
+
+                        copyMessage.textContent = "";
+
+                    }, 2000);
+
+            }
+
+
+
+            /* =========================
+               Fallback Copy
+               ========================= */
+
+            function fallbackCopy(text, message) {
+
+                const temporaryInput =
+                    document.createElement("textarea");
+
+
+                temporaryInput.value = text;
+
+
+                temporaryInput.style.position = "fixed";
+
+                temporaryInput.style.left = "-9999px";
+
+                temporaryInput.style.top = "0";
+
+
+                document.body.appendChild(
+                    temporaryInput
+                );
+
+
+                temporaryInput.focus();
+
+                temporaryInput.select();
+
+                temporaryInput.setSelectionRange(
+                    0,
+                    temporaryInput.value.length
+                );
+
+
+                try {
+
+                    const successful =
+                        document.execCommand("copy");
+
+
+                    if (successful) {
+
+                        showMessage(message);
+
+                    } else {
+
+                        showMessage(
+                            "تعذر النسخ، يرجى المحاولة مرة أخرى"
+                        );
+
+                    }
+
+
+                } catch (error) {
+
+                    showMessage(
+                        "تعذر النسخ، يرجى نسخ البيانات يدوياً"
+                    );
+
+                }
+
+
+                document.body.removeChild(
+                    temporaryInput
+                );
+
+            }
+
+
+
+            /* =========================
+               Copy Text
+               ========================= */
+
+            async function copyText(text, message) {
+
+                try {
+
+
+                    /*
+                     الطريقة الحديثة
+                     */
+
+                    if (
+                        navigator.clipboard &&
+                        window.isSecureContext
+                    ) {
+
+                        await navigator.clipboard.writeText(
+                            text
+                        );
+
+
+                        showMessage(message);
+
+                        return;
+
+                    }
+
+
+                    /*
+                     الطريقة الاحتياطية
+                     */
+
+                    fallbackCopy(
+                        text,
+                        message
+                    );
+
+
+                } catch (error) {
+
+
+                    /*
+                     إذا فشلت الطريقة الحديثة
+                     نستخدم الطريقة الاحتياطية
+                     */
+
+                    fallbackCopy(
+                        text,
+                        message
+                    );
+
+                }
+
+            }
+
+
+
+            /* =========================
+               Copy IBAN
+               ========================= */
+
+            copyIbanBtn.addEventListener(
+                "click",
+                function () {
+
+                    copyText(
+                        ibanInput.value,
+                        "تم نسخ رقم الآيبان ✓"
+                    );
+
+                }
+            );
+
+
+
+            /* =========================
+               Copy Name
+               ========================= */
+
+            copyNameBtn.addEventListener(
+                "click",
+                function () {
+
+                    copyText(
+                        nameInput.value,
+                        "تم نسخ الاسم ✓"
+                    );
+
+                }
+            );
+
+
+        });
+
+    </script>
+
 
 </body>
 
