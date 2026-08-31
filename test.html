@@ -37,10 +37,6 @@
 
         background: #FFFFFF;
 
-        /*
-         * نفس روح خط موقع TDrive
-         * مع دعم عربي واضح وناعم
-         */
         font-family:
             "Tajawal",
             Arial,
@@ -106,7 +102,7 @@
 
         left: 4%;
 
-        bottom: 0;
+        bottom: 15px;
 
         z-index: 1;
     }
@@ -117,17 +113,11 @@
        HERO CONTENT
     ========================== */
 
-  .hero-content {
-    position: relative;
-    z-index: 2;
-
-        .hero-content {
-
-        padding: 190px 14px 0;
-
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 40px 14px 0;
     }
-
-}
 
 
 
@@ -140,7 +130,7 @@
 
         left: 50%;
 
-        bottom: 30px;
+        bottom: -5px;
 
         transform:
             translateX(-50%);
@@ -300,10 +290,6 @@
 
         font-size: 13px;
 
-        /*
-         * أخف من الكود السابق
-         * ليكون أقرب لستايل الموقع
-         */
         font-weight: 600;
     }
 
@@ -334,9 +320,6 @@
 
         font-size: 32px;
 
-        /*
-         * وزن قريب من عناوين الموقع
-         */
         font-weight: 700;
 
         line-height: 1.35;
@@ -383,10 +366,6 @@
 
         line-height: 1.9;
 
-        /*
-         * النص الأساسي في الموقع
-         * أخف وأهدأ
-         */
         font-weight: 400;
     }
 
@@ -772,14 +751,10 @@
 
 
         .hero-content {
+            padding: 20px 14px 0;
+            transform: none;
+        }
 
-        padding: 22px 14px 0;
-
-transform: translateY(95px);
-
-    }
-
-}
         .registration-badge {
             font-size: 12px;
 
@@ -790,17 +765,13 @@ transform: translateY(95px);
         }
 
 
-        /* =========================
-           MAIN TITLE
-        ========================== */
-
         .hero-content h1 {
             font-size: 27px;
 
             line-height: 1.4;
 
             margin:
-                14px 0 5px;
+                10px 0 5px;
 
             letter-spacing: 0;
 
@@ -824,48 +795,40 @@ transform: translateY(95px);
 
             line-height: 1.8;
 
-            margin-top: 10px;
+            margin-top: 8px;
 
             font-weight: 400;
         }
 
-
-        /* =========================
-           CAR
-        ========================== */
 
         .hero-image {
             width: 94%;
 
             left: 3%;
 
-            bottom: 0;
+            bottom: -15px;
         }
 
 
-        /* =========================
-           ISO
-        ========================== */
-
         .iso-badge {
-            width: 64px;
+            width: 60px;
 
-            height: 64px;
+            height: 60px;
 
-            bottom: 30px;
+            bottom: 25px;
         }
 
 
         .iso-badge-ring {
-            inset: -8px;
+            inset: -7px;
 
             width:
-                calc(100% + 16px);
+                calc(100% + 14px);
 
             height:
-                calc(100% + 16px);
+                calc(100% + 14px);
 
-            stroke-width: 5;
+            stroke-width: 4.5;
         }
 
 
@@ -875,33 +838,28 @@ transform: translateY(95px);
 
 
         .iso-ribbons {
-            gap: 22px;
+            gap: 18px;
 
             bottom: -10px;
         }
 
 
         .ribbon {
-            width: 10px;
+            width: 9px;
 
-            height: 16px;
+            height: 14px;
         }
 
 
         .iso-badge .iso-number {
-            font-size: 11px;
+            font-size: 10px;
         }
 
 
         .iso-badge .iso-text {
-            font-size: 7px;
+            font-size: 6.5px;
         }
 
-
-
-        /* =========================
-           SECTION
-        ========================== */
 
         .section-title {
             font-size: 20px;
@@ -914,11 +872,6 @@ transform: translateY(95px);
             font-weight: 700;
         }
 
-
-
-        /* =========================
-           BENEFITS
-        ========================== */
 
         .benefits {
             gap: 8px;
@@ -971,11 +924,6 @@ transform: translateY(95px);
         }
 
 
-
-        /* =========================
-           QUALITY
-        ========================== */
-
         .quality-box {
             padding: 13px;
 
@@ -1012,11 +960,6 @@ transform: translateY(95px);
         }
 
 
-
-        /* =========================
-           REGISTER
-        ========================== */
-
         .register-button {
             margin-top: 17px;
 
@@ -1030,11 +973,6 @@ transform: translateY(95px);
             font-weight: 700;
         }
 
-
-
-        /* =========================
-           FEATURES
-        ========================== */
 
         .features {
             margin-top: 12px;
@@ -1286,32 +1224,16 @@ transform: translateY(95px);
 
                 <svg viewBox="0 0 64 64" aria-hidden="true">
 
-                    <rect
-                        x="14"
-                        y="8"
-                        width="36"
-                        height="46"
-                        rx="4"
-                        stroke-width="3.5"
-                    />
-
                     <path
-                        d="M22 19h20M22 27h20M22 35h12"
-                        stroke-width="3.5"
-                        stroke-linecap="round"
-                    />
-
-                    <circle
-                        cx="42"
-                        cy="43"
-                        r="7"
-                        stroke-width="3.5"
-                    />
-
-                    <path
-                        d="M38 49l-2 8 6-4 6 4-2-8"
+                        d="M20 12h24c3 0 5 2 5 5v30c0 3-2 5-5 5H20c-3 0-5-2-5-5V17c0-3 2-5 5-5z"
                         stroke-width="3.5"
                         stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M26 22h12M26 30h12M26 38h8"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
                     />
 
                 </svg>
@@ -1471,32 +1393,16 @@ transform: translateY(95px);
 
                 <svg viewBox="0 0 64 64" aria-hidden="true">
 
-                    <rect
-                        x="14"
-                        y="8"
-                        width="36"
-                        height="46"
-                        rx="4"
-                        stroke-width="3.5"
-                    />
-
                     <path
-                        d="M22 19h20M22 27h20M22 35h12"
-                        stroke-width="3.5"
-                        stroke-linecap="round"
-                    />
-
-                    <circle
-                        cx="42"
-                        cy="43"
-                        r="7"
-                        stroke-width="3.5"
-                    />
-
-                    <path
-                        d="M38 49l-2 8 6-4 6 4-2-8"
+                        d="M20 12h24c3 0 5 2 5 5v30c0 3-2 5-5 5H20c-3 0-5-2-5-5V17c0-3 2-5 5-5z"
                         stroke-width="3.5"
                         stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M26 22h12M26 30h12M26 38h8"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
                     />
 
                 </svg>
