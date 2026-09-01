@@ -18,61 +18,422 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<style>
+
+/* =========================
+   COURSE SERVICE
+========================= */
+
+.course-service {
+    margin-top: 30px;
+    padding: 28px 22px;
+    border-radius: 24px;
+    background: linear-gradient(
+        135deg,
+        #F5FBFC,
+        #EEF8FA
+    );
+    border: 1px solid #D9ECEF;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.course-service::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(79, 159, 174, 0.08);
+    top: -90px;
+    left: -70px;
+}
+
+.course-service::after {
+    content: "";
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(79, 159, 174, 0.06);
+    bottom: -70px;
+    right: -50px;
+}
+
+.course-badge {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 16px;
+
+    border-radius: 30px;
+
+    background: rgba(79, 159, 174, 0.12);
+
+    color: #4F9FAE;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 12px;
+}
+
+.course-service h3 {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 8px;
+
+    color: #164C5C;
+
+    font-size: 24px;
+    font-weight: 800;
+
+    line-height: 1.5;
+}
+
+.course-service .course-subtitle {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 auto 14px;
+
+    max-width: 600px;
+
+    color: #4F9FAE;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    line-height: 1.7;
+}
+
+.course-service .course-description {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 auto 20px;
+
+    max-width: 650px;
+
+    color: #68777C;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+.course-price-box {
+    position: relative;
+    z-index: 1;
+
+    margin: 18px auto;
+
+    padding: 15px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #DCECEF;
+
+    border-radius: 18px;
+
+    max-width: 330px;
+}
+
+.course-old-price {
+    color: #89969A;
+
+    font-size: 15px;
+
+    text-decoration: line-through;
+
+    margin-left: 8px;
+}
+
+.course-new-price {
+    color: #164C5C;
+
+    font-size: 32px;
+
+    font-weight: 800;
+}
+
+.course-new-price small {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.course-launch {
+    display: inline-block;
+
+    margin-top: 7px;
+
+    padding: 5px 14px;
+
+    border-radius: 20px;
+
+    background: #4F9FAE;
+
+    color: #FFFFFF;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.course-benefits {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+
+    max-width: 650px;
+
+    margin: 20px auto;
+}
+
+.course-benefit {
+    padding: 13px 10px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #DCECEF;
+
+    border-radius: 15px;
+
+    color: #68777C;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+.course-benefit i {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #4F9FAE;
+
+    font-size: 20px;
+}
+
+.course-benefit strong {
+    display: block;
+
+    color: #164C5C;
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+}
+
+.course-button {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 14px 18px;
+
+    margin-top: 8px;
+
+    border-radius: 14px;
+
+    background: #4F9FAE;
+
+    color: #FFFFFF;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 20px
+        rgba(79, 159, 174, 0.22);
+
+    transition: 0.2s;
+}
+
+.course-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 520px) {
+
+    .course-service {
+        margin-top: 22px;
+
+        padding:
+            23px 14px;
+
+        border-radius: 20px;
+    }
+
+    .course-service h3 {
+        font-size: 21px;
+    }
+
+    .course-service .course-subtitle {
+        font-size: 14px;
+    }
+
+    .course-service .course-description {
+        font-size: 12px;
+
+        line-height: 1.8;
+    }
+
+    .course-benefits {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 7px;
+    }
+
+    .course-benefit {
+        padding: 11px 7px;
+
+        font-size: 10.5px;
+    }
+
+    .course-benefit strong {
+        font-size: 11.5px;
+    }
+
+    .course-new-price {
+        font-size: 29px;
+    }
+
+    .course-button {
+        font-size: 14px;
+    }
+
+}
+
+</style>
+
 </head>
 
+
 <body>
+
 
 <header>
 
 <div class="logo">
+
 <h1>TDrive</h1>
+
 <p>تكنولوجيا القيادة</p>
+
 </div>
+
 
 <nav>
 
-<a href="index.html">الرئيسية</a>
+<a href="index.html">
+الرئيسية
+</a>
 
-<a href="about.html">من نحن</a>
+<a href="about.html">
+من نحن
+</a>
 
-<a href="services.html">الخدمات</a>
-  <a href="booking.html" class="register-btn">تسجيل</a>
+<a href="services.html">
+الخدمات
+</a>
 
-<a href="road-safety.html">السلامة المرورية</a>
+<a href="booking.html" class="register-btn">
+تسجيل
+</a>
 
-<a href="index.html#contact">تواصل معنا</a>
+<a href="road-safety.html">
+السلامة المرورية
+</a>
 
-
+<a href="index.html#contact">
+تواصل معنا
+</a>
 
 </nav>
 
 </header>
 
+
+
 <section id="services">
+
+
 <div class="services-hero">
 
 <div class="services-hero-art">
-<img src="9C1F2131-8859-46BD-8FB6-38E3851DDE7E.png" alt="TDrive - خدمات القيادة والنقل">
+
+<img
+src="9C1F2131-8859-46BD-8FB6-38E3851DDE7E.png"
+alt="TDrive - خدمات القيادة والنقل"
+>
+
+</div>
+
 </div>
 
 
 
+<!-- =========================
+     CURRENT PROGRAM
+========================= -->
 
-</div>
 <div class="current-program">
 
-<h2>احترفي القيادة على الطريق</h2>
+<h2>
+احترفي القيادة على الطريق
+</h2>
 
 <p>
-برنامج تدريبي عملي لمدة <strong>5 ساعات</strong>
-على الطريق باستخدام <strong>سيارة المؤسسة</strong>.
+برنامج تدريبي عملي لمدة
+<strong>5 ساعات</strong>
+على الطريق باستخدام
+<strong>سيارة المؤسسة</strong>.
 </p>
 
 </div>
 
+
+
+<!-- =========================
+     DRIVING PROGRAM OFFER
+========================= -->
+
 <div class="offer-box">
 
-<h3>🎉 عروض الإطلاق</h3>
+<h3>
+🎉 عروض الإطلاق
+</h3>
 
 <p>
 السعر الأساسي
@@ -90,21 +451,35 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 
+
+
 <a href="booking.html" class="button">
 
 احجز الآن
 
 </a>
 
-<h2>مميزات البرنامج</h2>
+
+
+<!-- =========================
+     PROGRAM FEATURES
+========================= -->
+
+<h2>
+مميزات البرنامج
+</h2>
+
 
 <div class="features-grid">
+
 
 <div class="card">
 
 🚘
 
-<h3>احترفي القيادة على الطريق</h3>
+<h3>
+احترفي القيادة على الطريق
+</h3>
 
 <p>
 برنامج تدريبي عملي باستخدام
@@ -113,11 +488,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 
+
+
 <div class="card">
 
 📚
 
-<h3>تدريب نظري</h3>
+<h3>
+تدريب نظري
+</h3>
 
 <p>
 تعلم أساسيات القيادة وقوانين المرور.
@@ -125,11 +504,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 
+
+
 <div class="card">
 
 🏠
 
-<h3>مكان التدريب</h3>
+<h3>
+مكان التدريب
+</h3>
 
 <p>
 المدربة تحضر إلى باب منزلك دون رسوم إضافية.
@@ -137,11 +520,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 
+
+
 <div class="card">
 
 ⏰
 
-<h3>5 ساعات</h3>
+<h3>
+5 ساعات
+</h3>
 
 <p>
 برنامج تدريبي مكثف لمدة خمس ساعات.
@@ -149,41 +536,228 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 
+
 </div>
+
+
+
+<!-- =========================
+     PROFESSIONAL CAPTAIN COURSE
+========================= -->
+
+<h2>
+الدورات والبرامج التدريبية
+</h2>
+
+
+<section class="course-service">
+
+
+<div class="course-badge">
+
+● بدأ التسجيل
+
+</div>
+
+
+<h3>
+دورة الكابتن المحترف
+</h3>
+
+
+<p class="course-subtitle">
+
+تطبيق أنظمة الايزو العالمية
+<br>
+في نشاط النقل
+
+</p>
+
+
+<p class="course-description">
+
+دورة عملية تساعدك على فهم وتطبيق متطلبات
+الجودة العالمية وفق معيار
+<strong>ISO 9001:2015</strong>
+في عملك ككابتن نقل.
+
+</p>
+
+
+
+<!-- PRICE -->
+
+<div class="course-price-box">
+
+<div>
+
+<span class="course-old-price">
+300 ريال
+</span>
+
+<span class="course-new-price">
+
+100
+
+<small>
+ريال فقط
+</small>
+
+</span>
+
+</div>
+
+
+<div class="course-launch">
+
+حصرياً — عرض الإطلاق
+
+</div>
+
+</div>
+
+
+
+<!-- BENEFITS -->
+
+<div class="course-benefits">
+
+
+<div class="course-benefit">
+
+<i class="fa-solid fa-book-open"></i>
+
+<strong>
+مواد إثراء إضافية
+</strong>
+
+معلومات مختارة لتطوير معرفتك وتعميق فهمك.
+
+</div>
+
+
+
+<div class="course-benefit">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<strong>
+متابعة الأداء التشغيلي
+</strong>
+
+أداة عملية تساعدك على متابعة أدائك وتحسينه باستمرار.
+
+</div>
+
+
+
+<div class="course-benefit">
+
+<i class="fa-solid fa-building-columns"></i>
+
+<strong>
+ملصق بيانات الحساب البنكي
+</strong>
+
+ملصق جاهز يحتوي على بيانات الحساب لاستخدامه في عملك.
+
+</div>
+
+
+
+<div class="course-benefit">
+
+<i class="fa-solid fa-certificate"></i>
+
+<strong>
+شهادة حضور الدورة
+</strong>
+
+شهادة حضور بعد إتمام الدورة.
+
+</div>
+
+
+</div>
+
+
+
+<!-- QUALITY -->
+
+<div class="course-benefit" style="max-width:650px;margin:0 auto 15px;">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<strong>
+منهج قائم على الجودة
+</strong>
+
+تدريب عملي وفق معيار
+<strong>ISO 9001:2015</strong>
+لتطبيق مبادئ الجودة في نشاط النقل
+ورفع جودة أدائك وخدماتك.
+
+</div>
+
+
+
+<a
+href="booking.html"
+class="course-button"
+>
+
+سجل الآن في دورة الكابتن المحترف
+
+<span>
+←
+</span>
+
+</a>
+
+
+</section>
+
+
+
+<!-- =========================
+     COMING SERVICES
+========================= -->
 
 <div class="section-space"></div>
 
-<h2>خدمات قادمة</h2>
+
+<h2>
+خدمات قادمة
+</h2>
+
 
 <div class="coming-grid">
 
-<div class="card">
 
-<h3>دورة الكابتن المحترف</h3>
-
-<p>
-أول برنامج تدريبي يركز على تطبيق مبادئ نظام إدارة الجودة ISO 9001:2015 في خدمات النقل، بهدف رفع كفاءة الكباتن، وتحسين جودة الخدمة، وتعزيز الاحترافية وفق أفضل الممارسات العالمية.
-</p>
-
-<span>قريبًا</span>
-
-</div>
 
 <div class="card">
 
-<h3>شراء سيارة</h3>
+<h3>
+شراء سيارة
+</h3>
 
 <p>
 خدمة استشارية لمساعدتكم في اختيار السيارة المناسبة وفق احتياجاتكم وميزانيتكم.
 </p>
 
-<span>قريبًا</span>
+<span>
+قريبًا
+</span>
 
 </div>
 
+
 </div>
+
 
 </section>
+
+
 
 <footer>
 
@@ -194,6 +768,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 </p>
 
 </footer>
+
 
 </body>
 
