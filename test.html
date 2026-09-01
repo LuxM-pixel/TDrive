@@ -20,7 +20,6 @@
         --white: #FFFFFF;
         --border: #DCECEF;
 
-        /* لون الهايلايت الأصفر */
         --highlight: #F4D35E;
     }
 
@@ -42,6 +41,7 @@
         margin: auto;
         padding: 18px;
     }
+
 
     /* =========================
        HERO
@@ -162,6 +162,7 @@
         font-weight: 700;
     }
 
+
     /* =========================
        SECTION TITLE
     ========================= */
@@ -204,6 +205,7 @@
         );
     }
 
+
     /* =========================
        BENEFITS - LIST
     ========================= */
@@ -212,19 +214,23 @@
         display: flex;
         flex-direction: column;
         gap: 0;
+
         background: #FFFFFF;
         border: 1px solid var(--border);
         border-radius: 20px;
         overflow: hidden;
+
         box-shadow: 0 5px 18px rgba(22, 76, 92, 0.05);
     }
 
     .benefit-card {
         min-height: auto;
         padding: 13px 16px;
+
         background: #FFFFFF;
         border: none;
         border-radius: 0;
+
         text-align: right;
 
         display: flex;
@@ -288,6 +294,7 @@
         display: none;
     }
 
+
     /* =========================
        QUALITY BOX
     ========================= */
@@ -296,9 +303,12 @@
         display: flex;
         align-items: center;
         gap: 14px;
+
         margin-top: 18px;
         padding: 16px;
+
         border-radius: 20px;
+
         background: var(--tdrive-light);
         border: 1px solid #D9ECEF;
     }
@@ -313,6 +323,7 @@
         justify-content: center;
 
         border-radius: 50%;
+
         background: #FFFFFF;
         color: var(--tdrive);
 
@@ -351,6 +362,7 @@
         font-weight: 400;
     }
 
+
     /* =========================
        PRICE
     ========================= */
@@ -358,16 +370,26 @@
     .course-price {
         margin-top: 20px;
         padding: 17px 18px;
+
         border-radius: 18px;
-        background: linear-gradient(135deg, #F5FBFC, #EEF8FA);
+
+        background: linear-gradient(
+            135deg,
+            #F5FBFC,
+            #EEF8FA
+        );
+
         border: 1px solid #D9ECEF;
+
         text-align: center;
     }
 
     .price-label {
         display: block;
         margin-bottom: 4px;
+
         color: var(--tdrive-dark);
+
         font-size: 13px;
         font-weight: 600;
     }
@@ -376,70 +398,88 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         gap: 10px;
+
         direction: rtl;
     }
 
+
+    /* السعر القديم */
+
     .old-price {
         display: inline-block;
+
         color: #89969A;
+
         font-size: 17px;
         font-weight: 500;
 
-        /* الشخطة واضحة */
         text-decoration-line: line-through;
         text-decoration-color: #89969A;
         text-decoration-thickness: 2px;
         text-decoration-skip-ink: none;
     }
 
-    /*
-       منطقة السعر الجديد
-       تحتوي على لطخة صفراء خلف 100
-    */
+
+    /* =========================
+       السعر الجديد + الهايلايتر
+    ========================= */
 
     .new-price {
         position: relative;
+
         display: inline-flex;
         align-items: baseline;
+
         gap: 4px;
 
         color: var(--tdrive-dark);
-        font-size: 38px;
+
+        font-size: 40px;
         line-height: 1.15;
+
         font-weight: 800;
 
         isolation: isolate;
     }
 
+
+    /*
+       هايلايتر أصفر خلف الرقم
+       شكل غير منتظم وخفيف
+    */
+
     .new-price::before {
         content: "";
+
         position: absolute;
 
-        width: 88px;
-        height: 45px;
+        width: 104px;
+        height: 42px;
 
-        left: 50%;
-        top: 50%;
+        left: 47%;
+        top: 53%;
 
         transform:
             translate(-50%, -50%)
-            rotate(-3deg);
+            rotate(-5deg);
 
         background: var(--highlight);
 
-        border-radius:
-            47% 53% 49% 51%
-            / 54% 46% 55% 45%;
+        opacity: 0.72;
 
-        opacity: 0.78;
+        border-radius:
+            46% 54% 52% 48%
+            / 55% 44% 56% 45%;
 
         z-index: -1;
 
         /*
-          يعطي اللطخة شكل highlight
-          غير هندسي تمامًا
+          حواف ناعمة حتى يبدو
+          كأنه تمرير هايلايتر وليس شكل دائرة
         */
+        filter: blur(0.3px);
     }
 
     .new-price .price-number {
@@ -453,8 +493,14 @@
 
         font-size: 17px;
         font-weight: 600;
+
         margin-right: 2px;
     }
+
+
+    /* =========================
+       LAUNCH OFFER
+    ========================= */
 
     .launch-offer {
         display: inline-flex;
@@ -476,6 +522,7 @@
             0 4px 12px rgba(var(--tdrive-rgb), 0.18);
     }
 
+
     /* =========================
        REGISTER BUTTON
     ========================= */
@@ -484,6 +531,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         gap: 10px;
 
         width: 100%;
@@ -514,6 +562,7 @@
         transform: translateY(-2px);
     }
 
+
     /* =========================
        FEATURES
     ========================= */
@@ -521,6 +570,7 @@
     .features {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+
         gap: 8px;
 
         margin-top: 15px;
@@ -543,6 +593,7 @@
         justify-content: center;
 
         border-radius: 50%;
+
         background: var(--tdrive-light);
         color: var(--tdrive);
     }
@@ -550,17 +601,22 @@
     .feature-icon svg {
         width: 23px;
         height: 23px;
+
         stroke: currentColor;
         fill: none;
     }
 
     .feature span {
         display: block;
+
         color: var(--muted);
+
         font-size: 11px;
         line-height: 1.6;
+
         font-weight: 400;
     }
+
 
     /* =========================
        MOBILE
@@ -572,14 +628,20 @@
             padding: 10px;
         }
 
+
+        /* HERO */
+
         .course-hero {
             min-height: 370px;
+
             border-radius: 0 0 20px 20px;
+
             margin: -10px -10px 0 -10px;
         }
 
         .hero-content {
             padding: 20px 14px 0;
+
             transform: translateY(-15px);
         }
 
@@ -592,7 +654,9 @@
         .hero-content h1 {
             font-size: 27px;
             line-height: 1.3;
+
             margin: 14px 0 4px;
+
             letter-spacing: 0;
             font-weight: 700;
         }
@@ -605,15 +669,20 @@
         .hero-content h2 {
             font-size: 17px;
             line-height: 1.4;
+
             margin-top: 2px;
+
             font-weight: 600;
         }
 
         .hero-description {
             max-width: 430px;
+
             font-size: 12.5px;
             line-height: 1.8;
+
             margin-top: 8px;
+
             font-weight: 400;
         }
 
@@ -626,8 +695,11 @@
         .iso-badge {
             width: 76px;
             height: 76px;
+
             bottom: 18px;
+
             padding: 4px;
+
             border-width: 2.5px;
 
             box-shadow:
@@ -635,20 +707,21 @@
                 0 0 0 5px rgba(255, 255, 255, 0.9);
         }
 
-        /* =========================
-           SECTION
-        ========================= */
+
+        /* SECTION */
 
         .section-title {
             font-size: 20px;
+
             margin: 22px 0 11px;
+
             gap: 10px;
+
             font-weight: 700;
         }
 
-        /* =========================
-           BENEFITS MOBILE
-        ========================= */
+
+        /* BENEFITS */
 
         .benefits {
             border-radius: 16px;
@@ -656,12 +729,14 @@
 
         .benefit-card {
             padding: 10px 12px;
+
             gap: 11px;
         }
 
         .benefit-icon {
             width: 40px;
             height: 40px;
+
             flex-basis: 40px;
         }
 
@@ -673,28 +748,33 @@
         .benefit-card h3 {
             font-size: 13.5px;
             line-height: 1.45;
+
             margin-bottom: 1px;
+
             font-weight: 600;
         }
 
         .benefit-card p {
             font-size: 11.5px;
             line-height: 1.6;
+
             font-weight: 400;
         }
 
-        /* =========================
-           QUALITY MOBILE
-        ========================= */
+
+        /* QUALITY */
 
         .quality-box {
             padding: 13px;
+
             gap: 10px;
+
             border-radius: 16px;
         }
 
         .quality-icon {
             flex-basis: 46px;
+
             width: 46px;
             height: 46px;
         }
@@ -707,21 +787,24 @@
         .quality-text p {
             font-size: 12px;
             line-height: 1.75;
+
             font-weight: 400;
         }
 
-        /* =========================
-           PRICE MOBILE
-        ========================= */
+
+        /* PRICE */
 
         .course-price {
             margin-top: 17px;
+
             padding: 15px 12px;
+
             border-radius: 16px;
         }
 
         .price-label {
             font-size: 12px;
+
             margin-bottom: 3px;
         }
 
@@ -731,16 +814,26 @@
 
         .old-price {
             font-size: 14px;
+
             text-decoration-thickness: 1.8px;
         }
 
         .new-price {
-            font-size: 34px;
+            font-size: 36px;
         }
 
         .new-price::before {
-            width: 78px;
-            height: 40px;
+            width: 88px;
+            height: 38px;
+
+            left: 47%;
+            top: 53%;
+
+            transform:
+                translate(-50%, -50%)
+                rotate(-5deg);
+
+            opacity: 0.72;
         }
 
         .new-price .currency {
@@ -749,28 +842,33 @@
 
         .launch-offer {
             margin-top: 6px;
+
             padding: 5px 12px;
+
             font-size: 11px;
         }
 
-        /* =========================
-           BUTTON MOBILE
-        ========================= */
+
+        /* BUTTON */
 
         .register-button {
             margin-top: 13px;
+
             padding: 13px 12px;
+
             font-size: 14px;
+
             border-radius: 13px;
+
             font-weight: 700;
         }
 
-        /* =========================
-           FEATURES MOBILE
-        ========================= */
+
+        /* FEATURES */
 
         .features {
             margin-top: 12px;
+
             gap: 5px;
         }
 
@@ -786,7 +884,9 @@
 
         .feature span {
             font-size: 10.5px;
+
             line-height: 1.5;
+
             font-weight: 400;
         }
 
@@ -799,6 +899,7 @@
 <body>
 
 <div class="test-page">
+
 
     <!-- =========================
          HERO
@@ -825,12 +926,24 @@
             </div>
 
             <h1>
+
                 دورة الكابتن المحترف
 
                 <span class="wheel-icon">
+
                     <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="12" r="9.5" />
-                        <circle cx="12" cy="12" r="2.6" />
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9.5"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="2.6"
+                        />
 
                         <path
                             d="
@@ -843,8 +956,11 @@
                             "
                             stroke-linecap="round"
                         />
+
                     </svg>
+
                 </span>
+
             </h1>
 
             <h2>
@@ -872,13 +988,17 @@
 
     <section class="benefits">
 
-        <!-- 1 -->
+
+        <!-- مواد إثرائية -->
 
         <div class="benefit-card">
 
             <div class="benefit-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <path
                         d="
@@ -921,13 +1041,16 @@
         </div>
 
 
-        <!-- 2 -->
+        <!-- متابعة الأداء -->
 
         <div class="benefit-card">
 
             <div class="benefit-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="10"
@@ -971,13 +1094,16 @@
         </div>
 
 
-        <!-- 3 -->
+        <!-- الحساب البنكي -->
 
         <div class="benefit-card">
 
             <div class="benefit-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="8"
@@ -1034,13 +1160,16 @@
         </div>
 
 
-        <!-- 4 -->
+        <!-- الشهادة -->
 
         <div class="benefit-card">
 
             <div class="benefit-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="12"
@@ -1107,7 +1236,10 @@
 
         <div class="quality-icon">
 
-            <svg viewBox="0 0 64 64" aria-hidden="true">
+            <svg
+                viewBox="0 0 64 64"
+                aria-hidden="true"
+            >
 
                 <path
                     d="
@@ -1165,14 +1297,15 @@
 
         <div class="price-row">
 
-            <!-- السعر السابق -->
+
+            <!-- السعر القديم -->
 
             <span class="old-price">
                 300 ريال
             </span>
 
 
-            <!-- السعر الحالي -->
+            <!-- السعر الجديد -->
 
             <span class="new-price">
 
@@ -1205,7 +1338,9 @@
         class="register-button"
     >
 
-        <span>←</span>
+        <span>
+            ←
+        </span>
 
         سجل الآن في دورة الكابتن المحترف
 
@@ -1218,13 +1353,17 @@
 
     <section class="features">
 
+
         <!-- جودة -->
 
         <div class="feature">
 
             <div class="feature-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <circle
                         cx="32"
@@ -1257,7 +1396,10 @@
 
             <div class="feature-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <path
                         d="
@@ -1297,7 +1439,10 @@
 
             <div class="feature-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="14"
