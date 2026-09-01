@@ -62,7 +62,7 @@
 
 
     /* =========================
-       HERO (تمديد الحاوية لأطراف الصفحة)
+       HERO
     ========================== */
 
     .course-hero {
@@ -86,7 +86,7 @@
 
 
     /* =========================
-       CAR IMAGE (تغطية كامل العرض)
+       CAR IMAGE
     ========================== */
 
     .hero-image {
@@ -111,39 +111,48 @@
        HERO CONTENT
     ========================== */
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 245px 14px 0;
-}
+    .hero-content {
+        position: relative;
+
+        z-index: 2;
+
+        padding: 245px 14px 0;
+    }
 
 
 
-  /* =========================
-   ISO BADGE IMAGE
-========================= */
+    /* =========================
+       ISO BADGE IMAGE
+    ========================== */
 
-.iso-badge {
-    position: absolute;
+    .iso-badge {
+        position: absolute;
 
-    left: 50%;
+        left: 50%;
 
-    bottom: 14px;
+        bottom: 14px;
 
-    transform: translateX(-50%);
+        transform: translateX(-50%);
 
-    width: 100px;
+        width: 100px;
 
-    height: 100px;
+        height: 100px;
 
-    z-index: 3;
+        z-index: 3;
 
-    object-fit: contain;
+        object-fit: contain;
 
-    opacity: 1 !important;
+        opacity: 1 !important;
 
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3)) contrast(1.2);
-}
+        filter:
+            drop-shadow(
+                0 2px 5px
+                rgba(0,0,0,0.3)
+            )
+            contrast(1.2);
+    }
+
+
 
     /* =========================
        REGISTRATION BADGE
@@ -544,7 +553,11 @@
 
         align-self: stretch;
 
-        background: rgba(var(--tdrive-rgb), 0.35);
+        background:
+            rgba(
+                var(--tdrive-rgb),
+                0.35
+            );
     }
 
 
@@ -580,6 +593,117 @@
 
 
     /* =========================
+       COURSE PRICE
+    ========================== */
+
+    .course-price {
+        margin-top: 20px;
+
+        padding:
+            17px 18px;
+
+        border-radius: 18px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #F5FBFC,
+                #EEF8FA
+            );
+
+        border:
+            1px solid #D9ECEF;
+
+        text-align: center;
+    }
+
+
+    .price-label {
+        display: block;
+
+        margin-bottom: 4px;
+
+        color: var(--tdrive-dark);
+
+        font-size: 13px;
+
+        font-weight: 600;
+    }
+
+
+    .old-price {
+        display: inline-block;
+
+        margin-left: 8px;
+
+        color: #89969A;
+
+        font-size: 16px;
+
+        font-weight: 500;
+
+        text-decoration:
+            line-through;
+
+        text-decoration-thickness: 1.5px;
+    }
+
+
+    .new-price {
+        display: inline-block;
+
+        color: var(--tdrive-dark);
+
+        font-size: 34px;
+
+        line-height: 1.2;
+
+        font-weight: 800;
+    }
+
+
+    .new-price span {
+        font-size: 17px;
+
+        font-weight: 600;
+
+        margin-right: 3px;
+    }
+
+
+    .launch-offer {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        margin-top: 7px;
+
+        padding:
+            5px 14px;
+
+        border-radius: 20px;
+
+        background: var(--tdrive);
+
+        color: #FFFFFF;
+
+        font-size: 12px;
+
+        font-weight: 700;
+
+        box-shadow:
+            0 4px 12px
+            rgba(
+                var(--tdrive-rgb),
+                0.18
+            );
+    }
+
+
+
+    /* =========================
        REGISTER BUTTON
     ========================== */
 
@@ -594,7 +718,7 @@
 
         width: 100%;
 
-        margin-top: 20px;
+        margin-top: 14px;
 
         padding:
             14px 16px;
@@ -723,15 +847,23 @@
         .course-hero {
             min-height: 560px;
 
-            border-radius: 0 0 20px 20px;
+            border-radius:
+                0 0 20px 20px;
 
-            margin: -10px -10px 0 -10px;
+            margin:
+                -10px -10px 0 -10px;
         }
 
-.hero-content {
-    padding: 14px 14px 0;
-    transform: translateY(130px);
-}
+
+        .hero-content {
+            padding:
+                14px 14px 0;
+
+            transform:
+                translateY(130px);
+        }
+
+
         .registration-badge {
             font-size: 12px;
 
@@ -740,6 +872,7 @@
 
             font-weight: 600;
         }
+
 
         /* =========================
            MAIN TITLE
@@ -788,28 +921,32 @@
         }
 
 
+
         /* =========================
            CAR
         ========================== */
 
-.hero-image {
-    width: 100%;
-    left: 0;
-    bottom: 0;
-}
+        .hero-image {
+            width: 100%;
+
+            left: 0;
+
+            bottom: 0;
+        }
 
 
-/* =========================
-   MOBILE ISO BADGE
-========================= */
 
-.iso-badge {
-    width: 86px;
+        /* =========================
+           MOBILE ISO BADGE
+        ========================== */
 
-    height: 86px;
+        .iso-badge {
+            width: 86px;
 
-    bottom: 22px;
-}
+            height: 86px;
+
+            bottom: 22px;
+        }
 
 
 
@@ -926,11 +1063,60 @@
 
 
         /* =========================
+           PRICE
+        ========================== */
+
+        .course-price {
+            margin-top: 17px;
+
+            padding:
+                15px 12px;
+
+            border-radius: 16px;
+        }
+
+
+        .price-label {
+            font-size: 12px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .old-price {
+            font-size: 14px;
+
+            margin-left: 6px;
+        }
+
+
+        .new-price {
+            font-size: 31px;
+        }
+
+
+        .new-price span {
+            font-size: 15px;
+        }
+
+
+        .launch-offer {
+            margin-top: 6px;
+
+            padding:
+                5px 12px;
+
+            font-size: 11px;
+        }
+
+
+
+        /* =========================
            REGISTER
         ========================== */
 
         .register-button {
-            margin-top: 17px;
+            margin-top: 13px;
 
             padding:
                 13px 12px;
@@ -1000,11 +1186,13 @@
             class="hero-image"
         >
 
-      <img
-    src="iso_9001_2015_tdrive_exact.svg"
-    alt="ISO 9001:2015"
-    class="iso-badge"
->
+
+        <img
+            src="iso_9001_2015_tdrive_exact.svg"
+            alt="ISO 9001:2015"
+            class="iso-badge"
+        >
+
 
         <div class="hero-content">
 
@@ -1012,32 +1200,71 @@
                 بدأ التسجيل
             </div>
 
+
             <h1>
+
                 دورة الكابتن المحترف
+
                 <span class="wheel-icon">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="12" r="9.5" />
-                        <circle cx="12" cy="12" r="2.6" />
-                        <path d="M12 2.5v4.4M12 17.1v4.4M4.6 7.2l3.8 2.2M15.6 14.6l3.8 2.2M19.4 7.2l-3.8 2.2M8.4 14.6l-3.8 2.2" stroke-linecap="round"/>
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="9.5"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="2.6"
+                        />
+
+                        <path
+                            d="
+                            M12 2.5v4.4
+                            M12 17.1v4.4
+                            M4.6 7.2l3.8 2.2
+                            M15.6 14.6l3.8 2.2
+                            M19.4 7.2l-3.8 2.2
+                            M8.4 14.6l-3.8 2.2
+                            "
+                            stroke-linecap="round"
+                        />
+
                     </svg>
+
                 </span>
+
             </h1>
 
+
             <h2>
+
                 تطبيق أنظمة الايزو العالمية<br>
+
                 في نشاط النقل
+
             </h2>
 
+
             <p class="hero-description">
+
                 دورة عملية تساعدك على فهم وتطبيق متطلبات
                 الجودة العالمية وفق معيار
                 <strong>ISO 9001:2015</strong>
                 في عملك ككابتن نقل.
+
             </p>
 
         </div>
 
     </section>
+
 
 
     <!-- =========================
@@ -1058,10 +1285,21 @@
 
             <div class="benefit-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <path
-                        d="M32 18c-4-4-11-5-18-3v30c7-2 14-1 18 3 4-4 11-5 18-3V15c-7-2-14-1-18 3Z"
+                        d="
+                        M32 18
+                        c-4-4-11-5-18-3
+                        v30
+                        c7-2 14-1 18 3
+                        c4-4 11-5 18-3
+                        V15
+                        c-7-2-14-1-18 3Z
+                        "
                         stroke-width="3.5"
                         stroke-linejoin="round"
                         stroke-linecap="round"
@@ -1077,18 +1315,22 @@
 
             </div>
 
+
             <h3>
                 مواد إثراء إضافية
             </h3>
+
 
             <p>
                 معلومات مختارة تحتاج إلى قراءة وتركيز
                 لتطوير معرفتك وتعميق فهمك.
             </p>
 
+
             <div class="benefit-underline"></div>
 
         </div>
+
 
 
         <!-- متابعة الأداء التشغيلي -->
@@ -1097,7 +1339,10 @@
 
             <div class="benefit-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="10"
@@ -1125,18 +1370,22 @@
 
             </div>
 
+
             <h3>
                 صفحة متابعة الأداء التشغيلي
             </h3>
+
 
             <p>
                 أداة عملية تساعدك على متابعة أدائك
                 وتحسينه بشكل مستمر.
             </p>
 
+
             <div class="benefit-underline"></div>
 
         </div>
+
 
 
         <!-- الحساب البنكي -->
@@ -1145,7 +1394,10 @@
 
             <div class="benefit-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="8"
@@ -1186,18 +1438,22 @@
 
             </div>
 
+
             <h3>
                 ملصق بيانات الحساب البنكي
             </h3>
+
 
             <p>
                 ملصق جاهز يحتوي على بيانات الحساب
                 لاستخدامه في عملك.
             </p>
 
+
             <div class="benefit-underline"></div>
 
         </div>
+
 
 
         <!-- شهادة الحضور -->
@@ -1206,7 +1462,10 @@
 
             <div class="benefit-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="12"
@@ -1247,19 +1506,23 @@
 
             </div>
 
+
             <h3>
                 شهادة حضور الدورة
             </h3>
 
+
             <p>
                 شهادة حضور بعد إتمام الدورة.
             </p>
+
 
             <div class="benefit-underline"></div>
 
         </div>
 
     </section>
+
 
 
     <!-- =========================
@@ -1270,10 +1533,17 @@
 
         <div class="quality-icon">
 
-            <svg viewBox="0 0 64 64" aria-hidden="true">
+            <svg
+                viewBox="0 0 64 64"
+                aria-hidden="true"
+            >
 
                 <path
-                    d="M32 8l19 7v14c0 13-8 21-19 27C21 50 13 42 13 29V15l19-7Z"
+                    d="
+                    M32 8l19 7v14
+                    c0 13-8 21-19 27
+                    C21 50 13 42 13 29V15l19-7Z
+                    "
                     stroke-width="3.5"
                     stroke-linejoin="round"
                 />
@@ -1289,7 +1559,9 @@
 
         </div>
 
+
         <div class="quality-divider"></div>
+
 
         <div class="quality-text">
 
@@ -1297,11 +1569,14 @@
                 منهج قائم على الجودة
             </h3>
 
+
             <p>
+
                 تدريب عملي وفق معيار
                 <strong>ISO 9001:2015</strong>
                 لتطبيق مبادئ الجودة في نشاط النقل
                 ورفع جودة أدائك وخدماتك.
+
             </p>
 
         </div>
@@ -1309,18 +1584,60 @@
     </section>
 
 
+
+    <!-- =========================
+         COURSE PRICE
+    ========================== -->
+
+    <section class="course-price">
+
+        <span class="price-label">
+            سعر الدورة
+        </span>
+
+
+        <div>
+
+            <span class="old-price">
+                300 ريال
+            </span>
+
+
+            <span class="new-price">
+                100
+                <span>ريال فقط</span>
+            </span>
+
+        </div>
+
+
+        <div class="launch-offer">
+            حصرياً — عرض الإطلاق
+        </div>
+
+    </section>
+
+
+
     <!-- =========================
          REGISTER
     ========================== -->
 
-    <a href="booking.html" class="register-button">
-    <span>←</span>
-    سجل الآن في دورة الكابتن المحترف
-</a>
+    <a
+        href="booking.html"
+        class="register-button"
+    >
+
+        <span>←</span>
+
+        سجل الآن في دورة الكابتن المحترف
+
+    </a>
+
 
 
     <!-- =========================
-         FEATURES
+         FOOTER FEATURES
     ========================== -->
 
     <section class="features">
@@ -1332,7 +1649,10 @@
 
             <div class="feature-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <circle
                         cx="32"
@@ -1352,11 +1672,13 @@
 
             </div>
 
+
             <span>
                 جودة ومنهجية
             </span>
 
         </div>
+
 
 
         <!-- مواد إثرائية -->
@@ -1365,10 +1687,21 @@
 
             <div class="feature-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <path
-                        d="M32 18c-4-4-11-5-18-3v30c7-2 14-1 18 3 4-4 11-5 18-3V15c-7-2-14-1-18 3Z"
+                        d="
+                        M32 18
+                        c-4-4-11-5-18-3
+                        v30
+                        c7-2 14-1 18 3
+                        c4-4 11-5 18-3
+                        V15
+                        c-7-2-14-1-18 3Z
+                        "
                         stroke-width="3.5"
                         stroke-linejoin="round"
                         stroke-linecap="round"
@@ -1384,11 +1717,13 @@
 
             </div>
 
+
             <span>
                 مواد إثرائية
             </span>
 
         </div>
+
 
 
         <!-- شهادة حضور -->
@@ -1397,7 +1732,10 @@
 
             <div class="feature-icon">
 
-                <svg viewBox="0 0 64 64" aria-hidden="true">
+                <svg
+                    viewBox="0 0 64 64"
+                    aria-hidden="true"
+                >
 
                     <rect
                         x="14"
@@ -1430,6 +1768,7 @@
                 </svg>
 
             </div>
+
 
             <span>
                 شهادة حضور
