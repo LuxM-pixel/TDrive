@@ -84,17 +84,17 @@
 
 
     /* =========================
-       CAR IMAGE
+       CAR IMAGE (تمتد على عرض الحاوية بالكامل)
     ========================== */
 
     .hero-image {
         position: absolute;
 
-        width: 92%;
+        width: 100%;
 
         height: auto;
 
-        left: 4%;
+        left: 0;
 
         bottom: 0;
 
@@ -116,7 +116,7 @@
 
 
   /* =========================
-   ISO BADGE IMAGE
+   ISO BADGE IMAGE (لون أبيض واضح وغير شفاف)
 ========================= */
 
 .iso-badge {
@@ -135,6 +135,9 @@
     z-index: 3;
 
     object-fit: contain;
+
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+    opacity: 1;
 }
 
     /* =========================
@@ -779,12 +782,12 @@
 
 
         /* =========================
-           CAR
+           CAR (تمتد بالكامل على الموبايل)
         ========================== */
 
 .hero-image {
-    width: 105%;
-    left: -2.5%;
+    width: 100%;
+    left: 0;
     bottom: 0;
 }
 
