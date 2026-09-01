@@ -1266,6 +1266,35 @@ footer p {
 
 }
 
+.services-hero-art {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.services-hero-art img {
+    display: block;
+    width: 100%;
+    max-width: 600px; /* يمكنك التحكم بأقصى عرض للصورة حسب رغبتك */
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    transform: none; /* إلغاء الإزاحة التي كانت تخفي السيارة */
+}
+
+/* تعديل الجوال لضمان وضوحها تماماً */
+@media (max-width: 520px) {
+    .services-hero-art img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        transform: none;
+    }
+}
 
 /* =====================================================
    MOBILE
