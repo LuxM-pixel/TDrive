@@ -88,31 +88,24 @@
     /* =========================
        ISO BADGE
     ========================== */
+.iso-badge {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    width: 108px;
+    height: 108px;
+    z-index: 3;
+    padding: 6px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    border: 3px solid var(--tdrive);
+    box-shadow:
+        0 6px 16px rgba(22, 76, 92, 0.28),
+        0 0 0 6px rgba(255, 255, 255, 0.9);
+    object-fit: contain;
+}
 
-    .iso-badge {
-        position: absolute;
-
-        left: 50%;
-        bottom: 14px;
-
-        transform: translateX(-50%);
-
-        width: 100px;
-        height: 100px;
-
-        z-index: 3;
-
-        object-fit: contain;
-
-        opacity: 1 !important;
-
-        filter:
-            drop-shadow(
-                0 2px 5px
-                rgba(0,0,0,0.3)
-            )
-            contrast(1.2);
-    }
 
 
     /* =========================
@@ -742,15 +735,11 @@
            HERO CONTENT
         ========================== */
 
-        .hero-content {
-            padding:
-                14px 14px 0;
-
-            /* تقليل الفراغ وتحريك النص للأعلى */
-            transform:
-                translateY(70px);
-        }
-
+      .hero-content {
+        padding: 14px 14px 0;
+        transform: translateY(95px);
+    }
+}
 
         .registration-badge {
             font-size: 12px;
@@ -822,13 +811,13 @@
            MOBILE ISO
         ========================== */
 
-        .iso-badge {
-            width: 86px;
-
-            height: 86px;
-
-            bottom: 22px;
-        }
+       .iso-badge {
+        width: 92px;
+        height: 92px;
+        bottom: 22px;
+        padding: 5px;
+    }
+}
 
 
         /* =========================
