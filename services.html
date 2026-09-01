@@ -105,7 +105,11 @@ body {
 
     padding: 0;
 
-    display: block;
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
 
     overflow: hidden;
 
@@ -115,11 +119,14 @@ body {
 .services-hero-art img {
     display: block;
     width: 100%;
+    max-width: 600px;
     height: auto;
-    margin: 0;
+    margin: 0 auto;
     object-fit: contain;
-    transform: translateX(25%);
+    transform: none;
 }
+
+
 /* =====================================================
    SECTION TITLES
 ===================================================== */
@@ -1266,35 +1273,6 @@ footer p {
 
 }
 
-.services-hero-art {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.services-hero-art img {
-    display: block;
-    width: 100%;
-    max-width: 600px; /* يمكنك التحكم بأقصى عرض للصورة حسب رغبتك */
-    height: auto;
-    margin: 0 auto;
-    object-fit: contain;
-    transform: none; /* إلغاء الإزاحة التي كانت تخفي السيارة */
-}
-
-/* تعديل الجوال لضمان وضوحها تماماً */
-@media (max-width: 520px) {
-    .services-hero-art img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        transform: none;
-    }
-}
 
 /* =====================================================
    MOBILE
@@ -1302,19 +1280,17 @@ footer p {
 
 @media (max-width: 520px) {
 
-
-     .services-hero-art img {
+    .services-hero-art img {
 
         width: 100%;
 
+        max-width: 100%;
+
         height: auto;
 
-        transform: translateX(25%);
+        transform: none;
 
     }
-
-}
-
 
     #services > h2 {
 
