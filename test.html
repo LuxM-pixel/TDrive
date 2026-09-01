@@ -109,192 +109,37 @@
 
   .hero-content {
     position: relative;
+
     z-index: 2;
-    padding: 190px 14px 0;
+
+    padding: 0 14px;
+
+    transform: translateY(150px);
 }
 
 
 
-    /* =========================
-       ISO SEAL (medallion style)
-    ========================== */
+  /* =========================
+   ISO BADGE IMAGE
+========================= */
 
-    .iso-badge {
-        position: absolute;
+.iso-badge {
+    position: absolute;
 
-        left: 50%;
+    left: 50%;
 
-        bottom: 14px;
+    bottom: 14px;
 
-        transform:
-            translateX(-50%);
+    transform: translateX(-50%);
 
-        width: 100px;
+    width: 100px;
 
-        height: 100px;
+    height: 100px;
 
-        border-radius: 50%;
+    z-index: 3;
 
-        background:
-            radial-gradient(
-                circle at 50% 40%,
-                #FFFFFF 0%,
-                #F3FAFB 100%
-            );
-
-        color: var(--tdrive-dark);
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        flex-direction: column;
-
-        font-weight: 800;
-
-        box-shadow:
-            0 8px 20px
-            rgba(22, 76, 92, 0.22);
-
-        z-index: 3;
-    }
-
-
-    .iso-badge-ring {
-        position: absolute;
-
-        inset: -10px;
-
-        width:
-            calc(100% + 20px);
-
-        height:
-            calc(100% + 20px);
-
-        fill: none;
-
-        stroke: var(--tdrive);
-
-        stroke-width: 3;
-
-        stroke-dasharray: 3 4;
-    }
-
-
-    .iso-badge::before {
-        content: "";
-
-        position: absolute;
-
-        inset: 7px;
-
-        border:
-            1.5px solid var(--tdrive);
-
-        border-radius: 50%;
-    }
-
-
-    .iso-badge-label {
-        position: absolute;
-
-        inset: 0;
-
-        border-radius: 50%;
-    }
-
-
-    .iso-badge-label svg {
-        width: 100%;
-
-        height: 100%;
-    }
-
-
-    .iso-badge-label text {
-        font-size: 7.2px;
-
-        letter-spacing: 1.2px;
-
-        fill: var(--tdrive);
-
-        font-weight: 700;
-    }
-
-
-    .iso-ribbons {
-        position: absolute;
-
-        bottom: -14px;
-
-        display: flex;
-
-        gap: 32px;
-
-        z-index: -1;
-    }
-
-
-    .ribbon {
-        width: 14px;
-
-        height: 22px;
-
-        background: var(--tdrive-dark);
-
-        clip-path:
-            polygon(
-                0 0,
-                100% 0,
-                100% 100%,
-                50% 78%,
-                0 100%
-            );
-    }
-
-
-    .ribbon-l {
-        transform:
-            rotate(-14deg);
-    }
-
-
-    .ribbon-r {
-        transform:
-            rotate(14deg);
-    }
-
-
-    .iso-badge .iso-number {
-        font-size: 16px;
-
-        line-height: 1;
-
-        letter-spacing: 0.5px;
-
-        position: relative;
-
-        z-index: 2;
-    }
-
-
-    .iso-badge .iso-text {
-        font-size: 8.5px;
-
-        line-height: 1.2;
-
-        margin-top: 3px;
-
-        letter-spacing: 0.4px;
-
-        position: relative;
-
-        z-index: 2;
-    }
-
-
+    object-fit: contain;
+}
 
     /* =========================
        REGISTRATION BADGE
@@ -878,10 +723,11 @@
         }
 
 
-        .hero-content {
-            padding: 14px 14px 0;
-            transform: translateY(55px);
-        }
+     .hero-content {
+    padding: 14px 14px 0;
+
+    transform: translateY(105px);
+}
 
         .registration-badge {
             font-size: 12px;
@@ -891,7 +737,6 @@
 
             font-weight: 600;
         }
-
 
         /* =========================
            MAIN TITLE
@@ -953,59 +798,17 @@
         }
 
 
-        /* =========================
-           ISO
-        ========================== */
+/* =========================
+   MOBILE ISO BADGE
+========================= */
 
-        .iso-badge {
-            width: 86px;
+.iso-badge {
+    width: 86px;
 
-            height: 86px;
+    height: 86px;
 
-            bottom: 22px;
-        }
-
-
-        .iso-badge-ring {
-            inset: -9px;
-
-            width:
-                calc(100% + 18px);
-
-            height:
-                calc(100% + 18px);
-
-            stroke-width: 3;
-        }
-
-
-        .iso-badge::before {
-            inset: 6px;
-        }
-
-
-        .iso-ribbons {
-            gap: 26px;
-
-            bottom: -11px;
-        }
-
-
-        .ribbon {
-            width: 11px;
-
-            height: 18px;
-        }
-
-
-        .iso-badge .iso-number {
-            font-size: 14px;
-        }
-
-
-        .iso-badge .iso-text {
-            font-size: 7.5px;
-        }
+    bottom: 22px;
+}
 
 
 
@@ -1196,26 +999,11 @@
             class="hero-image"
         >
 
-        <!-- ختم ISO البرمجي المحدث -->
-        <div class="iso-badge">
-            <svg class="iso-badge-ring" viewBox="0 0 100 100" aria-hidden="true">
-                <circle cx="50" cy="50" r="47" />
-            </svg>
-            <div class="iso-badge-label" aria-hidden="true">
-                <svg viewBox="0 0 100 100">
-                    <path id="isoCurveTop" d="M 15,50 A 35,35 0 0,1 85,50" fill="none" />
-                    <text>
-                        <textPath href="#isoCurveTop" startOffset="50%" text-anchor="middle">QUALITY MANAGEMENT SYSTEM</textPath>
-                    </text>
-                </svg>
-            </div>
-            <span class="iso-number">ISO</span>
-            <span class="iso-text">9001:2015</span>
-            <div class="iso-ribbons">
-                <span class="ribbon ribbon-l"></span>
-                <span class="ribbon ribbon-r"></span>
-            </div>
-        </div>
+      <img
+    src="iso_9001_2015_tdrive_exact.svg"
+    alt="ISO 9001:2015"
+    class="iso-badge"
+>
 
         <div class="hero-content">
 
