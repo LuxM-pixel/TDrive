@@ -11,239 +11,854 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+>
 
 <link rel="stylesheet" href="style.css?v=5">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
 
 <style>
 
-/* =========================
-   COURSE SERVICE
-========================= */
+/* =====================================================
+   TDRIVE COLORS
+===================================================== */
 
-.course-service {
-    margin-top: 30px;
-    padding: 28px 22px;
-    border-radius: 24px;
-    background: linear-gradient(
-        135deg,
-        #F5FBFC,
-        #EEF8FA
-    );
-    border: 1px solid #D9ECEF;
-    text-align: center;
-    position: relative;
+:root {
+
+    --tdrive: #4F9FAE;
+    --tdrive-rgb: 79, 159, 174;
+
+    --tdrive-dark: #164C5C;
+
+    --tdrive-light: #EEF8FA;
+
+    --tdrive-soft: #F5FBFC;
+
+    --tdrive-border: #D9ECEF;
+
+    --tdrive-text: #263B42;
+
+    --tdrive-muted: #68777C;
+
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+body {
+
+    font-family:
+        "Cairo",
+        Arial,
+        Tahoma,
+        sans-serif;
+
+    color: var(--tdrive-text);
+
+}
+
+
+/* =====================================================
+   SERVICES HERO
+===================================================== */
+
+.services-hero {
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 0;
+
     overflow: hidden;
+
+    background: #FFFFFF;
+
 }
 
-.course-service::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    background: rgba(79, 159, 174, 0.08);
-    top: -90px;
-    left: -70px;
+
+.services-hero-art {
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    display: block;
+
+    overflow: hidden;
+
 }
 
-.course-service::after {
-    content: "";
-    position: absolute;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: rgba(79, 159, 174, 0.06);
-    bottom: -70px;
-    right: -50px;
+
+.services-hero-art img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    object-fit: contain;
+
 }
 
-.course-badge {
-    position: relative;
-    z-index: 1;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+/* =====================================================
+   CURRENT PROGRAM
+===================================================== */
 
-    padding: 7px 16px;
+.current-program {
 
-    border-radius: 30px;
+    margin-top: 30px;
 
-    background: rgba(79, 159, 174, 0.12);
+    padding:
+        25px 20px;
 
-    color: #4F9FAE;
+    border-radius: 22px;
 
-    font-size: 13px;
-    font-weight: 700;
+    background:
+        linear-gradient(
+            135deg,
+            #F5FBFC,
+            #EEF8FA
+        );
 
-    margin-bottom: 12px;
+    border:
+        1px solid var(--tdrive-border);
+
+    text-align: center;
+
 }
 
-.course-service h3 {
-    position: relative;
-    z-index: 1;
 
-    margin: 0 0 8px;
+.current-program h2 {
 
-    color: #164C5C;
+    margin:
+        0 0 8px;
+
+    color:
+        var(--tdrive-dark);
 
     font-size: 24px;
+
     font-weight: 800;
 
     line-height: 1.5;
+
 }
 
-.course-service .course-subtitle {
+
+.current-program p {
+
+    margin: 0;
+
+    color:
+        var(--tdrive-muted);
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+}
+
+
+.current-program strong {
+
+    color:
+        var(--tdrive);
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   OFFER BOX
+===================================================== */
+
+.offer-box {
+
+    margin-top: 18px;
+
+    padding:
+        22px 18px;
+
+    border-radius: 20px;
+
+    background:
+        #FFFFFF;
+
+    border:
+        1px solid var(--tdrive-border);
+
+    text-align: center;
+
+    box-shadow:
+        0 6px 22px
+        rgba(
+            22,
+            76,
+            92,
+            0.06
+        );
+
+}
+
+
+.offer-box h3 {
+
+    margin:
+        0 0 12px;
+
+    color:
+        var(--tdrive);
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+}
+
+
+.offer-box p {
+
+    margin:
+        6px 0;
+
+    color:
+        var(--tdrive-muted);
+
+    font-size: 13px;
+
+}
+
+
+.offer-box strong {
+
+    color:
+        var(--tdrive);
+
+    font-weight: 800;
+
+}
+
+
+.offer-box s {
+
+    color: #89969A;
+
+    margin-right: 5px;
+
+}
+
+
+.special-price {
+
+    margin:
+        12px 0 0;
+
+    color:
+        var(--tdrive-dark);
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+}
+
+
+/* =====================================================
+   MAIN BUTTON
+===================================================== */
+
+.button {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 15px;
+
+    padding:
+        14px 18px;
+
+    border-radius: 14px;
+
+    background:
+        var(--tdrive);
+
+    color:
+        #FFFFFF;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            var(--tdrive-rgb),
+            0.22
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(
+            var(--tdrive-rgb),
+            0.28
+        );
+
+}
+
+
+/* =====================================================
+   SECTION TITLES
+===================================================== */
+
+#services > h2 {
+
     position: relative;
+
+    margin:
+        32px 0 18px;
+
+    color:
+        var(--tdrive-dark);
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    text-align: center;
+
+}
+
+
+#services > h2::after {
+
+    content: "";
+
+    display: block;
+
+    width: 42px;
+
+    height: 3px;
+
+    margin:
+        8px auto 0;
+
+    border-radius: 5px;
+
+    background:
+        var(--tdrive);
+
+}
+
+
+/* =====================================================
+   PROGRAM FEATURES
+===================================================== */
+
+.features-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.features-grid .card {
+
+    min-height: 170px;
+
+    padding:
+        18px 13px;
+
+    background:
+        #FFFFFF;
+
+    border:
+        1px solid var(--tdrive-border);
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 18px
+        rgba(
+            22,
+            76,
+            92,
+            0.05
+        );
+
+    color:
+        var(--tdrive);
+
+    font-size: 25px;
+
+}
+
+
+.features-grid .card h3 {
+
+    margin:
+        9px 0 6px;
+
+    color:
+        var(--tdrive-dark);
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    line-height: 1.6;
+
+}
+
+
+.features-grid .card p {
+
+    margin: 0;
+
+    color:
+        var(--tdrive-muted);
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+}
+
+
+.features-grid .card strong {
+
+    color:
+        var(--tdrive);
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   PROFESSIONAL CAPTAIN COURSE
+===================================================== */
+
+.course-service {
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin-top: 10px;
+
+    padding:
+        28px 22px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F5FBFC,
+            #EEF8FA
+        );
+
+    border:
+        1px solid var(--tdrive-border);
+
+    text-align: center;
+
+}
+
+
+.course-service::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            79,
+            159,
+            174,
+            0.08
+        );
+
+    top: -90px;
+
+    left: -70px;
+
+}
+
+
+.course-service::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+
+    height: 140px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            79,
+            159,
+            174,
+            0.06
+        );
+
+    bottom: -70px;
+
+    right: -50px;
+
+}
+
+
+/* =====================================================
+   COURSE BADGE
+===================================================== */
+
+.course-badge {
+
+    position: relative;
+
     z-index: 1;
 
-    margin: 0 auto 14px;
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        7px 16px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(
+            79,
+            159,
+            174,
+            0.12
+        );
+
+    color:
+        var(--tdrive);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* =====================================================
+   COURSE TITLE
+===================================================== */
+
+.course-service h3 {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        0 0 8px;
+
+    color:
+        var(--tdrive-dark);
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    line-height: 1.5;
+
+}
+
+
+.course-service .course-subtitle {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        0 auto 14px;
 
     max-width: 600px;
 
-    color: #4F9FAE;
+    color:
+        var(--tdrive);
 
     font-size: 16px;
+
     font-weight: 600;
 
     line-height: 1.7;
+
 }
 
+
 .course-service .course-description {
+
     position: relative;
+
     z-index: 1;
 
-    margin: 0 auto 20px;
+    margin:
+        0 auto 20px;
 
     max-width: 650px;
 
-    color: #68777C;
+    color:
+        var(--tdrive-muted);
 
     font-size: 13px;
 
     line-height: 1.9;
+
 }
 
+
+.course-description strong {
+
+    color:
+        var(--tdrive);
+
+}
+
+
+/* =====================================================
+   COURSE PRICE
+===================================================== */
+
 .course-price-box {
+
     position: relative;
+
     z-index: 1;
 
-    margin: 18px auto;
+    margin:
+        18px auto;
 
-    padding: 15px;
+    padding:
+        15px;
 
-    background: #FFFFFF;
+    background:
+        #FFFFFF;
 
-    border: 1px solid #DCECEF;
+    border:
+        1px solid var(--tdrive-border);
 
     border-radius: 18px;
 
     max-width: 330px;
+
 }
 
+
 .course-old-price {
+
     color: #89969A;
 
     font-size: 15px;
 
-    text-decoration: line-through;
+    text-decoration:
+        line-through;
 
     margin-left: 8px;
+
 }
 
+
 .course-new-price {
-    color: #164C5C;
+
+    color:
+        var(--tdrive-dark);
 
     font-size: 32px;
 
     font-weight: 800;
+
 }
+
 
 .course-new-price small {
+
     font-size: 15px;
+
     font-weight: 600;
+
 }
 
+
 .course-launch {
+
     display: inline-block;
 
     margin-top: 7px;
 
-    padding: 5px 14px;
+    padding:
+        5px 14px;
 
     border-radius: 20px;
 
-    background: #4F9FAE;
+    background:
+        var(--tdrive);
 
-    color: #FFFFFF;
+    color:
+        #FFFFFF;
 
     font-size: 11px;
 
     font-weight: 700;
+
 }
 
+
+/* =====================================================
+   COURSE BENEFITS
+===================================================== */
+
 .course-benefits {
+
     position: relative;
+
     z-index: 1;
 
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 10px;
 
     max-width: 650px;
 
-    margin: 20px auto;
+    margin:
+        20px auto;
+
 }
 
+
 .course-benefit {
-    padding: 13px 10px;
 
-    background: #FFFFFF;
+    padding:
+        13px 10px;
 
-    border: 1px solid #DCECEF;
+    background:
+        #FFFFFF;
+
+    border:
+        1px solid var(--tdrive-border);
 
     border-radius: 15px;
 
-    color: #68777C;
+    color:
+        var(--tdrive-muted);
 
     font-size: 12px;
 
     line-height: 1.7;
+
 }
 
+
 .course-benefit i {
+
     display: block;
 
     margin-bottom: 7px;
 
-    color: #4F9FAE;
+    color:
+        var(--tdrive);
 
     font-size: 20px;
+
 }
 
+
 .course-benefit strong {
+
     display: block;
 
-    color: #164C5C;
+    color:
+        var(--tdrive-dark);
 
     font-size: 13px;
 
     margin-bottom: 3px;
+
 }
 
+
+/* =====================================================
+   COURSE BUTTON
+===================================================== */
+
 .course-button {
+
     position: relative;
+
     z-index: 1;
 
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     gap: 9px;
@@ -252,15 +867,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     max-width: 500px;
 
-    padding: 14px 18px;
+    padding:
+        14px 18px;
 
     margin-top: 8px;
 
     border-radius: 14px;
 
-    background: #4F9FAE;
+    background:
+        var(--tdrive);
 
-    color: #FFFFFF;
+    color:
+        #FFFFFF;
 
     text-decoration: none;
 
@@ -270,67 +888,404 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     box-shadow:
         0 8px 20px
-        rgba(79, 159, 174, 0.22);
+        rgba(
+            79,
+            159,
+            174,
+            0.22
+        );
 
-    transition: 0.2s;
+    transition:
+        transform 0.2s ease;
+
 }
+
 
 .course-button:hover {
-    transform: translateY(-2px);
+
+    transform:
+        translateY(-2px);
+
 }
 
 
-/* =========================
+/* =====================================================
+   COMING SERVICES
+===================================================== */
+
+.coming-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr;
+
+    gap: 12px;
+
+}
+
+
+.coming-grid .card {
+
+    padding:
+        20px 17px;
+
+    background:
+        #FFFFFF;
+
+    border:
+        1px solid var(--tdrive-border);
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 18px
+        rgba(
+            22,
+            76,
+            92,
+            0.05
+        );
+
+}
+
+
+.coming-grid .card h3 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        var(--tdrive-dark);
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+}
+
+
+.coming-grid .card p {
+
+    margin: 0;
+
+    color:
+        var(--tdrive-muted);
+
+    font-size: 12.5px;
+
+    line-height: 1.9;
+
+}
+
+
+.coming-grid .card span {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding:
+        5px 13px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(
+            79,
+            159,
+            174,
+            0.10
+        );
+
+    color:
+        var(--tdrive);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+/* =====================================================
+   SECTION SPACE
+===================================================== */
+
+.section-space {
+
+    height: 8px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    margin-top: 35px;
+
+    padding:
+        20px;
+
+    text-align: center;
+
+    background:
+        var(--tdrive-dark);
+
+    color:
+        #FFFFFF;
+
+}
+
+
+footer p {
+
+    margin: 0;
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================================
    MOBILE
-========================= */
+===================================================== */
 
 @media (max-width: 520px) {
 
-    .course-service {
+
+    .services-hero-art img {
+
+        width: 100%;
+
+        height: auto;
+
+    }
+
+
+    .current-program {
+
         margin-top: 22px;
+
+        padding:
+            21px 14px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .current-program h2 {
+
+        font-size: 21px;
+
+    }
+
+
+    .current-program p {
+
+        font-size: 12px;
+
+        line-height: 1.8;
+
+    }
+
+
+    .offer-box {
+
+        padding:
+            19px 13px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .special-price {
+
+        font-size: 29px;
+
+    }
+
+
+    .button {
+
+        padding:
+            13px 15px;
+
+        font-size: 14px;
+
+    }
+
+
+    #services > h2 {
+
+        margin:
+            27px 0 15px;
+
+        font-size: 20px;
+
+    }
+
+
+    .features-grid {
+
+        gap: 8px;
+
+    }
+
+
+    .features-grid .card {
+
+        min-height: 155px;
+
+        padding:
+            14px 9px;
+
+        border-radius: 16px;
+
+        font-size: 22px;
+
+    }
+
+
+    .features-grid .card h3 {
+
+        font-size: 13.5px;
+
+        line-height: 1.55;
+
+    }
+
+
+    .features-grid .card p {
+
+        font-size: 11px;
+
+        line-height: 1.7;
+
+    }
+
+
+    .course-service {
+
+        margin-top: 8px;
 
         padding:
             23px 14px;
 
         border-radius: 20px;
+
     }
+
 
     .course-service h3 {
+
         font-size: 21px;
+
     }
+
 
     .course-service .course-subtitle {
+
         font-size: 14px;
+
     }
 
+
     .course-service .course-description {
+
         font-size: 12px;
 
         line-height: 1.8;
+
     }
+
 
     .course-benefits {
-        grid-template-columns: repeat(2, 1fr);
+
+        grid-template-columns:
+            repeat(2, 1fr);
 
         gap: 7px;
+
     }
+
 
     .course-benefit {
-        padding: 11px 7px;
+
+        padding:
+            11px 7px;
 
         font-size: 10.5px;
+
     }
+
 
     .course-benefit strong {
+
         font-size: 11.5px;
+
     }
+
 
     .course-new-price {
+
         font-size: 29px;
+
     }
 
+
     .course-button {
+
         font-size: 14px;
+
+        padding:
+            13px 12px;
+
+    }
+
+
+    .coming-grid .card {
+
+        padding:
+            17px 13px;
+
+    }
+
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREENS
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .features-grid .card {
+
+        min-height: 165px;
+
+    }
+
+
+    .course-benefits {
+
+        gap: 6px;
+
+    }
+
+
+    .course-benefit {
+
+        font-size: 10px;
+
     }
 
 }
@@ -343,13 +1298,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <body>
 
 
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
 
 <div class="logo">
 
 <h1>TDrive</h1>
 
-<p>تكنولوجيا القيادة</p>
+<p>
+تكنولوجيا القيادة
+</p>
 
 </div>
 
@@ -386,16 +1347,24 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 
 
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
 <section id="services">
 
+
+<!-- =====================================================
+     NEW TDRIVE SERVICES BANNER
+===================================================== -->
 
 <div class="services-hero">
 
 <div class="services-hero-art">
 
 <img
-src="9C1F2131-8859-46BD-8FB6-38E3851DDE7E.png"
-alt="TDrive - خدمات القيادة والنقل"
+    src="tdrive-services-banner.svg"
+    alt="TDrive - خدمات القيادة والنقل"
 >
 
 </div>
@@ -404,9 +1373,9 @@ alt="TDrive - خدمات القيادة والنقل"
 
 
 
-<!-- =========================
+<!-- =====================================================
      CURRENT PROGRAM
-========================= -->
+===================================================== -->
 
 <div class="current-program">
 
@@ -415,19 +1384,21 @@ alt="TDrive - خدمات القيادة والنقل"
 </h2>
 
 <p>
+
 برنامج تدريبي عملي لمدة
 <strong>5 ساعات</strong>
 على الطريق باستخدام
 <strong>سيارة المؤسسة</strong>.
+
 </p>
 
 </div>
 
 
 
-<!-- =========================
+<!-- =====================================================
      DRIVING PROGRAM OFFER
-========================= -->
+===================================================== -->
 
 <div class="offer-box">
 
@@ -436,13 +1407,23 @@ alt="TDrive - خدمات القيادة والنقل"
 </h3>
 
 <p>
+
 السعر الأساسي
-<s>500 ريال</s>
+
+<s>
+500 ريال
+</s>
+
 </p>
 
 <p>
+
 خصم الافتتاح لمدة شهرين
-<strong>25%</strong>
+
+<strong>
+25%
+</strong>
+
 </p>
 
 <h2 class="special-price">
@@ -453,7 +1434,10 @@ alt="TDrive - خدمات القيادة والنقل"
 
 
 
-<a href="booking.html" class="button">
+<a
+    href="booking.html"
+    class="button"
+>
 
 احجز الآن
 
@@ -461,9 +1445,9 @@ alt="TDrive - خدمات القيادة والنقل"
 
 
 
-<!-- =========================
+<!-- =====================================================
      PROGRAM FEATURES
-========================= -->
+===================================================== -->
 
 <h2>
 مميزات البرنامج
@@ -482,8 +1466,12 @@ alt="TDrive - خدمات القيادة والنقل"
 </h3>
 
 <p>
+
 برنامج تدريبي عملي باستخدام
-<strong>سيارة المؤسسة</strong>.
+<strong>
+سيارة المؤسسة
+</strong>.
+
 </p>
 
 </div>
@@ -541,9 +1529,9 @@ alt="TDrive - خدمات القيادة والنقل"
 
 
 
-<!-- =========================
+<!-- =====================================================
      PROFESSIONAL CAPTAIN COURSE
-========================= -->
+===================================================== -->
 
 <h2>
 الدورات والبرامج التدريبية
@@ -568,7 +1556,9 @@ alt="TDrive - خدمات القيادة والنقل"
 <p class="course-subtitle">
 
 تطبيق أنظمة الايزو العالمية
+
 <br>
+
 في نشاط النقل
 
 </p>
@@ -578,14 +1568,18 @@ alt="TDrive - خدمات القيادة والنقل"
 
 دورة عملية تساعدك على فهم وتطبيق متطلبات
 الجودة العالمية وفق معيار
-<strong>ISO 9001:2015</strong>
+<strong>
+ISO 9001:2015
+</strong>
 في عملك ككابتن نقل.
 
 </p>
 
 
 
-<!-- PRICE -->
+<!-- =====================================================
+     COURSE PRICE
+===================================================== -->
 
 <div class="course-price-box">
 
@@ -618,7 +1612,9 @@ alt="TDrive - خدمات القيادة والنقل"
 
 
 
-<!-- BENEFITS -->
+<!-- =====================================================
+     COURSE BENEFITS
+===================================================== -->
 
 <div class="course-benefits">
 
@@ -682,9 +1678,17 @@ alt="TDrive - خدمات القيادة والنقل"
 
 
 
-<!-- QUALITY -->
+<!-- =====================================================
+     QUALITY
+===================================================== -->
 
-<div class="course-benefit" style="max-width:650px;margin:0 auto 15px;">
+<div
+    class="course-benefit"
+    style="
+        max-width:650px;
+        margin:0 auto 15px;
+    "
+>
 
 <i class="fa-solid fa-shield-halved"></i>
 
@@ -693,7 +1697,9 @@ alt="TDrive - خدمات القيادة والنقل"
 </strong>
 
 تدريب عملي وفق معيار
-<strong>ISO 9001:2015</strong>
+<strong>
+ISO 9001:2015
+</strong>
 لتطبيق مبادئ الجودة في نشاط النقل
 ورفع جودة أدائك وخدماتك.
 
@@ -702,8 +1708,8 @@ alt="TDrive - خدمات القيادة والنقل"
 
 
 <a
-href="booking.html"
-class="course-button"
+    href="booking.html"
+    class="course-button"
 >
 
 سجل الآن في دورة الكابتن المحترف
@@ -719,9 +1725,9 @@ class="course-button"
 
 
 
-<!-- =========================
+<!-- =====================================================
      COMING SERVICES
-========================= -->
+===================================================== -->
 
 <div class="section-space"></div>
 
@@ -734,7 +1740,6 @@ class="course-button"
 <div class="coming-grid">
 
 
-
 <div class="card">
 
 <h3>
@@ -742,7 +1747,10 @@ class="course-button"
 </h3>
 
 <p>
-خدمة استشارية لمساعدتكم في اختيار السيارة المناسبة وفق احتياجاتكم وميزانيتكم.
+
+خدمة استشارية لمساعدتكم في اختيار السيارة
+المناسبة وفق احتياجاتكم وميزانيتكم.
+
 </p>
 
 <span>
@@ -758,6 +1766,10 @@ class="course-button"
 </section>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
