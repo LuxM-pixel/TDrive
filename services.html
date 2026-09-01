@@ -47,6 +47,17 @@
 
     --tdrive-muted: #68777C;
 
+
+    /* Driving Program Orange */
+
+    --drive-orange: #D99A32;
+
+    --drive-orange-light: #FFF8EC;
+
+    --drive-orange-soft: #FCF1DC;
+
+    --drive-orange-border: #F0D7A4;
+
 }
 
 
@@ -117,232 +128,6 @@ body {
 
 
 /* =====================================================
-   CURRENT PROGRAM
-===================================================== */
-
-.current-program {
-
-    margin-top: 30px;
-
-    padding:
-        25px 20px;
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #F5FBFC,
-            #EEF8FA
-        );
-
-    border:
-        1px solid var(--tdrive-border);
-
-    text-align: center;
-
-}
-
-
-.current-program h2 {
-
-    margin:
-        0 0 8px;
-
-    color:
-        var(--tdrive-dark);
-
-    font-size: 24px;
-
-    font-weight: 800;
-
-    line-height: 1.5;
-
-}
-
-
-.current-program p {
-
-    margin: 0;
-
-    color:
-        var(--tdrive-muted);
-
-    font-size: 14px;
-
-    line-height: 1.9;
-
-}
-
-
-.current-program strong {
-
-    color:
-        var(--tdrive);
-
-    font-weight: 700;
-
-}
-
-
-/* =====================================================
-   OFFER BOX
-===================================================== */
-
-.offer-box {
-
-    margin-top: 18px;
-
-    padding:
-        22px 18px;
-
-    border-radius: 20px;
-
-    background:
-        #FFFFFF;
-
-    border:
-        1px solid var(--tdrive-border);
-
-    text-align: center;
-
-    box-shadow:
-        0 6px 22px
-        rgba(
-            22,
-            76,
-            92,
-            0.06
-        );
-
-}
-
-
-.offer-box h3 {
-
-    margin:
-        0 0 12px;
-
-    color:
-        var(--tdrive);
-
-    font-size: 18px;
-
-    font-weight: 800;
-
-}
-
-
-.offer-box p {
-
-    margin:
-        6px 0;
-
-    color:
-        var(--tdrive-muted);
-
-    font-size: 13px;
-
-}
-
-
-.offer-box strong {
-
-    color:
-        var(--tdrive);
-
-    font-weight: 800;
-
-}
-
-
-.offer-box s {
-
-    color: #89969A;
-
-    margin-right: 5px;
-
-}
-
-
-.special-price {
-
-    margin:
-        12px 0 0;
-
-    color:
-        var(--tdrive-dark);
-
-    font-size: 32px;
-
-    font-weight: 900;
-
-}
-
-
-/* =====================================================
-   MAIN BUTTON
-===================================================== */
-
-.button {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 100%;
-
-    margin-top: 15px;
-
-    padding:
-        14px 18px;
-
-    border-radius: 14px;
-
-    background:
-        var(--tdrive);
-
-    color:
-        #FFFFFF;
-
-    text-decoration: none;
-
-    font-size: 15px;
-
-    font-weight: 800;
-
-    box-shadow:
-        0 8px 20px
-        rgba(
-            var(--tdrive-rgb),
-            0.22
-        );
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-
-}
-
-
-.button:hover {
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 10px 24px
-        rgba(
-            var(--tdrive-rgb),
-            0.28
-        );
-
-}
-
-
-/* =====================================================
    SECTION TITLES
 ===================================================== */
 
@@ -387,75 +172,419 @@ body {
 
 
 /* =====================================================
-   PROGRAM FEATURES
+   DRIVING PROGRAM
 ===================================================== */
 
-.features-grid {
+.driving-service {
+
+    position: relative;
+
+    overflow: hidden;
+
+    margin-top: 28px;
+
+    padding:
+        28px 22px;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFFDF9,
+            #FFF8EC
+        );
+
+    border:
+        1px solid var(--drive-orange-border);
+
+    text-align: center;
+
+}
+
+
+/* =====================================================
+   DECORATIVE CIRCLES
+===================================================== */
+
+.driving-service::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+
+    height: 190px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            217,
+            154,
+            50,
+            0.07
+        );
+
+    top: -100px;
+
+    left: -80px;
+
+}
+
+
+.driving-service::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            79,
+            159,
+            174,
+            0.06
+        );
+
+    bottom: -80px;
+
+    right: -55px;
+
+}
+
+
+/* =====================================================
+   DRIVING BADGE
+===================================================== */
+
+.driving-badge {
+
+    position: relative;
+
+    z-index: 1;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        7px 17px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(
+            217,
+            154,
+            50,
+            0.13
+        );
+
+    color:
+        var(--drive-orange);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* =====================================================
+   DRIVING TITLE
+===================================================== */
+
+.driving-service h3 {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        0 0 8px;
+
+    color:
+        var(--tdrive-dark);
+
+    font-size: 26px;
+
+    font-weight: 900;
+
+    line-height: 1.5;
+
+}
+
+
+.driving-service .driving-subtitle {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        0 auto 14px;
+
+    max-width: 600px;
+
+    color:
+        var(--tdrive);
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    line-height: 1.7;
+
+}
+
+
+.driving-service .driving-description {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        0 auto 20px;
+
+    max-width: 650px;
+
+    color:
+        var(--tdrive-muted);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+}
+
+
+/* =====================================================
+   DRIVING PRICE
+===================================================== */
+
+.driving-price-box {
+
+    position: relative;
+
+    z-index: 1;
+
+    margin:
+        18px auto;
+
+    padding:
+        16px;
+
+    background:
+        #FFFFFF;
+
+    border:
+        1px solid var(--drive-orange-border);
+
+    border-radius: 18px;
+
+    max-width: 330px;
+
+}
+
+
+.driving-price-title {
+
+    margin-bottom: 3px;
+
+    color:
+        var(--drive-orange);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+
+.driving-old-price {
+
+    color:
+        #89969A;
+
+    font-size: 15px;
+
+    text-decoration:
+        line-through;
+
+    margin-left: 8px;
+
+}
+
+
+.driving-new-price {
+
+    color:
+        var(--tdrive-dark);
+
+    font-size: 34px;
+
+    font-weight: 900;
+
+}
+
+
+.driving-new-price small {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+.driving-launch {
+
+    display: inline-block;
+
+    margin-top: 7px;
+
+    padding:
+        5px 14px;
+
+    border-radius: 20px;
+
+    background:
+        var(--drive-orange);
+
+    color:
+        #FFFFFF;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+/* =====================================================
+   DRIVING BENEFITS
+===================================================== */
+
+.driving-benefits {
+
+    position: relative;
+
+    z-index: 1;
 
     display: grid;
 
     grid-template-columns:
         repeat(2, 1fr);
 
-    gap: 12px;
+    gap: 10px;
 
-}
-
-
-.features-grid .card {
-
-    min-height: 170px;
-
-    padding:
-        18px 13px;
-
-    background:
-        #FFFFFF;
-
-    border:
-        1px solid var(--tdrive-border);
-
-    border-radius: 18px;
-
-    text-align: center;
-
-    box-shadow:
-        0 5px 18px
-        rgba(
-            22,
-            76,
-            92,
-            0.05
-        );
-
-    color:
-        var(--tdrive);
-
-    font-size: 25px;
-
-}
-
-
-.features-grid .card h3 {
+    max-width: 650px;
 
     margin:
-        9px 0 6px;
+        20px auto;
+
+}
+
+
+.driving-benefit {
+
+    padding:
+        14px 10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.94
+        );
+
+    border:
+        1px solid var(--drive-orange-border);
+
+    border-radius: 15px;
+
+    color:
+        var(--tdrive-muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.driving-benefit i {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        var(--drive-orange);
+
+    font-size: 21px;
+
+}
+
+
+.driving-benefit strong {
+
+    display: block;
 
     color:
         var(--tdrive-dark);
 
-    font-size: 15px;
+    font-size: 13px;
 
-    font-weight: 800;
-
-    line-height: 1.6;
+    margin-bottom: 3px;
 
 }
 
 
-.features-grid .card p {
+/* =====================================================
+   DRIVING QUALITY BOX
+===================================================== */
 
-    margin: 0;
+.driving-quality {
+
+    position: relative;
+
+    z-index: 1;
+
+    max-width: 650px;
+
+    margin:
+        0 auto 15px;
+
+    padding:
+        14px 12px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.95
+        );
+
+    border:
+        1px solid var(--tdrive-border);
+
+    border-radius: 15px;
 
     color:
         var(--tdrive-muted);
@@ -467,12 +596,104 @@ body {
 }
 
 
-.features-grid .card strong {
+.driving-quality i {
+
+    display: block;
+
+    margin-bottom: 7px;
 
     color:
         var(--tdrive);
 
-    font-weight: 700;
+    font-size: 20px;
+
+}
+
+
+.driving-quality strong {
+
+    display: block;
+
+    color:
+        var(--tdrive-dark);
+
+    font-size: 13px;
+
+    margin-bottom: 3px;
+
+}
+
+
+/* =====================================================
+   DRIVING BUTTON
+===================================================== */
+
+.driving-button {
+
+    position: relative;
+
+    z-index: 1;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    padding:
+        14px 18px;
+
+    margin-top: 8px;
+
+    border-radius: 14px;
+
+    background:
+        var(--tdrive);
+
+    color:
+        #FFFFFF;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            79,
+            159,
+            174,
+            0.22
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.driving-button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 24px
+        rgba(
+            79,
+            159,
+            174,
+            0.28
+        );
 
 }
 
@@ -712,7 +933,8 @@ body {
 
 .course-old-price {
 
-    color: #89969A;
+    color:
+        #89969A;
 
     font-size: 15px;
 
@@ -1068,61 +1290,6 @@ footer p {
     }
 
 
-    .current-program {
-
-        margin-top: 22px;
-
-        padding:
-            21px 14px;
-
-        border-radius: 18px;
-
-    }
-
-
-    .current-program h2 {
-
-        font-size: 21px;
-
-    }
-
-
-    .current-program p {
-
-        font-size: 12px;
-
-        line-height: 1.8;
-
-    }
-
-
-    .offer-box {
-
-        padding:
-            19px 13px;
-
-        border-radius: 18px;
-
-    }
-
-
-    .special-price {
-
-        font-size: 29px;
-
-    }
-
-
-    .button {
-
-        padding:
-            13px 15px;
-
-        font-size: 14px;
-
-    }
-
-
     #services > h2 {
 
         margin:
@@ -1133,44 +1300,103 @@ footer p {
     }
 
 
-    .features-grid {
+    /* DRIVING PROGRAM */
 
-        gap: 8px;
+    .driving-service {
 
-    }
-
-
-    .features-grid .card {
-
-        min-height: 155px;
+        margin-top: 22px;
 
         padding:
-            14px 9px;
+            23px 14px;
 
-        border-radius: 16px;
-
-        font-size: 22px;
+        border-radius: 20px;
 
     }
 
 
-    .features-grid .card h3 {
+    .driving-service h3 {
 
-        font-size: 13.5px;
-
-        line-height: 1.55;
+        font-size: 21px;
 
     }
 
 
-    .features-grid .card p {
+    .driving-service .driving-subtitle {
 
-        font-size: 11px;
-
-        line-height: 1.7;
+        font-size: 14px;
 
     }
 
+
+    .driving-service .driving-description {
+
+        font-size: 12px;
+
+        line-height: 1.8;
+
+    }
+
+
+    .driving-price-box {
+
+        padding:
+            14px;
+
+    }
+
+
+    .driving-new-price {
+
+        font-size: 30px;
+
+    }
+
+
+    .driving-benefits {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 7px;
+
+    }
+
+
+    .driving-benefit {
+
+        padding:
+            11px 7px;
+
+        font-size: 10.5px;
+
+    }
+
+
+    .driving-benefit strong {
+
+        font-size: 11.5px;
+
+    }
+
+
+    .driving-quality {
+
+        font-size: 10.5px;
+
+    }
+
+
+    .driving-button {
+
+        font-size: 14px;
+
+        padding:
+            13px 12px;
+
+    }
+
+
+    /* COURSE */
 
     .course-service {
 
@@ -1258,7 +1484,6 @@ footer p {
 
     }
 
-
 }
 
 
@@ -1268,9 +1493,17 @@ footer p {
 
 @media (max-width: 360px) {
 
-    .features-grid .card {
 
-        min-height: 165px;
+    .driving-benefits {
+
+        gap: 6px;
+
+    }
+
+
+    .driving-benefit {
+
+        font-size: 10px;
 
     }
 
@@ -1355,7 +1588,7 @@ footer p {
 
 
 <!-- =====================================================
-     NEW TDRIVE SERVICES BANNER
+     TDRIVE SERVICES BANNER
 ===================================================== -->
 
 <div class="services-hero">
@@ -1374,169 +1607,223 @@ footer p {
 
 
 <!-- =====================================================
-     CURRENT PROGRAM
+     DRIVING PROGRAM
 ===================================================== -->
-
-<div class="current-program">
 
 <h2>
 احترفي القيادة على الطريق
 </h2>
 
-<p>
 
-برنامج تدريبي عملي لمدة
-<strong>5 ساعات</strong>
-على الطريق باستخدام
-<strong>سيارة المؤسسة</strong>.
+<section class="driving-service">
+
+
+<div class="driving-badge">
+
+● برنامج تدريبي عملي
+
+</div>
+
+
+<h3>
+احترفي القيادة على الطريق
+</h3>
+
+
+<p class="driving-subtitle">
+
+تدريب عملي يساعدك على القيادة
+<br>
+بثقة وأمان واستقلالية
 
 </p>
+
+
+<p class="driving-description">
+
+برنامج تدريبي عملي ومتكامل لمدة
+<strong>5 ساعات</strong>
+يهدف إلى تطوير مهارات القيادة على الطريق
+بشكل تدريجي ومنظم، باستخدام
+<strong>سيارة المؤسسة</strong>،
+مع التركيز على بناء الثقة والقدرة على التعامل
+مع المواقف المرورية اليومية.
+
+</p>
+
+
+
+<!-- =====================================================
+     PRICE
+===================================================== -->
+
+<div class="driving-price-box">
+
+
+<div class="driving-price-title">
+
+🎉 عرض الإطلاق
+
+</div>
+
+
+<div>
+
+<span class="driving-old-price">
+
+500 ريال
+
+</span>
+
+
+<span class="driving-new-price">
+
+375
+
+<small>
+ريال فقط
+</small>
+
+</span>
+
+</div>
+
+
+<div class="driving-launch">
+
+خصم الافتتاح 25%
+
+</div>
+
 
 </div>
 
 
 
 <!-- =====================================================
-     DRIVING PROGRAM OFFER
+     BENEFITS
 ===================================================== -->
 
-<div class="offer-box">
+<div class="driving-benefits">
 
-<h3>
-🎉 عروض الإطلاق
-</h3>
 
-<p>
+<div class="driving-benefit">
 
-السعر الأساسي
-
-<s>
-500 ريال
-</s>
-
-</p>
-
-<p>
-
-خصم الافتتاح لمدة شهرين
+<i class="fa-solid fa-clock"></i>
 
 <strong>
-25%
+5 ساعات تدريبية
 </strong>
 
-</p>
-
-<h2 class="special-price">
-🔥 375 ريال
-</h2>
+برنامج تدريبي عملي مكثف لمدة خمس ساعات.
 
 </div>
 
 
 
+<div class="driving-benefit">
+
+<i class="fa-solid fa-car"></i>
+
+<strong>
+سيارة مناسبة للتدريب
+</strong>
+
+التدريب باستخدام سيارة المؤسسة
+المناسبة للتعلم والتحكم الآمن.
+
+</div>
+
+
+
+<div class="driving-benefit">
+
+<i class="fa-solid fa-house"></i>
+
+<strong>
+التدريب يصل إليك
+</strong>
+
+المدربة تحضر إلى باب منزلك
+دون رسوم إضافية.
+
+</div>
+
+
+
+<div class="driving-benefit">
+
+<i class="fa-solid fa-clipboard-check"></i>
+
+<strong>
+منهج تدريبي منظم
+</strong>
+
+تدريب مرتب مع تقييم ومتابعة
+لمستوى المتدربة.
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     QUALITY
+===================================================== -->
+
+<div class="driving-quality">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<strong>
+تدريب آمن ومتدرج
+</strong>
+
+يتم بناء المهارات بشكل تدريجي وفق مستوى المتدربة،
+مع التركيز على إتقان المهارات الأساسية قبل الانتقال
+إلى المهارات الأكثر تقدماً.
+
+</div>
+
+
+
+<!-- =====================================================
+     BUTTON
+===================================================== -->
+
 <a
     href="booking.html"
-    class="button"
+    class="driving-button"
 >
 
-احجز الآن
+احجزي الآن في برنامج احترفي القيادة على الطريق
+
+<span>
+←
+</span>
 
 </a>
 
 
-
-<!-- =====================================================
-     PROGRAM FEATURES
-===================================================== -->
-
-<h2>
-مميزات البرنامج
-</h2>
-
-
-<div class="features-grid">
-
-
-<div class="card">
-
-🚘
-
-<h3>
-احترفي القيادة على الطريق
-</h3>
-
-<p>
-
-برنامج تدريبي عملي باستخدام
-<strong>
-سيارة المؤسسة
-</strong>.
-
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-📚
-
-<h3>
-تدريب نظري
-</h3>
-
-<p>
-تعلم أساسيات القيادة وقوانين المرور.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-🏠
-
-<h3>
-مكان التدريب
-</h3>
-
-<p>
-المدربة تحضر إلى باب منزلك دون رسوم إضافية.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-⏰
-
-<h3>
-5 ساعات
-</h3>
-
-<p>
-برنامج تدريبي مكثف لمدة خمس ساعات.
-</p>
-
-</div>
-
-
-</div>
+</section>
 
 
 
 <!-- =====================================================
-     PROFESSIONAL CAPTAIN COURSE
+     PROFESSIONAL CAPTAIN COURSE TITLE
 ===================================================== -->
 
 <h2>
 الدورات والبرامج التدريبية
 </h2>
 
+
+
+<!-- =====================================================
+     PROFESSIONAL CAPTAIN COURSE
+===================================================== -->
 
 <section class="course-service">
 
