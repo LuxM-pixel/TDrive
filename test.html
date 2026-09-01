@@ -19,6 +19,9 @@
         --muted: #68777C;
         --white: #FFFFFF;
         --border: #DCECEF;
+
+        /* لون الهايلايت الأصفر */
+        --highlight: #F4D35E;
     }
 
     * {
@@ -39,6 +42,10 @@
         margin: auto;
         padding: 18px;
     }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .course-hero {
         position: relative;
@@ -155,6 +162,10 @@
         font-weight: 700;
     }
 
+    /* =========================
+       SECTION TITLE
+    ========================= */
+
     .section-title {
         display: flex;
         align-items: center;
@@ -176,76 +187,110 @@
     }
 
     .section-title::before {
-        background: linear-gradient(to left, var(--tdrive) 0%, var(--tdrive) 6px, transparent 6px);
+        background: linear-gradient(
+            to left,
+            var(--tdrive) 0%,
+            var(--tdrive) 6px,
+            transparent 6px
+        );
     }
 
     .section-title::after {
-        background: linear-gradient(to right, var(--tdrive) 0%, var(--tdrive) 6px, transparent 6px);
+        background: linear-gradient(
+            to right,
+            var(--tdrive) 0%,
+            var(--tdrive) 6px,
+            transparent 6px
+        );
     }
+
+    /* =========================
+       BENEFITS - LIST
+    ========================= */
 
     .benefits {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-    }
-
-    .benefit-card {
-        min-height: 170px;
-        padding: 18px 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
         background: #FFFFFF;
         border: 1px solid var(--border);
         border-radius: 20px;
-        text-align: center;
+        overflow: hidden;
         box-shadow: 0 5px 18px rgba(22, 76, 92, 0.05);
+    }
+
+    .benefit-card {
+        min-height: auto;
+        padding: 13px 16px;
+        background: #FFFFFF;
+        border: none;
+        border-radius: 0;
+        text-align: right;
+
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        gap: 13px;
+
+        box-shadow: none;
+    }
+
+    .benefit-card + .benefit-card {
+        border-top: 1px solid var(--border);
     }
 
     .benefit-icon {
-        width: 54px;
-        height: 54px;
-        margin: 0 auto 12px;
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+
+        margin: 0;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         border-radius: 50%;
         background: var(--tdrive-light);
         color: var(--tdrive);
     }
 
     .benefit-icon svg {
-        width: 26px;
-        height: 26px;
+        width: 23px;
+        height: 23px;
         display: block;
         stroke: currentColor;
         fill: none;
     }
 
+    .benefit-content {
+        flex: 1;
+        min-width: 0;
+    }
+
     .benefit-card h3 {
-        margin: 0 0 6px;
+        margin: 0 0 2px;
         color: var(--tdrive-dark);
         font-size: 15px;
-        line-height: 1.6;
+        line-height: 1.5;
         font-weight: 600;
     }
 
     .benefit-card p {
         margin: 0;
         color: var(--muted);
-        font-size: 12.5px;
-        line-height: 1.8;
+        font-size: 12px;
+        line-height: 1.65;
         font-weight: 400;
     }
 
     .benefit-underline {
-        margin-top: auto;
-        padding-top: 10px;
-        width: 28px;
-        height: 3px;
-        border-radius: 3px;
-        background: var(--tdrive);
+        display: none;
     }
+
+    /* =========================
+       QUALITY BOX
+    ========================= */
 
     .quality-box {
         display: flex;
@@ -262,12 +307,15 @@
         flex: 0 0 52px;
         width: 52px;
         height: 52px;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         border-radius: 50%;
         background: #FFFFFF;
         color: var(--tdrive);
+
         box-shadow: 0 4px 10px rgba(22, 76, 92, 0.10);
     }
 
@@ -303,6 +351,10 @@
         font-weight: 400;
     }
 
+    /* =========================
+       PRICE
+    ========================= */
+
     .course-price {
         margin-top: 20px;
         padding: 17px 18px;
@@ -320,62 +372,141 @@
         font-weight: 600;
     }
 
+    .price-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        direction: rtl;
+    }
+
     .old-price {
         display: inline-block;
-        margin-left: 8px;
         color: #89969A;
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 500;
-        text-decoration: line-through;
-        text-decoration-thickness: 1.5px;
+
+        /* الشخطة واضحة */
+        text-decoration-line: line-through;
+        text-decoration-color: #89969A;
+        text-decoration-thickness: 2px;
+        text-decoration-skip-ink: none;
     }
+
+    /*
+       منطقة السعر الجديد
+       تحتوي على لطخة صفراء خلف 100
+    */
 
     .new-price {
-        display: inline-block;
+        position: relative;
+        display: inline-flex;
+        align-items: baseline;
+        gap: 4px;
+
         color: var(--tdrive-dark);
-        font-size: 34px;
-        line-height: 1.2;
+        font-size: 38px;
+        line-height: 1.15;
         font-weight: 800;
+
+        isolation: isolate;
     }
 
-    .new-price span {
+    .new-price::before {
+        content: "";
+        position: absolute;
+
+        width: 88px;
+        height: 45px;
+
+        left: 50%;
+        top: 50%;
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-3deg);
+
+        background: var(--highlight);
+
+        border-radius:
+            47% 53% 49% 51%
+            / 54% 46% 55% 45%;
+
+        opacity: 0.78;
+
+        z-index: -1;
+
+        /*
+          يعطي اللطخة شكل highlight
+          غير هندسي تمامًا
+        */
+    }
+
+    .new-price .price-number {
+        position: relative;
+        z-index: 2;
+    }
+
+    .new-price .currency {
+        position: relative;
+        z-index: 2;
+
         font-size: 17px;
         font-weight: 600;
-        margin-right: 3px;
+        margin-right: 2px;
     }
 
     .launch-offer {
         display: inline-flex;
         align-items: center;
         justify-content: center;
+
         margin-top: 7px;
         padding: 5px 14px;
+
         border-radius: 20px;
+
         background: var(--tdrive);
         color: #FFFFFF;
+
         font-size: 12px;
         font-weight: 700;
-        box-shadow: 0 4px 12px rgba(var(--tdrive-rgb), 0.18);
+
+        box-shadow:
+            0 4px 12px rgba(var(--tdrive-rgb), 0.18);
     }
+
+    /* =========================
+       REGISTER BUTTON
+    ========================= */
 
     .register-button {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
+
         width: 100%;
+
         margin-top: 14px;
         padding: 14px 16px;
+
         border: 0;
         border-radius: 14px;
+
         background: var(--tdrive);
         color: white;
+
         font-size: 15px;
         font-weight: 700;
         line-height: 1.6;
+
         text-align: center;
         text-decoration: none;
-        box-shadow: 0 8px 20px rgba(var(--tdrive-rgb), 0.22);
+
+        box-shadow:
+            0 8px 20px rgba(var(--tdrive-rgb), 0.22);
+
         transition: 0.2s;
     }
 
@@ -383,10 +514,15 @@
         transform: translateY(-2px);
     }
 
+    /* =========================
+       FEATURES
+    ========================= */
+
     .features {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
+
         margin-top: 15px;
         padding: 8px 0 3px;
     }
@@ -399,10 +535,13 @@
     .feature-icon {
         width: 42px;
         height: 42px;
+
         margin: 0 auto 5px;
+
         display: flex;
         align-items: center;
         justify-content: center;
+
         border-radius: 50%;
         background: var(--tdrive-light);
         color: var(--tdrive);
@@ -423,17 +562,21 @@
         font-weight: 400;
     }
 
+    /* =========================
+       MOBILE
+    ========================= */
+
     @media (max-width: 520px) {
 
         .test-page {
             padding: 10px;
         }
 
-      .course-hero {
-    min-height: 370px;
-    border-radius: 0 0 20px 20px;
-    margin: -10px -10px 0 -10px;
-}
+        .course-hero {
+            min-height: 370px;
+            border-radius: 0 0 20px 20px;
+            margin: -10px -10px 0 -10px;
+        }
 
         .hero-content {
             padding: 20px 14px 0;
@@ -486,51 +629,63 @@
             bottom: 18px;
             padding: 4px;
             border-width: 2.5px;
+
             box-shadow:
                 0 5px 12px rgba(22, 76, 92, 0.28),
                 0 0 0 5px rgba(255, 255, 255, 0.9);
         }
 
+        /* =========================
+           SECTION
+        ========================= */
+
         .section-title {
             font-size: 20px;
-            margin: 22px 0 13px;
+            margin: 22px 0 11px;
             gap: 10px;
             font-weight: 700;
         }
 
-        .benefits {
-            gap: 8px;
-        }
+        /* =========================
+           BENEFITS MOBILE
+        ========================= */
 
-        .benefit-card {
-            min-height: 160px;
-            padding: 14px 9px;
+        .benefits {
             border-radius: 16px;
         }
 
+        .benefit-card {
+            padding: 10px 12px;
+            gap: 11px;
+        }
+
         .benefit-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 9px;
+            width: 40px;
+            height: 40px;
+            flex-basis: 40px;
         }
 
         .benefit-icon svg {
-            width: 23px;
-            height: 23px;
+            width: 21px;
+            height: 21px;
         }
 
         .benefit-card h3 {
-            font-size: 14px;
-            line-height: 1.55;
-            margin-bottom: 5px;
+            font-size: 13.5px;
+            line-height: 1.45;
+            margin-bottom: 1px;
             font-weight: 600;
         }
 
         .benefit-card p {
             font-size: 11.5px;
-            line-height: 1.7;
+            line-height: 1.6;
             font-weight: 400;
         }
+
+        /* =========================
+           QUALITY MOBILE
+        ========================= */
 
         .quality-box {
             padding: 13px;
@@ -555,6 +710,10 @@
             font-weight: 400;
         }
 
+        /* =========================
+           PRICE MOBILE
+        ========================= */
+
         .course-price {
             margin-top: 17px;
             padding: 15px 12px;
@@ -566,16 +725,25 @@
             margin-bottom: 3px;
         }
 
+        .price-row {
+            gap: 8px;
+        }
+
         .old-price {
             font-size: 14px;
-            margin-left: 6px;
+            text-decoration-thickness: 1.8px;
         }
 
         .new-price {
-            font-size: 31px;
+            font-size: 34px;
         }
 
-        .new-price span {
+        .new-price::before {
+            width: 78px;
+            height: 40px;
+        }
+
+        .new-price .currency {
             font-size: 15px;
         }
 
@@ -585,6 +753,10 @@
             font-size: 11px;
         }
 
+        /* =========================
+           BUTTON MOBILE
+        ========================= */
+
         .register-button {
             margin-top: 13px;
             padding: 13px 12px;
@@ -592,6 +764,10 @@
             border-radius: 13px;
             font-weight: 700;
         }
+
+        /* =========================
+           FEATURES MOBILE
+        ========================= */
 
         .features {
             margin-top: 12px;
@@ -624,6 +800,10 @@
 
 <div class="test-page">
 
+    <!-- =========================
+         HERO
+    ========================= -->
+
     <section class="course-hero">
 
         <img
@@ -646,10 +826,12 @@
 
             <h1>
                 دورة الكابتن المحترف
+
                 <span class="wheel-icon">
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <circle cx="12" cy="12" r="9.5" />
                         <circle cx="12" cy="12" r="2.6" />
+
                         <path
                             d="
                             M12 2.5v4.4
@@ -672,20 +854,32 @@
 
             <p class="hero-description">
                 دورة عملية تساعدك على فهم وتطبيق متطلبات الجودة العالمية
+            </p>
 
         </div>
 
     </section>
 
+
+    <!-- =========================
+         BENEFITS
+    ========================= -->
+
     <h2 class="section-title">
         ماذا ستحصل عليه؟
     </h2>
 
+
     <section class="benefits">
 
+        <!-- 1 -->
+
         <div class="benefit-card">
+
             <div class="benefit-icon">
+
                 <svg viewBox="0 0 64 64" aria-hidden="true">
+
                     <path
                         d="
                         M32 18
@@ -700,63 +894,221 @@
                         stroke-linejoin="round"
                         stroke-linecap="round"
                     />
-                    <path d="M32 18v30" stroke-width="3.5" stroke-linecap="round" />
+
+                    <path
+                        d="M32 18v30"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
                 </svg>
+
             </div>
-            <h3>مواد إثراء إضافية</h3>
-            <p>معلومات مختارة تحتاج إلى قراءة وتركيز لتطوير معرفتك وتعميق فهمك.</p>
-            <div class="benefit-underline"></div>
+
+
+            <div class="benefit-content">
+
+                <h3>
+                    مواد إثراء إضافية
+                </h3>
+
+                <p>
+                    معلومات مختارة لتطوير معرفتك وتعميق فهمك.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="benefit-card">
-            <div class="benefit-icon">
-                <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <rect x="10" y="12" width="44" height="32" rx="5" stroke-width="3.5" />
-                    <path d="M17 38l9-10 7 6 13-14" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M28 52h8M32 44v8" stroke-width="3.5" stroke-linecap="round" />
-                </svg>
-            </div>
-            <h3>صفحة متابعة الأداء التشغيلي</h3>
-            <p>أداة عملية تساعدك على متابعة أدائك وتحسينه بشكل مستمر.</p>
-            <div class="benefit-underline"></div>
-        </div>
+
+        <!-- 2 -->
 
         <div class="benefit-card">
+
             <div class="benefit-icon">
+
                 <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <rect x="8" y="16" width="40" height="30" rx="5" stroke-width="3.5" />
-                    <path d="M8 25h40" stroke-width="3.5" />
-                    <path d="M15 37h12" stroke-width="3.5" stroke-linecap="round" />
-                    <circle cx="48" cy="42" r="11" fill="white" stroke-width="3.5" />
-                    <path d="M43 42l3.5 3.5L53 38" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                    <rect
+                        x="10"
+                        y="12"
+                        width="44"
+                        height="32"
+                        rx="5"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M17 38l9-10 7 6 13-14"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M28 52h8M32 44v8"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
                 </svg>
+
             </div>
-            <h3>ملصق بيانات الحساب البنكي</h3>
-            <p>ملصق جاهز يحتوي على بيانات الحساب لاستخدامه في عملك.</p>
-            <div class="benefit-underline"></div>
+
+
+            <div class="benefit-content">
+
+                <h3>
+                    صفحة متابعة الأداء التشغيلي
+                </h3>
+
+                <p>
+                    أداة عملية تساعدك على متابعة أدائك وتحسينه باستمرار.
+                </p>
+
+            </div>
+
         </div>
 
+
+        <!-- 3 -->
+
         <div class="benefit-card">
+
             <div class="benefit-icon">
+
                 <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <rect x="12" y="9" width="34" height="30" rx="4" stroke-width="3.5" />
-                    <path d="M19 18h20M19 25h20M19 32h12" stroke-width="3.5" stroke-linecap="round" />
-                    <circle cx="29" cy="46" r="9" stroke-width="3.5" />
-                    <path d="M25 45l3 3 6-6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M24 53l-2 7 7-4 7 4-2-7" stroke-width="3.5" stroke-linejoin="round" />
+
+                    <rect
+                        x="8"
+                        y="16"
+                        width="40"
+                        height="30"
+                        rx="5"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M8 25h40"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M15 37h12"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                    <circle
+                        cx="48"
+                        cy="42"
+                        r="11"
+                        fill="white"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M43 42l3.5 3.5L53 38"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
                 </svg>
+
             </div>
-            <h3>شهادة حضور الدورة</h3>
-            <p>شهادة حضور بعد إتمام الدورة.</p>
-            <div class="benefit-underline"></div>
+
+
+            <div class="benefit-content">
+
+                <h3>
+                    ملصق بيانات الحساب البنكي
+                </h3>
+
+                <p>
+                    ملصق جاهز يحتوي على بيانات الحساب لاستخدامه في عملك.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="benefit-card">
+
+            <div class="benefit-icon">
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <rect
+                        x="12"
+                        y="9"
+                        width="34"
+                        height="30"
+                        rx="4"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M19 18h20M19 25h20M19 32h12"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                    <circle
+                        cx="29"
+                        cy="46"
+                        r="9"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M25 45l3 3 6-6"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M24 53l-2 7 7-4 7 4-2-7"
+                        stroke-width="3.5"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <div class="benefit-content">
+
+                <h3>
+                    شهادة حضور الدورة
+                </h3>
+
+                <p>
+                    شهادة حضور بعد إتمام الدورة.
+                </p>
+
+            </div>
+
         </div>
 
     </section>
 
+
+    <!-- =========================
+         QUALITY
+    ========================= -->
+
     <section class="quality-box">
 
         <div class="quality-icon">
+
             <svg viewBox="0 0 64 64" aria-hidden="true">
+
                 <path
                     d="
                     M32 8l19 7v14
@@ -766,57 +1118,147 @@
                     stroke-width="3.5"
                     stroke-linejoin="round"
                 />
-                <path d="M22 32l7 7 15-16" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+
+                <path
+                    d="M22 32l7 7 15-16"
+                    stroke-width="3.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+
             </svg>
+
         </div>
+
 
         <div class="quality-divider"></div>
 
+
         <div class="quality-text">
-            <h3>منهج قائم على الجودة</h3>
+
+            <h3>
+                منهج قائم على الجودة
+            </h3>
+
             <p>
                 تدريب عملي وفق معيار
                 <strong>ISO 9001:2015</strong>
                 لتطبيق مبادئ الجودة في نشاط النقل
                 ورفع جودة أدائك وخدماتك.
             </p>
+
         </div>
 
     </section>
+
+
+    <!-- =========================
+         PRICE
+    ========================= -->
 
     <section class="course-price">
 
-        <span class="price-label">سعر الدورة</span>
+        <span class="price-label">
+            سعر الدورة
+        </span>
 
-        <div>
-            <span class="old-price">300 ريال</span>
-            <span class="new-price">100 <span>ريال فقط</span></span>
+
+        <div class="price-row">
+
+            <!-- السعر السابق -->
+
+            <span class="old-price">
+                300 ريال
+            </span>
+
+
+            <!-- السعر الحالي -->
+
+            <span class="new-price">
+
+                <span class="price-number">
+                    100
+                </span>
+
+                <span class="currency">
+                    ريال فقط
+                </span>
+
+            </span>
+
         </div>
 
-        <div class="launch-offer">حصرياً — عرض الإطلاق</div>
+
+        <div class="launch-offer">
+            حصرياً — عرض الإطلاق
+        </div>
 
     </section>
 
-    <a href="booking.html" class="register-button">
+
+    <!-- =========================
+         REGISTER
+    ========================= -->
+
+    <a
+        href="booking.html"
+        class="register-button"
+    >
+
         <span>←</span>
+
         سجل الآن في دورة الكابتن المحترف
+
     </a>
+
+
+    <!-- =========================
+         FEATURES
+    ========================= -->
 
     <section class="features">
 
-        <div class="feature">
-            <div class="feature-icon">
-                <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <circle cx="32" cy="32" r="23" stroke-width="3.5" />
-                    <path d="M21 32l7 7 15-16" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-            <span>جودة ومنهجية</span>
-        </div>
+        <!-- جودة -->
 
         <div class="feature">
+
             <div class="feature-icon">
+
                 <svg viewBox="0 0 64 64" aria-hidden="true">
+
+                    <circle
+                        cx="32"
+                        cy="32"
+                        r="23"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M21 32l7 7 15-16"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
+            </div>
+
+            <span>
+                جودة ومنهجية
+            </span>
+
+        </div>
+
+
+        <!-- مواد -->
+
+        <div class="feature">
+
+            <div class="feature-icon">
+
+                <svg viewBox="0 0 64 64" aria-hidden="true">
+
                     <path
                         d="
                         M32 18
@@ -831,22 +1273,68 @@
                         stroke-linejoin="round"
                         stroke-linecap="round"
                     />
-                    <path d="M32 18v30" stroke-width="3.5" stroke-linecap="round" />
+
+                    <path
+                        d="M32 18v30"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
                 </svg>
+
             </div>
-            <span>مواد إثرائية</span>
+
+            <span>
+                مواد إثرائية
+            </span>
+
         </div>
 
+
+        <!-- شهادة -->
+
         <div class="feature">
+
             <div class="feature-icon">
+
                 <svg viewBox="0 0 64 64" aria-hidden="true">
-                    <rect x="14" y="8" width="36" height="30" rx="4" stroke-width="3.5" />
-                    <path d="M22 17h20M22 24h20M22 31h12" stroke-width="3.5" stroke-linecap="round" />
-                    <circle cx="42" cy="43" r="7" stroke-width="3.5" />
-                    <path d="M38 49l-2 8 6-4 6 4-2-8" stroke-width="3.5" stroke-linejoin="round" />
+
+                    <rect
+                        x="14"
+                        y="8"
+                        width="36"
+                        height="30"
+                        rx="4"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M22 17h20M22 24h20M22 31h12"
+                        stroke-width="3.5"
+                        stroke-linecap="round"
+                    />
+
+                    <circle
+                        cx="42"
+                        cy="43"
+                        r="7"
+                        stroke-width="3.5"
+                    />
+
+                    <path
+                        d="M38 49l-2 8 6-4 6 4-2-8"
+                        stroke-width="3.5"
+                        stroke-linejoin="round"
+                    />
+
                 </svg>
+
             </div>
-            <span>شهادة حضور</span>
+
+            <span>
+                شهادة حضور
+            </span>
+
         </div>
 
     </section>
