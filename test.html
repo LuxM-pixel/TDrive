@@ -62,7 +62,7 @@
 
 
     /* =========================
-       HERO
+       HERO (تمديد الحاوية لأطراف الصفحة)
     ========================== */
 
     .course-hero {
@@ -72,19 +72,21 @@
 
         min-height: 620px;
 
-        border-radius: 26px;
+        border-radius: 0 0 26px 26px;
 
         background: transparent;
 
         text-align: center;
 
         border: none;
+
+        margin: -18px -18px 0 -18px;
     }
 
 
 
     /* =========================
-       CAR IMAGE (تمتد على عرض الحاوية بالكامل)
+       CAR IMAGE (تغطية كامل العرض)
     ========================== */
 
     .hero-image {
@@ -99,6 +101,8 @@
         bottom: 0;
 
         z-index: 1;
+
+        display: block;
     }
 
 
@@ -116,7 +120,7 @@
 
 
   /* =========================
-   ISO BADGE IMAGE (لون أبيض واضح وغير شفاف)
+   ISO BADGE IMAGE
 ========================= */
 
 .iso-badge {
@@ -136,8 +140,9 @@
 
     object-fit: contain;
 
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
-    opacity: 1;
+    opacity: 1 !important;
+
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3)) contrast(1.2);
 }
 
     /* =========================
@@ -718,7 +723,9 @@
         .course-hero {
             min-height: 560px;
 
-            border-radius: 20px;
+            border-radius: 0 0 20px 20px;
+
+            margin: -10px -10px 0 -10px;
         }
 
 .hero-content {
@@ -782,7 +789,7 @@
 
 
         /* =========================
-           CAR (تمتد بالكامل على الموبايل)
+           CAR
         ========================== */
 
 .hero-image {
