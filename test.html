@@ -8,12 +8,7 @@
 
 <style>
 
-    /* =========================
-       TDRIVE FONT + COLORS
-    ========================== */
-
     @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap');
-
 
     :root {
         --tdrive: #4F9FAE;
@@ -26,39 +21,24 @@
         --border: #DCECEF;
     }
 
-
     * {
         box-sizing: border-box;
     }
 
-
     body {
         margin: 0;
-
         background: #FFFFFF;
-
-        font-family:
-            "Tajawal",
-            Arial,
-            Tahoma,
-            sans-serif;
-
+        font-family: "Tajawal", Arial, Tahoma, sans-serif;
         color: var(--text);
-
         font-weight: 400;
     }
 
-
     .test-page {
         width: 100%;
-
         max-width: 760px;
-
         margin: auto;
-
         padding: 18px;
     }
-
 
 
     /* =========================
@@ -67,22 +47,14 @@
 
     .course-hero {
         position: relative;
-
         overflow: hidden;
-
         min-height: 620px;
-
         border-radius: 0 0 26px 26px;
-
         background: transparent;
-
         text-align: center;
-
         border: none;
-
         margin: -18px -18px 0 -18px;
     }
-
 
 
     /* =========================
@@ -91,20 +63,13 @@
 
     .hero-image {
         position: absolute;
-
         width: 100%;
-
         height: auto;
-
         left: 0;
-
         bottom: 0;
-
         z-index: 1;
-
         display: block;
     }
-
 
 
     /* =========================
@@ -113,29 +78,26 @@
 
     .hero-content {
         position: relative;
-
         z-index: 2;
 
-        padding: 245px 14px 0;
+        /* تم تقليل المسافة الكبيرة بالأعلى */
+        padding: 85px 14px 0;
     }
 
 
-
     /* =========================
-       ISO BADGE IMAGE
+       ISO BADGE
     ========================== */
 
     .iso-badge {
         position: absolute;
 
         left: 50%;
-
         bottom: 14px;
 
         transform: translateX(-50%);
 
         width: 100px;
-
         height: 100px;
 
         z-index: 3;
@@ -153,20 +115,16 @@
     }
 
 
-
     /* =========================
        REGISTRATION BADGE
     ========================== */
 
     .registration-badge {
         display: inline-flex;
-
         align-items: center;
-
         gap: 7px;
 
-        padding:
-            7px 15px;
+        padding: 7px 15px;
 
         border-radius: 30px;
 
@@ -181,16 +139,13 @@
         color: var(--tdrive);
 
         font-size: 13px;
-
         font-weight: 600;
     }
-
 
     .registration-badge::before {
         content: "";
 
         width: 7px;
-
         height: 7px;
 
         border-radius: 50%;
@@ -199,19 +154,16 @@
     }
 
 
-
     /* =========================
        MAIN TITLE
     ========================== */
 
     .hero-content h1 {
-        margin:
-            16px 0 6px;
+        margin: 16px 0 6px;
 
         color: var(--tdrive-dark);
 
         font-size: 32px;
-
         font-weight: 700;
 
         line-height: 1.35;
@@ -219,27 +171,20 @@
         letter-spacing: 0;
 
         display: flex;
-
         align-items: center;
-
         justify-content: center;
 
         gap: 10px;
     }
 
-
     .hero-content h1 .wheel-icon {
         width: 30px;
-
         height: 30px;
-
         flex-shrink: 0;
     }
 
-
     .hero-content h1 .wheel-icon svg {
         width: 100%;
-
         height: 100%;
 
         stroke: var(--tdrive);
@@ -250,14 +195,12 @@
     }
 
 
-
     /* =========================
        SUBTITLE
     ========================== */
 
     .hero-content h2 {
-        margin:
-            0 auto;
+        margin: 0 auto;
 
         color: var(--tdrive);
 
@@ -271,7 +214,6 @@
     }
 
 
-
     /* =========================
        DESCRIPTION
     ========================== */
@@ -279,8 +221,7 @@
     .hero-description {
         max-width: 500px;
 
-        margin:
-            12px auto 0;
+        margin: 12px auto 0;
 
         color: var(--muted);
 
@@ -291,13 +232,10 @@
         font-weight: 400;
     }
 
-
     .hero-description strong {
         color: var(--tdrive);
-
         font-weight: 700;
     }
-
 
 
     /* =========================
@@ -311,8 +249,7 @@
 
         gap: 14px;
 
-        margin:
-            25px 0 15px;
+        margin: 25px 0 15px;
 
         color: var(--tdrive-dark);
 
@@ -322,7 +259,6 @@
 
         text-align: center;
     }
-
 
     .section-title::before,
     .section-title::after {
@@ -337,7 +273,6 @@
         position: relative;
     }
 
-
     .section-title::before {
         background:
             linear-gradient(
@@ -348,7 +283,6 @@
             );
     }
 
-
     .section-title::after {
         background:
             linear-gradient(
@@ -358,7 +292,6 @@
                 transparent 6px
             );
     }
-
 
 
     /* =========================
@@ -374,17 +307,14 @@
         gap: 14px;
     }
 
-
     .benefit-card {
         min-height: 170px;
 
-        padding:
-            18px 12px;
+        padding: 18px 12px;
 
         background: #FFFFFF;
 
-        border:
-            1px solid var(--border);
+        border: 1px solid var(--border);
 
         border-radius: 20px;
 
@@ -406,33 +336,26 @@
         align-items: center;
     }
 
-
     .benefit-icon {
         width: 54px;
-
         height: 54px;
 
-        margin:
-            0 auto 12px;
+        margin: 0 auto 12px;
 
         display: flex;
 
         align-items: center;
-
         justify-content: center;
 
         border-radius: 50%;
 
-        background:
-            var(--tdrive-light);
+        background: var(--tdrive-light);
 
         color: var(--tdrive);
     }
 
-
     .benefit-icon svg {
         width: 26px;
-
         height: 26px;
 
         display: block;
@@ -442,10 +365,8 @@
         fill: none;
     }
 
-
     .benefit-card h3 {
-        margin:
-            0 0 6px;
+        margin: 0 0 6px;
 
         color: var(--tdrive-dark);
 
@@ -455,7 +376,6 @@
 
         font-weight: 600;
     }
-
 
     .benefit-card p {
         margin: 0;
@@ -468,7 +388,6 @@
 
         font-weight: 400;
     }
-
 
     .benefit-underline {
         margin-top: auto;
@@ -483,7 +402,6 @@
 
         background: var(--tdrive);
     }
-
 
 
     /* =========================
@@ -503,26 +421,20 @@
 
         border-radius: 20px;
 
-        background:
-            var(--tdrive-light);
+        background: var(--tdrive-light);
 
-        border:
-            1px solid #D9ECEF;
+        border: 1px solid #D9ECEF;
     }
 
-
     .quality-icon {
-        flex:
-            0 0 52px;
+        flex: 0 0 52px;
 
         width: 52px;
-
         height: 52px;
 
         display: flex;
 
         align-items: center;
-
         justify-content: center;
 
         border-radius: 50%;
@@ -533,20 +445,22 @@
 
         box-shadow:
             0 4px 10px
-            rgba(22, 76, 92, 0.10);
+            rgba(
+                22,
+                76,
+                92,
+                0.10
+            );
     }
-
 
     .quality-icon svg {
         width: 26px;
-
         height: 26px;
 
         stroke: currentColor;
 
         fill: none;
     }
-
 
     .quality-divider {
         flex: 0 0 1px;
@@ -560,15 +474,12 @@
             );
     }
 
-
     .quality-text {
         flex: 1;
     }
 
-
     .quality-text h3 {
-        margin:
-            0 0 5px;
+        margin: 0 0 5px;
 
         color: var(--tdrive);
 
@@ -576,7 +487,6 @@
 
         font-weight: 700;
     }
-
 
     .quality-text p {
         margin: 0;
@@ -591,7 +501,6 @@
     }
 
 
-
     /* =========================
        COURSE PRICE
     ========================== */
@@ -599,8 +508,7 @@
     .course-price {
         margin-top: 20px;
 
-        padding:
-            17px 18px;
+        padding: 17px 18px;
 
         border-radius: 18px;
 
@@ -611,12 +519,10 @@
                 #EEF8FA
             );
 
-        border:
-            1px solid #D9ECEF;
+        border: 1px solid #D9ECEF;
 
         text-align: center;
     }
-
 
     .price-label {
         display: block;
@@ -630,7 +536,6 @@
         font-weight: 600;
     }
 
-
     .old-price {
         display: inline-block;
 
@@ -642,12 +547,10 @@
 
         font-weight: 500;
 
-        text-decoration:
-            line-through;
+        text-decoration: line-through;
 
         text-decoration-thickness: 1.5px;
     }
-
 
     .new-price {
         display: inline-block;
@@ -661,7 +564,6 @@
         font-weight: 800;
     }
 
-
     .new-price span {
         font-size: 17px;
 
@@ -669,7 +571,6 @@
 
         margin-right: 3px;
     }
-
 
     .launch-offer {
         display: inline-flex;
@@ -680,8 +581,7 @@
 
         margin-top: 7px;
 
-        padding:
-            5px 14px;
+        padding: 5px 14px;
 
         border-radius: 20px;
 
@@ -702,7 +602,6 @@
     }
 
 
-
     /* =========================
        REGISTER BUTTON
     ========================== */
@@ -720,8 +619,7 @@
 
         margin-top: 14px;
 
-        padding:
-            14px 16px;
+        padding: 14px 16px;
 
         border: 0;
 
@@ -751,12 +649,9 @@
         transition: 0.2s;
     }
 
-
     .register-button:hover {
-        transform:
-            translateY(-2px);
+        transform: translateY(-2px);
     }
-
 
 
     /* =========================
@@ -773,10 +668,8 @@
 
         margin-top: 15px;
 
-        padding:
-            8px 0 3px;
+        padding: 8px 0 3px;
     }
-
 
     .feature {
         text-align: center;
@@ -784,40 +677,32 @@
         color: var(--tdrive);
     }
 
-
     .feature-icon {
         width: 42px;
-
         height: 42px;
 
-        margin:
-            0 auto 5px;
+        margin: 0 auto 5px;
 
         display: flex;
 
         align-items: center;
-
         justify-content: center;
 
         border-radius: 50%;
 
-        background:
-            var(--tdrive-light);
+        background: var(--tdrive-light);
 
         color: var(--tdrive);
     }
 
-
     .feature-icon svg {
         width: 23px;
-
         height: 23px;
 
         stroke: currentColor;
 
         fill: none;
     }
-
 
     .feature span {
         display: block;
@@ -832,7 +717,6 @@
     }
 
 
-
     /* =========================
        MOBILE
     ========================== */
@@ -842,7 +726,6 @@
         .test-page {
             padding: 10px;
         }
-
 
         .course-hero {
             min-height: 560px;
@@ -855,12 +738,17 @@
         }
 
 
+        /* =========================
+           HERO CONTENT
+        ========================== */
+
         .hero-content {
             padding:
                 14px 14px 0;
 
+            /* تقليل الفراغ وتحريك النص للأعلى */
             transform:
-                translateY(130px);
+                translateY(70px);
         }
 
 
@@ -891,13 +779,10 @@
             font-weight: 700;
         }
 
-
         .hero-content h1 .wheel-icon {
             width: 25px;
-
             height: 25px;
         }
-
 
         .hero-content h2 {
             font-size: 17px;
@@ -906,7 +791,6 @@
 
             font-weight: 600;
         }
-
 
         .hero-description {
             max-width: 430px;
@@ -919,7 +803,6 @@
 
             font-weight: 400;
         }
-
 
 
         /* =========================
@@ -935,9 +818,8 @@
         }
 
 
-
         /* =========================
-           MOBILE ISO BADGE
+           MOBILE ISO
         ========================== */
 
         .iso-badge {
@@ -947,7 +829,6 @@
 
             bottom: 22px;
         }
-
 
 
         /* =========================
@@ -966,7 +847,6 @@
         }
 
 
-
         /* =========================
            BENEFITS
         ========================== */
@@ -974,7 +854,6 @@
         .benefits {
             gap: 8px;
         }
-
 
         .benefit-card {
             min-height: 160px;
@@ -985,7 +864,6 @@
             border-radius: 16px;
         }
 
-
         .benefit-icon {
             width: 48px;
 
@@ -994,13 +872,10 @@
             margin-bottom: 9px;
         }
 
-
         .benefit-icon svg {
             width: 23px;
-
             height: 23px;
         }
-
 
         .benefit-card h3 {
             font-size: 14px;
@@ -1012,7 +887,6 @@
             font-weight: 600;
         }
 
-
         .benefit-card p {
             font-size: 11.5px;
 
@@ -1020,7 +894,6 @@
 
             font-weight: 400;
         }
-
 
 
         /* =========================
@@ -1035,7 +908,6 @@
             border-radius: 16px;
         }
 
-
         .quality-icon {
             flex-basis: 46px;
 
@@ -1044,13 +916,11 @@
             height: 46px;
         }
 
-
         .quality-text h3 {
             font-size: 15px;
 
             font-weight: 700;
         }
-
 
         .quality-text p {
             font-size: 12px;
@@ -1059,7 +929,6 @@
 
             font-weight: 400;
         }
-
 
 
         /* =========================
@@ -1075,13 +944,11 @@
             border-radius: 16px;
         }
 
-
         .price-label {
             font-size: 12px;
 
             margin-bottom: 3px;
         }
-
 
         .old-price {
             font-size: 14px;
@@ -1089,16 +956,13 @@
             margin-left: 6px;
         }
 
-
         .new-price {
             font-size: 31px;
         }
 
-
         .new-price span {
             font-size: 15px;
         }
-
 
         .launch-offer {
             margin-top: 6px;
@@ -1108,7 +972,6 @@
 
             font-size: 11px;
         }
-
 
 
         /* =========================
@@ -1129,7 +992,6 @@
         }
 
 
-
         /* =========================
            FEATURES
         ========================== */
@@ -1140,20 +1002,17 @@
             gap: 5px;
         }
 
-
         .feature-icon {
             width: 38px;
 
             height: 38px;
         }
 
-
         .feature-icon svg {
             width: 21px;
 
             height: 21px;
         }
-
 
         .feature span {
             font-size: 10.5px;
@@ -1187,8 +1046,10 @@
         >
 
 
+        <!-- ISO الدائري الجديد -->
+
         <img
-            src="iso_9001_2015_tdrive_exact.svg"
+            src="ISO_9001_2015_TDrive_circle.svg"
             alt="ISO 9001:2015"
             class="iso-badge"
         >
