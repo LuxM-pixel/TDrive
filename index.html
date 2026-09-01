@@ -66,7 +66,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 .captain-hero {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     min-height: auto;
     border-radius: 0 0 26px 26px;
     background: transparent;
@@ -75,18 +75,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     margin: 0;
 }
 
+.captain-hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 14px;
+}
+
 .captain-hero-image {
     position: relative;
     width: 100%;
     height: auto;
     display: block;
-    margin-top: -20px;
-}
-
-.captain-hero-content {
-    position: relative;
-    z-index: 2;
-    padding: 20px 14px 0;
+    margin-top: 10px;
 }
 
 .captain-iso-badge {
@@ -105,6 +105,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         0 0 0 6px rgba(255, 255, 255, 0.9);
     object-fit: contain;
 }
+
 
 .captain-registration-badge {
     display: inline-flex;
@@ -618,62 +619,63 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <div class="captain-wrap">
 
-    <section class="captain-hero">
+<section class="captain-hero">
 
-        <img
-            src="tdrive_car_background.svg"
-            alt="سيارة TDrive"
-            class="captain-hero-image"
-        >
+    <div class="captain-hero-content">
 
-        <img
-            src="ISO_9001_2015_TDrive_circle.svg"
-            alt="ISO 9001:2015"
-            class="captain-iso-badge"
-        >
-
-        <div class="captain-hero-content">
-
-            <div class="captain-registration-badge">
-                بدأ التسجيل
-            </div>
-
-            <h1>
-                دورة الكابتن المحترف
-                <span class="captain-wheel-icon">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="12" r="9.5" />
-                        <circle cx="12" cy="12" r="2.6" />
-                        <path
-                            d="
-                            M12 2.5v4.4
-                            M12 17.1v4.4
-                            M4.6 7.2l3.8 2.2
-                            M15.6 14.6l3.8 2.2
-                            M19.4 7.2l-3.8 2.2
-                            M8.4 14.6l-3.8 2.2
-                            "
-                            stroke-linecap="round"
-                        />
-                    </svg>
-                </span>
-            </h1>
-
-            <h2>
-                تطبيق أنظمة الايزو العالمية<br>
-                في نشاط النقل
-            </h2>
-
-            <p class="captain-hero-description">
-                دورة عملية تساعدك على فهم وتطبيق متطلبات
-                الجودة العالمية وفق معيار
-                <strong>ISO 9001:2015</strong>
-                في عملك ككابتن نقل.
-            </p>
-
+        <div class="captain-registration-badge">
+            بدأ التسجيل
         </div>
 
-    </section>
+        <h1>
+            دورة الكابتن المحترف
+            <span class="captain-wheel-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9.5" />
+                    <circle cx="12" cy="12" r="2.6" />
+                    <path
+                        d="
+                        M12 2.5v4.4
+                        M12 17.1v4.4
+                        M4.6 7.2l3.8 2.2
+                        M15.6 14.6l3.8 2.2
+                        M19.4 7.2l-3.8 2.2
+                        M8.4 14.6l-3.8 2.2
+                        "
+                        stroke-linecap="round"
+                    />
+                </svg>
+            </span>
+        </h1>
+
+        <h2>
+            تطبيق أنظمة الايزو العالمية<br>
+            في نشاط النقل
+        </h2>
+
+        <p class="captain-hero-description">
+            دورة عملية تساعدك على فهم وتطبيق متطلبات
+            الجودة العالمية وفق معيار
+            <strong>ISO 9001:2015</strong>
+            في عملك ككابتن نقل.
+        </p>
+
+    </div>
+
+    <img
+        src="tdrive_car_background.svg"
+        alt="سيارة TDrive"
+        class="captain-hero-image"
+    >
+
+    <img
+        src="ISO_9001_2015_TDrive_circle.svg"
+        alt="ISO 9001:2015"
+        class="captain-iso-badge"
+    >
+
+</section>
+
 
     <h2 class="captain-section-title">
         ماذا ستحصل عليه؟
