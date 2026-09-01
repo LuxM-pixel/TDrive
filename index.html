@@ -1,1621 +1,381 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="google-site-verification" content="">
+<meta name="google-site-verification" content="7cdFhSUWav-hlKs-aEaQWDFF-vv3lfF-WlgNZgScmAo" />
 
-    <title>TDrive | تكنولوجيا القيادة وحلول القيادة والتنقل</title>
+<meta charset="UTF-8">
 
-    <meta name="description"
-        content="TDrive | مؤسسة سعودية متخصصة في تكنولوجيا القيادة وحلول القيادة والتنقل والتدريب وتطوير مهارات السائقين.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Main Website CSS -->
-    <link rel="stylesheet" href="style.css?v=13">
+<title>TDrive | تكنولوجيا القيادة وحلول القيادة والتنقل</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description" content="TDrive تي درايف، منظومة سعودية متخصصة في تكنولوجيا القيادة وحلول القيادة والتنقل، تقدم تدريب القيادة، تدريب الكباتن، دورة الكابتن المحترف، التدريب على مفاهيم ISO 9001، واستشارات شراء السيارات.">
+<link rel="stylesheet" href="style.css?v=13">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <style>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        /* =========================================================
-           TDRIVE CAPTAIN PRO COURSE
-           Isolated CSS — does not override the main website
-        ========================================================= */
-
-        .captain-course-page {
-            --tdrive: #4F9FAE;
-            --tdrive-rgb: 79, 159, 174;
-            --tdrive-dark: #164C5C;
-            --tdrive-light: #EEF8FA;
-            --text: #263B42;
-            --muted: #68777C;
-            --white: #FFFFFF;
-            --border: #DCECEF;
-            --highlight: #F4D35E;
-
-            width: 100%;
-            background: #fff;
-            font-family: "Tajawal", sans-serif;
-        }
-
-        .captain-course-page *,
-        .captain-course-page *::before,
-        .captain-course-page *::after {
-            box-sizing: border-box;
-        }
-
-        .captain-course-page .test-page {
-            width: 100%;
-            max-width: 760px;
-            margin: 0 auto;
-            padding: 18px;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .captain-course-page .course-hero {
-            position: relative;
-            overflow: hidden;
-            min-height: 620px;
-
-            border-radius: 0 0 26px 26px;
-
-            background: transparent;
-            border: none;
-
-            margin: -18px -18px 0 -18px;
-
-            text-align: center;
-        }
-
-        .captain-course-page .hero-image {
-            position: absolute;
-
-            width: 100%;
-            height: auto;
-
-            left: 0;
-            bottom: 0;
-
-            z-index: 1;
-
-            display: block;
-        }
-
-        .captain-course-page .hero-content {
-            position: relative;
-            z-index: 2;
-
-            padding: 85px 14px 0;
-
-            text-align: center;
-        }
-
-        /* =========================
-           REGISTRATION BADGE
-        ========================= */
-
-        .captain-course-page .registration-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 7px;
-
-            padding: 7px 15px;
-
-            border-radius: 30px;
-
-            background: rgba(79, 159, 174, 0.10);
-
-            color: var(--tdrive);
-
-            font-size: 13px;
-            font-weight: 600;
-
-            animation: captainRegistrationGlow 2.2s ease-in-out infinite;
-        }
-
-        .captain-course-page .registration-badge::before {
-            content: "";
-
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: var(--tdrive);
-
-            flex-shrink: 0;
-        }
-
-        @keyframes captainRegistrationGlow {
-
-            0%,
-            100% {
-                box-shadow: 0 0 0 0 rgba(79, 159, 174, 0);
-            }
-
-            50% {
-                box-shadow: 0 0 18px 5px rgba(79, 159, 174, 0.22);
-            }
-        }
-
-        /* =========================
-           HERO TITLE
-        ========================= */
-
-        .captain-course-page .course-hero h1 {
-            margin: 14px 0 5px;
-
-            color: var(--tdrive-dark);
-
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 1.35;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 10px;
-        }
-
-        .captain-course-page .wheel-icon {
-            width: 30px;
-            height: 30px;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            color: var(--tdrive);
-
-            flex-shrink: 0;
-        }
-
-        .captain-course-page .wheel-icon svg {
-            width: 30px;
-            height: 30px;
-        }
-
-        .captain-course-page .course-hero h2 {
-            margin: 0;
-
-            color: var(--tdrive);
-
-            font-size: 19px;
-            font-weight: 600;
-
-            line-height: 1.6;
-        }
-
-        .captain-course-page .hero-description {
-            max-width: 500px;
-
-            margin: 8px auto 0;
-
-            color: var(--muted);
-
-            font-size: 13.5px;
-            line-height: 1.9;
-        }
-
-        .captain-course-page .hero-description strong {
-            color: var(--tdrive);
-        }
-
-        /* =========================
-           ISO BADGE
-        ========================= */
-
-        .captain-course-page .iso-badge {
-            position: absolute;
-
-            left: 50%;
-            bottom: 14px;
-
-            transform: translateX(-50%);
-
-            width: 108px;
-            height: 108px;
-
-            padding: 0;
-
-            background: #fff;
-
-            border-radius: 50%;
-
-            border: 3px solid var(--tdrive);
-
-            box-shadow:
-                0 8px 24px rgba(22, 76, 92, 0.12);
-
-            object-fit: contain;
-
-            z-index: 3;
-        }
-
-        /* =========================
-           SECTION TITLE
-        ========================= */
-
-        .captain-course-page .section-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 12px;
-
-            margin: 28px 0 15px;
-
-            color: var(--tdrive-dark);
-
-            font-size: 21px;
-            font-weight: 700;
-
-            text-align: center;
-        }
-
-        .captain-course-page .section-title::before,
-        .captain-course-page .section-title::after {
-            content: "";
-
-            height: 1px;
-
-            width: 55px;
-
-            background: var(--tdrive);
-        }
-
-        /* =========================
-           BENEFITS
-        ========================= */
-
-        .captain-course-page .benefits {
-            display: flex;
-            flex-direction: column;
-
-            background: #fff;
-
-            border: 1px solid var(--border);
-
-            border-radius: 20px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 6px 20px rgba(22, 76, 92, 0.05);
-        }
-
-        .captain-course-page .benefit-card {
-            display: flex;
-            align-items: center;
-
-            gap: 13px;
-
-            padding: 13px 16px;
-
-            text-align: right;
-        }
-
-        .captain-course-page .benefit-card + .benefit-card {
-            border-top: 1px solid var(--border);
-        }
-
-        .captain-course-page .benefit-icon {
-            width: 44px;
-            height: 44px;
-
-            min-width: 44px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--tdrive-light);
-
-            color: var(--tdrive);
-
-            font-size: 18px;
-        }
-
-        .captain-course-page .benefit-card h3 {
-            margin: 0 0 3px;
-
-            color: var(--tdrive-dark);
-
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .captain-course-page .benefit-card p {
-            margin: 0;
-
-            color: var(--muted);
-
-            font-size: 12px;
-            line-height: 1.7;
-        }
-
-        /* =========================
-           QUALITY BOX
-        ========================= */
-
-        .captain-course-page .quality-box {
-            display: flex;
-            align-items: center;
-
-            gap: 14px;
-
-            margin-top: 18px;
-
-            padding: 16px;
-
-            background: var(--tdrive-light);
-
-            border: 1px solid var(--border);
-
-            border-radius: 20px;
-
-            text-align: right;
-        }
-
-        .captain-course-page .quality-icon {
-            width: 52px;
-            height: 52px;
-
-            min-width: 52px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #fff;
-
-            border-radius: 50%;
-
-            color: var(--tdrive);
-
-            font-size: 21px;
-        }
-
-        .captain-course-page .quality-divider {
-            width: 1px;
-            height: 45px;
-
-            background: var(--border);
-
-            flex-shrink: 0;
-        }
-
-        .captain-course-page .quality-box h3 {
-            margin: 0 0 3px;
-
-            color: var(--tdrive-dark);
-
-            font-size: 15px;
-            font-weight: 700;
-        }
-
-        .captain-course-page .quality-box p {
-            margin: 0;
-
-            color: var(--muted);
-
-            font-size: 12px;
-
-            line-height: 1.8;
-        }
-
-        /* =========================
-           PRICE
-        ========================= */
-
-        .captain-course-page .course-price {
-            margin-top: 20px;
-
-            padding: 17px 18px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #F5FBFC,
-                    #EEF8FA
-                );
-
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
-
-            text-align: center;
-        }
-
-        .captain-course-page .price-label {
-            display: block;
-
-            margin-bottom: 3px;
-
-            color: var(--muted);
-
-            font-size: 13px;
-        }
-
-        .captain-course-page .price-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 12px;
-
-            flex-wrap: wrap;
-        }
-
-        .captain-course-page .old-price {
-            color: #8A989C;
-
-            font-size: 15px;
-
-            text-decoration: line-through;
-        }
-
-        .captain-course-page .new-price {
-            position: relative;
-
-            display: inline-flex;
-            align-items: baseline;
-
-            gap: 5px;
-
-            color: var(--tdrive-dark);
-
-            font-weight: 700;
-
-            z-index: 1;
-        }
-
-        .captain-course-page .price-number {
-            position: relative;
-
-            font-size: 40px;
-
-            line-height: 1;
-
-            z-index: 2;
-        }
-
-        .captain-course-page .price-number::before {
-            content: "";
-
-            position: absolute;
-
-            left: -5px;
-            right: -5px;
-
-            bottom: 3px;
-
-            height: 13px;
-
-            background: var(--highlight);
-
-            border-radius: 40% 60% 45% 55%;
-
-            transform: rotate(-2deg);
-
-            z-index: -1;
-
-            opacity: 0.85;
-        }
-
-        .captain-course-page .currency {
-            font-size: 15px;
-
-            color: var(--tdrive-dark);
-        }
-
-        .captain-course-page .launch-offer {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            margin-top: 8px;
-
-            padding: 5px 11px;
-
-            border-radius: 30px;
-
-            background: var(--tdrive);
-
-            color: #fff;
-
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        /* =========================
-           REGISTER BUTTON
-        ========================= */
-
-        .captain-course-page .register-button {
-            width: 100%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            gap: 8px;
-
-            margin-top: 14px;
-
-            padding: 14px 16px;
-
-            background: var(--tdrive);
-
-            color: #fff;
-
-            border: none;
-
-            border-radius: 14px;
-
-            font-family: inherit;
-
-            font-size: 15px;
-            font-weight: 700;
-
-            text-decoration: none;
-
-            box-shadow:
-                0 7px 18px rgba(79, 159, 174, 0.22);
-
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-        }
-
-        .captain-course-page .register-button:hover {
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 10px 24px rgba(79, 159, 174, 0.28);
-        }
-
-        /* =========================
-           FEATURES
-        ========================= */
-
-        .captain-course-page .course-features {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 12px;
-
-            margin-top: 20px;
-        }
-
-        .captain-course-page .course-feature {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-            gap: 7px;
-
-            text-align: center;
-        }
-
-        .captain-course-page .course-feature-icon {
-            width: 42px;
-            height: 42px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--tdrive-light);
-
-            color: var(--tdrive);
-
-            font-size: 17px;
-        }
-
-        .captain-course-page .course-feature span {
-            color: var(--muted);
-
-            font-size: 11px;
-
-            line-height: 1.5;
-        }
-
-        /* =========================================================
-           MOBILE
-        ========================================================= */
-
-        @media (max-width: 520px) {
-
-            .captain-course-page .test-page {
-                padding: 10px;
-            }
-
-            .captain-course-page .course-hero {
-                min-height: 370px;
-
-                margin: -10px;
-
-                border-radius: 0 0 20px 20px;
-            }
-
-            .captain-course-page .hero-content {
-                padding: 20px 14px 0;
-
-                transform: translateY(-15px);
-            }
-
-            .captain-course-page .registration-badge {
-                padding: 6px 12px;
-
-                font-size: 12px;
-            }
-
-            .captain-course-page .course-hero h1 {
-                margin-top: 10px;
-
-                font-size: 27px;
-
-                gap: 7px;
-            }
-
-            .captain-course-page .wheel-icon,
-            .captain-course-page .wheel-icon svg {
-                width: 27px;
-                height: 27px;
-            }
-
-            .captain-course-page .course-hero h2 {
-                font-size: 17px;
-            }
-
-            .captain-course-page .hero-description {
-                font-size: 12.5px;
-            }
-
-            .captain-course-page .hero-image {
-                width: 100%;
-            }
-
-            .captain-course-page .iso-badge {
-                width: 76px;
-                height: 76px;
-
-                bottom: 8px;
-            }
-
-            .captain-course-page .section-title {
-                margin-top: 24px;
-
-                font-size: 20px;
-            }
-
-            .captain-course-page .section-title::before,
-            .captain-course-page .section-title::after {
-                width: 40px;
-            }
-
-            .captain-course-page .benefit-card {
-                padding: 10px 12px;
-
-                gap: 10px;
-            }
-
-            .captain-course-page .benefit-icon {
-                width: 40px;
-                height: 40px;
-
-                min-width: 40px;
-            }
-
-            .captain-course-page .benefit-card h3 {
-                font-size: 13.5px;
-            }
-
-            .captain-course-page .benefit-card p {
-                font-size: 11.5px;
-            }
-
-            .captain-course-page .quality-box {
-                padding: 13px;
-
-                gap: 10px;
-            }
-
-            .captain-course-page .quality-icon {
-                width: 46px;
-                height: 46px;
-
-                min-width: 46px;
-            }
-
-            .captain-course-page .quality-box p {
-                font-size: 11.5px;
-            }
-
-            .captain-course-page .price-number {
-                font-size: 36px;
-            }
-
-            .captain-course-page .launch-offer {
-                font-size: 11px;
-            }
-
-            .captain-course-page .register-button {
-                font-size: 14px;
-            }
-
-            .captain-course-page .course-feature-icon {
-                width: 38px;
-                height: 38px;
-
-                font-size: 15px;
-            }
-
-            .captain-course-page .course-feature span {
-                font-size: 10.5px;
-            }
-        }
-
-    </style>
 </head>
-
 
 <body>
 
-    <!-- =========================================================
-         HEADER
-    ========================================================= -->
+<header>
 
-    <header>
+<div class="site-branding">
 
-        <div class="site-branding">
+    <img
+        src="TDrive_Vision2030_banner.svg"
+        alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
+        class="tdrive-header-logo"
+    >
 
-            <img
-                src="TDrive_Vision2030_banner.svg"
-                alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
-                class="tdrive-header-logo">
-
-        </div>
-
-        <nav>
-
-            <a href="index.html">
-                الرئيسية
-            </a>
-
-            <a href="about.html">
-                من نحن
-            </a>
-
-            <a href="services.html">
-                الخدمات
-            </a>
-
-            <a href="booking.html" class="nav-register">
-                تسجيل
-            </a>
-
-            <a href="road-safety.html">
-                السلامة المرورية
-            </a>
-
-            <a href="#contact">
-                تواصل معنا
-            </a>
-
-        </nav>
-
-    </header>
-
-
-    <!-- =========================================================
-         MAIN
-    ========================================================= -->
-
-    <main>
-
-
-        <!-- =====================================================
-             CAPTAIN PRO COURSE
-        ===================================================== -->
-
-        <section class="captain-course-page">
-
-            <div class="test-page">
-
-
-                <!-- =========================
-                     COURSE HERO
-                ========================= -->
-
-                <section class="course-hero">
-
-                    <img
-                        src="tdrive_car_background.svg"
-                        alt="سيارة TDrive"
-                        class="hero-image">
-
-
-                    <img
-                        src="ISO_9001_2015_TDrive_circle.svg"
-                        alt="ISO 9001:2015"
-                        class="iso-badge">
-
-
-                    <div class="hero-content">
-
-                        <div class="registration-badge">
-                            بدأ التسجيل
-                        </div>
-
-
-                        <h1>
-
-                            دورة الكابتن المحترف
-
-                            <span class="wheel-icon">
-
-                                <svg
-                                    viewBox="0 0 64 64"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-
-                                    <circle
-                                        cx="32"
-                                        cy="32"
-                                        r="20"
-                                        stroke="currentColor"
-                                        stroke-width="5"/>
-
-                                    <circle
-                                        cx="32"
-                                        cy="32"
-                                        r="5"
-                                        fill="currentColor"/>
-
-                                    <path
-                                        d="M32 7V20"
-                                        stroke="currentColor"
-                                        stroke-width="5"
-                                        stroke-linecap="round"/>
-
-                                    <path
-                                        d="M32 44V57"
-                                        stroke="currentColor"
-                                        stroke-width="5"
-                                        stroke-linecap="round"/>
-
-                                    <path
-                                        d="M7 32H20"
-                                        stroke="currentColor"
-                                        stroke-width="5"
-                                        stroke-linecap="round"/>
-
-                                    <path
-                                        d="M44 32H57"
-                                        stroke="currentColor"
-                                        stroke-width="5"
-                                        stroke-linecap="round"/>
-
-                                </svg>
-
-                            </span>
-
-                        </h1>
-
-
-                        <h2>
-                            تطبيق أنظمة الايزو العالمية
-                            <br>
-                            في نشاط النقل
-                        </h2>
-
-
-                        <p class="hero-description">
-
-                            دورة عملية تساعدك على فهم وتطبيق
-                            متطلبات الجودة العالمية
-
-                        </p>
-
-                    </div>
-
-                </section>
-
-
-                <!-- =========================
-                     BENEFITS TITLE
-                ========================= -->
-
-                <h2 class="section-title">
-                    ماذا ستحصل عليه؟
-                </h2>
-
-
-                <!-- =========================
-                     BENEFITS
-                ========================= -->
-
-                <section class="benefits">
-
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-icon">
-                            <i class="fa-solid fa-book-open"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                مواد إثراء إضافية
-                            </h3>
-
-                            <p>
-                                معلومات مختارة لتطوير معرفتك وتعميق فهمك.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-icon">
-                            <i class="fa-solid fa-chart-line"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                صفحة متابعة الأداء التشغيلي
-                            </h3>
-
-                            <p>
-                                أداة عملية تساعدك على متابعة أدائك وتحسينه باستمرار.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-icon">
-                            <i class="fa-solid fa-credit-card"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                ملصق بيانات الحساب البنكي
-                            </h3>
-
-                            <p>
-                                ملصق جاهز يحتوي على بيانات الحساب لاستخدامه في عملك.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="benefit-card">
-
-                        <div class="benefit-icon">
-                            <i class="fa-solid fa-certificate"></i>
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                شهادة حضور الدورة
-                            </h3>
-
-                            <p>
-                                شهادة حضور بعد إتمام الدورة.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                </section>
-
-
-                <!-- =========================
-                     QUALITY
-                ========================= -->
-
-                <section class="quality-box">
-
-
-                    <div class="quality-icon">
-
-                        <i class="fa-solid fa-award"></i>
-
-                    </div>
-
-
-                    <div class="quality-divider"></div>
-
-
-                    <div>
-
-                        <h3>
-                            منهج قائم على الجودة
-                        </h3>
-
-                        <p>
-                            تدريب عملي وفق معيار ISO 9001:2015
-                            لتطبيق مبادئ الجودة في نشاط النقل
-                            ورفع جودة أدائك وخدماتك.
-                        </p>
-
-                    </div>
-
-
-                </section>
-
-
-                <!-- =========================
-                     PRICE
-                ========================= -->
-
-                <section class="course-price">
-
-
-                    <span class="price-label">
-                        سعر الدورة
-                    </span>
-
-
-                    <div class="price-row">
-
-                        <span class="old-price">
-                            300 ريال
-                        </span>
-
-
-                        <span class="new-price">
-
-                            <span class="price-number">
-                                100
-                            </span>
-
-                            <span class="currency">
-                                ريال فقط
-                            </span>
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="launch-offer">
-                        حصرياً — عرض الإطلاق
-                    </div>
-
-
-                </section>
-
-
-                <!-- =========================
-                     REGISTER
-                ========================= -->
-
-                <a
-                    href="booking.html"
-                    class="register-button">
-
-                    <span>
-                        ←
-                    </span>
-
-                    سجل الآن في دورة الكابتن المحترف
-
-                </a>
-
-
-                <!-- =========================
-                     COURSE FEATURES
-                ========================= -->
-
-                <section class="course-features">
-
-
-                    <div class="course-feature">
-
-                        <div class="course-feature-icon">
-                            <i class="fa-solid fa-award"></i>
-                        </div>
-
-                        <span>
-                            جودة ومنهجية
-                        </span>
-
-                    </div>
-
-
-                    <div class="course-feature">
-
-                        <div class="course-feature-icon">
-                            <i class="fa-solid fa-book"></i>
-                        </div>
-
-                        <span>
-                            مواد إثرائية
-                        </span>
-
-                    </div>
-
-
-                    <div class="course-feature">
-
-                        <div class="course-feature-icon">
-                            <i class="fa-solid fa-certificate"></i>
-                        </div>
-
-                        <span>
-                            شهادة حضور
-                        </span>
-
-                    </div>
-
-
-                </section>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             HERO / TDRIVE INTRO
-        ===================================================== -->
-
-        <section id="home" class="hero">
-
-            <div class="hero-car">
-
-                <img
-                    src="89708DDA-E6D8-4EF4-AD56-DA291207DB22.png"
-                    alt="TDrive Car">
-
-            </div>
-
-
-            <div class="hero-content">
-
-                <p>
-                    منظومة سعودية متخصصة في حلول القيادة والتنقل.
-                </p>
-
-
-                <a
-                    href="services.html"
-                    class="button">
-
-                    استكشف خدماتنا
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             VERIFICATION
-        ===================================================== -->
-
-        <section class="tdrive-verification">
-
-
-            <div class="verification-card">
-
-
-                <div class="verification-shield">
-
-                    <i class="fa-solid fa-shield-halved"></i>
-
-                </div>
-
-
-                <h2>
-                    TDrive
-                </h2>
-
-
-                <p class="verification-description">
-                    مؤسسة متخصصة في حلول خدمات القيادة والتنقل
-                </p>
-
-
-                <div class="verification-line"></div>
-
-
-                <p class="verification-text">
-
-                    نحن موثوقون لدى وزارة الموارد البشرية
-                    والتنمية الاجتماعية والعمل الحر
-                    بوثيقة رقم:
-
-                    <strong>
-                        FL-198268972
-                    </strong>
-
-                </p>
-
-
-                <div class="official-logos">
-
-                    <img
-                        src="IMG_4039.jpeg"
-                        alt="وزارة الموارد البشرية والتنمية الاجتماعية والعمل الحر">
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             PAYMENT
-        ===================================================== -->
-
-        <section class="payment-section">
-
-
-            <h2>
-
-                <i class="fa-solid fa-lock"></i>
-
-                طرق الدفع الإلكترونية
-
-            </h2>
-
-
-            <p class="payment-description">
-                يمكنكم الدفع من خلال خيارات دفع موثوقة وسهلة وآمنة
-            </p>
-
-
-            <div class="payment-methods">
-
-
-                <div class="payment-card">
-
-
-                    <div class="payment-icon bank-icon">
-
-                        <i class="fa-solid fa-building-columns"></i>
-
-                    </div>
-
-
-                    <div class="payment-info">
-
-                        <h3>
-                            تحويل بنكي
-                        </h3>
-
-                        <p>
-                            يمكنكم الدفع من خلال التحويل البنكي الآمن
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="payment-card">
-
-
-                    <div class="payment-logo">
-
-                        <img
-                            src="5B54E210-DF91-4734-B04E-1553073FF19D.png"
-                            alt="تمارا">
-
-                    </div>
-
-
-                    <div class="payment-info">
-
-                        <h3>
-                            تمارا
-                        </h3>
-
-                        <p>
-                            يمكنكم الدفع من خلال برنامج تمارا بسهولة وأمان
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             REVIEWS
-        ===================================================== -->
-
-        <section class="reviews">
-
-
-            <h2>
-                🩵 رأيك يهمنا
-            </h2>
-
-
-            <div class="card">
-
-
-                <p>
-                    نسعد بتقييمك، فملاحظاتك تساعدنا على تطوير خدمات TDrive.
-                </p>
-
-
-                <form id="reviewForm">
-
-
-                    <label>
-                        اسم البرنامج
-                    </label>
-
-
-                    <select
-                        id="reviewProgram"
-                        required>
-
-                        <option value="">
-                            اختر البرنامج
-                        </option>
-
-                        <option>
-                            احترفي القيادة على الطريق
-                        </option>
-
-                        <option>
-                            دورة الكابتن المحترف
-                        </option>
-
-                        <option>
-                            شراء سيارة
-                        </option>
-
-                        <option>
-                            أخرى
-                        </option>
-
-                    </select>
-
-
-                    <label>
-                        التقييم
-                    </label>
-
-
-                    <div
-                        class="stars"
-                        id="reviewStars">
-
-                        <span data-rate="1">
-                            &#9733;
-                        </span>
-
-                        <span data-rate="2">
-                            &#9733;
-                        </span>
-
-                        <span data-rate="3">
-                            &#9733;
-                        </span>
-
-                        <span data-rate="4">
-                            &#9733;
-                        </span>
-
-                        <span data-rate="5">
-                            &#9733;
-                        </span>
-
-                    </div>
-
-
-                    <label>
-                        اكتب تجربتك
-                    </label>
-
-
-                    <textarea
-                        id="reviewComment"
-                        placeholder="اكتب رأيك هنا..."
-                        required></textarea>
-
-
-                    <button
-                        type="submit"
-                        class="review-btn">
-
-                        إرسال التقييم
-
-                    </button>
-
-
-                </form>
-
-
-                <h3
-                    style="
-                        margin-top:18px;
-                        color:#65b7c3;
-                    ">
-
-                    🩵 آراء العملاء
-
-                </h3>
-
-
-                <div
-                    id="reviewsContainer"
-                    class="reviews-slider">
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CONTACT
-        ===================================================== -->
-
-        <section
-            id="contact"
-            class="contact">
-
-
-            <h2>
-                تواصل معنا
-            </h2>
-
-
-            <p class="contact-text">
-                يسعدنا الرد على استفساراتكم
-            </p>
-
-
-            <div class="social-links">
-
-
-                <a
-                    href="https://wa.me/966556117180"
-                    target="_blank"
-                    aria-label="WhatsApp">
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                </a>
-
-
-                <a
-                    href="https://www.tiktok.com/@tdrive.sa"
-                    target="_blank"
-                    aria-label="TikTok">
-
-                    <i class="fa-brands fa-tiktok"></i>
-
-                </a>
-
-
-                <a
-                    href="mailto:tdrive.sa@gmail.com"
-                    aria-label="Email">
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                </a>
-
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-    <!-- =========================================================
-         FOOTER LINKS
-    ========================================================= -->
-
-    <div class="footer-links">
-
-        <a href="terms.html">
-            الشروط والأحكام
-        </a>
-
-        <a href="privacy.html">
-            سياسة الخصوصية
-        </a>
-
-        <a href="cancellation.html">
-            سياسة الإلغاء والاسترجاع
-        </a>
-
-        <a href="safety-policy.html">
-            سياسة السلامة
-        </a>
+</div>
 
     </div>
 
+    <nav>
 
-    <!-- =========================================================
-         FOOTER
-    ========================================================= -->
+        <a href="index.html">الرئيسية</a>
 
-    <footer>
+        <a href="about.html">من نحن</a>
 
-        © 2026 TDrive | تكنولوجيا القيادة
+        <a href="services.html">الخدمات</a>
 
-    </footer>
+        <a href="booking.html" class="nav-register">تسجيل</a>
+
+        <a href="road-safety.html">السلامة المرورية</a>
+
+        <a href="#contact">تواصل معنا</a>
 
 
-    <!-- =========================================================
-         SCRIPTS
-    ========================================================= -->
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
 
-    <script
-        type="module"
-        src="app.js?v=10">
-    </script>
+</nav>
 
+</header>
+
+<div class="hero-car">
+    <img src="89708DDA-E6D8-4EF4-AD56-DA291207DB22.png" alt="TDrive Car">
+</div>
+<section id="home" class="hero">
+
+<div class="hero-content">
+
+
+
+<p>
+منظومة سعودية متخصصة في حلول القيادة والتنقل.
+</p>
+
+    <a href="services.html" class="button">
+استكشف خدماتنا
+</a>
+
+</div>
+
+</section>
+    
+<section class="featured-program">
+
+<div class="card">
+
+<div class="top-badge">
+ البرنامج الأكثر طلباً
+</div>
+
+<h2>
+ برنامج احترفي القيادة على الطريق
+</h2>
+
+<div class="quote">
+
+</div>
+
+<p>
+تقدم <strong>TDrive</strong> برنامجاً تدريبياً عملياً على
+<strong>سيارة المؤسسة</strong>
+وفق منهجية تدريب احترافية تساعدك على اكتساب الثقة وإتقان القيادة على الطريق.
+</p>
+
+<div class="features">
+
+<div>
+
+<span>تدريب عملي</span>
+</div>
+
+<div>
+
+<span>قيادة آمنة</span>
+</div>
+
+<div>
+
+<span>5 ساعات</span>
+</div>
+
+</div>
+
+<p class="old-price">
+السعر الأساسي
+<s>500 ريال</s>
+</p>
+
+<div class="price-box">
+
+<div class="price">
+375
+</div>
+
+<div class="price-text">
+ريال فقط
+</div>
+
+<div class="offer">
+ عرض لفترة محدودة
+</div>
+
+</div>
+
+<a href="booking.html" class="register-btn">
+سجلي الآن →
+</a>
+
+</div>
+
+</section>
+    <!-- قسم التوثيق -->
+<section class="tdrive-verification">
+
+    <div class="verification-card">
+
+        <!-- درع التوثيق -->
+        <div class="verification-shield">
+            <i class="fa-solid fa-shield-halved"></i>
+
+        </div>
+
+        <h2>
+            TDrive
+            
+        </h2>
+
+        <p class="verification-description">
+            مؤسسة متخصصة في حلول خدمات القيادة والتنقل
+        </p>
+
+        <div class="verification-line"></div>
+
+        <p class="verification-text">
+            نحن موثوقون لدى وزارة الموارد البشرية والتنمية الاجتماعية والعمل الحر بوثيقة رقم:
+            <strong>FL-198268972</strong>
+        </p>
+
+        <!-- شعارات الموارد البشرية والعمل الحر -->
+        <div class="official-logos">
+            <img
+                src="IMG_4039.jpeg"
+                alt="وزارة الموارد البشرية والتنمية الاجتماعية والعمل الحر"
+            >
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- طرق الدفع -->
+<section class="payment-section">
+
+    <h2>
+        <i class="fa-solid fa-lock"></i>
+        طرق الدفع الإلكترونية
+    </h2>
+
+    <p class="payment-description">
+        يمكنكم الدفع من خلال خيارات دفع موثوقة وسهلة وآمنة
+    </p>
+
+    <div class="payment-methods">
+
+        <!-- تحويل بنكي -->
+        <div class="payment-card">
+
+            <div class="payment-icon bank-icon">
+                <i class="fa-solid fa-building-columns"></i>
+            </div>
+
+            <div class="payment-info">
+                <h3>تحويل بنكي</h3>
+
+                <p>
+                    يمكنكم الدفع من خلال التحويل البنكي الآمن
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- تمارا -->
+        <div class="payment-card">
+
+            <div class="payment-logo">
+                <img
+                    src="5B54E210-DF91-4734-B04E-1553073FF19D.png"
+                    alt="تمارا"
+                >
+            </div>
+
+            <div class="payment-info">
+                <h3>تمارا</h3>
+
+                <p>
+                    يمكنكم الدفع من خلال برنامج تمارا بسهولة وأمان
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="reviews">
+
+<h2>🩵 رأيك يهمنا</h2>
+
+<div class="card">
+
+<p>
+نسعد بتقييمك، فملاحظاتك تساعدنا على تطوير خدمات TDrive.
+</p>
+
+<form id="reviewForm">
+
+<label>اسم البرنامج</label>
+
+<select id="reviewProgram" required>
+
+<option value="">اختر البرنامج</option>
+
+<option>احترفي القيادة على الطريق</option>
+
+<option>دورة الكابتن المحترف</option>
+
+<option>شراء سيارة</option>
+
+<option>أخرى</option>
+
+</select>
+
+<label>التقييم</label>
+
+<div class="stars" id="reviewStars">
+
+<span data-rate="1">&#9733;</span>
+<span data-rate="2">&#9733;</span>
+<span data-rate="3">&#9733;</span>
+<span data-rate="4">&#9733;</span>
+<span data-rate="5">&#9733;</span>
+
+</div>
+
+<label>اكتب تجربتك</label>
+
+<textarea
+id="reviewComment"
+placeholder="اكتب رأيك هنا..."
+required></textarea>
+
+<button
+type="submit"
+class="review-btn">
+
+ إرسال التقييم
+
+</button>
+
+</form>
+<h3 style="margin-top:18px;color:#65b7c3;">
+🩵 آراء العملاء
+</h3>
+
+<div id="reviewsContainer" class="reviews-slider">
+
+</div>
+</div>
+
+</section>
+<section id="contact" class="contact">
+
+<h2>تواصل معنا</h2>
+
+<p class="contact-text">
+يسعدنا الرد على استفساراتكم
+</p>
+
+<div class="social-links">
+
+<a href="https://wa.me/966556117180" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a href="https://www.tiktok.com/@tdrive.sa" target="_blank">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+
+<a href="mailto:tdrive.sa@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+</a>
+
+</div>
+
+</section>
+
+</section>
+
+<section class="footer-links">
+
+    <a href="terms.html">
+        الشروط والأحكام
+    </a>
+
+    <a href="privacy.html">
+        سياسة الخصوصية
+    </a>
+
+    <a href="cancellation.html">
+        سياسة الإلغاء والاسترجاع
+    </a>
+
+    <a href="safety-policy.html">
+        سياسة السلامة
+    </a>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 TDrive | تكنولوجيا القيادة
+</p>
+
+</footer>
+
+
+<!-- هذا هو السطر الجديد اللي ضفناه -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
+<script type="module" src="app.js?v=10"></script>
 
 </body>
-
 </html>
