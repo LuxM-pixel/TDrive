@@ -31,7 +31,7 @@ header{
     flex-direction:column;
     align-items:center;
     width:100%;
-    padding:20px 0;
+    padding:10px 0;
     background:#fff;
     box-shadow:0 8px 25px rgba(0,0,0,.05);
     z-index:999;
@@ -54,14 +54,13 @@ color:#888;
 }
 
 nav{
-display:flex;
-justify-content:flex-start;
-align-items:center;
-gap:22px;
-width:100%;
-margin-top:20px;
-overflow-x:auto;
-white-space:nowrap;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    width:100%;
+    margin-top:8px;
+    overflow-x:auto;
 }
 
 
@@ -83,10 +82,10 @@ color:#65b7c3;
     align-items: center;
 }
 
-.tdrive-header-logo {
-    width: 430px;
-    height: auto;
-    display: block;
+.tdrive-header-logo{
+    width:280px;
+    height:auto;
+    display:block;
 }
 
 
