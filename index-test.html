@@ -293,6 +293,502 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             margin-top: 10px;
         }
     }
+    /* ============================================
+       تنسيق قسم "دورة الكابتن المحترف"
+       كل الـ selectors محصورة داخل .captain-course-section
+    ============================================ */
+
+    .captain-course-section {
+        --cap-tdrive: #4F9FAE;
+        --cap-tdrive-rgb: 79, 159, 174;
+        --cap-tdrive-dark: #164C5C;
+        --cap-tdrive-light: #EEF8FA;
+        --cap-text: #263B42;
+        --cap-muted: #68777C;
+        --cap-white: #FFFFFF;
+        --cap-border: #DCECEF;
+        --cap-highlight: #F4D35E;
+
+        display: block;
+        background: #FFFFFF;
+        font-family: "Tajawal", Arial, Tahoma, sans-serif;
+        color: var(--cap-text);
+        font-weight: 400;
+    }
+
+    .captain-course-section,
+    .captain-course-section * {
+        box-sizing: border-box;
+    }
+
+    .captain-course-section .test-page {
+        width: 100%;
+        max-width: 760px;
+        margin: auto;
+        padding: 18px;
+    }
+
+    .captain-course-section .course-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 620px;
+        border-radius: 0 0 26px 26px;
+        background: transparent;
+        text-align: center;
+        border: none;
+        margin: -18px -18px 0 -18px;
+    }
+
+    .captain-course-section .hero-image {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        display: block;
+    }
+
+    .captain-course-section .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 85px 14px 0;
+    }
+
+    .captain-course-section .iso-badge {
+        position: absolute;
+        left: 50%;
+        bottom: 14px;
+        transform: translateX(-50%);
+        width: 108px;
+        height: 108px;
+        z-index: 3;
+        padding: 6px;
+        background: #FFFFFF;
+        border-radius: 50%;
+        border: 3px solid var(--cap-tdrive);
+        box-shadow:
+            0 6px 16px rgba(22, 76, 92, 0.28),
+            0 0 0 6px rgba(255, 255, 255, 0.9);
+        object-fit: contain;
+    }
+
+    .captain-course-section .registration-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 15px;
+        border-radius: 30px;
+        background: rgba(79, 159, 174, 0.10);
+        color: var(--cap-tdrive);
+        font-size: 13px;
+        font-weight: 600;
+        animation: capRegistrationGlow 2.2s ease-in-out infinite;
+    }
+
+    @keyframes capRegistrationGlow {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(79, 159, 174, 0); }
+        50% { box-shadow: 0 0 18px 5px rgba(79, 159, 174, 0.22); }
+    }
+
+    .captain-course-section .registration-badge::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--cap-tdrive);
+    }
+
+    .captain-course-section .hero-content h1 {
+        margin: 16px 0 6px;
+        color: var(--cap-tdrive-dark);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.35;
+        letter-spacing: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .captain-course-section .hero-content h1 .wheel-icon {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+    }
+
+    .captain-course-section .hero-content h1 .wheel-icon svg {
+        width: 100%;
+        height: 100%;
+        stroke: var(--cap-tdrive);
+        fill: none;
+        stroke-width: 3;
+    }
+
+    .captain-course-section .hero-content h2 {
+        margin: 0 auto;
+        color: var(--cap-tdrive);
+        font-size: 19px;
+        line-height: 1.6;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+
+    .captain-course-section .hero-description {
+        max-width: 500px;
+        margin: 12px auto 0;
+        color: var(--cap-muted);
+        font-size: 13.5px;
+        line-height: 1.9;
+        font-weight: 400;
+    }
+
+    .captain-course-section .hero-description strong {
+        color: var(--cap-tdrive);
+        font-weight: 700;
+    }
+
+    .captain-course-section .section-title {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 25px 0 15px;
+        color: var(--cap-tdrive-dark);
+        font-size: 21px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .captain-course-section .section-title::before,
+    .captain-course-section .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--cap-tdrive);
+        position: relative;
+    }
+
+    .captain-course-section .section-title::before {
+        background: linear-gradient(to left, var(--cap-tdrive) 0%, var(--cap-tdrive) 6px, transparent 6px);
+    }
+
+    .captain-course-section .section-title::after {
+        background: linear-gradient(to right, var(--cap-tdrive) 0%, var(--cap-tdrive) 6px, transparent 6px);
+    }
+
+    .captain-course-section .benefits {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        background: #FFFFFF;
+        border: 1px solid var(--cap-border);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 5px 18px rgba(22, 76, 92, 0.05);
+    }
+
+    .captain-course-section .benefit-card {
+        min-height: auto;
+        padding: 13px 16px;
+        background: #FFFFFF;
+        border: none;
+        border-radius: 0;
+        text-align: right;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 13px;
+        box-shadow: none;
+    }
+
+    .captain-course-section .benefit-card + .benefit-card {
+        border-top: 1px solid var(--cap-border);
+    }
+
+    .captain-course-section .benefit-icon {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--cap-tdrive-light);
+        color: var(--cap-tdrive);
+    }
+
+    .captain-course-section .benefit-icon svg {
+        width: 23px;
+        height: 23px;
+        display: block;
+        stroke: currentColor;
+        fill: none;
+    }
+
+    .captain-course-section .benefit-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .captain-course-section .benefit-card h3 {
+        margin: 0 0 2px;
+        color: var(--cap-tdrive-dark);
+        font-size: 15px;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+
+    .captain-course-section .benefit-card p {
+        margin: 0;
+        color: var(--cap-muted);
+        font-size: 12px;
+        line-height: 1.65;
+        font-weight: 400;
+    }
+
+    .captain-course-section .benefit-underline {
+        display: none;
+    }
+
+    .captain-course-section .quality-box {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 20px;
+        background: var(--cap-tdrive-light);
+        border: 1px solid #D9ECEF;
+    }
+
+    .captain-course-section .quality-icon {
+        flex: 0 0 52px;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #FFFFFF;
+        color: var(--cap-tdrive);
+        box-shadow: 0 4px 10px rgba(22, 76, 92, 0.10);
+    }
+
+    .captain-course-section .quality-icon svg {
+        width: 26px;
+        height: 26px;
+        stroke: currentColor;
+        fill: none;
+    }
+
+    .captain-course-section .quality-divider {
+        flex: 0 0 1px;
+        align-self: stretch;
+        background: rgba(var(--cap-tdrive-rgb), 0.35);
+    }
+
+    .captain-course-section .quality-text { flex: 1; }
+
+    .captain-course-section .quality-text h3 {
+        margin: 0 0 5px;
+        color: var(--cap-tdrive);
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .captain-course-section .quality-text p {
+        margin: 0;
+        color: var(--cap-muted);
+        font-size: 12.5px;
+        line-height: 1.8;
+        font-weight: 400;
+    }
+
+    .captain-course-section .course-price {
+        margin-top: 20px;
+        padding: 17px 18px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #F5FBFC, #EEF8FA);
+        border: 1px solid #D9ECEF;
+        text-align: center;
+    }
+
+    .captain-course-section .price-label {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--cap-tdrive-dark);
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .captain-course-section .price-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        direction: rtl;
+    }
+
+    .captain-course-section .old-price {
+        display: inline-block;
+        color: #89969A;
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration-line: line-through;
+        text-decoration-color: #89969A;
+        text-decoration-thickness: 2px;
+        text-decoration-skip-ink: none;
+    }
+
+    .captain-course-section .new-price {
+        position: relative;
+        display: inline-flex;
+        align-items: baseline;
+        gap: 4px;
+        color: var(--cap-tdrive-dark);
+        font-size: 40px;
+        line-height: 1.15;
+        font-weight: 800;
+        isolation: isolate;
+    }
+
+    .captain-course-section .new-price::before {
+        content: "";
+        position: absolute;
+        width: 104px;
+        height: 42px;
+        left: 47%;
+        top: 53%;
+        transform: translate(-50%, -50%) rotate(-5deg);
+        background: var(--cap-highlight);
+        opacity: 0.72;
+        border-radius: 46% 54% 52% 48% / 55% 44% 56% 45%;
+        z-index: -1;
+        filter: blur(0.3px);
+    }
+
+    .captain-course-section .new-price .price-number { position: relative; z-index: 2; }
+
+    .captain-course-section .new-price .currency {
+        position: relative;
+        z-index: 2;
+        font-size: 17px;
+        font-weight: 600;
+        margin-right: 2px;
+    }
+
+    .captain-course-section .launch-offer {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 7px;
+        padding: 5px 14px;
+        border-radius: 20px;
+        background: var(--cap-tdrive);
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(var(--cap-tdrive-rgb), 0.18);
+    }
+
+    .captain-course-section .register-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 14px;
+        padding: 14px 16px;
+        border: 0;
+        border-radius: 14px;
+        background: var(--cap-tdrive);
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(var(--cap-tdrive-rgb), 0.22);
+        transition: 0.2s;
+    }
+
+    .captain-course-section .register-button:hover { transform: translateY(-2px); }
+
+    .captain-course-section .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 15px;
+        padding: 8px 0 3px;
+    }
+
+    .captain-course-section .feature { text-align: center; color: var(--cap-tdrive); }
+
+    .captain-course-section .feature-icon {
+        width: 42px;
+        height: 42px;
+        margin: 0 auto 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--cap-tdrive-light);
+        color: var(--cap-tdrive);
+    }
+
+    .captain-course-section .feature-icon svg {
+        width: 23px;
+        height: 23px;
+        stroke: currentColor;
+        fill: none;
+    }
+
+    .captain-course-section .feature span {
+        display: block;
+        color: var(--cap-muted);
+        font-size: 11px;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    @media (max-width: 520px) {
+        .captain-course-section .test-page { padding: 10px; }
+        .captain-course-section .course-hero { min-height: 370px; border-radius: 0 0 20px 20px; margin: -10px -10px 0 -10px; }
+        .captain-course-section .hero-content { padding: 20px 14px 0; transform: translateY(-15px); }
+        .captain-course-section .registration-badge { font-size: 12px; padding: 6px 13px; font-weight: 600; }
+        .captain-course-section .hero-content h1 { font-size: 27px; line-height: 1.3; margin: 14px 0 4px; letter-spacing: 0; font-weight: 700; }
+        .captain-course-section .hero-content h1 .wheel-icon { width: 25px; height: 25px; }
+        .captain-course-section .hero-content h2 { font-size: 17px; line-height: 1.4; margin-top: 2px; font-weight: 600; }
+        .captain-course-section .hero-description { max-width: 430px; font-size: 12.5px; line-height: 1.8; margin-top: 8px; font-weight: 400; }
+        .captain-course-section .hero-image { width: 100%; left: 0; bottom: 0; }
+        .captain-course-section .iso-badge { width: 76px; height: 76px; bottom: 8px; padding: 4px; border-width: 2.5px; box-shadow: 0 5px 12px rgba(22, 76, 92, 0.28), 0 0 0 5px rgba(255, 255, 255, 0.9); }
+        .captain-course-section .section-title { font-size: 20px; margin: 22px 0 11px; gap: 10px; font-weight: 700; }
+        .captain-course-section .benefits { border-radius: 16px; }
+        .captain-course-section .benefit-card { padding: 10px 12px; gap: 11px; }
+        .captain-course-section .benefit-icon { width: 40px; height: 40px; flex-basis: 40px; }
+        .captain-course-section .benefit-icon svg { width: 21px; height: 21px; }
+        .captain-course-section .benefit-card h3 { font-size: 13.5px; line-height: 1.45; margin-bottom: 1px; font-weight: 600; }
+        .captain-course-section .benefit-card p { font-size: 11.5px; line-height: 1.6; font-weight: 400; }
+        .captain-course-section .quality-box { padding: 13px; gap: 10px; border-radius: 16px; }
+        .captain-course-section .quality-icon { flex-basis: 46px; width: 46px; height: 46px; }
+        .captain-course-section .quality-text h3 { font-size: 15px; font-weight: 700; }
+        .captain-course-section .quality-text p { font-size: 12px; line-height: 1.75; font-weight: 400; }
+        .captain-course-section .course-price { margin-top: 17px; padding: 15px 12px; border-radius: 16px; }
+        .captain-course-section .price-label { font-size: 12px; margin-bottom: 3px; }
+        .captain-course-section .price-row { gap: 8px; }
+        .captain-course-section .old-price { font-size: 14px; text-decoration-thickness: 1.8px; }
+        .captain-course-section .new-price { font-size: 36px; }
+        .captain-course-section .new-price::before { width: 88px; height: 38px; left: 47%; top: 53%; transform: translate(-50%, -50%) rotate(-5deg); opacity: 0.72; }
+        .captain-course-section .new-price .currency { font-size: 15px; }
+        .captain-course-section .launch-offer { margin-top: 6px; padding: 5px 12px; font-size: 11px; }
+        .captain-course-section .register-button { margin-top: 13px; padding: 13px 12px; font-size: 14px; border-radius: 13px; font-weight: 700; }
+        .captain-course-section .features { margin-top: 12px; gap: 5px; }
+        .captain-course-section .feature-icon { width: 38px; height: 38px; }
+        .captain-course-section .feature-icon svg { width: 21px; height: 21px; }
+        .captain-course-section .feature span { font-size: 10.5px; line-height: 1.5; font-weight: 400; }
+    }
 
 </style>
 </head>
