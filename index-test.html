@@ -873,89 +873,36 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 }
 
 /* ============================================
-   ضبط نص Hero — دورة الكابتن المحترف
-   ============================================ */
-
-@media (max-width: 520px) {
-
-    /* رفع/خفض كتلة النص بالكامل وتقليل الفراغات */
-    .captain-course-section .hero-content {
-        padding-top: 18px;
-        transform: translateY(5px);
-    }
-
-    /* بدأ التسجيل */
-    .captain-course-section .registration-badge {
-        margin-bottom: 4px;
-    }
-
-    /* العنوان الرئيسي */
-    .captain-course-section .hero-content h1 {
-        margin: 8px 0 2px;
-        line-height: 1.2;
-    }
-
-    /* العنوان الفرعي */
-    .captain-course-section .hero-content h2 {
-        margin: 0;
-        line-height: 1.25;
-    }
-
-    /* الوصف — يقرب من العنوان ويظل فوق السيارة */
-    .captain-course-section .hero-description {
-        margin: 7px auto 0;
-        line-height: 1.45;
-    }
-
-}
-/* ============================================
-   ضبط نص Hero ودائرة الأيزو — شاشات الجوال
+   ضبط نص Hero ودائرة الأيزو — شاشات الجوال (معدل)
    ============================================ */
 @media (max-width: 520px) {
-    /* 1) تعديل الحاوية لدفع النص للأسفل */
+    /* 1) تقليل الارتفاع وإلغاء الفراغ الأبيض الكبير في الأعلى */
     .captain-course-section .course-hero {
-        min-height: 420px; /* تقليل الفراغ العلوي المبالغ فيه */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end; /* دفع المحتوى (النص) للأسفل */
-        padding-bottom: 170px; /* ترك مساحة سفلية للسيارة */
+        min-height: auto !important; 
+        display: block !important; 
+        padding-top: 30px !important; /* مسافة مرتبة من الأعلى */
+        padding-bottom: 170px !important; /* حجز مساحة للسيارة بالأسفل */
     }
 
-    /* 2) تعديل مقاس السيارة */
+    /* 2) تثبيت السيارة في الأسفل بحجم مناسب */
     .captain-course-section .hero-image {
-        max-height: 180px; 
+        max-height: 170px !important; 
         object-fit: cover;
     }
 
-    /* 3) ضبط المسافات للنص ليكون فوق السيارة تماماً */
+    /* 3) إلغاء الدفع السابق للنص ليعود لترتيبه الطبيعي */
     .captain-course-section .hero-content {
-        padding-top: 0;
-        transform: translateY(15px); /* تقريب الكتلة النصية أكثر لسقف السيارة */
+        padding-top: 0 !important;
+        transform: none !important; 
     }
 
-    /* 4) توضيح دائرة الأيزو ورفعها لتكون بارزة */
+    /* 4) ترتيب دائرة الأيزو وتنزيلها لأسفل السيارة لتكون واضحة وأنيقة */
     .captain-course-section .iso-badge {
-        width: 85px !important;
-        height: 85px !important;
-        bottom: 25px !important; /* رفع الدائرة للأعلى لتكون واضحة بالكامل */
-        padding: 4px;
-        border-width: 3px;
-        box-shadow: 0 6px 15px rgba(22, 76, 92, 0.35), 0 0 0 5px rgba(255, 255, 255, 0.95);
-    }
-
-    /* 5) تقليل الفراغات بين العناوين لترتيب الشكل */
-    .captain-course-section .registration-badge {
-        margin-bottom: 8px;
-    }
-
-    .captain-course-section .hero-content h1 {
-        margin: 4px 0 2px;
-        line-height: 1.2;
-    }
-
-    .captain-course-section .hero-description {
-        margin: 5px auto 0;
-        line-height: 1.5;
+        width: 75px !important;
+        height: 75px !important;
+        bottom: 15px !important; /* تنزيلها للأسفل حتى لا تغطي السيارة */
+        box-shadow: 0 4px 12px rgba(22, 76, 92, 0.25), 0 0 0 4px #fff !important;
+        z-index: 10 !important;
     }
 }
 
