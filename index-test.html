@@ -1,265 +1,2184 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>الكابتن المحترف - TDrive</title>
+<meta name="google-site-verification" content="7cdFhSUWav-hlKs-AEaQWDFF-vv3lfF-WlgNZgScmAo" />
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f7fbfc;
-            color: #222;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* =========================
-           بطاقة الكابتن المحترف
-        ========================== */
+<title>TDrive | تكنولوجيا القيادة وحلول القيادة والتنقل</title>
 
-        .professional-card {
-            width: min(92%, 900px);
-            margin: 50px auto;
-            background: #ffffff;
-            border: 1px solid rgba(79, 159, 174, 0.18);
-            border-radius: 28px;
-            padding: 35px;
-            box-shadow: 0 12px 35px rgba(79, 159, 174, 0.10);
-            text-align: center;
-            overflow: hidden;
-        }
+<meta name="description" content="TDrive تي درايف، منظومة سعودية متخصصة في تكنولوجيا القيادة وحلول القيادة والتنقل، تقدم تدريب القيادة، تدريب الكباتن، دورة الكابتن المحترف، التدريب على مفاهيم ISO 9001، واستشارات شراء السيارات.">
 
-        .professional-card h2 {
-            margin: 0;
-            color: #4F9FAE;
-            font-size: clamp(24px, 4vw, 38px);
-            font-weight: 700;
-            line-height: 1.5;
-        }
+<link rel="stylesheet" href="style.css?v=13">
 
-        .professional-card .subtitle {
-            margin: 8px 0 28px;
-            color: #333;
-            font-size: clamp(18px, 3vw, 26px);
-            font-weight: 600;
-            line-height: 1.7;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        /* =========================
-           منطقة الصور
-        ========================== */
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        .image-showcase {
-            position: relative;
-            width: 100%;
-            max-width: 650px;
-            margin: 0 auto;
-            aspect-ratio: 16 / 10;
-            border-radius: 22px;
-            overflow: hidden;
-            background: #eef8fa;
-        }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-        .showcase-image {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+<style>
 
-            opacity: 0;
-            transform: scale(1.02);
+/* =========================================================
+   Home Hero
+========================================================= */
 
-            transition:
-                opacity 0.6s ease,
-                transform 0.8s ease;
-        }
+.home-hero-car{
+    display:flex;
+    justify-content:center;
+    margin:20px 0;
+}
 
-        .showcase-image.active {
-            opacity: 1;
-            transform: scale(1);
-        }
+.home-hero-car img{
+    width:350px;
+    max-width:90%;
+    height:auto;
+}
 
-        /* =========================
-           النقاط أسفل الصور
-        ========================== */
+.home-hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:70px 8%;
+}
 
-        .image-dots {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 16px;
-        }
+.home-hero-content{
+    max-width:700px;
+}
 
-        .image-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #c8dfe4;
-            transition: all 0.3s ease;
-        }
+.home-hero-content p{
+    font-size:20px;
+    color:#666;
+    margin-bottom:25px;
+    line-height:1.9;
+}
 
-        .image-dot.active {
-            width: 24px;
-            border-radius: 20px;
-            background: #4F9FAE;
-        }
+.home-hero-button{
+    display:inline-block;
+    margin-top:30px;
+    padding:16px 42px;
+    background:#65b7c3;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:14px;
+    transition:.3s;
+    font-family:'Cairo',sans-serif;
+}
 
-        /* =========================
-           زر الإجراء
-        ========================== */
+.home-hero-button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
 
-        .card-button {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 14px 30px;
 
-            background: #4F9FAE;
-            color: white;
+/* =========================================================
+   Featured Program
+========================================================= */
 
-            text-decoration: none;
-            border-radius: 14px;
+.home-featured {
+    width:100%;
+    max-width:1100px;
+    margin:20px auto;
+    padding:20px;
+    font-family:'Cairo',sans-serif;
+}
 
-            font-size: 17px;
-            font-weight: 700;
+.home-featured-card {
+    max-width:600px;
+    width:100%;
+    margin:0 auto;
+    padding:18px;
+    background:#FFF8EF;
+    border:2px solid #FFE6BF;
+    border-radius:24px;
+    box-shadow:0 10px 25px rgba(245,158,11,.08);
+    text-align:right;
+    box-sizing:border-box;
+}
 
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease,
-                background 0.2s ease;
-        }
+.home-top-badge {
+    display:inline-block;
+    background:#F59E0B;
+    color:#fff;
+    padding:6px 16px;
+    border-radius:30px;
+    font-size:14px;
+    font-weight:700;
+    box-shadow:0 6px 15px rgba(245,158,11,.25);
+    margin-bottom:10px;
+}
 
-        .card-button:hover {
-            background: #438c9a;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(79, 159, 174, 0.25);
-        }
+.home-featured-card h2 {
+    color:#2f8ea1;
+    font-size:20px;
+    font-weight:800;
+    text-align:right;
+    margin-bottom:10px;
+}
 
-        /* =========================
-           الجوال
-        ========================== */
+.home-quote {
+    font-size:50px;
+    color:#65b7c3;
+    line-height:1;
+    margin-bottom:10px;
+}
 
-        @media (max-width: 600px) {
+.home-featured-card p {
+    color:#555;
+    font-size:15px;
+    line-height:1.7;
+    text-align:right;
+    margin-bottom:14px;
+}
 
-            .professional-card {
-                width: 94%;
-                padding: 24px 18px;
-                margin: 30px auto;
-                border-radius: 22px;
-            }
+.home-features {
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:14px 0;
+}
 
-            .professional-card .subtitle {
-                margin-bottom: 20px;
-            }
+.home-features div {
+    flex:1;
+    min-width:160px;
+    background:#f8fbfc;
+    border:1px solid #d9edf5;
+    border-radius:14px;
+    padding:10px 8px;
+    text-align:center;
+    font-weight:700;
+    color:#444;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
 
-            .image-showcase {
-                aspect-ratio: 4 / 3;
-                border-radius: 18px;
-            }
+.home-features div i {
+    color:#65b7c3;
+    font-size:15px;
+}
 
-            .card-button {
-                width: 100%;
-                padding: 15px 20px;
-            }
-        }
-    </style>
+.home-old-price {
+    text-align:right;
+    color:#777;
+    font-size:14px;
+    text-decoration:line-through;
+    text-decoration-color:#e53935;
+    font-weight:600;
+}
+
+.home-price-box {
+    text-align:center;
+    margin:14px 0;
+}
+
+.home-price {
+    font-size:40px;
+    font-weight:800;
+    color:#ff8a00;
+    line-height:1;
+}
+
+.home-price-text {
+    color:#ff8a00;
+    font-size:18px;
+    font-weight:700;
+}
+
+.home-offer {
+    display:inline-block;
+    margin-top:8px;
+    background:#fff3e4;
+    color:#ff8a00;
+    padding:5px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.home-register-btn {
+    display:block;
+    width:100%;
+    background:#ff8a00;
+    color:#fff;
+    text-align:center;
+    text-decoration:none;
+    padding:12px;
+    border-radius:16px;
+    font-size:17px;
+    font-weight:700;
+    margin-top:14px;
+    transition:.3s;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+.home-register-btn:hover {
+    background:#f57c00;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(255,138,0,.2);
+}
+
+
+/* =========================================================
+   دورة الكابتن المحترف
+========================================================= */
+
+.captain-course-section {
+    --cap-tdrive:#4F9FAE;
+    --cap-tdrive-rgb:79,159,174;
+    --cap-tdrive-dark:#164C5C;
+    --cap-tdrive-light:#EEF8FA;
+    --cap-text:#263B42;
+    --cap-muted:#68777C;
+    --cap-white:#FFFFFF;
+    --cap-border:#DCECEF;
+    --cap-highlight:#F4D35E;
+
+    display:block;
+    background:#FFFFFF;
+    font-family:"Tajawal",Arial,Tahoma,sans-serif;
+    color:var(--cap-text);
+    font-weight:400;
+}
+
+.captain-course-section,
+.captain-course-section * {
+    box-sizing:border-box;
+}
+
+.captain-course-section .test-page {
+    width:100%;
+    max-width:760px;
+    margin:auto;
+    padding:18px;
+}
+
+.captain-course-section .course-hero {
+    position:relative;
+    overflow:hidden;
+    min-height:620px;
+    border-radius:0 0 26px 26px;
+    background:transparent;
+    text-align:center;
+    border:none;
+    margin:-18px -18px 0 -18px;
+}
+
+.captain-course-section .hero-image {
+    position:absolute;
+    width:100%;
+    height:auto;
+    left:0;
+    bottom:0;
+    z-index:1;
+    display:block;
+}
+
+.captain-course-section .hero-content {
+    position:relative;
+    z-index:2;
+    padding:85px 14px 0;
+}
+
+.captain-course-section .iso-badge {
+    position:absolute;
+    left:50%;
+    bottom:14px;
+    transform:translateX(-50%);
+    width:108px;
+    height:108px;
+    z-index:3;
+    padding:6px;
+    background:#FFFFFF;
+    border-radius:50%;
+    border:3px solid var(--cap-tdrive);
+    box-shadow:
+        0 6px 16px rgba(22,76,92,.28),
+        0 0 0 6px rgba(255,255,255,.9);
+    object-fit:contain;
+}
+
+.captain-course-section .registration-badge {
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:7px 15px;
+    border-radius:30px;
+    background:rgba(79,159,174,.10);
+    color:var(--cap-tdrive);
+    font-size:13px;
+    font-weight:600;
+    animation:capRegistrationGlow 2.2s ease-in-out infinite;
+}
+
+@keyframes capRegistrationGlow {
+    0%,100% {
+        box-shadow:0 0 0 0 rgba(79,159,174,0);
+    }
+
+    50% {
+        box-shadow:0 0 18px 5px rgba(79,159,174,.22);
+    }
+}
+
+.captain-course-section .registration-badge::before {
+    content:"";
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--cap-tdrive);
+}
+
+.captain-course-section .hero-content h1 {
+    margin:16px 0 6px;
+    color:var(--cap-tdrive-dark);
+    font-size:32px;
+    font-weight:700;
+    line-height:1.35;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+}
+
+.captain-course-section .hero-content h1 .wheel-icon {
+    width:30px;
+    height:30px;
+    flex-shrink:0;
+}
+
+.captain-course-section .hero-content h1 .wheel-icon svg {
+    width:100%;
+    height:100%;
+    stroke:var(--cap-tdrive);
+    fill:none;
+    stroke-width:3;
+}
+
+.captain-course-section .hero-content h2 {
+    margin:0 auto;
+    color:var(--cap-tdrive);
+    font-size:19px;
+    line-height:1.6;
+    font-weight:600;
+}
+
+.captain-course-section .hero-description {
+    max-width:500px;
+    margin:12px auto 0;
+    color:var(--cap-muted);
+    font-size:13.5px;
+    line-height:1.9;
+}
+
+.captain-course-section .hero-description strong {
+    color:var(--cap-tdrive);
+    font-weight:700;
+}
+
+.captain-course-section .section-title {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin:25px 0 15px;
+    color:var(--cap-tdrive-dark);
+    font-size:21px;
+    font-weight:700;
+    text-align:center;
+}
+
+.captain-course-section .section-title::before,
+.captain-course-section .section-title::after {
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--cap-tdrive);
+}
+
+.captain-course-section .section-title::before {
+    background:linear-gradient(to left,var(--cap-tdrive) 0%,var(--cap-tdrive) 6px,transparent 6px);
+}
+
+.captain-course-section .section-title::after {
+    background:linear-gradient(to right,var(--cap-tdrive) 0%,var(--cap-tdrive) 6px,transparent 6px);
+}
+
+.captain-course-section .benefits {
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    background:#FFFFFF;
+    border:1px solid var(--cap-border);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(22,76,92,.05);
+}
+
+.captain-course-section .benefit-card {
+    min-height:auto;
+    padding:11px 14px;
+    background:#FFFFFF;
+    border:none;
+    border-radius:0;
+    text-align:right;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:11px;
+    box-shadow:none;
+}
+
+.captain-course-section .benefit-card + .benefit-card {
+    border-top:1px solid var(--cap-border);
+}
+
+.captain-course-section .benefit-icon {
+    width:38px;
+    height:38px;
+    flex:0 0 38px;
+    margin:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:var(--cap-tdrive-light);
+    color:var(--cap-tdrive);
+}
+
+.captain-course-section .benefit-icon svg {
+    width:20px;
+    height:20px;
+    display:block;
+    stroke:currentColor;
+    fill:none;
+}
+
+.captain-course-section .benefit-content {
+    flex:1;
+    min-width:0;
+}
+
+.captain-course-section .benefit-card h3 {
+    margin:0 0 2px;
+    color:var(--cap-tdrive-dark);
+    font-size:14px;
+    line-height:1.5;
+    font-weight:600;
+}
+
+.captain-course-section .benefit-card p {
+    margin:0;
+    color:var(--cap-muted);
+    font-size:11.5px;
+    line-height:1.65;
+}
+
+.captain-course-section .benefit-underline {
+    display:none;
+}
+
+.captain-course-section .quality-box {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:18px;
+    padding:16px;
+    border-radius:20px;
+    background:var(--cap-tdrive-light);
+    border:1px solid #D9ECEF;
+}
+
+.captain-course-section .quality-icon {
+    flex:0 0 52px;
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#FFFFFF;
+    color:var(--cap-tdrive);
+    box-shadow:0 4px 10px rgba(22,76,92,.10);
+}
+
+.captain-course-section .quality-icon svg {
+    width:26px;
+    height:26px;
+    stroke:currentColor;
+    fill:none;
+}
+
+.captain-course-section .quality-divider {
+    flex:0 0 1px;
+    align-self:stretch;
+    background:rgba(var(--cap-tdrive-rgb),.35);
+}
+
+.captain-course-section .quality-text {
+    flex:1;
+}
+
+.captain-course-section .quality-text h3 {
+    margin:0 0 5px;
+    color:var(--cap-tdrive);
+    font-size:16px;
+    font-weight:700;
+}
+
+.captain-course-section .quality-text p {
+    margin:0;
+    color:var(--cap-muted);
+    font-size:12.5px;
+    line-height:1.8;
+}
+
+.captain-course-section .course-price {
+    margin-top:20px;
+    padding:17px 18px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#F5FBFC,#EEF8FA);
+    border:1px solid #D9ECEF;
+    text-align:center;
+}
+
+.captain-course-section .price-label {
+    display:block;
+    margin-bottom:4px;
+    color:var(--cap-tdrive-dark);
+    font-size:13px;
+    font-weight:600;
+}
+
+.captain-course-section .price-row {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    direction:rtl;
+}
+
+.captain-course-section .old-price {
+    display:inline-block;
+    color:#89969A;
+    font-size:17px;
+    font-weight:500;
+    text-decoration:line-through;
+    text-decoration-color:#89969A;
+    text-decoration-thickness:2px;
+}
+
+.captain-course-section .new-price {
+    position:relative;
+    display:inline-flex;
+    align-items:baseline;
+    gap:4px;
+    color:var(--cap-tdrive-dark);
+    font-size:40px;
+    line-height:1.15;
+    font-weight:800;
+    isolation:isolate;
+}
+
+.captain-course-section .new-price::before {
+    content:"";
+    position:absolute;
+    width:104px;
+    height:42px;
+    left:47%;
+    top:53%;
+    transform:translate(-50%,-50%) rotate(-5deg);
+    background:var(--cap-highlight);
+    opacity:.72;
+    border-radius:46% 54% 52% 48% / 55% 44% 56% 45%;
+    z-index:-1;
+}
+
+.captain-course-section .new-price .price-number {
+    position:relative;
+    z-index:2;
+}
+
+.captain-course-section .new-price .currency {
+    position:relative;
+    z-index:2;
+    font-size:17px;
+    font-weight:600;
+    margin-right:2px;
+}
+
+.captain-course-section .launch-offer {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:7px;
+    padding:5px 14px;
+    border-radius:20px;
+    background:var(--cap-tdrive);
+    color:#FFFFFF;
+    font-size:12px;
+    font-weight:700;
+    box-shadow:0 4px 12px rgba(var(--cap-tdrive-rgb),.18);
+}
+
+.captain-course-section .register-button {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    margin-top:14px;
+    padding:14px 16px;
+    border:0;
+    border-radius:14px;
+    background:var(--cap-tdrive);
+    color:white;
+    font-size:15px;
+    font-weight:700;
+    line-height:1.6;
+    text-align:center;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(var(--cap-tdrive-rgb),.22);
+    transition:.2s;
+}
+
+.captain-course-section .register-button:hover {
+    transform:translateY(-2px);
+}
+
+.captain-course-section .features {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-top:15px;
+    padding:8px 0 3px;
+}
+
+.captain-course-section .feature {
+    text-align:center;
+    color:var(--cap-tdrive);
+}
+
+.captain-course-section .feature-icon {
+    width:42px;
+    height:42px;
+    margin:0 auto 5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:var(--cap-tdrive-light);
+    color:var(--cap-tdrive);
+}
+
+.captain-course-section .feature-icon svg {
+    width:23px;
+    height:23px;
+    stroke:currentColor;
+    fill:none;
+}
+
+.captain-course-section .feature span {
+    display:block;
+    color:var(--cap-muted);
+    font-size:11px;
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   ملصق الكابتن المحترف
+========================================================= */
+
+.captain-sticker-section {
+    width:100%;
+    padding:42px 20px;
+    background:#F7FBFC;
+    font-family:'Cairo',sans-serif;
+}
+
+.captain-sticker-card {
+    width:100%;
+    max-width:760px;
+    margin:0 auto;
+    padding:28px 24px;
+    background:#FFFFFF;
+    border:1px solid #DCECEF;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(22,76,92,.08);
+    text-align:center;
+}
+
+.captain-sticker-badge {
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:6px 14px;
+    border-radius:30px;
+    background:#EEF8FA;
+    color:#4F9FAE;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.captain-sticker-badge i {
+    font-size:12px;
+}
+
+.captain-sticker-card h2 {
+    margin:0;
+    color:#164C5C;
+    font-size:25px;
+    font-weight:800;
+    line-height:1.5;
+}
+
+.captain-sticker-description {
+    max-width:570px;
+    margin:10px auto 20px;
+    color:#68777C;
+    font-size:14px;
+    line-height:1.9;
+}
+
+.captain-sticker-features {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:20px 0;
+}
+
+.captain-sticker-feature {
+    padding:14px 8px;
+    background:#F8FBFC;
+    border:1px solid #DCECEF;
+    border-radius:15px;
+}
+
+.captain-sticker-feature i {
+    display:block;
+    margin-bottom:7px;
+    color:#4F9FAE;
+    font-size:21px;
+}
+
+.captain-sticker-feature span {
+    color:#52666D;
+    font-size:12px;
+    font-weight:600;
+}
+
+.captain-sticker-buy-button {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    width:100%;
+    padding:14px 18px;
+    border-radius:15px;
+    background:#4F9FAE;
+    color:#FFFFFF;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:700;
+    transition:.2s;
+    box-shadow:0 8px 20px rgba(79,159,174,.20);
+}
+
+.captain-sticker-buy-button:hover {
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(79,159,174,.28);
+}
+
+.captain-sticker-whatsapp {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    margin-top:13px;
+    color:#25D366;
+    text-decoration:none;
+    font-size:13px;
+    font-weight:700;
+}
+
+.captain-sticker-whatsapp i {
+    font-size:18px;
+}
+
+.captain-sticker-whatsapp:hover {
+    text-decoration:underline;
+}
+
+
+/* =========================================================
+   إصلاحات الجوال
+========================================================= */
+
+@media (max-width:900px){
+
+    .home-hero{
+        padding:50px 25px;
+    }
+
+    .home-hero-content p{
+        font-size:18px;
+    }
+
+    .home-hero-button{
+        width:100%;
+        text-align:center;
+        box-sizing:border-box;
+    }
+}
+
+@media(max-width:768px){
+
+    .home-featured-card{
+        padding:16px;
+    }
+
+    .home-featured-card h2{
+        font-size:18px;
+        margin-bottom:8px;
+    }
+
+    .home-featured-card p{
+        font-size:14px;
+        margin-bottom:10px;
+    }
+
+    .home-features{
+        flex-direction:column;
+        gap:8px;
+        margin:10px 0;
+    }
+
+    .home-price{
+        font-size:34px;
+    }
+
+    .home-price-text{
+        font-size:16px;
+    }
+
+    .home-register-btn{
+        font-size:16px;
+        padding:11px;
+        margin-top:10px;
+    }
+
+    .captain-sticker-section{
+        padding:32px 14px;
+    }
+
+    .captain-sticker-card{
+        padding:23px 17px;
+        border-radius:20px;
+    }
+
+    .captain-sticker-card h2{
+        font-size:22px;
+    }
+
+    .captain-sticker-description{
+        font-size:13px;
+    }
+
+    .captain-sticker-features{
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .captain-sticker-feature{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        padding:10px;
+    }
+
+    .captain-sticker-feature i{
+        margin:0;
+        font-size:18px;
+    }
+}
+
+
+/* =========================================================
+   إصلاحات دورة الكابتن - الجوال
+========================================================= */
+
+.captain-course-section,
+.captain-course-section section {
+    padding-left:0;
+    padding-right:0;
+}
+
+@media (max-width:520px){
+
+    .captain-course-section .test-page{
+        padding:10px;
+    }
+
+    .captain-course-section .course-hero{
+        min-height:440px !important;
+        display:block !important;
+        padding-top:30px !important;
+        padding-bottom:170px !important;
+    }
+
+    .captain-course-section .hero-image{
+        width:100% !important;
+        height:auto !important;
+        max-height:none !important;
+        bottom:0 !important;
+    }
+
+    .captain-course-section .hero-content{
+        padding-top:25px !important;
+        padding-bottom:40px !important;
+        transform:none !important;
+    }
+
+    .captain-course-section .registration-badge{
+        font-size:12px;
+        padding:6px 13px;
+    }
+
+    .captain-course-section .hero-content h1{
+        font-size:27px;
+        line-height:1.3;
+        margin:14px 0 4px;
+    }
+
+    .captain-course-section .hero-content h1 .wheel-icon{
+        width:25px;
+        height:25px;
+    }
+
+    .captain-course-section .hero-content h2{
+        font-size:17px;
+        line-height:1.4;
+    }
+
+    .captain-course-section .hero-description{
+        font-size:12.5px;
+        line-height:1.8;
+        margin-top:8px;
+    }
+
+    .captain-course-section .iso-badge{
+        width:70px !important;
+        height:70px !important;
+        bottom:15px !important;
+        left:50% !important;
+        transform:translateX(-50%) !important;
+        z-index:10 !important;
+    }
+
+    .captain-course-section .section-title{
+        font-size:20px;
+        margin:22px 0 11px;
+        gap:10px;
+    }
+
+    .captain-course-section .benefits{
+        border-radius:16px;
+    }
+
+    .captain-course-section .benefit-card{
+        padding:10px 12px;
+        gap:11px;
+    }
+
+    .captain-course-section .benefit-icon{
+        width:40px;
+        height:40px;
+        flex-basis:40px;
+    }
+
+    .captain-course-section .benefit-card h3{
+        font-size:13.5px;
+    }
+
+    .captain-course-section .benefit-card p{
+        font-size:11.5px;
+    }
+
+    .captain-course-section .quality-box{
+        padding:13px;
+        gap:10px;
+        border-radius:16px;
+    }
+
+    .captain-course-section .quality-icon{
+        flex-basis:46px;
+        width:46px;
+        height:46px;
+    }
+
+    .captain-course-section .quality-text h3{
+        font-size:15px;
+    }
+
+    .captain-course-section .quality-text p{
+        font-size:12px;
+        line-height:1.75;
+    }
+
+    .captain-course-section .course-price{
+        margin-top:17px;
+        padding:15px 12px;
+        border-radius:16px;
+    }
+
+    .captain-course-section .price-label{
+        font-size:12px;
+    }
+
+    .captain-course-section .old-price{
+        font-size:14px;
+    }
+
+    .captain-course-section .new-price{
+        font-size:36px;
+    }
+
+    .captain-course-section .new-price .currency{
+        font-size:15px;
+    }
+
+    .captain-course-section .launch-offer{
+        font-size:11px;
+    }
+
+    .captain-course-section .register-button{
+        font-size:14px;
+        padding:13px 12px;
+    }
+
+    .captain-course-section .features{
+        margin-top:12px;
+        gap:5px;
+    }
+
+    .captain-course-section .feature-icon{
+        width:38px;
+        height:38px;
+    }
+
+    .captain-course-section .feature span{
+        font-size:10.5px;
+    }
+
+    .captain-course-section .course-session-info{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:6px;
+        flex-wrap:wrap;
+        margin:7px 0 10px;
+    }
+
+    .captain-course-section .course-session-info div{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:5px;
+        padding:5px 8px;
+        border-radius:12px;
+        background:#FFFFFF;
+        border:1px solid var(--cap-border);
+        color:var(--cap-muted);
+        font-size:10.5px;
+        font-weight:600;
+    }
+
+    .captain-course-section .course-session-info i{
+        color:var(--cap-tdrive);
+        font-size:12px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <!-- =========================
-         بطاقة الكابتن المحترف
-    ========================== -->
+<header>
 
-    <section class="professional-card">
+<div class="site-branding">
 
-        <h2>
-            اشتري ملصق الكابتن المحترف
-        </h2>
+    <img
+        src="TDrive_Vision2030_banner.svg"
+        alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
+        class="tdrive-header-logo"
+    >
 
-        <div class="subtitle">
-            لبيانات الحساب البنكي الآن
-        </div>
+</div>
 
+<nav>
 
-        <!-- الصور المتغيرة -->
+    <a href="index.html">الرئيسية</a>
 
-        <div class="image-showcase">
+    <a href="about.html">من نحن</a>
 
-            <!-- الصورة الأولى -->
-            <img
-                src="images/professional-captain-sticker.jpg"
-                alt="ملصق الكابتن المحترف داخل السيارة"
-                class="showcase-image active"
-            >
+    <a href="services.html">الخدمات</a>
 
-            <!-- الصورة الثانية -->
-            <img
-                src="images/professional-captain-scan.jpg"
-                alt="مسح رمز QR لعرض بيانات الحساب البنكي"
-                class="showcase-image"
-            >
+    <a href="booking.html" class="nav-register">تسجيل</a>
 
-        </div>
+    <a href="road-safety.html">السلامة المرورية</a>
+
+    <a href="#contact">تواصل معنا</a>
+
+</nav>
+
+</header>
 
 
-        <!-- مؤشرات الصور -->
+<!-- =========================================================
+     Hero
+========================================================= -->
 
-        <div class="image-dots">
-            <span class="image-dot active"></span>
-            <span class="image-dot"></span>
-        </div>
+<div class="home-hero-car">
+
+    <img
+        src="89708DDA-E6D8-4EF4-AD56-DA291207DB22.png"
+        alt="TDrive Car"
+    >
+
+</div>
+
+<section id="home" class="home-hero">
+
+<div class="home-hero-content">
+
+<p>
+منظومة سعودية متخصصة في حلول القيادة والتنقل.
+</p>
+
+<a href="services.html" class="home-hero-button">
+استكشف خدماتنا
+</a>
+
+</div>
+
+</section>
 
 
-        <!-- زر الشراء -->
+<!-- =========================================================
+     برنامج احترفي القيادة على الطريق
+========================================================= -->
 
-        <a href="#" class="card-button">
-            اطلب الملصق الآن
-        </a>
+<section class="home-featured">
 
-    </section>
+<div class="home-featured-card">
+
+<div class="home-top-badge">
+البرنامج الأكثر طلباً
+</div>
+
+<h2>
+برنامج احترفي القيادة على الطريق
+</h2>
+
+<div class="home-quote"></div>
+
+<p>
+تقدم <strong>TDrive</strong> برنامجاً تدريبياً عملياً على
+<strong>سيارة المؤسسة</strong>
+وفق منهجية تدريب احترافية تساعدك على اكتساب الثقة وإتقان القيادة على الطريق.
+</p>
+
+<div class="home-features">
+
+<div>
+<span>تدريب عملي</span>
+</div>
+
+<div>
+<span>قيادة آمنة</span>
+</div>
+
+<div>
+<span>5 ساعات</span>
+</div>
+
+</div>
+
+<p class="home-old-price">
+السعر الأساسي
+<s>500 ريال</s>
+</p>
+
+<div class="home-price-box">
+
+<div class="home-price">
+375
+</div>
+
+<div class="home-price-text">
+ريال فقط
+</div>
+
+<div class="home-offer">
+عرض لفترة محدودة
+</div>
+
+</div>
+
+<a href="booking.html" class="home-register-btn">
+سجلي الآن →
+</a>
+
+</div>
+
+</section>
 
 
-    <script>
+<!-- =========================================================
+     دورة الكابتن المحترف
+========================================================= -->
 
-        /* =========================
-           تبديل الصور كل ثانيتين
-        ========================== */
+<section class="captain-course-section">
 
-        const images = document.querySelectorAll('.showcase-image');
-        const dots = document.querySelectorAll('.image-dot');
+<div class="test-page">
 
-        let currentImage = 0;
+<section class="course-hero">
 
-        function changeImage() {
+<img
+    src="tdrive_car_background.svg"
+    alt="سيارة TDrive"
+    class="hero-image"
+>
 
-            images[currentImage].classList.remove('active');
-            dots[currentImage].classList.remove('active');
+<img
+    src="ISO_9001_2015_TDrive_circle.svg"
+    alt="ISO 9001:2015"
+    class="iso-badge"
+>
 
-            currentImage++;
+<div class="hero-content">
 
-            if (currentImage >= images.length) {
-                currentImage = 0;
-            }
+<div class="registration-badge">
+بدأ التسجيل
+</div>
 
-            images[currentImage].classList.add('active');
-            dots[currentImage].classList.add('active');
-        }
+<h1>
 
-        /*
-         * الصورة تظهر لمدة ثانيتين
-         * ثم تنتقل للصورة التالية
-         */
+دورة الكابتن المحترف
 
-        setInterval(changeImage, 2000);
+<span class="wheel-icon">
 
-    </script>
+<svg viewBox="0 0 24 24" aria-hidden="true">
+
+<circle cx="12" cy="12" r="9.5"/>
+
+<circle cx="12" cy="12" r="2.6"/>
+
+<path
+d="
+M12 2.5v4.4
+M12 17.1v4.4
+M4.6 7.2l3.8 2.2
+M15.6 14.6l3.8 2.2
+M19.4 7.2l-3.8 2.2
+M8.4 14.6l-3.8 2.2
+"
+stroke-linecap="round"
+/>
+
+</svg>
+
+</span>
+
+</h1>
+
+<h2>
+تطبيق أنظمة الايزو العالمية<br>
+في نشاط النقل
+</h2>
+
+<p class="hero-description">
+دورة عملية تساعدك على فهم وتطبيق متطلبات الجودة العالمية
+</p>
+
+</div>
+
+</section>
+
+
+<h2 class="section-title">
+ماذا ستحصل عليه؟
+</h2>
+
+
+<section class="benefits">
+
+
+<div class="benefit-card">
+
+<div class="benefit-icon">
+
+<svg viewBox="0 0 64 64" aria-hidden="true">
+
+<path
+d="
+M32 18
+c-4-4-11-5-18-3
+v30
+c7-2 14-1 18 3
+c4-4 11-5 18-3
+V15
+c-7-2-14-1-18 3Z
+"
+stroke-width="3.5"
+stroke-linejoin="round"
+stroke-linecap="round"
+/>
+
+<path
+d="M32 18v30"
+stroke-width="3.5"
+stroke-linecap="round"
+/>
+
+</svg>
+
+</div>
+
+<div class="benefit-content">
+
+<h3>
+مواد إثراء إضافية
+</h3>
+
+<p>
+معلومات مختارة لتطوير معرفتك وتعميق فهمك.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="benefit-card">
+
+<div class="benefit-icon">
+
+<svg viewBox="0 0 64 64" aria-hidden="true">
+
+<rect
+x="10"
+y="12"
+width="44"
+height="32"
+rx="5"
+stroke-width="3.5"
+/>
+
+<path
+d="M17 38l9-10 7 6 13-14"
+stroke-width="3.5"
+stroke-linecap="round"
+stroke-linejoin="round"
+/>
+
+<path
+d="M28 52h8M32 44v8"
+stroke-width="3.5"
+stroke-linecap="round"
+/>
+
+</svg>
+
+</div>
+
+<div class="benefit-content">
+
+<h3>
+صفحة متابعة الأداء التشغيلي
+</h3>
+
+<p>
+أداة عملية تساعدك على متابعة أدائك وتحسينه باستمرار.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="benefit-card">
+
+<div class="benefit-icon">
+
+<svg viewBox="0 0 64 64" aria-hidden="true">
+
+<rect
+x="8"
+y="16"
+width="40"
+height="30"
+rx="5"
+stroke-width="3.5"
+/>
+
+<path
+d="M8 25h40"
+stroke-width="3.5"
+/>
+
+<path
+d="M15 37h12"
+stroke-width="3.5"
+stroke-linecap="round"
+/>
+
+<circle
+cx="48"
+cy="42"
+r="11"
+fill="white"
+stroke-width="3.5"
+/>
+
+<path
+d="M43 42l3.5 3.5L53 38"
+stroke-width="3.5"
+stroke-linecap="round"
+stroke-linejoin="round"
+/>
+
+</svg>
+
+</div>
+
+<div class="benefit-content">
+
+<h3>
+ملصق بيانات الحساب البنكي
+</h3>
+
+<p>
+ملصق جاهز يحتوي على بيانات الحساب لاستخدامه في عملك.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="benefit-card">
+
+<div class="benefit-icon">
+
+<svg viewBox="0 0 64 64" aria-hidden="true">
+
+<rect
+x="12"
+y="9"
+width="34"
+height="30"
+rx="4"
+stroke-width="3.5"
+/>
+
+<path
+d="M19 18h20M19 25h20M19 32h12"
+stroke-width="3.5"
+stroke-linecap="round"
+/>
+
+<circle
+cx="29"
+cy="46"
+r="9"
+stroke-width="3.5"
+/>
+
+<path
+d="M25 45l3 3 6-6"
+stroke-width="3"
+stroke-linecap="round"
+stroke-linejoin="round"
+/>
+
+<path
+d="M24 53l-2 7 7-4 7 4-2-7"
+stroke-width="3.5"
+stroke-linejoin="round"
+/>
+
+</svg>
+
+</div>
+
+<div class="benefit-content">
+
+<h3>
+شهادة حضور الدورة
+</h3>
+
+<p>
+شهادة حضور بعد إتمام الدورة.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="quality-box">
+
+<div class="quality-icon">
+
+<svg viewBox="0 0 64 64" aria-hidden="true">
+
+<path
+d="
+M32 8l19 7v14
+c0 13-8 21-19 27
+C21 50 13 42 13 29V15l19-7Z
+"
+stroke-width="3.5"
+stroke-linejoin="round"
+/>
+
+<path
+d="M22 32l7 7 15-16"
+stroke-width="3.5"
+stroke-linecap="round"
+stroke-linejoin="round"
+/>
+
+</svg>
+
+</div>
+
+<div class="quality-divider"></div>
+
+<div class="quality-text">
+
+<h3>
+منهج قائم على الجودة
+</h3>
+
+<p>
+تدريب عملي وفق معيار
+<strong>ISO 9001:2015</strong>
+لتطبيق مبادئ الجودة في نشاط النقل
+ورفع جودة أدائك وخدماتك.
+</p>
+
+</div>
+
+</section>
+
+
+<section class="course-price">
+
+<span class="price-label">
+سعر الدورة
+</span>
+
+<div class="course-session-info">
+
+<div>
+<i class="fa-regular fa-calendar"></i>
+<span>9 سبتمبر 2026</span>
+</div>
+
+<div>
+<i class="fa-regular fa-clock"></i>
+<span>10:00 صباحًا</span>
+</div>
+
+<div>
+<i class="fa-solid fa-video"></i>
+<span>عبر Zoom</span>
+</div>
+
+</div>
+
+<div class="price-row">
+
+<span class="old-price">
+300 ريال
+</span>
+
+<span class="new-price">
+
+<span class="price-number">
+100
+</span>
+
+<span class="currency">
+ريال فقط
+</span>
+
+</span>
+
+</div>
+
+<div class="launch-offer">
+حصرياً — عرض الإطلاق
+</div>
+
+</section>
+
+
+<a
+href="booking.html"
+class="register-button"
+>
+
+<span>
+←
+</span>
+
+سجل الآن في دورة الكابتن المحترف
+
+</a>
+
+
+<section class="features">
+
+
+<div class="feature">
+
+<div class="feature-icon">
+
+<svg viewBox="0 0 64 64" aria-hidden="true">
+
+<circle
+cx="32"
+cy="32"
+r="23"
+stroke-width="3.5"
+/>
+
+<path
+d="M21 32l7 7 15-16"
+stroke-width="3.5"
+stroke-linecap="round"
+stroke-linejoin="round"
+/>
+
+</svg>
+
+</div>
+
+<span>
+جودة ومنهجية
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+
+<svg viewBox="0 0 64 64" aria-hidden="true">
+
+<path
+d="
+M32 18
+c-4-4-11-5-18-3
+v30
+c7-2 14-1 18 3
+c4-4 11-5 18-3
+V15
+c-7-2-14-1-18 3Z
+"
+stroke-width="3.5"
+stroke-linejoin="round"
+stroke-linecap="round"
+/>
+
+<path
+d="M32 18v30"
+stroke-width="3.5"
+stroke-linecap="round"
+/>
+
+</svg>
+
+</div>
+
+<span>
+مواد إثرائية
+</span>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+
+<svg viewBox="0 0 64 64" aria-hidden="true">
+
+<rect
+x="14"
+y="8"
+width="36"
+height="30"
+rx="4"
+stroke-width="3.5"
+/>
+
+<path
+d="M22 17h20M22 24h20M22 31h12"
+stroke-width="3.5"
+stroke-linecap="round"
+/>
+
+<circle
+cx="42"
+cy="43"
+r="7"
+stroke-width="3.5"
+/>
+
+<path
+d="M38 49l-2 8 6-4 6 4-2-8"
+stroke-width="3.5"
+stroke-linejoin="round"
+/>
+
+</svg>
+
+</div>
+
+<span>
+شهادة حضور
+</span>
+
+</div>
+
+</section>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     ملصق الكابتن المحترف
+     بعد دورة الكابتن المحترف مباشرة
+========================================================= -->
+
+<section class="captain-sticker-section" id="captain-sticker">
+
+<div class="captain-sticker-card">
+
+<div class="captain-sticker-badge">
+<i class="fa-solid fa-id-card"></i>
+ملصق الكابتن المحترف
+</div>
+
+<h2>
+ملصق بيانات الحساب البنكي
+</h2>
+
+<p class="captain-sticker-description">
+ملصق احترافي مخصص لبيانات حسابك البنكي، مع إمكانية الوصول للبيانات بسهولة عبر رمز QR.
+</p>
+
+<div class="captain-sticker-features">
+
+<div class="captain-sticker-feature">
+
+<i class="fa-solid fa-id-card"></i>
+
+<span>
+تصميم احترافي
+</span>
+
+</div>
+
+<div class="captain-sticker-feature">
+
+<i class="fa-solid fa-building-columns"></i>
+
+<span>
+بيانات حسابك
+</span>
+
+</div>
+
+<div class="captain-sticker-feature">
+
+<i class="fa-solid fa-qrcode"></i>
+
+<span>
+رمز QR
+</span>
+
+</div>
+
+</div>
+
+<a
+href="captain-sticker-order.html"
+class="captain-sticker-buy-button"
+>
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+شراء ملصق الكابتن المحترف
+
+</a>
+
+<a
+href="https://wa.me/966556117180"
+target="_blank"
+rel="noopener"
+class="captain-sticker-whatsapp"
+>
+
+<i class="fa-brands fa-whatsapp"></i>
+
+للاستفسار عبر WhatsApp
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     قسم التوثيق
+========================================================= -->
+
+<section class="tdrive-verification">
+
+<div class="verification-card">
+
+<div class="verification-shield">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+</div>
+
+<h2>
+TDrive
+</h2>
+
+<p class="verification-description">
+مؤسسة متخصصة في حلول خدمات القيادة والتنقل
+</p>
+
+<div class="verification-line"></div>
+
+<p class="verification-text">
+نحن موثوقون لدى وزارة الموارد البشرية والتنمية الاجتماعية والعمل الحر بوثيقة رقم:
+<strong>FL-198268972</strong>
+</p>
+
+<div class="official-logos">
+
+<img
+src="IMG_4039.jpeg"
+alt="وزارة الموارد البشرية والتنمية الاجتماعية والعمل الحر"
+>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     طرق الدفع
+========================================================= -->
+
+<section class="payment-section">
+
+<h2>
+<i class="fa-solid fa-lock"></i>
+طرق الدفع الإلكترونية
+</h2>
+
+<p class="payment-description">
+خيارات دفع متعددة ومعتمدة لإتمام عملية الدفع بسهولة.
+</p>
+
+<div class="payment-methods">
+
+
+<div class="payment-card">
+
+<div class="payment-icon bank-icon">
+
+<i class="fa-solid fa-building-columns"></i>
+
+</div>
+
+<div class="payment-info">
+
+<h3>
+تحويل بنكي
+</h3>
+
+<p>
+يمكنكم الدفع من خلال التحويل البنكي
+</p>
+
+</div>
+
+</div>
+
+
+<div class="payment-card">
+
+<div class="payment-logo">
+
+<img
+src="5B54E210-DF91-4734-B04E-1553073FF19D.png"
+alt="تمارا"
+>
+
+</div>
+
+<div class="payment-info">
+
+<h3>
+تمارا
+</h3>
+
+<p>
+يمكنكم الدفع من خلال تمارا بسهولة
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     Reviews
+========================================================= -->
+
+<section class="reviews">
+
+<h2>
+🩵 رأيك يهمنا
+</h2>
+
+<div class="card">
+
+<p>
+نسعد بتقييمك، فملاحظاتك تساعدنا على تطوير خدمات TDrive.
+</p>
+
+<form id="reviewForm">
+
+<label>
+اسم البرنامج
+</label>
+
+<select id="reviewProgram" required>
+
+<option value="">
+اختر البرنامج
+</option>
+
+<option>
+احترفي القيادة على الطريق
+</option>
+
+<option>
+دورة الكابتن المحترف
+</option>
+
+<option>
+شراء سيارة
+</option>
+
+<option>
+أخرى
+</option>
+
+</select>
+
+
+<label>
+التقييم
+</label>
+
+<div class="stars" id="reviewStars">
+
+<span data-rate="1">
+&#9733;
+</span>
+
+<span data-rate="2">
+&#9733;
+</span>
+
+<span data-rate="3">
+&#9733;
+</span>
+
+<span data-rate="4">
+&#9733;
+</span>
+
+<span data-rate="5">
+&#9733;
+</span>
+
+</div>
+
+
+<label>
+اكتب تجربتك
+</label>
+
+<textarea
+id="reviewComment"
+placeholder="اكتب رأيك هنا..."
+required>
+</textarea>
+
+
+<button
+type="submit"
+class="review-btn"
+>
+
+إرسال التقييم
+
+</button>
+
+</form>
+
+
+<h3 style="margin-top:18px;color:#65b7c3;">
+🩵 آراء العملاء
+</h3>
+
+<div
+id="reviewsContainer"
+class="reviews-slider">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     Contact
+========================================================= -->
+
+<section id="contact" class="contact">
+
+<h2>
+تواصل معنا
+</h2>
+
+<p class="contact-text">
+يسعدنا الرد على استفساراتكم
+</p>
+
+<div class="social-links">
+
+<a
+href="https://wa.me/966556117180"
+target="_blank"
+rel="noopener"
+>
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<a
+href="https://www.tiktok.com/@tdrive.sa"
+target="_blank"
+rel="noopener"
+>
+
+<i class="fa-brands fa-tiktok"></i>
+
+</a>
+
+<a href="mailto:tdrive.sa@gmail.com">
+
+<i class="fa-solid fa-envelope"></i>
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     Footer Links
+========================================================= -->
+
+<section class="footer-links">
+
+<a href="terms.html">
+الشروط والأحكام
+</a>
+
+<a href="privacy.html">
+سياسة الخصوصية
+</a>
+
+<a href="cancellation.html">
+سياسة الإلغاء والاسترجاع
+</a>
+
+<a href="safety-policy.html">
+سياسة السلامة
+</a>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 TDrive | تكنولوجيا القيادة
+</p>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
+
+<script type="module" src="app.js?v=10"></script>
 
 </body>
+
 </html>
