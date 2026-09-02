@@ -908,6 +908,56 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     }
 
 }
+/* ============================================
+   ضبط نص Hero ودائرة الأيزو — شاشات الجوال
+   ============================================ */
+@media (max-width: 520px) {
+    /* 1) تعديل الحاوية لدفع النص للأسفل */
+    .captain-course-section .course-hero {
+        min-height: 420px; /* تقليل الفراغ العلوي المبالغ فيه */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* دفع المحتوى (النص) للأسفل */
+        padding-bottom: 170px; /* ترك مساحة سفلية للسيارة */
+    }
+
+    /* 2) تعديل مقاس السيارة */
+    .captain-course-section .hero-image {
+        max-height: 180px; 
+        object-fit: cover;
+    }
+
+    /* 3) ضبط المسافات للنص ليكون فوق السيارة تماماً */
+    .captain-course-section .hero-content {
+        padding-top: 0;
+        transform: translateY(15px); /* تقريب الكتلة النصية أكثر لسقف السيارة */
+    }
+
+    /* 4) توضيح دائرة الأيزو ورفعها لتكون بارزة */
+    .captain-course-section .iso-badge {
+        width: 85px !important;
+        height: 85px !important;
+        bottom: 25px !important; /* رفع الدائرة للأعلى لتكون واضحة بالكامل */
+        padding: 4px;
+        border-width: 3px;
+        box-shadow: 0 6px 15px rgba(22, 76, 92, 0.35), 0 0 0 5px rgba(255, 255, 255, 0.95);
+    }
+
+    /* 5) تقليل الفراغات بين العناوين لترتيب الشكل */
+    .captain-course-section .registration-badge {
+        margin-bottom: 8px;
+    }
+
+    .captain-course-section .hero-content h1 {
+        margin: 4px 0 2px;
+        line-height: 1.2;
+    }
+
+    .captain-course-section .hero-description {
+        margin: 5px auto 0;
+        line-height: 1.5;
+    }
+}
 
      
 </style>
