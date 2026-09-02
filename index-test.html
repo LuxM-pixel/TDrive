@@ -872,6 +872,46 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     font-size: 11.5px;
 }
 
+     /* ============================================
+   تعديلات إضافية على تباعد Hero دورة الكابتن
+============================================ */
+
+@media (max-width: 520px) {
+
+    /* 1) تقليل ارتفاع صندوق الـ Hero لتقريب النص من السيارة */
+    .captain-course-section .course-hero {
+        min-height: 360px;
+    }
+
+    /* تثبيت ارتفاع صورة السيارة بدل ما تاخد مساحة زيادة */
+    .captain-course-section .hero-image {
+        height: 230px;
+        max-height: none;
+        object-fit: cover;
+    }
+
+    /* تقليل الفراغ تحت وصف الدورة */
+    .captain-course-section .hero-description {
+        margin-bottom: 0;
+    }
+
+    /* 2) تصغير شارة الايزو ونزولها قليلاً */
+    .captain-course-section .iso-badge {
+        width: 58px;
+        height: 58px;
+        bottom: -6px;
+        padding: 3px;
+        border-width: 2px;
+    }
+
+    /* 3) تقريب عنوان "ماذا ستحصل عليه؟" من الصورة */
+    .captain-course-section .section-title {
+        margin-top: 8px;
+    }
+
+}
+
+     
 </style>
 </head>
 
