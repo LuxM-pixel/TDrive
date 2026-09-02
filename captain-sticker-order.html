@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طلب ملصق الكابتن المحترف | TDrive</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --tdrive: #4F9FAE;
+  --dark: #3f8997;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  background: #f7fafb;
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+  padding: 28px 16px 50px;
+}
+
+.container {
+  width: min(620px, 100%);
+  margin: auto;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.brand img {
+  width: 92px;
+  height: auto;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px 22px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.05);
+}
+
+h1 {
+  margin: 0 0 8px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.intro {
+  margin: 0 auto 26px;
+  max-width: 500px;
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.field {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.required {
+  color: #c62828;
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 52px;
+  border: 1px solid #d9dee3;
+  border-radius: 13px;
+  padding: 0 15px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+}
+
+input[type="text"]:focus {
+  border-color: var(--tdrive);
+  box-shadow: 0 0 0 3px rgba(79,159,174,.12);
+}
+
+.hint {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 22px 0;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: #fbfcfc;
+  line-height: 1.8;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.consent input {
+  width: 19px;
+  height: 19px;
+  min-width: 19px;
+  margin-top: 3px;
+  accent-color: var(--tdrive);
+}
+
+.submit-btn {
+  width: 100%;
+  height: 54px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--tdrive);
+  color: #fff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background: var(--dark);
+}
+
+.submit-btn:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+.message {
+  display: none;
+  margin-top: 16px;
+  padding: 13px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.message.error {
+  display: block;
+  background: #fff1f1;
+  color: #c62828;
+  border: 1px solid #ffd2d2;
+}
+
+.message.success {
+  display: block;
+  background: #eef9f6;
+  color: #176b58;
+  border: 1px solid #c9eee4;
+}
+
+.back {
+  display: block;
+  margin-top: 18px;
+  text-align: center;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 18px 12px 35px;
+  }
+
+  .card {
+    padding: 23px 16px;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+  <div class="container">
+
+    <div class="brand">
+      <img src="logo.svg" alt="TDrive">
+    </div>
+
+    <section class="card">
+
+      <h1>طلب ملصق الكابتن المحترف</h1>
+
+      <p class="intro">
+        أدخل بيانات الحساب البنكي كما هي، وسيتم إنشاء طلبك وحفظ بياناته لإعداد ملصق بيانات الحساب البنكي.
+      </p>
+
+      <form id="stickerOrderForm">
+
+        <div class="field">
+          <label for="fullName">
+            الاسم الكامل <span class="required">*</span>
+          </label>
+
+          <input
+            id="fullName"
+            type="text"
+            autocomplete="name"
+            placeholder="اكتب الاسم الكامل"
+            required
+          >
+        </div>
+
+
+        <div class="field">
+          <label for="accountNumber">
+            رقم الحساب <span class="required">*</span>
+          </label>
+
+          <input
+            id="accountNumber"
+            type="text"
+            inputmode="numeric"
+            autocomplete="off"
+            placeholder="أدخل رقم الحساب"
+            dir="ltr"
+            required
+          >
+        </div>
+
+
+        <div class="field">
+          <label for="iban">
+            رقم الآيبان IBAN <span class="required">*</span>
+          </label>
+
+          <input
+            id="iban"
+            type="text"
+            autocomplete="off"
+            placeholder="SA0000000000000000000000"
+            dir="ltr"
+            maxlength="34"
+            required
+          >
+
+          <div class="hint">
+            يجب أن يبدأ الآيبان بـ SA.
+          </div>
+        </div>
+
+
+        <label class="consent">
+
+          <input
+            id="consent"
+            type="checkbox"
+            required
+          >
+
+          <span>
+            أوافق على استخدام بياناتي لإنشاء ملصق بيانات الحساب البنكي.
+          </span>
+
+        </label>
+
+
+        <button
+          id="submitBtn"
+          class="submit-btn"
+          type="submit"
+        >
+          المتابعة للدفع
+        </button>
+
+
+        <div
+          id="message"
+          class="message"
+        ></div>
+
+      </form>
+
+
+      <a
+        class="back"
+        href="index-test.html"
+      >
+        العودة
+      </a>
+
+    </section>
+
+  </div>
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+  "https://sbevfklawymyducaqerb.supabase.co";
+
+const SUPABASE_KEY =
+  "sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2";
+
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+const form =
+  document.getElementById("stickerOrderForm");
+
+const submitBtn =
+  document.getElementById("submitBtn");
+
+const message =
+  document.getElementById("message");
+
+
+function showMessage(text, type = "error") {
+
+  message.textContent = text;
+
+  message.className =
+    "message " + type;
+}
+
+
+function normalizeNumbers(value) {
+
+  return value
+    .replace(/[٠-٩]/g, d =>
+      String("٠١٢٣٤٥٦٧٨٩".indexOf(d))
+    )
+    .replace(/[۰-۹]/g, d =>
+      String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+    );
+}
+
+
+function normalizeIBAN(value) {
+
+  return normalizeNumbers(value)
+    .replace(/\s+/g, "")
+    .toUpperCase();
+}
+
+
+function generateOrderNumber() {
+
+  const d = new Date();
+
+  const y =
+    d.getFullYear();
+
+  const m =
+    String(d.getMonth() + 1).padStart(2, "0");
+
+  const day =
+    String(d.getDate()).padStart(2, "0");
+
+  const random =
+    Math.floor(
+      100000 + Math.random() * 900000
+    );
+
+  return `STK-${y}${m}${day}-${random}`;
+}
+
+
+form.addEventListener(
+  "submit",
+  async function(event) {
+
+    event.preventDefault();
+
+    showMessage("");
+
+
+    const fullName =
+      document
+        .getElementById("fullName")
+        .value
+        .trim();
+
+
+    const accountNumber =
+      normalizeNumbers(
+        document
+          .getElementById("accountNumber")
+          .value
+          .trim()
+      );
+
+
+    const iban =
+      normalizeIBAN(
+        document
+          .getElementById("iban")
+          .value
+      );
+
+
+    const consent =
+      document
+        .getElementById("consent")
+        .checked;
+
+
+    if (!fullName) {
+
+      showMessage(
+        "فضلاً أدخل الاسم الكامل."
+      );
+
+      return;
+    }
+
+
+    if (!accountNumber) {
+
+      showMessage(
+        "فضلاً أدخل رقم الحساب."
+      );
+
+      return;
+    }
+
+
+    if (
+      !iban ||
+      !iban.startsWith("SA")
+    ) {
+
+      showMessage(
+        "فضلاً أدخل رقم آيبان صحيح يبدأ بـ SA."
+      );
+
+      return;
+    }
+
+
+    if (!consent) {
+
+      showMessage(
+        "يجب الموافقة على استخدام البيانات لإنشاء الملصق."
+      );
+
+      return;
+    }
+
+
+    submitBtn.disabled = true;
+
+    submitBtn.textContent =
+      "جاري حفظ الطلب...";
+
+
+    const orderNumber =
+      generateOrderNumber();
+
+
+    const orderId =
+      crypto.randomUUID();
+
+
+    try {
+
+      const { error } =
+        await supabaseClient
+          .from("sticker_orders")
+          .insert([
+
+            {
+              id: orderId,
+
+              booking_id: orderNumber,
+
+              captain_name: fullName,
+
+              account_number: accountNumber,
+
+              iban: iban,
+
+              phone: null,
+
+              generated: false,
+
+              consent: true,
+
+              created_at:
+                new Date().toISOString()
+            }
+
+          ]);
+
+
+      if (error) {
+
+        throw error;
+      }
+
+
+      sessionStorage.setItem(
+        "stickerOrderId",
+        orderId
+      );
+
+
+      sessionStorage.setItem(
+        "bookingId",
+        orderNumber
+      );
+
+
+      sessionStorage.setItem(
+        "fullName",
+        fullName
+      );
+
+
+      sessionStorage.setItem(
+        "accountNumber",
+        accountNumber
+      );
+
+
+      sessionStorage.setItem(
+        "iban",
+        iban
+      );
+
+
+      sessionStorage.setItem(
+        "phone",
+        ""
+      );
+
+
+      sessionStorage.setItem(
+        "productType",
+        "captain-sticker"
+      );
+
+
+      showMessage(
+        `تم إنشاء الطلب رقم ${orderNumber}، جاري الانتقال للدفع...`,
+        "success"
+      );
+
+
+      setTimeout(
+        () => {
+
+          window.location.href =
+            "captain-payment-method.html";
+
+        },
+        500
+      );
+
+
+    } catch (error) {
+
+      console.error(
+        "Supabase error:",
+        error
+      );
+
+
+      showMessage(
+        "تعذر حفظ الطلب حاليًا. إذا استمرت المشكلة، نراجع إعدادات جدول sticker_orders في Supabase."
+      );
+
+
+      submitBtn.disabled = false;
+
+      submitBtn.textContent =
+        "المتابعة للدفع";
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
