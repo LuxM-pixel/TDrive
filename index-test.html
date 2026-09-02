@@ -872,41 +872,81 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     font-size: 11.5px;
 }
 
-    /* ============================================
-   تعديلات إضافية على تباعد Hero دورة الكابتن
+/* ============================================
+   الضبط النهائي لـ Hero دورة الكابتن - الجوال
 ============================================ */
 
 @media (max-width: 520px) {
 
-    /* 1) ارتفاع صندوق الـ Hero — كافي لاستيعاب الصورة + الدائرة */
+    /* =========================================
+       1) Hero
+    ========================================= */
+
     .captain-course-section .course-hero {
-        min-height: 410px;
+        min-height: 430px;
+        overflow: hidden;
     }
 
-    /* تثبيت ارتفاع صورة السيارة */
+
+    /* =========================================
+       2) صورة السيارة
+    ========================================= */
+
     .captain-course-section .hero-image {
+        width: 100%;
         height: 230px;
         max-height: none;
+        left: 0;
+        bottom: 0;
         object-fit: cover;
     }
 
-    /* تقليل الفراغ تحت وصف الدورة */
+
+    /* =========================================
+       3) محتوى النص
+       نخلي الوصف ينزل باتجاه السيارة
+    ========================================= */
+
     .captain-course-section .hero-description {
+        margin-top: 10px;
         margin-bottom: 0;
+        transform: translateY(12px);
     }
 
-    /* 2) تصغير شارة الايزو ونزولها من غير ما تتقص */
+
+    /* =========================================
+       4) دائرة ISO
+       أكبر + أوضح + كاملة
+    ========================================= */
+
     .captain-course-section .iso-badge {
-        width: 58px;
-        height: 58px;
-        bottom: 4px;
-        padding: 3px;
-        border-width: 2px;
+        width: 76px;
+        height: 76px;
+
+        left: 50%;
+        bottom: 2px;
+
+        transform: translateX(-50%);
+
+        padding: 4px;
+
+        border-width: 2.5px;
+
+        box-shadow:
+            0 5px 14px rgba(22, 76, 92, 0.28),
+            0 0 0 5px rgba(255, 255, 255, 0.92);
+
+        z-index: 4;
     }
 
-    /* 3) تقريب عنوان "ماذا ستحصل عليه؟" من الصورة */
+
+    /* =========================================
+       5) عنوان ماذا ستحصل عليه؟
+       قريب من السيارة بدون التصاق
+    ========================================= */
+
     .captain-course-section .section-title {
-        margin-top: 8px;
+        margin-top: 6px;
     }
 
 }
