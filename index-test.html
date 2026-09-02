@@ -873,141 +873,38 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 }
 
 /* ============================================
-   FINAL MOBILE FIX
-   دورة الكابتن المحترف
-============================================ */
+   ضبط نص Hero — دورة الكابتن المحترف
+   ============================================ */
 
 @media (max-width: 520px) {
 
-    /* -----------------------------------------
-       HERO
-    ----------------------------------------- */
-
-    .captain-course-section .course-hero {
-        position: relative;
-
-        /* زيادة مساحة الـ Hero */
-        min-height: 450px;
-
-        /* مهم جداً: السماح لدائرة ISO بالظهور كاملة */
-        overflow: visible;
-
-        margin: -10px -10px 0 -10px;
-    }
-
-
-    /* -----------------------------------------
-       محتوى النص
-    ----------------------------------------- */
-
+    /* رفع/خفض كتلة النص بالكامل وتقليل الفراغات */
     .captain-course-section .hero-content {
-        position: relative;
-        z-index: 5;
-
-        padding: 20px 14px 0;
-
-        transform: none;
+        padding-top: 18px;
+        transform: translateY(5px);
     }
 
-
-    /* العنوان الرئيسي */
-
-    .captain-course-section .hero-content h1 {
-        margin-top: 14px;
+    /* بدأ التسجيل */
+    .captain-course-section .registration-badge {
         margin-bottom: 4px;
     }
 
+    /* العنوان الرئيسي */
+    .captain-course-section .hero-content h1 {
+        margin: 8px 0 2px;
+        line-height: 1.2;
+    }
 
     /* العنوان الفرعي */
-
     .captain-course-section .hero-content h2 {
-        margin-top: 2px;
+        margin: 0;
+        line-height: 1.25;
     }
 
-
-    /* -----------------------------------------
-       الوصف
-       ننزله بوضوح باتجاه السيارة
-    ----------------------------------------- */
-
+    /* الوصف — يقرب من العنوان ويظل فوق السيارة */
     .captain-course-section .hero-description {
-        position: relative;
-
-        margin-top: 22px;
-        margin-bottom: 0;
-
-        transform: translateY(35px);
-
-        z-index: 6;
-    }
-
-
-    /* -----------------------------------------
-       صورة السيارة
-    ----------------------------------------- */
-
-    .captain-course-section .hero-image {
-        position: absolute;
-
-        width: 100%;
-        height: 230px;
-
-        left: 0;
-        bottom: 0;
-
-        max-height: none;
-
-        object-fit: cover;
-
-        z-index: 1;
-    }
-
-
-    /* -----------------------------------------
-       دائرة ISO
-       أكبر + كاملة + أوضح
-    ----------------------------------------- */
-
-    .captain-course-section .iso-badge {
-        position: absolute;
-
-        width: 82px;
-        height: 82px;
-
-        left: 50%;
-        bottom: 0;
-
-        transform: translate(-50%, 50%);
-
-        padding: 4px;
-
-        background: #FFFFFF;
-
-        border-radius: 50%;
-        border: 2.5px solid var(--cap-tdrive);
-
-        box-shadow:
-            0 6px 16px rgba(22, 76, 92, 0.30),
-            0 0 0 5px rgba(255, 255, 255, 0.95);
-
-        object-fit: contain;
-
-        z-index: 10;
-    }
-
-
-    /* -----------------------------------------
-       عنوان "ماذا ستحصل عليه؟"
-       نخليه بعد الدائرة بمسافة بسيطة
-    ----------------------------------------- */
-
-    .captain-course-section .section-title {
-        position: relative;
-
-        margin-top: 48px;
-        margin-bottom: 11px;
-
-        z-index: 5;
+        margin: 7px auto 0;
+        line-height: 1.45;
     }
 
 }
