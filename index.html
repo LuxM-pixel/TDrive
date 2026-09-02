@@ -962,7 +962,53 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     }
 }
 
+/* معلومات موعد دورة الكابتن */
+.captain-course-section .course-session-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0 12px;
+}
 
+.captain-course-section .course-session-info div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--cap-border);
+    color: var(--cap-muted);
+    font-size: 11.5px;
+    font-weight: 600;
+}
+
+.captain-course-section .course-session-info i {
+    color: var(--cap-tdrive);
+    font-size: 13px;
+}
+
+@media (max-width: 520px) {
+
+    .captain-course-section .course-session-info {
+        gap: 6px;
+        margin: 7px 0 10px;
+    }
+
+    .captain-course-section .course-session-info div {
+        padding: 5px 8px;
+        font-size: 10.5px;
+        gap: 5px;
+    }
+
+    .captain-course-section .course-session-info i {
+        font-size: 12px;
+    }
+
+}
 
      
      
@@ -1503,12 +1549,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     <!-- =========================
          PRICE
     ========================= -->
+<section class="course-price">
 
-    <section class="course-price">
+    <span class="price-label">
+        سعر الدورة
+    </span>
 
-        <span class="price-label">
-            سعر الدورة
-        </span>
+    <div class="course-session-info">
+
+        <div>
+            <i class="fa-regular fa-calendar"></i>
+            <span>9 سبتمبر 2026</span>
+        </div>
+
+        <div>
+            <i class="fa-regular fa-clock"></i>
+            <span>10:00 صباحًا</span>
+        </div>
+
+        <div>
+            <i class="fa-solid fa-video"></i>
+            <span>عبر Zoom</span>
+        </div>
+
+    </div>
 
 
         <div class="price-row">
