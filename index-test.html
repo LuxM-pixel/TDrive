@@ -1113,6 +1113,172 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     }
 }
 
+   /* =========================================================
+   ملصق الكابتن المحترف
+========================================================= */
+
+.captain-sticker-section {
+    width:100%;
+    padding:42px 20px;
+    background:#F7FBFC;
+    font-family:'Cairo',sans-serif;
+}
+
+.captain-sticker-card {
+    width:100%;
+    max-width:1120px;
+    margin:0 auto;
+    position:relative;
+    text-align:center;
+}
+
+/* الصورة */
+.captain-sticker-image-wrap {
+    position:relative;
+    width:100%;
+    line-height:0;
+}
+
+.captain-sticker-image {
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:18px;
+}
+
+/* =========================================================
+   زر شراء حقيقي فوق زر الشراء الموجود داخل الصورة
+========================================================= */
+
+.captain-sticker-buy-overlay {
+    position:absolute;
+
+    /* مكان زر الشراء داخل الصورة */
+    left:5.2%;
+    right:5.2%;
+    bottom:7.2%;
+
+    height:10.5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(79,159,174,.08);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
+
+    color:transparent;
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+    z-index:3;
+}
+
+.captain-sticker-buy-overlay:hover {
+    background:rgba(79,159,174,.16);
+    box-shadow:
+        0 8px 25px rgba(79,159,174,.18),
+        inset 0 0 15px rgba(255,255,255,.08);
+
+    transform:translateY(-1px);
+}
+
+.captain-sticker-buy-overlay:active {
+    transform:scale(.99);
+}
+
+
+/* =========================================================
+   زر WhatsApp حقيقي فوق الواتساب الموجود داخل الصورة
+========================================================= */
+
+.captain-sticker-whatsapp-overlay {
+    position:absolute;
+
+    /* مكان عبارة الواتساب أسفل الصورة */
+    left:28%;
+    right:28%;
+    bottom:1.3%;
+
+    height:5.5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:rgba(37,211,102,.035);
+    border:1px solid rgba(37,211,102,.05);
+    border-radius:18px;
+
+    color:transparent;
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+
+    z-index:3;
+}
+
+.captain-sticker-whatsapp-overlay:hover {
+    background:rgba(37,211,102,.10);
+    box-shadow:
+        0 6px 18px rgba(37,211,102,.12),
+        inset 0 0 12px rgba(255,255,255,.08);
+
+    transform:translateY(-1px);
+}
+
+.captain-sticker-whatsapp-overlay:active {
+    transform:scale(.99);
+}
+
+
+/* =========================================================
+   الجوال
+========================================================= */
+
+@media(max-width:768px){
+
+    .captain-sticker-section {
+        padding:28px 10px;
+    }
+
+    .captain-sticker-card {
+        width:100%;
+    }
+
+    .captain-sticker-image {
+        border-radius:14px;
+    }
+
+    .captain-sticker-buy-overlay {
+        left:5.5%;
+        right:5.5%;
+        bottom:7.1%;
+        height:10.8%;
+        border-radius:15px;
+    }
+
+    .captain-sticker-whatsapp-overlay {
+        left:25%;
+        right:25%;
+        bottom:1.1%;
+        height:5.8%;
+        border-radius:14px;
+    }
+}
+
 </style>
 </head>
 
@@ -1789,76 +1955,37 @@ stroke-linejoin="round"
 
 <div class="captain-sticker-card">
 
-<div class="captain-sticker-badge">
-<i class="fa-solid fa-id-card"></i>
-ملصق الكابتن المحترف
-</div>
+<div class="captain-sticker-image-wrap">
 
-<h2>
-ملصق بيانات الحساب البنكي
-</h2>
-
-<p class="captain-sticker-description">
-ملصق احترافي مخصص لبيانات حسابك البنكي، مع إمكانية الوصول للبيانات بسهولة عبر رمز QR.
-</p>
-
-<div class="captain-sticker-features">
-
-<div class="captain-sticker-feature">
-
-<i class="fa-solid fa-id-card"></i>
-
-<span>
-تصميم احترافي
-</span>
-
-</div>
-
-<div class="captain-sticker-feature">
-
-<i class="fa-solid fa-building-columns"></i>
-
-<span>
-بيانات حسابك
-</span>
-
-</div>
-
-<div class="captain-sticker-feature">
-
-<i class="fa-solid fa-qrcode"></i>
-
-<span>
-رمز QR
-</span>
-
-</div>
-
-</div>
-
-<a
-href="captain-sticker-order.html"
-class="captain-sticker-buy-button"
+<img
+    src="cabtain_sticker.webp"
+    alt="ملصق الكابتن المحترف"
+    class="captain-sticker-image"
 >
 
-<i class="fa-solid fa-cart-shopping"></i>
 
-شراء ملصق الكابتن المحترف
-
-</a>
+<!-- زر شراء شفاف فوق زر الشراء الموجود داخل الصورة -->
 
 <a
-href="https://wa.me/966556117180"
-target="_blank"
-rel="noopener"
-class="captain-sticker-whatsapp"
+    href="captain-sticker-order.html"
+    class="captain-sticker-buy-overlay"
+    aria-label="شراء ملصق الكابتن المحترف"
 >
-
-<i class="fa-brands fa-whatsapp"></i>
-
-للاستفسار عبر WhatsApp
-
 </a>
+
+
+<!-- زر WhatsApp شفاف فوق زر الواتساب الموجود داخل الصورة -->
+
+<a
+    href="https://wa.me/966556117180"
+    target="_blank"
+    rel="noopener"
+    class="captain-sticker-whatsapp-overlay"
+    aria-label="للاستفسار عبر WhatsApp"
+>
+</a>
+
+</div>
 
 </div>
 
