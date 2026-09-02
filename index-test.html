@@ -3,7 +3,7 @@
 
 <head>
 
-<meta name="google-site-verification" content="7cdFhSUWav-hlKs-AEaQWDFF-vv3lfF-WlgNZgScmAo" />
+<meta name="google-site-verification" content="7cdFhSUWav-hlKs-aEaQWDFF-vv3lfF-WlgNZgScmAo" />
 
 <meta charset="UTF-8">
 
@@ -12,7 +12,6 @@
 <title>TDrive | تكنولوجيا القيادة وحلول القيادة والتنقل</title>
 
 <meta name="description" content="TDrive تي درايف، منظومة سعودية متخصصة في تكنولوجيا القيادة وحلول القيادة والتنقل، تقدم تدريب القيادة، تدريب الكباتن، دورة الكابتن المحترف، التدريب على مفاهيم ISO 9001، واستشارات شراء السيارات.">
-
 <link rel="stylesheet" href="style.css?v=13">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,710 +22,992 @@
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+<!-- ============================================
+     تنسيق خاص بالصفحة الرئيسية فقط
+     (Hero + برنامج احترفي القيادة)
+     كل الكلاسات هنا جديدة تماماً (home-*)
+     عشان ما تتعارضش مع أي كلاس في style.css
+============================================ -->
 <style>
 
-/* =========================================================
-   Home Hero
-========================================================= */
+    /* ==========================
+       Home Hero
+    ========================== */
 
-.home-hero-car{
-    display:flex;
-    justify-content:center;
-    margin:20px 0;
-}
+    .home-hero-car{
+        display:flex;
+        justify-content:center;
+        margin:20px 0;
+    }
 
-.home-hero-car img{
-    width:350px;
-    max-width:90%;
-    height:auto;
-}
+    .home-hero-car img{
+        width:350px;
+        max-width:90%;
+        height:auto;
+    }
 
-.home-hero{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    padding:70px 8%;
-}
+    .home-hero{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        padding:70px 8%;
+    }
 
-.home-hero-content{
-    max-width:700px;
-}
+    .home-hero-content{
+        max-width:700px;
+    }
 
-.home-hero-content p{
-    font-size:20px;
-    color:#666;
-    margin-bottom:25px;
-    line-height:1.9;
-}
+    .home-hero-content p{
+        font-size:20px;
+        color:#666;
+        margin-bottom:25px;
+        line-height:1.9;
+    }
 
-.home-hero-button{
-    display:inline-block;
-    margin-top:30px;
-    padding:16px 42px;
-    background:#65b7c3;
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:14px;
-    transition:.3s;
-    font-family:'Cairo',sans-serif;
-}
+    .home-hero-button{
+        display:inline-block;
+        margin-top:30px;
+        padding:16px 42px;
+        background:#65b7c3;
+        color:#fff;
+        text-decoration:none;
+        font-weight:bold;
+        border-radius:14px;
+        transition:.3s;
+        font-family:'Cairo',sans-serif;
+    }
 
-.home-hero-button:hover{
-    transform:translateY(-4px);
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-}
-
-
-/* =========================================================
-   Featured Program
-========================================================= */
-
-.home-featured {
-    width:100%;
-    max-width:1100px;
-    margin:20px auto;
-    padding:20px;
-    font-family:'Cairo',sans-serif;
-}
-
-.home-featured-card {
-    max-width:600px;
-    width:100%;
-    margin:0 auto;
-    padding:18px;
-    background:#FFF8EF;
-    border:2px solid #FFE6BF;
-    border-radius:24px;
-    box-shadow:0 10px 25px rgba(245,158,11,.08);
-    text-align:right;
-    box-sizing:border-box;
-}
-
-.home-top-badge {
-    display:inline-block;
-    background:#F59E0B;
-    color:#fff;
-    padding:6px 16px;
-    border-radius:30px;
-    font-size:14px;
-    font-weight:700;
-    box-shadow:0 6px 15px rgba(245,158,11,.25);
-    margin-bottom:10px;
-}
-
-.home-featured-card h2 {
-    color:#2f8ea1;
-    font-size:20px;
-    font-weight:800;
-    text-align:right;
-    margin-bottom:10px;
-}
-
-.home-quote {
-    font-size:50px;
-    color:#65b7c3;
-    line-height:1;
-    margin-bottom:10px;
-}
-
-.home-featured-card p {
-    color:#555;
-    font-size:15px;
-    line-height:1.7;
-    text-align:right;
-    margin-bottom:14px;
-}
-
-.home-features {
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    flex-wrap:wrap;
-    margin:14px 0;
-}
-
-.home-features div {
-    flex:1;
-    min-width:160px;
-    background:#f8fbfc;
-    border:1px solid #d9edf5;
-    border-radius:14px;
-    padding:10px 8px;
-    text-align:center;
-    font-weight:700;
-    color:#444;
-    font-size:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-}
-
-.home-features div i {
-    color:#65b7c3;
-    font-size:15px;
-}
-
-.home-old-price {
-    text-align:right;
-    color:#777;
-    font-size:14px;
-    text-decoration:line-through;
-    text-decoration-color:#e53935;
-    font-weight:600;
-}
-
-.home-price-box {
-    text-align:center;
-    margin:14px 0;
-}
-
-.home-price {
-    font-size:40px;
-    font-weight:800;
-    color:#ff8a00;
-    line-height:1;
-}
-
-.home-price-text {
-    color:#ff8a00;
-    font-size:18px;
-    font-weight:700;
-}
-
-.home-offer {
-    display:inline-block;
-    margin-top:8px;
-    background:#fff3e4;
-    color:#ff8a00;
-    padding:5px 14px;
-    border-radius:20px;
-    font-size:13px;
-    font-weight:700;
-}
-
-.home-register-btn {
-    display:block;
-    width:100%;
-    background:#ff8a00;
-    color:#fff;
-    text-align:center;
-    text-decoration:none;
-    padding:12px;
-    border-radius:16px;
-    font-size:17px;
-    font-weight:700;
-    margin-top:14px;
-    transition:.3s;
-    box-sizing:border-box;
-    font-family:'Cairo',sans-serif;
-}
-
-.home-register-btn:hover {
-    background:#f57c00;
-    transform:translateY(-2px);
-    box-shadow:0 8px 20px rgba(255,138,0,.2);
-}
+    .home-hero-button:hover{
+        transform:translateY(-4px);
+        box-shadow:0 10px 25px rgba(0,0,0,.12);
+    }
 
 
-/* =========================================================
-   دورة الكابتن المحترف
-========================================================= */
+    /* ==========================
+       Featured Program
+    ========================== */
 
-.captain-course-section {
-    --cap-tdrive:#4F9FAE;
-    --cap-tdrive-rgb:79,159,174;
-    --cap-tdrive-dark:#164C5C;
-    --cap-tdrive-light:#EEF8FA;
-    --cap-text:#263B42;
-    --cap-muted:#68777C;
-    --cap-white:#FFFFFF;
-    --cap-border:#DCECEF;
-    --cap-highlight:#F4D35E;
+    .home-featured {
+        width: 100%;
+        max-width: 1100px;
+        margin: 20px auto;
+        padding: 20px 20px;
+        font-family: 'Cairo', sans-serif;
+    }
 
-    display:block;
-    background:#FFFFFF;
-    font-family:"Tajawal",Arial,Tahoma,sans-serif;
-    color:var(--cap-text);
-    font-weight:400;
-}
+    .home-featured-card {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 18px;
+        background: #FFF8EF;
+        border: 2px solid #FFE6BF;
+        border-radius: 24px;
+        box-shadow: 0 10px 25px rgba(245, 158, 11, .08);
+        text-align: right;
+        box-sizing: border-box;
+    }
 
+    .home-top-badge {
+        display: inline-block;
+        background: #F59E0B;
+        color: #fff;
+        padding: 6px 16px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        box-shadow: 0 6px 15px rgba(245, 158, 11, .25);
+        margin-bottom: 10px;
+    }
+
+    .home-featured-card h2 {
+        color: #2f8ea1;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: right;
+        margin-bottom: 10px;
+    }
+
+    .home-quote {
+        font-size: 50px;
+        color: #65b7c3;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    .home-featured-card p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: right;
+        margin-bottom: 14px;
+    }
+
+    .home-features {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 14px 0;
+    }
+
+    .home-features div {
+        flex: 1;
+        min-width: 160px;
+        background: #f8fbfc;
+        border: 1px solid #d9edf5;
+        border-radius: 14px;
+        padding: 10px 8px;
+        text-align: center;
+        font-weight: 700;
+        color: #444;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .home-features div i {
+        color: #65b7c3;
+        font-size: 15px;
+    }
+
+    .home-old-price {
+        text-align: right;
+        color: #777;
+        font-size: 14px;
+        text-decoration: line-through;
+        text-decoration-color: #e53935;
+        font-weight: 600;
+    }
+
+    .home-price-box {
+        text-align: center;
+        margin: 14px 0;
+    }
+
+    .home-price {
+        font-size: 40px;
+        font-weight: 800;
+        color: #ff8a00;
+        line-height: 1;
+    }
+
+    .home-price-text {
+        color: #ff8a00;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .home-offer {
+        display: inline-block;
+        margin-top: 8px;
+        background: #fff3e4;
+        color: #ff8a00;
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .home-register-btn {
+        display: block;
+        width: 100%;
+        background: #ff8a00;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 16px;
+        font-size: 17px;
+        font-weight: 700;
+        margin-top: 14px;
+        transition: .3s;
+        box-sizing: border-box;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .home-register-btn:hover {
+        background: #f57c00;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 138, 0, 0.2);
+    }
+
+
+    /* ==========================
+       Home - Mobile
+    ========================== */
+
+    @media (max-width:900px){
+
+        .home-hero{
+            padding:50px 25px;
+        }
+
+        .home-hero-content p{
+            font-size:18px;
+        }
+
+        .home-hero-button{
+            width:100%;
+            text-align:center;
+            box-sizing: border-box;
+        }
+    }
+
+    @media(max-width:768px){
+
+        .home-featured-card {
+            padding: 16px;
+        }
+
+        .home-featured-card h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .home-featured-card p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .home-features {
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .home-price {
+            font-size: 34px;
+        }
+
+        .home-price-text {
+            font-size: 16px;
+        }
+
+        .home-register-btn {
+            font-size: 16px;
+            padding: 11px;
+            margin-top: 10px;
+        }
+    }
+    /* ============================================
+       تنسيق قسم "دورة الكابتن المحترف"
+       كل الـ selectors محصورة داخل .captain-course-section
+    ============================================ */
+
+    .captain-course-section {
+        --cap-tdrive: #4F9FAE;
+        --cap-tdrive-rgb: 79, 159, 174;
+        --cap-tdrive-dark: #164C5C;
+        --cap-tdrive-light: #EEF8FA;
+        --cap-text: #263B42;
+        --cap-muted: #68777C;
+        --cap-white: #FFFFFF;
+        --cap-border: #DCECEF;
+        --cap-highlight: #F4D35E;
+
+        display: block;
+        background: #FFFFFF;
+        font-family: "Tajawal", Arial, Tahoma, sans-serif;
+        color: var(--cap-text);
+        font-weight: 400;
+    }
+
+    .captain-course-section,
+    .captain-course-section * {
+        box-sizing: border-box;
+    }
+
+    .captain-course-section .test-page {
+        width: 100%;
+        max-width: 760px;
+        margin: auto;
+        padding: 18px;
+    }
+
+    .captain-course-section .course-hero {
+        position: relative;
+        overflow: hidden;
+        min-height: 620px;
+        border-radius: 0 0 26px 26px;
+        background: transparent;
+        text-align: center;
+        border: none;
+        margin: -18px -18px 0 -18px;
+    }
+
+    .captain-course-section .hero-image {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        display: block;
+    }
+
+    .captain-course-section .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 85px 14px 0;
+    }
+
+    .captain-course-section .iso-badge {
+        position: absolute;
+        left: 50%;
+        bottom: 14px;
+        transform: translateX(-50%);
+        width: 108px;
+        height: 108px;
+        z-index: 3;
+        padding: 6px;
+        background: #FFFFFF;
+        border-radius: 50%;
+        border: 3px solid var(--cap-tdrive);
+        box-shadow:
+            0 6px 16px rgba(22, 76, 92, 0.28),
+            0 0 0 6px rgba(255, 255, 255, 0.9);
+        object-fit: contain;
+    }
+
+    .captain-course-section .registration-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 15px;
+        border-radius: 30px;
+        background: rgba(79, 159, 174, 0.10);
+        color: var(--cap-tdrive);
+        font-size: 13px;
+        font-weight: 600;
+        animation: capRegistrationGlow 2.2s ease-in-out infinite;
+    }
+
+    @keyframes capRegistrationGlow {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(79, 159, 174, 0); }
+        50% { box-shadow: 0 0 18px 5px rgba(79, 159, 174, 0.22); }
+    }
+
+    .captain-course-section .registration-badge::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--cap-tdrive);
+    }
+
+    .captain-course-section .hero-content h1 {
+        margin: 16px 0 6px;
+        color: var(--cap-tdrive-dark);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.35;
+        letter-spacing: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .captain-course-section .hero-content h1 .wheel-icon {
+        width: 30px;
+        height: 30px;
+        flex-shrink: 0;
+    }
+
+    .captain-course-section .hero-content h1 .wheel-icon svg {
+        width: 100%;
+        height: 100%;
+        stroke: var(--cap-tdrive);
+        fill: none;
+        stroke-width: 3;
+    }
+
+    .captain-course-section .hero-content h2 {
+        margin: 0 auto;
+        color: var(--cap-tdrive);
+        font-size: 19px;
+        line-height: 1.6;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+
+    .captain-course-section .hero-description {
+        max-width: 500px;
+        margin: 12px auto 0;
+        color: var(--cap-muted);
+        font-size: 13.5px;
+        line-height: 1.9;
+        font-weight: 400;
+    }
+
+    .captain-course-section .hero-description strong {
+        color: var(--cap-tdrive);
+        font-weight: 700;
+    }
+
+    .captain-course-section .section-title {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 25px 0 15px;
+        color: var(--cap-tdrive-dark);
+        font-size: 21px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .captain-course-section .section-title::before,
+    .captain-course-section .section-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--cap-tdrive);
+        position: relative;
+    }
+
+    .captain-course-section .section-title::before {
+        background: linear-gradient(to left, var(--cap-tdrive) 0%, var(--cap-tdrive) 6px, transparent 6px);
+    }
+
+    .captain-course-section .section-title::after {
+        background: linear-gradient(to right, var(--cap-tdrive) 0%, var(--cap-tdrive) 6px, transparent 6px);
+    }
+
+    .captain-course-section .benefits {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        background: #FFFFFF;
+        border: 1px solid var(--cap-border);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 5px 18px rgba(22, 76, 92, 0.05);
+    }
+
+    .captain-course-section .benefit-card {
+        min-height: auto;
+        padding: 13px 16px;
+        background: #FFFFFF;
+        border: none;
+        border-radius: 0;
+        text-align: right;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 13px;
+        box-shadow: none;
+    }
+
+    .captain-course-section .benefit-card + .benefit-card {
+        border-top: 1px solid var(--cap-border);
+    }
+
+    .captain-course-section .benefit-icon {
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--cap-tdrive-light);
+        color: var(--cap-tdrive);
+    }
+
+    .captain-course-section .benefit-icon svg {
+        width: 23px;
+        height: 23px;
+        display: block;
+        stroke: currentColor;
+        fill: none;
+    }
+
+    .captain-course-section .benefit-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .captain-course-section .benefit-card h3 {
+        margin: 0 0 2px;
+        color: var(--cap-tdrive-dark);
+        font-size: 15px;
+        line-height: 1.5;
+        font-weight: 600;
+    }
+
+    .captain-course-section .benefit-card p {
+        margin: 0;
+        color: var(--cap-muted);
+        font-size: 12px;
+        line-height: 1.65;
+        font-weight: 400;
+    }
+
+    .captain-course-section .benefit-underline {
+        display: none;
+    }
+
+    .captain-course-section .quality-box {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 18px;
+        padding: 16px;
+        border-radius: 20px;
+        background: var(--cap-tdrive-light);
+        border: 1px solid #D9ECEF;
+    }
+
+    .captain-course-section .quality-icon {
+        flex: 0 0 52px;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: #FFFFFF;
+        color: var(--cap-tdrive);
+        box-shadow: 0 4px 10px rgba(22, 76, 92, 0.10);
+    }
+
+    .captain-course-section .quality-icon svg {
+        width: 26px;
+        height: 26px;
+        stroke: currentColor;
+        fill: none;
+    }
+
+    .captain-course-section .quality-divider {
+        flex: 0 0 1px;
+        align-self: stretch;
+        background: rgba(var(--cap-tdrive-rgb), 0.35);
+    }
+
+    .captain-course-section .quality-text { flex: 1; }
+
+    .captain-course-section .quality-text h3 {
+        margin: 0 0 5px;
+        color: var(--cap-tdrive);
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .captain-course-section .quality-text p {
+        margin: 0;
+        color: var(--cap-muted);
+        font-size: 12.5px;
+        line-height: 1.8;
+        font-weight: 400;
+    }
+
+    .captain-course-section .course-price {
+        margin-top: 20px;
+        padding: 17px 18px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #F5FBFC, #EEF8FA);
+        border: 1px solid #D9ECEF;
+        text-align: center;
+    }
+
+    .captain-course-section .price-label {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--cap-tdrive-dark);
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .captain-course-section .price-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        direction: rtl;
+    }
+
+    .captain-course-section .old-price {
+        display: inline-block;
+        color: #89969A;
+        font-size: 17px;
+        font-weight: 500;
+        text-decoration-line: line-through;
+        text-decoration-color: #89969A;
+        text-decoration-thickness: 2px;
+        text-decoration-skip-ink: none;
+    }
+
+    .captain-course-section .new-price {
+        position: relative;
+        display: inline-flex;
+        align-items: baseline;
+        gap: 4px;
+        color: var(--cap-tdrive-dark);
+        font-size: 40px;
+        line-height: 1.15;
+        font-weight: 800;
+        isolation: isolate;
+    }
+
+    .captain-course-section .new-price::before {
+        content: "";
+        position: absolute;
+        width: 104px;
+        height: 42px;
+        left: 47%;
+        top: 53%;
+        transform: translate(-50%, -50%) rotate(-5deg);
+        background: var(--cap-highlight);
+        opacity: 0.72;
+        border-radius: 46% 54% 52% 48% / 55% 44% 56% 45%;
+        z-index: -1;
+        filter: blur(0.3px);
+    }
+
+    .captain-course-section .new-price .price-number { position: relative; z-index: 2; }
+
+    .captain-course-section .new-price .currency {
+        position: relative;
+        z-index: 2;
+        font-size: 17px;
+        font-weight: 600;
+        margin-right: 2px;
+    }
+
+    .captain-course-section .launch-offer {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 7px;
+        padding: 5px 14px;
+        border-radius: 20px;
+        background: var(--cap-tdrive);
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: 700;
+        box-shadow: 0 4px 12px rgba(var(--cap-tdrive-rgb), 0.18);
+    }
+
+    .captain-course-section .register-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 14px;
+        padding: 14px 16px;
+        border: 0;
+        border-radius: 14px;
+        background: var(--cap-tdrive);
+        color: white;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 0 8px 20px rgba(var(--cap-tdrive-rgb), 0.22);
+        transition: 0.2s;
+    }
+
+    .captain-course-section .register-button:hover { transform: translateY(-2px); }
+
+    .captain-course-section .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-top: 15px;
+        padding: 8px 0 3px;
+    }
+
+    .captain-course-section .feature { text-align: center; color: var(--cap-tdrive); }
+
+    .captain-course-section .feature-icon {
+        width: 42px;
+        height: 42px;
+        margin: 0 auto 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--cap-tdrive-light);
+        color: var(--cap-tdrive);
+    }
+
+    .captain-course-section .feature-icon svg {
+        width: 23px;
+        height: 23px;
+        stroke: currentColor;
+        fill: none;
+    }
+
+    .captain-course-section .feature span {
+        display: block;
+        color: var(--cap-muted);
+        font-size: 11px;
+        line-height: 1.6;
+        font-weight: 400;
+    }
+
+    @media (max-width: 520px) {
+        .captain-course-section .test-page { padding: 10px; }
+        .captain-course-section .course-hero { min-height: 370px; border-radius: 0 0 20px 20px; margin: -10px -10px 0 -10px; }
+        .captain-course-section .hero-content { padding: 20px 14px 0; transform: translateY(-15px); }
+        .captain-course-section .registration-badge { font-size: 12px; padding: 6px 13px; font-weight: 600; }
+        .captain-course-section .hero-content h1 { font-size: 27px; line-height: 1.3; margin: 14px 0 4px; letter-spacing: 0; font-weight: 700; }
+        .captain-course-section .hero-content h1 .wheel-icon { width: 25px; height: 25px; }
+        .captain-course-section .hero-content h2 { font-size: 17px; line-height: 1.4; margin-top: 2px; font-weight: 600; }
+        .captain-course-section .hero-description { max-width: 430px; font-size: 12.5px; line-height: 1.8; margin-top: 8px; font-weight: 400; }
+        .captain-course-section .hero-image { width: 100%; left: 0; bottom: 0; }
+        .captain-course-section .iso-badge { width: 76px; height: 76px; bottom: 8px; padding: 4px; border-width: 2.5px; box-shadow: 0 5px 12px rgba(22, 76, 92, 0.28), 0 0 0 5px rgba(255, 255, 255, 0.9); }
+        .captain-course-section .section-title { font-size: 20px; margin: 22px 0 11px; gap: 10px; font-weight: 700; }
+        .captain-course-section .benefits { border-radius: 16px; }
+        .captain-course-section .benefit-card { padding: 10px 12px; gap: 11px; }
+        .captain-course-section .benefit-icon { width: 40px; height: 40px; flex-basis: 40px; }
+        .captain-course-section .benefit-icon svg { width: 21px; height: 21px; }
+        .captain-course-section .benefit-card h3 { font-size: 13.5px; line-height: 1.45; margin-bottom: 1px; font-weight: 600; }
+        .captain-course-section .benefit-card p { font-size: 11.5px; line-height: 1.6; font-weight: 400; }
+        .captain-course-section .quality-box { padding: 13px; gap: 10px; border-radius: 16px; }
+        .captain-course-section .quality-icon { flex-basis: 46px; width: 46px; height: 46px; }
+        .captain-course-section .quality-text h3 { font-size: 15px; font-weight: 700; }
+        .captain-course-section .quality-text p { font-size: 12px; line-height: 1.75; font-weight: 400; }
+        .captain-course-section .course-price { margin-top: 17px; padding: 15px 12px; border-radius: 16px; }
+        .captain-course-section .price-label { font-size: 12px; margin-bottom: 3px; }
+        .captain-course-section .price-row { gap: 8px; }
+        .captain-course-section .old-price { font-size: 14px; text-decoration-thickness: 1.8px; }
+        .captain-course-section .new-price { font-size: 36px; }
+        .captain-course-section .new-price::before { width: 88px; height: 38px; left: 47%; top: 53%; transform: translate(-50%, -50%) rotate(-5deg); opacity: 0.72; }
+        .captain-course-section .new-price .currency { font-size: 15px; }
+        .captain-course-section .launch-offer { margin-top: 6px; padding: 5px 12px; font-size: 11px; }
+        .captain-course-section .register-button { margin-top: 13px; padding: 13px 12px; font-size: 14px; border-radius: 13px; font-weight: 700; }
+        .captain-course-section .features { margin-top: 12px; gap: 5px; }
+        .captain-course-section .feature-icon { width: 38px; height: 38px; }
+        .captain-course-section .feature-icon svg { width: 21px; height: 21px; }
+        .captain-course-section .feature span { font-size: 10.5px; line-height: 1.5; font-weight: 400; }
+    }
+/* ============================================
+   إصلاحات دورة الكابتن المحترف
+============================================ */
+
+/* 1) إلغاء padding العام لأي section جوه القسم */
 .captain-course-section,
-.captain-course-section * {
-    box-sizing:border-box;
+.captain-course-section section {
+    padding: 0;
 }
 
-.captain-course-section .test-page {
-    width:100%;
-    max-width:760px;
-    margin:auto;
-    padding:18px;
-}
-
-.captain-course-section .course-hero {
-    position:relative;
-    overflow:hidden;
-    min-height:620px;
-    border-radius:0 0 26px 26px;
-    background:transparent;
-    text-align:center;
-    border:none;
-    margin:-18px -18px 0 -18px;
-}
-
-.captain-course-section .hero-image {
-    position:absolute;
-    width:100%;
-    height:auto;
-    left:0;
-    bottom:0;
-    z-index:1;
-    display:block;
-}
-
-.captain-course-section .hero-content {
-    position:relative;
-    z-index:2;
-    padding:85px 14px 0;
-}
-
-.captain-course-section .iso-badge {
-    position:absolute;
-    left:50%;
-    bottom:14px;
-    transform:translateX(-50%);
-    width:108px;
-    height:108px;
-    z-index:3;
-    padding:6px;
-    background:#FFFFFF;
-    border-radius:50%;
-    border:3px solid var(--cap-tdrive);
-    box-shadow:
-        0 6px 16px rgba(22,76,92,.28),
-        0 0 0 6px rgba(255,255,255,.9);
-    object-fit:contain;
-}
-
-.captain-course-section .registration-badge {
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    padding:7px 15px;
-    border-radius:30px;
-    background:rgba(79,159,174,.10);
-    color:var(--cap-tdrive);
-    font-size:13px;
-    font-weight:600;
-    animation:capRegistrationGlow 2.2s ease-in-out infinite;
-}
-
-@keyframes capRegistrationGlow {
-    0%,100% {
-        box-shadow:0 0 0 0 rgba(79,159,174,0);
+/* 2) تعديل ارتفاع الـ Hero على الجوال + تصغير صورة السيارة
+      عشان النص ميتلامسش معاها */
+@media (max-width: 520px) {
+    .captain-course-section .course-hero {
+        min-height: 480px;
     }
 
-    50% {
-        box-shadow:0 0 18px 5px rgba(79,159,174,.22);
+    .captain-course-section .hero-image {
+        max-height: 200px;
+        object-fit: cover;
+    }
+
+    .captain-course-section .hero-content {
+        padding-top: 12px;
+        transform: translateY(-8px);
     }
 }
 
-.captain-course-section .registration-badge::before {
-    content:"";
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--cap-tdrive);
+/* 4) إصلاح تداخل أيقونات القسم الأخير (جودة ومنهجية / مواد إثرائية / شهادة حضور)
+      بسبب تعارضها مع كلاس .features العام في style.css */
+.captain-course-section .features .feature,
+.captain-course-section .features .feature-icon {
+    min-width: 0;
+    max-width: none;
+    flex: initial;
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: block;
 }
 
-.captain-course-section .hero-content h1 {
-    margin:16px 0 6px;
-    color:var(--cap-tdrive-dark);
-    font-size:32px;
-    font-weight:700;
-    line-height:1.35;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
+.captain-course-section .features .feature {
+    text-align: center;
+    color: var(--cap-tdrive);
 }
 
-.captain-course-section .hero-content h1 .wheel-icon {
-    width:30px;
-    height:30px;
-    flex-shrink:0;
+.captain-course-section .features .feature-icon {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--cap-tdrive-light);
+    color: var(--cap-tdrive);
 }
 
-.captain-course-section .hero-content h1 .wheel-icon svg {
-    width:100%;
-    height:100%;
-    stroke:var(--cap-tdrive);
-    fill:none;
-    stroke-width:3;
-}
-
-.captain-course-section .hero-content h2 {
-    margin:0 auto;
-    color:var(--cap-tdrive);
-    font-size:19px;
-    line-height:1.6;
-    font-weight:600;
-}
-
-.captain-course-section .hero-description {
-    max-width:500px;
-    margin:12px auto 0;
-    color:var(--cap-muted);
-    font-size:13.5px;
-    line-height:1.9;
-}
-
-.captain-course-section .hero-description strong {
-    color:var(--cap-tdrive);
-    font-weight:700;
-}
-
-.captain-course-section .section-title {
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin:25px 0 15px;
-    color:var(--cap-tdrive-dark);
-    font-size:21px;
-    font-weight:700;
-    text-align:center;
-}
-
-.captain-course-section .section-title::before,
-.captain-course-section .section-title::after {
-    content:"";
-    flex:1;
-    height:1px;
-    background:var(--cap-tdrive);
-}
-
-.captain-course-section .section-title::before {
-    background:linear-gradient(to left,var(--cap-tdrive) 0%,var(--cap-tdrive) 6px,transparent 6px);
-}
-
-.captain-course-section .section-title::after {
-    background:linear-gradient(to right,var(--cap-tdrive) 0%,var(--cap-tdrive) 6px,transparent 6px);
-}
-
-.captain-course-section .benefits {
-    display:flex;
-    flex-direction:column;
-    gap:0;
-    background:#FFFFFF;
-    border:1px solid var(--cap-border);
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 5px 18px rgba(22,76,92,.05);
-}
-
+/* 3) تصغير وتنظيم جدول "ماذا ستحصل عليه؟" */
 .captain-course-section .benefit-card {
-    min-height:auto;
-    padding:11px 14px;
-    background:#FFFFFF;
-    border:none;
-    border-radius:0;
-    text-align:right;
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    gap:11px;
-    box-shadow:none;
-}
-
-.captain-course-section .benefit-card + .benefit-card {
-    border-top:1px solid var(--cap-border);
+    padding: 11px 14px;
+    gap: 11px;
 }
 
 .captain-course-section .benefit-icon {
-    width:38px;
-    height:38px;
-    flex:0 0 38px;
-    margin:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:var(--cap-tdrive-light);
-    color:var(--cap-tdrive);
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
 }
 
 .captain-course-section .benefit-icon svg {
-    width:20px;
-    height:20px;
-    display:block;
-    stroke:currentColor;
-    fill:none;
-}
-
-.captain-course-section .benefit-content {
-    flex:1;
-    min-width:0;
+    width: 20px;
+    height: 20px;
 }
 
 .captain-course-section .benefit-card h3 {
-    margin:0 0 2px;
-    color:var(--cap-tdrive-dark);
-    font-size:14px;
-    line-height:1.5;
-    font-weight:600;
+    font-size: 14px;
 }
 
 .captain-course-section .benefit-card p {
-    margin:0;
-    color:var(--cap-muted);
-    font-size:11.5px;
-    line-height:1.65;
+    font-size: 11.5px;
 }
 
-.captain-course-section .benefit-underline {
-    display:none;
+/* ============================================
+   ضبط نص Hero ودائرة الأيزو — شاشات الجوال (معدل)
+   ============================================ */
+@media (max-width: 520px) {
+    /* 1) تقليل الارتفاع وإلغاء الفراغ الأبيض الكبير في الأعلى */
+    .captain-course-section .course-hero {
+        min-height: auto !important; 
+        display: block !important; 
+        padding-top: 30px !important; /* مسافة مرتبة من الأعلى */
+        padding-bottom: 170px !important; /* حجز مساحة للسيارة بالأسفل */
+    }
+
+    /* 2) تثبيت السيارة في الأسفل بحجم مناسب */
+    .captain-course-section .hero-image {
+        max-height: 170px !important; 
+        object-fit: cover;
+    }
+
+    /* 3) إلغاء الدفع السابق للنص ليعود لترتيبه الطبيعي */
+    .captain-course-section .hero-content {
+        padding-top: 0 !important;
+        transform: none !important; 
+    }
+
+    /* 4) ترتيب دائرة الأيزو وتنزيلها لأسفل السيارة لتكون واضحة وأنيقة */
+    .captain-course-section .iso-badge {
+        width: 75px !important;
+        height: 75px !important;
+        bottom: 15px !important; /* تنزيلها للأسفل حتى لا تغطي السيارة */
+        box-shadow: 0 4px 12px rgba(22, 76, 92, 0.25), 0 0 0 4px #fff !important;
+        z-index: 10 !important;
+    }
+}
+/* ============================================
+   إصلاح السيارة ودائرة الأيزو فقط — شاشات الجوال
+   ============================================ */
+@media (max-width: 520px) {
+    /* 1) إرجاع أبعاد السيارة الطبيعية عشان ما تطلع مضغوطة */
+    .captain-course-section .hero-image {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important; 
+        bottom: 0 !important;
+    }
+
+    /* 2) تصغير دائرة الأيزو شوي وتنزيلها لأسفل الحافة عشان ما تغطي السيارة */
+    .captain-course-section .iso-badge {
+        width: 70px !important;
+        height: 70px !important;
+        bottom: 5px !important; /* تجلس في الأسفل تماماً */
+        left: 50% !important;
+        transform: translateX(-50%) !important; /* لضمان بقائها في المنتصف */
+        z-index: 10 !important;
+    }
+}
+/* ============================================
+   الحل النهائي لدورة الكابتن - شاشات الجوال
+   ============================================ */
+@media (max-width: 520px) {
+    /* 1) تحديد ارتفاع القسم */
+    .captain-course-section .course-hero {
+        min-height: 440px !important; 
+    }
+    
+    /* 2) تنزيل النص لمستوى سقف السيارة وإلغاء الفراغ السفلي المزعج */
+    .captain-course-section .hero-content {
+        padding-top: 25px !important; /* هذا الرقم يدفع النص للأسفل */
+        padding-bottom: 40 !important; /* إلغاء الفراغ اللي طير النص */
+        transform: none !important;
+    }
+
+    /* 3) السيارة (ممتازة ومضبوطة) */
+    .captain-course-section .hero-image {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important; 
+        bottom: 0 !important;
+    }
+    
+    /* 4) دائرة الأيزو (ممتازة ومضبوطة) */
+    .captain-course-section .iso-badge {
+        width: 70px !important;
+        height: 70px !important;
+        bottom: 15px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important; 
+        z-index: 10 !important;
+    }
 }
 
-.captain-course-section .quality-box {
-    display:flex;
-    align-items:center;
-    gap:14px;
-    margin-top:18px;
-    padding:16px;
-    border-radius:20px;
-    background:var(--cap-tdrive-light);
-    border:1px solid #D9ECEF;
+/* معلومات موعد دورة الكابتن */
+.captain-course-section .course-session-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 8px 0 12px;
 }
 
-.captain-course-section .quality-icon {
-    flex:0 0 52px;
-    width:52px;
-    height:52px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:#FFFFFF;
-    color:var(--cap-tdrive);
-    box-shadow:0 4px 10px rgba(22,76,92,.10);
+.captain-course-section .course-session-info div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--cap-border);
+    color: var(--cap-muted);
+    font-size: 11.5px;
+    font-weight: 600;
 }
 
-.captain-course-section .quality-icon svg {
-    width:26px;
-    height:26px;
-    stroke:currentColor;
-    fill:none;
+.captain-course-section .course-session-info i {
+    color: var(--cap-tdrive);
+    font-size: 13px;
 }
 
-.captain-course-section .quality-divider {
-    flex:0 0 1px;
-    align-self:stretch;
-    background:rgba(var(--cap-tdrive-rgb),.35);
-}
+@media (max-width: 520px) {
 
-.captain-course-section .quality-text {
-    flex:1;
-}
+    .captain-course-section .course-session-info {
+        gap: 6px;
+        margin: 7px 0 10px;
+    }
 
-.captain-course-section .quality-text h3 {
-    margin:0 0 5px;
-    color:var(--cap-tdrive);
-    font-size:16px;
-    font-weight:700;
-}
+    .captain-course-section .course-session-info div {
+        padding: 5px 8px;
+        font-size: 10.5px;
+        gap: 5px;
+    }
 
-.captain-course-section .quality-text p {
-    margin:0;
-    color:var(--cap-muted);
-    font-size:12.5px;
-    line-height:1.8;
-}
+    .captain-course-section .course-session-info i {
+        font-size: 12px;
+    }
 
-.captain-course-section .course-price {
-    margin-top:20px;
-    padding:17px 18px;
-    border-radius:18px;
-    background:linear-gradient(135deg,#F5FBFC,#EEF8FA);
-    border:1px solid #D9ECEF;
-    text-align:center;
-}
-
-.captain-course-section .price-label {
-    display:block;
-    margin-bottom:4px;
-    color:var(--cap-tdrive-dark);
-    font-size:13px;
-    font-weight:600;
-}
-
-.captain-course-section .price-row {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    direction:rtl;
-}
-
-.captain-course-section .old-price {
-    display:inline-block;
-    color:#89969A;
-    font-size:17px;
-    font-weight:500;
-    text-decoration:line-through;
-    text-decoration-color:#89969A;
-    text-decoration-thickness:2px;
-}
-
-.captain-course-section .new-price {
-    position:relative;
-    display:inline-flex;
-    align-items:baseline;
-    gap:4px;
-    color:var(--cap-tdrive-dark);
-    font-size:40px;
-    line-height:1.15;
-    font-weight:800;
-    isolation:isolate;
-}
-
-.captain-course-section .new-price::before {
-    content:"";
-    position:absolute;
-    width:104px;
-    height:42px;
-    left:47%;
-    top:53%;
-    transform:translate(-50%,-50%) rotate(-5deg);
-    background:var(--cap-highlight);
-    opacity:.72;
-    border-radius:46% 54% 52% 48% / 55% 44% 56% 45%;
-    z-index:-1;
-}
-
-.captain-course-section .new-price .price-number {
-    position:relative;
-    z-index:2;
-}
-
-.captain-course-section .new-price .currency {
-    position:relative;
-    z-index:2;
-    font-size:17px;
-    font-weight:600;
-    margin-right:2px;
-}
-
-.captain-course-section .launch-offer {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    margin-top:7px;
-    padding:5px 14px;
-    border-radius:20px;
-    background:var(--cap-tdrive);
-    color:#FFFFFF;
-    font-size:12px;
-    font-weight:700;
-    box-shadow:0 4px 12px rgba(var(--cap-tdrive-rgb),.18);
-}
-
-.captain-course-section .register-button {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    width:100%;
-    margin-top:14px;
-    padding:14px 16px;
-    border:0;
-    border-radius:14px;
-    background:var(--cap-tdrive);
-    color:white;
-    font-size:15px;
-    font-weight:700;
-    line-height:1.6;
-    text-align:center;
-    text-decoration:none;
-    box-shadow:0 8px 20px rgba(var(--cap-tdrive-rgb),.22);
-    transition:.2s;
-}
-
-.captain-course-section .register-button:hover {
-    transform:translateY(-2px);
-}
-
-.captain-course-section .features {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
-    margin-top:15px;
-    padding:8px 0 3px;
-}
-
-.captain-course-section .feature {
-    text-align:center;
-    color:var(--cap-tdrive);
-}
-
-.captain-course-section .feature-icon {
-    width:42px;
-    height:42px;
-    margin:0 auto 5px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:50%;
-    background:var(--cap-tdrive-light);
-    color:var(--cap-tdrive);
-}
-
-.captain-course-section .feature-icon svg {
-    width:23px;
-    height:23px;
-    stroke:currentColor;
-    fill:none;
-}
-
-.captain-course-section .feature span {
-    display:block;
-    color:var(--cap-muted);
-    font-size:11px;
-    line-height:1.6;
-}
-
-/* =========================================================
-   تثبيت جدول مميزات دورة الكابتن
-========================================================= */
-
-.captain-course-section .benefits {
-    width:100%;
-    margin:0;
-    padding:0;
-}
-
-.captain-course-section .benefit-card {
-    width:100%;
-    margin:0;
-    box-sizing:border-box;
-}
-
-.captain-course-section .features {
-    width:100%;
-    margin:15px 0 0;
-    padding:8px 0 3px;
-    box-sizing:border-box;
-}
-
-.captain-course-section .feature {
-    width:100%;
-    min-width:0;
-    box-sizing:border-box;
-}
-
-.captain-course-section .feature-icon {
-    flex-shrink:0;
 }
    
 /* =========================================================
