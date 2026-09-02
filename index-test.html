@@ -1,146 +1,456 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta name="google-site-verification" content="7cdFhSUWav-hlKs-aEaQWDFF-vv3lfF-WlgNZgScmAo">
+
+<meta name="google-site-verification" content="7cdFhSUWav-hlKs-aEaQWDFF-vv3lfF-WlgNZgScmAo" />
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TDrive | تكنولوجيا القيادة وحلول القيادة والتنقل</title>
 
 <meta name="description" content="TDrive تي درايف، منظومة سعودية متخصصة في تكنولوجيا القيادة وحلول القيادة والتنقل، تقدم تدريب القيادة، تدريب الكباتن، دورة الكابتن المحترف، التدريب على مفاهيم ISO 9001، واستشارات شراء السيارات.">
-
 <link rel="stylesheet" href="style.css?v=13">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- ============================================
+     تنسيق خاص بالصفحة الرئيسية فقط
+     (Hero + برنامج احترفي القيادة)
+     كل الكلاسات هنا جديدة تماماً (home-*)
+     عشان ما تتعارضش مع أي كلاس في style.css
+============================================ -->
+<style>
+
+    /* ==========================
+       Home Hero
+    ========================== */
+
+    .home-hero-car{
+        display:flex;
+        justify-content:center;
+        margin:20px 0;
+    }
+
+    .home-hero-car img{
+        width:350px;
+        max-width:90%;
+        height:auto;
+    }
+
+    .home-hero{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        padding:70px 8%;
+    }
+
+    .home-hero-content{
+        max-width:700px;
+    }
+
+    .home-hero-content p{
+        font-size:20px;
+        color:#666;
+        margin-bottom:25px;
+        line-height:1.9;
+    }
+
+    .home-hero-button{
+        display:inline-block;
+        margin-top:30px;
+        padding:16px 42px;
+        background:#65b7c3;
+        color:#fff;
+        text-decoration:none;
+        font-weight:bold;
+        border-radius:14px;
+        transition:.3s;
+        font-family:'Cairo',sans-serif;
+    }
+
+    .home-hero-button:hover{
+        transform:translateY(-4px);
+        box-shadow:0 10px 25px rgba(0,0,0,.12);
+    }
+
+
+    /* ==========================
+       Featured Program
+    ========================== */
+
+    .home-featured {
+        width: 100%;
+        max-width: 1100px;
+        margin: 20px auto;
+        padding: 20px 20px;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .home-featured-card {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 18px;
+        background: #FFF8EF;
+        border: 2px solid #FFE6BF;
+        border-radius: 24px;
+        box-shadow: 0 10px 25px rgba(245, 158, 11, .08);
+        text-align: right;
+        box-sizing: border-box;
+    }
+
+    .home-top-badge {
+        display: inline-block;
+        background: #F59E0B;
+        color: #fff;
+        padding: 6px 16px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        box-shadow: 0 6px 15px rgba(245, 158, 11, .25);
+        margin-bottom: 10px;
+    }
+
+    .home-featured-card h2 {
+        color: #2f8ea1;
+        font-size: 20px;
+        font-weight: 800;
+        text-align: right;
+        margin-bottom: 10px;
+    }
+
+    .home-quote {
+        font-size: 50px;
+        color: #65b7c3;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    .home-featured-card p {
+        color: #555;
+        font-size: 15px;
+        line-height: 1.7;
+        text-align: right;
+        margin-bottom: 14px;
+    }
+
+    .home-features {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 14px 0;
+    }
+
+    .home-features div {
+        flex: 1;
+        min-width: 160px;
+        background: #f8fbfc;
+        border: 1px solid #d9edf5;
+        border-radius: 14px;
+        padding: 10px 8px;
+        text-align: center;
+        font-weight: 700;
+        color: #444;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .home-features div i {
+        color: #65b7c3;
+        font-size: 15px;
+    }
+
+    .home-old-price {
+        text-align: right;
+        color: #777;
+        font-size: 14px;
+        text-decoration: line-through;
+        text-decoration-color: #e53935;
+        font-weight: 600;
+    }
+
+    .home-price-box {
+        text-align: center;
+        margin: 14px 0;
+    }
+
+    .home-price {
+        font-size: 40px;
+        font-weight: 800;
+        color: #ff8a00;
+        line-height: 1;
+    }
+
+    .home-price-text {
+        color: #ff8a00;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .home-offer {
+        display: inline-block;
+        margin-top: 8px;
+        background: #fff3e4;
+        color: #ff8a00;
+        padding: 5px 14px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .home-register-btn {
+        display: block;
+        width: 100%;
+        background: #ff8a00;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        padding: 12px;
+        border-radius: 16px;
+        font-size: 17px;
+        font-weight: 700;
+        margin-top: 14px;
+        transition: .3s;
+        box-sizing: border-box;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .home-register-btn:hover {
+        background: #f57c00;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 138, 0, 0.2);
+    }
+
+
+    /* ==========================
+       Home - Mobile
+    ========================== */
+
+    @media (max-width:900px){
+
+        .home-hero{
+            padding:50px 25px;
+        }
+
+        .home-hero-content p{
+            font-size:18px;
+        }
+
+        .home-hero-button{
+            width:100%;
+            text-align:center;
+            box-sizing: border-box;
+        }
+    }
+
+    @media(max-width:768px){
+
+        .home-featured-card {
+            padding: 16px;
+        }
+
+        .home-featured-card h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .home-featured-card p {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .home-features {
+            flex-direction: column;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .home-price {
+            font-size: 34px;
+        }
+
+        .home-price-text {
+            font-size: 16px;
+        }
+
+        .home-register-btn {
+            font-size: 16px;
+            padding: 11px;
+            margin-top: 10px;
+        }
+    }
+
+</style>
 </head>
 
 <body>
 
 <header>
 
-    <div class="site-branding">
-        <img src="TDrive_Vision2030_banner.svg"
-             alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
-             class="tdrive-header-logo">
-    </div>
+<div class="site-branding">
+
+    <img
+        src="TDrive_Vision2030_banner.svg"
+        alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
+        class="tdrive-header-logo"
+    >
+
+</div>
 
     <nav>
+
         <a href="index.html">الرئيسية</a>
+
         <a href="about.html">من نحن</a>
+
         <a href="services.html">الخدمات</a>
+
         <a href="booking.html" class="nav-register">تسجيل</a>
+
         <a href="road-safety.html">السلامة المرورية</a>
+
         <a href="#contact">تواصل معنا</a>
+
     </nav>
 
 </header>
 
+<!-- ============================================
+     Hero — قسم خاص بالصفحة الرئيسية فقط
+     (كلاسات home-* معزولة عن style.css)
+============================================ -->
 
-<div class="hero-car">
+<div class="home-hero-car">
+    <img src="89708DDA-E6D8-4EF4-AD56-DA291207DB22.png" alt="TDrive Car">
+</div>
 
-    <img src="89708DDA-E6D8-4EF4-AD56-DA291207DB22.png"
-         alt="سيارة TDrive"
-         loading="eager">
+<section id="home" class="home-hero">
+
+<div class="home-hero-content">
+
+<p>
+منظومة سعودية متخصصة في حلول القيادة والتنقل.
+</p>
+
+    <a href="services.html" class="home-hero-button">
+استكشف خدماتنا
+</a>
 
 </div>
 
+</section>
 
-<section id="home" class="hero">
 
-    <div class="hero-content">
+<!-- ============================================
+     برنامج احترفي القيادة على الطريق
+     (كلاسات home-* معزولة عن style.css)
+============================================ -->
 
-        <p>
-            منظومة سعودية متخصصة في حلول القيادة والتنقل.
-        </p>
+<section class="home-featured">
 
-        <a href="services.html" class="button">
-            استكشف خدماتنا
-        </a>
+<div class="home-featured-card">
 
-    </div>
+<div class="home-top-badge">
+ البرنامج الأكثر طلباً
+</div>
+
+<h2>
+ برنامج احترفي القيادة على الطريق
+</h2>
+
+<div class="home-quote">
+
+</div>
+
+<p>
+تقدم <strong>TDrive</strong> برنامجاً تدريبياً عملياً على
+<strong>سيارة المؤسسة</strong>
+وفق منهجية تدريب احترافية تساعدك على اكتساب الثقة وإتقان القيادة على الطريق.
+</p>
+
+<div class="home-features">
+
+<div>
+
+<span>تدريب عملي</span>
+</div>
+
+<div>
+
+<span>قيادة آمنة</span>
+</div>
+
+<div>
+
+<span>5 ساعات</span>
+</div>
+
+</div>
+
+<p class="home-old-price">
+السعر الأساسي
+<s>500 ريال</s>
+</p>
+
+<div class="home-price-box">
+
+<div class="home-price">
+375
+</div>
+
+<div class="home-price-text">
+ريال فقط
+</div>
+
+<div class="home-offer">
+ عرض لفترة محدودة
+</div>
+
+</div>
+
+<a href="booking.html" class="home-register-btn">
+سجلي الآن →
+</a>
+
+</div>
 
 </section>
 
 
-<section class="featured-program">
+<!-- ============================================
+     من هنا لآخر الصفحة: بدون تغيير
+     (بتاخد تنسيقها من style.css المشترك
+      لأنها بتتكرر في صفحات تانية زي booking.html)
+============================================ -->
 
-    <div class="card">
-
-        <div class="top-badge">
-            البرنامج الأكثر طلباً
-        </div>
-
-        <h2>
-            برنامج احترفي القيادة على الطريق
-        </h2>
-
-        <div class="quote"></div>
-
-        <p>
-            تقدم <strong>TDrive</strong> برنامجاً تدريبياً عملياً على
-            <strong>سيارة المؤسسة</strong>
-            وفق منهجية تدريب احترافية تساعدك على اكتساب الثقة وإتقان القيادة على الطريق.
-        </p>
-
-        <div class="features">
-
-            <div>
-                <span>تدريب عملي</span>
-            </div>
-
-            <div>
-                <span>قيادة آمنة</span>
-            </div>
-
-            <div>
-                <span>5 ساعات</span>
-            </div>
-
-        </div>
-
-        <p class="old-price">
-            السعر الأساسي <s>500 ريال</s>
-        </p>
-
-        <div class="price-box">
-
-            <div class="price">
-                375
-            </div>
-
-            <div class="price-text">
-                ريال فقط
-            </div>
-
-            <div class="offer">
-                عرض لفترة محدودة
-            </div>
-
-        </div>
-
-        <a href="booking.html" class="register-btn">
-            سجلي الآن →
-        </a>
-
-    </div>
-
-</section>
-
-
+<!-- قسم التوثيق -->
 <section class="tdrive-verification">
 
     <div class="verification-card">
 
+        <!-- درع التوثيق -->
         <div class="verification-shield">
             <i class="fa-solid fa-shield-halved"></i>
+
         </div>
 
         <h2>
             TDrive
+            
         </h2>
 
         <p class="verification-description">
@@ -150,20 +460,16 @@
         <div class="verification-line"></div>
 
         <p class="verification-text">
-
             نحن موثوقون لدى وزارة الموارد البشرية والتنمية الاجتماعية والعمل الحر بوثيقة رقم:
-
-            <strong>
-                FL-198268972
-            </strong>
-
+            <strong>FL-198268972</strong>
         </p>
 
+        <!-- شعارات الموارد البشرية والعمل الحر -->
         <div class="official-logos">
-
-            <img src="IMG_4039.jpeg"
-                 alt="وزارة الموارد البشرية والتنمية الاجتماعية والعمل الحر">
-
+            <img
+                src="IMG_4039.jpeg"
+                alt="وزارة الموارد البشرية والتنمية الاجتماعية والعمل الحر"
+            >
         </div>
 
     </div>
@@ -171,66 +477,54 @@
 </section>
 
 
+<!-- طرق الدفع -->
 <section class="payment-section">
 
     <h2>
-
         <i class="fa-solid fa-lock"></i>
-
         طرق الدفع الإلكترونية
-
     </h2>
 
     <p class="payment-description">
-
         يمكنكم الدفع من خلال خيارات دفع موثوقة وسهلة وآمنة
-
     </p>
 
     <div class="payment-methods">
 
+        <!-- تحويل بنكي -->
         <div class="payment-card">
 
             <div class="payment-icon bank-icon">
-
                 <i class="fa-solid fa-building-columns"></i>
-
             </div>
 
             <div class="payment-info">
-
-                <h3>
-                    تحويل بنكي
-                </h3>
+                <h3>تحويل بنكي</h3>
 
                 <p>
                     يمكنكم الدفع من خلال التحويل البنكي الآمن
                 </p>
-
             </div>
 
         </div>
 
 
+        <!-- تمارا -->
         <div class="payment-card">
 
             <div class="payment-logo">
-
-                <img src="5B54E210-DF91-4734-B04E-1553073FF19D.png"
-                     alt="تمارا">
-
+                <img
+                    src="5B54E210-DF91-4734-B04E-1553073FF19D.png"
+                    alt="تمارا"
+                >
             </div>
 
             <div class="payment-info">
-
-                <h3>
-                    تمارا
-                </h3>
+                <h3>تمارا</h3>
 
                 <p>
                     يمكنكم الدفع من خلال برنامج تمارا بسهولة وأمان
                 </p>
-
             </div>
 
         </div>
@@ -242,148 +536,96 @@
 
 <section class="reviews">
 
-    <h2>
-        🩵 رأيك يهمنا
-    </h2>
+<h2>🩵 رأيك يهمنا</h2>
 
-    <div class="card">
+<div class="card">
 
-        <p>
-            نسعد بتقييمك، فملاحظاتك تساعدنا على تطوير خدمات TDrive.
-        </p>
+<p>
+نسعد بتقييمك، فملاحظاتك تساعدنا على تطوير خدمات TDrive.
+</p>
 
-        <form id="reviewForm">
+<form id="reviewForm">
 
-            <label>
-                اسم البرنامج
-            </label>
+<label>اسم البرنامج</label>
 
-            <select id="reviewProgram" required>
+<select id="reviewProgram" required>
 
-                <option value="">
-                    اختر البرنامج
-                </option>
+<option value="">اختر البرنامج</option>
 
-                <option>
-                    احترفي القيادة على الطريق
-                </option>
+<option>احترفي القيادة على الطريق</option>
 
-                <option>
-                    دورة الكابتن المحترف
-                </option>
+<option>دورة الكابتن المحترف</option>
 
-                <option>
-                    شراء سيارة
-                </option>
+<option>شراء سيارة</option>
 
-                <option>
-                    أخرى
-                </option>
+<option>أخرى</option>
 
-            </select>
+</select>
 
+<label>التقييم</label>
 
-            <label>
-                التقييم
-            </label>
+<div class="stars" id="reviewStars">
 
-            <div class="stars" id="reviewStars">
+<span data-rate="1">&#9733;</span>
+<span data-rate="2">&#9733;</span>
+<span data-rate="3">&#9733;</span>
+<span data-rate="4">&#9733;</span>
+<span data-rate="5">&#9733;</span>
 
-                <span data-rate="1">
-                    &#9733;
-                </span>
+</div>
 
-                <span data-rate="2">
-                    &#9733;
-                </span>
+<label>اكتب تجربتك</label>
 
-                <span data-rate="3">
-                    &#9733;
-                </span>
+<textarea
+id="reviewComment"
+placeholder="اكتب رأيك هنا..."
+required></textarea>
 
-                <span data-rate="4">
-                    &#9733;
-                </span>
+<button
+type="submit"
+class="review-btn">
 
-                <span data-rate="5">
-                    &#9733;
-                </span>
+ إرسال التقييم
 
-            </div>
+</button>
 
+</form>
+<h3 style="margin-top:18px;color:#65b7c3;">
+🩵 آراء العملاء
+</h3>
 
-            <label>
-                اكتب تجربتك
-            </label>
+<div id="reviewsContainer" class="reviews-slider">
 
-            <textarea id="reviewComment"
-                      placeholder="اكتب رأيك هنا..."
-                      required></textarea>
-
-
-            <button type="submit" class="review-btn">
-
-                إرسال التقييم
-
-            </button>
-
-        </form>
-
-
-        <h3 style="margin-top:18px;color:#65b7c3;">
-
-            🩵 آراء العملاء
-
-        </h3>
-
-
-        <div id="reviewsContainer"
-             class="reviews-slider">
-        </div>
-
-    </div>
+</div>
+</div>
 
 </section>
-
 
 <section id="contact" class="contact">
 
-    <h2>
-        تواصل معنا
-    </h2>
+<h2>تواصل معنا</h2>
 
-    <p class="contact-text">
-        يسعدنا الرد على استفساراتكم
-    </p>
+<p class="contact-text">
+يسعدنا الرد على استفساراتكم
+</p>
 
-    <div class="social-links">
+<div class="social-links">
 
-        <a href="https://wa.me/966556117180"
-           target="_blank">
+<a href="https://wa.me/966556117180" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
 
-            <i class="fa-brands fa-whatsapp"></i>
+<a href="https://www.tiktok.com/@tdrive.sa" target="_blank">
+<i class="fa-brands fa-tiktok"></i>
+</a>
 
-        </a>
+<a href="mailto:tdrive.sa@gmail.com">
+<i class="fa-solid fa-envelope"></i>
+</a>
 
-
-        <a href="https://www.tiktok.com/@tdrive.sa"
-           target="_blank">
-
-            <i class="fa-brands fa-tiktok"></i>
-
-        </a>
-
-
-        <a href="mailto:tdrive.sa@gmail.com">
-
-            <i class="fa-solid fa-envelope"></i>
-
-        </a>
-
-    </div>
+</div>
 
 </section>
-
 
 <section class="footer-links">
 
@@ -405,12 +647,11 @@
 
 </section>
 
-
 <footer>
 
-    <p>
-        © 2026 TDrive | تكنولوجيا القيادة
-    </p>
+<p>
+© 2026 TDrive | تكنولوجيا القيادة
+</p>
 
 </footer>
 
@@ -418,7 +659,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
-
 <script type="module" src="app.js?v=10"></script>
 
 </body>
