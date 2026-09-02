@@ -905,7 +905,30 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         z-index: 10 !important;
     }
 }
+/* ============================================
+   إصلاح السيارة ودائرة الأيزو فقط — شاشات الجوال
+   ============================================ */
+@media (max-width: 520px) {
+    /* 1) إرجاع أبعاد السيارة الطبيعية عشان ما تطلع مضغوطة */
+    .captain-course-section .hero-image {
+        width: 100% !important;
+        height: auto !important;
+        max-height: none !important; 
+        bottom: 0 !important;
+    }
 
+    /* 2) تصغير دائرة الأيزو شوي وتنزيلها لأسفل الحافة عشان ما تغطي السيارة */
+    .captain-course-section .iso-badge {
+        width: 70px !important;
+        height: 70px !important;
+        bottom: 5px !important; /* تجلس في الأسفل تماماً */
+        left: 50% !important;
+        transform: translateX(-50%) !important; /* لضمان بقائها في المنتصف */
+        z-index: 10 !important;
+    }
+}
+
+     
      
 </style>
 </head>
