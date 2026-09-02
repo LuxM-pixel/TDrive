@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الكابتن المحترف - TDrive</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7fbfc;
+            color: #222;
+        }
+
+        /* =========================
+           بطاقة الكابتن المحترف
+        ========================== */
+
+        .professional-card {
+            width: min(92%, 900px);
+            margin: 50px auto;
+            background: #ffffff;
+            border: 1px solid rgba(79, 159, 174, 0.18);
+            border-radius: 28px;
+            padding: 35px;
+            box-shadow: 0 12px 35px rgba(79, 159, 174, 0.10);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .professional-card h2 {
+            margin: 0;
+            color: #4F9FAE;
+            font-size: clamp(24px, 4vw, 38px);
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .professional-card .subtitle {
+            margin: 8px 0 28px;
+            color: #333;
+            font-size: clamp(18px, 3vw, 26px);
+            font-weight: 600;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           منطقة الصور
+        ========================== */
+
+        .image-showcase {
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 10;
+            border-radius: 22px;
+            overflow: hidden;
+            background: #eef8fa;
+        }
+
+        .showcase-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            opacity: 0;
+            transform: scale(1.02);
+
+            transition:
+                opacity 0.6s ease,
+                transform 0.8s ease;
+        }
+
+        .showcase-image.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* =========================
+           النقاط أسفل الصور
+        ========================== */
+
+        .image-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .image-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #c8dfe4;
+            transition: all 0.3s ease;
+        }
+
+        .image-dot.active {
+            width: 24px;
+            border-radius: 20px;
+            background: #4F9FAE;
+        }
+
+        /* =========================
+           زر الإجراء
+        ========================== */
+
+        .card-button {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 14px 30px;
+
+            background: #4F9FAE;
+            color: white;
+
+            text-decoration: none;
+            border-radius: 14px;
+
+            font-size: 17px;
+            font-weight: 700;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .card-button:hover {
+            background: #438c9a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(79, 159, 174, 0.25);
+        }
+
+        /* =========================
+           الجوال
+        ========================== */
+
+        @media (max-width: 600px) {
+
+            .professional-card {
+                width: 94%;
+                padding: 24px 18px;
+                margin: 30px auto;
+                border-radius: 22px;
+            }
+
+            .professional-card .subtitle {
+                margin-bottom: 20px;
+            }
+
+            .image-showcase {
+                aspect-ratio: 4 / 3;
+                border-radius: 18px;
+            }
+
+            .card-button {
+                width: 100%;
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         بطاقة الكابتن المحترف
+    ========================== -->
+
+    <section class="professional-card">
+
+        <h2>
+            اشتري ملصق الكابتن المحترف
+        </h2>
+
+        <div class="subtitle">
+            لبيانات الحساب البنكي الآن
+        </div>
+
+
+        <!-- الصور المتغيرة -->
+
+        <div class="image-showcase">
+
+            <!-- الصورة الأولى -->
+            <img
+                src="images/professional-captain-sticker.jpg"
+                alt="ملصق الكابتن المحترف داخل السيارة"
+                class="showcase-image active"
+            >
+
+            <!-- الصورة الثانية -->
+            <img
+                src="images/professional-captain-scan.jpg"
+                alt="مسح رمز QR لعرض بيانات الحساب البنكي"
+                class="showcase-image"
+            >
+
+        </div>
+
+
+        <!-- مؤشرات الصور -->
+
+        <div class="image-dots">
+            <span class="image-dot active"></span>
+            <span class="image-dot"></span>
+        </div>
+
+
+        <!-- زر الشراء -->
+
+        <a href="#" class="card-button">
+            اطلب الملصق الآن
+        </a>
+
+    </section>
+
+
+    <script>
+
+        /* =========================
+           تبديل الصور كل ثانيتين
+        ========================== */
+
+        const images = document.querySelectorAll('.showcase-image');
+        const dots = document.querySelectorAll('.image-dot');
+
+        let currentImage = 0;
+
+        function changeImage() {
+
+            images[currentImage].classList.remove('active');
+            dots[currentImage].classList.remove('active');
+
+            currentImage++;
+
+            if (currentImage >= images.length) {
+                currentImage = 0;
+            }
+
+            images[currentImage].classList.add('active');
+            dots[currentImage].classList.add('active');
+        }
+
+        /*
+         * الصورة تظهر لمدة ثانيتين
+         * ثم تنتقل للصورة التالية
+         */
+
+        setInterval(changeImage, 2000);
+
+    </script>
+
+</body>
+</html>
