@@ -25,16 +25,26 @@ line-height:1.8;
 ========================== */
 
 header{
-    position:sticky;
+  position:sticky;
+
     top:0;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     width:100%;
-    padding:10px 0;
+
+    padding:20px 0;
+
     background:#fff;
+
     box-shadow:0 8px 25px rgba(0,0,0,.05);
+
     z-index:999;
+
     overflow-x:hidden;
 }
 
@@ -53,13 +63,21 @@ font-size:15px;
 color:#888;
 }
 
-nav{
+
+    nav{
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     gap:25px;
+
     width:100%;
-    margin-top:8px;
+
+    margin-top:20px;
+
     overflow-x:auto;
 }
 
@@ -83,7 +101,7 @@ color:#65b7c3;
 }
 
 .tdrive-header-logo{
-    width:280px;
+    width:430px;
     height:auto;
     display:block;
 }
