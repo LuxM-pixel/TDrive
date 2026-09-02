@@ -696,551 +696,144 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     line-height:1.6;
 }
 
-
 /* =========================================================
-   ملصق الكابتن المحترف
+   تثبيت جدول مميزات دورة الكابتن
 ========================================================= */
 
-.captain-sticker-section {
+.captain-course-section .benefits {
     width:100%;
-    padding:42px 20px;
-    background:#F7FBFC;
-    font-family:'Cairo',sans-serif;
-}
-
-.captain-sticker-card {
-    width:100%;
-    max-width:760px;
-    margin:0 auto;
-    padding:28px 24px;
-    background:#FFFFFF;
-    border:1px solid #DCECEF;
-    border-radius:24px;
-    box-shadow:0 10px 30px rgba(22,76,92,.08);
-    text-align:center;
-}
-
-.captain-sticker-badge {
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    padding:6px 14px;
-    border-radius:30px;
-    background:#EEF8FA;
-    color:#4F9FAE;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:12px;
-}
-
-.captain-sticker-badge i {
-    font-size:12px;
-}
-
-.captain-sticker-card h2 {
     margin:0;
-    color:#164C5C;
-    font-size:25px;
-    font-weight:800;
-    line-height:1.5;
+    padding:0;
 }
 
-.captain-sticker-description {
-    max-width:570px;
-    margin:10px auto 20px;
-    color:#68777C;
-    font-size:14px;
-    line-height:1.9;
-}
-
-.captain-sticker-features {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin:20px 0;
-}
-
-.captain-sticker-feature {
-    padding:14px 8px;
-    background:#F8FBFC;
-    border:1px solid #DCECEF;
-    border-radius:15px;
-}
-
-.captain-sticker-feature i {
-    display:block;
-    margin-bottom:7px;
-    color:#4F9FAE;
-    font-size:21px;
-}
-
-.captain-sticker-feature span {
-    color:#52666D;
-    font-size:12px;
-    font-weight:600;
-}
-
-.captain-sticker-buy-button {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
+.captain-course-section .benefit-card {
     width:100%;
-    padding:14px 18px;
-    border-radius:15px;
-    background:#4F9FAE;
-    color:#FFFFFF;
-    text-decoration:none;
-    font-size:15px;
-    font-weight:700;
-    transition:.2s;
-    box-shadow:0 8px 20px rgba(79,159,174,.20);
+    margin:0;
+    box-sizing:border-box;
 }
 
-.captain-sticker-buy-button:hover {
-    transform:translateY(-2px);
-    box-shadow:0 10px 24px rgba(79,159,174,.28);
+.captain-course-section .features {
+    width:100%;
+    margin:15px 0 0;
+    padding:8px 0 3px;
+    box-sizing:border-box;
 }
 
-.captain-sticker-whatsapp {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:7px;
-    margin-top:13px;
-    color:#25D366;
-    text-decoration:none;
-    font-size:13px;
-    font-weight:700;
+.captain-course-section .feature {
+    width:100%;
+    min-width:0;
+    box-sizing:border-box;
 }
 
-.captain-sticker-whatsapp i {
-    font-size:18px;
+.captain-course-section .feature-icon {
+    flex-shrink:0;
 }
-
-.captain-sticker-whatsapp:hover {
-    text-decoration:underline;
-}
-
-
+   
 /* =========================================================
-   إصلاحات الجوال
-========================================================= */
-
-@media (max-width:900px){
-
-    .home-hero{
-        padding:50px 25px;
-    }
-
-    .home-hero-content p{
-        font-size:18px;
-    }
-
-    .home-hero-button{
-        width:100%;
-        text-align:center;
-        box-sizing:border-box;
-    }
-}
-
-@media(max-width:768px){
-
-    .home-featured-card{
-        padding:16px;
-    }
-
-    .home-featured-card h2{
-        font-size:18px;
-        margin-bottom:8px;
-    }
-
-    .home-featured-card p{
-        font-size:14px;
-        margin-bottom:10px;
-    }
-
-    .home-features{
-        flex-direction:column;
-        gap:8px;
-        margin:10px 0;
-    }
-
-    .home-price{
-        font-size:34px;
-    }
-
-    .home-price-text{
-        font-size:16px;
-    }
-
-    .home-register-btn{
-        font-size:16px;
-        padding:11px;
-        margin-top:10px;
-    }
-
-    .captain-sticker-section{
-        padding:32px 14px;
-    }
-
-    .captain-sticker-card{
-        padding:23px 17px;
-        border-radius:20px;
-    }
-
-    .captain-sticker-card h2{
-        font-size:22px;
-    }
-
-    .captain-sticker-description{
-        font-size:13px;
-    }
-
-    .captain-sticker-features{
-        grid-template-columns:1fr;
-        gap:8px;
-    }
-
-    .captain-sticker-feature{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:8px;
-        padding:10px;
-    }
-
-    .captain-sticker-feature i{
-        margin:0;
-        font-size:18px;
-    }
-}
-
-
-/* =========================================================
-   إصلاحات دورة الكابتن - الجوال
-========================================================= */
-
-.captain-course-section,
-.captain-course-section section {
-    padding-left:0;
-    padding-right:0;
-}
-
-@media (max-width:520px){
-
-    .captain-course-section .test-page{
-        padding:10px;
-    }
-
-    .captain-course-section .course-hero{
-        min-height:440px !important;
-        display:block !important;
-        padding-top:30px !important;
-        padding-bottom:170px !important;
-    }
-
-    .captain-course-section .hero-image{
-        width:100% !important;
-        height:auto !important;
-        max-height:none !important;
-        bottom:0 !important;
-    }
-
-    .captain-course-section .hero-content{
-        padding-top:25px !important;
-        padding-bottom:40px !important;
-        transform:none !important;
-    }
-
-    .captain-course-section .registration-badge{
-        font-size:12px;
-        padding:6px 13px;
-    }
-
-    .captain-course-section .hero-content h1{
-        font-size:27px;
-        line-height:1.3;
-        margin:14px 0 4px;
-    }
-
-    .captain-course-section .hero-content h1 .wheel-icon{
-        width:25px;
-        height:25px;
-    }
-
-    .captain-course-section .hero-content h2{
-        font-size:17px;
-        line-height:1.4;
-    }
-
-    .captain-course-section .hero-description{
-        font-size:12.5px;
-        line-height:1.8;
-        margin-top:8px;
-    }
-
-    .captain-course-section .iso-badge{
-        width:70px !important;
-        height:70px !important;
-        bottom:15px !important;
-        left:50% !important;
-        transform:translateX(-50%) !important;
-        z-index:10 !important;
-    }
-
-    .captain-course-section .section-title{
-        font-size:20px;
-        margin:22px 0 11px;
-        gap:10px;
-    }
-
-    .captain-course-section .benefits{
-        border-radius:16px;
-    }
-
-    .captain-course-section .benefit-card{
-        padding:10px 12px;
-        gap:11px;
-    }
-
-    .captain-course-section .benefit-icon{
-        width:40px;
-        height:40px;
-        flex-basis:40px;
-    }
-
-    .captain-course-section .benefit-card h3{
-        font-size:13.5px;
-    }
-
-    .captain-course-section .benefit-card p{
-        font-size:11.5px;
-    }
-
-    .captain-course-section .quality-box{
-        padding:13px;
-        gap:10px;
-        border-radius:16px;
-    }
-
-    .captain-course-section .quality-icon{
-        flex-basis:46px;
-        width:46px;
-        height:46px;
-    }
-
-    .captain-course-section .quality-text h3{
-        font-size:15px;
-    }
-
-    .captain-course-section .quality-text p{
-        font-size:12px;
-        line-height:1.75;
-    }
-
-    .captain-course-section .course-price{
-        margin-top:17px;
-        padding:15px 12px;
-        border-radius:16px;
-    }
-
-    .captain-course-section .price-label{
-        font-size:12px;
-    }
-
-    .captain-course-section .old-price{
-        font-size:14px;
-    }
-
-    .captain-course-section .new-price{
-        font-size:36px;
-    }
-
-    .captain-course-section .new-price .currency{
-        font-size:15px;
-    }
-
-    .captain-course-section .launch-offer{
-        font-size:11px;
-    }
-
-    .captain-course-section .register-button{
-        font-size:14px;
-        padding:13px 12px;
-    }
-
-    .captain-course-section .features{
-        margin-top:12px;
-        gap:5px;
-    }
-
-    .captain-course-section .feature-icon{
-        width:38px;
-        height:38px;
-    }
-
-    .captain-course-section .feature span{
-        font-size:10.5px;
-    }
-
-    .captain-course-section .course-session-info{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:6px;
-        flex-wrap:wrap;
-        margin:7px 0 10px;
-    }
-
-    .captain-course-section .course-session-info div{
-        display:inline-flex;
-        align-items:center;
-        justify-content:center;
-        gap:5px;
-        padding:5px 8px;
-        border-radius:12px;
-        background:#FFFFFF;
-        border:1px solid var(--cap-border);
-        color:var(--cap-muted);
-        font-size:10.5px;
-        font-weight:600;
-    }
-
-    .captain-course-section .course-session-info i{
-        color:var(--cap-tdrive);
-        font-size:12px;
-    }
-}
-
-   /* =========================================================
    ملصق الكابتن المحترف
 ========================================================= */
 
 .captain-sticker-section {
     width:100%;
-    padding:42px 20px;
+    padding:32px 10px;
     background:#F7FBFC;
     font-family:'Cairo',sans-serif;
 }
 
 .captain-sticker-card {
     width:100%;
-    max-width:1120px;
+    max-width:1200px;
     margin:0 auto;
     position:relative;
     text-align:center;
 }
 
-/* الصورة */
 .captain-sticker-image-wrap {
     position:relative;
     width:100%;
     line-height:0;
+    overflow:hidden;
 }
 
 .captain-sticker-image {
     display:block;
     width:100%;
+    max-width:1200px;
     height:auto;
+    margin:0 auto;
     border-radius:18px;
 }
 
+
 /* =========================================================
-   زر شراء حقيقي فوق زر الشراء الموجود داخل الصورة
+   زر الشراء
+   شفاف بالكامل فوق الزر الموجود داخل الصورة
 ========================================================= */
 
 .captain-sticker-buy-overlay {
     position:absolute;
 
-    /* مكان زر الشراء داخل الصورة */
     left:5.2%;
     right:5.2%;
     bottom:7.2%;
-
     height:10.5%;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:rgba(79,159,174,.08);
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:22px;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
 
-    color:transparent;
+    color:transparent !important;
     text-decoration:none;
 
     cursor:pointer;
 
-    transition:
-        background .25s ease,
-        box-shadow .25s ease,
-        transform .25s ease;
-
-    z-index:3;
-}
-
-.captain-sticker-buy-overlay:hover {
-    background:rgba(79,159,174,.16);
-    box-shadow:
-        0 8px 25px rgba(79,159,174,.18),
-        inset 0 0 15px rgba(255,255,255,.08);
-
-    transform:translateY(-1px);
-}
-
-.captain-sticker-buy-overlay:active {
-    transform:scale(.99);
+    z-index:10;
 }
 
 
 /* =========================================================
-   زر WhatsApp حقيقي فوق الواتساب الموجود داخل الصورة
+   WhatsApp
+   شفاف بالكامل فوق الواتساب الموجود داخل الصورة
 ========================================================= */
 
 .captain-sticker-whatsapp-overlay {
     position:absolute;
 
-    /* مكان عبارة الواتساب أسفل الصورة */
     left:28%;
     right:28%;
     bottom:1.3%;
-
     height:5.5%;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    background:rgba(37,211,102,.035);
-    border:1px solid rgba(37,211,102,.05);
-    border-radius:18px;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
 
-    color:transparent;
+    color:transparent !important;
     text-decoration:none;
 
     cursor:pointer;
 
-    transition:
-        background .25s ease,
-        box-shadow .25s ease,
-        transform .25s ease;
-
-    z-index:3;
+    z-index:10;
 }
 
-.captain-sticker-whatsapp-overlay:hover {
-    background:rgba(37,211,102,.10);
-    box-shadow:
-        0 6px 18px rgba(37,211,102,.12),
-        inset 0 0 12px rgba(255,255,255,.08);
 
-    transform:translateY(-1px);
-}
+/* لا يظهر أي لون عند المرور أو الضغط */
 
+.captain-sticker-buy-overlay:hover,
+.captain-sticker-buy-overlay:active,
+.captain-sticker-whatsapp-overlay:hover,
 .captain-sticker-whatsapp-overlay:active {
-    transform:scale(.99);
+    background:transparent !important;
+    box-shadow:none !important;
+    transform:none !important;
 }
 
 
@@ -1251,14 +844,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 @media(max-width:768px){
 
     .captain-sticker-section {
-        padding:28px 10px;
+        padding:24px 6px;
     }
 
     .captain-sticker-card {
         width:100%;
+        max-width:1200px;
     }
 
     .captain-sticker-image {
+        width:100%;
         border-radius:14px;
     }
 
@@ -1267,7 +862,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         right:5.5%;
         bottom:7.1%;
         height:10.8%;
-        border-radius:15px;
     }
 
     .captain-sticker-whatsapp-overlay {
@@ -1275,7 +869,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         right:25%;
         bottom:1.1%;
         height:5.8%;
-        border-radius:14px;
     }
 }
 
