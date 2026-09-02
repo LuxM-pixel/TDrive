@@ -1,232 +1,1055 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
 <title>طلب ملصق الكابتن المحترف | TDrive</title>
 
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+  rel="stylesheet"
+>
+
 
 <style>
+
+/* =========================================================
+   الأساس
+========================================================= */
+
 :root {
+
   --tdrive: #4F9FAE;
-  --dark: #3f8997;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --border: #e5e7eb;
+
+  --tdrive-dark: #3F8997;
+
+  --text: #1F2937;
+
+  --muted: #6B7280;
+
+  --border: #E1E7EA;
+
+  --background: #F5F9FA;
+
 }
+
 
 * {
   box-sizing: border-box;
 }
 
+
 body {
+
   margin: 0;
+
   font-family: "Cairo", sans-serif;
-  background: #f7fafb;
+
+  background:
+    linear-gradient(
+      180deg,
+      #F5F9FA 0%,
+      #EEF6F8 100%
+    );
+
   color: var(--text);
+
 }
+
 
 .page {
+
   min-height: 100vh;
-  padding: 28px 16px 50px;
+
+  padding:
+    28px
+    16px
+    60px;
+
 }
+
 
 .container {
-  width: min(620px, 100%);
+
+  width: min(650px, 100%);
+
   margin: auto;
+
 }
+
+
+/* =========================================================
+   الشعار
+========================================================= */
 
 .brand {
+
   text-align: center;
+
   margin-bottom: 22px;
+
 }
+
 
 .brand img {
+
   width: 92px;
+
   height: auto;
+
+  display: inline-block;
+
 }
+
+
+/* =========================================================
+   بطاقة الطلب
+========================================================= */
 
 .card {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 28px 22px;
-  box-shadow: 0 8px 30px rgba(0,0,0,.05);
+
+  background: #FFFFFF;
+
+  border: 1px solid #E2E8EB;
+
+  border-radius: 26px;
+
+  padding:
+    34px
+    26px
+    30px;
+
+  box-shadow:
+    0 10px 35px rgba(22, 76, 92, 0.08);
+
 }
+
+
+/* =========================================================
+   العنوان
+========================================================= */
 
 h1 {
-  margin: 0 0 8px;
+
+  margin:
+    0
+    0
+    10px;
+
   text-align: center;
-  font-size: 25px;
+
+  color: #172936;
+
+  font-size: 28px;
+
+  line-height: 1.5;
+
   font-weight: 800;
+
 }
+
 
 .intro {
-  margin: 0 auto 26px;
-  max-width: 500px;
+
+  margin:
+    0
+    auto
+    30px;
+
+  max-width: 530px;
+
   text-align: center;
-  color: var(--muted);
-  line-height: 1.9;
-  font-size: 14px;
+
+  color: #717C8B;
+
+  font-size: 15px;
+
+  line-height: 2;
+
 }
+
+
+/* =========================================================
+   الحقول
+========================================================= */
 
 .field {
-  margin-bottom: 18px;
+
+  margin-bottom: 21px;
+
 }
+
 
 label {
+
   display: block;
-  margin-bottom: 8px;
-  font-size: 14px;
-  font-weight: 700;
+
+  margin-bottom: 9px;
+
+  color: #1F2D3A;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
 }
+
 
 .required {
-  color: #c62828;
+
+  color: #D52D25;
+
 }
+
 
 input[type="text"] {
+
   width: 100%;
-  height: 52px;
-  border: 1px solid #d9dee3;
-  border-radius: 13px;
-  padding: 0 15px;
+
+  height: 58px;
+
+  border:
+    1px solid
+    #D7E0E4;
+
+  border-radius: 15px;
+
+  padding:
+    0
+    17px;
+
   font-family: inherit;
-  font-size: 15px;
+
+  font-size: 16px;
+
   outline: none;
-  background: #fff;
+
+  background: #FFFFFF;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease;
+
 }
+
+
+input[type="text"]::placeholder {
+
+  color: #A8ADB1;
+
+}
+
 
 input[type="text"]:focus {
-  border-color: var(--tdrive);
-  box-shadow: 0 0 0 3px rgba(79,159,174,.12);
+
+  border-color:
+    var(--tdrive);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(79,159,174,.12);
+
 }
+
 
 .hint {
-  margin-top: 6px;
-  color: var(--muted);
+
+  margin-top: 7px;
+
+  color: #737D8B;
+
   font-size: 12px;
+
 }
+
+
+/* =========================================================
+   الموافقة
+========================================================= */
 
 .consent {
+
   display: flex;
+
   align-items: flex-start;
-  gap: 10px;
-  margin: 22px 0;
-  padding: 14px;
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  background: #fbfcfc;
-  line-height: 1.8;
-  font-size: 13px;
+
+  gap: 12px;
+
+  margin:
+    25px
+    0
+    20px;
+
+  padding:
+    17px
+    16px;
+
+  border:
+    1px solid
+    #E0E6E9;
+
+  border-radius: 16px;
+
+  background: #FBFCFC;
+
+  line-height: 1.9;
+
+  font-size: 14px;
+
   cursor: pointer;
+
 }
+
 
 .consent input {
-  width: 19px;
-  height: 19px;
-  min-width: 19px;
+
+  width: 21px;
+
+  height: 21px;
+
+  min-width: 21px;
+
   margin-top: 3px;
-  accent-color: var(--tdrive);
+
+  accent-color:
+    var(--tdrive);
+
 }
+
+
+/* =========================================================
+   زر الدفع
+========================================================= */
 
 .submit-btn {
+
   width: 100%;
-  height: 54px;
+
+  height: 58px;
+
   border: 0;
-  border-radius: 14px;
-  background: var(--tdrive);
-  color: #fff;
+
+  border-radius: 16px;
+
+  background:
+    var(--tdrive);
+
+  color: #FFFFFF;
+
   font-family: inherit;
-  font-size: 16px;
+
+  font-size: 18px;
+
   font-weight: 800;
+
   cursor: pointer;
+
+  box-shadow:
+    0 7px 18px
+    rgba(79,159,174,.20);
+
+  transition:
+    background .2s ease,
+    transform .15s ease,
+    box-shadow .2s ease;
+
 }
+
 
 .submit-btn:hover {
-  background: var(--dark);
+
+  background:
+    var(--tdrive-dark);
+
+  box-shadow:
+    0 9px 22px
+    rgba(79,159,174,.25);
+
 }
+
+
+.submit-btn:active {
+
+  transform:
+    translateY(1px);
+
+}
+
 
 .submit-btn:disabled {
+
   opacity: .65;
+
   cursor: not-allowed;
+
 }
+
+
+/* =========================================================
+   الرسائل
+========================================================= */
 
 .message {
+
   display: none;
+
   margin-top: 16px;
-  padding: 13px 14px;
-  border-radius: 12px;
+
+  padding:
+    13px
+    14px;
+
+  border-radius: 13px;
+
   font-size: 13px;
+
   line-height: 1.8;
+
 }
+
 
 .message.error {
+
   display: block;
-  background: #fff1f1;
-  color: #c62828;
-  border: 1px solid #ffd2d2;
+
+  background: #FFF1F1;
+
+  color: #C62828;
+
+  border:
+    1px solid
+    #FFD2D2;
+
 }
+
 
 .message.success {
+
   display: block;
-  background: #eef9f6;
-  color: #176b58;
-  border: 1px solid #c9eee4;
+
+  background: #EEF9F6;
+
+  color: #176B58;
+
+  border:
+    1px solid
+    #C9EEE4;
+
 }
+
+
+/* =========================================================
+   العودة
+========================================================= */
 
 .back {
+
   display: block;
-  margin-top: 18px;
+
+  margin-top: 19px;
+
   text-align: center;
-  color: var(--muted);
+
+  color: #7B8490;
+
   text-decoration: none;
-  font-size: 13px;
+
+  font-size: 14px;
+
 }
 
-@media (max-width: 480px) {
+
+.back:hover {
+
+  color:
+    var(--tdrive);
+
+}
+
+
+/* =========================================================
+   كيف يعمل الملصق؟
+========================================================= */
+
+.sticker-how-it-works {
+
+  width: 100%;
+
+  margin:
+    38px
+    auto
+    0;
+
+  padding:
+    30px
+    20px
+    25px;
+
+  background: #FFFFFF;
+
+  border:
+    1px solid
+    #DCECEF;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 8px 25px
+    rgba(22,76,92,.06);
+
+}
+
+
+.sticker-how-it-works h2 {
+
+  margin:
+    0
+    0
+    25px;
+
+  text-align: center;
+
+  color: #164C5C;
+
+  font-size: 25px;
+
+  line-height: 1.5;
+
+  font-weight: 800;
+
+}
+
+
+/* =========================================================
+   منطقة السلايدر
+========================================================= */
+
+.sticker-slider {
+
+  position: relative;
+
+  width: 100%;
+
+  height: 540px;
+
+  overflow: hidden;
+
+}
+
+
+/* =========================================================
+   كل خطوة
+========================================================= */
+
+.sticker-step {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(12px);
+
+  transition:
+    opacity .7s ease,
+    transform .7s ease,
+    visibility .7s ease;
+
+}
+
+
+/* الخطوة النشطة */
+
+.sticker-step.active {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(0);
+
+}
+
+
+/* =========================================================
+   رقم الخطوة
+========================================================= */
+
+.sticker-step-number {
+
+  width: 43px;
+
+  height: 43px;
+
+  flex: 0 0 43px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    var(--tdrive);
+
+  color: #FFFFFF;
+
+  font-size: 19px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 5px 14px
+    rgba(79,159,174,.22);
+
+}
+
+
+/* =========================================================
+   النص
+========================================================= */
+
+.sticker-step-content {
+
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+
+.sticker-step-content h3 {
+
+  margin:
+    12px
+    0
+    15px;
+
+  color: #263B42;
+
+  text-align: center;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  font-weight: 800;
+
+}
+
+
+.sticker-step-content p {
+
+  width: 100%;
+
+  max-width: 530px;
+
+  margin:
+    -5px
+    auto
+    12px;
+
+  color: #68777C;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  line-height: 1.9;
+
+  font-weight: 500;
+
+}
+
+
+/* =========================================================
+   صندوق الصورة
+   مهم جدًا حتى لا تتمطط الصفحة مع الصور الطويلة
+========================================================= */
+
+.sticker-image-box {
+
+  width: 100%;
+
+  height: 410px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background:
+    #F8FBFC;
+
+  border:
+    1px solid
+    #E1ECEF;
+
+}
+
+
+/* الصورة نفسها */
+
+.sticker-image-box img {
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 16px;
+
+}
+
+
+/* =========================================================
+   مؤشرات الخطوات
+========================================================= */
+
+.sticker-dots {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 20px;
+
+}
+
+
+.sticker-dot {
+
+  width: 8px;
+
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #D5E3E6;
+
+  transition:
+    width .3s ease,
+    background .3s ease;
+
+}
+
+
+.sticker-dot.active {
+
+  width: 24px;
+
+  border-radius: 10px;
+
+  background:
+    var(--tdrive);
+
+}
+
+
+/* =========================================================
+   الجوال
+========================================================= */
+
+@media (max-width: 520px) {
+
   .page {
-    padding: 18px 12px 35px;
+
+    padding:
+      18px
+      11px
+      45px;
+
   }
+
+
+  .brand {
+
+    margin-bottom: 17px;
+
+  }
+
+
+  .brand img {
+
+    width: 78px;
+
+  }
+
 
   .card {
-    padding: 23px 16px;
-    border-radius: 18px;
+
+    padding:
+      25px
+      15px
+      27px;
+
+    border-radius: 21px;
+
   }
 
+
   h1 {
-    font-size: 22px;
+
+    font-size: 23px;
+
+    line-height: 1.5;
+
   }
+
+
+  .intro {
+
+    font-size: 13.5px;
+
+    line-height: 1.9;
+
+    margin-bottom: 25px;
+
+  }
+
+
+  label {
+
+    font-size: 14px;
+
+  }
+
+
+  input[type="text"] {
+
+    height: 55px;
+
+    font-size: 15px;
+
+    border-radius: 14px;
+
+  }
+
+
+  .consent {
+
+    padding:
+      15px
+      13px;
+
+    font-size: 13px;
+
+  }
+
+
+  .submit-btn {
+
+    height: 57px;
+
+    font-size: 17px;
+
+  }
+
+
+  /* -----------------------------------------
+     قسم كيف يعمل الملصق
+  ----------------------------------------- */
+
+  .sticker-how-it-works {
+
+    margin-top: 30px;
+
+    padding:
+      23px
+      12px
+      20px;
+
+    border-radius: 21px;
+
+  }
+
+
+  .sticker-how-it-works h2 {
+
+    font-size: 22px;
+
+    margin-bottom: 20px;
+
+  }
+
+
+  .sticker-slider {
+
+    height: 430px;
+
+  }
+
+
+  .sticker-step-number {
+
+    width: 37px;
+
+    height: 37px;
+
+    flex-basis: 37px;
+
+    font-size: 16px;
+
+  }
+
+
+  .sticker-step-content h3 {
+
+    margin:
+      9px
+      0
+      12px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+  }
+
+
+  .sticker-step-content p {
+
+    font-size: 12.5px;
+
+    line-height: 1.8;
+
+  }
+
+
+  .sticker-image-box {
+
+    height: 315px;
+
+    border-radius: 15px;
+
+  }
+
+
+  .sticker-image-box img {
+
+    border-radius: 13px;
+
+  }
+
+
+  .sticker-dots {
+
+    margin-top: 16px;
+
+  }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <main class="page">
+
   <div class="container">
 
+
+    <!-- =====================================================
+         الشعار
+    ====================================================== -->
+
     <div class="brand">
-      <img src="logo.svg" alt="TDrive">
+
+      <img
+        src="logo.svg"
+        alt="TDrive"
+      >
+
     </div>
+
+
+
+    <!-- =====================================================
+         بطاقة الطلب
+    ====================================================== -->
 
     <section class="card">
 
-      <h1>طلب ملصق الكابتن المحترف</h1>
+
+      <h1>
+        طلب ملصق الكابتن المحترف
+      </h1>
+
 
       <p class="intro">
-        أدخل بيانات الحساب البنكي كما هي، وسيتم إنشاء طلبك وحفظ بياناته لإعداد ملصق بيانات الحساب البنكي.
+
+        أدخل بيانات الحساب البنكي كما هي، وسيتم إنشاء طلبك وحفظ
+        بياناته لإعداد ملصق بيانات الحساب البنكي.
+
       </p>
+
+
 
       <form id="stickerOrderForm">
 
+
+        <!-- الاسم -->
+
         <div class="field">
+
           <label for="fullName">
-            الاسم الكامل <span class="required">*</span>
+
+            الاسم الكامل
+            <span class="required">*</span>
+
           </label>
+
 
           <input
             id="fullName"
@@ -235,13 +1058,22 @@ input[type="text"]:focus {
             placeholder="اكتب الاسم الكامل"
             required
           >
+
         </div>
 
 
+
+        <!-- رقم الحساب -->
+
         <div class="field">
+
           <label for="accountNumber">
-            رقم الحساب <span class="required">*</span>
+
+            رقم الحساب
+            <span class="required">*</span>
+
           </label>
+
 
           <input
             id="accountNumber"
@@ -252,13 +1084,22 @@ input[type="text"]:focus {
             dir="ltr"
             required
           >
+
         </div>
 
 
+
+        <!-- الآيبان -->
+
         <div class="field">
+
           <label for="iban">
-            رقم الآيبان IBAN <span class="required">*</span>
+
+            رقم الآيبان IBAN
+            <span class="required">*</span>
+
           </label>
+
 
           <input
             id="iban"
@@ -270,11 +1111,18 @@ input[type="text"]:focus {
             required
           >
 
+
           <div class="hint">
+
             يجب أن يبدأ الآيبان بـ SA.
+
           </div>
+
         </div>
 
+
+
+        <!-- الموافقة -->
 
         <label class="consent">
 
@@ -284,49 +1132,247 @@ input[type="text"]:focus {
             required
           >
 
+
           <span>
+
             أوافق على استخدام بياناتي لإنشاء ملصق بيانات الحساب البنكي.
+
           </span>
 
         </label>
 
+
+
+        <!-- زر الدفع -->
 
         <button
           id="submitBtn"
           class="submit-btn"
           type="submit"
         >
+
           المتابعة للدفع
+
         </button>
 
+
+
+        <!-- الرسالة -->
 
         <div
           id="message"
           class="message"
         ></div>
 
+
       </form>
+
 
 
       <a
         class="back"
         href="index-test.html"
       >
+
         العودة
+
       </a>
+
 
     </section>
 
+
+
+    <!-- =====================================================
+         كيف يعمل الملصق؟
+    ====================================================== -->
+
+    <section class="sticker-how-it-works">
+
+
+      <h2>
+        كيف يعمل الملصق؟
+      </h2>
+
+
+
+      <!-- ===================================================
+           السلايدر
+      ==================================================== -->
+
+      <div class="sticker-slider">
+
+
+        <!-- الخطوة 1 -->
+
+        <div class="sticker-step active">
+
+          <div class="sticker-step-number">
+            1
+          </div>
+
+
+          <div class="sticker-step-content">
+
+            <h3>
+              يوضع الملصق في السيارة
+            </h3>
+
+
+            <div class="sticker-image-box">
+
+              <img
+                src="captain-sticker.webp"
+                alt="وضع ملصق الكابتن المحترف في السيارة"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- الخطوة 2 -->
+
+        <div class="sticker-step">
+
+          <div class="sticker-step-number">
+            2
+          </div>
+
+
+          <div class="sticker-step-content">
+
+            <h3>
+              يمسح العميل الباركود
+            </h3>
+
+
+            <div class="sticker-image-box">
+
+              <img
+                src="hand-sticker.webp"
+                alt="مسح العميل للباركود الموجود على الملصق"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- الخطوة 3 -->
+
+        <div class="sticker-step">
+
+          <div class="sticker-step-number">
+            3
+          </div>
+
+
+          <div class="sticker-step-content">
+
+            <h3>
+              ثم يفتح الرابط
+            </h3>
+
+
+            <div class="sticker-image-box">
+
+              <img
+                src="barcode-sticker.webp"
+                alt="فتح الرابط من خلال باركود الملصق"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- الخطوة 4 -->
+
+        <div class="sticker-step">
+
+          <div class="sticker-step-number">
+            4
+          </div>
+
+
+          <div class="sticker-step-content">
+
+            <h3>
+              فتظهر له بيانات حسابك البنكي قابلة للنسخ
+            </h3>
+
+
+            <p>
+              وبعد الحوالة يرسل الإيصال بثانية واحدة على رقم جوالك.
+            </p>
+
+
+            <div class="sticker-image-box">
+
+              <img
+                src="data-sticker.webp"
+                alt="بيانات الحساب البنكي القابلة للنسخ"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- ===================================================
+           النقاط
+      ==================================================== -->
+
+      <div class="sticker-dots">
+
+        <span class="sticker-dot active"></span>
+
+        <span class="sticker-dot"></span>
+
+        <span class="sticker-dot"></span>
+
+        <span class="sticker-dot"></span>
+
+      </div>
+
+
+    </section>
+
+
   </div>
+
 </main>
 
 
+
+<!-- =========================================================
+     Supabase
+========================================================= -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
 <script>
 
 const SUPABASE_URL =
   "https://sbevfklawymyducaqerb.supabase.co";
+
 
 const SUPABASE_KEY =
   "sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2";
@@ -339,72 +1385,155 @@ const supabaseClient =
   );
 
 
+
+/* =========================================================
+   عناصر النموذج
+========================================================= */
+
 const form =
-  document.getElementById("stickerOrderForm");
+  document.getElementById(
+    "stickerOrderForm"
+  );
+
 
 const submitBtn =
-  document.getElementById("submitBtn");
+  document.getElementById(
+    "submitBtn"
+  );
+
 
 const message =
-  document.getElementById("message");
+  document.getElementById(
+    "message"
+  );
 
 
-function showMessage(text, type = "error") {
+
+/* =========================================================
+   الرسائل
+========================================================= */
+
+function showMessage(
+  text,
+  type = "error"
+) {
+
+  if (!text) {
+
+    message.textContent = "";
+
+    message.className = "message";
+
+    return;
+
+  }
+
 
   message.textContent = text;
 
+
   message.className =
     "message " + type;
+
 }
 
+
+
+/* =========================================================
+   تحويل الأرقام العربية إلى إنجليزية
+========================================================= */
 
 function normalizeNumbers(value) {
 
   return value
-    .replace(/[٠-٩]/g, d =>
-      String("٠١٢٣٤٥٦٧٨٩".indexOf(d))
+
+    .replace(
+      /[٠-٩]/g,
+      d =>
+        String(
+          "٠١٢٣٤٥٦٧٨٩".indexOf(d)
+        )
     )
-    .replace(/[۰-۹]/g, d =>
-      String("۰۱۲۳۴۵۶۷۸۹".indexOf(d))
+
+    .replace(
+      /[۰-۹]/g,
+      d =>
+        String(
+          "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
+        )
     );
+
 }
 
+
+
+/* =========================================================
+   تنظيف الآيبان
+========================================================= */
 
 function normalizeIBAN(value) {
 
   return normalizeNumbers(value)
+
     .replace(/\s+/g, "")
+
     .toUpperCase();
+
 }
 
 
+
+/* =========================================================
+   إنشاء رقم الطلب
+========================================================= */
+
 function generateOrderNumber() {
 
-  const d = new Date();
+  const d =
+    new Date();
+
 
   const y =
     d.getFullYear();
 
+
   const m =
-    String(d.getMonth() + 1).padStart(2, "0");
+    String(
+      d.getMonth() + 1
+    ).padStart(2, "0");
+
 
   const day =
-    String(d.getDate()).padStart(2, "0");
+    String(
+      d.getDate()
+    ).padStart(2, "0");
+
 
   const random =
     Math.floor(
-      100000 + Math.random() * 900000
+      100000 +
+      Math.random() * 900000
     );
 
-  return `STK-${y}${m}${day}-${random}`;
+
+  return (
+    `STK-${y}${m}${day}-${random}`
+  );
+
 }
 
+
+
+/* =========================================================
+   حفظ الطلب
+========================================================= */
 
 form.addEventListener(
   "submit",
   async function(event) {
 
     event.preventDefault();
+
 
     showMessage("");
 
@@ -439,6 +1568,11 @@ form.addEventListener(
         .checked;
 
 
+
+    /* -----------------------------------------
+       التحقق
+    ----------------------------------------- */
+
     if (!fullName) {
 
       showMessage(
@@ -446,6 +1580,7 @@ form.addEventListener(
       );
 
       return;
+
     }
 
 
@@ -456,6 +1591,7 @@ form.addEventListener(
       );
 
       return;
+
     }
 
 
@@ -469,6 +1605,7 @@ form.addEventListener(
       );
 
       return;
+
     }
 
 
@@ -479,13 +1616,20 @@ form.addEventListener(
       );
 
       return;
+
     }
 
+
+
+    /* -----------------------------------------
+       تعطيل الزر
+    ----------------------------------------- */
 
     submitBtn.disabled = true;
 
     submitBtn.textContent =
       "جاري حفظ الطلب...";
+
 
 
     const orderNumber =
@@ -496,21 +1640,30 @@ form.addEventListener(
       crypto.randomUUID();
 
 
+
     try {
+
+      /* ---------------------------------------
+         حفظ الطلب في Supabase
+      --------------------------------------- */
 
       const { error } =
         await supabaseClient
+
           .from("sticker_orders")
+
           .insert([
 
             {
+
               id: orderId,
 
               booking_id: orderNumber,
 
               captain_name: fullName,
 
-              account_number: accountNumber,
+              account_number:
+                accountNumber,
 
               iban: iban,
 
@@ -522,16 +1675,24 @@ form.addEventListener(
 
               created_at:
                 new Date().toISOString()
+
             }
 
           ]);
 
 
+
       if (error) {
 
         throw error;
+
       }
 
+
+
+      /* ---------------------------------------
+         حفظ بيانات الطلب مؤقتًا للصفحة التالية
+      --------------------------------------- */
 
       sessionStorage.setItem(
         "stickerOrderId",
@@ -575,11 +1736,21 @@ form.addEventListener(
       );
 
 
+
+      /* ---------------------------------------
+         رسالة النجاح
+      --------------------------------------- */
+
       showMessage(
         `تم إنشاء الطلب رقم ${orderNumber}، جاري الانتقال للدفع...`,
         "success"
       );
 
+
+
+      /* ---------------------------------------
+         الانتقال للدفع
+      --------------------------------------- */
 
       setTimeout(
         () => {
@@ -588,11 +1759,14 @@ form.addEventListener(
             "captain-payment-method.html";
 
         },
-        500
+        700
       );
 
 
-    } catch (error) {
+    }
+
+
+    catch (error) {
 
       console.error(
         "Supabase error:",
@@ -607,14 +1781,94 @@ form.addEventListener(
 
       submitBtn.disabled = false;
 
+
       submitBtn.textContent =
         "المتابعة للدفع";
+
     }
 
   }
 );
 
+
+
+/* =========================================================
+   سلايدر "كيف يعمل الملصق؟"
+   
+   كل خطوة = 5 ثوانٍ
+========================================================= */
+
+const stickerSteps =
+  document.querySelectorAll(
+    ".sticker-step"
+  );
+
+
+const stickerDots =
+  document.querySelectorAll(
+    ".sticker-dot"
+  );
+
+
+let currentStickerStep = 0;
+
+
+
+function showStickerStep(index) {
+
+  stickerSteps.forEach(
+    (step, i) => {
+
+      step.classList.toggle(
+        "active",
+        i === index
+      );
+
+    }
+  );
+
+
+  stickerDots.forEach(
+    (dot, i) => {
+
+      dot.classList.toggle(
+        "active",
+        i === index
+      );
+
+    }
+  );
+
+}
+
+
+
+/* -----------------------------------------
+   الانتقال كل 5 ثوانٍ
+----------------------------------------- */
+
+setInterval(
+  () => {
+
+    currentStickerStep =
+      (
+        currentStickerStep + 1
+      )
+      %
+      stickerSteps.length;
+
+
+    showStickerStep(
+      currentStickerStep
+    );
+
+  },
+  5000
+);
+
 </script>
 
+
 </body>
+
 </html>
