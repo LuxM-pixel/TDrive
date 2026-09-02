@@ -928,19 +928,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     }
 }
 /* ============================================
-   إصلاح تداخل النص + ضبط السيارة والأيزو — شاشات الجوال
+   الحل النهائي لدورة الكابتن - شاشات الجوال
    ============================================ */
 @media (max-width: 520px) {
-    /* 1) إضافة مسافة أمان للنص عشان يوقف قبل سقف السيارة */
+    /* 1) تحديد ارتفاع القسم */
     .captain-course-section .course-hero {
-        min-height: 480px !important; /* إعطاء مساحة كافية للقسم */
+        min-height: 440px !important; 
     }
     
+    /* 2) تنزيل النص لمستوى سقف السيارة وإلغاء الفراغ السفلي المزعج */
     .captain-course-section .hero-content {
-        padding-bottom: 150px !important; /* مخدة أمان تمنع النص من النزول للسيارة */
+        padding-top: 65px !important; /* هذا الرقم يدفع النص للأسفل */
+        padding-bottom: 0 !important; /* إلغاء الفراغ اللي طير النص */
+        transform: none !important;
     }
 
-    /* 2) أكواد السيارة ودائرة الأيزو (بدون تغيير عن اللي ضبط معك) */
+    /* 3) السيارة (ممتازة ومضبوطة) */
     .captain-course-section .hero-image {
         width: 100% !important;
         height: auto !important;
@@ -948,14 +951,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         bottom: 0 !important;
     }
     
+    /* 4) دائرة الأيزو (ممتازة ومضبوطة) */
     .captain-course-section .iso-badge {
         width: 70px !important;
         height: 70px !important;
-        bottom: 15px !important; /* رفعتها نتفة بسيطة جداً عشان تكون على الصدام مباشرة */
+        bottom: 15px !important;
         left: 50% !important;
         transform: translateX(-50%) !important; 
         z-index: 10 !important;
     }
+}
+
 }
 
      
