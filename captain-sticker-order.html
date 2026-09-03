@@ -12,1501 +12,565 @@
 
 <style>
 
-    /* ==========================
-       Home Hero
-    ========================== */
+/* =========================================================
+   Header
+   ========================================================= */
 
-    .home-hero-car{
-        display:flex;
-        justify-content:center;
-        margin:20px 0;
-    }
+header {
+  width: 100%;
+  min-height: 72px;
+  padding: 10px 20px;
 
-    .home-hero-car img{
-        width:350px;
-        max-width:90%;
-        height:auto;
-    }
+  box-sizing: border-box;
 
-    .home-hero{
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        padding:70px 8%;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    .home-hero-content{
-        max-width:700px;
-    }
+  background: #fff;
+  border-bottom: 1px solid #eeeeee;
 
-    .home-hero-content p{
-        font-size:20px;
-        color:#666;
-        margin-bottom:25px;
-        line-height:1.9;
-    }
-
-    .home-hero-button{
-        display:inline-block;
-        margin-top:30px;
-        padding:16px 42px;
-        background:#65b7c3;
-        color:#fff;
-        text-decoration:none;
-        font-weight:bold;
-        border-radius:14px;
-        transition:.3s;
-        font-family:'Cairo',sans-serif;
-    }
-
-    .home-hero-button:hover{
-        transform:translateY(-4px);
-        box-shadow:0 10px 25px rgba(0,0,0,.12);
-    }
-
-
-    /* ==========================
-       Featured Program
-    ========================== */
-
-    .home-featured {
-        width: 100%;
-        max-width: 1100px;
-        margin: 20px auto;
-        padding: 20px 20px;
-        font-family: 'Cairo', sans-serif;
-    }
-
-    .home-featured-card {
-        max-width: 600px;
-        width: 100%;
-        margin: 0 auto;
-        padding: 18px;
-        background: #FFF8EF;
-        border: 2px solid #FFE6BF;
-        border-radius: 24px;
-        box-shadow: 0 10px 25px rgba(245, 158, 11, .08);
-        text-align: right;
-        box-sizing: border-box;
-    }
-
-    .home-top-badge {
-        display: inline-block;
-        background: #F59E0B;
-        color: #fff;
-        padding: 6px 16px;
-        border-radius: 30px;
-        font-size: 14px;
-        font-weight: 700;
-        box-shadow: 0 6px 15px rgba(245, 158, 11, .25);
-        margin-bottom: 10px;
-    }
-
-    .home-featured-card h2 {
-        color: #2f8ea1;
-        font-size: 20px;
-        font-weight: 800;
-        text-align: right;
-        margin-bottom: 10px;
-    }
-
-    .home-quote {
-        font-size: 50px;
-        color: #65b7c3;
-        line-height: 1;
-        margin-bottom: 10px;
-    }
-
-    .home-featured-card p {
-        color: #555;
-        font-size: 15px;
-        line-height: 1.7;
-        text-align: right;
-        margin-bottom: 14px;
-    }
-
-    .home-features {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin: 14px 0;
-    }
-
-    .home-features div {
-        flex: 1;
-        min-width: 160px;
-        background: #f8fbfc;
-        border: 1px solid #d9edf5;
-        border-radius: 14px;
-        padding: 10px 8px;
-        text-align: center;
-        font-weight: 700;
-        color: #444;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .home-features div i {
-        color: #65b7c3;
-        font-size: 15px;
-    }
-
-    .home-old-price {
-        text-align: right;
-        color: #777;
-        font-size: 14px;
-        text-decoration: line-through;
-        text-decoration-color: #e53935;
-        font-weight: 600;
-    }
-
-    .home-price-box {
-        text-align: center;
-        margin: 14px 0;
-    }
-
-    .home-price {
-        font-size: 40px;
-        font-weight: 800;
-        color: #ff8a00;
-        line-height: 1;
-    }
-
-    .home-price-text {
-        color: #ff8a00;
-        font-size: 18px;
-        font-weight: 700;
-    }
-
-    .home-offer {
-        display: inline-block;
-        margin-top: 8px;
-        background: #fff3e4;
-        color: #ff8a00;
-        padding: 5px 14px;
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: 700;
-    }
-
-    .home-register-btn {
-        display: block;
-        width: 100%;
-        background: #ff8a00;
-        color: #fff;
-        text-align: center;
-        text-decoration: none;
-        padding: 12px;
-        border-radius: 16px;
-        font-size: 17px;
-        font-weight: 700;
-        margin-top: 14px;
-        transition: .3s;
-        box-sizing: border-box;
-        font-family: 'Cairo', sans-serif;
-    }
-
-    .home-register-btn:hover {
-        background: #f57c00;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(255, 138, 0, 0.2);
-    }
-
-
-    /* ==========================
-       Home - Mobile
-    ========================== */
-
-    @media (max-width:900px){
-
-        .home-hero{
-            padding:50px 25px;
-        }
-
-        .home-hero-content p{
-            font-size:18px;
-        }
-
-        .home-hero-button{
-            width:100%;
-            text-align:center;
-            box-sizing: border-box;
-        }
-    }
-
-    @media(max-width:768px){
-
-        .home-featured-card {
-            padding: 16px;
-        }
-
-        .home-featured-card h2 {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .home-featured-card p {
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-
-        .home-features {
-            flex-direction: column;
-            gap: 8px;
-            margin: 10px 0;
-        }
-
-        .home-price {
-            font-size: 34px;
-        }
-
-        .home-price-text {
-            font-size: 16px;
-        }
-
-        .home-register-btn {
-            font-size: 16px;
-            padding: 11px;
-            margin-top: 10px;
-        }
-    }
-    /* ============================================
-       تنسيق قسم "دورة الكابتن المحترف"
-       كل الـ selectors محصورة داخل .captain-course-section
-    ============================================ */
-
-    .captain-course-section {
-        --cap-tdrive: #4F9FAE;
-        --cap-tdrive-rgb: 79, 159, 174;
-        --cap-tdrive-dark: #164C5C;
-        --cap-tdrive-light: #EEF8FA;
-        --cap-text: #263B42;
-        --cap-muted: #68777C;
-        --cap-white: #FFFFFF;
-        --cap-border: #DCECEF;
-        --cap-highlight: #F4D35E;
-
-        display: block;
-        background: #FFFFFF;
-        font-family: "Tajawal", Arial, Tahoma, sans-serif;
-        color: var(--cap-text);
-        font-weight: 400;
-    }
-
-    .captain-course-section,
-    .captain-course-section * {
-        box-sizing: border-box;
-    }
-
-    .captain-course-section .test-page {
-        width: 100%;
-        max-width: 760px;
-        margin: auto;
-        padding: 18px;
-    }
-
-    .captain-course-section .course-hero {
-        position: relative;
-        overflow: hidden;
-        min-height: 620px;
-        border-radius: 0 0 26px 26px;
-        background: transparent;
-        text-align: center;
-        border: none;
-        margin: -18px -18px 0 -18px;
-    }
-
-    .captain-course-section .hero-image {
-        position: absolute;
-        width: 100%;
-        height: auto;
-        left: 0;
-        bottom: 0;
-        z-index: 1;
-        display: block;
-    }
-
-    .captain-course-section .hero-content {
-        position: relative;
-        z-index: 2;
-        padding: 85px 14px 0;
-    }
-
-    .captain-course-section .iso-badge {
-        position: absolute;
-        left: 50%;
-        bottom: 14px;
-        transform: translateX(-50%);
-        width: 108px;
-        height: 108px;
-        z-index: 3;
-        padding: 6px;
-        background: #FFFFFF;
-        border-radius: 50%;
-        border: 3px solid var(--cap-tdrive);
-        box-shadow:
-            0 6px 16px rgba(22, 76, 92, 0.28),
-            0 0 0 6px rgba(255, 255, 255, 0.9);
-        object-fit: contain;
-    }
-
-    .captain-course-section .registration-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 7px 15px;
-        border-radius: 30px;
-        background: rgba(79, 159, 174, 0.10);
-        color: var(--cap-tdrive);
-        font-size: 13px;
-        font-weight: 600;
-        animation: capRegistrationGlow 2.2s ease-in-out infinite;
-    }
-
-    @keyframes capRegistrationGlow {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(79, 159, 174, 0); }
-        50% { box-shadow: 0 0 18px 5px rgba(79, 159, 174, 0.22); }
-    }
-
-    .captain-course-section .registration-badge::before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--cap-tdrive);
-    }
-
-    .captain-course-section .hero-content h1 {
-        margin: 16px 0 6px;
-        color: var(--cap-tdrive-dark);
-        font-size: 32px;
-        font-weight: 700;
-        line-height: 1.35;
-        letter-spacing: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .captain-course-section .hero-content h1 .wheel-icon {
-        width: 30px;
-        height: 30px;
-        flex-shrink: 0;
-    }
-
-    .captain-course-section .hero-content h1 .wheel-icon svg {
-        width: 100%;
-        height: 100%;
-        stroke: var(--cap-tdrive);
-        fill: none;
-        stroke-width: 3;
-    }
-
-    .captain-course-section .hero-content h2 {
-        margin: 0 auto;
-        color: var(--cap-tdrive);
-        font-size: 19px;
-        line-height: 1.6;
-        font-weight: 600;
-        letter-spacing: 0;
-    }
-
-    .captain-course-section .hero-description {
-        max-width: 500px;
-        margin: 12px auto 0;
-        color: var(--cap-muted);
-        font-size: 13.5px;
-        line-height: 1.9;
-        font-weight: 400;
-    }
-
-    .captain-course-section .hero-description strong {
-        color: var(--cap-tdrive);
-        font-weight: 700;
-    }
-
-    .captain-course-section .section-title {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin: 25px 0 15px;
-        color: var(--cap-tdrive-dark);
-        font-size: 21px;
-        font-weight: 700;
-        text-align: center;
-    }
-
-    .captain-course-section .section-title::before,
-    .captain-course-section .section-title::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--cap-tdrive);
-        position: relative;
-    }
-
-    .captain-course-section .section-title::before {
-        background: linear-gradient(to left, var(--cap-tdrive) 0%, var(--cap-tdrive) 6px, transparent 6px);
-    }
-
-    .captain-course-section .section-title::after {
-        background: linear-gradient(to right, var(--cap-tdrive) 0%, var(--cap-tdrive) 6px, transparent 6px);
-    }
-
-    .captain-course-section .benefits {
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        background: #FFFFFF;
-        border: 1px solid var(--cap-border);
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 5px 18px rgba(22, 76, 92, 0.05);
-    }
-
-    .captain-course-section .benefit-card {
-        min-height: auto;
-        padding: 13px 16px;
-        background: #FFFFFF;
-        border: none;
-        border-radius: 0;
-        text-align: right;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 13px;
-        box-shadow: none;
-    }
-
-    .captain-course-section .benefit-card + .benefit-card {
-        border-top: 1px solid var(--cap-border);
-    }
-
-    .captain-course-section .benefit-icon {
-        width: 44px;
-        height: 44px;
-        flex: 0 0 44px;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--cap-tdrive-light);
-        color: var(--cap-tdrive);
-    }
-
-    .captain-course-section .benefit-icon svg {
-        width: 23px;
-        height: 23px;
-        display: block;
-        stroke: currentColor;
-        fill: none;
-    }
-
-    .captain-course-section .benefit-content {
-        flex: 1;
-        min-width: 0;
-    }
-
-    .captain-course-section .benefit-card h3 {
-        margin: 0 0 2px;
-        color: var(--cap-tdrive-dark);
-        font-size: 15px;
-        line-height: 1.5;
-        font-weight: 600;
-    }
-
-    .captain-course-section .benefit-card p {
-        margin: 0;
-        color: var(--cap-muted);
-        font-size: 12px;
-        line-height: 1.65;
-        font-weight: 400;
-    }
-
-    .captain-course-section .benefit-underline {
-        display: none;
-    }
-
-    .captain-course-section .quality-box {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-top: 18px;
-        padding: 16px;
-        border-radius: 20px;
-        background: var(--cap-tdrive-light);
-        border: 1px solid #D9ECEF;
-    }
-
-    .captain-course-section .quality-icon {
-        flex: 0 0 52px;
-        width: 52px;
-        height: 52px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: #FFFFFF;
-        color: var(--cap-tdrive);
-        box-shadow: 0 4px 10px rgba(22, 76, 92, 0.10);
-    }
-
-    .captain-course-section .quality-icon svg {
-        width: 26px;
-        height: 26px;
-        stroke: currentColor;
-        fill: none;
-    }
-
-    .captain-course-section .quality-divider {
-        flex: 0 0 1px;
-        align-self: stretch;
-        background: rgba(var(--cap-tdrive-rgb), 0.35);
-    }
-
-    .captain-course-section .quality-text { flex: 1; }
-
-    .captain-course-section .quality-text h3 {
-        margin: 0 0 5px;
-        color: var(--cap-tdrive);
-        font-size: 16px;
-        font-weight: 700;
-    }
-
-    .captain-course-section .quality-text p {
-        margin: 0;
-        color: var(--cap-muted);
-        font-size: 12.5px;
-        line-height: 1.8;
-        font-weight: 400;
-    }
-
-    .captain-course-section .course-price {
-        margin-top: 20px;
-        padding: 17px 18px;
-        border-radius: 18px;
-        background: linear-gradient(135deg, #F5FBFC, #EEF8FA);
-        border: 1px solid #D9ECEF;
-        text-align: center;
-    }
-
-    .captain-course-section .price-label {
-        display: block;
-        margin-bottom: 4px;
-        color: var(--cap-tdrive-dark);
-        font-size: 13px;
-        font-weight: 600;
-    }
-
-    .captain-course-section .price-row {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        direction: rtl;
-    }
-
-    .captain-course-section .old-price {
-        display: inline-block;
-        color: #89969A;
-        font-size: 17px;
-        font-weight: 500;
-        text-decoration-line: line-through;
-        text-decoration-color: #89969A;
-        text-decoration-thickness: 2px;
-        text-decoration-skip-ink: none;
-    }
-
-    .captain-course-section .new-price {
-        position: relative;
-        display: inline-flex;
-        align-items: baseline;
-        gap: 4px;
-        color: var(--cap-tdrive-dark);
-        font-size: 40px;
-        line-height: 1.15;
-        font-weight: 800;
-        isolation: isolate;
-    }
-
-    .captain-course-section .new-price::before {
-        content: "";
-        position: absolute;
-        width: 104px;
-        height: 42px;
-        left: 47%;
-        top: 53%;
-        transform: translate(-50%, -50%) rotate(-5deg);
-        background: var(--cap-highlight);
-        opacity: 0.72;
-        border-radius: 46% 54% 52% 48% / 55% 44% 56% 45%;
-        z-index: -1;
-        filter: blur(0.3px);
-    }
-
-    .captain-course-section .new-price .price-number { position: relative; z-index: 2; }
-
-    .captain-course-section .new-price .currency {
-        position: relative;
-        z-index: 2;
-        font-size: 17px;
-        font-weight: 600;
-        margin-right: 2px;
-    }
-
-    .captain-course-section .launch-offer {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 7px;
-        padding: 5px 14px;
-        border-radius: 20px;
-        background: var(--cap-tdrive);
-        color: #FFFFFF;
-        font-size: 12px;
-        font-weight: 700;
-        box-shadow: 0 4px 12px rgba(var(--cap-tdrive-rgb), 0.18);
-    }
-
-    .captain-course-section .register-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        margin-top: 14px;
-        padding: 14px 16px;
-        border: 0;
-        border-radius: 14px;
-        background: var(--cap-tdrive);
-        color: white;
-        font-size: 15px;
-        font-weight: 700;
-        line-height: 1.6;
-        text-align: center;
-        text-decoration: none;
-        box-shadow: 0 8px 20px rgba(var(--cap-tdrive-rgb), 0.22);
-        transition: 0.2s;
-    }
-
-    .captain-course-section .register-button:hover { transform: translateY(-2px); }
-
-    .captain-course-section .features {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-        margin-top: 15px;
-        padding: 8px 0 3px;
-    }
-
-    .captain-course-section .feature { text-align: center; color: var(--cap-tdrive); }
-
-    .captain-course-section .feature-icon {
-        width: 42px;
-        height: 42px;
-        margin: 0 auto 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--cap-tdrive-light);
-        color: var(--cap-tdrive);
-    }
-
-    .captain-course-section .feature-icon svg {
-        width: 23px;
-        height: 23px;
-        stroke: currentColor;
-        fill: none;
-    }
-
-    .captain-course-section .feature span {
-        display: block;
-        color: var(--cap-muted);
-        font-size: 11px;
-        line-height: 1.6;
-        font-weight: 400;
-    }
-
-    @media (max-width: 520px) {
-        .captain-course-section .test-page { padding: 10px; }
-        .captain-course-section .course-hero { min-height: 370px; border-radius: 0 0 20px 20px; margin: -10px -10px 0 -10px; }
-        .captain-course-section .hero-content { padding: 20px 14px 0; transform: translateY(-15px); }
-        .captain-course-section .registration-badge { font-size: 12px; padding: 6px 13px; font-weight: 600; }
-        .captain-course-section .hero-content h1 { font-size: 27px; line-height: 1.3; margin: 14px 0 4px; letter-spacing: 0; font-weight: 700; }
-        .captain-course-section .hero-content h1 .wheel-icon { width: 25px; height: 25px; }
-        .captain-course-section .hero-content h2 { font-size: 17px; line-height: 1.4; margin-top: 2px; font-weight: 600; }
-        .captain-course-section .hero-description { max-width: 430px; font-size: 12.5px; line-height: 1.8; margin-top: 8px; font-weight: 400; }
-        .captain-course-section .hero-image { width: 100%; left: 0; bottom: 0; }
-        .captain-course-section .iso-badge { width: 76px; height: 76px; bottom: 8px; padding: 4px; border-width: 2.5px; box-shadow: 0 5px 12px rgba(22, 76, 92, 0.28), 0 0 0 5px rgba(255, 255, 255, 0.9); }
-        .captain-course-section .section-title { font-size: 20px; margin: 22px 0 11px; gap: 10px; font-weight: 700; }
-        .captain-course-section .benefits { border-radius: 16px; }
-        .captain-course-section .benefit-card { padding: 10px 12px; gap: 11px; }
-        .captain-course-section .benefit-icon { width: 40px; height: 40px; flex-basis: 40px; }
-        .captain-course-section .benefit-icon svg { width: 21px; height: 21px; }
-        .captain-course-section .benefit-card h3 { font-size: 13.5px; line-height: 1.45; margin-bottom: 1px; font-weight: 600; }
-        .captain-course-section .benefit-card p { font-size: 11.5px; line-height: 1.6; font-weight: 400; }
-        .captain-course-section .quality-box { padding: 13px; gap: 10px; border-radius: 16px; }
-        .captain-course-section .quality-icon { flex-basis: 46px; width: 46px; height: 46px; }
-        .captain-course-section .quality-text h3 { font-size: 15px; font-weight: 700; }
-        .captain-course-section .quality-text p { font-size: 12px; line-height: 1.75; font-weight: 400; }
-        .captain-course-section .course-price { margin-top: 17px; padding: 15px 12px; border-radius: 16px; }
-        .captain-course-section .price-label { font-size: 12px; margin-bottom: 3px; }
-        .captain-course-section .price-row { gap: 8px; }
-        .captain-course-section .old-price { font-size: 14px; text-decoration-thickness: 1.8px; }
-        .captain-course-section .new-price { font-size: 36px; }
-        .captain-course-section .new-price::before { width: 88px; height: 38px; left: 47%; top: 53%; transform: translate(-50%, -50%) rotate(-5deg); opacity: 0.72; }
-        .captain-course-section .new-price .currency { font-size: 15px; }
-        .captain-course-section .launch-offer { margin-top: 6px; padding: 5px 12px; font-size: 11px; }
-        .captain-course-section .register-button { margin-top: 13px; padding: 13px 12px; font-size: 14px; border-radius: 13px; font-weight: 700; }
-        .captain-course-section .features { margin-top: 12px; gap: 5px; }
-        .captain-course-section .feature-icon { width: 38px; height: 38px; }
-        .captain-course-section .feature-icon svg { width: 21px; height: 21px; }
-        .captain-course-section .feature span { font-size: 10.5px; line-height: 1.5; font-weight: 400; }
-    }
-/* ============================================
-   إصلاحات دورة الكابتن المحترف
-============================================ */
-
-/* 1) إلغاء padding العام لأي section جوه القسم */
-.captain-course-section,
-.captain-course-section section {
-    padding: 0;
+  direction: rtl;
 }
 
-/* 2) تعديل ارتفاع الـ Hero على الجوال + تصغير صورة السيارة
-      عشان النص ميتلامسش معاها */
-@media (max-width: 520px) {
-    .captain-course-section .course-hero {
-        min-height: 480px;
-    }
-
-    .captain-course-section .hero-image {
-        max-height: 200px;
-        object-fit: cover;
-    }
-
-    .captain-course-section .hero-content {
-        padding-top: 12px;
-        transform: translateY(-8px);
-    }
+.site-branding {
+  display: flex;
+  align-items: center;
 }
 
-/* 4) إصلاح تداخل أيقونات القسم الأخير (جودة ومنهجية / مواد إثرائية / شهادة حضور)
-      بسبب تعارضها مع كلاس .features العام في style.css */
-.captain-course-section .features .feature,
-.captain-course-section .features .feature-icon {
-    min-width: 0;
-    max-width: none;
-    flex: initial;
-    background: transparent;
-    border: none;
-    padding: 0;
-    display: block;
+.tdrive-header-logo {
+  display: block;
+
+  width: auto;
+  height: 52px;
+
+  max-width: 220px;
+
+  object-fit: contain;
 }
 
-.captain-course-section .features .feature {
-    text-align: center;
-    color: var(--cap-tdrive);
+.header-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 12px;
+
+  color: #4f9fae;
+  text-decoration: none;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  white-space: nowrap;
 }
 
-.captain-course-section .features .feature-icon {
-    width: 42px;
-    height: 42px;
-    margin: 0 auto 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: var(--cap-tdrive-light);
-    color: var(--cap-tdrive);
+.header-back svg {
+  width: 18px;
+  height: 18px;
+
+  flex-shrink: 0;
+
+  fill: currentColor;
 }
 
-/* 3) تصغير وتنظيم جدول "ماذا ستحصل عليه؟" */
-.captain-course-section .benefit-card {
-    padding: 11px 14px;
-    gap: 11px;
+.header-back:hover {
+  opacity: 0.8;
 }
 
-.captain-course-section .benefit-icon {
-    width: 38px;
-    height: 38px;
-    flex: 0 0 38px;
-}
 
-.captain-course-section .benefit-icon svg {
-    width: 20px;
-    height: 20px;
-}
+/* =========================
+   Mobile Header
+   ========================= */
 
-.captain-course-section .benefit-card h3 {
-    font-size: 14px;
-}
+@media (max-width: 600px) {
 
-.captain-course-section .benefit-card p {
-    font-size: 11.5px;
-}
+  header {
+    min-height: 64px;
+    padding: 8px 12px;
+  }
 
-/* ============================================
-   ضبط نص Hero ودائرة الأيزو — شاشات الجوال (معدل)
-   ============================================ */
-@media (max-width: 520px) {
-    /* 1) تقليل الارتفاع وإلغاء الفراغ الأبيض الكبير في الأعلى */
-    .captain-course-section .course-hero {
-        min-height: auto !important; 
-        display: block !important; 
-        padding-top: 30px !important; /* مسافة مرتبة من الأعلى */
-        padding-bottom: 170px !important; /* حجز مساحة للسيارة بالأسفل */
-    }
+  .tdrive-header-logo {
+    height: 44px;
+    max-width: 185px;
+  }
 
-    /* 2) تثبيت السيارة في الأسفل بحجم مناسب */
-    .captain-course-section .hero-image {
-        max-height: 170px !important; 
-        object-fit: cover;
-    }
+  .header-back {
+    gap: 5px;
+    padding: 7px 6px;
 
-    /* 3) إلغاء الدفع السابق للنص ليعود لترتيبه الطبيعي */
-    .captain-course-section .hero-content {
-        padding-top: 0 !important;
-        transform: none !important; 
-    }
-
-    /* 4) ترتيب دائرة الأيزو وتنزيلها لأسفل السيارة لتكون واضحة وأنيقة */
-    .captain-course-section .iso-badge {
-        width: 75px !important;
-        height: 75px !important;
-        bottom: 15px !important; /* تنزيلها للأسفل حتى لا تغطي السيارة */
-        box-shadow: 0 4px 12px rgba(22, 76, 92, 0.25), 0 0 0 4px #fff !important;
-        z-index: 10 !important;
-    }
-}
-/* ============================================
-   إصلاح السيارة ودائرة الأيزو فقط — شاشات الجوال
-   ============================================ */
-@media (max-width: 520px) {
-    /* 1) إرجاع أبعاد السيارة الطبيعية عشان ما تطلع مضغوطة */
-    .captain-course-section .hero-image {
-        width: 100% !important;
-        height: auto !important;
-        max-height: none !important; 
-        bottom: 0 !important;
-    }
-
-    /* 2) تصغير دائرة الأيزو شوي وتنزيلها لأسفل الحافة عشان ما تغطي السيارة */
-    .captain-course-section .iso-badge {
-        width: 70px !important;
-        height: 70px !important;
-        bottom: 5px !important; /* تجلس في الأسفل تماماً */
-        left: 50% !important;
-        transform: translateX(-50%) !important; /* لضمان بقائها في المنتصف */
-        z-index: 10 !important;
-    }
-}
-/* ============================================
-   الحل النهائي لدورة الكابتن - شاشات الجوال
-   ============================================ */
-@media (max-width: 520px) {
-    /* 1) تحديد ارتفاع القسم */
-    .captain-course-section .course-hero {
-        min-height: 440px !important; 
-    }
-    
-    /* 2) تنزيل النص لمستوى سقف السيارة وإلغاء الفراغ السفلي المزعج */
-    .captain-course-section .hero-content {
-        padding-top: 25px !important; /* هذا الرقم يدفع النص للأسفل */
-        padding-bottom: 40 !important; /* إلغاء الفراغ اللي طير النص */
-        transform: none !important;
-    }
-
-    /* 3) السيارة (ممتازة ومضبوطة) */
-    .captain-course-section .hero-image {
-        width: 100% !important;
-        height: auto !important;
-        max-height: none !important; 
-        bottom: 0 !important;
-    }
-    
-    /* 4) دائرة الأيزو (ممتازة ومضبوطة) */
-    .captain-course-section .iso-badge {
-        width: 70px !important;
-        height: 70px !important;
-        bottom: 15px !important;
-        left: 50% !important;
-        transform: translateX(-50%) !important; 
-        z-index: 10 !important;
-    }
-}
-
-/* معلومات موعد دورة الكابتن */
-.captain-course-section .course-session-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin: 8px 0 12px;
-}
-
-.captain-course-section .course-session-info div {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    padding: 6px 10px;
-    border-radius: 12px;
-    background: #FFFFFF;
-    border: 1px solid var(--cap-border);
-    color: var(--cap-muted);
-    font-size: 11.5px;
-    font-weight: 600;
-}
-
-.captain-course-section .course-session-info i {
-    color: var(--cap-tdrive);
     font-size: 13px;
+  }
+
+  .header-back svg {
+    width: 17px;
+    height: 17px;
+  }
 }
-
-@media (max-width: 520px) {
-
-    .captain-course-section .course-session-info {
-        gap: 6px;
-        margin: 7px 0 10px;
-    }
-
-    .captain-course-section .course-session-info div {
-        padding: 5px 8px;
-        font-size: 10.5px;
-        gap: 5px;
-    }
-
-    .captain-course-section .course-session-info i {
-        font-size: 12px;
-    }
-
-}
-   
-/* =========================================================
-   ملصق الكابتن المحترف
-========================================================= */
-
-.captain-sticker-section {
-    width:100%;
-    padding:32px 10px;
-    background:#F7FBFC;
-    font-family:'Cairo',sans-serif;
-}
-
-.captain-sticker-card {
-    width:100%;
-    max-width:1200px;
-    margin:0 auto;
-    position:relative;
-    text-align:center;
-}
-
-.captain-sticker-image-wrap {
-    position:relative;
-    width:100%;
-    line-height:0;
-    overflow:hidden;
-}
-
-.captain-sticker-image {
-    display:block;
-    width:100%;
-    max-width:1200px;
-    height:auto;
-    margin:0 auto;
-    border-radius:18px;
-}
-
 
 /* =========================================================
-   زر الشراء
-   شفاف بالكامل فوق الزر الموجود داخل الصورة
-========================================================= */
+   TDrive — Captain Sticker Order Page
+   ========================================================= */
 
-.captain-sticker-buy-overlay {
-    position:absolute;
-
-    left:5.2%;
-    right:5.2%;
-    bottom:7.2%;
-    height:10.5%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:transparent !important;
-    border:none !important;
-    box-shadow:none !important;
-
-    color:transparent !important;
-    text-decoration:none;
-
-    cursor:pointer;
-
-    z-index:10;
-}
-
-
-/* =========================================================
-   WhatsApp
-   شفاف بالكامل فوق الواتساب الموجود داخل الصورة
-========================================================= */
-
-.captain-sticker-whatsapp-overlay {
-    position:absolute;
-
-    left:28%;
-    right:28%;
-    bottom:1.3%;
-    height:5.5%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:transparent !important;
-    border:none !important;
-    box-shadow:none !important;
-
-    color:transparent !important;
-    text-decoration:none;
-
-    cursor:pointer;
-
-    z-index:10;
-}
-
-
-/* لا يظهر أي لون عند المرور أو الضغط */
-
-.captain-sticker-buy-overlay:hover,
-.captain-sticker-buy-overlay:active,
-.captain-sticker-whatsapp-overlay:hover,
-.captain-sticker-whatsapp-overlay:active {
-    background:transparent !important;
-    box-shadow:none !important;
-    transform:none !important;
-}
-
-
-/* =========================================================
-   الجوال
-========================================================= */
-
-@media(max-width:768px){
-
-    .captain-sticker-section {
-        padding:24px 6px;
-    }
-
-    .captain-sticker-card {
-        width:100%;
-        max-width:1200px;
-    }
-
-    .captain-sticker-image {
-        width:100%;
-        border-radius:14px;
-    }
-
-    .captain-sticker-buy-overlay {
-        left:5.5%;
-        right:5.5%;
-        bottom:7.1%;
-        height:10.8%;
-    }
-
-    .captain-sticker-whatsapp-overlay {
-        left:25%;
-        right:25%;
-        bottom:1.1%;
-        height:5.8%;
-    }
-}
-/* =========================================================
-   الأساس العام للمحتوى
-========================================================= */
-
-:root {
-  --tdrive: #4F9FAE;
-  --tdrive-dark: #3F8997;
-  --text: #1F2937;
-  --muted: #6B7280;
-  --border: #E1E7EA;
-  --background: #F5F9FA;
-}
-
-body {
+.sticker-order-page {
+  width: 100%;
+  min-height: auto;
   margin: 0;
-  font-family: "Cairo", sans-serif;
-  background: linear-gradient(180deg, #F5F9FA 0%, #EEF6F8 100%);
-  color: var(--text);
+  padding: 32px 16px 60px;
+  box-sizing: border-box;
+  background: #fff;
 }
 
-.page {
-  min-height: 100vh;
-  padding: 0 16px 60px;
+.sticker-order-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
-.container {
-  width: min(650px, 100%);
-  margin: auto;
+/* =========================
+   Order Card
+   ========================= */
+
+.sticker-order-card {
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 24px;
+  box-sizing: border-box;
+
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
-/* =========================================================
-   بطاقة الطلب
-========================================================= */
+.sticker-order-title {
+  margin: 0 0 12px;
 
-.card {
-  margin-top: 34px;
-  background: #FFFFFF;
-  border: 1px solid #E2E8EB;
-  border-radius: 26px;
-  padding: 34px 26px 30px;
-  box-shadow: 0 10px 35px rgba(22, 76, 92, 0.08);
-}
-
-.card h1 {
-  margin: 0 0 10px;
   text-align: center;
-  color: #172936;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1.5;
   font-weight: 800;
+
+  color: #222;
 }
 
-.card .intro {
-  margin: 0 auto 30px;
-  max-width: 530px;
+.sticker-order-intro {
+  margin: 0 0 28px;
+
   text-align: center;
-  color: #717C8B;
   font-size: 15px;
-  line-height: 2;
+  line-height: 1.9;
+
+  color: #666;
 }
 
-/* =========================================================
-   الحقول
-========================================================= */
+/* =========================
+   Form
+   ========================= */
 
-.card .field {
-  margin-bottom: 21px;
-}
-
-.card label {
-  display: block;
-  margin-bottom: 9px;
-  color: #1F2D3A;
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.card .required {
-  color: #D52D25;
-}
-
-.card input[type="text"] {
+#stickerOrderForm {
   width: 100%;
-  height: 58px;
-  border: 1px solid #D7E0E4;
-  border-radius: 15px;
-  padding: 0 17px;
+  margin: 0;
+}
+
+.sticker-order-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.sticker-order-label {
+  display: block;
+  margin-bottom: 8px;
+
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 700;
+
+  color: #222;
+}
+
+.sticker-order-required {
+  color: #d64545;
+}
+
+.sticker-order-input {
+  display: block;
+
+  width: 100%;
+  height: 50px;
+  padding: 0 14px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d8d8d8;
+  border-radius: 12px;
+
+  background: #fff;
+
   font-family: inherit;
-  font-size: 16px;
+  font-size: 15px;
+  color: #222;
+
   outline: none;
-  background: #FFFFFF;
-  transition: border-color .2s ease, box-shadow .2s ease;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.card input[type="text"]::placeholder {
-  color: #A8ADB1;
+.sticker-order-input:focus {
+  border-color: #4f9fae;
+  box-shadow: 0 0 0 3px rgba(79, 159, 174, 0.12);
 }
 
-.card input[type="text"]:focus {
-  border-color: var(--tdrive);
-  box-shadow: 0 0 0 4px rgba(79,159,174,.12);
+.sticker-order-input::placeholder {
+  color: #aaa;
 }
 
-.card .hint {
+.sticker-order-hint {
+  display: block;
   margin-top: 7px;
-  color: #737D8B;
+
   font-size: 12px;
+  line-height: 1.7;
+
+  color: #888;
 }
 
-/* =========================================================
-   الموافقة
-========================================================= */
+/* =========================
+   Consent
+   ========================= */
 
-.card .consent {
+.sticker-order-consent {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  margin: 25px 0 20px;
-  padding: 17px 16px;
-  border: 1px solid #E0E6E9;
-  border-radius: 16px;
-  background: #FBFCFC;
-  line-height: 1.9;
-  font-size: 14px;
-  cursor: pointer;
-}
+  gap: 9px;
 
-.card .consent input {
-  width: 21px;
-  height: 21px;
-  min-width: 21px;
-  margin-top: 3px;
-  accent-color: var(--tdrive);
-}
-
-/* =========================================================
-   زر الدفع
-========================================================= */
-
-.card .submit-btn {
   width: 100%;
-  height: 58px;
-  border: 0;
-  border-radius: 16px;
-  background: var(--tdrive);
-  color: #FFFFFF;
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 800;
+  margin: 22px 0;
+
+  font-size: 13px;
+  line-height: 1.8;
+
+  color: #555;
+
   cursor: pointer;
-  box-shadow: 0 7px 18px rgba(79,159,174,.20);
-  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
 }
 
-.card .submit-btn:hover {
-  background: var(--tdrive-dark);
-  box-shadow: 0 9px 22px rgba(79,159,174,.25);
+.sticker-order-consent input {
+  flex: 0 0 auto;
+
+  width: 18px;
+  height: 18px;
+
+  margin: 3px 0 0;
+
+  accent-color: #4f9fae;
 }
 
-.card .submit-btn:active {
+/* =========================
+   Submit
+   ========================= */
+
+.sticker-order-submit {
+  display: block;
+
+  width: 100%;
+  min-height: 52px;
+  padding: 12px 20px;
+
+  border: 0;
+  border-radius: 13px;
+
+  background: #4f9fae;
+  color: #fff;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.sticker-order-submit:hover {
+  box-shadow: 0 6px 16px rgba(79, 159, 174, 0.22);
+}
+
+.sticker-order-submit:active {
   transform: translateY(1px);
 }
 
-.card .submit-btn:disabled {
-  opacity: .65;
+.sticker-order-submit:disabled {
+  opacity: 0.6;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
-/* =========================================================
-   الرسائل
-========================================================= */
+/* =========================
+   Message
+   ========================= */
 
-.message {
-  display: none;
+.sticker-order-message {
+  width: 100%;
   margin-top: 16px;
-  padding: 13px 14px;
-  border-radius: 13px;
-  font-size: 13px;
-  line-height: 1.8;
+
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
 }
 
-.message.error {
+/* =========================
+   Back Link
+   ========================= */
+
+.sticker-order-back {
   display: block;
-  background: #FFF1F1;
-  color: #C62828;
-  border: 1px solid #FFD2D2;
+
+  width: fit-content;
+  margin: 22px auto 0;
+
+  font-size: 14px;
+  line-height: 1.6;
+
+  color: #4f9fae;
+  text-decoration: none;
 }
 
-.message.success {
-  display: block;
-  background: #EEF9F6;
-  color: #176B58;
-  border: 1px solid #C9EEE4;
+.sticker-order-back:hover {
+  text-decoration: underline;
 }
 
 /* =========================================================
-   العودة (أسفل الفورم)
-========================================================= */
+   How It Works
+   ========================================================= */
 
-.card .back {
-  display: block;
-  margin-top: 19px;
-  text-align: center;
-  color: #7B8490;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.card .back:hover {
-  color: var(--tdrive);
-}
-
-/* ============================================
-   كيف يعمل الملصق؟
-============================================ */
-
-.sticker-how-it-works {
+.sticker-how {
   width: 100%;
-  max-width: 760px;
-  margin: 45px auto 0;
-  padding: 10px 20px 35px;
-  font-family: "Cairo", Arial, sans-serif;
+  margin: 34px auto 0;
+  padding: 0;
 }
 
-.sticker-how-it-works h2 {
-  margin: 0 0 30px;
+.sticker-how-title {
+  margin: 0 0 20px;
+
   text-align: center;
-  color: #164C5C;
-  font-size: 27px;
+  font-size: 22px;
+  line-height: 1.5;
   font-weight: 800;
+
+  color: #222;
 }
 
-.sticker-slider {
+.sticker-how-slider {
   position: relative;
+
   width: 100%;
-  min-height: 560px;
+  min-height: 210px;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+  background: #f7f9fa;
 }
 
-.sticker-step {
-  position: absolute;
-  inset: 0;
+.sticker-how-step {
+  display: none;
+
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  min-height: 210px;
+  padding: 24px;
+
+  box-sizing: border-box;
+
   align-items: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  transition: opacity .6s ease, transform .6s ease, visibility .6s ease;
+  gap: 18px;
 }
 
-.sticker-step.active {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+.sticker-how-step.active {
+  display: flex;
 }
 
-.sticker-step-number {
-  width: 58px;
-  height: 58px;
-  flex: 0 0 58px;
+.sticker-how-number {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+
+  flex: 0 0 48px;
+
+  width: 48px;
+  height: 48px;
+
   border-radius: 50%;
-  background: #4F9FAE;
-  color: #FFFFFF;
-  font-size: 24px;
-  font-weight: 800;
-  box-shadow: 0 8px 20px rgba(79, 159, 174, .20);
-}
 
-.sticker-step-content {
-  width: 100%;
-  text-align: center;
-}
+  background: #4f9fae;
+  color: #fff;
 
-.sticker-step-content h3 {
-  margin: 0 0 18px;
-  color: #263B42;
-  font-size: 21px;
-  line-height: 1.7;
+  font-size: 20px;
   font-weight: 800;
 }
 
-.sticker-step-content p {
-  margin: -7px auto 18px;
-  color: #68777C;
+.sticker-how-content {
+  flex: 1;
+
   font-size: 15px;
   line-height: 1.9;
-  font-weight: 500;
-  max-width: 600px;
+
+  color: #444;
 }
 
-.sticker-step-content img {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 480px;
-  margin: 0 auto;
-}
-
-.sticker-dots {
+.sticker-how-dots {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 9px;
-  margin-top: 25px;
+  gap: 7px;
+
+  margin-top: 15px;
 }
 
-.sticker-dot {
-  width: 10px;
-  height: 10px;
+.sticker-how-dot {
+  display: block;
+
+  width: 8px;
+  height: 8px;
+
   border-radius: 50%;
-  background: #D5E5E8;
-  transition: width .3s ease, background .3s ease;
+
+  background: #d2d2d2;
+
+  transition:
+    width 0.2s ease,
+    background 0.2s ease;
 }
 
-.sticker-dot.active {
-  width: 34px;
-  border-radius: 20px;
-  background: #4F9FAE;
+.sticker-how-dot.active {
+  width: 22px;
+  border-radius: 10px;
+  background: #4f9fae;
 }
 
-/* ============================================
-   الجوال
-============================================ */
+/* =========================================================
+   Mobile
+   ========================================================= */
 
-@media (max-width: 520px) {
-  .sticker-how-it-works {
-    margin-top: 35px;
-    padding: 5px 12px 30px;
+@media (max-width: 600px) {
+
+  .sticker-order-page {
+    padding: 20px 12px 40px;
   }
 
-  .sticker-how-it-works h2 {
-    margin-bottom: 25px;
-    font-size: 25px;
+  .sticker-order-container {
+    width: 100%;
+    max-width: none;
   }
 
-  .sticker-slider {
-    min-height: 500px;
+  .sticker-order-card {
+    width: 100%;
+    padding: 22px 17px;
+    border-radius: 17px;
   }
 
-  .sticker-step-number {
-    width: 54px;
-    height: 54px;
-    flex-basis: 54px;
-    margin-bottom: 15px;
+  .sticker-order-title {
     font-size: 22px;
+    line-height: 1.55;
   }
 
-  .sticker-step-content h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
-  }
-
-  .sticker-step-content p {
-    margin-top: -5px;
-    font-size: 13px;
+  .sticker-order-intro {
+    margin-bottom: 23px;
+    font-size: 14px;
     line-height: 1.8;
   }
 
-  .sticker-step-content img {
-    max-width: 100%;
-    max-height: 400px;
+  .sticker-order-field {
+    margin-bottom: 17px;
   }
 
-  .sticker-dots {
-    margin-top: 20px;
+  .sticker-order-label {
+    font-size: 14px;
+  }
+
+  .sticker-order-input {
+    height: 48px;
+    font-size: 14px;
+  }
+
+  .sticker-order-consent {
+    font-size: 12.5px;
+    line-height: 1.75;
+  }
+
+  .sticker-order-submit {
+    min-height: 50px;
+    font-size: 15px;
+  }
+
+  .sticker-how {
+    margin-top: 28px;
+  }
+
+  .sticker-how-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .sticker-how-slider {
+    min-height: 180px;
+  }
+
+  .sticker-how-step {
+    min-height: 180px;
+    padding: 20px 16px;
+    gap: 13px;
+  }
+
+  .sticker-how-number {
+    flex-basis: 42px;
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+  }
+
+  .sticker-how-content {
+    font-size: 13.5px;
+    line-height: 1.8;
   }
 }
+
+/* =========================================================
+   Very Small Screens
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .sticker-order-page {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .sticker-order-card {
+    padding: 20px 14px;
+  }
+
+  .sticker-order-title {
+    font-size: 20px;
+  }
+
+  .sticker-how-step {
+    padding: 18px 13px;
+  }
+
+  .sticker-how-content {
+    font-size: 13px;
+  }
+}
+
 
 </style>
 </head>
