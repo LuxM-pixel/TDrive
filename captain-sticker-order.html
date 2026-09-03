@@ -81,27 +81,42 @@
   object-fit: contain;
 }
 
+/* التنقل بين الخطوات */
+
+.sticker-page .sticker-page-navigation {
+  width: 100%;
+  margin-bottom: 10px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .sticker-page .sticker-page-back {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
 
   color: var(--sticker-primary-dark);
   text-decoration: none;
+
   font-size: 14px;
   font-weight: 700;
 
-  transition: 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .sticker-page .sticker-page-back:hover {
   color: var(--sticker-primary);
-  transform: translateX(-2px);
+  transform: translateX(3px);
 }
 
 .sticker-page .sticker-page-back svg {
-  width: 19px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
+
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
@@ -561,32 +576,40 @@
 
 <div class="sticker-page">
 
-  <header class="sticker-page-header">
+<header class="sticker-page-header">
 
-    <div class="sticker-page-branding">
-      <img
-        src="TDrive_Vision2030_banner.svg"
-        alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
-        class="sticker-page-logo"
-      >
+  <div class="sticker-page-branding">
+    <img
+      src="TDrive_Vision2030_banner.svg"
+      alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
+      class="sticker-page-logo"
+    >
+  </div>
+
+</header>
+
+
+<main class="sticker-page-wrapper">
+
+    <div class="sticker-page-navigation">
+
+        <a
+            href="index-test.html"
+            class="sticker-page-back"
+        >
+            <span>السابق</span>
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                    d="M5 12h14M5 12l6-6M5 12l6 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </svg>
+        </a>
+
     </div>
 
-    <a href="index.html" class="sticker-page-back">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M5 12h14M5 12l6-6M5 12l6 6"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-
-      <span>الرئيسية</span>
-    </a>
-
-  </header>
-
-
-  <main class="sticker-page-wrapper">
 
     <section class="sticker-page-card">
 
@@ -626,13 +649,12 @@
 
         <div class="sticker-page-field">
 
-          <label
-            for="accountNumber"
-            class="sticker-page-label"
-          >
-            رقم الحساب
-            <span class="sticker-page-required">*</span>
-          </label>
+         <label
+  for="accountNumber"
+  class="sticker-page-label"
+>
+  رقم الحساب
+</label>
 
           <input
             id="accountNumber"
@@ -642,7 +664,7 @@
             autocomplete="off"
             placeholder="أدخل رقم الحساب"
             dir="ltr"
-            required
+           
           >
 
         </div>
@@ -708,12 +730,7 @@
       </form>
 
 
-      <a
-        class="sticker-page-return"
-        href="index-test.html"
-      >
-        العودة
-      </a>
+  
 
     </section>
 
