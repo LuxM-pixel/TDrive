@@ -530,35 +530,26 @@
 }
 
 
-/* =========================================================
-   TDrive Header — Sticker Page Only
-========================================================= */
-
 .sticker-page .sticker-page-header {
     width: 100%;
     min-height: 78px;
-
     padding: 10px 5%;
     margin: 0;
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
+    direction: ltr;
 
     background: #FFFFFF;
     border-bottom: 1px solid rgba(79, 159, 174, 0.15);
-
     box-sizing: border-box;
-
     box-shadow: 0 3px 12px rgba(22, 76, 92, 0.05);
 
     position: relative;
     z-index: 10;
 }
-
-
-/* ==========================
-   Logo
-========================== */
 
 .sticker-page .sticker-page-branding {
     display: flex;
@@ -566,21 +557,34 @@
     flex-shrink: 0;
 }
 
-.sticker-page .sticker-page-logo {
-    display: block;
+/* رؤية 2030 — يسار */
+.sticker-page .sticker-page-branding-vision {
+    order: 1;
+}
 
+.sticker-page .sticker-page-logo-vision {
+    display: block;
+    width: 125px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* TDrive — يمين */
+.sticker-page .sticker-page-branding-tdrive {
+    order: 2;
+}
+
+.sticker-page .sticker-page-logo-tdrive {
+    display: block;
     width: 195px;
     max-width: 100%;
     height: auto;
-
     object-fit: contain;
 }
 
 
-/* ==========================
-   Mobile
-========================== */
-
+/* الجوال */
 @media (max-width: 700px) {
 
     .sticker-page .sticker-page-header {
@@ -588,16 +592,17 @@
         padding: 9px 16px;
     }
 
-    .sticker-page .sticker-page-logo {
-        width: 185px;
+    .sticker-page .sticker-page-logo-tdrive {
+        width: 180px;
+    }
+
+    .sticker-page .sticker-page-logo-vision {
+        width: 112px;
     }
 }
 
 
-/* ==========================
-   Small Mobile
-========================== */
-
+/* الجوال الصغير */
 @media (max-width: 430px) {
 
     .sticker-page .sticker-page-header {
@@ -605,8 +610,12 @@
         padding: 8px 14px;
     }
 
-    .sticker-page .sticker-page-logo {
-        width: 175px;
+    .sticker-page .sticker-page-logo-tdrive {
+        width: 165px;
+    }
+
+    .sticker-page .sticker-page-logo-vision {
+        width: 100px;
     }
 }
 
@@ -620,13 +629,25 @@
 
 <header class="sticker-page-header">
 
-  <div class="sticker-page-branding">
+  <!-- رؤية السعودية 2030 — يسار -->
+  <div class="sticker-page-branding sticker-page-branding-vision">
     <img
-      src="TDrive_Vision2030_banner.svg"
-      alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
-      class="sticker-page-logo"
+      src="BB5673A8-FE9E-4202-8602-63E6F415E7E4.png"
+      alt="رؤية السعودية 2030"
+      class="sticker-page-logo sticker-page-logo-vision"
     >
   </div>
+
+  <!-- TDrive — يمين -->
+  <div class="sticker-page-branding sticker-page-branding-tdrive">
+    <img
+      src="3CFD0FAA-6196-4220-8B39-FB5C5A46CA34.png"
+      alt="TDrive | تكنولوجيا القيادة"
+      class="sticker-page-logo sticker-page-logo-tdrive"
+    >
+  </div>
+
+</header>
 
 </header>
 
