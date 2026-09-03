@@ -51,35 +51,7 @@
   padding: 24px 18px 60px;
 }
 
-/* الهيدر */
 
-.sticker-page .sticker-page-header {
-  width: 100%;
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 18px 22px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-
-  background: var(--sticker-white);
-  border-bottom: 1px solid var(--sticker-border);
-}
-
-.sticker-page .sticker-page-branding {
-  display: flex;
-  align-items: center;
-}
-
-.sticker-page .sticker-page-logo {
-  display: block;
-  width: auto;
-  max-width: 190px;
-  height: 52px;
-  object-fit: contain;
-}
 
 /* التنقل بين الخطوات */
 
@@ -520,18 +492,7 @@
 
 @media (max-width: 700px) {
 
-  .sticker-page .sticker-page-header {
-    padding: 14px 16px;
-  }
 
-  .sticker-page .sticker-page-logo {
-    max-width: 155px;
-    height: 45px;
-  }
-
-  .sticker-page .sticker-page-back span {
-    display: none;
-  }
 
   .sticker-page .sticker-page-wrapper {
     padding: 16px 12px 40px;
@@ -566,6 +527,251 @@
   .sticker-page .sticker-page-step-content img {
     max-height: 330px;
   }
+}
+
+
+   /* =========================================================
+‏   TDrive Header
+========================================================= */
+
+header {
+    width: 100%;
+    min-height: 82px;
+    padding: 12px 5%;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background: #FFFFFF;
+    border-bottom: 1px solid rgba(79, 159, 174, 0.15);
+
+    box-sizing: border-box;
+
+    font-family: "Cairo", sans-serif;
+
+    position: relative;
+    z-index: 1000;
+
+    box-shadow: 0 4px 18px rgba(22, 76, 92, 0.06);
+}
+
+
+/* ==========================
+   Logo
+========================== */
+
+header .site-branding {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+header .tdrive-header-logo {
+    display: block;
+    width: 210px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* ==========================
+   Navigation
+========================== */
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+
+    margin: 0;
+    padding: 0;
+
+    direction: rtl;
+}
+
+header nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 42px;
+    padding: 8px 14px;
+
+    color: #164C5C;
+    background: transparent;
+
+    text-decoration: none;
+
+    font-family: "Cairo", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    border-radius: 10px;
+    white-space: nowrap;
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* ==========================
+   Navigation Hover
+========================== */
+
+header nav a:hover {
+    color: #4F9FAE;
+    background: rgba(79, 159, 174, 0.08);
+    transform: translateY(-1px);
+}
+
+
+/* ==========================
+   Register Button
+========================== */
+
+header nav a.nav-register {
+    padding: 8px 20px;
+
+    color: #FFFFFF;
+    background: #4F9FAE;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 14px rgba(79, 159, 174, 0.22);
+}
+
+header nav a.nav-register:hover {
+    color: #FFFFFF;
+    background: #438F9D;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 18px rgba(79, 159, 174, 0.28);
+}
+
+
+/* ==========================
+   Tablet
+========================== */
+
+@media (max-width: 900px) {
+
+    header {
+        min-height: 76px;
+        padding: 10px 4%;
+        gap: 18px;
+    }
+
+    header .tdrive-header-logo {
+        width: 175px;
+    }
+
+    header nav {
+        gap: 3px;
+    }
+
+    header nav a {
+        padding: 7px 9px;
+        font-size: 12.5px;
+    }
+
+    header nav a.nav-register {
+        padding: 7px 14px;
+    }
+}
+
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width: 700px) {
+
+    header {
+        min-height: auto;
+        padding: 12px 16px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 10px;
+    }
+
+    header .site-branding {
+        width: 100%;
+        justify-content: center;
+    }
+
+    header .tdrive-header-logo {
+        width: 190px;
+        max-width: 75vw;
+    }
+
+    header nav {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    header nav a {
+        min-height: 36px;
+        padding: 6px 9px;
+
+        font-size: 11.5px;
+
+        border-radius: 9px;
+    }
+
+    header nav a.nav-register {
+        padding: 6px 13px;
+        border-radius: 10px;
+    }
+}
+
+
+/* ==========================
+   Small Mobile
+========================== */
+
+@media (max-width: 430px) {
+
+    header {
+        padding: 10px 10px 12px;
+        gap: 8px;
+    }
+
+    header .tdrive-header-logo {
+        width: 170px;
+    }
+
+    header nav {
+        gap: 2px;
+    }
+
+    header nav a {
+        min-height: 34px;
+        padding: 5px 7px;
+
+        font-size: 10.5px;
+    }
+
+    header nav a.nav-register {
+        padding: 5px 10px;
+    }
 }
 
 </style>
