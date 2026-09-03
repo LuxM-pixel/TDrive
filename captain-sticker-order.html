@@ -694,6 +694,59 @@ input[type="text"]:focus {
         margin-top: 20px;
     }
 }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.site-branding {
+    display: flex;
+    align-items: center;
+}
+
+.tdrive-header-logo {
+    width: 160px;
+    height: auto;
+    display: block;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color .2s;
+}
+
+nav a:hover {
+    color: var(--tdrive);
+}
+
+nav a.nav-register {
+    background: var(--tdrive);
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 10px;
+}
+
+nav a.nav-register:hover {
+    background: var(--tdrive-dark);
+    color: #fff;
+}
 
 </style>
 
