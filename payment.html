@@ -20,6 +20,17 @@
            مستقل تماماً عن ملفات المستودع
            ========================================= */
 
+        :root {
+            --turquoise: #4F9FAE;
+            --turquoise-dark: #347F8D;
+            --turquoise-light: #EAF7F9;
+            --turquoise-soft: #F3FBFC;
+            --border: #D5E8EB;
+            --text-dark: #1f2937;
+            --text-gray: #6b7280;
+        }
+
+
         * {
             box-sizing: border-box;
         }
@@ -41,9 +52,9 @@
                 Arial,
                 sans-serif;
 
-            background: #f6f8fa;
+            background: #f4f8f9;
 
-            color: #1f2937;
+            color: var(--text-dark);
 
             min-height: 100vh;
         }
@@ -60,7 +71,7 @@
 
             text-align: center;
 
-            border-bottom: 1px solid #e5e7eb;
+            border-bottom: 1px solid var(--border);
         }
 
 
@@ -69,14 +80,14 @@
 
             font-size: 28px;
 
-            color: #111827;
+            color: var(--turquoise);
         }
 
 
         .payment-header p {
             margin: 0 0 18px;
 
-            color: #6b7280;
+            color: var(--text-gray);
         }
 
 
@@ -94,11 +105,18 @@
 
 
         .payment-header nav a {
-            color: #374151;
+            color: #3f5960;
 
             text-decoration: none;
 
             font-size: 14px;
+
+            transition: color 0.2s ease;
+        }
+
+
+        .payment-header nav a:hover {
+            color: var(--turquoise);
         }
 
 
@@ -124,7 +142,7 @@
 
             font-size: 26px;
 
-            color: #111827;
+            color: var(--turquoise-dark);
         }
 
 
@@ -141,7 +159,9 @@
 
             box-shadow:
                 0 8px 30px
-                rgba(0, 0, 0, 0.07);
+                rgba(79, 159, 174, 0.10);
+
+            border: 1px solid #E1EFF1;
         }
 
 
@@ -149,6 +169,8 @@
             margin: 0 0 25px;
 
             line-height: 1.8;
+
+            color: #4b5563;
         }
 
 
@@ -165,6 +187,8 @@
             margin-bottom: 8px;
 
             font-size: 15px;
+
+            color: #33464b;
         }
 
 
@@ -188,15 +212,15 @@
 
             height: 48px;
 
-            border: 1px solid #d1d5db;
+            border: 1px solid #D2E3E6;
 
             border-radius: 10px;
 
             padding: 0 12px;
 
-            background: #f9fafb;
+            background: #fafdfe;
 
-            color: #111827;
+            color: #25373b;
 
             font-size: 14px;
 
@@ -209,6 +233,11 @@
             -webkit-user-select: text;
 
             user-select: text;
+        }
+
+
+        .copy-box input:focus {
+            border-color: var(--turquoise);
         }
 
 
@@ -225,7 +254,7 @@
 
             padding: 0 18px;
 
-            background: #111827;
+            background: var(--turquoise);
 
             color: #ffffff;
 
@@ -239,6 +268,7 @@
 
             transition:
                 transform 0.15s ease,
+                background 0.15s ease,
                 opacity 0.15s ease;
         }
 
@@ -249,7 +279,7 @@
 
 
         .copy-box button:hover {
-            opacity: 0.88;
+            background: var(--turquoise-dark);
         }
 
 
@@ -261,6 +291,93 @@
             margin: 0 0 22px;
 
             font-size: 19px;
+
+            color: var(--turquoise-dark);
+        }
+
+
+        /* ===============================
+           TRANSFER INSTRUCTIONS
+           =============================== */
+
+        .transfer-instructions {
+
+            margin: 28px 0;
+
+            padding: 20px;
+
+            background: var(--turquoise-soft);
+
+            border: 1px solid #B9DDE2;
+
+            border-right: 5px solid var(--turquoise);
+
+            border-radius: 15px;
+
+        }
+
+
+        .transfer-instructions > h3 {
+
+            margin: 0 0 18px;
+
+            font-size: 19px;
+
+            color: var(--turquoise-dark);
+
+        }
+
+
+        .transfer-step {
+
+            background: #ffffff;
+
+            padding: 16px;
+
+            margin-bottom: 12px;
+
+            border-radius: 12px;
+
+            border: 1px solid #DCEDEF;
+
+        }
+
+
+        .transfer-step:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        .transfer-step h4 {
+
+            margin: 0 0 8px;
+
+            font-size: 15px;
+
+            color: var(--turquoise-dark);
+
+        }
+
+
+        .transfer-step p {
+
+            margin: 0;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            color: #4b5563;
+
+        }
+
+
+        .transfer-step strong {
+
+            color: #26383d;
+
         }
 
 
@@ -269,15 +386,21 @@
            =============================== */
 
         .notice {
+
             margin: 0 0 20px;
 
             padding: 13px;
 
-            background: #fff7ed;
+            background: var(--turquoise-light);
+
+            border: 1px solid #C9E5E9;
 
             border-radius: 10px;
 
             line-height: 1.7;
+
+            color: var(--turquoise-dark);
+
         }
 
 
@@ -286,6 +409,7 @@
            =============================== */
 
         .whatsapp {
+
             display: block;
 
             width: 100%;
@@ -309,7 +433,9 @@
 
 
         .whatsapp:hover {
+
             opacity: 0.9;
+
         }
 
 
@@ -318,6 +444,7 @@
            =============================== */
 
         .copy-status {
+
             min-height: 24px;
 
             margin-top: 14px;
@@ -329,6 +456,9 @@
             font-weight: 600;
 
             line-height: 1.6;
+
+            color: var(--turquoise-dark);
+
         }
 
 
@@ -339,58 +469,92 @@
         @media (max-width: 600px) {
 
             .payment-header {
+
                 padding: 18px 15px;
+
             }
 
 
             .payment-header h1 {
+
                 font-size: 24px;
+
             }
 
 
             .payment-header nav {
+
                 gap: 12px;
+
             }
 
 
             .payment-header nav a {
+
                 font-size: 13px;
+
             }
 
 
             #payment {
+
                 margin: 30px auto;
 
                 padding: 0 15px;
+
             }
 
 
             #payment > h2 {
+
                 font-size: 23px;
+
             }
 
 
             .payment-card {
+
                 padding: 22px 17px;
 
                 border-radius: 15px;
+
             }
 
 
             .copy-box {
+
                 gap: 6px;
+
             }
 
 
             .copy-box input {
+
                 font-size: 12px;
+
             }
 
 
             .copy-box button {
+
                 min-width: 65px;
 
                 padding: 0 12px;
+
+            }
+
+
+            .transfer-instructions {
+
+                padding: 16px;
+
+            }
+
+
+            .transfer-step {
+
+                padding: 14px;
+
             }
 
         }
@@ -448,89 +612,189 @@
         </p>
 
 
-<!-- =========================
-     التحويل إلى محفظة Neoleap
-     ========================= -->
+        <!-- =========================
+             التحويل إلى محفظة Neoleap
+             ========================= -->
 
-<p class="bank-label">
-    التحويل إلى محفظة Neoleap
-</p>
-
-
-<!-- =========================
-     IBAN
-     ========================= -->
-
-<label for="iban">
-    رقم الآيبان
-</label>
+        <p class="bank-label">
+            التحويل إلى محفظة Neoleap
+        </p>
 
 
-<div class="copy-box">
+        <!-- =========================
+             IBAN
+             ========================= -->
 
-    <input
-        id="iban"
-        type="text"
-        readonly
-        value="SA7980209352391222121012"
-        aria-label="رقم الآيبان"
-    >
+        <label for="iban">
+            رقم الآيبان
+        </label>
 
 
-    <button
-        type="button"
-        id="copyIban"
-    >
-        نسخ
-    </button>
+        <div class="copy-box">
 
-</div>
-
-
-
-<!-- =========================
-     NAME
-     ========================= -->
-
-<label for="accountName">
-    اسم المستفيد
-</label>
+            <input
+                id="iban"
+                type="text"
+                readonly
+                value="SA7980209352391222121012"
+                aria-label="رقم الآيبان"
+            >
 
 
-<div class="copy-box">
+            <button
+                type="button"
+                id="copyIban"
+            >
+                نسخ
+            </button>
 
-    <input
-        id="accountName"
-        type="text"
-        readonly
-        value=" منى أحمد حمود الشمراني "
-        aria-label="اسم المستفيد"
-    >
-
-
-    <button
-        type="button"
-        id="copyName"
-    >
-        نسخ
-    </button>
-
-</div>
+        </div>
 
 
 
-<!-- =========================
-     WALLET
-     ========================= -->
+        <!-- =========================
+             NAME
+             ========================= -->
 
-<p class="bank-label">
-     بنك محلي المحفظة
-</p>
+        <label for="accountName">
+            اسم المستفيد
+        </label>
 
 
-<h3>
-    Neoleap
-</h3>
+        <div class="copy-box">
+
+            <input
+                id="accountName"
+                type="text"
+                readonly
+                value="منى أحمد حمود الشمراني"
+                aria-label="اسم المستفيد"
+            >
+
+
+            <button
+                type="button"
+                id="copyName"
+            >
+                نسخ
+            </button>
+
+        </div>
+
+
+
+        <!-- =========================
+             WALLET
+             ========================= -->
+
+        <p class="bank-label">
+            بنك محلي / المحفظة
+        </p>
+
+
+        <h3>
+            Neoleap
+        </h3>
+
+
+
+        <!-- =========================
+             تعليمات التحويل
+             ========================= -->
+
+        <div class="transfer-instructions">
+
+            <h3>
+                تعليمات التحويل
+            </h3>
+
+
+            <!-- راجحي -->
+
+            <div class="transfer-step">
+
+                <h4>
+                    إذا كان التحويل من حساب راجحي
+                </h4>
+
+                <p>
+
+                    يرجى اتباع الخطوات التالية:
+
+                    <br><br>
+
+                    1. اختر <strong>تحويل</strong>.
+
+                    <br>
+
+                    2. اختر <strong>إضافة مستفيد</strong>.
+
+                    <br>
+
+                    3. اختر <strong>Neoleap</strong>
+                    ثم قم بإضافة المستفيد.
+
+                    <br>
+
+                    4. بعد التنشيط،
+                    اذهب إلى قائمة <strong>شركاؤنا</strong>.
+
+                    <br>
+
+                    5. اختر <strong>Neoleap</strong>.
+
+                    <br>
+
+                    6. اختر الاسم:
+
+                    <br>
+
+                    <strong>
+                        الاستشارات الإدارية - منى احمد حمود الشمراني
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+            <!-- غير الراجحي -->
+
+            <div class="transfer-step">
+
+                <h4>
+                    إذا كان التحويل من حساب غير الراجحي
+                </h4>
+
+                <p>
+
+                    يتم إضافة رقم الآيبان في قسم
+                    <strong>بنك محلي</strong>
+                    ثم إكمال عملية التحويل.
+
+                </p>
+
+            </div>
+
+
+            <!-- شكراً -->
+
+            <div class="transfer-step">
+
+                <p style="
+                    text-align:center;
+                    color:var(--turquoise-dark);
+                    font-weight:700;
+                ">
+
+                    شكراً لكم،
+                    ونتمنى لكم تجربة موفقة.
+
+                </p>
+
+            </div>
+
+        </div>
 
 
 
@@ -539,7 +803,9 @@
              ========================= -->
 
         <p class="notice">
+
             ❗ يرجى إرسال إيصال التحويل بعد الدفع.
+
         </p>
 
 
@@ -630,9 +896,6 @@
 
     /* =====================================================
        تحديد النص
-       الحل هنا: نشيل readonly مؤقتاً
-       لأن iOS Safari مابيسمحش بعمل select()
-       على input فيه readonly
        ===================================================== */
 
     function selectText(input) {
@@ -725,7 +988,10 @@
 
         } finally {
 
-            restoreReadOnly(input, wasReadOnly);
+            restoreReadOnly(
+                input,
+                wasReadOnly
+            );
 
         }
 
@@ -737,7 +1003,7 @@
        نسخ البيانات
        ===================================================== */
 
-    async function copyValue(input, successMessage) {
+    async function copyValue(input) {
 
         const text = input.value;
 
@@ -745,7 +1011,6 @@
         /*
          * المحاولة الأولى:
          * Clipboard API
-         * (لازم تكون الصفحة على https)
          */
 
         try {
@@ -821,8 +1086,7 @@
         function () {
 
             copyValue(
-                ibanInput,
-                "تم نسخ رقم الآيبان ✓"
+                ibanInput
             );
 
         }
@@ -839,8 +1103,7 @@
         function () {
 
             copyValue(
-                nameInput,
-                "تم نسخ الاسم ✓"
+                nameInput
             );
 
         }
@@ -849,7 +1112,7 @@
 
 
     /* =====================================================
-       منع ضغط Enter من عمل أي شيء غير ضروري
+       منع ضغط Enter
        ===================================================== */
 
     document.addEventListener(
