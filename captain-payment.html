@@ -3,52 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>بيانات الدفع | دورة الكابتن | TDrive</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Cairo',sans-serif;
-}
-body{
-    background:#f4f7fa;
-    padding:20px;
-    color:#222;
-}
-.container{
-    max-width:800px;
-    margin:auto;
-}
-.logo{
-    text-align:center;
-    margin-bottom:20px;
-}
-.logo h1{
-    font-size:42px;
-    color:#6DB7C5;
-}
-.logo p{
-    color:#666;
-    font-size:14px;
-}
-h2{
-    text-align:center;
-    font-size:22px;
-    margin-bottom:20px;
-    color:#0d3b3e;
-}
-.payment-card{
-    background:#fff;
-    padding:25px;
-    border-radius:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.05);
-    border:1px solid #e4f1f3;
+
+/* =========================
+   ألوان الصفحة
+========================= */
+
+:root {
+    --turquoise: #4F9FAE;
+    --turquoise-dark: #347F8D;
+    --turquoise-light: #EAF7F9;
+    --turquoise-soft: #F3FBFC;
+    --text-dark: #222;
+    --text-gray: #666;
 }
 
-/* توحيد عرض وأبعاد جميع الصناديق والحقول بمتناسق تام 100% */
+
+/* =========================
+   الأساس
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background: #f4f7fa;
+    padding: 20px;
+    color: var(--text-dark);
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+
+/* =========================
+   الشعار
+========================= */
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo h1 {
+    font-size: 42px;
+    color: var(--turquoise);
+}
+
+.logo p {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+
+/* =========================
+   العنوان
+========================= */
+
+h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--turquoise-dark);
+}
+
+
+/* =========================
+   بطاقة الدفع
+========================= */
+
+.payment-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(79, 159, 174, 0.10);
+    border: 1px solid #D7EEF1;
+}
+
+
+/* =========================
+   بيانات التسجيل
+========================= */
+
 .captain-booking-info,
 .captain-price,
 .field-container {
@@ -57,147 +105,272 @@ h2{
 }
 
 .captain-booking-info,
-.captain-price{
-    background:#eef9fb;
-    padding:20px;
-    border-radius:14px;
+.captain-price {
+    background: var(--turquoise-light);
+    padding: 20px;
+    border-radius: 14px;
 }
 
-.captain-booking-info p{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin:10px 0;
-    font-size:15px;
-    color:#444;
-}
-.captain-booking-info span{
-    font-weight:700;
-    color:#222;
+.captain-booking-info p {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 15px;
+    color: #444;
 }
 
-.captain-price{
-    text-align:center;
-}
-.captain-price strong{
-    font-size:26px;
-    color:#6DB7C5;
-    display:block;
-    margin:5px 0;
-}
-.captain-price p{
-    font-size:13px;
-    color:#666;
+.captain-booking-info span {
+    font-weight: 700;
+    color: #222;
 }
 
-label{
-    font-weight:700;
-    font-size:14px;
-    color:#333;
-    display:block;
-    margin-bottom:5px;
-    margin-top:15px;
+
+/* =========================
+   السعر
+========================= */
+
+.captain-price {
+    text-align: center;
 }
 
-/* توحيد قياسات وأبعاد حقول الإدخال والنسخ وبنك البلاد */
-.copy-box{
-    display:flex;
-    gap:8px;
+.captain-price strong {
+    font-size: 26px;
+    color: var(--turquoise);
+    display: block;
+    margin: 5px 0;
+}
+
+.captain-price p {
+    font-size: 13px;
+    color: var(--text-gray);
+}
+
+
+/* =========================
+   عناوين الحقول
+========================= */
+
+label {
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   حقول النسخ
+========================= */
+
+.copy-box {
+    display: flex;
+    gap: 8px;
     width: 100%;
 }
-.copy-box input, .bank-box-style {
-    width:100%;
-    padding:14px 16px;
-    border:1px solid #d5dade;
-    border-radius:10px;
-    background:#fdfdfd;
-    font-size:15px;
-    font-weight:700;
-    color:#333;
+
+.copy-box input,
+.bank-box-style {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #D5E5E8;
+    border-radius: 10px;
+    background: #fdfdfd;
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
 }
+
 .copy-box input {
     direction: ltr;
     text-align: right;
 }
+
 .bank-box-style {
     direction: rtl;
     text-align: right;
     display: flex;
     align-items: center;
 }
-.copy-box button{
-    padding:0 22px;
-    background:#6DB7C5;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:14px;
+
+.copy-box button {
+    padding: 0 22px;
+    background: var(--turquoise);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
     flex-shrink: 0;
-}
-.copy-box button:hover {
-    opacity: 0.9;
+    transition: 0.2s;
 }
 
-/* صندوق إرفاق الإيصال */
-.upload-box{
-    margin-top:25px;
-    padding:20px;
-    background:#f8f9fa;
-    border:2px dashed #6DB7C5;
-    border-radius:15px;
-    text-align:center;
+.copy-box button:hover {
+    background: var(--turquoise-dark);
+}
+
+
+/* =========================
+   تعليمات التحويل
+========================= */
+
+.transfer-instructions {
+    width: 100%;
+    margin: 25px 0;
+    padding: 22px;
+    background: var(--turquoise-soft);
+    border: 1px solid #B9DEE4;
+    border-right: 5px solid var(--turquoise);
+    border-radius: 15px;
+}
+
+.transfer-instructions h3 {
+    color: var(--turquoise-dark);
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.transfer-step {
+    background: #fff;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    border: 1px solid #DCEDEF;
+}
+
+.transfer-step:last-child {
+    margin-bottom: 0;
+}
+
+.transfer-step h4 {
+    color: var(--turquoise-dark);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.transfer-step p {
+    color: #444;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.transfer-step strong {
+    color: #333;
+}
+
+
+/* =========================
+   صندوق الإيصال
+========================= */
+
+.upload-box {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f8fafa;
+    border: 2px dashed var(--turquoise);
+    border-radius: 15px;
+    text-align: center;
     width: 100%;
 }
-.upload-box h3{
-    color:#0d3b3e;
-    font-size:17px;
-    margin-bottom:8px;
+
+.upload-box h3 {
+    color: var(--turquoise-dark);
+    font-size: 17px;
+    margin-bottom: 8px;
 }
-.upload-box p{
-    font-size:13px;
-    color:#555;
-    margin-bottom:12px;
+
+.upload-box p {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 12px;
 }
-.upload-box input[type="file"]{
-    width:100%;
-    padding:10px;
-    background:#fff;
-    border-radius:8px;
-    border:1px solid #d5dade;
-    margin-bottom:15px;
+
+.upload-box input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #D5E5E8;
+    margin-bottom: 15px;
 }
-.upload-btn{
-    width:100%;
-    padding:14px;
-    background:#6DB7C5;
-    color:#fff;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+
+.upload-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--turquoise);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
 }
-.upload-btn:hover{
-    opacity:0.9;
+
+.upload-btn:hover {
+    background: var(--turquoise-dark);
 }
-#uploadStatus{
-    margin-top:10px;
-    font-size:14px;
-    font-weight:bold;
-    display:none;
+
+#uploadStatus {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    display: none;
 }
-.whatsapp-box{
-    margin-top:20px;
-    text-align:center;
+
+
+/* =========================
+   واتساب
+========================= */
+
+.whatsapp-box {
+    margin-top: 20px;
+    text-align: center;
 }
-.whatsapp-box a{
-    color:#25D366;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:14px;
+
+.whatsapp-box a {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
 }
+
+
+/* =========================
+   الجوال
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .payment-card {
+        padding: 18px;
+    }
+
+    .logo h1 {
+        font-size: 36px;
+    }
+
+    .captain-booking-info p {
+        font-size: 14px;
+    }
+
+    .copy-box button {
+        padding: 0 16px;
+    }
+
+    .transfer-instructions {
+        padding: 17px;
+    }
+
+}
+
 </style>
 </head>
 
@@ -205,113 +378,300 @@ label{
 
 <div class="container">
 
-<div class="logo">
-    <h1>TDrive</h1>
-    <p>تكنولوجيا القيادة</p>
-</div>
-
-<div class="payment-card">
-    <h2>بيانات الدفع</h2>
-    <p style="text-align:center; color:#666; margin-bottom:20px; font-size:14px;">مرحباً بك في دورة الكابتن المحترف،</p>
-
-    <!-- بيانات التسجيل -->
-    <div class="captain-booking-info">
-        <p><strong>رقم التسجيل:</strong> <span id="bookingId">-</span></p>
-        <p><strong>الاسم:</strong> <span id="fullName">-</span></p>
-        <p><strong>رقم الهوية:</strong> <span id="identityNumber">-</span></p>
-        <p><strong>رقم الجوال:</strong> <span id="phone">-</span></p>
+    <div class="logo">
+        <h1>TDrive</h1>
+        <p>تكنولوجيا القيادة</p>
     </div>
 
-    <!-- السعر -->
-    <div class="captain-price">
-        <p>رسوم دورة الكابتن المحترف</p>
-        <strong>100 ريال</strong>
-        <p>السعر الأساسي 300 ريال — خصم 66% بمناسبة انطلاق البرنامج</p>
+    <div class="payment-card">
+
+        <h2>بيانات الدفع</h2>
+
+        <p style="text-align:center; color:#666; margin-bottom:20px; font-size:14px;">
+            مرحباً بك في دورة الكابتن المحترف،
+        </p>
+
+
+        <!-- بيانات التسجيل -->
+
+        <div class="captain-booking-info">
+
+            <p>
+                <strong>رقم التسجيل:</strong>
+                <span id="bookingId">-</span>
+            </p>
+
+            <p>
+                <strong>الاسم:</strong>
+                <span id="fullName">-</span>
+            </p>
+
+            <p>
+                <strong>رقم الهوية:</strong>
+                <span id="identityNumber">-</span>
+            </p>
+
+            <p>
+                <strong>رقم الجوال:</strong>
+                <span id="phone">-</span>
+            </p>
+
+        </div>
+
+
+        <!-- السعر -->
+
+        <div class="captain-price">
+
+            <p>رسوم دورة الكابتن المحترف</p>
+
+            <strong>100 ريال</strong>
+
+            <p>
+                السعر الأساسي 300 ريال — خصم 66% بمناسبة انطلاق البرنامج
+            </p>
+
+        </div>
+
+
+        <!-- بيانات التحويل -->
+
+        <label>التحويل إلى محفظة Neoleap</label>
+
+
+        <!-- الآيبان -->
+
+        <label>رقم الآيبان</label>
+
+        <div class="copy-box">
+
+            <input
+                id="iban"
+                readonly
+                value="SA7980209352391222121012"
+            >
+
+            <button
+                type="button"
+                onclick="copyIBAN()"
+            >
+                نسخ
+            </button>
+
+        </div>
+
+
+        <!-- اسم المستفيد -->
+
+        <label>اسم المستفيد</label>
+
+        <div class="copy-box">
+
+            <input
+                id="name"
+                readonly
+                value="منى أحمد حمود الشمراني"
+            >
+
+            <button
+                type="button"
+                onclick="copyName()"
+            >
+                نسخ
+            </button>
+
+        </div>
+
+
+        <!-- المحفظة -->
+
+        <label>المحفظة</label>
+
+        <div class="bank-box-style">
+            Neoleap
+        </div>
+
+
+        <!-- تعليمات التحويل -->
+
+        <div class="transfer-instructions">
+
+            <h3>تعليمات التحويل</h3>
+
+            <div class="transfer-step">
+
+                <h4>إذا كان التحويل من حساب راجحي</h4>
+
+                <p>
+                    يرجى اتباع الخطوات التالية:
+                    <br><br>
+
+                    1. اختر <strong>تحويل</strong>.
+                    <br>
+
+                    2. اختر <strong>إضافة مستفيد</strong>.
+                    <br>
+
+                    3. اختر <strong>Neoleap</strong> ثم قم بإضافة المستفيد.
+                    <br>
+
+                    4. بعد تنشيط المستفيد، اذهب إلى قائمة
+                    <strong>شركاؤنا</strong>.
+                    <br>
+
+                    5. اختر <strong>Neoleap</strong>.
+                    <br>
+
+                    6. اختر الاسم:
+                    <strong>
+                        الاستشارات الإدارية - منى احمد حمود الشمراني
+                    </strong>.
+                </p>
+
+            </div>
+
+
+            <div class="transfer-step">
+
+                <h4>إذا كان التحويل من حساب غير الراجحي</h4>
+
+                <p>
+                    يتم إضافة رقم الآيبان في قسم
+                    <strong>بنك محلي</strong>
+                    ثم إكمال عملية التحويل.
+                </p>
+
+            </div>
+
+
+            <div class="transfer-step">
+
+                <p style="text-align:center; color:var(--turquoise-dark); font-weight:700;">
+                    شكراً لكم، ونتمنى لكم تجربة موفقة في دورة الكابتن المحترف.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- صندوق إرفاق الإيصال -->
+
+        <div class="upload-box">
+
+            <h3>إرفاق إيصال التحويل</h3>
+
+            <p>
+                يرجى تحويل مبلغ
+                <strong>100 ريال</strong>
+                ثم إرفاق صورة الإيصال هنا لتأكيد حجزك فوراً.
+            </p>
+
+            <input
+                type="file"
+                id="receiptFile"
+                accept="image/*"
+            >
+
+            <button
+                type="button"
+                id="submitReceiptBtn"
+                class="upload-btn"
+                onclick="uploadReceipt()"
+            >
+                تأكيد وإرسال الإيصال
+            </button>
+
+            <p id="uploadStatus"></p>
+
+        </div>
+
+
+        <!-- الدعم الفني -->
+
+        <div class="whatsapp-box">
+
+            <a
+                target="_blank"
+                href="https://wa.me/message/VDGPVTYNXF4EP1"
+            >
+                للمساعدة أو الاستفسار، تواصل معنا عبر واتساب
+            </a>
+
+        </div>
+
     </div>
 
-  <!-- التحويل إلى محفظة Neoleap -->
-<label>التحويل إلى محفظة Neoleap</label>
-
-<!-- الآيبان -->
-<label>رقم الآيبان</label>
-<div class="copy-box">
-    <input id="iban" readonly value="SA7980209352391222121012">
-    <button type="button" onclick="copyIBAN()">نسخ</button>
 </div>
 
-<!-- اسم المستفيد -->
-<label>اسم المستفيد</label>
-<div class="copy-box">
-    <input id="name" readonly value=" منى أحمد حمود الشمراني ">
-    <button type="button" onclick="copyName()">نسخ</button>
-</div>
-
-<!-- المحفظة -->
-<label>المحفظة</label>
-<div class="bank-box-style">
-    Neoleap
-</div>
-
-    <!-- صندوق إرفاق الإيصال -->
-    <div class="upload-box">
-        <h3>إرفاق إيصال التحويل</h3>
-        <p>يرجى تحويل مبلغ <strong>100 ريال</strong> ثم إرفاق صورة الإيصال هنا لتأكيد حجزك فوراً.</p>
-
-        <input type="file" id="receiptFile" accept="image/*">
-
-        <button type="button" id="submitReceiptBtn" class="upload-btn" onclick="uploadReceipt()">
-            تأكيد وإرسال الإيصال
-        </button>
-        
-        <p id="uploadStatus"></p>
-    </div>
-
-    <!-- الدعم الفني -->
-    <div class="whatsapp-box">
-        <a target="_blank" href="https://wa.me/message/VDGPVTYNXF4EP1">
-            للمساعدة أو الاستفسار، تواصل معنا عبر واتساب
-        </a>
-    </div>
-
-</div>
-
-</div>
 
 <!-- مكتبة Supabase -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
 <script>
+
 /* =========================
    بيانات الكابتن من الذاكرة
 ========================= */
-const bookingId = sessionStorage.getItem("bookingId");
-const fullName = sessionStorage.getItem("fullName");
-const identityNumber = sessionStorage.getItem("identityNumber");
-const phone = sessionStorage.getItem("phone");
+
+const bookingId =
+    sessionStorage.getItem("bookingId");
+
+const fullName =
+    sessionStorage.getItem("fullName");
+
+const identityNumber =
+    sessionStorage.getItem("identityNumber");
+
+const phone =
+    sessionStorage.getItem("phone");
+
 
 if (!bookingId || !fullName || !phone) {
+
     alert("لا يوجد تسجيل للكابتن.");
+
     window.location.href = "booking.html";
 }
 
-document.getElementById("bookingId").textContent = bookingId;
-document.getElementById("fullName").textContent = fullName;
-document.getElementById("identityNumber").textContent = identityNumber || "-";
-document.getElementById("phone").textContent = phone;
+
+document.getElementById("bookingId").textContent =
+    bookingId;
+
+document.getElementById("fullName").textContent =
+    fullName;
+
+document.getElementById("identityNumber").textContent =
+    identityNumber || "-";
+
+document.getElementById("phone").textContent =
+    phone;
 
 
 /* =========================
    نسخ الآيبان
 ========================= */
-function copyIBAN() {
-    const input = document.getElementById("iban");
 
-    navigator.clipboard.writeText(input.value)
+function copyIBAN() {
+
+    const input =
+        document.getElementById("iban");
+
+    navigator.clipboard
+        .writeText(input.value)
+
         .then(() => {
+
             alert("تم نسخ رقم الآيبان");
+
         })
+
         .catch(() => {
+
             alert("تعذر نسخ رقم الآيبان");
+
         });
 }
 
@@ -319,15 +679,25 @@ function copyIBAN() {
 /* =========================
    نسخ اسم المستفيد
 ========================= */
-function copyName() {
-    const input = document.getElementById("name");
 
-    navigator.clipboard.writeText(input.value)
+function copyName() {
+
+    const input =
+        document.getElementById("name");
+
+    navigator.clipboard
+        .writeText(input.value)
+
         .then(() => {
+
             alert("تم نسخ اسم المستفيد");
+
         })
+
         .catch(() => {
+
             alert("تعذر نسخ اسم المستفيد");
+
         });
 }
 
@@ -335,95 +705,193 @@ function copyName() {
 /* =========================
    إعداد Supabase
 ========================= */
-const supabaseUrl = 'https://sbevfklawymyducaqerb.supabase.co';
-const supabaseKey = 'sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2';
 
-const supabaseClient = window.supabase.createClient(
-    supabaseUrl,
-    supabaseKey
-);
+const supabaseUrl =
+    'https://sbevfklawymyducaqerb.supabase.co';
+
+const supabaseKey =
+    'sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2';
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        supabaseUrl,
+        supabaseKey
+    );
 
 
 /* =========================
    رفع الإيصال وربطه بالتسجيل
 ========================= */
+
 async function uploadReceipt() {
-    const fileInput = document.getElementById('receiptFile');
-    const file = fileInput.files[0];
-    const statusText = document.getElementById('uploadStatus');
-    const submitBtn = document.getElementById('submitReceiptBtn');
+
+    const fileInput =
+        document.getElementById('receiptFile');
+
+    const file =
+        fileInput.files[0];
+
+    const statusText =
+        document.getElementById('uploadStatus');
+
+    const submitBtn =
+        document.getElementById('submitReceiptBtn');
+
 
     if (!file) {
+
         alert("الرجاء اختيار صورة الإيصال أولاً.");
+
         return;
     }
+
 
     if (!bookingId) {
+
         alert("رقم التسجيل غير موجود. يرجى إعادة التسجيل.");
+
         return;
     }
 
-    submitBtn.disabled = true;
-    submitBtn.style.background = "#ccc";
-    statusText.style.display = "block";
-    statusText.style.color = "#1b7a3d";
-    statusText.textContent = "جاري رفع الإيصال... الرجاء الانتظار.";
 
-    const fileName = `${phone}_${Date.now()}_${file.name}`;
+    submitBtn.disabled = true;
+
+    submitBtn.style.background = "#ccc";
+
+    statusText.style.display = "block";
+
+    statusText.style.color = "#1b7a3d";
+
+    statusText.textContent =
+        "جاري رفع الإيصال... الرجاء الانتظار.";
+
+
+    const fileName =
+        `${phone}_${Date.now()}_${file.name}`;
+
 
     try {
 
-        // 1️⃣ رفع الإيصال إلى Storage
-        const { error: uploadError } = await supabaseClient.storage
+
+        /* 1️⃣ رفع الإيصال إلى Storage */
+
+        const {
+            error: uploadError
+        } = await supabaseClient.storage
+
             .from('receipts')
-            .upload(fileName, file);
+
+            .upload(
+                fileName,
+                file
+            );
+
 
         if (uploadError) {
-            throw new Error("فشل رفع الإيصال: " + uploadError.message);
+
+            throw new Error(
+                "فشل رفع الإيصال: " +
+                uploadError.message
+            );
+
         }
 
-        // 2️⃣ الحصول على رابط الإيصال
-        const { data: publicUrlData } = supabaseClient.storage
+
+        /* 2️⃣ الحصول على رابط الإيصال */
+
+        const {
+            data: publicUrlData
+        } = supabaseClient.storage
+
             .from('receipts')
+
             .getPublicUrl(fileName);
 
-        const receiptUrl = publicUrlData.publicUrl;
 
-        // 3️⃣ تحديث تسجيل الكابتن
-        // لا نستخدم single() ولا updatedRegistration
-        const { error: updateError } = await supabaseClient
+        const receiptUrl =
+            publicUrlData.publicUrl;
+
+
+        /* 3️⃣ تحديث تسجيل الكابتن */
+
+        const {
+            error: updateError
+        } = await supabaseClient
+
             .from('captain_registrations')
+
             .update({
+
                 receipt_url: receiptUrl,
+
                 status: 'pending'
+
             })
-            .eq('booking_id', bookingId);
+
+            .eq(
+                'booking_id',
+                bookingId
+            );
+
 
         if (updateError) {
-            throw new Error("تم رفع الإيصال لكن تعذر تحديث بيانات التسجيل: " + updateError.message);
+
+            throw new Error(
+                "تم رفع الإيصال لكن تعذر تحديث بيانات التسجيل: " +
+                updateError.message
+            );
+
         }
 
-        // 4️⃣ نجاح العملية
-        statusText.style.color = "#1b7a3d";
+
+        /* 4️⃣ نجاح العملية */
+
+        statusText.style.color =
+            "#1b7a3d";
+
         statusText.textContent =
             "تم استلام إيصالك بنجاح! سيتم مراجعته وتأكيد حجزك قريباً.";
 
-        alert("تم إرسال الإيصال بنجاح. شكراً لك!");
+
+        alert(
+            "تم إرسال الإيصال بنجاح. شكراً لك!"
+        );
+
 
         submitBtn.disabled = true;
 
+
     } catch (error) {
 
-        console.error("خطأ في إرسال الإيصال:", error);
 
-        statusText.style.display = "block";
-        statusText.style.color = "#c0392b";
-        statusText.textContent = "تعذر إرسال الإيصال: " + error.message;
+        console.error(
+            "خطأ في إرسال الإيصال:",
+            error
+        );
 
-        submitBtn.disabled = false;
-        submitBtn.style.background = "#6DB7C5";
+
+        statusText.style.display =
+            "block";
+
+        statusText.style.color =
+            "#c0392b";
+
+        statusText.textContent =
+            "تعذر إرسال الإيصال: " +
+            error.message;
+
+
+        submitBtn.disabled =
+            false;
+
+        submitBtn.style.background =
+            "#4F9FAE";
+
     }
+
 }
+
 </script>
 
 </body>
