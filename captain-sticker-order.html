@@ -49,6 +49,84 @@ body {
 /* =========================================================
    الهيدر
 ========================================================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 14px 5%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(22, 76, 92, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-branding {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.tdrive-header-logo {
+  width: 280px;
+  max-width: 62vw;
+  height: auto;
+  display: block;
+}
+
+.header-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  color: var(--tdrive-dark);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .2s ease, transform .15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.header-back:hover {
+  background: #E9F3F5;
+  transform: translateY(-1px);
+}
+
+.header-back svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 520px) {
+  header {
+    padding: 12px 4%;
+  }
+
+  .tdrive-header-logo {
+    width: 210px;
+    max-width: 56vw;
+  }
+
+  .header-back {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+
+  .header-back span {
+    display: none;
+  }
+}
 
 header {
   display: flex;
