@@ -530,32 +530,29 @@
 }
 
 
-   /* =========================================================
-‏   TDrive Header
+/* =========================================================
+   TDrive Header — Sticker Page Only
 ========================================================= */
 
-header {
+.sticker-page .sticker-page-header {
     width: 100%;
-    min-height: 82px;
-    padding: 12px 5%;
+    min-height: 68px;
+
+    padding: 8px 5%;
     margin: 0;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 30px;
 
     background: #FFFFFF;
     border-bottom: 1px solid rgba(79, 159, 174, 0.15);
 
     box-sizing: border-box;
 
-    font-family: "Cairo", sans-serif;
+    box-shadow: 0 3px 12px rgba(22, 76, 92, 0.05);
 
     position: relative;
-    z-index: 1000;
-
-    box-shadow: 0 4px 18px rgba(22, 76, 92, 0.06);
+    z-index: 10;
 }
 
 
@@ -563,128 +560,20 @@ header {
    Logo
 ========================== */
 
-header .site-branding {
+.sticker-page .sticker-page-branding {
     display: flex;
     align-items: center;
     flex-shrink: 0;
 }
 
-header .tdrive-header-logo {
+.sticker-page .sticker-page-logo {
     display: block;
-    width: 210px;
+
+    width: 165px;
     max-width: 100%;
     height: auto;
+
     object-fit: contain;
-}
-
-
-/* ==========================
-   Navigation
-========================== */
-
-header nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 8px;
-
-    margin: 0;
-    padding: 0;
-
-    direction: rtl;
-}
-
-header nav a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    min-height: 42px;
-    padding: 8px 14px;
-
-    color: #164C5C;
-    background: transparent;
-
-    text-decoration: none;
-
-    font-family: "Cairo", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-
-    border-radius: 10px;
-    white-space: nowrap;
-
-    transition:
-        color 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
-}
-
-
-/* ==========================
-   Navigation Hover
-========================== */
-
-header nav a:hover {
-    color: #4F9FAE;
-    background: rgba(79, 159, 174, 0.08);
-    transform: translateY(-1px);
-}
-
-
-/* ==========================
-   Register Button
-========================== */
-
-header nav a.nav-register {
-    padding: 8px 20px;
-
-    color: #FFFFFF;
-    background: #4F9FAE;
-
-    border-radius: 12px;
-
-    box-shadow: 0 5px 14px rgba(79, 159, 174, 0.22);
-}
-
-header nav a.nav-register:hover {
-    color: #FFFFFF;
-    background: #438F9D;
-
-    transform: translateY(-2px);
-
-    box-shadow: 0 8px 18px rgba(79, 159, 174, 0.28);
-}
-
-
-/* ==========================
-   Tablet
-========================== */
-
-@media (max-width: 900px) {
-
-    header {
-        min-height: 76px;
-        padding: 10px 4%;
-        gap: 18px;
-    }
-
-    header .tdrive-header-logo {
-        width: 175px;
-    }
-
-    header nav {
-        gap: 3px;
-    }
-
-    header nav a {
-        padding: 7px 9px;
-        font-size: 12.5px;
-    }
-
-    header nav a.nav-register {
-        padding: 7px 14px;
-    }
 }
 
 
@@ -694,51 +583,13 @@ header nav a.nav-register:hover {
 
 @media (max-width: 700px) {
 
-    header {
-        min-height: auto;
-        padding: 12px 16px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        gap: 10px;
+    .sticker-page .sticker-page-header {
+        min-height: 60px;
+        padding: 7px 16px;
     }
 
-    header .site-branding {
-        width: 100%;
-        justify-content: center;
-    }
-
-    header .tdrive-header-logo {
-        width: 190px;
-        max-width: 75vw;
-    }
-
-    header nav {
-        width: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        gap: 4px;
-        flex-wrap: wrap;
-    }
-
-    header nav a {
-        min-height: 36px;
-        padding: 6px 9px;
-
-        font-size: 11.5px;
-
-        border-radius: 9px;
-    }
-
-    header nav a.nav-register {
-        padding: 6px 13px;
-        border-radius: 10px;
+    .sticker-page .sticker-page-logo {
+        width: 145px;
     }
 }
 
@@ -749,28 +600,13 @@ header nav a.nav-register:hover {
 
 @media (max-width: 430px) {
 
-    header {
-        padding: 10px 10px 12px;
-        gap: 8px;
+    .sticker-page .sticker-page-header {
+        min-height: 56px;
+        padding: 6px 14px;
     }
 
-    header .tdrive-header-logo {
-        width: 170px;
-    }
-
-    header nav {
-        gap: 2px;
-    }
-
-    header nav a {
-        min-height: 34px;
-        padding: 5px 7px;
-
-        font-size: 10.5px;
-    }
-
-    header nav a.nav-register {
-        padding: 5px 10px;
+    .sticker-page .sticker-page-logo {
+        width: 135px;
     }
 }
 
