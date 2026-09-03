@@ -1,31 +1,14 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>طلب ملصق الكابتن المحترف | TDrive</title>
 
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
->
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-  rel="stylesheet"
->
-
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -34,837 +17,501 @@
 ========================================================= */
 
 :root {
-
   --tdrive: #4F9FAE;
-
   --tdrive-dark: #3F8997;
-
   --text: #1F2937;
-
   --muted: #6B7280;
-
   --border: #E1E7EA;
-
   --background: #F5F9FA;
-
 }
-
 
 * {
   box-sizing: border-box;
 }
 
-
 body {
-
   margin: 0;
-
   font-family: "Cairo", sans-serif;
-
-  background:
-    linear-gradient(
-      180deg,
-      #F5F9FA 0%,
-      #EEF6F8 100%
-    );
-
+  background: linear-gradient(180deg, #F5F9FA 0%, #EEF6F8 100%);
   color: var(--text);
-
 }
-
 
 .page {
-
   min-height: 100vh;
-
-  padding:
-    28px
-    16px
-    60px;
-
+  padding: 0 16px 60px;
 }
-
 
 .container {
-
   width: min(650px, 100%);
-
   margin: auto;
-
 }
+
+/* =========================================================
+   الهيدر
+========================================================= */
+
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 6%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(22, 76, 92, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .site-branding {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .tdrive-header-logo {
-    width: 240px; /* تم زيادة العرض ليعود للحجم الكبير الواضح */
-    max-width: 100%;
-    height: auto;
-    display: block;
+  width: 190px;
+  max-width: 46vw;
+  height: auto;
+  display: block;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.header-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  color: var(--tdrive-dark);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .2s ease, transform .15s ease;
+  white-space: nowrap;
 }
 
-nav a {
-    text-decoration: none;
-    color: #444;
-    font-weight: 600;
-    font-size: 15px;
-    transition: color .2s;
+.header-back:hover {
+  background: #E9F3F5;
+  transform: translateY(-1px);
 }
 
-nav a:hover {
-    color: var(--tdrive);
+.header-back svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  transform: rotate(180deg);
 }
 
-nav a.nav-register {
-    background: var(--tdrive);
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 10px;
+@media (max-width: 520px) {
+  header {
+    padding: 13px 5%;
+  }
+
+  .tdrive-header-logo {
+    width: 150px;
+    max-width: 44vw;
+  }
+
+  .header-back {
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+
+  .header-back span {
+    display: none;
+  }
 }
-
-nav a.nav-register:hover {
-    background: var(--tdrive-dark);
-    color: #fff;
-}
-
-
-/* =========================================================
-   الشعار
-========================================================= */
-
-.tdrive-logo-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px auto 55px;
-    width: 100%;
-}
-
-.tdrive-logo {
-    display: block;
-    width: 180px;
-    max-width: 70%;
-    height: auto;
-    object-fit: contain;
-}
-
 
 /* =========================================================
    بطاقة الطلب
 ========================================================= */
 
 .card {
-
+  margin-top: 34px;
   background: #FFFFFF;
-
   border: 1px solid #E2E8EB;
-
   border-radius: 26px;
-
-  padding:
-    34px
-    26px
-    30px;
-
-  box-shadow:
-    0 10px 35px rgba(22, 76, 92, 0.08);
-
+  padding: 34px 26px 30px;
+  box-shadow: 0 10px 35px rgba(22, 76, 92, 0.08);
 }
-
-
-/* =========================================================
-   العنوان
-========================================================= */
 
 h1 {
-
-  margin:
-    0
-    0
-    10px;
-
+  margin: 0 0 10px;
   text-align: center;
-
   color: #172936;
-
   font-size: 28px;
-
   line-height: 1.5;
-
   font-weight: 800;
-
 }
-
 
 .intro {
-
-  margin:
-    0
-    auto
-    30px;
-
+  margin: 0 auto 30px;
   max-width: 530px;
-
   text-align: center;
-
   color: #717C8B;
-
   font-size: 15px;
-
   line-height: 2;
-
 }
-
 
 /* =========================================================
    الحقول
 ========================================================= */
 
 .field {
-
   margin-bottom: 21px;
-
 }
-
 
 label {
-
   display: block;
-
   margin-bottom: 9px;
-
   color: #1F2D3A;
-
   font-size: 15px;
-
   font-weight: 800;
-
 }
-
 
 .required {
-
   color: #D52D25;
-
 }
-
 
 input[type="text"] {
-
   width: 100%;
-
   height: 58px;
-
-  border:
-    1px solid
-    #D7E0E4;
-
+  border: 1px solid #D7E0E4;
   border-radius: 15px;
-
-  padding:
-    0
-    17px;
-
+  padding: 0 17px;
   font-family: inherit;
-
   font-size: 16px;
-
   outline: none;
-
   background: #FFFFFF;
-
-  transition:
-    border-color .2s ease,
-    box-shadow .2s ease;
-
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
-
 
 input[type="text"]::placeholder {
-
   color: #A8ADB1;
-
 }
-
 
 input[type="text"]:focus {
-
-  border-color:
-    var(--tdrive);
-
-  box-shadow:
-    0 0 0 4px
-    rgba(79,159,174,.12);
-
+  border-color: var(--tdrive);
+  box-shadow: 0 0 0 4px rgba(79,159,174,.12);
 }
-
 
 .hint {
-
   margin-top: 7px;
-
   color: #737D8B;
-
   font-size: 12px;
-
 }
-
 
 /* =========================================================
    الموافقة
 ========================================================= */
 
 .consent {
-
   display: flex;
-
   align-items: flex-start;
-
   gap: 12px;
-
-  margin:
-    25px
-    0
-    20px;
-
-  padding:
-    17px
-    16px;
-
-  border:
-    1px solid
-    #E0E6E9;
-
+  margin: 25px 0 20px;
+  padding: 17px 16px;
+  border: 1px solid #E0E6E9;
   border-radius: 16px;
-
   background: #FBFCFC;
-
   line-height: 1.9;
-
   font-size: 14px;
-
   cursor: pointer;
-
 }
-
 
 .consent input {
-
   width: 21px;
-
   height: 21px;
-
   min-width: 21px;
-
   margin-top: 3px;
-
-  accent-color:
-    var(--tdrive);
-
+  accent-color: var(--tdrive);
 }
-
 
 /* =========================================================
    زر الدفع
 ========================================================= */
 
 .submit-btn {
-
   width: 100%;
-
   height: 58px;
-
   border: 0;
-
   border-radius: 16px;
-
-  background:
-    var(--tdrive);
-
+  background: var(--tdrive);
   color: #FFFFFF;
-
   font-family: inherit;
-
   font-size: 18px;
-
   font-weight: 800;
-
   cursor: pointer;
-
-  box-shadow:
-    0 7px 18px
-    rgba(79,159,174,.20);
-
-  transition:
-    background .2s ease,
-    transform .15s ease,
-    box-shadow .2s ease;
-
+  box-shadow: 0 7px 18px rgba(79,159,174,.20);
+  transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
 }
-
 
 .submit-btn:hover {
-
-  background:
-    var(--tdrive-dark);
-
-  box-shadow:
-    0 9px 22px
-    rgba(79,159,174,.25);
-
+  background: var(--tdrive-dark);
+  box-shadow: 0 9px 22px rgba(79,159,174,.25);
 }
-
 
 .submit-btn:active {
-
-  transform:
-    translateY(1px);
-
+  transform: translateY(1px);
 }
-
 
 .submit-btn:disabled {
-
   opacity: .65;
-
   cursor: not-allowed;
-
 }
-
 
 /* =========================================================
    الرسائل
 ========================================================= */
 
 .message {
-
   display: none;
-
   margin-top: 16px;
-
-  padding:
-    13px
-    14px;
-
+  padding: 13px 14px;
   border-radius: 13px;
-
   font-size: 13px;
-
   line-height: 1.8;
-
 }
-
 
 .message.error {
-
   display: block;
-
   background: #FFF1F1;
-
   color: #C62828;
-
-  border:
-    1px solid
-    #FFD2D2;
-
+  border: 1px solid #FFD2D2;
 }
-
 
 .message.success {
-
   display: block;
-
   background: #EEF9F6;
-
   color: #176B58;
-
-  border:
-    1px solid
-    #C9EEE4;
-
+  border: 1px solid #C9EEE4;
 }
 
-
 /* =========================================================
-   العودة
+   العودة (أسفل الفورم)
 ========================================================= */
 
 .back {
-
   display: block;
-
   margin-top: 19px;
-
   text-align: center;
-
   color: #7B8490;
-
   text-decoration: none;
-
   font-size: 14px;
-
 }
-
 
 .back:hover {
-
-  color:
-    var(--tdrive);
-
+  color: var(--tdrive);
 }
-
 
 /* ============================================
    كيف يعمل الملصق؟
 ============================================ */
 
 .sticker-how-it-works {
-    width: 100%;
-    max-width: 760px;
-    margin: 45px auto 0;
-    padding: 10px 20px 35px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-sizing: border-box;
-    font-family: "Cairo", Arial, sans-serif;
+  width: 100%;
+  max-width: 760px;
+  margin: 45px auto 0;
+  padding: 10px 20px 35px;
+  font-family: "Cairo", Arial, sans-serif;
 }
 
 .sticker-how-it-works h2 {
-    margin: 0 0 30px;
-    text-align: center;
-    color: #164C5C;
-    font-size: 27px;
-    font-weight: 800;
+  margin: 0 0 30px;
+  text-align: center;
+  color: #164C5C;
+  font-size: 27px;
+  font-weight: 800;
 }
 
-/* منطقة الخطوة */
 .sticker-slider {
-    position: relative;
-    width: 100%;
-    min-height: 560px;
+  position: relative;
+  width: 100%;
+  min-height: 560px;
 }
 
-/* كل خطوة تظهر في نفس المكان */
 .sticker-step {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(12px);
-
-    transition:
-        opacity .6s ease,
-        transform .6s ease,
-        visibility .6s ease;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .6s ease, transform .6s ease, visibility .6s ease;
 }
 
-/* الخطوة الحالية */
 .sticker-step.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-/* رقم الخطوة */
 .sticker-step-number {
-    width: 58px;
-    height: 58px;
-    flex: 0 0 58px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 18px;
-
-    border-radius: 50%;
-
-    background: #4F9FAE;
-    color: #FFFFFF;
-
-    font-size: 24px;
-    font-weight: 800;
-
-    box-shadow:
-        0 8px 20px rgba(79, 159, 174, .20);
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  background: #4F9FAE;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: 800;
+  box-shadow: 0 8px 20px rgba(79, 159, 174, .20);
 }
 
-/* محتوى الخطوة */
 .sticker-step-content {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
-/* عنوان الخطوة */
 .sticker-step-content h3 {
-    margin: 0 0 18px;
-
-    color: #263B42;
-
-    font-size: 21px;
-    line-height: 1.7;
-    font-weight: 800;
+  margin: 0 0 18px;
+  color: #263B42;
+  font-size: 21px;
+  line-height: 1.7;
+  font-weight: 800;
 }
 
-/* الوصف - الخطوة الرابعة */
 .sticker-step-content p {
-    margin: -7px auto 18px;
-
-    color: #68777C;
-
-    font-size: 15px;
-    line-height: 1.9;
-    font-weight: 500;
-
-    max-width: 600px;
+  margin: -7px auto 18px;
+  color: #68777C;
+  font-size: 15px;
+  line-height: 1.9;
+  font-weight: 500;
+  max-width: 600px;
 }
 
-/* الصورة بدون بطاقة أو إطار */
 .sticker-step-content img {
-    display: block;
-
-    width: auto;
-    max-width: 100%;
-    height: auto;
-
-    max-height: 480px;
-
-    margin: 0 auto;
-
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 480px;
+  margin: 0 auto;
 }
-
-/* ============================================
-   النقاط
-============================================ */
 
 .sticker-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 9px;
-
-    margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  margin-top: 25px;
 }
 
 .sticker-dot {
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    background: #D5E5E8;
-
-    transition:
-        width .3s ease,
-        background .3s ease;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #D5E5E8;
+  transition: width .3s ease, background .3s ease;
 }
 
 .sticker-dot.active {
-    width: 34px;
-    border-radius: 20px;
-    background: #4F9FAE;
+  width: 34px;
+  border-radius: 20px;
+  background: #4F9FAE;
 }
-
 
 /* ============================================
    الجوال
 ============================================ */
 
 @media (max-width: 520px) {
+  .sticker-how-it-works {
+    margin-top: 35px;
+    padding: 5px 12px 30px;
+  }
 
-    .sticker-how-it-works {
-        margin-top: 35px;
-        padding: 5px 12px 30px;
-    }
+  .sticker-how-it-works h2 {
+    margin-bottom: 25px;
+    font-size: 25px;
+  }
 
-    .sticker-how-it-works h2 {
-        margin-bottom: 25px;
-        font-size: 25px;
-    }
+  .sticker-slider {
+    min-height: 500px;
+  }
 
-    .sticker-slider {
-        min-height: 500px;
-    }
+  .sticker-step-number {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
 
-    .sticker-step-number {
-        width: 54px;
-        height: 54px;
-        flex-basis: 54px;
+  .sticker-step-content h3 {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
 
-        margin-bottom: 15px;
+  .sticker-step-content p {
+    margin-top: -5px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
 
-        font-size: 22px;
-    }
+  .sticker-step-content img {
+    max-width: 100%;
+    max-height: 400px;
+  }
 
-    .sticker-step-content h3 {
-        margin-bottom: 15px;
-        font-size: 18px;
-    }
-
-    .sticker-step-content p {
-        margin-top: -5px;
-        font-size: 13px;
-        line-height: 1.8;
-    }
-
-    .sticker-step-content img {
-        max-width: 100%;
-        max-height: 400px;
-    }
-
-    .sticker-dots {
-        margin-top: 20px;
-    }
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.site-branding {
-    display: flex;
-    align-items: center;
-}
-
-.tdrive-header-logo {
-    width: 160px;
-    height: auto;
-    display: block;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    text-decoration: none;
-    color: #444;
-    font-weight: 600;
-    font-size: 15px;
-    transition: color .2s;
-}
-
-nav a:hover {
-    color: var(--tdrive);
-}
-
-nav a.nav-register {
-    background: var(--tdrive);
-    color: #fff;
-    padding: 8px 18px;
-    border-radius: 10px;
-}
-
-nav a.nav-register:hover {
-    background: var(--tdrive-dark);
-    color: #fff;
+  .sticker-dots {
+    margin-top: 20px;
+  }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
+<header>
+
+  <div class="site-branding">
+    <img
+      src="TDrive_Vision2030_banner.svg"
+      alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
+      class="tdrive-header-logo"
+    >
+  </div>
+
+  <a href="index.html" class="header-back">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 12h14M5 12l6-6M5 12l6 6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>الرئيسية</span>
+  </a>
+
+</header>
 
 <main class="page">
-
   <div class="container">
-
-
-    <!-- =====================================================
-         الشعار
-    ====================================================== -->
-
-    <div class="tdrive-logo-wrap">
-    <img
-        src="TDrive_Vision2030_banner.svg"
-        alt="TDrive | تكنولوجيا القيادة | رؤية السعودية 2030"
-        class="tdrive-logo"
-    >
-</div>
-
-
-
-    <!-- =====================================================
-         بطاقة الطلب
-    ====================================================== -->
 
     <section class="card">
 
-
-      <h1>
-        طلب ملصق الكابتن المحترف
-      </h1>
-
+      <h1>طلب ملصق الكابتن المحترف</h1>
 
       <p class="intro">
-
         أدخل بيانات الحساب البنكي كما هي، وسيتم إنشاء طلبك وحفظ
         بياناته لإعداد ملصق بيانات الحساب البنكي.
-
       </p>
-
-
 
       <form id="stickerOrderForm">
 
-
-        <!-- الاسم -->
-
         <div class="field">
-
           <label for="fullName">
-
             الاسم الكامل
             <span class="required">*</span>
-
           </label>
-
-
           <input
             id="fullName"
             type="text"
@@ -872,23 +519,13 @@ nav a.nav-register:hover {
             placeholder="اكتب الاسم الكامل"
             required
           >
-
         </div>
 
-
-
-        <!-- رقم الحساب -->
-
         <div class="field">
-
           <label for="accountNumber">
-
             رقم الحساب
             <span class="required">*</span>
-
           </label>
-
-
           <input
             id="accountNumber"
             type="text"
@@ -898,23 +535,13 @@ nav a.nav-register:hover {
             dir="ltr"
             required
           >
-
         </div>
 
-
-
-        <!-- الآيبان -->
-
         <div class="field">
-
           <label for="iban">
-
             رقم الآيبان IBAN
             <span class="required">*</span>
-
           </label>
-
-
           <input
             id="iban"
             type="text"
@@ -924,2279 +551,209 @@ nav a.nav-register:hover {
             maxlength="34"
             required
           >
-
-
-          <div class="hint">
-
-            يجب أن يبدأ الآيبان بـ SA.
-
-          </div>
-
+          <div class="hint">يجب أن يبدأ الآيبان بـ SA.</div>
         </div>
 
-
-
-        <!-- الموافقة -->
-
         <label class="consent">
-
-          <input
-            id="consent"
-            type="checkbox"
-            required
-          >
-
-
-          <span>
-
-            أوافق على استخدام بياناتي لإنشاء ملصق بيانات الحساب البنكي.
-
-          </span>
-
+          <input id="consent" type="checkbox" required>
+          <span>أوافق على استخدام بياناتي لإنشاء ملصق بيانات الحساب البنكي.</span>
         </label>
 
-
-
-        <!-- زر الدفع -->
-
-        <button
-          id="submitBtn"
-          class="submit-btn"
-          type="submit"
-        >
-
+        <button id="submitBtn" class="submit-btn" type="submit">
           المتابعة للدفع
-
         </button>
 
-
-
-        <!-- الرسالة -->
-
-        <div
-          id="message"
-          class="message"
-        ></div>
-
+        <div id="message" class="message"></div>
 
       </form>
 
-
-
-      <a
-        class="back"
-        href="index-test.html"
-      >
-
-        العودة
-
-      </a>
-
+      <a class="back" href="index-test.html">العودة</a>
 
     </section>
 
+    <section class="sticker-how-it-works">
 
+      <h2>كيف يعمل الملصق؟</h2>
 
-<!-- ============================================
-     كيف يعمل الملصق؟
-============================================ -->
+      <div class="sticker-slider">
 
-<section class="sticker-how-it-works">
-
-    <h2>كيف يعمل الملصق؟</h2>
-
-    <div class="sticker-slider">
-
-        <!-- الخطوة 1 -->
         <div class="sticker-step active">
-
-            <div class="sticker-step-number">1</div>
-
-            <div class="sticker-step-content">
-
-                <h3>
-                    يوضع الملصق في السيارة
-                </h3>
-
-                <img
-                    src="captain-sticker.webp"
-                    alt="وضع ملصق الكابتن المحترف في السيارة"
-                >
-
-            </div>
-
+          <div class="sticker-step-number">1</div>
+          <div class="sticker-step-content">
+            <h3>يوضع الملصق في السيارة</h3>
+            <img src="captain-sticker.webp" alt="وضع ملصق الكابتن المحترف في السيارة">
+          </div>
         </div>
 
-
-        <!-- الخطوة 2 -->
         <div class="sticker-step">
-
-            <div class="sticker-step-number">2</div>
-
-            <div class="sticker-step-content">
-
-                <h3>
-                    يمسح العميل الباركود
-                </h3>
-
-                <img
-                    src="hand-sticker.webp"
-                    alt="مسح العميل للباركود"
-                >
-
-            </div>
-
+          <div class="sticker-step-number">2</div>
+          <div class="sticker-step-content">
+            <h3>يمسح العميل الباركود</h3>
+            <img src="hand-sticker.webp" alt="مسح العميل للباركود">
+          </div>
         </div>
 
-
-        <!-- الخطوة 3 -->
         <div class="sticker-step">
-
-            <div class="sticker-step-number">3</div>
-
-            <div class="sticker-step-content">
-
-                <h3>
-                    ثم يفتح الرابط
-                </h3>
-
-                <img
-                    src="barcode-sticker.webp"
-                    alt="فتح الرابط من خلال الباركود"
-                >
-
-            </div>
-
+          <div class="sticker-step-number">3</div>
+          <div class="sticker-step-content">
+            <h3>ثم يفتح الرابط</h3>
+            <img src="barcode-sticker.webp" alt="فتح الرابط من خلال الباركود">
+          </div>
         </div>
 
-
-        <!-- الخطوة 4 -->
         <div class="sticker-step">
-
-            <div class="sticker-step-number">4</div>
-
-            <div class="sticker-step-content">
-
-                <h3>
-                    فتظهر له بيانات حسابك البنكي قابلة للنسخ
-                </h3>
-
-                <p>
-                    وبعد الحوالة يرسل الإيصال بثانية واحدة على رقم جوالك.
-                </p>
-
-                <img
-                    src="data-sticker.webp"
-                    alt="بيانات الحساب البنكي القابلة للنسخ"
-                >
-
-            </div>
-
+          <div class="sticker-step-number">4</div>
+          <div class="sticker-step-content">
+            <h3>فتظهر له بيانات حسابك البنكي قابلة للنسخ</h3>
+            <p>وبعد الحوالة يرسل الإيصال بثانية واحدة على رقم جوالك.</p>
+            <img src="data-sticker.webp" alt="بيانات الحساب البنكي القابلة للنسخ">
+          </div>
         </div>
 
-    </div>
+      </div>
 
-
-    <!-- النقاط -->
-    <div class="sticker-dots">
-
+      <div class="sticker-dots">
         <span class="sticker-dot active"></span>
         <span class="sticker-dot"></span>
         <span class="sticker-dot"></span>
         <span class="sticker-dot"></span>
+      </div>
 
-    </div>
-
-</section>
-  
-
+    </section>
 
   </div>
-
 </main>
-
-
-
-<!-- =========================================================
-     Supabase
-========================================================= -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-
 <script>
 
-const SUPABASE_URL =
-  "https://sbevfklawymyducaqerb.supabase.co";
+const SUPABASE_URL = "https://sbevfklawymyducaqerb.supabase.co";
+const SUPABASE_KEY = "sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2";
 
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const SUPABASE_KEY =
-  "sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2";
+const form = document.getElementById("stickerOrderForm");
+const submitBtn = document.getElementById("submitBtn");
+const message = document.getElementById("message");
 
-
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
-
-
-
-/* =========================================================
-   عناصر النموذج
-========================================================= */
-
-const form =
-  document.getElementById(
-    "stickerOrderForm"
-  );
-
-
-const submitBtn =
-  document.getElementById(
-    "submitBtn"
-  );
-
-
-const message =
-  document.getElementById(
-    "message"
-  );
-
-
-
-/* =========================================================
-   الرسائل
-========================================================= */
-
-function showMessage(
-  text,
-  type = "error"
-) {
-
+function showMessage(text, type = "error") {
   if (!text) {
-
     message.textContent = "";
-
     message.className = "message";
-
     return;
-
   }
-
-
   message.textContent = text;
-
-
-  message.className =
-    "message " + type;
-
+  message.className = "message " + type;
 }
-
-
-
-/* =========================================================
-   تحويل الأرقام العربية إلى إنجليزية
-========================================================= */
 
 function normalizeNumbers(value) {
-
   return value
-
-    .replace(
-      /[٠-٩]/g,
-      d =>
-        String(
-          "٠١٢٣٤٥٦٧٨٩".indexOf(d)
-        )
-    )
-
-    .replace(
-      /[۰-۹]/g,
-      d =>
-        String(
-          "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
-        )
-    );
-
+    .replace(/[٠-٩]/g, d => String("٠١٢٣٤٥٦٧٨٩".indexOf(d)))
+    .replace(/[۰-۹]/g, d => String("۰۱۲۳۴۵۶۷۸۹".indexOf(d)));
 }
-
-
-
-/* =========================================================
-   تنظيف الآيبان
-========================================================= */
 
 function normalizeIBAN(value) {
-
-  return normalizeNumbers(value)
-
-    .replace(/\s+/g, "")
-
-    .toUpperCase();
-
+  return normalizeNumbers(value).replace(/\s+/g, "").toUpperCase();
 }
-
-
-
-/* =========================================================
-   إنشاء رقم الطلب
-========================================================= */
 
 function generateOrderNumber() {
-
-  const d =
-    new Date();
-
-
-  const y =
-    d.getFullYear();
-
-
-  const m =
-    String(
-      d.getMonth() + 1
-    ).padStart(2, "0");
-
-
-  const day =
-    String(
-      d.getDate()
-    ).padStart(2, "0");
-
-
-  const random =
-    Math.floor(
-      100000 +
-      Math.random() * 900000
-    );
-
-
-  return (
-    `STK-${y}${m}${day}-${random}`
-  );
-
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  const random = Math.floor(100000 + Math.random() * 900000);
+  return `STK-${y}${m}${day}-${random}`;
 }
 
-
-
-/* =========================================================
-   حفظ الطلب
-========================================================= */
-
-form.addEventListener(
-  "submit",
-  async function(event) {
-
-    event.preventDefault();
-
-
-    showMessage("");
-
-
-    const fullName =
-      document
-        .getElementById("fullName")
-        .value
-        .trim();
-
-
-    const accountNumber =
-      normalizeNumbers(
-        document
-          .getElementById("accountNumber")
-          .value
-          .trim()
-      );
-
-
-    const iban =
-      normalizeIBAN(
-        document
-          .getElementById("iban")
-          .value
-      );
-
-
-    const consent =
-      document
-        .getElementById("consent")
-        .checked;
-
-
-
-    /* -----------------------------------------
-       التحقق
-    ----------------------------------------- */
-
-    if (!fullName) {
-
-      showMessage(
-        "فضلاً أدخل الاسم الكامل."
-      );
-
-      return;
-
-    }
-
-
-    if (!accountNumber) {
-
-      showMessage(
-        "فضلاً أدخل رقم الحساب."
-      );
-
-      return;
-
-    }
-
-
-    if (
-      !iban ||
-      !iban.startsWith("SA")
-    ) {
-
-      showMessage(
-        "فضلاً أدخل رقم آيبان صحيح يبدأ بـ SA."
-      );
-
-      return;
-
-    }
-
-
-    if (!consent) {
-
-      showMessage(
-        "يجب الموافقة على استخدام البيانات لإنشاء الملصق."
-      );
-
-      return;
-
-    }
-
-
-
-    /* -----------------------------------------
-       تعطيل الزر
-    ----------------------------------------- */
-
-    submitBtn.disabled = true;
-
-    submitBtn.textContent =
-      "جاري حفظ الطلب...";
-
-
-
-    const orderNumber =
-      generateOrderNumber();
-
-
-    const orderId =
-      crypto.randomUUID();
-
-
-
-    try {
-
-      /* ---------------------------------------
-         حفظ الطلب في Supabase
-      --------------------------------------- */
-
-      const { error } =
-        await supabaseClient
-
-          .from("sticker_orders")
-
-          .insert([
-
-            {
-
-              id: orderId,
-
-              booking_id: orderNumber,
-
-              captain_name: fullName,
-
-              account_number:
-                accountNumber,
-
-              iban: iban,
-
-              phone: null,
-
-              generated: false,
-
-              consent: true,
-
-              created_at:
-                new Date().toISOString()
-
-            }
-
-          ]);
-
-
-
-      if (error) {
-
-        throw error;
-
-      }
-
-
-
-      /* ---------------------------------------
-         حفظ بيانات الطلب مؤقتًا للصفحة التالية
-      --------------------------------------- */
-
-      sessionStorage.setItem(
-        "stickerOrderId",
-        orderId
-      );
-
-
-      sessionStorage.setItem(
-        "bookingId",
-        orderNumber
-      );
-
-
-      sessionStorage.setItem(
-        "fullName",
-        fullName
-      );
-
-
-      sessionStorage.setItem(
-        "accountNumber",
-        accountNumber
-      );
-
-
-      sessionStorage.setItem(
-        "iban",
-        iban
-      );
-
-
-      sessionStorage.setItem(
-        "phone",
-        ""
-      );
-
-
-      sessionStorage.setItem(
-        "productType",
-        "captain-sticker"
-      );
-
-
-
-      /* ---------------------------------------
-         رسالة النجاح
-      --------------------------------------- */
-
-      showMessage(
-        `تم إنشاء الطلب رقم ${orderNumber}، جاري الانتقال للدفع...`,
-        "success"
-      );
-
-
-
-      /* ---------------------------------------
-         الانتقال للدفع
-      --------------------------------------- */
-
-      setTimeout(
-        () => {
-
-          window.location.href =
-            "captain-payment-method.html";
-
-        },
-        700
-      );
-
-
-    }
-
-
-    catch (error) {
-
-      console.error(
-        "Supabase error:",
-        error
-      );
-
-
-      showMessage(
-        "تعذر حفظ الطلب حاليًا. إذا استمرت المشكلة، نراجع إعدادات جدول sticker_orders في Supabase."
-      );
-
-
-      submitBtn.disabled = false;
-
-
-      submitBtn.textContent =
-        "المتابعة للدفع";
-
-    }
-
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
+  showMessage("");
+
+  const fullName = document.getElementById("fullName").value.trim();
+  const accountNumber = normalizeNumbers(document.getElementById("accountNumber").value.trim());
+  const iban = normalizeIBAN(document.getElementById("iban").value);
+  const consent = document.getElementById("consent").checked;
+
+  if (!fullName) {
+    showMessage("فضلاً أدخل الاسم الكامل.");
+    return;
   }
-);
+  if (!accountNumber) {
+    showMessage("فضلاً أدخل رقم الحساب.");
+    return;
+  }
+  if (!iban || !iban.startsWith("SA")) {
+    showMessage("فضلاً أدخل رقم آيبان صحيح يبدأ بـ SA.");
+    return;
+  }
+  if (!consent) {
+    showMessage("يجب الموافقة على استخدام البيانات لإنشاء الملصق.");
+    return;
+  }
 
+  submitBtn.disabled = true;
+  submitBtn.textContent = "جاري حفظ الطلب...";
 
+  const orderNumber = generateOrderNumber();
+  const orderId = crypto.randomUUID();
 
-/* =========================================================
-   سلايدر "كيف يعمل الملصق؟"
-   
-   كل خطوة = 5 ثوانٍ
-========================================================= */
+  try {
+    const { error } = await supabaseClient
+      .from("sticker_orders")
+      .insert([{
+        id: orderId,
+        booking_id: orderNumber,
+        captain_name: fullName,
+        account_number: accountNumber,
+        iban: iban,
+        phone: null,
+        generated: false,
+        consent: true,
+        created_at: new Date().toISOString()
+      }]);
 
-const stickerSteps =
-  document.querySelectorAll(
-    ".sticker-step"
-  );
-
-
-const stickerDots =
-  document.querySelectorAll(
-    ".sticker-dot"
-  );
-
-
-let currentStickerStep = 0;
-
-
-
-function showStickerStep(index) {
-
-  stickerSteps.forEach(
-    (step, i) => {
-
-      step.classList.toggle(
-        "active",
-        i === index
-      );
-
+    if (error) {
+      throw error;
     }
-  );
 
+    sessionStorage.setItem("stickerOrderId", orderId);
+    sessionStorage.setItem("bookingId", orderNumber);
+    sessionStorage.setItem("fullName", fullName);
+    sessionStorage.setItem("accountNumber", accountNumber);
+    sessionStorage.setItem("iban", iban);
+    sessionStorage.setItem("phone", "");
+    sessionStorage.setItem("productType", "captain-sticker");
 
-  stickerDots.forEach(
-    (dot, i) => {
+    showMessage(`تم إنشاء الطلب رقم ${orderNumber}، جاري الانتقال للدفع...`, "success");
 
-      dot.classList.toggle(
-        "active",
-        i === index
-      );
+    setTimeout(() => {
+      window.location.href = "captain-payment-method.html";
+    }, 700);
 
-    }
-  );
+  } catch (error) {
+    console.error("Supabase error:", error);
+    showMessage("تعذر حفظ الطلب حاليًا. إذا استمرت المشكلة، نراجع إعدادات جدول sticker_orders في Supabase.");
+    submitBtn.disabled = false;
+    submitBtn.textContent = "المتابعة للدفع";
+  }
+});
 
-}
-
-
-
-/* -----------------------------------------
-   الانتقال كل 5 ثوانٍ
------------------------------------------ */
-
-setInterval(
-  () => {
-
-    currentStickerStep =
-      (
-        currentStickerStep + 1
-      )
-      %
-      stickerSteps.length;
-
-
-    showStickerStep(
-      currentStickerStep
-    );
-
-  },
-  5000
-);
-
-  /* ============================================
-   عرض خطوات كيف يعمل الملصق
-============================================ */
-
-const stickerSteps =
-    document.querySelectorAll(".sticker-step");
-
-const stickerDots =
-    document.querySelectorAll(".sticker-dot");
-
+const stickerSteps = document.querySelectorAll(".sticker-step");
+const stickerDots = document.querySelectorAll(".sticker-dot");
 let currentStickerStep = 0;
 
 function showStickerStep(index) {
-
-    stickerSteps.forEach((step, i) => {
-
-        step.classList.toggle(
-            "active",
-            i === index
-        );
-
-    });
-
-    stickerDots.forEach((dot, i) => {
-
-        dot.classList.toggle(
-            "active",
-            i === index
-        );
-
-    });
+  stickerSteps.forEach((step, i) => step.classList.toggle("active", i === index));
+  stickerDots.forEach((dot, i) => dot.classList.toggle("active", i === index));
 }
-
 
 setInterval(() => {
-
-    currentStickerStep++;
-
-    if (
-        currentStickerStep >= stickerSteps.length
-    ) {
-        currentStickerStep = 0;
-    }
-
-    showStickerStep(currentStickerStep);
-
+  currentStickerStep = (currentStickerStep + 1) % stickerSteps.length;
+  showStickerStep(currentStickerStep);
 }, 5000);
-</<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>طلب ملصق الكابتن المحترف | TDrive</title>
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
->
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-  rel="stylesheet"
->
-
-
-<style>
-
-/* =========================================================
-   الأساس
-========================================================= */
-
-:root {
-
-  --tdrive: #4F9FAE;
-
-  --tdrive-dark: #3F8997;
-
-  --text: #1F2937;
-
-  --muted: #6B7280;
-
-  --border: #E1E7EA;
-
-  --background: #F5F9FA;
-
-}
-
-
-* {
-  box-sizing: border-box;
-}
-
-
-body {
-
-  margin: 0;
-
-  font-family: "Cairo", sans-serif;
-
-  background:
-    linear-gradient(
-      180deg,
-      #F5F9FA 0%,
-      #EEF6F8 100%
-    );
-
-  color: var(--text);
-
-}
-
-
-.page {
-
-  min-height: 100vh;
-
-  padding:
-    28px
-    16px
-    60px;
-
-}
-
-
-.container {
-
-  width: min(650px, 100%);
-
-  margin: auto;
-
-}
-
-
-/* =========================================================
-   الشعار
-========================================================= */
-
-.brand {
-
-  text-align: center;
-
-  margin-bottom: 22px;
-
-}
-
-
-.brand img {
-
-  width: 92px;
-
-  height: auto;
-
-  display: inline-block;
-
-}
-
-
-/* =========================================================
-   بطاقة الطلب
-========================================================= */
-
-.card {
-
-  background: #FFFFFF;
-
-  border: 1px solid #E2E8EB;
-
-  border-radius: 26px;
-
-  padding:
-    34px
-    26px
-    30px;
-
-  box-shadow:
-    0 10px 35px rgba(22, 76, 92, 0.08);
-
-}
-
-
-/* =========================================================
-   العنوان
-========================================================= */
-
-h1 {
-
-  margin:
-    0
-    0
-    10px;
-
-  text-align: center;
-
-  color: #172936;
-
-  font-size: 28px;
-
-  line-height: 1.5;
-
-  font-weight: 800;
-
-}
-
-
-.intro {
-
-  margin:
-    0
-    auto
-    30px;
-
-  max-width: 530px;
-
-  text-align: center;
-
-  color: #717C8B;
-
-  font-size: 15px;
-
-  line-height: 2;
-
-}
-
-
-/* =========================================================
-   الحقول
-========================================================= */
-
-.field {
-
-  margin-bottom: 21px;
-
-}
-
-
-label {
-
-  display: block;
-
-  margin-bottom: 9px;
-
-  color: #1F2D3A;
-
-  font-size: 15px;
-
-  font-weight: 800;
-
-}
-
-
-.required {
-
-  color: #D52D25;
-
-}
-
-
-input[type="text"] {
-
-  width: 100%;
-
-  height: 58px;
-
-  border:
-    1px solid
-    #D7E0E4;
-
-  border-radius: 15px;
-
-  padding:
-    0
-    17px;
-
-  font-family: inherit;
-
-  font-size: 16px;
-
-  outline: none;
-
-  background: #FFFFFF;
-
-  transition:
-    border-color .2s ease,
-    box-shadow .2s ease;
-
-}
-
-
-input[type="text"]::placeholder {
-
-  color: #A8ADB1;
-
-}
-
-
-input[type="text"]:focus {
-
-  border-color:
-    var(--tdrive);
-
-  box-shadow:
-    0 0 0 4px
-    rgba(79,159,174,.12);
-
-}
-
-
-.hint {
-
-  margin-top: 7px;
-
-  color: #737D8B;
-
-  font-size: 12px;
-
-}
-
-
-/* =========================================================
-   الموافقة
-========================================================= */
-
-.consent {
-
-  display: flex;
-
-  align-items: flex-start;
-
-  gap: 12px;
-
-  margin:
-    25px
-    0
-    20px;
-
-  padding:
-    17px
-    16px;
-
-  border:
-    1px solid
-    #E0E6E9;
-
-  border-radius: 16px;
-
-  background: #FBFCFC;
-
-  line-height: 1.9;
-
-  font-size: 14px;
-
-  cursor: pointer;
-
-}
-
-
-.consent input {
-
-  width: 21px;
-
-  height: 21px;
-
-  min-width: 21px;
-
-  margin-top: 3px;
-
-  accent-color:
-    var(--tdrive);
-
-}
-
-
-/* =========================================================
-   زر الدفع
-========================================================= */
-
-.submit-btn {
-
-  width: 100%;
-
-  height: 58px;
-
-  border: 0;
-
-  border-radius: 16px;
-
-  background:
-    var(--tdrive);
-
-  color: #FFFFFF;
-
-  font-family: inherit;
-
-  font-size: 18px;
-
-  font-weight: 800;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 7px 18px
-    rgba(79,159,174,.20);
-
-  transition:
-    background .2s ease,
-    transform .15s ease,
-    box-shadow .2s ease;
-
-}
-
-
-.submit-btn:hover {
-
-  background:
-    var(--tdrive-dark);
-
-  box-shadow:
-    0 9px 22px
-    rgba(79,159,174,.25);
-
-}
-
-
-.submit-btn:active {
-
-  transform:
-    translateY(1px);
-
-}
-
-
-.submit-btn:disabled {
-
-  opacity: .65;
-
-  cursor: not-allowed;
-
-}
-
-
-/* =========================================================
-   الرسائل
-========================================================= */
-
-.message {
-
-  display: none;
-
-  margin-top: 16px;
-
-  padding:
-    13px
-    14px;
-
-  border-radius: 13px;
-
-  font-size: 13px;
-
-  line-height: 1.8;
-
-}
-
-
-.message.error {
-
-  display: block;
-
-  background: #FFF1F1;
-
-  color: #C62828;
-
-  border:
-    1px solid
-    #FFD2D2;
-
-}
-
-
-.message.success {
-
-  display: block;
-
-  background: #EEF9F6;
-
-  color: #176B58;
-
-  border:
-    1px solid
-    #C9EEE4;
-
-}
-
-
-/* =========================================================
-   العودة
-========================================================= */
-
-.back {
-
-  display: block;
-
-  margin-top: 19px;
-
-  text-align: center;
-
-  color: #7B8490;
-
-  text-decoration: none;
-
-  font-size: 14px;
-
-}
-
-
-.back:hover {
-
-  color:
-    var(--tdrive);
-
-}
-
-
-/* ============================================
-   كيف يعمل الملصق؟
-============================================ */
-
-.sticker-how-it-works {
-    width: 100%;
-    max-width: 760px;
-    margin: 45px auto 0;
-    padding: 10px 20px 35px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    box-sizing: border-box;
-    font-family: "Cairo", Arial, sans-serif;
-}
-
-.sticker-how-it-works h2 {
-    margin: 0 0 30px;
-    text-align: center;
-    color: #164C5C;
-    font-size: 27px;
-    font-weight: 800;
-}
-
-/* منطقة الخطوة */
-.sticker-slider {
-    position: relative;
-    width: 100%;
-    min-height: 560px;
-}
-
-/* كل خطوة تظهر في نفس المكان */
-.sticker-step {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(12px);
-
-    transition:
-        opacity .6s ease,
-        transform .6s ease,
-        visibility .6s ease;
-}
-
-/* الخطوة الحالية */
-.sticker-step.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-/* رقم الخطوة */
-.sticker-step-number {
-    width: 58px;
-    height: 58px;
-    flex: 0 0 58px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin-bottom: 18px;
-
-    border-radius: 50%;
-
-    background: #4F9FAE;
-    color: #FFFFFF;
-
-    font-size: 24px;
-    font-weight: 800;
-
-    box-shadow:
-        0 8px 20px rgba(79, 159, 174, .20);
-}
-
-/* محتوى الخطوة */
-.sticker-step-content {
-    width: 100%;
-    text-align: center;
-}
-
-/* عنوان الخطوة */
-.sticker-step-content h3 {
-    margin: 0 0 18px;
-
-    color: #263B42;
-
-    font-size: 21px;
-    line-height: 1.7;
-    font-weight: 800;
-}
-
-/* الوصف - الخطوة الرابعة */
-.sticker-step-content p {
-    margin: -7px auto 18px;
-
-    color: #68777C;
-
-    font-size: 15px;
-    line-height: 1.9;
-    font-weight: 500;
-
-    max-width: 600px;
-}
-
-/* الصورة بدون بطاقة أو إطار */
-.sticker-step-content img {
-    display: block;
-
-    width: auto;
-    max-width: 100%;
-    height: auto;
-
-    max-height: 480px;
-
-    margin: 0 auto;
-
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-}
-
-/* ============================================
-   النقاط
-============================================ */
-
-.sticker-dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 9px;
-
-    margin-top: 25px;
-}
-
-.sticker-dot {
-    width: 10px;
-    height: 10px;
-
-    border-radius: 50%;
-
-    background: #D5E5E8;
-
-    transition:
-        width .3s ease,
-        background .3s ease;
-}
-
-.sticker-dot.active {
-    width: 34px;
-    border-radius: 20px;
-    background: #4F9FAE;
-}
-
-
-/* ============================================
-   الجوال
-============================================ */
-
-@media (max-width: 520px) {
-
-    .sticker-how-it-works {
-        margin-top: 35px;
-        padding: 5px 12px 30px;
-    }
-
-    .sticker-how-it-works h2 {
-        margin-bottom: 25px;
-        font-size: 25px;
-    }
-
-    .sticker-slider {
-        min-height: 500px;
-    }
-
-    .sticker-step-number {
-        width: 54px;
-        height: 54px;
-        flex-basis: 54px;
-
-        margin-bottom: 15px;
-
-        font-size: 22px;
-    }
-
-    .sticker-step-content h3 {
-        margin-bottom: 15px;
-        font-size: 18px;
-    }
-
-    .sticker-step-content p {
-        margin-top: -5px;
-        font-size: 13px;
-        line-height: 1.8;
-    }
-
-    .sticker-step-content img {
-        max-width: 100%;
-        max-height: 400px;
-    }
-
-    .sticker-dots {
-        margin-top: 20px;
-    }
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<main class="page">
-
-  <div class="container">
-
-
-    <!-- =====================================================
-         الشعار
-    ====================================================== -->
-
-    <div class="brand">
-
-      <img
-        src="logo.svg"
-        alt="TDrive"
-      >
-
-    </div>
-
-
-
-    <!-- =====================================================
-         بطاقة الطلب
-    ====================================================== -->
-
-    <section class="card">
-
-
-      <h1>
-        طلب ملصق الكابتن المحترف
-      </h1>
-
-
-      <p class="intro">
-
-        أدخل بيانات الحساب البنكي كما هي، وسيتم إنشاء طلبك وحفظ
-        بياناته لإعداد ملصق بيانات الحساب البنكي.
-
-      </p>
-
-
-
-      <form id="stickerOrderForm">
-
-
-        <!-- الاسم -->
-
-        <div class="field">
-
-          <label for="fullName">
-
-            الاسم الكامل
-            <span class="required">*</span>
-
-          </label>
-
-
-          <input
-            id="fullName"
-            type="text"
-            autocomplete="name"
-            placeholder="اكتب الاسم الكامل"
-            required
-          >
-
-        </div>
-
-
-
-        <!-- رقم الحساب -->
-
-        <div class="field">
-
-          <label for="accountNumber">
-
-            رقم الحساب
-            <span class="required">*</span>
-
-          </label>
-
-
-          <input
-            id="accountNumber"
-            type="text"
-            inputmode="numeric"
-            autocomplete="off"
-            placeholder="أدخل رقم الحساب"
-            dir="ltr"
-            required
-          >
-
-        </div>
-
-
-
-        <!-- الآيبان -->
-
-        <div class="field">
-
-          <label for="iban">
-
-            رقم الآيبان IBAN
-            <span class="required">*</span>
-
-          </label>
-
-
-          <input
-            id="iban"
-            type="text"
-            autocomplete="off"
-            placeholder="SA0000000000000000000000"
-            dir="ltr"
-            maxlength="34"
-            required
-          >
-
-
-          <div class="hint">
-
-            يجب أن يبدأ الآيبان بـ SA.
-
-          </div>
-
-        </div>
-
-
-
-        <!-- الموافقة -->
-
-        <label class="consent">
-
-          <input
-            id="consent"
-            type="checkbox"
-            required
-          >
-
-
-          <span>
-
-            أوافق على استخدام بياناتي لإنشاء ملصق بيانات الحساب البنكي.
-
-          </span>
-
-        </label>
-
-
-
-        <!-- زر الدفع -->
-
-        <button
-          id="submitBtn"
-          class="submit-btn"
-          type="submit"
-        >
-
-          المتابعة للدفع
-
-        </button>
-
-
-
-        <!-- الرسالة -->
-
-        <div
-          id="message"
-          class="message"
-        ></div>
-
-
-      </form>
-
-
-
-      <a
-        class="back"
-        href="index-test.html"
-      >
-
-        العودة
-
-      </a>
-
-
-    </section>
-
-
-
-<!-- ============================================
-     كيف يعمل الملصق؟
-============================================ -->
-
-<section class="sticker-how-it-works">
-
-    <h2>كيف يعمل الملصق؟</h2>
-
-    <div class="sticker-slider">
-
-        <!-- الخطوة 1 -->
-        <div class="sticker-step active">
-
-            <div class="sticker-step-number">1</div>
-
-            <div class="sticker-step-content">
-
-                <h3>
-                    يوضع الملصق في السيارة
-                </h3>
-
-                <img
-                    src="captain-sticker.webp"
-                    alt="وضع ملصق الكابتن المحترف في السيارة"
-                >
-
-            </div>
-
-        </div>
-
-
-        <!-- الخطوة 2 -->
-        <div class="sticker-step">
-
-            <div class="sticker-step-number">2</div>
-
-            <div class="sticker-step-content">
-
-                <h3>
-                    يمسح العميل الباركود
-                </h3>
-
-                <img
-                    src="hand-sticker.webp"
-                    alt="مسح العميل للباركود"
-                >
-
-            </div>
-
-        </div>
-
-
-        <!-- الخطوة 3 -->
-        <div class="sticker-step">
-
-            <div class="sticker-step-number">3</div>
-
-            <div class="sticker-step-content">
-
-                <h3>
-                    ثم يفتح الرابط
-                </h3>
-
-                <img
-                    src="barcode-sticker.webp"
-                    alt="فتح الرابط من خلال الباركود"
-                >
-
-            </div>
-
-        </div>
-
-
-        <!-- الخطوة 4 -->
-        <div class="sticker-step">
-
-            <div class="sticker-step-number">4</div>
-
-            <div class="sticker-step-content">
-
-                <h3>
-                    فتظهر له بيانات حسابك البنكي قابلة للنسخ
-                </h3>
-
-                <p>
-                    وبعد الحوالة يرسل الإيصال بثانية واحدة على رقم جوالك.
-                </p>
-
-                <img
-                    src="data-sticker.webp"
-                    alt="بيانات الحساب البنكي القابلة للنسخ"
-                >
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- النقاط -->
-    <div class="sticker-dots">
-
-        <span class="sticker-dot active"></span>
-        <span class="sticker-dot"></span>
-        <span class="sticker-dot"></span>
-        <span class="sticker-dot"></span>
-
-    </div>
-
-</section>
-  
-
-
-  </div>
-
-</main>
-
-
-
-<!-- =========================================================
-     Supabase
-========================================================= -->
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-
-<script>
-
-const SUPABASE_URL =
-  "https://sbevfklawymyducaqerb.supabase.co";
-
-
-const SUPABASE_KEY =
-  "sb_publishable_ZpiNxVUY26CHEAZoNPCX6g_8N5tOcP2";
-
-
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
-
-
-
-/* =========================================================
-   عناصر النموذج
-========================================================= */
-
-const form =
-  document.getElementById(
-    "stickerOrderForm"
-  );
-
-
-const submitBtn =
-  document.getElementById(
-    "submitBtn"
-  );
-
-
-const message =
-  document.getElementById(
-    "message"
-  );
-
-
-
-/* =========================================================
-   الرسائل
-========================================================= */
-
-function showMessage(
-  text,
-  type = "error"
-) {
-
-  if (!text) {
-
-    message.textContent = "";
-
-    message.className = "message";
-
-    return;
-
-  }
-
-
-  message.textContent = text;
-
-
-  message.className =
-    "message " + type;
-
-}
-
-
-
-/* =========================================================
-   تحويل الأرقام العربية إلى إنجليزية
-========================================================= */
-
-function normalizeNumbers(value) {
-
-  return value
-
-    .replace(
-      /[٠-٩]/g,
-      d =>
-        String(
-          "٠١٢٣٤٥٦٧٨٩".indexOf(d)
-        )
-    )
-
-    .replace(
-      /[۰-۹]/g,
-      d =>
-        String(
-          "۰۱۲۳۴۵۶۷۸۹".indexOf(d)
-        )
-    );
-
-}
-
-
-
-/* =========================================================
-   تنظيف الآيبان
-========================================================= */
-
-function normalizeIBAN(value) {
-
-  return normalizeNumbers(value)
-
-    .replace(/\s+/g, "")
-
-    .toUpperCase();
-
-}
-
-
-
-/* =========================================================
-   إنشاء رقم الطلب
-========================================================= */
-
-function generateOrderNumber() {
-
-  const d =
-    new Date();
-
-
-  const y =
-    d.getFullYear();
-
-
-  const m =
-    String(
-      d.getMonth() + 1
-    ).padStart(2, "0");
-
-
-  const day =
-    String(
-      d.getDate()
-    ).padStart(2, "0");
-
-
-  const random =
-    Math.floor(
-      100000 +
-      Math.random() * 900000
-    );
-
-
-  return (
-    `STK-${y}${m}${day}-${random}`
-  );
-
-}
-
-
-
-/* =========================================================
-   حفظ الطلب
-========================================================= */
-
-form.addEventListener(
-  "submit",
-  async function(event) {
-
-    event.preventDefault();
-
-
-    showMessage("");
-
-
-    const fullName =
-      document
-        .getElementById("fullName")
-        .value
-        .trim();
-
-
-    const accountNumber =
-      normalizeNumbers(
-        document
-          .getElementById("accountNumber")
-          .value
-          .trim()
-      );
-
-
-    const iban =
-      normalizeIBAN(
-        document
-          .getElementById("iban")
-          .value
-      );
-
-
-    const consent =
-      document
-        .getElementById("consent")
-        .checked;
-
-
-
-    /* -----------------------------------------
-       التحقق
-    ----------------------------------------- */
-
-    if (!fullName) {
-
-      showMessage(
-        "فضلاً أدخل الاسم الكامل."
-      );
-
-      return;
-
-    }
-
-
-    if (!accountNumber) {
-
-      showMessage(
-        "فضلاً أدخل رقم الحساب."
-      );
-
-      return;
-
-    }
-
-
-    if (
-      !iban ||
-      !iban.startsWith("SA")
-    ) {
-
-      showMessage(
-        "فضلاً أدخل رقم آيبان صحيح يبدأ بـ SA."
-      );
-
-      return;
-
-    }
-
-
-    if (!consent) {
-
-      showMessage(
-        "يجب الموافقة على استخدام البيانات لإنشاء الملصق."
-      );
-
-      return;
-
-    }
-
-
-
-    /* -----------------------------------------
-       تعطيل الزر
-    ----------------------------------------- */
-
-    submitBtn.disabled = true;
-
-    submitBtn.textContent =
-      "جاري حفظ الطلب...";
-
-
-
-    const orderNumber =
-      generateOrderNumber();
-
-
-    const orderId =
-      crypto.randomUUID();
-
-
-
-    try {
-
-      /* ---------------------------------------
-         حفظ الطلب في Supabase
-      --------------------------------------- */
-
-      const { error } =
-        await supabaseClient
-
-          .from("sticker_orders")
-
-          .insert([
-
-            {
-
-              id: orderId,
-
-              booking_id: orderNumber,
-
-              captain_name: fullName,
-
-              account_number:
-                accountNumber,
-
-              iban: iban,
-
-              phone: null,
-
-              generated: false,
-
-              consent: true,
-
-              created_at:
-                new Date().toISOString()
-
-            }
-
-          ]);
-
-
-
-      if (error) {
-
-        throw error;
-
-      }
-
-
-
-      /* ---------------------------------------
-         حفظ بيانات الطلب مؤقتًا للصفحة التالية
-      --------------------------------------- */
-
-      sessionStorage.setItem(
-        "stickerOrderId",
-        orderId
-      );
-
-
-      sessionStorage.setItem(
-        "bookingId",
-        orderNumber
-      );
-
-
-      sessionStorage.setItem(
-        "fullName",
-        fullName
-      );
-
-
-      sessionStorage.setItem(
-        "accountNumber",
-        accountNumber
-      );
-
-
-      sessionStorage.setItem(
-        "iban",
-        iban
-      );
-
-
-      sessionStorage.setItem(
-        "phone",
-        ""
-      );
-
-
-      sessionStorage.setItem(
-        "productType",
-        "captain-sticker"
-      );
-
-
-
-      /* ---------------------------------------
-         رسالة النجاح
-      --------------------------------------- */
-
-      showMessage(
-        `تم إنشاء الطلب رقم ${orderNumber}، جاري الانتقال للدفع...`,
-        "success"
-      );
-
-
-
-      /* ---------------------------------------
-         الانتقال للدفع
-      --------------------------------------- */
-
-      setTimeout(
-        () => {
-
-          window.location.href =
-            "captain-payment-method.html";
-
-        },
-        700
-      );
-
-
-    }
-
-
-    catch (error) {
-
-      console.error(
-        "Supabase error:",
-        error
-      );
-
-
-      showMessage(
-        "تعذر حفظ الطلب حاليًا. إذا استمرت المشكلة، نراجع إعدادات جدول sticker_orders في Supabase."
-      );
-
-
-      submitBtn.disabled = false;
-
-
-      submitBtn.textContent =
-        "المتابعة للدفع";
-
-    }
-
-  }
-);
-
-/* =========================================================
-   سلايدر "كيف يعمل الملصق؟"
-   
-   كل خطوة = 5 ثوانٍ
-========================================================= */
-
-const stickerSteps =
-  document.querySelectorAll(
-    ".sticker-step"
-  );
-
-
-const stickerDots =
-  document.querySelectorAll(
-    ".sticker-dot"
-  );
-
-
-let currentStickerStep = 0;
-
-
-
-function showStickerStep(index) {
-
-  stickerSteps.forEach(
-    (step, i) => {
-
-      step.classList.toggle(
-        "active",
-        i === index
-      );
-
-    }
-  );
-
-
-  stickerDots.forEach(
-    (dot, i) => {
-
-      dot.classList.toggle(
-        "active",
-        i === index
-      );
-
-    }
-  );
-
-}
-
-
-
-/* -----------------------------------------
-   الانتقال كل 5 ثوانٍ
------------------------------------------ */
-
-setInterval(
-  () => {
-
-    currentStickerStep =
-      (
-        currentStickerStep + 1
-      )
-      %
-      stickerSteps.length;
-
-
-    showStickerStep(
-      currentStickerStep
-    );
-
-  },
-  5000
-);
-
 
 </script>
 
-
 </body>
-
-</html>
-
-
-</body>
-
 </html>
