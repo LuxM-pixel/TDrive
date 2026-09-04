@@ -12,17 +12,30 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { bookingId, fullName, phone, trainingDate, trainingTime, program, price } = req.body;
+    const { bookingId, fullName, phone, trainingDate, trainingTime, program, price, productType } = req.body;
 
     let courseName = "TDrive Driving Course";
+    let itemReference = "tdrive-course";
     let amountStr = "375.00";
 
-    if (program === "دورة الكابتن المحترف") {
+    if (productType === "captain-sticker") {
+
+      courseName = program || "ملصق الكابتن المحترف";
+      itemReference = "tdrive-captain-sticker";
+      amountStr = price ? Number(price).toFixed(2) : "100.00";
+
+    } else if (program === "دورة الكابتن المحترف") {
+
       courseName = "دورة الكابتن المحترف";
+      itemReference = "tdrive-captain-course";
       amountStr = "100.00";
+
     } else if (price) {
+
       amountStr = Number(price).toFixed(2);
+
     }
+
 
     const orderData = {
       order_reference_id: bookingId,
@@ -34,8 +47,9 @@ export default async function handler(req, res) {
         {
           name: courseName,
           type: "Service",
-          reference_id: "tdrive-course",
-          sku: "tdrive-course",
+                    reference_id: itemReference,
+          sku: itemReference,
+
           quantity: 1,
           discount_amount: { amount: "0.00", currency: "SAR" },
           tax_amount: { amount: "0.00", currency: "SAR" },
