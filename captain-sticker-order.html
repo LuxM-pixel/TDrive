@@ -708,6 +708,28 @@
           >
 
         </div>
+            <div class="sticker-page-field">
+
+              <label
+                for="phoneNumber"
+                class="sticker-page-label"
+              >
+                رقم الجوال
+                <span class="sticker-page-required">*</span>
+              </label>
+
+              <input
+                id="phoneNumber"
+                class="sticker-page-input"
+                type="tel"
+                inputmode="numeric"
+                autocomplete="tel"
+                placeholder="05xxxxxxxx"
+                dir="ltr"
+                required
+              >
+
+            </div>
 
 
         <div class="sticker-page-field">
@@ -985,6 +1007,20 @@ function normalizeIBAN(value) {
 }
 
 
+   function normalizeSaudiPhone(value) {
+
+  let v = normalizeNumbers(value).replace(/\s+/g, "").replace(/-/g, "");
+
+  if (v.startsWith("+")) v = v.substring(1);
+  if (v.startsWith("00")) v = v.substring(2);
+  if (v.startsWith("966")) return v;
+  if (v.startsWith("05")) return "966" + v.substring(1);
+  if (v.startsWith("5")) return "966" + v;
+
+  return v;
+}
+
+
 function generateOrderNumber() {
 
   const d = new Date();
@@ -1033,7 +1069,17 @@ form.addEventListener(
       );
 
 
+        const phone =
+      normalizeSaudiPhone(
+        document
+          .getElementById("phoneNumber")
+          .value
+          .trim()
+      );
+
+
     const iban =
+
       normalizeIBAN(
         document
           .getElementById("iban")
@@ -1057,7 +1103,15 @@ form.addEventListener(
     }
 
 
-    
+        if (!phone || phone.length < 12) {
+
+      showMessage(
+        "فضلاً أدخل رقم جوال صحيح."
+      );
+
+      return;
+    }
+
 
 
     if (!iban || !iban.startsWith("SA")) {
@@ -1113,7 +1167,8 @@ form.addEventListener(
 
             iban: iban,
 
-            phone: null,
+                        phone: phone,
+
 
             generated: false,
 
@@ -1156,10 +1211,11 @@ form.addEventListener(
         iban
       );
 
-      sessionStorage.setItem(
+            sessionStorage.setItem(
         "phone",
-        ""
+        phone
       );
+
 
       sessionStorage.setItem(
         "productType",
