@@ -387,7 +387,7 @@ label {
 
         <h2>بيانات الدفع</h2>
 
-        <p style="text-align:center; color:#666; margin-bottom:20px; font-size:14px;">
+        <p id="welcomeText" style="text-align:center; color:#666; margin-bottom:20px; font-size:14px;">
             مرحباً بك في دورة الكابتن المحترف،
         </p>
 
@@ -423,11 +423,11 @@ label {
 
         <div class="captain-price">
 
-            <p>رسوم دورة الكابتن المحترف</p>
+            <p id="priceLabel">رسوم دورة الكابتن المحترف</p>
 
-            <strong>100 ريال</strong>
+            <strong id="priceValue">100 ريال</strong>
 
-            <p>
+            <p id="priceDetails">
                 السعر الأساسي 300 ريال — خصم 66% بمناسبة انطلاق البرنامج
             </p>
 
@@ -546,7 +546,7 @@ label {
 
             <div class="transfer-step">
 
-                <p style="text-align:center; color:var(--turquoise-dark); font-weight:700;">
+                <p id="thankYouText" style="text-align:center; color:var(--turquoise-dark); font-weight:700;">
                     شكراً لكم، ونتمنى لكم تجربة موفقة في دورة الكابتن المحترف.
                 </p>
 
@@ -561,7 +561,7 @@ label {
 
             <h3>إرفاق إيصال التحويل</h3>
 
-            <p>
+            <p id="uploadInstruction">
                 يرجى تحويل مبلغ
                 <strong>100 ريال</strong>
                 ثم إرفاق صورة الإيصال هنا لتأكيد حجزك فوراً.
@@ -628,6 +628,37 @@ const identityNumber =
 const phone =
     sessionStorage.getItem("phone");
 
+const productType =
+    sessionStorage.getItem("productType");
+
+
+/* =========================
+   تحديد نوع المنتج (ملصق أو دورة)
+========================= */
+
+const isSticker =
+    productType === "captain-sticker";
+
+const programLabel =
+    isSticker
+        ? "ملصق الكابتن المحترف"
+        : "دورة الكابتن المحترف";
+
+const oldPriceValue =
+    isSticker ? 150 : 300;
+
+const finalPriceValue = 100;
+
+const discountLabel =
+    isSticker
+        ? "خصم 33% بمناسبة إطلاق الملصق"
+        : "خصم 66% بمناسبة انطلاق البرنامج";
+
+const targetTable =
+    isSticker
+        ? "sticker_orders"
+        : "captain_registrations";
+
 
 if (!bookingId || !fullName || !phone) {
 
@@ -648,6 +679,29 @@ document.getElementById("identityNumber").textContent =
 
 document.getElementById("phone").textContent =
     phone;
+
+document.title =
+    isSticker
+        ? "بيانات الدفع | ملصق الكابتن | TDrive"
+        : "بيانات الدفع | دورة الكابتن | TDrive";
+
+document.getElementById("welcomeText").textContent =
+    "مرحباً بك في " + programLabel + "،";
+
+document.getElementById("priceLabel").textContent =
+    "رسوم " + programLabel;
+
+document.getElementById("priceValue").textContent =
+    finalPriceValue + " ريال";
+
+document.getElementById("priceDetails").textContent =
+    "السعر الأساسي " + oldPriceValue + " ريال — " + discountLabel;
+
+document.getElementById("thankYouText").textContent =
+    "شكراً لكم، ونتمنى لكم تجربة موفقة في " + programLabel + ".";
+
+document.getElementById("uploadInstruction").innerHTML =
+    "يرجى تحويل مبلغ <strong>" + finalPriceValue + " ريال</strong> ثم إرفاق صورة الإيصال هنا لتأكيد حجزك فوراً.";
 
 
 /* =========================
@@ -813,19 +867,17 @@ async function uploadReceipt() {
             publicUrlData.publicUrl;
 
 
-        /* 3️⃣ تحديث تسجيل الكابتن */
+        /* 3️⃣ تحديث تسجيل الكابتن (جدول الكورس أو الملصق حسب النوع) */
 
         const {
             error: updateError
         } = await supabaseClient
 
-            .from('captain_registrations')
+            .from(targetTable)
 
             .update({
 
-                receipt_url: receiptUrl,
-
-                status: 'pending'
+                receipt_url: receiptUrl
 
             })
 
