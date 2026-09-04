@@ -1245,8 +1245,8 @@ form.addEventListener(
       );
 
 
-      showMessage(
-        "تعذر حفظ الطلب حاليًا. إذا استمرت المشكلة، نراجع إعدادات جدول sticker_orders في Supabase."
+            showMessage(
+        "خطأ: " + (error.message || JSON.stringify(error))
       );
 
 
