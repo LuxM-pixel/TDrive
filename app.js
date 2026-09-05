@@ -2291,8 +2291,34 @@ if (form) {
                 }
 
             }
+            }
 
             await saveBooking(bookingsToSave);
+
+            // حفظ نسخة من الحجز في Supabase عشان تظهر في بوابة المدربة
+            const supabaseRows = bookingsToSave.map(b => ({
+                booking_id: b.bookingId,
+                lesson_number: b.lessonNumber,
+                total_lessons: b.totalLessons,
+                full_name: b.fullName,
+                address: b.address,
+                phone: b.phone,
+                instructor_id: b.instructorId,
+                training_date: b.trainingDate,
+                training_time: b.trainingTime,
+                price: b.price,
+                status: b.status
+            }));
+
+            const { error: supabaseError } =
+                await supabaseClient
+                    .from("bookings")
+                    .insert(supabaseRows);
+
+            if (supabaseError) {
+                console.error("Supabase booking insert error:", supabaseError);
+                // ما بنوقفش العملية، الحجز في Firebase نجح فعلاً
+            }
 
             alert("تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع.");
 
@@ -2314,3 +2340,5 @@ if (form) {
     });
 
 }
+
+
