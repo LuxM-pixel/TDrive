@@ -1,4 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+
 
 import {
     getFirestore,
@@ -35,7 +37,10 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-
+const supabase = createClient(
+    "https://ytesjbrtkqnjqqeoswkc.supabase.co",
+    "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j"
+);
 // ==================================================
 // احترفي القيادة على الطريق
 // ==================================================
@@ -48,7 +53,6 @@ export async function saveBooking(bookings) {
 
     try {
 
-        // التأكد أن البيانات عبارة عن قائمة حجوزات
         if (!Array.isArray(bookings) || bookings.length === 0) {
 
             throw new Error(
@@ -59,7 +63,7 @@ export async function saveBooking(bookings) {
 
 
         // ==================================================
-        // فحص البيانات
+        // التأكد من وجود بيانات المدربة والموعد
         // ==================================================
 
         for (const booking of bookings) {
@@ -80,41 +84,47 @@ export async function saveBooking(bookings) {
 
 
         // ==================================================
-        // فحص جميع الحصص قبل الحفظ
+        // فحص تعارض الموعد
         // ==================================================
 
         for (const booking of bookings) {
 
-            const q = query(
-
-                collection(db, "bookings"),
-
-                where(
-                    "instructorId",
-                    "==",
-                    booking.instructorId
-                ),
-
-                where(
-                    "trainingDate",
-                    "==",
-                    booking.trainingDate
-                ),
-
-                where(
-                    "trainingTime",
-                    "==",
-                    booking.trainingTime
-                )
-
-            );
+            const { data: existingBookings, error } =
+                await supabase
+                    .from("bookings")
+                    .select("id")
+                    .eq(
+                        "instructor_id",
+                        booking.instructorId
+                    )
+                    .eq(
+                        "training_date",
+                        booking.trainingDate
+                    )
+                    .eq(
+                        "training_time",
+                        booking.trainingTime
+                    );
 
 
-            const snapshot =
-                await getDocs(q);
+            if (error) {
+
+                console.error(
+                    "Supabase Availability Error:",
+                    error
+                );
+
+                throw new Error(
+                    "تعذر التحقق من توفر الموعد."
+                );
+
+            }
 
 
-            if (!snapshot.empty) {
+            if (
+                existingBookings &&
+                existingBookings.length > 0
+            ) {
 
                 throw new Error(
                     `الموعد ${booking.trainingTime} بتاريخ ${booking.trainingDate} محجوز مسبقًا لهذه المدربة.`
@@ -126,31 +136,86 @@ export async function saveBooking(bookings) {
 
 
         // ==================================================
-        // جميع الحصص متاحة
-        // الآن نحفظها
+        // تجهيز الحجوزات لـ Supabase
         // ==================================================
 
-        const savedBookingIds = [];
+        const rows = bookings.map(
+            booking => ({
+
+                booking_id:
+                    booking.bookingId,
+
+                lesson_number:
+                    booking.lessonNumber,
+
+                total_lessons:
+                    booking.totalLessons,
+
+                full_name:
+                    booking.fullName,
+
+                address:
+                    booking.address,
+
+                phone:
+                    booking.phone,
+
+                instructor_id:
+                    booking.instructorId,
+
+                training_date:
+                    booking.trainingDate,
+
+                training_time:
+                    booking.trainingTime,
+
+                price:
+                    booking.price,
+
+                status:
+                    booking.status,
+
+                created_at:
+                    booking.createdAt
+
+            })
+        );
 
 
-        for (const booking of bookings) {
+        // ==================================================
+        // حفظ الحجوزات في Supabase
+        // ==================================================
 
-            const docRef =
-                await addDoc(
-                    collection(db, "bookings"),
-                    booking
-                );
+        const { data, error } =
+            await supabase
+                .from("bookings")
+                .insert(rows)
+                .select("id");
 
 
-            savedBookingIds.push(
-                docRef.id
+        if (error) {
+
+            console.error(
+                "Supabase Booking Error:",
+                error
+            );
+
+            throw new Error(
+                "تعذر حفظ الحجز: " +
+                error.message
             );
 
         }
 
 
+        const savedBookingIds =
+            data?.map(
+                row => row.id
+            ) || [];
+
+
         console.log(
-            "تم حفظ جميع الحصص:",
+            "تم حفظ الحجز في Supabase:",
             savedBookingIds
         );
 
@@ -161,7 +226,7 @@ export async function saveBooking(bookings) {
     } catch (error) {
 
         console.error(
-            "Firebase Booking Error:",
+            "Booking Error:",
             error
         );
 
@@ -170,7 +235,6 @@ export async function saveBooking(bookings) {
     }
 
 }
-
 
 // ==================================================
 // دورة الكابتن المحترف
@@ -304,28 +368,35 @@ export async function getInstructorBookedTimes(
         return [];
     }
 
-    const q = query(
 
-        collection(db, "bookings"),
+    const { data, error } =
+        await supabase
+            .from("bookings")
+            .select("training_time")
+            .eq(
+                "instructor_id",
+                instructorId
+            )
+            .eq(
+                "training_date",
+                trainingDate
+            );
 
-        where(
-            "instructorId",
-            "==",
-            instructorId
-        ),
 
-        where(
-            "trainingDate",
-            "==",
-            trainingDate
-        )
+    if (error) {
 
-    );
+        console.error(
+            "Supabase Booked Times Error:",
+            error
+        );
 
-    const snapshot = await getDocs(q);
+        return [];
 
-    return snapshot.docs.map(
-        doc => doc.data().trainingTime
+    }
+
+
+    return (data || []).map(
+        booking => booking.training_time
     );
 
 }
@@ -334,54 +405,95 @@ export async function getInstructorBookedTimes(
 // جلب بيانات الحجز بواسطة bookingId
 // ==================================================
 
-export async function getBookingByBookingId(bookingId) {
+export async function getBookingByBookingId(
+    bookingId
+) {
 
     if (!bookingId) {
         return null;
     }
 
-    const q = query(
 
-        collection(db, "bookings"),
-
-        where(
-            "bookingId",
-            "==",
-            bookingId
-        )
-
-    );
-
-    const snapshot =
-        await getDocs(q);
+    const { data, error } =
+        await supabase
+            .from("bookings")
+            .select("*")
+            .eq(
+                "booking_id",
+                bookingId
+            );
 
 
-    if (snapshot.empty) {
+    if (error) {
+
+        console.error(
+            "Supabase Get Booking Error:",
+            error
+        );
+
         return null;
+
     }
 
 
-    // الحجز الواحد يحتوي على 5 حصص
-    // نأخذ الحصة الأولى لأنها تحتوي على
-    // بيانات العميل وبيانات بداية التدريب
+    if (!data || data.length === 0) {
 
-    const bookings =
-        snapshot.docs.map(
-            doc => ({
-                id: doc.id,
-                ...doc.data()
-            })
-        );
+        return null;
+
+    }
 
 
-    bookings.sort(
+    // ترتيب الحصص
+    data.sort(
         (a, b) =>
-            Number(a.lessonNumber || 0) -
-            Number(b.lessonNumber || 0)
+            Number(a.lesson_number || 0) -
+            Number(b.lesson_number || 0)
     );
 
 
-    return bookings[0];
+    // نرجع الحصة الأولى
+    return {
+
+        id:
+            data[0].id,
+
+        bookingId:
+            data[0].booking_id,
+
+        lessonNumber:
+            data[0].lesson_number,
+
+        totalLessons:
+            data[0].total_lessons,
+
+        fullName:
+            data[0].full_name,
+
+        address:
+            data[0].address,
+
+        phone:
+            data[0].phone,
+
+        instructorId:
+            data[0].instructor_id,
+
+        trainingDate:
+            data[0].training_date,
+
+        trainingTime:
+            data[0].training_time,
+
+        price:
+            data[0].price,
+
+        status:
+            data[0].status,
+
+        createdAt:
+            data[0].created_at
+
+    };
 
 }
 
