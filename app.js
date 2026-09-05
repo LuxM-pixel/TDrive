@@ -2290,7 +2290,7 @@ if (form) {
                     );
                 }
 
-            }
+            
             }
 
             await saveBooking(bookingsToSave);
