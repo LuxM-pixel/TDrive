@@ -85,7 +85,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         </h2>
 
         <p class="subtitle">
-            اختار الخدمة المناسبة لك وابدء رحلتك مع TDrive
+            اختاري الخدمة المناسبة لك وابدئي رحلتك مع TDrive
         </p>
 
     </div>
@@ -157,178 +157,281 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         </h3>
 
 
+
         <!-- ==================================================
              بوابة اختيار البرنامج
         ================================================== -->
 
-        <div id="programSelectGate">
-
-            <label
-                style="
-                    display:block;
-                    margin-bottom:14px;
-                    font-weight:700;
-                    color:#2d3e50;
-                "
-            >
-                اختاري البرنامج التدريبي
-            </label>
+        <div id="programSelectGate" class="program-gate">
 
 
             <!-- ==================================================
-                 البرنامج الأساسي
-                 ألوان TDrive الوردية
+                 الزر الرئيسي
             ================================================== -->
 
-            <div
-                class="program-option-card"
-                data-program="basic"
-                data-program-label="البرنامج الأساسي"
+            <div class="program-gate-main">
 
-                style="
-                    background:#fff7fa;
-                    border:2px solid #e8b9c8;
-                    border-radius:14px;
-                    padding:18px;
-                    margin-bottom:14px;
-                    cursor:pointer;
-                    transition:all .25s ease;
-                "
-            >
+                <div class="program-gate-title">
 
-                <h4
-                    style="
-                        margin:0 0 7px;
-                        color:#c9829b;
-                        font-weight:800;
-                    "
-                >
-                    البرنامج الأساسي
-                </h4>
+                    <i class="fa-solid fa-car"></i>
 
-
-                <p
-                    style="
-                        margin:0 0 7px;
-                        color:#2d3e50;
-                    "
-                >
-
-                    5 ساعات —
-
-                    <span
-                        style="
-                            text-decoration:line-through;
-                            color:#999;
-                        "
-                    >
-                        500 ريال
+                    <span>
+                        احترفي القيادة على الطريق
                     </span>
 
-                    <strong
-                        style="
-                            color:#c9829b;
-                            margin-right:5px;
-                        "
-                    >
-                        375 ريال
-                    </strong>
-
-                </p>
-
-
-                <p
-                    style="
-                        font-size:12px;
-                        color:#707d82;
-                        margin:0;
-                        line-height:1.8;
-                    "
-                >
-                    للمبتدئات أو من لديهن معرفة محدودة بالقيادة
-                    ولا يمتلكن رخصة قيادة.
-                </p>
+                </div>
 
             </div>
 
 
 
             <!-- ==================================================
-                 البرنامج التكميلي
-                 برتقالي باستيل خفيف
+                 العنوان التوضيحي
             ================================================== -->
 
-            <div
-                class="program-option-card"
-                data-program="plus"
-                data-program-label="البرنامج التكميلي"
+            <div class="program-gate-subtitle">
 
-                style="
-                    background:#fffaf6;
-                    border:2px solid #f3d9c2;
-                    border-radius:14px;
-                    padding:18px;
-                    margin-bottom:14px;
-                    cursor:pointer;
-                    transition:all .25s ease;
-                "
-            >
-
-                <h4
-                    style="
-                        margin:0 0 7px;
-                        color:#d6a477;
-                        font-weight:800;
-                    "
-                >
-                    البرنامج التكميلي
-                </h4>
-
-
-                <p
-                    style="
-                        margin:0 0 7px;
-                        color:#2d3e50;
-                    "
-                >
-
-                    5 ساعات —
-
-                    <span
-                        style="
-                            text-decoration:line-through;
-                            color:#999;
-                        "
-                    >
-                        500 ريال
-                    </span>
-
-                    <strong
-                        style="
-                            color:#d6a477;
-                            margin-right:5px;
-                        "
-                    >
-                        375 ريال
-                    </strong>
-
-                </p>
-
-
-                <p
-                    style="
-                        font-size:12px;
-                        color:#707d82;
-                        margin:0;
-                        line-height:1.8;
-                    "
-                >
-                    لمن أكملت البرنامج الأساسي أو تحمل رخصة قيادة
-                    وتحتاج تدريبًا عمليًا على الطريق.
-                </p>
+                اختاري البرنامج المناسب لك
 
             </div>
 
+
+
+            <!-- ==================================================
+                 البرامج
+            ================================================== -->
+
+            <div class="programs-layout">
+
+
+                <!-- ==================================================
+                     البرنامج الأساسي
+                     برتقالي خفيف
+                ================================================== -->
+
+                <div class="program-side basic-side">
+
+
+                    <!-- السهم البرتقالي المتجه نحو الأساسي -->
+
+                    <div class="program-arrow arrow-basic">
+
+                        <svg
+                            viewBox="0 0 200 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M170 18
+                                   C115 18 82 27 58 47
+                                   C42 60 29 70 14 74"
+                                fill="none"
+                                stroke="#e6ad7b"
+                                stroke-width="8"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M28 57
+                                   L10 75
+                                   L35 80"
+                                fill="none"
+                                stroke="#e6ad7b"
+                                stroke-width="8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <!-- بطاقة الأساسي -->
+
+                    <div
+                        class="program-option-card basic-program-card"
+                        data-program="basic"
+                        data-program-label="البرنامج الأساسي"
+                    >
+
+
+                        <div class="program-icon basic-icon">
+
+                            <i class="fa-solid fa-steering-wheel"></i>
+
+                        </div>
+
+
+                        <h4>
+                            البرنامج الأساسي
+                        </h4>
+
+
+                        <div class="program-hours">
+                            5 ساعات
+                        </div>
+
+
+                        <div class="program-price">
+
+                            <strong>
+                                375 ريال
+                            </strong>
+
+                            <span>
+                                500 ريال
+                            </span>
+
+                        </div>
+
+
+                        <div class="program-divider"></div>
+
+
+                        <p>
+                            للمبتدئات أو من لديهن معرفة محدودة
+                            بالقيادة ولا يمتلكن رخصة قيادة.
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="choose-program-btn"
+                        >
+
+                            اختيار البرنامج
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     البرنامج التكميلي
+                     وردي مطفي
+                ================================================== -->
+
+                <div class="program-side plus-side">
+
+
+                    <!-- السهم الوردي المتجه نحو التكميلي -->
+
+                    <div class="program-arrow arrow-plus">
+
+                        <svg
+                            viewBox="0 0 200 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+                            <path
+                                d="M30 18
+                                   C85 18 118 27 142 47
+                                   C158 60 171 70 186 74"
+                                fill="none"
+                                stroke="#e8b9c8"
+                                stroke-width="8"
+                                stroke-linecap="round"
+                            />
+
+                            <path
+                                d="M172 57
+                                   L190 75
+                                   L165 80"
+                                fill="none"
+                                stroke="#e8b9c8"
+                                stroke-width="8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+
+                        </svg>
+
+                    </div>
+
+
+
+                    <!-- بطاقة التكميلي -->
+
+                    <div
+                        class="program-option-card plus-program-card"
+                        data-program="plus"
+                        data-program-label="البرنامج التكميلي"
+                    >
+
+
+                        <div class="program-icon plus-icon">
+
+                            <i class="fa-solid fa-road"></i>
+
+                        </div>
+
+
+                        <h4>
+                            البرنامج التكميلي
+                        </h4>
+
+
+                        <div class="program-hours">
+                            5 ساعات
+                        </div>
+
+
+                        <div class="program-price">
+
+                            <strong>
+                                375 ريال
+                            </strong>
+
+                            <span>
+                                500 ريال
+                            </span>
+
+                        </div>
+
+
+                        <div class="program-divider"></div>
+
+
+                        <p>
+                            لمن أكملت البرنامج الأساسي أو تحمل رخصة قيادة
+                            وتحتاج تدريبًا عمليًا على الطريق.
+                        </p>
+
+
+                        <button
+                            type="button"
+                            class="choose-program-btn"
+                        >
+
+                            اختيار البرنامج
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 البرنامج المختار
+            ================================================== -->
 
             <input
                 type="hidden"
@@ -341,561 +444,591 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 
         <!-- ==================================================
-             محتوى التسجيل (مخفي لحد ما تختار برنامج)
+             محتوى التسجيل
+             يظهر بعد اختيار البرنامج
         ================================================== -->
 
-        <div id="registrationContent" style="display:none;">
+        <div
+            id="registrationContent"
+            style="display:none;"
+        >
 
 
-        <!-- =========================
-             NOTE
-        ========================== -->
+            <!-- =========================
+                 NOTE
+            ========================== -->
 
-        <div class="booking-note">
+            <div class="booking-note">
 
 
-            <h3 class="booking-note-title">
+                <h3 class="booking-note-title">
 
-                <i class="fa-solid fa-heart"></i>
+                    <i class="fa-solid fa-heart"></i>
 
-                عزيزتي المتدربة، شكرًا لاختيارك TDrive.
+                    عزيزتي المتدربة، شكرًا لاختيارك TDrive.
 
-            </h3>
+                </h3>
 
 
-            <p>
-
-                <i class="fa-solid fa-calendar-days"></i>
-
-                يُفضّل بدء البرنامج التدريبي يوم
-
-                <strong>
-                    الأحد
-                </strong>
-
-                لضمان انتظام الخطة التدريبية وتحقيق أفضل استفادة من البرنامج.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- ==================================================
-             STEPPER
-             1 البيانات
-             2 المدربة
-             3 الموعد
-             4 الدفع
-        ================================================== -->
-
-        <div class="stepper">
-
-
-            <!-- STEP 1 -->
-
-            <div class="step-item">
-
-                <div
-                    class="step-circle active"
-                    data-step="1">
-
-                    1
-
-                </div>
-
-                <span>
-                    البيانات
-                </span>
-
-            </div>
-
-
-            <div class="step-line"></div>
-
-
-            <!-- STEP 2 -->
-
-            <div class="step-item">
-
-                <div
-                    class="step-circle"
-                    data-step="2">
-
-                    2
-
-                </div>
-
-                <span>
-                    المدربة
-                </span>
-
-            </div>
-
-
-            <div class="step-line"></div>
-
-
-            <!-- STEP 3 -->
-
-            <div class="step-item">
-
-                <div
-                    class="step-circle"
-                    data-step="3">
-
-                    3
-
-                </div>
-
-                <span>
-                    الموعد
-                </span>
-
-            </div>
-
-
-            <div class="step-line"></div>
-
-
-            <!-- STEP 4 -->
-
-            <div class="step-item">
-
-                <div
-                    class="step-circle"
-                    data-step="4">
-
-                    4
-
-                </div>
-
-                <span>
-                    الدفع
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- ==================================================
-             BOOKING FORM
-        ================================================== -->
-
-        <form id="bookingForm">
-
-
-
-            <!-- ==================================================
-                 STEP 1
-                 البيانات الشخصية
-            ================================================== -->
-
-            <div
-                class="form-step active"
-                data-step="1">
-
-                <div
-                    id="selectedProgramBadge"
-                    style="
-                        background:#eaf8fa;
-                        border:1px solid #cfeef2;
-                        color:#3a939f;
-                        font-weight:700;
-                        border-radius:12px;
-                        padding:10px 14px;
-                        margin-bottom:15px;
-                        text-align:center;
-                    "
-                ></div>
-
-                <h4 class="step-title">
-
-                    <i class="fa-solid fa-user"></i>
-
-                    البيانات الشخصية
-
-                </h4>
-
-
-
-                <!-- الاسم -->
-
-                <label>
-                    الاسم الكامل
-                </label>
-
-
-                <div class="input-icon">
-
-                    <input
-                        type="text"
-                        id="fullName"
-                        placeholder="اكتبي اسمك الكامل"
-                        required>
-
-                    <i class="fa-solid fa-user"></i>
-
-                </div>
-
-
-
-                <!-- المدينة -->
-
-                <label>
-                    مدينة التدريب
-                </label>
-
-                <div class="input-icon">
-
-                    <select
-                        id="address"
-                        required>
-
-                        <option value="">
-                            اختاري المدينة
-                        </option>
-
-                        <option value="جدة">
-                            جدة
-                        </option>
-
-                    </select>
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                </div>
-
-
-
-                <!-- الجوال -->
-
-                <label>
-                    رقم الجوال
-                </label>
-
-                <div class="input-icon">
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="05xxxxxxxx"
-                        inputmode="numeric"
-                        maxlength="10"
-                        required>
-
-                    <i class="fa-solid fa-phone"></i>
-
-                </div>
-
-
-
-                <!-- الانتقال للمدربة -->
-
-                <button
-                    type="button"
-                    class="next-btn"
-                    data-next="2">
-
-                    التالي
-
-                </button>
-
-            </div>
-
-
-
-            <!-- ==================================================
-                 STEP 2
-                 اختيار المدربة
-            ================================================== -->
-
-            <div class="form-step" data-step="2">
-
-
-                <h4 class="step-title">
-
-                    اختيار المدربة
-
-                </h4>
-
-
-                <p class="trainer-selection-description">
-
-                    إختاري المدربة المناسبة لك:
-
-                </p>
-
-
-                <div
-                    class="trainer-selection"
-                    id="trainerList">
-
-                    <p
-                        style="
-                            text-align:center;
-                            color:#8b999f;
-                            font-size:13px;
-                        "
-                    >
-                        يرجى تعبئة مدينة التدريب أولًا في الخطوة السابقة.
-                    </p>
-
-                </div>
-
-
-                <input
-                    type="hidden"
-                    id="selectedTrainer"
-                    value="">
-
-
-
-                <!-- أزرار الخطوة -->
-
-                <div class="step-buttons">
-
-
-                    <button
-                        type="button"
-                        class="back-btn"
-                        data-back="1">
-
-                        السابق
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="next-btn"
-                        data-next="3">
-
-                        التالي
-
-                    </button>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- ==================================================
-                 STEP 3
-                 اختيار الموعد
-            ================================================== -->
-
-            <div class="form-step" data-step="3">
-
-
-                <h4 class="step-title">
+                <p>
 
                     <i class="fa-solid fa-calendar-days"></i>
 
-                    اختيار الموعد
+                    يُفضّل بدء البرنامج التدريبي يوم
 
-                </h4>
+                    <strong>
+                        الأحد
+                    </strong>
+
+                    لضمان انتظام الخطة التدريبية وتحقيق أفضل استفادة من البرنامج.
+
+                </p>
+
+            </div>
 
 
 
-                <!-- التاريخ -->
+            <!-- ==================================================
+                 STEPPER
+            ================================================== -->
 
-                <label>
-                    تاريخ التدريب
-                </label>
+            <div class="stepper">
 
-                <div class="input-icon">
 
-                    <input
-                        type="text"
-                        id="trainingDate"
-                        placeholder="اختر تاريخ التدريب"
-                        readonly
-                        required>
+                <!-- STEP 1 -->
 
-                    <i class="fa-solid fa-calendar"></i>
+                <div class="step-item">
+
+                    <div
+                        class="step-circle active"
+                        data-step="1">
+
+                        1
+
+                    </div>
+
+                    <span>
+                        البيانات
+                    </span>
 
                 </div>
 
 
+                <div class="step-line"></div>
 
-                <!-- الوقت -->
 
-                <label>
-                    وقت التدريب
-                </label>
+                <!-- STEP 2 -->
+
+                <div class="step-item">
+
+                    <div
+                        class="step-circle"
+                        data-step="2">
+
+                        2
+
+                    </div>
+
+                    <span>
+                        المدربة
+                    </span>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <!-- STEP 3 -->
+
+                <div class="step-item">
+
+                    <div
+                        class="step-circle"
+                        data-step="3">
+
+                        3
+
+                    </div>
+
+                    <span>
+                        الموعد
+                    </span>
+
+                </div>
+
+
+                <div class="step-line"></div>
+
+
+                <!-- STEP 4 -->
+
+                <div class="step-item">
+
+                    <div
+                        class="step-circle"
+                        data-step="4">
+
+                        4
+
+                    </div>
+
+                    <span>
+                        الدفع
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 BOOKING FORM
+            ================================================== -->
+
+            <form id="bookingForm">
+
+
+                <!-- ==================================================
+                     STEP 1
+                ================================================== -->
 
                 <div
-                    id="timeSlotsGrid"
-                    class="time-slots-grid">
-                </div>
+                    class="form-step active"
+                    data-step="1"
+                >
 
 
-                <input
-                    type="hidden"
-                    id="trainingTime"
-                    required>
+                    <div
+                        id="selectedProgramBadge"
+                        class="selected-program-badge"
+                    ></div>
+
+
+                    <h4 class="step-title">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        البيانات الشخصية
+
+                    </h4>
 
 
 
-                <!-- أزرار -->
+                    <!-- الاسم -->
 
-                <div class="step-buttons">
+                    <label>
+                        الاسم الكامل
+                    </label>
 
 
-                    <button
-                        type="button"
-                        class="back-btn"
-                        data-back="2">
+                    <div class="input-icon">
 
-                        السابق
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="اكتبي اسمك الكامل"
+                            required
+                        >
 
-                    </button>
+                        <i class="fa-solid fa-user"></i>
 
+                    </div>
+
+
+
+                    <!-- المدينة -->
+
+                    <label>
+                        مدينة التدريب
+                    </label>
+
+
+                    <div class="input-icon">
+
+                        <select
+                            id="address"
+                            required
+                        >
+
+                            <option value="">
+                                اختاري المدينة
+                            </option>
+
+                            <option value="جدة">
+                                جدة
+                            </option>
+
+                        </select>
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
+
+
+
+                    <!-- الجوال -->
+
+                    <label>
+                        رقم الجوال
+                    </label>
+
+
+                    <div class="input-icon">
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="05xxxxxxxx"
+                            inputmode="numeric"
+                            maxlength="10"
+                            required
+                        >
+
+                        <i class="fa-solid fa-phone"></i>
+
+                    </div>
+
+
+
+                    <!-- التالي -->
 
                     <button
                         type="button"
                         class="next-btn"
-                        data-next="4">
+                        data-next="2"
+                    >
 
                         التالي
 
                     </button>
 
-
                 </div>
 
-            </div>
 
 
+                <!-- ==================================================
+                     STEP 2
+                ================================================== -->
 
-            <!-- ==================================================
-                 STEP 4
-                 الدفع
-            ================================================== -->
-
-            <div class="form-step" data-step="4">
-
-
-                <h4 class="step-title">
-
-                    <i class="fa-solid fa-credit-card"></i>
-
-                    الدفع
-
-                </h4>
+                <div
+                    class="form-step"
+                    data-step="2"
+                >
 
 
+                    <h4 class="step-title">
 
-                <div class="booking-note">
+                        اختيار المدربة
 
-
-                    <h3>
-                        مراجعة التسجيل
-                    </h3>
+                    </h4>
 
 
-                    <p>
+                    <p class="trainer-selection-description">
 
-                        تم اختيار المدربة:
-
-                        <strong id="selectedTrainerName">
-                            أ. منى حمود
-                        </strong>
+                        اختاري المدربة المناسبة لك:
 
                     </p>
 
 
-                    <p>
+                    <div
+                        class="trainer-selection"
+                        id="trainerList"
+                    >
 
-                        بعد تأكيد التسجيل سيتم نقلك
-                        إلى صفحة اختيار طريقة الدفع.
+                        <p
+                            style="
+                                text-align:center;
+                                color:#8b999f;
+                                font-size:13px;
+                            "
+                        >
+                            يرجى تعبئة مدينة التدريب أولًا في الخطوة السابقة.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- المدربة المختارة -->
+
+                    <input
+                        type="hidden"
+                        id="selectedTrainer"
+                        value=""
+                    >
+
+
+
+                    <!-- أزرار الخطوة -->
+
+                    <div class="step-buttons">
+
+
+                        <button
+                            type="button"
+                            class="back-btn"
+                            data-back="1"
+                        >
+
+                            السابق
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="next-btn"
+                            data-next="3"
+                        >
+
+                            التالي
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     STEP 3
+                ================================================== -->
+
+                <div
+                    class="form-step"
+                    data-step="3"
+                >
+
+
+                    <h4 class="step-title">
+
+                        <i class="fa-solid fa-calendar-days"></i>
+
+                        اختيار الموعد
+
+                    </h4>
+
+
+
+                    <!-- التاريخ -->
+
+                    <label>
+                        تاريخ التدريب
+                    </label>
+
+
+                    <div class="input-icon">
+
+                        <input
+                            type="text"
+                            id="trainingDate"
+                            placeholder="اختر تاريخ التدريب"
+                            readonly
+                            required
+                        >
+
+                        <i class="fa-solid fa-calendar"></i>
+
+                    </div>
+
+
+
+                    <!-- الوقت -->
+
+                    <label>
+                        وقت التدريب
+                    </label>
+
+
+                    <div
+                        id="timeSlotsGrid"
+                        class="time-slots-grid"
+                    >
+                    </div>
+
+
+                    <input
+                        type="hidden"
+                        id="trainingTime"
+                        required
+                    >
+
+
+
+                    <!-- أزرار -->
+
+                    <div class="step-buttons">
+
+
+                        <button
+                            type="button"
+                            class="back-btn"
+                            data-back="2"
+                        >
+
+                            السابق
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="next-btn"
+                            data-next="4"
+                        >
+
+                            التالي
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     STEP 4
+                ================================================== -->
+
+                <div
+                    class="form-step"
+                    data-step="4"
+                >
+
+
+                    <h4 class="step-title">
+
+                        <i class="fa-solid fa-credit-card"></i>
+
+                        الدفع
+
+                    </h4>
+
+
+
+                    <div class="booking-note">
+
+
+                        <h3>
+                            مراجعة التسجيل
+                        </h3>
+
+
+                        <p>
+
+                            البرنامج المختار:
+
+                            <strong id="selectedProgramReview">
+                                —
+                            </strong>
+
+                        </p>
+
+
+                        <p>
+
+                            تم اختيار المدربة:
+
+                            <strong id="selectedTrainerName">
+                                أ. منى حمود
+                            </strong>
+
+                        </p>
+
+
+                        <p>
+
+                            بعد تأكيد التسجيل سيتم نقلك
+                            إلى صفحة اختيار طريقة الدفع.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- أزرار -->
+
+                    <div class="step-buttons">
+
+
+                        <button
+                            type="button"
+                            class="back-btn"
+                            data-back="3"
+                        >
+
+                            السابق
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="next-btn"
+                        >
+
+                            تأكيد التسجيل
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     VIDEOS
+                ================================================== -->
+
+                <section class="videos-section">
+
+
+                    <h2 class="videos-title">
+
+                        <i class="fa-solid fa-video"></i>
+
+                        تعرفي على TDrive
+
+                    </h2>
+
+
+                    <p class="videos-text">
+
+                        مقتطفات من دورة احترفي القيادة على الطريق
 
                     </p>
 
 
-                </div>
+                    <div class="video-card">
 
 
-
-                <!-- أزرار -->
-
-                <div class="step-buttons">
-
-
-                    <button
-                        type="button"
-                        class="back-btn"
-                        data-back="3">
-
-                        السابق
-
-                    </button>
+                        <iframe
+                            src="https://www.youtube.com/embed/A9d0v3xpJrQ"
+                            title="مقتطفات من دورة احترفي القيادة على الطريق"
+                            allowfullscreen>
+                        </iframe>
 
 
-                    <button
-                        type="submit"
-                        class="next-btn">
-
-                        تأكيد التسجيل
-
-                    </button>
+                    </div>
 
 
-                </div>
-
-            </div>
+                </section>
 
 
-
-            <!-- ==================================================
-                 VIDEOS
-            ================================================== -->
-
-            <section class="videos-section">
-
-
-                <h2 class="videos-title">
-
-                    <i class="fa-solid fa-video"></i>
-
-                    تعرفي على TDrive
-
-                </h2>
-
-
-                <p class="videos-text">
-
-                    مقتطفات من دورة احترفي القيادة على الطريق
-
-                </p>
-
-
-                <div class="video-card">
-
-
-                    <iframe
-                        src="https://www.youtube.com/embed/A9d0v3xpJrQ"
-                        title="مقتطفات من دورة احترفي القيادة على الطريق"
-                        allowfullscreen>
-                    </iframe>
-
-
-                </div>
-
-
-            </section>
-
-        </form>
+            </form>
 
 
         </div>
-        <!-- نهاية registrationContent -->
 
 
     </div>
@@ -906,11 +1039,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
          CAPTAIN PANEL
     ================================================== -->
 
-
     <div
         id="captainPanel"
         class="service-panel"
-        style="display:none;">
+        style="display:none;"
+    >
 
 
         <div class="booking-note">
@@ -938,18 +1071,20 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 
 
-        <!-- خطوات التسجيل -->
+        <!-- ==================================================
+             CAPTAIN STEPPER
+        ================================================== -->
 
         <div class="stepper captain-stepper">
+
 
             <div class="step-item">
 
                 <div
                     class="step-circle active"
-                    data-captain-step="1">
-
+                    data-captain-step="1"
+                >
                     1
-
                 </div>
 
                 <span>
@@ -966,10 +1101,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
                 <div
                     class="step-circle"
-                    data-captain-step="2">
-
+                    data-captain-step="2"
+                >
                     2
-
                 </div>
 
                 <span>
@@ -986,10 +1120,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
                 <div
                     class="step-circle"
-                    data-captain-step="3">
-
+                    data-captain-step="3"
+                >
                     3
-
                 </div>
 
                 <span>
@@ -998,19 +1131,25 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
             </div>
 
+
         </div>
 
+
+
+        <!-- ==================================================
+             CAPTAIN FORM
+        ================================================== -->
 
         <form id="captainForm">
 
 
-            <!-- =========================
-                 CAPTAIN STEP 1
-            ========================== -->
+            <!-- CAPTAIN STEP 1 -->
 
             <div
                 class="captain-form-step active"
-                data-captain-step="1">
+                data-captain-step="1"
+            >
+
 
                 <h4 class="step-title">
 
@@ -1025,13 +1164,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                     الاسم
                 </label>
 
+
                 <div class="input-icon">
 
                     <input
                         type="text"
                         id="captainName"
                         placeholder="الاسم الثنائي أو الثلاثي"
-                        required>
+                        required
+                    >
 
                     <i class="fa-solid fa-user"></i>
 
@@ -1042,6 +1183,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                     رقم الهوية
                 </label>
 
+
                 <div class="input-icon">
 
                     <input
@@ -1050,7 +1192,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                         placeholder="أدخل رقم الهوية"
                         inputmode="numeric"
                         maxlength="10"
-                        required>
+                        required
+                    >
 
                     <i class="fa-solid fa-id-card"></i>
 
@@ -1061,6 +1204,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                     رقم الجوال
                 </label>
 
+
                 <div class="input-icon">
 
                     <input
@@ -1069,7 +1213,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                         placeholder="05xxxxxxxx"
                         inputmode="numeric"
                         maxlength="10"
-                        required>
+                        required
+                    >
 
                     <i class="fa-solid fa-phone"></i>
 
@@ -1079,24 +1224,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                 <button
                     type="button"
                     class="next-btn"
-                    id="captainNextBtn">
+                    id="captainNextBtn"
+                >
 
                     التالي
 
                 </button>
 
+
             </div>
 
 
 
-            <!-- =========================
-                 CAPTAIN STEP 2 - الموعد
-            ========================== -->
+            <!-- CAPTAIN STEP 2 -->
 
             <div
                 class="captain-form-step"
                 data-captain-step="2"
-                style="display:none;">
+                style="display:none;"
+            >
+
 
                 <h4 class="step-title">
 
@@ -1109,7 +1256,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
                 <div
                     id="captainSessionsList"
-                    class="trainer-selection">
+                    class="trainer-selection"
+                >
 
                     <p
                         style="
@@ -1127,15 +1275,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                 <input
                     type="hidden"
                     id="selectedCaptainSession"
-                    value="">
+                    value=""
+                >
 
 
                 <div class="step-buttons">
 
+
                     <button
                         type="button"
                         class="back-btn"
-                        id="captainStep2BackBtn">
+                        id="captainStep2BackBtn"
+                    >
 
                         السابق
 
@@ -1145,26 +1296,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                     <button
                         type="button"
                         class="next-btn"
-                        id="captainStep2NextBtn">
+                        id="captainStep2NextBtn"
+                    >
 
                         التالي
 
                     </button>
 
+
                 </div>
+
 
             </div>
 
 
 
-            <!-- =========================
-                 CAPTAIN STEP 3 - الدفع
-            ========================== -->
+            <!-- CAPTAIN STEP 3 -->
 
             <div
                 class="captain-form-step"
                 data-captain-step="3"
-                style="display:none;">
+                style="display:none;"
+            >
+
 
                 <h4 class="step-title">
 
@@ -1179,16 +1333,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
                     <p>
                         السعر الأساسي:
-                        <strong>
-                            300 ريال
-                        </strong>
+                        <strong>300 ريال</strong>
                     </p>
 
                     <p>
                         السعر الحالي:
-                        <strong>
-                            100 ريال
-                        </strong>
+                        <strong>100 ريال</strong>
                     </p>
 
                     <p>
@@ -1210,10 +1360,12 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
                 <div class="step-buttons">
 
+
                     <button
                         type="button"
                         class="back-btn"
-                        id="captainBackBtn">
+                        id="captainBackBtn"
+                    >
 
                         السابق
 
@@ -1222,13 +1374,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
                     <button
                         type="submit"
-                        class="next-btn">
+                        class="next-btn"
+                    >
 
                         اختيار طريقة الدفع
 
                     </button>
 
+
                 </div>
+
 
             </div>
 
@@ -1237,12 +1392,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              CAPTAIN VIDEO
-        ========================== -->
+        ================================================== -->
 
-        <section
-            class="videos-section captain-video-section">
+        <section class="videos-section captain-video-section">
 
 
             <h2 class="videos-title">
@@ -1310,6 +1464,757 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 
 <!-- ==================================================
+     PROGRAM GATE STYLE
+================================================== -->
+
+<style>
+
+/* ==================================================
+   بوابة اختيار البرنامج
+================================================== */
+
+.program-gate{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:0 auto;
+
+    padding:10px 10px 35px;
+
+    text-align:center;
+
+}
+
+
+/* ==================================================
+   الزر التركواز الرئيسي
+================================================== */
+
+.program-gate-main{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:15px;
+
+}
+
+.program-gate-title{
+
+    width:min(560px,92%);
+
+    min-height:88px;
+
+    padding:17px 35px;
+
+    background:#4fb3c1;
+
+    color:#fff;
+
+    border-radius:25px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:17px;
+
+    font-size:28px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 12px 30px rgba(79,179,193,.18);
+
+}
+
+.program-gate-title i{
+
+    font-size:30px;
+
+}
+
+
+/* ==================================================
+   العنوان التوضيحي
+================================================== */
+
+.program-gate-subtitle{
+
+    color:#2d3e50;
+
+    font-size:23px;
+
+    font-weight:500;
+
+    margin-bottom:0;
+
+}
+
+
+/* ==================================================
+   البطاقات
+================================================== */
+
+.programs-layout{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:38px;
+
+    align-items:start;
+
+    margin-top:0;
+
+}
+
+
+/* ==================================================
+   جانب البرنامج
+================================================== */
+
+.program-side{
+
+    position:relative;
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+
+/* ==================================================
+   الأسهم
+================================================== */
+
+.program-arrow{
+
+    width:190px;
+
+    height:82px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:-1px;
+
+}
+
+.program-arrow svg{
+
+    width:100%;
+
+    height:100%;
+
+    overflow:visible;
+
+}
+
+
+/* ==================================================
+   البطاقات
+================================================== */
+
+.program-option-card{
+
+    width:100%;
+
+    min-height:440px;
+
+    padding:28px 25px 25px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    text-align:center;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    box-sizing:border-box;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+}
+
+
+/* ==================================================
+   الأساسي
+   برتقالي خفيف
+================================================== */
+
+.basic-program-card{
+
+    background:#fffaf6;
+
+    border:2px solid #f0d7c2;
+
+    box-shadow:
+        0 8px 25px rgba(230,173,123,.08);
+
+}
+
+.basic-program-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#e6ad7b;
+
+    box-shadow:
+        0 15px 35px rgba(230,173,123,.15);
+
+}
+
+
+/* ==================================================
+   التكميلي
+   وردي مطفي
+================================================== */
+
+.plus-program-card{
+
+    background:#fff7fa;
+
+    border:2px solid #e8b9c8;
+
+    box-shadow:
+        0 8px 25px rgba(201,130,155,.08);
+
+}
+
+.plus-program-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#c9829b;
+
+    box-shadow:
+        0 15px 35px rgba(201,130,155,.15);
+
+}
+
+
+/* ==================================================
+   الأيقونات
+================================================== */
+
+.program-icon{
+
+    width:82px;
+
+    height:82px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:17px;
+
+    font-size:36px;
+
+}
+
+
+/* الأساسي */
+
+.basic-icon{
+
+    background:#fff0e5;
+
+    color:#d99a68;
+
+}
+
+
+/* التكميلي */
+
+.plus-icon{
+
+    background:#fbe5ec;
+
+    color:#c9829b;
+
+}
+
+
+/* ==================================================
+   عنوان البرنامج
+================================================== */
+
+.program-option-card h4{
+
+    margin:0;
+
+    font-size:29px;
+
+    font-weight:800;
+
+    color:#243746;
+
+}
+
+
+/* ==================================================
+   عدد الساعات
+================================================== */
+
+.program-hours{
+
+    margin-top:12px;
+
+    font-size:23px;
+
+    font-weight:700;
+
+    color:#243746;
+
+}
+
+
+/* ==================================================
+   الأسعار
+================================================== */
+
+.program-price{
+
+    margin-top:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    direction:rtl;
+
+}
+
+.program-price strong{
+
+    font-size:27px;
+
+    font-weight:800;
+
+}
+
+
+/* الأساسي */
+
+.basic-program-card .program-price strong{
+
+    color:#d99a68;
+
+}
+
+
+/* التكميلي */
+
+.plus-program-card .program-price strong{
+
+    color:#c9829b;
+
+}
+
+
+.program-price span{
+
+    font-size:20px;
+
+    color:#999;
+
+    text-decoration:line-through;
+
+}
+
+
+/* ==================================================
+   الخط الفاصل
+================================================== */
+
+.program-divider{
+
+    width:85%;
+
+    height:1px;
+
+    margin:20px auto 17px;
+
+}
+
+
+/* الأساسي */
+
+.basic-program-card .program-divider{
+
+    background:#efd7c4;
+
+}
+
+
+/* التكميلي */
+
+.plus-program-card .program-divider{
+
+    background:#efd1db;
+
+}
+
+
+/* ==================================================
+   الوصف
+================================================== */
+
+.program-option-card p{
+
+    width:92%;
+
+    min-height:88px;
+
+    margin:0 auto;
+
+    color:#455966;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+}
+
+
+/* ==================================================
+   زر اختيار البرنامج
+================================================== */
+
+.choose-program-btn{
+
+    width:88%;
+
+    min-height:58px;
+
+    margin-top:auto;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:#4fb3c1;
+
+    color:#fff;
+
+    font-family:inherit;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+
+}
+
+.choose-program-btn:hover{
+
+    background:#3fa4b3;
+
+    transform:translateY(-2px);
+
+}
+
+.choose-program-btn i{
+
+    font-size:18px;
+
+}
+
+
+/* ==================================================
+   البرنامج المختار
+================================================== */
+
+.program-option-card.selected{
+
+    box-shadow:
+        0 0 0 4px rgba(79,179,193,.15),
+        0 15px 35px rgba(0,0,0,.10);
+
+    transform:translateY(-4px);
+
+}
+
+
+/* ==================================================
+   بطاقة البرنامج المختار
+================================================== */
+
+.selected-program-badge{
+
+    background:#eefafb;
+
+    border:1px solid #cfeef2;
+
+    color:#3a939f;
+
+    font-weight:700;
+
+    border-radius:12px;
+
+    padding:10px 14px;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+}
+
+
+/* ==================================================
+   الجوال
+================================================== */
+
+@media (max-width:700px){
+
+    .program-gate{
+
+        padding:5px 7px 30px;
+
+    }
+
+
+    .program-gate-title{
+
+        width:94%;
+
+        min-height:70px;
+
+        padding:14px 18px;
+
+        border-radius:20px;
+
+        font-size:20px;
+
+        gap:9px;
+
+    }
+
+
+    .program-gate-title i{
+
+        font-size:22px;
+
+    }
+
+
+    .program-gate-subtitle{
+
+        font-size:19px;
+
+        margin-bottom:2px;
+
+    }
+
+
+    .programs-layout{
+
+        grid-template-columns:1fr;
+
+        gap:10px;
+
+    }
+
+
+    .program-side{
+
+        width:100%;
+
+    }
+
+
+    .program-arrow{
+
+        width:145px;
+
+        height:62px;
+
+    }
+
+
+    .program-option-card{
+
+        min-height:390px;
+
+        padding:23px 17px 20px;
+
+        border-radius:21px;
+
+    }
+
+
+    .program-icon{
+
+        width:70px;
+
+        height:70px;
+
+        font-size:30px;
+
+        margin-bottom:12px;
+
+    }
+
+
+    .program-option-card h4{
+
+        font-size:25px;
+
+    }
+
+
+    .program-hours{
+
+        font-size:21px;
+
+    }
+
+
+    .program-price{
+
+        gap:9px;
+
+    }
+
+
+    .program-price strong{
+
+        font-size:24px;
+
+    }
+
+
+    .program-price span{
+
+        font-size:18px;
+
+    }
+
+
+    .program-divider{
+
+        margin:17px auto 14px;
+
+    }
+
+
+    .program-option-card p{
+
+        width:94%;
+
+        min-height:auto;
+
+        font-size:15px;
+
+        line-height:1.8;
+
+        margin-bottom:20px;
+
+    }
+
+
+    .choose-program-btn{
+
+        width:94%;
+
+        min-height:55px;
+
+        border-radius:17px;
+
+        font-size:17px;
+
+    }
+
+}
+
+
+/* ==================================================
+   الشاشات الصغيرة جدًا
+================================================== */
+
+@media (max-width:390px){
+
+    .program-gate-title{
+
+        font-size:18px;
+
+    }
+
+
+    .program-option-card{
+
+        padding-left:13px;
+
+        padding-right:13px;
+
+    }
+
+
+    .program-option-card h4{
+
+        font-size:23px;
+
+    }
+
+
+    .program-option-card p{
+
+        font-size:14px;
+
+    }
+
+}
+
+</style>
+
+
+
+<!-- ==================================================
      SCRIPTS
 ================================================== -->
 
@@ -1320,6 +2225,200 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 <script
     type="module"
     src="app.js?v=3">
+</script>
+
+
+<!-- ==================================================
+     PROGRAM SELECTION
+     لا يعتمد على تعديل app.js
+================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const gate =
+        document.getElementById("programSelectGate");
+
+    const registrationContent =
+        document.getElementById("registrationContent");
+
+    const selectedProgramInput =
+        document.getElementById("selectedDrivingProgram");
+
+    const selectedProgramBadge =
+        document.getElementById("selectedProgramBadge");
+
+    const selectedProgramReview =
+        document.getElementById("selectedProgramReview");
+
+    const cards =
+        document.querySelectorAll(".program-option-card");
+
+
+    if (!gate || !registrationContent || !selectedProgramInput) {
+        return;
+    }
+
+
+    cards.forEach(function (card) {
+
+        card.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const program =
+                card.dataset.program;
+
+            const programLabel =
+                card.dataset.programLabel;
+
+
+            if (!program) {
+                return;
+            }
+
+
+            /* إزالة التحديد السابق */
+
+            cards.forEach(function (item) {
+
+                item.classList.remove("selected");
+
+            });
+
+
+            /* تحديد البطاقة */
+
+            card.classList.add("selected");
+
+
+            /* حفظ البرنامج */
+
+            selectedProgramInput.value =
+                program;
+
+
+            /* إظهار اسم البرنامج */
+
+            if (selectedProgramBadge) {
+
+                selectedProgramBadge.textContent =
+                    "البرنامج المختار: " + programLabel;
+
+            }
+
+
+            if (selectedProgramReview) {
+
+                selectedProgramReview.textContent =
+                    programLabel;
+
+            }
+
+
+            /*
+             * نخفي البوابة ونظهر التسجيل
+             */
+
+            gate.style.display = "none";
+
+            registrationContent.style.display = "block";
+
+
+            /*
+             * نرجع لأول خطوة
+             */
+
+            const firstStep =
+                registrationContent.querySelector(
+                    '.form-step[data-step="1"]'
+                );
+
+
+            if (firstStep) {
+
+                registrationContent
+                    .querySelectorAll(".form-step")
+                    .forEach(function (step) {
+
+                        step.classList.remove("active");
+
+                        step.style.display = "none";
+
+                    });
+
+
+                firstStep.classList.add("active");
+
+                firstStep.style.display = "block";
+
+            }
+
+
+            /*
+             * تحديث الخطوات
+             */
+
+            registrationContent
+                .querySelectorAll(".step-circle")
+                .forEach(function (circle) {
+
+                    circle.classList.remove("active");
+
+                });
+
+
+            const firstCircle =
+                registrationContent.querySelector(
+                    '.step-circle[data-step="1"]'
+                );
+
+
+            if (firstCircle) {
+
+                firstCircle.classList.add("active");
+
+            }
+
+
+            /*
+             * نرسل حدثًا مخصصًا حتى يستطيع app.js
+             * قراءة البرنامج المختار إذا كان يحتاجه.
+             */
+
+            document.dispatchEvent(
+                new CustomEvent(
+                    "tdriveProgramSelected",
+                    {
+                        detail: {
+                            program: program,
+                            label: programLabel
+                        }
+                    }
+                )
+            );
+
+
+            /*
+             * الانتقال إلى بداية التسجيل
+             */
+
+            setTimeout(function () {
+
+                registrationContent.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 100);
+
+        });
+
+    });
+
+});
+
 </script>
 
 
