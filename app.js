@@ -21,8 +21,9 @@ const supabaseClient =
         supabaseKey
     );
 
+
 /* ==================================================
-   SUPABASE - مشروع دورة الكابتن (TDrive Captain)
+   SUPABASE - مشروع دورة الكابتن
 ================================================== */
 
 const captainSupabaseUrl =
@@ -36,6 +37,7 @@ const captainSupabaseClient =
         captainSupabaseUrl,
         captainSupabaseKey
     );
+
 
 /* ==================================================
    FIREBASE
@@ -80,6 +82,9 @@ const selectedTrainerInput =
 
 const cityInput =
     document.getElementById("address");
+
+const selectedProgramInput =
+    document.getElementById("selectedDrivingProgram");
 
 
 let loadedInstructors = [];
@@ -390,62 +395,103 @@ function getArabicDayName(
 }
 
 
-function getTimesForInstructorDate(instructor, selectedDate) {
+/* ==================================================
+   أوقات المدربة في التاريخ المحدد
+================================================== */
 
-    if (!instructor || !selectedDate) {
+function getTimesForInstructorDate(
+    instructor,
+    selectedDate
+) {
+
+    if (
+        !instructor ||
+        !selectedDate
+    ) {
+
         return [];
+
     }
 
-    const date = createLocalDate(selectedDate);
+    const date =
+        createLocalDate(
+            selectedDate
+        );
 
     if (!date) {
         return [];
     }
 
-    const schedule = instructor.available_training_times;
+    const schedule =
+        instructor.available_training_times;
 
-    if (!schedule || typeof schedule !== "object" || Array.isArray(schedule)) {
+    if (
+        !schedule ||
+        typeof schedule !== "object" ||
+        Array.isArray(schedule)
+    ) {
+
         return [];
+
     }
 
     if (!schedule.startDate) {
         return [];
     }
 
-    const startDate = createLocalDate(schedule.startDate);
+    const startDate =
+        createLocalDate(
+            schedule.startDate
+        );
 
     if (!startDate) {
         return [];
     }
 
-    const duration = Number(schedule.durationDays) || 30;
+    const duration =
+        Number(
+            schedule.durationDays
+        ) || 30;
 
-    const diffDays = Math.round(
-        (date - startDate) / (1000 * 60 * 60 * 24)
-    );
+    const diffDays =
+        Math.round(
+            (date - startDate) /
+            (1000 * 60 * 60 * 24)
+        );
 
-    if (diffDays < 0 || diffDays >= duration) {
+    if (
+        diffDays < 0 ||
+        diffDays >= duration
+    ) {
+
         return [];
+
     }
 
-    const dayNumber = date.getDay();
+    const dayNumber =
+        date.getDay();
 
-    const workDays = Array.isArray(schedule.workDays)
-        ? schedule.workDays.map(Number)
-        : [];
+    const workDays =
+        Array.isArray(schedule.workDays)
+            ? schedule.workDays.map(Number)
+            : [];
 
     if (!workDays.includes(dayNumber)) {
         return [];
     }
 
-    const hours = Array.isArray(schedule.selectedHourLabels)
-        ? schedule.selectedHourLabels
-        : [];
+    const hours =
+        Array.isArray(
+            schedule.selectedHourLabels
+        )
+            ? schedule.selectedHourLabels
+            : [];
 
-    return hours.map(normalizeTime).filter(Boolean);
+    return hours
+        .map(normalizeTime)
+        .filter(Boolean);
 
 }
-
 
 
 /* ==================================================
@@ -512,9 +558,7 @@ async function updateAvailableTimes() {
     const instructorId =
         selectedTrainerInput?.value?.trim();
 
-    if (
-        trainingTimeInput
-    ) {
+    if (trainingTimeInput) {
 
         trainingTimeInput.value = "";
 
@@ -722,17 +766,13 @@ if (dateInput) {
 
 function refreshTrainerSchedule() {
 
-    if (
-        trainingTimeInput
-    ) {
+    if (trainingTimeInput) {
 
         trainingTimeInput.value = "";
 
     }
 
-    if (
-        dateInput
-    ) {
+    if (dateInput) {
 
         dateInput.value = "";
 
@@ -788,9 +828,7 @@ async function loadInstructorsByCity(
 
     loadedInstructors = [];
 
-    if (
-        selectedTrainerInput
-    ) {
+    if (selectedTrainerInput) {
 
         selectedTrainerInput.value = "";
 
@@ -876,9 +914,9 @@ async function loadInstructorsByCity(
                                         أ. ${instructorName}
                                     </h5>
 
-                                   <span class="trainer-role">
-    مؤسس TDrive
-</span>
+                                    <span class="trainer-role">
+                                        مؤسس TDrive
+                                    </span>
 
                                     <div class="trainer-audio">
 
@@ -1068,9 +1106,7 @@ function attachTrainerCardEvents() {
 
                         try {
 
-                            if (
-                                !audioEl.src
-                            ) {
+                            if (!audioEl.src) {
 
                                 const instructor =
                                     loadedInstructors.find(
@@ -1204,15 +1240,29 @@ function goToStep(
     formSteps.forEach(
         step => {
 
-            step.classList.toggle(
-                "active",
+            const isActive =
                 Number(
                     step.dataset.step
-                ) === stepNum
+                ) === stepNum;
+
+            step.classList.toggle(
+                "active",
+                isActive
             );
+
+            /*
+             * مهم:
+             * لا نعتمد فقط على CSS لإخفاء الخطوات.
+             * نخفي ونظهر الخطوة هنا صراحة.
+             */
+            step.style.display =
+                isActive
+                    ? "block"
+                    : "none";
 
         }
     );
+
 
     stepCircles.forEach(
         circle => {
@@ -1234,6 +1284,7 @@ function goToStep(
 
         }
     );
+
 
     stepLines.forEach(
         (line, index) => {
@@ -1303,6 +1354,7 @@ function validateStep(
 
 }
 
+
 /* ==================================================
    التقييمات
 ================================================== */
@@ -1322,9 +1374,7 @@ console.log(
 );
 
 
-if (
-    stars.length > 0
-) {
+if (stars.length > 0) {
 
     stars.forEach(
         star => {
@@ -1381,9 +1431,7 @@ const reviewForm =
     );
 
 
-if (
-    reviewForm
-) {
+if (reviewForm) {
 
     reviewForm.addEventListener(
         "submit",
@@ -1511,9 +1559,7 @@ const reviewsContainer =
     );
 
 
-if (
-    reviewsContainer
-) {
+if (reviewsContainer) {
 
     loadReviews();
 
@@ -1671,9 +1717,7 @@ tabButtons.forEach(
                     service === "driving"
                 ) {
 
-                    if (
-                        drivingPanel
-                    ) {
+                    if (drivingPanel) {
 
                         drivingPanel.style.display =
                             "block";
@@ -1681,9 +1725,7 @@ tabButtons.forEach(
                     }
 
 
-                    if (
-                        captainPanel
-                    ) {
+                    if (captainPanel) {
 
                         captainPanel.style.display =
                             "none";
@@ -1692,14 +1734,11 @@ tabButtons.forEach(
 
                 }
 
-
                 else if (
                     service === "captain"
                 ) {
 
-                    if (
-                        drivingPanel
-                    ) {
+                    if (drivingPanel) {
 
                         drivingPanel.style.display =
                             "none";
@@ -1707,9 +1746,7 @@ tabButtons.forEach(
                     }
 
 
-                    if (
-                        captainPanel
-                    ) {
+                    if (captainPanel) {
 
                         captainPanel.style.display =
                             "block";
@@ -1730,81 +1767,117 @@ tabButtons.forEach(
 ================================================== */
 
 const captainForm =
-    document.getElementById("captainForm");
+    document.getElementById(
+        "captainForm"
+    );
 
 
 if (captainForm) {
 
     const captainNextBtn =
-        document.getElementById("captainNextBtn");
+        document.getElementById(
+            "captainNextBtn"
+        );
 
     const captainStep2BackBtn =
-        document.getElementById("captainStep2BackBtn");
+        document.getElementById(
+            "captainStep2BackBtn"
+        );
 
     const captainStep2NextBtn =
-        document.getElementById("captainStep2NextBtn");
+        document.getElementById(
+            "captainStep2NextBtn"
+        );
 
     const captainBackBtn =
-        document.getElementById("captainBackBtn");
+        document.getElementById(
+            "captainBackBtn"
+        );
 
     const captainSteps =
-        document.querySelectorAll(".captain-form-step");
+        document.querySelectorAll(
+            ".captain-form-step"
+        );
 
     const captainSessionsList =
-        document.getElementById("captainSessionsList");
+        document.getElementById(
+            "captainSessionsList"
+        );
 
     const selectedCaptainSessionInput =
-        document.getElementById("selectedCaptainSession");
+        document.getElementById(
+            "selectedCaptainSession"
+        );
 
     let loadedCaptainSessions = [];
 
 
-    function goToCaptainStep(stepNumber) {
+    function goToCaptainStep(
+        stepNumber
+    ) {
 
-        captainSteps.forEach(step => {
+        captainSteps.forEach(
+            step => {
 
-            const stepValue =
-                Number(step.dataset.captainStep);
+                const stepValue =
+                    Number(
+                        step.dataset.captainStep
+                    );
 
-            step.style.display =
-                stepValue === stepNumber ? "block" : "none";
+                step.style.display =
+                    stepValue === stepNumber
+                        ? "block"
+                        : "none";
 
-            step.classList.toggle(
-                "active",
-                stepValue === stepNumber
+                step.classList.toggle(
+                    "active",
+                    stepValue === stepNumber
+                );
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(
+                ".captain-stepper .step-circle"
+            )
+            .forEach(
+                circle => {
+
+                    const number =
+                        Number(
+                            circle.dataset.captainStep
+                        );
+
+                    circle.classList.toggle(
+                        "active",
+                        number === stepNumber
+                    );
+
+                    circle.classList.toggle(
+                        "done",
+                        number < stepNumber
+                    );
+
+                }
             );
 
-        });
 
         document
-            .querySelectorAll(".captain-stepper .step-circle")
-            .forEach(circle => {
+            .querySelectorAll(
+                ".captain-stepper .step-line"
+            )
+            .forEach(
+                (line, index) => {
 
-                const number =
-                    Number(circle.dataset.captainStep);
+                    line.classList.toggle(
+                        "active",
+                        index < stepNumber - 1
+                    );
 
-                circle.classList.toggle(
-                    "active",
-                    number === stepNumber
-                );
-
-                circle.classList.toggle(
-                    "done",
-                    number < stepNumber
-                );
-
-            });
-
-        document
-            .querySelectorAll(".captain-stepper .step-line")
-            .forEach((line, index) => {
-
-                line.classList.toggle(
-                    "active",
-                    index < stepNumber - 1
-                );
-
-            });
+                }
+            );
 
     }
 
@@ -1813,61 +1886,138 @@ if (captainForm) {
        تحميل المواعيد المتاحة
     ========================================== */
 
-          async function loadCaptainSessions() {
+    async function loadCaptainSessions() {
 
         captainSessionsList.innerHTML = `
-            <p style="text-align:center; color:#8b999f; font-size:13px;">
+            <p style="
+                text-align:center;
+                color:#8b999f;
+                font-size:13px;
+            ">
                 جاري تحميل المواعيد المتاحة...
             </p>
         `;
 
         try {
-            // 1. جلب الجلسات
-            const { data: sessions, error } =
+
+            const {
+                data: sessions,
+                error
+            } =
                 await captainSupabaseClient
                     .from("captain_sessions")
                     .select("*")
                     .eq("active", true)
-                    .order("session_date", { ascending: true });
+                    .order(
+                        "session_date",
+                        {
+                            ascending: true
+                        }
+                    );
 
-            if (error) throw error;
-
-            loadedCaptainSessions =
-                Array.isArray(sessions) ? sessions : [];
-
-            // 2. جلب التسجيلات مع مراعاة مهلة الساعتين للحجوزات المعلقة (pending)
-            const { data: registrations, error: regError } =
-                await captainSupabaseClient
-                    .from("captain_registrations")
-                    .select("session_id, status, expires_at");
-
-            if (regError) throw regError;
-
-            // حساب عدد المقاعد المشغولة فعلياً (المؤكدة + المعلقة التي لم تنتهِ مهلتها)
-            const now = new Date();
-            const countsMap = {};
-            
-            if (Array.isArray(registrations)) {
-                registrations.forEach(reg => {
-                    const isConfirmed = reg.status === "confirmed";
-                    const isPendingValid = reg.status === "pending" && reg.expires_at && new Date(reg.expires_at) > now;
-
-                    if (isConfirmed || isPendingValid) {
-                        countsMap[reg.session_id] = (countsMap[reg.session_id] || 0) + 1;
-                    }
-                });
+            if (error) {
+                throw error;
             }
 
-            // دمج الحساب مع الجلسات
-            const availableSessions = loadedCaptainSessions.filter(session => {
-                const bookedCount = countsMap[session.id] || 0;
-                return bookedCount < session.max_seats;
-            });
+            loadedCaptainSessions =
+                Array.isArray(sessions)
+                    ? sessions
+                    : [];
 
-            if (availableSessions.length === 0) {
+
+            const {
+                data: registrations,
+                error: regError
+            } =
+                await captainSupabaseClient
+                    .from("captain_registrations")
+                    .select(
+                        "session_id, status, expires_at"
+                    );
+
+            if (regError) {
+                throw regError;
+            }
+
+
+            const now =
+                new Date();
+
+            const countsMap = {};
+
+
+            if (
+                Array.isArray(
+                    registrations
+                )
+            ) {
+
+                registrations.forEach(
+                    reg => {
+
+                        const isConfirmed =
+                            reg.status ===
+                            "confirmed";
+
+                        const isPendingValid =
+                            reg.status ===
+                            "pending" &&
+                            reg.expires_at &&
+                            new Date(
+                                reg.expires_at
+                            ) > now;
+
+
+                        if (
+                            isConfirmed ||
+                            isPendingValid
+                        ) {
+
+                            countsMap[
+                                reg.session_id
+                            ] =
+                                (
+                                    countsMap[
+                                        reg.session_id
+                                    ] || 0
+                                ) + 1;
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            const availableSessions =
+                loadedCaptainSessions.filter(
+                    session => {
+
+                        const bookedCount =
+                            countsMap[
+                                session.id
+                            ] || 0;
+
+                        return (
+                            bookedCount <
+                            session.max_seats
+                        );
+
+                    }
+                );
+
+
+            if (
+                availableSessions.length === 0
+            ) {
 
                 captainSessionsList.innerHTML = `
-                    <p style="text-align:center; color:#8b999f; font-size:13px;">
+                    <p style="
+                        text-align:center;
+                        color:#8b999f;
+                        font-size:13px;
+                    ">
                         لا توجد مواعيد متاحة حاليًا.
                     </p>
                 `;
@@ -1876,41 +2026,90 @@ if (captainForm) {
 
             }
 
+
             captainSessionsList.innerHTML =
                 availableSessions
-                    .map(session => {
+                    .map(
+                        session => {
 
-                        const bookedCount = countsMap[session.id] || 0;
-                        const remaining = session.max_seats - bookedCount;
+                            const bookedCount =
+                                countsMap[
+                                    session.id
+                                ] || 0;
 
-                        return `
-                            <div class="trainer-card" data-session-id="${session.id}">
-                                <div class="trainer-select-mark">✓</div>
-                                <div class="trainer-info">
-                                    <h5>${session.day_name} — ${session.time_slot}</h5>
-                                    <span class="trainer-role">
-                                        متبقي ${remaining} مقعد من ${session.max_seats}
-                                    </span>
+                            const remaining =
+                                session.max_seats -
+                                bookedCount;
+
+
+                            return `
+
+                                <div
+                                    class="trainer-card"
+                                    data-session-id="${session.id}"
+                                >
+
+                                    <div class="trainer-select-mark">
+                                        ✓
+                                    </div>
+
+                                    <div class="trainer-info">
+
+                                        <h5>
+                                            ${session.day_name}
+                                            —
+                                            ${session.time_slot}
+                                        </h5>
+
+                                        <span class="trainer-role">
+                                            متبقي ${remaining}
+                                            مقعد من
+                                            ${session.max_seats}
+                                        </span>
+
+                                    </div>
+
+                                    <label class="trainer-radio-option">
+
+                                        <input
+                                            type="radio"
+                                            name="selectedCaptainSessionRadio"
+                                            value="${session.id}"
+                                        >
+
+                                        <span class="custom-radio"></span>
+
+                                        <span>
+                                            اختيار الموعد
+                                        </span>
+
+                                    </label>
+
                                 </div>
-                                <label class="trainer-radio-option">
-                                    <input type="radio" name="selectedCaptainSessionRadio" value="${session.id}">
-                                    <span class="custom-radio"></span>
-                                    <span>اختيار الموعد</span>
-                                </label>
-                            </div>
-                        `;
 
-                    })
+                            `;
+
+                        }
+                    )
                     .join("");
+
 
             attachCaptainSessionEvents();
 
+
         } catch (error) {
 
-            console.error("Load captain sessions error:", error);
+            console.error(
+                "Load captain sessions error:",
+                error
+            );
 
             captainSessionsList.innerHTML = `
-                <p style="text-align:center; color:#c0392b; font-size:13px;">
+                <p style="
+                    text-align:center;
+                    color:#c0392b;
+                    font-size:13px;
+                ">
                     تعذر تحميل المواعيد.
                 </p>
             `;
@@ -1920,143 +2119,244 @@ if (captainForm) {
     }
 
 
-
     function attachCaptainSessionEvents() {
 
         captainSessionsList
-            .querySelectorAll(".trainer-card")
-            .forEach(card => {
+            .querySelectorAll(
+                ".trainer-card"
+            )
+            .forEach(
+                card => {
 
-                card.addEventListener("click", function () {
+                    card.addEventListener(
+                        "click",
+                        function () {
 
-                    captainSessionsList
-                        .querySelectorAll(".trainer-card")
-                        .forEach(other =>
-                            other.classList.remove("selected")
-                        );
+                            captainSessionsList
+                                .querySelectorAll(
+                                    ".trainer-card"
+                                )
+                                .forEach(
+                                    other =>
+                                        other.classList.remove(
+                                            "selected"
+                                        )
+                                );
 
-                    card.classList.add("selected");
 
-                    const sessionId =
-                        card.dataset.sessionId;
+                            card.classList.add(
+                                "selected"
+                            );
 
-                    selectedCaptainSessionInput.value =
-                        sessionId;
 
-                    const radio =
-                        card.querySelector('input[type="radio"]');
+                            const sessionId =
+                                card.dataset.sessionId;
 
-                    if (radio) radio.checked = true;
 
-                });
+                            selectedCaptainSessionInput.value =
+                                sessionId;
 
-            });
+
+                            const radio =
+                                card.querySelector(
+                                    'input[type="radio"]'
+                                );
+
+
+                            if (radio) {
+                                radio.checked = true;
+                            }
+
+                        }
+                    );
+
+                }
+            );
 
     }
 
 
     /* ==========================================
-       التنقل بين الخطوات
+       التنقل بين خطوات الكابتن
     ========================================== */
 
     if (captainNextBtn) {
 
-        captainNextBtn.addEventListener("click", function () {
+        captainNextBtn.addEventListener(
+            "click",
+            function () {
 
-            const name =
-                document.getElementById("captainName").value.trim();
+                const name =
+                    document
+                        .getElementById(
+                            "captainName"
+                        )
+                        .value
+                        .trim();
 
-            const identity =
-                document.getElementById("captainId").value.trim();
 
-            const phone =
-                document.getElementById("captainPhone").value.trim();
+                const identity =
+                    document
+                        .getElementById(
+                            "captainId"
+                        )
+                        .value
+                        .trim();
 
-            if (!name || !identity || !phone) {
 
-                alert("يرجى تعبئة جميع البيانات المطلوبة.");
-                return;
+                const phone =
+                    document
+                        .getElementById(
+                            "captainPhone"
+                        )
+                        .value
+                        .trim();
+
+
+                if (
+                    !name ||
+                    !identity ||
+                    !phone
+                ) {
+
+                    alert(
+                        "يرجى تعبئة جميع البيانات المطلوبة."
+                    );
+
+                    return;
+
+                }
+
+
+                const nameParts =
+                    name
+                        .split(/\s+/)
+                        .filter(Boolean);
+
+
+                if (
+                    nameParts.length < 2 ||
+                    nameParts.length > 3
+                ) {
+
+                    alert(
+                        "يرجى إدخال الاسم الثنائي أو الثلاثي فقط."
+                    );
+
+                    return;
+
+                }
+
+
+                const arabicNamePattern =
+                    /^[\u0600-\u06FF\u0750-\u077F\s]+$/;
+
+
+                if (
+                    !arabicNamePattern.test(
+                        name
+                    )
+                ) {
+
+                    alert(
+                        "يرجى إدخال الاسم باللغة العربية."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    !/^\d{10}$/.test(
+                        identity
+                    )
+                ) {
+
+                    alert(
+                        "رقم الهوية يجب أن يتكون من 10 أرقام."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    !/^05\d{8}$/.test(
+                        phone
+                    )
+                ) {
+
+                    alert(
+                        "يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام."
+                    );
+
+                    return;
+
+                }
+
+
+                goToCaptainStep(2);
+
+                loadCaptainSessions();
 
             }
-
-            const nameParts =
-                name.split(/\s+/).filter(Boolean);
-
-            if (nameParts.length < 2 || nameParts.length > 3) {
-
-                alert("يرجى إدخال الاسم الثنائي أو الثلاثي فقط.");
-                return;
-
-            }
-
-            const arabicNamePattern =
-                /^[\u0600-\u06FF\u0750-\u077F\s]+$/;
-
-            if (!arabicNamePattern.test(name)) {
-
-                alert("يرجى إدخال الاسم باللغة العربية.");
-                return;
-
-            }
-
-            if (!/^\d{10}$/.test(identity)) {
-
-                alert("رقم الهوية يجب أن يتكون من 10 أرقام.");
-                return;
-
-            }
-
-            if (!/^05\d{8}$/.test(phone)) {
-
-                alert("يرجى إدخال رقم جوال صحيح يبدأ بـ 05 ويتكون من 10 أرقام.");
-                return;
-
-            }
-
-            goToCaptainStep(2);
-            loadCaptainSessions();
-
-        });
+        );
 
     }
 
 
     if (captainStep2BackBtn) {
 
-        captainStep2BackBtn.addEventListener("click", function () {
+        captainStep2BackBtn.addEventListener(
+            "click",
+            function () {
 
-            goToCaptainStep(1);
+                goToCaptainStep(1);
 
-        });
+            }
+        );
 
     }
 
 
     if (captainStep2NextBtn) {
 
-        captainStep2NextBtn.addEventListener("click", function () {
+        captainStep2NextBtn.addEventListener(
+            "click",
+            function () {
 
-            if (!selectedCaptainSessionInput.value) {
+                if (
+                    !selectedCaptainSessionInput.value
+                ) {
 
-                alert("يرجى اختيار الموعد أولًا.");
-                return;
+                    alert(
+                        "يرجى اختيار الموعد أولًا."
+                    );
+
+                    return;
+
+                }
+
+                goToCaptainStep(3);
 
             }
-
-            goToCaptainStep(3);
-
-        });
+        );
 
     }
 
 
     if (captainBackBtn) {
 
-        captainBackBtn.addEventListener("click", function () {
+        captainBackBtn.addEventListener(
+            "click",
+            function () {
 
-            goToCaptainStep(2);
+                goToCaptainStep(2);
 
-        });
+            }
+        );
 
     }
 
@@ -2065,174 +2365,271 @@ if (captainForm) {
        إرسال نموذج الكابتن
     ========================================== */
 
-    captainForm.addEventListener("submit", async function (e) {
+    captainForm.addEventListener(
+        "submit",
+        async function (e) {
 
-        e.preventDefault();
+            e.preventDefault();
 
-        const captainName =
-            document.getElementById("captainName").value.trim();
 
-        const captainId =
-            document.getElementById("captainId").value.trim();
+            const captainName =
+                document
+                    .getElementById(
+                        "captainName"
+                    )
+                    .value
+                    .trim();
 
-        const captainPhone =
-            document.getElementById("captainPhone").value.trim();
 
-        const sessionId =
-            selectedCaptainSessionInput.value;
+            const captainId =
+                document
+                    .getElementById(
+                        "captainId"
+                    )
+                    .value
+                    .trim();
 
-        if (!captainName || !captainId || !captainPhone || !sessionId) {
 
-            alert("يرجى إكمال جميع الخطوات قبل المتابعة.");
-            return;
+            const captainPhone =
+                document
+                    .getElementById(
+                        "captainPhone"
+                    )
+                    .value
+                    .trim();
+
+
+            const sessionId =
+                selectedCaptainSessionInput.value;
+
+
+            if (
+                !captainName ||
+                !captainId ||
+                !captainPhone ||
+                !sessionId
+            ) {
+
+                alert(
+                    "يرجى إكمال جميع الخطوات قبل المتابعة."
+                );
+
+                return;
+
+            }
+
+
+            const bookingId =
+                "CPT-" +
+                Date.now();
+
+
+            sessionStorage.setItem(
+                "bookingId",
+                bookingId
+            );
+
+            sessionStorage.setItem(
+                "fullName",
+                captainName
+            );
+
+            sessionStorage.setItem(
+                "identityNumber",
+                captainId
+            );
+
+            sessionStorage.setItem(
+                "phone",
+                captainPhone
+            );
+
+            sessionStorage.setItem(
+                "captainSessionId",
+                sessionId
+            );
+
+            sessionStorage.setItem(
+                "program",
+                "دورة الكابتن المحترف"
+            );
+
+            sessionStorage.setItem(
+                "originalPrice",
+                "300"
+            );
+
+            sessionStorage.setItem(
+                "finalPrice",
+                "100"
+            );
+
+
+            try {
+
+                const expiresAt =
+                    new Date(
+                        Date.now() +
+                        2 * 60 * 60 * 1000
+                    ).toISOString();
+
+
+                const {
+                    error: insertError
+                } =
+                    await captainSupabaseClient
+                        .from(
+                            "captain_registrations"
+                        )
+                        .insert({
+
+                            booking_id:
+                                bookingId,
+
+                            session_id:
+                                sessionId,
+
+                            full_name:
+                                captainName,
+
+                            national_id:
+                                captainId,
+
+                            phone:
+                                captainPhone,
+
+                            payment_method:
+                                "bank_transfer",
+
+                            status:
+                                "pending",
+
+                            expires_at:
+                                expiresAt
+
+                        });
+
+
+                if (insertError) {
+                    throw insertError;
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "Insert registration error:",
+                    error
+                );
+
+                alert(
+                    "حدث خطأ أثناء حفظ التسجيل: " +
+                    error.message
+                );
+
+                return;
+
+            }
+
+
+            window.location.href =
+                "captain-payment-method.html";
 
         }
-
-        const bookingId =
-            "CPT-" + Date.now();
-
-        sessionStorage.setItem("bookingId", bookingId);
-        sessionStorage.setItem("fullName", captainName);
-        sessionStorage.setItem("identityNumber", captainId);
-        sessionStorage.setItem("phone", captainPhone);
-        sessionStorage.setItem("captainSessionId", sessionId);
-        sessionStorage.setItem("program", "دورة الكابتن المحترف");
-        sessionStorage.setItem("originalPrice", "300");
-        sessionStorage.setItem("finalPrice", "100");
-
-
-        try {
-            // حساب وقت انتهاء الحجز المؤقت (بعد ساعتين من الآن)
-            const expiresAt = new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString();
-
-            const { error: insertError } =
-                await captainSupabaseClient
-                    .from("captain_registrations")
-                    .insert({
-                        booking_id: bookingId,
-                        session_id: sessionId,
-                        full_name: captainName,
-                        national_id: captainId,
-                        phone: captainPhone,
-                        payment_method: "bank_transfer",
-                        status: "pending",
-                        expires_at: expiresAt // حفظ وقت انتهاء المهلة
-                    });
-
-            if (insertError) throw insertError;
-
-        } catch (error) {
-
-            console.error("Insert registration error:", error);
-            alert("حدث خطأ أثناء حفظ التسجيل: " + error.message);
-            return;
-
-        }
-
-
-
-        window.location.href = "captain-payment-method.html";
-
-    });
+    );
 
 }
 
 
 /* ==================================================
-   النهاية
+   BOOKING STEPPER
+   أزرار التالي والسابق
 ================================================== */
 
-console.log(
-    "TDrive Booking System loaded successfully."
-);
+document
+    .querySelectorAll(
+        "#bookingForm [data-next]"
+    )
+    .forEach(
+        btn => {
+
+            btn.addEventListener(
+                "click",
+                function () {
+
+                    const currentStep =
+                        this.closest(
+                            ".form-step"
+                        );
+
+                    if (
+                        !validateStep(
+                            currentStep
+                        )
+                    ) {
+
+                        return;
+
+                    }
 
 
-/* ==================================================
-   بوابة اختيار البرنامج (أساسي / تكميلي)
-================================================== */
+                    const nextStepNum =
+                        Number(
+                            this.dataset.next
+                        );
 
-const programCards =
-    document.querySelectorAll(".program-option-card");
 
-const selectedProgramInput =
-    document.getElementById("selectedDrivingProgram");
+                    goToStep(
+                        nextStepNum
+                    );
 
-const programSelectGate =
-    document.getElementById("programSelectGate");
 
-const registrationContent =
-    document.getElementById("registrationContent");
+                    /*
+                     * عند الانتقال للخطوة الثانية
+                     * يتم تحميل المدربات حسب المدينة.
+                     */
 
-const selectedProgramBadge =
-    document.getElementById("selectedProgramBadge");
+                    if (
+                        nextStepNum === 2 &&
+                        cityInput
+                    ) {
 
-programCards.forEach(card => {
+                        loadInstructorsByCity(
+                            cityInput.value.trim()
+                        );
 
-    card.addEventListener("click", function () {
+                    }
 
-        if (selectedProgramInput) {
-            selectedProgramInput.value = this.dataset.program;
+                }
+            );
+
         }
+    );
 
-        if (selectedProgramBadge) {
-            selectedProgramBadge.textContent =
-                "البرنامج المختار: " + (this.dataset.programLabel || "");
+
+document
+    .querySelectorAll(
+        "#bookingForm [data-back]"
+    )
+    .forEach(
+        btn => {
+
+            btn.addEventListener(
+                "click",
+                function () {
+
+                    goToStep(
+                        Number(
+                            this.dataset.back
+                        )
+                    );
+
+                }
+            );
+
         }
+    );
 
-        if (programSelectGate) {
-            programSelectGate.style.display = "none";
-        }
-
-        if (registrationContent) {
-            registrationContent.style.display = "block";
-        }
-
-        window.scrollTo({ top: 0, behavior: "smooth" });
-
-    });
-
-});
-
-
-
-/* ==================================================
-   ربط أزرار التالي والسابق بالخطوات
-================================================== */
-
-document.querySelectorAll("[data-next]").forEach(btn => {
-
-    btn.addEventListener("click", function () {
-
-        const currentStep =
-            this.closest(".form-step");
-
-        if (!validateStep(currentStep)) {
-            return;
-        }
-
-        const nextStepNum =
-            Number(this.dataset.next);
-
-        goToStep(nextStepNum);
-
-        if (nextStepNum === 2 && cityInput) {
-            loadInstructorsByCity(cityInput.value.trim());
-        }
-
-    });
-
-});
-
-
-document.querySelectorAll("[data-back]").forEach(btn => {
-
-    btn.addEventListener("click", function () {
-
-        goToStep(Number(this.dataset.back));
-
-    });
-
-});
 
 /* ==================================================
    إرسال نموذج الحجز وحفظه
@@ -2240,44 +2637,101 @@ document.querySelectorAll("[data-back]").forEach(btn => {
 
 if (form) {
 
-    form.addEventListener("submit", async function (e) {
+    form.addEventListener(
+        "submit",
+        async function (e) {
 
-        e.preventDefault();
+            e.preventDefault();
 
-        const fullName =
-            document.getElementById("fullName")?.value?.trim() || "";
 
-        const address =
-            cityInput?.value?.trim() || "";
+            const fullName =
+                document
+                    .getElementById(
+                        "fullName"
+                    )
+                    ?.value
+                    ?.trim() || "";
 
-        const phone =
-            document.getElementById("phone")?.value?.trim() || "";
 
-        const instructorId =
-            selectedTrainerInput?.value?.trim() || "";
+            const address =
+                cityInput
+                    ?.value
+                    ?.trim() || "";
 
-        const trainingDate =
-            dateInput?.value?.trim() || "";
 
-        const trainingTime =
-            trainingTimeInput?.value?.trim() || "";
+            const phone =
+                document
+                    .getElementById(
+                        "phone"
+                    )
+                    ?.value
+                    ?.trim() || "";
 
-        const programType =
-            selectedProgramInput?.value?.trim() || "";
 
-        if (!fullName || !address || !phone || !instructorId || !trainingDate || !trainingTime || !programType) {
-            alert("يرجى تعبئة جميع البيانات واختيار البرنامج والمدربة والموعد.");
-            return;
-        }
+            const instructorId =
+                selectedTrainerInput
+                    ?.value
+                    ?.trim() || "";
 
-        const instructor = findInstructor(instructorId);
 
-        const summary = `
+            const trainingDate =
+                dateInput
+                    ?.value
+                    ?.trim() || "";
+
+
+            const trainingTime =
+                trainingTimeInput
+                    ?.value
+                    ?.trim() || "";
+
+
+            const programType =
+                selectedProgramInput
+                    ?.value
+                    ?.trim() || "";
+
+
+            if (
+                !fullName ||
+                !address ||
+                !phone ||
+                !instructorId ||
+                !trainingDate ||
+                !trainingTime ||
+                !programType
+            ) {
+
+                alert(
+                    "يرجى تعبئة جميع البيانات واختيار البرنامج والمدربة والموعد."
+                );
+
+                return;
+
+            }
+
+
+            const instructor =
+                findInstructor(
+                    instructorId
+                );
+
+
+            const programLabel =
+                programType === "basic"
+                    ? "البرنامج الأساسي"
+                    : programType === "plus"
+                        ? "البرنامج التكميلي"
+                        : programType;
+
+
+            const summary = `
 تأكيد التسجيل
 
 👤 الاسم: ${fullName}
 📱 الجوال: ${phone}
 📍 المدينة: ${address}
+📚 البرنامج: ${programLabel}
 👩‍🏫 المدربة: ${instructor?.full_name || ""}
 📅 بداية التدريب: ${trainingDate}
 🕒 الوقت: ${trainingTime}
@@ -2286,107 +2740,283 @@ if (form) {
 هل تريد تأكيد التسجيل؟
 `;
 
-        if (!confirm(summary)) return;
 
-        try {
+            if (
+                !confirm(summary)
+            ) {
 
-            const bookingId = "BK-" + Date.now();
-            const bookingsToSave = [];
-
-            let currentDate = createLocalDate(trainingDate);
-            let lessonNumber = 1;
-
-            while (lessonNumber <= 5) {
-
-                const day = currentDate.getDay();
-
-                if (day !== 5 && day !== 6) {
-
-                    bookingsToSave.push({
-                        bookingId,
-                        lessonNumber,
-                        totalLessons: 5,
-                        fullName,
-                        address,
-                        phone,
-                        programType,
-                        instructorId,
-                        trainingDate: formatLocalDate(currentDate),
-                        trainingTime,
-                        price: OPENING_PRICE,
-                        status: "Pending Payment",
-                        createdAt: new Date().toISOString()
-                    });
-
-                    lessonNumber++;
-
-                }
-
-                currentDate.setDate(currentDate.getDate() + 1);
+                return;
 
             }
 
-            for (const bookingData of bookingsToSave) {
 
-                const bookedTimes = await getInstructorBookedTimes(
-                    bookingData.instructorId,
-                    bookingData.trainingDate
+            try {
+
+                const bookingId =
+                    "BK-" +
+                    Date.now();
+
+
+                const bookingsToSave =
+                    [];
+
+
+                let currentDate =
+                    createLocalDate(
+                        trainingDate
+                    );
+
+
+                let lessonNumber =
+                    1;
+
+
+                while (
+                    lessonNumber <= 5
+                ) {
+
+                    const day =
+                        currentDate.getDay();
+
+
+                    if (
+                        day !== 5 &&
+                        day !== 6
+                    ) {
+
+                        bookingsToSave.push({
+
+                            bookingId,
+
+                            lessonNumber,
+
+                            totalLessons:
+                                5,
+
+                            fullName,
+
+                            address,
+
+                            phone,
+
+                            programType,
+
+                            instructorId,
+
+                            trainingDate:
+                                formatLocalDate(
+                                    currentDate
+                                ),
+
+                            trainingTime,
+
+                            price:
+                                OPENING_PRICE,
+
+                            status:
+                                "Pending Payment",
+
+                            createdAt:
+                                new Date().toISOString()
+
+                        });
+
+
+                        lessonNumber++;
+
+                    }
+
+
+                    currentDate.setDate(
+                        currentDate.getDate() + 1
+                    );
+
+                }
+
+
+                for (
+                    const bookingData
+                    of bookingsToSave
+                ) {
+
+                    const bookedTimes =
+                        await getInstructorBookedTimes(
+                            bookingData.instructorId,
+                            bookingData.trainingDate
+                        );
+
+
+                    if (
+                        Array.isArray(
+                            bookedTimes
+                        ) &&
+                        bookedTimes.includes(
+                            bookingData.trainingTime
+                        )
+                    ) {
+
+                        throw new Error(
+                            `يوجد حجز مسبق يوم ${bookingData.trainingDate} الساعة ${bookingData.trainingTime}`
+                        );
+
+                    }
+
+                }
+
+
+                await saveBooking(
+                    bookingsToSave
                 );
 
-                if (Array.isArray(bookedTimes) && bookedTimes.includes(bookingData.trainingTime)) {
-                    throw new Error(
-                        `يوجد حجز مسبق يوم ${bookingData.trainingDate} الساعة ${bookingData.trainingTime}`
+
+                /*
+                 * حفظ نسخة من الحجز في Supabase
+                 * حتى تظهر في بوابة المدربة.
+                 */
+
+                const supabaseRows =
+                    bookingsToSave.map(
+                        b => ({
+
+                            booking_id:
+                                b.bookingId,
+
+                            lesson_number:
+                                b.lessonNumber,
+
+                            total_lessons:
+                                b.totalLessons,
+
+                            full_name:
+                                b.fullName,
+
+                            address:
+                                b.address,
+
+                            phone:
+                                b.phone,
+
+                            program_type:
+                                b.programType,
+
+                            instructor_id:
+                                b.instructorId,
+
+                            training_date:
+                                b.trainingDate,
+
+                            training_time:
+                                b.trainingTime,
+
+                            price:
+                                b.price,
+
+                            status:
+                                b.status
+
+                        })
                     );
+
+
+                const {
+                    error: supabaseError
+                } =
+                    await supabaseClient
+                        .from("bookings")
+                        .insert(
+                            supabaseRows
+                        );
+
+
+                if (supabaseError) {
+
+                    console.error(
+                        "Supabase booking insert error:",
+                        supabaseError
+                    );
+
+                    /*
+                     * لا نوقف العملية لأن
+                     * Firebase نجح بالفعل.
+                     */
+
                 }
 
-            
+
+                alert(
+                    "تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع."
+                );
+
+
+                sessionStorage.setItem(
+                    "bookingId",
+                    bookingId
+                );
+
+
+                sessionStorage.setItem(
+                    "fullName",
+                    fullName
+                );
+
+
+                sessionStorage.setItem(
+                    "phone",
+                    phone
+                );
+
+
+                sessionStorage.setItem(
+                    "trainingDate",
+                    trainingDate
+                );
+
+
+                sessionStorage.setItem(
+                    "trainingTime",
+                    trainingTime
+                );
+
+
+                sessionStorage.setItem(
+                    "program",
+                    programType
+                );
+
+
+                sessionStorage.setItem(
+                    "programLabel",
+                    programLabel
+                );
+
+
+                window.location.href =
+                    "payment-method.html";
+
+
+            } catch (error) {
+
+                console.error(
+                    error
+                );
+
+                alert(
+                    error.message ||
+                    "تعذر إتمام الحجز."
+                );
+
             }
-
-            await saveBooking(bookingsToSave);
-
-            // حفظ نسخة من الحجز في Supabase عشان تظهر في بوابة المدربة
-            const supabaseRows = bookingsToSave.map(b => ({
-                booking_id: b.bookingId,
-                lesson_number: b.lessonNumber,
-                total_lessons: b.totalLessons,
-                full_name: b.fullName,
-                address: b.address,
-                phone: b.phone,
-                program_type: b.programType,
-                instructor_id: b.instructorId,
-                training_date: b.trainingDate,
-                training_time: b.trainingTime,
-                price: b.price,
-                status: b.status
-            }));
-
-            const { error: supabaseError } =
-                await supabaseClient
-                    .from("bookings")
-                    .insert(supabaseRows);
-
-            if (supabaseError) {
-                console.error("Supabase booking insert error:", supabaseError);
-                // ما بنوقفش العملية، الحجز في Firebase نجح فعلاً
-            }
-
-            alert("تم التسجيل بنجاح، سيتم تحويلك لاختيار طريقة الدفع.");
-
-            sessionStorage.setItem("bookingId", bookingId);
-            sessionStorage.setItem("fullName", fullName);
-            sessionStorage.setItem("phone", phone);
-            sessionStorage.setItem("trainingDate", trainingDate);
-            sessionStorage.setItem("trainingTime", trainingTime);
-
-            window.location.href = "payment-method.html";
-
-        } catch (error) {
-
-            console.error(error);
-            alert(error.message || "تعذر إتمام الحجز.");
 
         }
-
-    });
+    );
 
 }
+
+
+/* ==================================================
+   البداية
+================================================== */
+
+console.log(
+    "TDrive Booking System loaded successfully."
+);
