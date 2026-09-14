@@ -152,7 +152,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         class="service-panel">
 
 
-             <h3 class="booking-program-title">
+        <h3 class="booking-program-title">
             التسجيل في برنامج احترفي القيادة على الطريق
         </h3>
 
@@ -163,47 +163,181 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
         <div id="programSelectGate">
 
-            <label style="display:block;margin-bottom:10px;font-weight:700;">
+            <label
+                style="
+                    display:block;
+                    margin-bottom:14px;
+                    font-weight:700;
+                    color:#2d3e50;
+                "
+            >
                 اختاري البرنامج التدريبي
             </label>
+
+
+            <!-- ==================================================
+                 البرنامج الأساسي
+                 ألوان TDrive الوردية
+            ================================================== -->
 
             <div
                 class="program-option-card"
                 data-program="basic"
                 data-program-label="البرنامج الأساسي"
-                style="border:2px solid #d9edf5;border-radius:14px;padding:15px;margin-bottom:12px;cursor:pointer;"
+
+                style="
+                    background:#fff7fa;
+                    border:2px solid #e8b9c8;
+                    border-radius:14px;
+                    padding:18px;
+                    margin-bottom:14px;
+                    cursor:pointer;
+                    transition:all .25s ease;
+                "
             >
-                <h4 style="margin:0 0 5px;">البرنامج الأساسي</h4>
-                <p style="margin:0 0 5px;">
+
+                <h4
+                    style="
+                        margin:0 0 7px;
+                        color:#c9829b;
+                        font-weight:800;
+                    "
+                >
+                    البرنامج الأساسي
+                </h4>
+
+
+                <p
+                    style="
+                        margin:0 0 7px;
+                        color:#2d3e50;
+                    "
+                >
+
                     5 ساعات —
-                    <span style="text-decoration:line-through;color:#999;">500 ريال</span>
-                    <strong>375 ريال</strong>
+
+                    <span
+                        style="
+                            text-decoration:line-through;
+                            color:#999;
+                        "
+                    >
+                        500 ريال
+                    </span>
+
+                    <strong
+                        style="
+                            color:#c9829b;
+                            margin-right:5px;
+                        "
+                    >
+                        375 ريال
+                    </strong>
+
                 </p>
-                <p style="font-size:12px;color:#707d82;margin:0;">
-                    للمبتدئات أو من لديهن معرفة محدودة بالقيادة ولا يمتلكن رخصة قيادة.
+
+
+                <p
+                    style="
+                        font-size:12px;
+                        color:#707d82;
+                        margin:0;
+                        line-height:1.8;
+                    "
+                >
+                    للمبتدئات أو من لديهن معرفة محدودة بالقيادة
+                    ولا يمتلكن رخصة قيادة.
                 </p>
+
             </div>
+
+
+
+            <!-- ==================================================
+                 البرنامج التكميلي
+                 برتقالي باستيل خفيف
+            ================================================== -->
 
             <div
                 class="program-option-card"
                 data-program="plus"
                 data-program-label="البرنامج التكميلي"
-                style="border:2px solid #d9edf5;border-radius:14px;padding:15px;margin-bottom:12px;cursor:pointer;"
+
+                style="
+                    background:#fffaf6;
+                    border:2px solid #f3d9c2;
+                    border-radius:14px;
+                    padding:18px;
+                    margin-bottom:14px;
+                    cursor:pointer;
+                    transition:all .25s ease;
+                "
             >
-                <h4 style="margin:0 0 5px;">البرنامج التكميلي</h4>
-                <p style="margin:0 0 5px;">
+
+                <h4
+                    style="
+                        margin:0 0 7px;
+                        color:#d6a477;
+                        font-weight:800;
+                    "
+                >
+                    البرنامج التكميلي
+                </h4>
+
+
+                <p
+                    style="
+                        margin:0 0 7px;
+                        color:#2d3e50;
+                    "
+                >
+
                     5 ساعات —
-                    <span style="text-decoration:line-through;color:#999;">500 ريال</span>
-                    <strong>375 ريال</strong>
+
+                    <span
+                        style="
+                            text-decoration:line-through;
+                            color:#999;
+                        "
+                    >
+                        500 ريال
+                    </span>
+
+                    <strong
+                        style="
+                            color:#d6a477;
+                            margin-right:5px;
+                        "
+                    >
+                        375 ريال
+                    </strong>
+
                 </p>
-                <p style="font-size:12px;color:#707d82;margin:0;">
-                    لمن أكملت البرنامج الأساسي أو تحمل رخصة قيادة وتحتاج تدريب عملي على الطريق.
+
+
+                <p
+                    style="
+                        font-size:12px;
+                        color:#707d82;
+                        margin:0;
+                        line-height:1.8;
+                    "
+                >
+                    لمن أكملت البرنامج الأساسي أو تحمل رخصة قيادة
+                    وتحتاج تدريبًا عمليًا على الطريق.
                 </p>
+
             </div>
 
-            <input type="hidden" id="selectedDrivingProgram" value="">
+
+            <input
+                type="hidden"
+                id="selectedDrivingProgram"
+                value=""
+            >
 
         </div>
+
 
 
         <!-- ==================================================
@@ -358,13 +492,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                  STEP 1
                  البيانات الشخصية
             ================================================== -->
+
             <div
                 class="form-step active"
                 data-step="1">
 
                 <div
                     id="selectedProgramBadge"
-                    style="background:#eaf8fa;border:1px solid #cfeef2;color:#3a939f;font-weight:700;border-radius:12px;padding:10px 14px;margin-bottom:15px;text-align:center;"
+                    style="
+                        background:#eaf8fa;
+                        border:1px solid #cfeef2;
+                        color:#3a939f;
+                        font-weight:700;
+                        border-radius:12px;
+                        padding:10px 14px;
+                        margin-bottom:15px;
+                        text-align:center;
+                    "
                 ></div>
 
                 <h4 class="step-title">
@@ -468,8 +612,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                  اختيار المدربة
             ================================================== -->
 
-          <div class="form-step" data-step="2">
-
+            <div class="form-step" data-step="2">
 
 
                 <h4 class="step-title">
@@ -481,25 +624,27 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
                 <p class="trainer-selection-description">
 
-                إختاري المدربة المناسبة لك:
+                    إختاري المدربة المناسبة لك:
 
                 </p>
 
 
-<div class="trainer-selection" id="trainerList">
-    <p style="text-align:center; color:#8b999f; font-size:13px;">
-        يرجى تعبئة مدينة التدريب أولًا في الخطوة السابقة.
-    </p>
-</div>
+                <div
+                    class="trainer-selection"
+                    id="trainerList">
 
+                    <p
+                        style="
+                            text-align:center;
+                            color:#8b999f;
+                            font-size:13px;
+                        "
+                    >
+                        يرجى تعبئة مدينة التدريب أولًا في الخطوة السابقة.
+                    </p>
 
+                </div>
 
-                <!-- تحفظ القيمة المختارة -->
-
-
-
-
-                <!-- تحفظ القيمة المختارة -->
 
                 <input
                     type="hidden"
@@ -546,7 +691,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             ================================================== -->
 
             <div class="form-step" data-step="3">
-
 
 
                 <h4 class="step-title">
@@ -635,8 +779,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                  الدفع
             ================================================== -->
 
-          <div class="form-step" data-step="4">
-
+            <div class="form-step" data-step="4">
 
 
                 <h4 class="step-title">
@@ -736,9 +879,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                 <div class="video-card">
 
 
-                
-
-
                     <iframe
                         src="https://www.youtube.com/embed/A9d0v3xpJrQ"
                         title="مقتطفات من دورة احترفي القيادة على الطريق"
@@ -764,6 +904,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     <!-- ==================================================
          CAPTAIN PANEL
+    ================================================== -->
 
 
     <div
@@ -799,127 +940,300 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
         <!-- خطوات التسجيل -->
 
-     <!-- خطوات التسجيل -->
+        <div class="stepper captain-stepper">
 
-<div class="stepper captain-stepper">
+            <div class="step-item">
 
-    <div class="step-item">
-        <div class="step-circle active" data-captain-step="1">1</div>
-        <span>البيانات</span>
-    </div>
+                <div
+                    class="step-circle active"
+                    data-captain-step="1">
 
-    <div class="step-line"></div>
+                    1
 
-    <div class="step-item">
-        <div class="step-circle" data-captain-step="2">2</div>
-        <span>الموعد</span>
-    </div>
+                </div>
 
-    <div class="step-line"></div>
+                <span>
+                    البيانات
+                </span>
 
-    <div class="step-item">
-        <div class="step-circle" data-captain-step="3">3</div>
-        <span>الدفع</span>
-    </div>
-
-</div>
+            </div>
 
 
-<form id="captainForm">
+            <div class="step-line"></div>
 
 
-    <!-- =========================
-         CAPTAIN STEP 1
-    ========================== -->
+            <div class="step-item">
 
-    <div class="captain-form-step active" data-captain-step="1">
+                <div
+                    class="step-circle"
+                    data-captain-step="2">
 
-        <h4 class="step-title">
-            <i class="fa-solid fa-user"></i>
-            بيانات التسجيل
-        </h4>
+                    2
 
-        <label>الاسم</label>
-        <div class="input-icon">
-            <input type="text" id="captainName" placeholder="الاسم الثنائي أو الثلاثي" required>
-            <i class="fa-solid fa-user"></i>
+                </div>
+
+                <span>
+                    الموعد
+                </span>
+
+            </div>
+
+
+            <div class="step-line"></div>
+
+
+            <div class="step-item">
+
+                <div
+                    class="step-circle"
+                    data-captain-step="3">
+
+                    3
+
+                </div>
+
+                <span>
+                    الدفع
+                </span>
+
+            </div>
+
         </div>
 
-        <label>رقم الهوية</label>
-        <div class="input-icon">
-            <input type="text" id="captainId" placeholder="أدخل رقم الهوية" inputmode="numeric" maxlength="10" required>
-            <i class="fa-solid fa-id-card"></i>
-        </div>
 
-        <label>رقم الجوال</label>
-        <div class="input-icon">
-            <input type="tel" id="captainPhone" placeholder="05xxxxxxxx" inputmode="numeric" maxlength="10" required>
-            <i class="fa-solid fa-phone"></i>
-        </div>
-
-        <button type="button" class="next-btn" id="captainNextBtn">التالي</button>
-
-    </div>
+        <form id="captainForm">
 
 
-    <!-- =========================
-         CAPTAIN STEP 2 - الموعد
-    ========================== -->
+            <!-- =========================
+                 CAPTAIN STEP 1
+            ========================== -->
 
-    <div class="captain-form-step" data-captain-step="2" style="display:none;">
+            <div
+                class="captain-form-step active"
+                data-captain-step="1">
 
-        <h4 class="step-title">
-            <i class="fa-solid fa-calendar-days"></i>
-            اختيار الموعد
-        </h4>
+                <h4 class="step-title">
 
-        <div id="captainSessionsList" class="trainer-selection">
-            <p style="text-align:center; color:#8b999f; font-size:13px;">
-                جاري تحميل المواعيد المتاحة...
-            </p>
-        </div>
+                    <i class="fa-solid fa-user"></i>
 
-        <input type="hidden" id="selectedCaptainSession" value="">
+                    بيانات التسجيل
 
-        <div class="step-buttons">
-            <button type="button" class="back-btn" id="captainStep2BackBtn">السابق</button>
-            <button type="button" class="next-btn" id="captainStep2NextBtn">التالي</button>
-        </div>
-
-    </div>
+                </h4>
 
 
-    <!-- =========================
-         CAPTAIN STEP 3 - الدفع
-    ========================== -->
+                <label>
+                    الاسم
+                </label>
 
-    <div class="captain-form-step" data-captain-step="3" style="display:none;">
+                <div class="input-icon">
 
-        <h4 class="step-title">
-            <i class="fa-solid fa-credit-card"></i>
-            الدفع
-        </h4>
+                    <input
+                        type="text"
+                        id="captainName"
+                        placeholder="الاسم الثنائي أو الثلاثي"
+                        required>
 
-        <div class="booking-note">
-            <p>السعر الأساسي: <strong>300 ريال</strong></p>
-            <p>السعر الحالي: <strong>100 ريال</strong></p>
-            <p><strong>خصم 66% بمناسبة انطلاق البرنامج</strong></p>
-        </div>
+                    <i class="fa-solid fa-user"></i>
 
-        <p style="text-align:center;">
-            بعد الضغط على المتابعة سيتم نقلك إلى صفحة اختيار طريقة الدفع.
-        </p>
-
-        <div class="step-buttons">
-            <button type="button" class="back-btn" id="captainBackBtn">السابق</button>
-            <button type="submit" class="next-btn">اختيار طريقة الدفع</button>
-        </div>
-
-    </div>
+                </div>
 
 
-</form>
+                <label>
+                    رقم الهوية
+                </label>
 
+                <div class="input-icon">
+
+                    <input
+                        type="text"
+                        id="captainId"
+                        placeholder="أدخل رقم الهوية"
+                        inputmode="numeric"
+                        maxlength="10"
+                        required>
+
+                    <i class="fa-solid fa-id-card"></i>
+
+                </div>
+
+
+                <label>
+                    رقم الجوال
+                </label>
+
+                <div class="input-icon">
+
+                    <input
+                        type="tel"
+                        id="captainPhone"
+                        placeholder="05xxxxxxxx"
+                        inputmode="numeric"
+                        maxlength="10"
+                        required>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="next-btn"
+                    id="captainNextBtn">
+
+                    التالي
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CAPTAIN STEP 2 - الموعد
+            ========================== -->
+
+            <div
+                class="captain-form-step"
+                data-captain-step="2"
+                style="display:none;">
+
+                <h4 class="step-title">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    اختيار الموعد
+
+                </h4>
+
+
+                <div
+                    id="captainSessionsList"
+                    class="trainer-selection">
+
+                    <p
+                        style="
+                            text-align:center;
+                            color:#8b999f;
+                            font-size:13px;
+                        "
+                    >
+                        جاري تحميل المواعيد المتاحة...
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="hidden"
+                    id="selectedCaptainSession"
+                    value="">
+
+
+                <div class="step-buttons">
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        id="captainStep2BackBtn">
+
+                        السابق
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="next-btn"
+                        id="captainStep2NextBtn">
+
+                        التالي
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 CAPTAIN STEP 3 - الدفع
+            ========================== -->
+
+            <div
+                class="captain-form-step"
+                data-captain-step="3"
+                style="display:none;">
+
+                <h4 class="step-title">
+
+                    <i class="fa-solid fa-credit-card"></i>
+
+                    الدفع
+
+                </h4>
+
+
+                <div class="booking-note">
+
+                    <p>
+                        السعر الأساسي:
+                        <strong>
+                            300 ريال
+                        </strong>
+                    </p>
+
+                    <p>
+                        السعر الحالي:
+                        <strong>
+                            100 ريال
+                        </strong>
+                    </p>
+
+                    <p>
+                        <strong>
+                            خصم 66% بمناسبة انطلاق البرنامج
+                        </strong>
+                    </p>
+
+                </div>
+
+
+                <p style="text-align:center;">
+
+                    بعد الضغط على المتابعة سيتم نقلك
+                    إلى صفحة اختيار طريقة الدفع.
+
+                </p>
+
+
+                <div class="step-buttons">
+
+                    <button
+                        type="button"
+                        class="back-btn"
+                        id="captainBackBtn">
+
+                        السابق
+
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="next-btn">
+
+                        اختيار طريقة الدفع
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </form>
 
 
 
@@ -927,14 +1241,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
              CAPTAIN VIDEO
         ========================== -->
 
-        <section class="videos-section captain-video-section">
+        <section
+            class="videos-section captain-video-section">
 
 
             <h2 class="videos-title">
 
                 <i class="fa-solid fa-video"></i>
 
-                 دورة الكابتن المحترف
+                دورة الكابتن المحترف
 
             </h2>
 
@@ -999,6 +1314,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 ================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.6.0/air-datepicker.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script
