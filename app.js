@@ -2148,7 +2148,7 @@ console.log(
 
 
 /* ==================================================
-   اختيار البرنامج (أساسي / تكميلي)
+   بوابة اختيار البرنامج (أساسي / تكميلي)
 ================================================== */
 
 const programCards =
@@ -2157,27 +2157,42 @@ const programCards =
 const selectedProgramInput =
     document.getElementById("selectedDrivingProgram");
 
+const programSelectGate =
+    document.getElementById("programSelectGate");
+
+const registrationContent =
+    document.getElementById("registrationContent");
+
+const selectedProgramBadge =
+    document.getElementById("selectedProgramBadge");
+
 programCards.forEach(card => {
 
     card.addEventListener("click", function () {
-
-        programCards.forEach(other => {
-            other.classList.remove("selected");
-            other.style.borderColor = "#d9edf5";
-            other.style.background = "#fff";
-        });
-
-        this.classList.add("selected");
-        this.style.borderColor = "#65b7c3";
-        this.style.background = "#eaf8fa";
 
         if (selectedProgramInput) {
             selectedProgramInput.value = this.dataset.program;
         }
 
+        if (selectedProgramBadge) {
+            selectedProgramBadge.textContent =
+                "البرنامج المختار: " + (this.dataset.programLabel || "");
+        }
+
+        if (programSelectGate) {
+            programSelectGate.style.display = "none";
+        }
+
+        if (registrationContent) {
+            registrationContent.style.display = "block";
+        }
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
     });
 
 });
+
 
 
 /* ==================================================
@@ -2195,15 +2210,6 @@ document.querySelectorAll("[data-next]").forEach(btn => {
             return;
         }
 
-        if (
-            Number(currentStep?.dataset.step) === 1 &&
-            selectedProgramInput &&
-            !selectedProgramInput.value
-        ) {
-            alert("يرجى اختيار البرنامج التدريبي أولًا.");
-            return;
-        }
-
         const nextStepNum =
             Number(this.dataset.next);
 
@@ -2216,6 +2222,7 @@ document.querySelectorAll("[data-next]").forEach(btn => {
     });
 
 });
+
 
 document.querySelectorAll("[data-back]").forEach(btn => {
 
