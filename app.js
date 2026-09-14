@@ -1729,10 +1729,6 @@ tabButtons.forEach(
    دورة الكابتن المحترف
 ================================================== */
 
-/* ==================================================
-   دورة الكابتن المحترف
-================================================== */
-
 const captainForm =
     document.getElementById("captainForm");
 
@@ -2152,6 +2148,39 @@ console.log(
 
 
 /* ==================================================
+   اختيار البرنامج (أساسي / تكميلي)
+================================================== */
+
+const programCards =
+    document.querySelectorAll(".program-option-card");
+
+const selectedProgramInput =
+    document.getElementById("selectedDrivingProgram");
+
+programCards.forEach(card => {
+
+    card.addEventListener("click", function () {
+
+        programCards.forEach(other => {
+            other.classList.remove("selected");
+            other.style.borderColor = "#d9edf5";
+            other.style.background = "#fff";
+        });
+
+        this.classList.add("selected");
+        this.style.borderColor = "#65b7c3";
+        this.style.background = "#eaf8fa";
+
+        if (selectedProgramInput) {
+            selectedProgramInput.value = this.dataset.program;
+        }
+
+    });
+
+});
+
+
+/* ==================================================
    ربط أزرار التالي والسابق بالخطوات
 ================================================== */
 
@@ -2163,6 +2192,15 @@ document.querySelectorAll("[data-next]").forEach(btn => {
             this.closest(".form-step");
 
         if (!validateStep(currentStep)) {
+            return;
+        }
+
+        if (
+            Number(currentStep?.dataset.step) === 1 &&
+            selectedProgramInput &&
+            !selectedProgramInput.value
+        ) {
+            alert("يرجى اختيار البرنامج التدريبي أولًا.");
             return;
         }
 
@@ -2217,8 +2255,11 @@ if (form) {
         const trainingTime =
             trainingTimeInput?.value?.trim() || "";
 
-        if (!fullName || !address || !phone || !instructorId || !trainingDate || !trainingTime) {
-            alert("يرجى تعبئة جميع البيانات واختيار المدربة والموعد.");
+        const programType =
+            selectedProgramInput?.value?.trim() || "";
+
+        if (!fullName || !address || !phone || !instructorId || !trainingDate || !trainingTime || !programType) {
+            alert("يرجى تعبئة جميع البيانات واختيار البرنامج والمدربة والموعد.");
             return;
         }
 
@@ -2261,6 +2302,7 @@ if (form) {
                         fullName,
                         address,
                         phone,
+                        programType,
                         instructorId,
                         trainingDate: formatLocalDate(currentDate),
                         trainingTime,
@@ -2303,6 +2345,7 @@ if (form) {
                 full_name: b.fullName,
                 address: b.address,
                 phone: b.phone,
+                program_type: b.programType,
                 instructor_id: b.instructorId,
                 training_date: b.trainingDate,
                 training_time: b.trainingTime,
@@ -2340,5 +2383,3 @@ if (form) {
     });
 
 }
-
-
