@@ -308,7 +308,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                 data-step="1">
 
 
-                <h4 class="step-title">
+                            <h4 class="step-title">
 
                     <i class="fa-solid fa-user"></i>
 
@@ -317,12 +317,53 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
                 </h4>
 
 
+                <!-- اختيار البرنامج -->
+
+                <label>
+                    اختاري البرنامج التدريبي
+                </label>
+
+                <div
+                    class="program-option-card"
+                    data-program="basic"
+                    style="border:2px solid #d9edf5;border-radius:14px;padding:15px;margin-bottom:12px;cursor:pointer;"
+                >
+                    <h4 style="margin:0 0 5px;">البرنامج الأساسي</h4>
+                    <p style="margin:0 0 5px;">
+                        5 ساعات —
+                        <span style="text-decoration:line-through;color:#999;">500 ريال</span>
+                        <strong>375 ريال</strong>
+                    </p>
+                    <p style="font-size:12px;color:#707d82;margin:0;">
+                        للمبتدئات أو من لديهن معرفة محدودة بالقيادة ولا يمتلكن رخصة قيادة.
+                    </p>
+                </div>
+
+                <div
+                    class="program-option-card"
+                    data-program="plus"
+                    style="border:2px solid #d9edf5;border-radius:14px;padding:15px;margin-bottom:20px;cursor:pointer;"
+                >
+                    <h4 style="margin:0 0 5px;">البرنامج التكميلي</h4>
+                    <p style="margin:0 0 5px;">
+                        5 ساعات —
+                        <span style="text-decoration:line-through;color:#999;">500 ريال</span>
+                        <strong>375 ريال</strong>
+                    </p>
+                    <p style="font-size:12px;color:#707d82;margin:0;">
+                        لمن أكملت البرنامج الأساسي أو تحمل رخصة قيادة وتحتاج تدريب عملي على الطريق.
+                    </p>
+                </div>
+
+                <input type="hidden" id="selectedDrivingProgram" value="">
+
 
                 <!-- الاسم -->
 
                 <label>
                     الاسم الكامل
                 </label>
+
 
                 <div class="input-icon">
 
