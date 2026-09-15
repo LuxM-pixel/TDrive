@@ -98,10 +98,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     <div class="service-tabs">
 
-        <button
-            type="button"
-            class="tab-btn active"
-            data-service="driving">
+   <button
+    type="button"
+    class="tab-btn"
+    data-service="driving">
 
             <i class="fa-solid fa-car"></i>
 
@@ -147,9 +147,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
          DRIVING PANEL
     ================================================== -->
 
-    <div
-        id="drivingPanel"
-        class="service-panel">
+<div
+    id="drivingPanel"
+    class="service-panel"
+    style="display:none;">
 
 
         <h3 class="booking-program-title">
@@ -1722,6 +1723,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* ==================================================
+       العناصر الرئيسية
+    ================================================== */
+
+    const serviceTabs =
+        document.querySelectorAll(".tab-btn");
+
+    const servicePanels =
+        document.querySelectorAll(".service-panel");
+
+
     const gate =
         document.getElementById("programSelectGate");
 
@@ -1741,10 +1753,192 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".program-option-card");
 
 
+    /* ==================================================
+       الحالة الابتدائية
+       
+       مهم:
+       عند فتح صفحة التسجيل لا نريد أي خدمة مفتوحة
+    ================================================== */
+
+    serviceTabs.forEach(function (tab) {
+
+        tab.classList.remove("active");
+        tab.classList.remove("selected");
+
+    });
+
+
+    servicePanels.forEach(function (panel) {
+
+        panel.style.display = "none";
+
+    });
+
+
+    /* ==================================================
+       التأكد من وجود العناصر الأساسية
+    ================================================== */
+
     if (!gate || !registrationContent || !selectedProgramInput) {
         return;
     }
 
+
+    /* ==================================================
+       دالة إخفاء جميع الخدمات
+    ================================================== */
+
+    function hideAllServicePanels() {
+
+        servicePanels.forEach(function (panel) {
+
+            panel.style.display = "none";
+
+        });
+
+    }
+
+
+    /* ==================================================
+       دالة إزالة حالة التحديد من الخدمات
+    ================================================== */
+
+    function clearServiceTabs() {
+
+        serviceTabs.forEach(function (tab) {
+
+            tab.classList.remove("active");
+            tab.classList.remove("selected");
+
+        });
+
+    }
+
+
+    /* ==================================================
+       دالة فتح الخدمة المطلوبة
+    ================================================== */
+
+    function openService(service) {
+
+        clearServiceTabs();
+
+        hideAllServicePanels();
+
+
+        const selectedTab =
+            document.querySelector(
+                '.tab-btn[data-service="' +
+                service +
+                '"]'
+            );
+
+
+        if (selectedTab) {
+
+            selectedTab.classList.add("active");
+
+        }
+
+
+        /* ==========================================
+           احترفي القيادة على الطريق
+        ========================================== */
+
+        if (service === "driving") {
+
+            const drivingPanel =
+                document.getElementById("drivingPanel");
+
+
+            if (drivingPanel) {
+
+                drivingPanel.style.display = "block";
+
+            }
+
+            return;
+
+        }
+
+
+        /* ==========================================
+           دورة الكابتن المحترف
+        ========================================== */
+
+        if (service === "captain") {
+
+            const captainPanel =
+                document.getElementById("captainPanel");
+
+
+            if (captainPanel) {
+
+                captainPanel.style.display = "block";
+
+            }
+
+            return;
+
+        }
+
+
+        /* ==========================================
+           شراء سيارة
+           
+           إذا كان هناك carPanel في الصفحة
+           سيتم فتحه تلقائيًا.
+        ========================================== */
+
+        if (service === "car") {
+
+            const carPanel =
+                document.getElementById("carPanel");
+
+
+            if (carPanel) {
+
+                carPanel.style.display = "block";
+
+            }
+
+            return;
+
+        }
+
+    }
+
+
+    /* ==================================================
+       أزرار الخدمات الرئيسية
+    ================================================== */
+
+    serviceTabs.forEach(function (tab) {
+
+        tab.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+
+            const service =
+                tab.dataset.service;
+
+
+            if (!service) {
+                return;
+            }
+
+
+            openService(service);
+
+        });
+
+    });
+
+
+    /* ==================================================
+       البرامج الأساسية والتكميلية
+    ================================================== */
 
     cards.forEach(function (card) {
 
@@ -1752,8 +1946,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
             event.preventDefault();
 
+
             const program =
                 card.dataset.program;
+
 
             const programLabel =
                 card.dataset.programLabel;
@@ -1764,12 +1960,20 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
+            /* ==========================================
+               إزالة التحديد من جميع البرامج
+            ========================================== */
+
             cards.forEach(function (item) {
 
                 item.classList.remove("selected");
 
             });
 
+
+            /* ==========================================
+               تحديد البرنامج الحالي
+            ========================================== */
 
             card.classList.add("selected");
 
@@ -1778,13 +1982,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 program;
 
 
+            /* ==========================================
+               اسم البرنامج في أعلى نموذج التسجيل
+            ========================================== */
+
             if (selectedProgramBadge) {
 
                 selectedProgramBadge.textContent =
-                    "البرنامج المختار: " + programLabel;
+                    "البرنامج المختار: " +
+                    programLabel;
 
             }
 
+
+            /* ==========================================
+               اسم البرنامج في صفحة المراجعة
+            ========================================== */
 
             if (selectedProgramReview) {
 
@@ -1794,9 +2007,33 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
+            /* ==========================================
+               إخفاء بوابة البرامج
+               وإظهار نموذج التسجيل
+            ========================================== */
+
             gate.style.display = "none";
 
             registrationContent.style.display = "block";
+
+
+            /* ==========================================
+               العودة دائمًا إلى الخطوة الأولى
+            ========================================== */
+
+            const allSteps =
+                registrationContent.querySelectorAll(
+                    ".form-step"
+                );
+
+
+            allSteps.forEach(function (step) {
+
+                step.classList.remove("active");
+
+                step.style.display = "none";
+
+            });
 
 
             const firstStep =
@@ -1807,17 +2044,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (firstStep) {
 
-                registrationContent
-                    .querySelectorAll(".form-step")
-                    .forEach(function (step) {
-
-                        step.classList.remove("active");
-
-                        step.style.display = "none";
-
-                    });
-
-
                 firstStep.classList.add("active");
 
                 firstStep.style.display = "block";
@@ -1825,13 +2051,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            registrationContent
-                .querySelectorAll(".step-circle")
-                .forEach(function (circle) {
+            /* ==========================================
+               إعادة مؤشر الخطوات إلى الخطوة الأولى
+            ========================================== */
 
-                    circle.classList.remove("active");
+            const stepCircles =
+                registrationContent.querySelectorAll(
+                    ".step-circle"
+                );
 
-                });
+
+            stepCircles.forEach(function (circle) {
+
+                circle.classList.remove("active");
+
+            });
 
 
             const firstCircle =
@@ -1847,7 +2081,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
+            /* ==========================================
+               إبلاغ app.js بالبرنامج المختار
+            ========================================== */
+
             document.dispatchEvent(
+
                 new CustomEvent(
                     "tdriveProgramSelected",
                     {
@@ -1857,14 +2096,22 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                     }
                 )
+
             );
 
+
+            /* ==========================================
+               الانتقال إلى نموذج التسجيل
+            ========================================== */
 
             setTimeout(function () {
 
                 registrationContent.scrollIntoView({
+
                     behavior: "smooth",
+
                     block: "start"
+
                 });
 
             }, 100);
@@ -1873,11 +2120,93 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+
+    /* ==================================================
+       حماية أزرار "اختيار البرنامج"
+       
+       حتى لا يتسبب الضغط على الزر داخل البطاقة
+       في تنفيذ أكثر من حدث
+    ================================================== */
+
+    const chooseButtons =
+        document.querySelectorAll(
+            ".choose-program-btn"
+        );
+
+
+    chooseButtons.forEach(function (button) {
+
+        button.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                const card =
+                    button.closest(
+                        ".program-option-card"
+                    );
+
+
+                if (!card) {
+                    return;
+                }
+
+
+                card.click();
+
+            }
+        );
+
+    });
+
+
+    /* ==================================================
+       عند فتح صفحة التسجيل لأول مرة:
+       
+       تأكيد صريح أن لا برنامج ولا خدمة مختارة
+    ================================================== */
+
+    selectedProgramInput.value = "";
+
+    if (selectedProgramBadge) {
+
+        selectedProgramBadge.textContent = "";
+
+    }
+
+
+    if (selectedProgramReview) {
+
+        selectedProgramReview.textContent = "—";
+
+    }
+
+
+    /* ==================================================
+       إخفاء نموذج التسجيل في البداية
+    ================================================== */
+
+    gate.style.display = "block";
+
+    registrationContent.style.display = "none";
+
+
+    /* ==================================================
+       تأكيد نهائي:
+       لا خدمة مفتوحة عند الدخول
+    ================================================== */
+
+    clearServiceTabs();
+
+    hideAllServicePanels();
+
 });
 
 </script>
-
-
 </body>
 
 </html>
