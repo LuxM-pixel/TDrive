@@ -879,6 +879,34 @@ footer{
       >
 
 
+      <!-- ==================================================
+           الجنس
+      ================================================== -->
+
+      <label class="required">
+        الجنس
+      </label>
+
+      <select
+        id="gender"
+        required
+      >
+
+        <option value="">
+          اختر الجنس
+        </option>
+
+        <option value="male">
+          ذكر
+        </option>
+
+        <option value="female">
+          أنثى
+        </option>
+
+      </select>
+
+
       <label class="required">
         رقم الجوال
       </label>
@@ -2153,6 +2181,14 @@ form.addEventListener(
           .trim();
 
 
+      const gender =
+        document
+          .getElementById(
+            "gender"
+          )
+          .value;
+
+
       const phone =
         document
           .getElementById(
@@ -2373,6 +2409,9 @@ form.addEventListener(
 
           p_full_name:
             fullName,
+
+          p_gender:
+            gender,
 
           p_phone:
             phone,
