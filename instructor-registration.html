@@ -10,7 +10,7 @@
   content="width=device-width, initial-scale=1.0"
 >
 
-<title>تسجيل مدربة | TDrive</title>
+<title>التسجيل | TDrive</title>
 
 <link
   href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
@@ -826,11 +826,11 @@ footer{
   </div>
 
   <h1>
-    التسجيل للانضمام كمدربة
+    التسجيل للانضمام
   </h1>
 
   <div class="subtitle">
-    ابدئي رحلتك كمدربة مع TDrive
+    رحلتك مع TDrive تبدأ من هنا
   </div>
 
 </header>
@@ -842,12 +842,12 @@ footer{
   <div class="intro">
 
     <strong>
-      طلب الانضمام كمدربة
+      طلب الانضمام
     </strong>
 
     <p>
       يرجى تعبئة البيانات وإرفاق المستندات المطلوبة بشكل واضح.
-      سيتم مراجعة الطلب والتواصل معك بعد اكتمال عملية المراجعة.
+      سيتم مراجعة الطلب والتواصل بعد اكتمال عملية المراجعة.
     </p>
 
   </div>
@@ -926,7 +926,7 @@ footer{
       >
 
         <option value="">
-          اختاري المدينة
+          اختر المدينة
         </option>
 
         <option value="جدة">
@@ -937,7 +937,7 @@ footer{
 
 
       <label class="required">
-        هل السيارة مملوكة لكِ؟
+        هل السيارة مملوكة لصاحب الطلب؟
       </label>
 
       <select
@@ -946,7 +946,7 @@ footer{
       >
 
         <option value="">
-          اختاري
+          اختر الإجابة
         </option>
 
         <option value="yes">
@@ -1044,7 +1044,7 @@ footer{
 
 
       <div class="file-hint">
-        أدخلي رابط الحساب المخصص للتدريب.
+        أدخل رابط الحساب المخصص للتدريب.
       </div>
 
 
@@ -1130,7 +1130,7 @@ footer{
         >
 
         <div class="file-hint">
-          مطلوب في حال كانت السيارة غير مملوكة لكِ.
+          مطلوب في حال كانت السيارة غير مملوكة لصاحب الطلب.
         </div>
 
       </div>
@@ -1189,7 +1189,7 @@ footer{
 
           النص المطلوب:
 
-          «السلام عليكم، أنا مدربتك أستاذة [الاسم]،
+          «السلام عليكم، أنا [الاسم]،
           أتطلع لرحلة تعليم آمنة ومفيدة بإذن الله.»
 
         </div>
@@ -1219,7 +1219,7 @@ footer{
         >
 
         <span>
-          أقر بأنني قرأت الشروط والأحكام الخاصة بالمدربات وفهمتها.
+          أقر بأنني قرأت الشروط والأحكام الخاصة بالمدربين وفهمتها.
         </span>
 
       </label>
@@ -1261,7 +1261,7 @@ footer{
         >
 
         <span>
-          أوافق على توثيق الجلسات والمهارات وإرسال تأكيد الجلسة للمتدربة.
+          أوافق على توثيق الجلسات والمهارات وإرسال تأكيد الجلسة للمتدرب.
         </span>
 
       </label>
@@ -1360,12 +1360,12 @@ footer{
 
 
     <h3>
-      تم إرسال طلبك بنجاح
+      تم إرسال الطلب بنجاح
     </h3>
 
 
     <p>
-      تم استلام طلب الانضمام كمدربة لدى TDrive.
+      تم استلام طلب الانضمام لدى TDrive.
     </p>
 
 
@@ -1378,7 +1378,7 @@ footer{
 
 
     <p>
-      احتفظي برقم الطلب لمتابعة طلبك.
+      احتفظ برقم الطلب لمتابعة الطلب.
     </p>
 
 
@@ -2046,11 +2046,6 @@ async function uploadFile(
   field
 ) {
 
-  /*
-    أي ملف أكبر من 6MB
-    يستخدم TUS.
-  */
-
   const LARGE_FILE_LIMIT =
     6 * 1024 * 1024;
 
@@ -2336,11 +2331,6 @@ form.addEventListener(
         );
 
 
-        /*
-          لا ننتقل للملف التالي
-          إلا بعد نجاح الحالي.
-        */
-
         const overallPercent =
           Math.round(
             (
@@ -2374,69 +2364,69 @@ form.addEventListener(
         data,
         error
       } =
-        await supabaseClient.rpc(
-          "submit_instructor_application",
-          {
+      await supabaseClient.rpc(
+        "submit_instructor_application",
+        {
 
-            p_id:
-              applicationId,
+          p_id:
+            applicationId,
 
-            p_full_name:
-              fullName,
+          p_full_name:
+            fullName,
 
-            p_phone:
-              phone,
+          p_phone:
+            phone,
 
-            p_national_id:
-              nationalId,
+          p_national_id:
+            nationalId,
 
-            p_qualification:
-              qualification,
+          p_qualification:
+            qualification,
 
-            p_city:
-              city,
+          p_city:
+            city,
 
-            p_owns_car:
-              ownsCarValue,
+          p_owns_car:
+            ownsCarValue,
 
-            p_bank_name:
-              bankName,
+          p_bank_name:
+            bankName,
 
-            p_swift_code:
-              swiftCode,
+          p_swift_code:
+            swiftCode,
 
-            p_account_holder_name:
-              accountHolderName,
+          p_account_holder_name:
+            accountHolderName,
 
-            p_iban:
-              iban,
+          p_iban:
+            iban,
 
-            p_training_social_account:
-              trainingSocialAccount,
+          p_training_social_account:
+            trainingSocialAccount,
 
-            p_status:
-              "pending",
+          p_status:
+            "pending",
 
-            p_application_type:
-              "instructor",
+          p_application_type:
+            "instructor",
 
-            p_terms_accepted:
-              true,
+          p_terms_accepted:
+            true,
 
-            p_terms_version:
-              "2026-08-20",
+          p_terms_version:
+            "2026-08-20",
 
-            p_terms_accepted_at:
-              new Date().toISOString(),
+          p_terms_accepted_at:
+            new Date().toISOString(),
 
-            p_files:
-              filesMetadata,
+          p_files:
+            filesMetadata,
 
-            p_submitted_at:
-              new Date().toISOString()
+          p_submitted_at:
+            new Date().toISOString()
 
-          }
-        );
+        }
+      );
 
 
       if (
