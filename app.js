@@ -83,6 +83,10 @@ const selectedTrainerInput =
 const cityInput =
     document.getElementById("address");
 
+/* ✅ جديد: عنصر اختيار الجنس */
+const genderInput =
+    document.getElementById("gender");
+
 const selectedProgramInput =
     document.getElementById("selectedDrivingProgram");
 
@@ -786,7 +790,7 @@ function refreshTrainerSchedule() {
 
 
 /* ==================================================
-   تحميل المدربات حسب المدينة
+   تحميل المدربين/المدربات حسب المدينة والجنس
 ================================================== */
 async function loadInstructorsByCity(
     city,
@@ -1005,7 +1009,6 @@ async function loadInstructorsByCity(
     }
 
 }
-
 
 
 /* ==================================================
@@ -2596,7 +2599,8 @@ document
 
                     /*
                      * عند الانتقال للخطوة الثانية
-                     * يتم تحميل المدربات حسب المدينة.
+                     * يتم تحميل المدربين/المدربات
+                     * حسب المدينة والجنس.
                      */
 
                     if (
@@ -2605,7 +2609,10 @@ document
                     ) {
 
                         loadInstructorsByCity(
-                            cityInput.value.trim()
+                            cityInput.value.trim(),
+                            genderInput
+                                ? genderInput.value.trim()
+                                : ""
                         );
 
                     }
