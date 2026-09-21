@@ -83,7 +83,7 @@ const selectedTrainerInput =
 const cityInput =
     document.getElementById("address");
 
-/* ✅ جديد: عنصر اختيار الجنس */
+/* ✅ عنصر اختيار الجنس */
 const genderInput =
     document.getElementById("gender");
 
@@ -400,7 +400,7 @@ function getArabicDayName(
 
 
 /* ==================================================
-   أوقات المدربة في التاريخ المحدد
+   أوقات المدرب في التاريخ المحدد
 ================================================== */
 
 function getTimesForInstructorDate(
@@ -499,7 +499,7 @@ function getTimesForInstructorDate(
 
 
 /* ==================================================
-   الحصول على المدربة
+   الحصول على بيانات المدرب
 ================================================== */
 
 function findInstructor(
@@ -574,7 +574,7 @@ async function updateAvailableTimes() {
     ) {
 
         showTimeMessage(
-            "اختاري المدربة أولًا ثم اختاري التاريخ."
+            "اختر المدرب أولًا ثم اختر التاريخ."
         );
 
         return;
@@ -595,7 +595,7 @@ async function updateAvailableTimes() {
         if (!instructor) {
 
             throw new Error(
-                "تعذر العثور على بيانات المدربة."
+                "تعذر العثور على بيانات المدرب."
             );
 
         }
@@ -611,7 +611,7 @@ async function updateAvailableTimes() {
         ) {
 
             showTimeMessage(
-                "المدربة غير متاحة في هذا اليوم."
+                "المدرب غير متاح في هذا اليوم."
             );
 
             return;
@@ -636,7 +636,7 @@ async function updateAvailableTimes() {
             );
 
             showTimeMessage(
-                "تعذر التحقق من المواعيد المحجوزة. حاولي مرة أخرى.",
+                "تعذر التحقق من المواعيد المحجوزة. حاول مرة أخرى.",
                 "#c0392b"
             );
 
@@ -741,7 +741,7 @@ async function updateAvailableTimes() {
         );
 
         showTimeMessage(
-            "تعذر تحميل مواعيد المدربة.",
+            "تعذر تحميل مواعيد المدرب.",
             "#c0392b"
         );
 
@@ -765,7 +765,7 @@ if (dateInput) {
 
 
 /* ==================================================
-   عند تغيير المدربة
+   عند تغيير المدرب
 ================================================== */
 
 function refreshTrainerSchedule() {
@@ -783,7 +783,7 @@ function refreshTrainerSchedule() {
     }
 
     showTimeMessage(
-        "اختاري تاريخ التدريب لعرض مواعيد المدربة."
+        "اختر تاريخ التدريب لعرض مواعيد المدرب."
     );
 
 }
@@ -891,16 +891,24 @@ async function loadInstructorsByCity(
                                 instructor.instructor_id
                             );
 
+                        const rawName =
+                            instructor.full_name ||
+                            (cleanGender === "male" ? "مدرب" : "مدربة");
+
                         const instructorName =
-                            escapeHTML(
-                                instructor.full_name ||
-                                (cleanGender === "male" ? "مدرب" : "مدربة")
-                            );
+                            escapeHTML(rawName);
 
                         const titlePrefix =
                             cleanGender === "male"
                                 ? "أ."
                                 : "أ.";
+
+                        /* ✅ التعديل هنا: إظهار كلمة "مؤسس TDrive" فقط لـ "منى حمود" */
+                        const isFounder = rawName.includes("منى حمود");
+
+                        const roleHTML = isFounder
+                            ? `<span class="trainer-role">مؤسس TDrive</span>`
+                            : ``;
 
                         return `
 
@@ -927,9 +935,7 @@ async function loadInstructorsByCity(
                                         ${titlePrefix} ${instructorName}
                                     </h5>
 
-                                    <span class="trainer-role">
-                                        مؤسس TDrive
-                                    </span>
+                                    ${roleHTML}
 
                                     <div class="trainer-audio">
 
@@ -947,7 +953,7 @@ async function loadInstructorsByCity(
                                         <div class="audio-content">
 
                                             <strong>
-                                                استمعي لتعريف المدرب
+                                                استمع لتعريف المدرب
                                             </strong>
 
                                         </div>
@@ -1012,7 +1018,7 @@ async function loadInstructorsByCity(
 
 
 /* ==================================================
-   أحداث بطاقات المدربات
+   أحداث بطاقات المدربين
 ================================================== */
 
 function attachTrainerCardEvents() {
@@ -1136,7 +1142,7 @@ function attachTrainerCardEvents() {
                                 ) {
 
                                     alert(
-                                        "لا يوجد تسجيل صوتي لهذه المدربة حاليًا."
+                                        "لا يوجد تسجيل صوتي لهذا المدرب حاليًا."
                                     );
 
                                     return;
@@ -1263,11 +1269,6 @@ function goToStep(
                 isActive
             );
 
-            /*
-             * مهم:
-             * لا نعتمد فقط على CSS لإخفاء الخطوات.
-             * نخفي ونظهر الخطوة هنا صراحة.
-             */
             step.style.display =
                 isActive
                     ? "block"
@@ -2720,7 +2721,7 @@ if (form) {
             ) {
 
                 alert(
-                    "يرجى تعبئة جميع البيانات واختيار البرنامج والمدربة والموعد."
+                    "يرجى تعبئة جميع البيانات واختيار البرنامج والمدرب والموعد."
                 );
 
                 return;
@@ -2749,7 +2750,7 @@ if (form) {
 📱 الجوال: ${phone}
 📍 المدينة: ${address}
 📚 البرنامج: ${programLabel}
-👩‍🏫 المدربة: ${instructor?.full_name || ""}
+👨‍🏫 المدرب: ${instructor?.full_name || ""}
 📅 بداية التدريب: ${trainingDate}
 🕒 الوقت: ${trainingTime}
 💰 الرسوم: ${OPENING_PRICE} ريال
@@ -2888,7 +2889,7 @@ if (form) {
 
                 /*
                  * حفظ نسخة من الحجز في Supabase
-                 * حتى تظهر في بوابة المدربة.
+                 * حتى تظهر في بوابة المدرب.
                  */
 
                 const supabaseRows =
@@ -2951,11 +2952,6 @@ if (form) {
                         "Supabase booking insert error:",
                         supabaseError
                     );
-
-                    /*
-                     * لا نوقف العملية لأن
-                     * Firebase نجح بالفعل.
-                     */
 
                 }
 
