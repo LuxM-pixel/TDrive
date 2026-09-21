@@ -788,9 +788,9 @@ function refreshTrainerSchedule() {
 /* ==================================================
    تحميل المدربات حسب المدينة
 ================================================== */
-
 async function loadInstructorsByCity(
-    city
+    city,
+    gender
 ) {
 
     if (!trainerListBox) {
@@ -800,7 +800,10 @@ async function loadInstructorsByCity(
     const cleanCity =
         String(city || "").trim();
 
-    if (!cleanCity) {
+    const cleanGender =
+        String(gender || "").trim();
+
+    if (!cleanCity || !cleanGender) {
 
         trainerListBox.innerHTML = `
             <p style="
@@ -808,7 +811,7 @@ async function loadInstructorsByCity(
                 color:#8b999f;
                 font-size:13px;
             ">
-                اختاري مدينة التدريب أولًا.
+                يرجى اختيار الجنس ومدينة التدريب أولًا.
             </p>
         `;
 
@@ -822,7 +825,7 @@ async function loadInstructorsByCity(
             color:#8b999f;
             font-size:13px;
         ">
-            جاري تحميل المدربات...
+            جاري تحميل المدربين...
         </p>
     `;
 
@@ -844,6 +847,7 @@ async function loadInstructorsByCity(
                 .from("instructors")
                 .select("*")
                 .eq("city", cleanCity)
+                .eq("gender", cleanGender)
                 .eq("status", "active");
 
         if (error) {
@@ -865,7 +869,7 @@ async function loadInstructorsByCity(
                     color:#8b999f;
                     font-size:13px;
                 ">
-                    لا توجد مدربات متاحات في مدينتك حاليًا.
+                    لا يوجد مدربون/مدربات متاحون في مدينتك حاليًا.
                 </p>
             `;
 
@@ -886,8 +890,13 @@ async function loadInstructorsByCity(
                         const instructorName =
                             escapeHTML(
                                 instructor.full_name ||
-                                "مدربة"
+                                (cleanGender === "male" ? "مدرب" : "مدربة")
                             );
+
+                        const titlePrefix =
+                            cleanGender === "male"
+                                ? "أ."
+                                : "أ.";
 
                         return `
 
@@ -911,7 +920,7 @@ async function loadInstructorsByCity(
                                 <div class="trainer-info">
 
                                     <h5>
-                                        أ. ${instructorName}
+                                        ${titlePrefix} ${instructorName}
                                     </h5>
 
                                     <span class="trainer-role">
@@ -934,7 +943,7 @@ async function loadInstructorsByCity(
                                         <div class="audio-content">
 
                                             <strong>
-                                                استمعي لتعريف المدربة
+                                                استمعي لتعريف المدرب
                                             </strong>
 
                                         </div>
@@ -959,7 +968,7 @@ async function loadInstructorsByCity(
                                     <span class="custom-radio"></span>
 
                                     <span>
-                                        اختيار المدربة
+                                        اختيار المدرب
                                     </span>
 
                                 </label>
@@ -989,13 +998,14 @@ async function loadInstructorsByCity(
                 color:#c0392b;
                 font-size:13px;
             ">
-                تعذر تحميل قائمة المدربات.
+                تعذر تحميل قائمة المدربين.
             </p>
         `;
 
     }
 
 }
+
 
 
 /* ==================================================
