@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
-
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
 
         :root {
@@ -1545,101 +1545,282 @@
 <script>
 
     /* =====================================================
-       البيانات الافتراضية للمدن
+       SUPABASE
     ===================================================== */
 
-    const defaultCities = {
+    const SUPABASE_URL =
+        "https://ytesjbrtkqnjqqeoswkc.supabase.co";
 
-        western: [
-            "جدة",
-            "مكة المكرمة",
-            "الطائف",
-            "المدينة المنورة",
-            "ينبع",
-            "رابغ"
-        ],
+    const SUPABASE_KEY =
+        "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j";
 
-        southern: [
-            "أبها",
-            "خميس مشيط",
-            "جازان",
-            "نجران",
-            "الباحة"
-        ],
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
 
-        central: [
-            "الرياض",
-            "الخرج",
-            "الزلفي",
-            "الدوادمي",
-            "المجمعة"
-        ],
 
-        eastern: [
-            "الدمام",
-            "الخبر",
-            "الظهران",
-            "الأحساء",
-            "الجبيل",
-            "القطيف"
-        ],
+    /* =====================================================
+       بيانات المناطق والأسعار
+    ===================================================== */
 
-        northern: [
-            "تبوك",
-            "حائل",
-            "عرعر",
-            "سكاكا",
-            "القريات"
-        ]
+    const regionData = {
+
+        western: {
+            name: "المنطقة الغربية",
+            full_price: 599,
+            customer_price: 460,
+            launch_price: 419,
+            trainer_rights: 400
+        },
+
+        southern: {
+            name: "المنطقة الجنوبية",
+            full_price: 998,
+            customer_price: 747.50,
+            launch_price: 709,
+            trainer_rights: 650
+        },
+
+        central: {
+            name: "المنطقة الوسطى",
+            full_price: 789,
+            customer_price: 575,
+            launch_price: 529,
+            trainer_rights: 500
+        },
+
+        eastern: {
+            name: "المنطقة الشرقية",
+            full_price: 599,
+            customer_price: 460,
+            launch_price: 419,
+            trainer_rights: 400
+        },
+
+        northern: {
+            name: "المنطقة الشمالية",
+            full_price: 849,
+            customer_price: 632.50,
+            launch_price: 589,
+            trainer_rights: 550
+        }
 
     };
 
 
     /* =====================================================
-       تحميل المدن
+       ترتيب المناطق
     ===================================================== */
 
-    function loadCities() {
+    const regions = [
+        "western",
+        "southern",
+        "central",
+        "eastern",
+        "northern"
+    ];
 
-        const saved =
-            localStorage.getItem("tdrive_regions_cities");
 
-        if (saved) {
+    /* =====================================================
+       رسالة الحالة
+    ===================================================== */
 
-            try {
+    function showMessage(
+        message,
+        type = "success"
+    ) {
 
-                return JSON.parse(saved);
+        let messageBox =
+            document.getElementById(
+                "supabase-message"
+            );
 
-            } catch (error) {
 
-                console.error(
-                    "تعذر قراءة المدن المحفوظة",
-                    error
-                );
+        if (!messageBox) {
 
-            }
+            messageBox =
+                document.createElement("div");
+
+            messageBox.id =
+                "supabase-message";
+
+
+            messageBox.style.position =
+                "fixed";
+
+            messageBox.style.top =
+                "90px";
+
+            messageBox.style.left =
+                "50%";
+
+            messageBox.style.transform =
+                "translateX(-50%)";
+
+            messageBox.style.zIndex =
+                "9999";
+
+            messageBox.style.padding =
+                "12px 20px";
+
+            messageBox.style.borderRadius =
+                "12px";
+
+            messageBox.style.fontFamily =
+                '"Cairo", sans-serif';
+
+            messageBox.style.fontSize =
+                "14px";
+
+            messageBox.style.fontWeight =
+                "800";
+
+            messageBox.style.boxShadow =
+                "0 8px 25px rgba(0,0,0,0.12)";
+
+            messageBox.style.transition =
+                "0.3s";
+
+            document.body.appendChild(
+                messageBox
+            );
 
         }
 
-        return JSON.parse(
-            JSON.stringify(defaultCities)
+
+        if (type === "success") {
+
+            messageBox.style.background =
+                "#eef9f1";
+
+            messageBox.style.border =
+                "1px solid #cce5d2";
+
+            messageBox.style.color =
+                "#287a3d";
+
+        } else {
+
+            messageBox.style.background =
+                "#fff4f4";
+
+            messageBox.style.border =
+                "1px solid #efcaca";
+
+            messageBox.style.color =
+                "#a33b3b";
+
+        }
+
+
+        messageBox.textContent =
+            message;
+
+
+        messageBox.style.opacity = "1";
+
+
+        clearTimeout(
+            messageBox.hideTimer
         );
+
+
+        messageBox.hideTimer =
+            setTimeout(
+                function () {
+
+                    messageBox.style.opacity =
+                        "0";
+
+                },
+                3000
+            );
 
     }
 
 
-    let citiesData = loadCities();
-
-
     /* =====================================================
-       حفظ المدن
+       تحميل المدن من Supabase
     ===================================================== */
 
-    function saveCities() {
+    async function loadCities() {
 
-        localStorage.setItem(
-            "tdrive_regions_cities",
-            JSON.stringify(citiesData)
+        regions.forEach(function (region) {
+
+            const container =
+                document.getElementById(
+                    "cities-" + region
+                );
+
+            if (container) {
+
+                container.innerHTML =
+                    '<span style="color:#687780;font-size:13px;">جاري تحميل المدن...</span>';
+
+            }
+
+        });
+
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("tdrive_regions_cities")
+            .select("*")
+            .eq("is_active", true)
+            .order("id", {
+                ascending: true
+            });
+
+
+        if (error) {
+
+            console.error(
+                "Supabase load error:",
+                error
+            );
+
+
+            showMessage(
+                "❌ تعذر تحميل المدن من Supabase",
+                "error"
+            );
+
+
+            return;
+
+        }
+
+
+        const citiesData = {};
+
+
+        regions.forEach(function (region) {
+
+            citiesData[region] = [];
+
+        });
+
+
+        data.forEach(function (row) {
+
+            if (
+                citiesData[row.region_key]
+            ) {
+
+                citiesData[row.region_key]
+                    .push(row);
+
+            }
+
+        });
+
+
+        renderAllCities(
+            citiesData
         );
 
     }
@@ -1649,14 +1830,19 @@
        عرض المدن
     ===================================================== */
 
-    function renderCities(region) {
+    function renderCities(
+        region,
+        citiesData
+    ) {
 
         const container =
             document.getElementById(
                 "cities-" + region
             );
 
+
         if (!container) return;
+
 
         container.innerHTML = "";
 
@@ -1665,24 +1851,50 @@
             citiesData[region] || [];
 
 
-        cities.forEach((city, index) => {
+        if (!cities.length) {
+
+            const empty =
+                document.createElement("span");
+
+            empty.textContent =
+                "لا توجد مدن مضافة حاليًا";
+
+            empty.style.color =
+                "#687780";
+
+            empty.style.fontSize =
+                "13px";
+
+            container.appendChild(
+                empty
+            );
+
+            return;
+
+        }
+
+
+        cities.forEach(function (city) {
 
             const item =
                 document.createElement("div");
 
-            item.className = "city-item";
+            item.className =
+                "city-item";
 
 
             const name =
                 document.createElement("span");
 
-            name.textContent = city;
+            name.textContent =
+                city.city_name;
 
 
             const deleteButton =
                 document.createElement("button");
 
-            deleteButton.type = "button";
+            deleteButton.type =
+                "button";
 
             deleteButton.className =
                 "delete-city";
@@ -1690,7 +1902,8 @@
             deleteButton.title =
                 "حذف المدينة";
 
-            deleteButton.textContent = "×";
+            deleteButton.textContent =
+                "×";
 
 
             deleteButton.addEventListener(
@@ -1698,8 +1911,9 @@
                 function () {
 
                     deleteCity(
-                        region,
-                        index
+                        city.id,
+                        city.city_name,
+                        region
                     );
 
                 }
@@ -1708,9 +1922,13 @@
 
             item.appendChild(name);
 
-            item.appendChild(deleteButton);
+            item.appendChild(
+                deleteButton
+            );
 
-            container.appendChild(item);
+            container.appendChild(
+                item
+            );
 
         });
 
@@ -1721,22 +1939,20 @@
        عرض جميع المناطق
     ===================================================== */
 
-    function renderAllCities() {
+    function renderAllCities(
+        citiesData
+    ) {
 
-        const regions = [
-            "western",
-            "southern",
-            "central",
-            "eastern",
-            "northern"
-        ];
+        regions.forEach(
+            function (region) {
 
+                renderCities(
+                    region,
+                    citiesData
+                );
 
-        regions.forEach(function (region) {
-
-            renderCities(region);
-
-        });
+            }
+        );
 
     }
 
@@ -1745,12 +1961,15 @@
        فتح نموذج إضافة مدينة
     ===================================================== */
 
-    function showAddCity(region) {
+    function showAddCity(
+        region
+    ) {
 
         const form =
             document.getElementById(
                 "add-form-" + region
             );
+
 
         const input =
             document.getElementById(
@@ -1761,7 +1980,9 @@
         if (!form) return;
 
 
-        form.classList.add("show");
+        form.classList.add(
+            "show"
+        );
 
 
         if (input) {
@@ -1777,12 +1998,15 @@
        إلغاء إضافة المدينة
     ===================================================== */
 
-    function cancelAddCity(region) {
+    function cancelAddCity(
+        region
+    ) {
 
         const form =
             document.getElementById(
                 "add-form-" + region
             );
+
 
         const input =
             document.getElementById(
@@ -1792,7 +2016,9 @@
 
         if (form) {
 
-            form.classList.remove("show");
+            form.classList.remove(
+                "show"
+            );
 
         }
 
@@ -1807,10 +2033,12 @@
 
 
     /* =====================================================
-       إضافة مدينة
+       إضافة مدينة إلى Supabase
     ===================================================== */
 
-    function addCity(region) {
+    async function addCity(
+        region
+    ) {
 
         const input =
             document.getElementById(
@@ -1827,8 +2055,9 @@
 
         if (!city) {
 
-            alert(
-                "فضلاً اكتبي اسم المدينة."
+            showMessage(
+                "فضلاً اكتبي اسم المدينة.",
+                "error"
             );
 
             input.focus();
@@ -1838,31 +2067,60 @@
         }
 
 
-        if (!citiesData[region]) {
+        const regionInfo =
+            regionData[region];
 
-            citiesData[region] = [];
+
+        if (!regionInfo) {
+
+            showMessage(
+                "❌ تعذر تحديد المنطقة.",
+                "error"
+            );
+
+            return;
 
         }
 
 
-        const alreadyExists =
-            citiesData[region].some(
-                function (existingCity) {
+        /* =========================
+           التأكد من عدم التكرار
+        ========================= */
 
-                    return (
-                        existingCity.trim()
-                            .toLowerCase() ===
-                        city.toLowerCase()
-                    );
+        const {
+            data: existingCity,
+            error: checkError
+        } = await supabaseClient
+            .from("tdrive_regions_cities")
+            .select("id")
+            .eq("region_key", region)
+            .eq("city_name", city)
+            .maybeSingle();
 
-                }
+
+        if (checkError) {
+
+            console.error(
+                "Check city error:",
+                checkError
             );
 
 
-        if (alreadyExists) {
+            showMessage(
+                "❌ تعذر التحقق من المدينة.",
+                "error"
+            );
 
-            alert(
-                "هذه المدينة مضافة بالفعل."
+            return;
+
+        }
+
+
+        if (existingCity) {
+
+            showMessage(
+                "هذه المدينة مضافة بالفعل.",
+                "error"
             );
 
             input.focus();
@@ -1872,52 +2130,133 @@
         }
 
 
-        citiesData[region].push(city);
+        /* =========================
+           الحفظ في Supabase
+        ========================= */
+
+        const {
+            error
+        } = await supabaseClient
+            .from("tdrive_regions_cities")
+            .insert({
+
+                region_key:
+                    region,
+
+                region_name:
+                    regionInfo.name,
+
+                city_name:
+                    city,
+
+                full_price:
+                    regionInfo.full_price,
+
+                customer_price:
+                    regionInfo.customer_price,
+
+                launch_price:
+                    regionInfo.launch_price,
+
+                trainer_rights:
+                    regionInfo.trainer_rights,
+
+                is_active:
+                    true
+
+            });
 
 
-        saveCities();
+        if (error) {
 
-        renderCities(region);
+            console.error(
+                "Supabase insert error:",
+                error
+            );
 
-        cancelAddCity(region);
+
+            showMessage(
+                "❌ لم يتم الحفظ في Supabase: " +
+                error.message,
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        /* =========================
+           نجاح الحفظ
+        ========================= */
+
+        showMessage(
+            "✅ تم حفظ المدينة في Supabase بنجاح"
+        );
+
+
+        cancelAddCity(
+            region
+        );
+
+
+        await loadCities();
 
     }
 
 
     /* =====================================================
-       حذف مدينة
+       حذف مدينة من Supabase
     ===================================================== */
 
-    function deleteCity(
-        region,
-        index
+    async function deleteCity(
+        id,
+        cityName,
+        region
     ) {
-
-        const city =
-            citiesData[region]?.[index];
-
-
-        if (!city) return;
-
 
         const confirmed =
             confirm(
-                `هل تريدين حذف مدينة "${city}"؟`
+                `هل تريدين حذف مدينة "${cityName}"؟`
             );
 
 
         if (!confirmed) return;
 
 
-        citiesData[region].splice(
-            index,
-            1
+        const {
+            error
+        } = await supabaseClient
+            .from("tdrive_regions_cities")
+            .delete()
+            .eq("id", id);
+
+
+        if (error) {
+
+            console.error(
+                "Supabase delete error:",
+                error
+            );
+
+
+            showMessage(
+                "❌ لم يتم حذف المدينة: " +
+                error.message,
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        showMessage(
+            "✅ تم حذف المدينة من Supabase بنجاح"
         );
 
 
-        saveCities();
-
-        renderCities(region);
+        await loadCities();
 
     }
 
@@ -1930,8 +2269,13 @@
         "keydown",
         function (event) {
 
-            if (event.key !== "Enter") {
+            if (
+                event.key !==
+                "Enter"
+            ) {
+
                 return;
+
             }
 
 
@@ -1958,17 +2302,19 @@
                 );
 
 
-            addCity(region);
+            addCity(
+                region
+            );
 
         }
     );
 
 
     /* =====================================================
-       التشغيل
+       تشغيل الصفحة
     ===================================================== */
 
-    renderAllCities();
+    loadCities();
 
 </script>
 
