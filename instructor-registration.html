@@ -318,6 +318,128 @@ select:focus{
 }
 
 
+select:disabled{
+
+  background:#f2f7f8;
+
+  color:#89959a;
+
+  cursor:not-allowed;
+}
+
+
+/* =========================
+   OTHER CITY
+========================= */
+
+#otherCityBox{
+
+  display:none;
+
+  margin-top:10px;
+
+  padding:14px;
+
+  background:#f7fbfd;
+
+  border:1px solid var(--border);
+
+  border-radius:12px;
+}
+
+
+.other-city-title{
+
+  color:var(--tdrive-dark);
+
+  font-size:12px;
+
+  font-weight:700;
+
+  margin-bottom:5px;
+}
+
+
+.other-city-hint{
+
+  color:var(--muted);
+
+  font-size:11px;
+
+  margin-bottom:10px;
+}
+
+
+.other-city-row{
+
+  display:flex;
+
+  gap:8px;
+}
+
+
+#otherCityInput{
+
+  flex:1;
+
+  min-width:0;
+
+  margin:0;
+}
+
+
+#addOtherCityBtn{
+
+  border:none;
+
+  border-radius:10px;
+
+  padding:10px 14px;
+
+  background:var(--tdrive-dark);
+
+  color:#fff;
+
+  font-family:'Cairo',sans-serif;
+
+  font-size:12px;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  white-space:nowrap;
+
+  transition:.2s;
+}
+
+
+#addOtherCityBtn:hover{
+
+  background:#2f8e99;
+}
+
+
+#addOtherCityBtn:disabled{
+
+  background:#a8cdd1;
+
+  cursor:not-allowed;
+}
+
+
+#cityAddStatus{
+
+  margin-top:8px;
+
+  font-size:11px;
+
+  min-height:18px;
+
+  line-height:1.7;
+}
+
+
 /* =========================
    FILES
 ========================= */
@@ -783,25 +905,16 @@ footer{
   }
 
 
-  .terms-box{
+  .other-city-row{
 
-    max-height:92vh;
-
-    border-radius:19px;
+    flex-direction:column;
 
   }
 
 
-  .terms-content{
+  #addOtherCityBtn{
 
-    padding:16px;
-
-  }
-
-
-  .terms-actions{
-
-    gap:7px;
+    width:100%;
 
   }
 
@@ -944,6 +1057,26 @@ footer{
       >
 
 
+      <!-- ==================================================
+           المنطقة والمدينة
+      ================================================== -->
+
+      <label class="required">
+        منطقة التدريب
+      </label>
+
+      <select
+        id="region"
+        required
+      >
+
+        <option value="">
+          جاري تحميل المناطق...
+        </option>
+
+      </select>
+
+
       <label class="required">
         مدينة التدريب
       </label>
@@ -951,17 +1084,59 @@ footer{
       <select
         id="city"
         required
+        disabled
       >
 
         <option value="">
-          اختر المدينة
-        </option>
-
-        <option value="جدة">
-          جدة
+          اختر المنطقة أولًا
         </option>
 
       </select>
+
+
+      <!-- ==================================================
+           إضافة مدينة أخرى
+      ================================================== -->
+
+      <div
+        id="otherCityBox"
+      >
+
+        <div class="other-city-title">
+          مدينتك غير موجودة؟
+        </div>
+
+
+        <div class="other-city-hint">
+          اكتبي اسم المدينة، وسيتم إضافتها مباشرة إلى قائمة المدن في TDrive.
+        </div>
+
+
+        <div class="other-city-row">
+
+          <input
+            type="text"
+            id="otherCityInput"
+            placeholder="اسم المدينة"
+            autocomplete="off"
+          >
+
+
+          <button
+            type="button"
+            id="addOtherCityBtn"
+          >
+            إضافة المدينة
+          </button>
+
+        </div>
+
+
+        <div
+          id="cityAddStatus"
+        ></div>
+
+      </div>
 
 
       <label class="required">
@@ -1424,7 +1599,6 @@ footer{
 </footer>
 
 
-
 <!-- ==================================================
      SUPABASE
 ================================================== -->
@@ -1468,11 +1642,33 @@ const supabaseClient =
 const TABLE_NAME =
   "instructor_applications";
 
+const CITY_TABLE_NAME =
+  "tdrive_regions_cities";
+
 const BUCKET_NAME =
   "instructor-documents";
 
 const PROJECT_ID =
   "ytesjbrtkqnjqqeoswkc";
+
+
+/* ==================================================
+   REGION ORDER
+================================================== */
+
+const regionOrder = [
+
+  "western",
+
+  "southern",
+
+  "central",
+
+  "eastern",
+
+  "northern"
+
+];
 
 
 /* ==================================================
@@ -1532,6 +1728,41 @@ const successBox =
 const applicationNumberEl =
   document.getElementById(
     "applicationNumber"
+  );
+
+
+/* ==================================================
+   REGION / CITY ELEMENTS
+================================================== */
+
+const regionSelect =
+  document.getElementById(
+    "region"
+  );
+
+const citySelect =
+  document.getElementById(
+    "city"
+  );
+
+const otherCityBox =
+  document.getElementById(
+    "otherCityBox"
+  );
+
+const otherCityInput =
+  document.getElementById(
+    "otherCityInput"
+  );
+
+const addOtherCityBtn =
+  document.getElementById(
+    "addOtherCityBtn"
+  );
+
+const cityAddStatus =
+  document.getElementById(
+    "cityAddStatus"
   );
 
 
@@ -1621,6 +1852,706 @@ ownsCar.addEventListener(
 
 
 /* ==================================================
+   LOAD REGIONS
+================================================== */
+
+async function loadRegions() {
+
+  regionSelect.innerHTML = `
+    <option value="">
+      جاري تحميل المناطق...
+    </option>
+  `;
+
+
+  citySelect.innerHTML = `
+    <option value="">
+      اختر المنطقة أولًا
+    </option>
+  `;
+
+
+  citySelect.disabled =
+    true;
+
+
+  try {
+
+    const {
+      data,
+      error
+    } = await supabaseClient
+      .from(CITY_TABLE_NAME)
+      .select(
+        "region_key, region_name"
+      )
+      .eq(
+        "is_active",
+        true
+      );
+
+
+    if (error) {
+
+      throw error;
+
+    }
+
+
+    const uniqueRegions =
+      [];
+
+
+    data.forEach(
+      function(row) {
+
+        if (
+          !uniqueRegions.some(
+            function(item) {
+
+              return (
+                item.region_key ===
+                row.region_key
+              );
+
+            }
+          )
+        ) {
+
+          uniqueRegions.push({
+
+            region_key:
+              row.region_key,
+
+            region_name:
+              row.region_name
+
+          });
+
+        }
+
+      }
+    );
+
+
+    uniqueRegions.sort(
+      function(a, b) {
+
+        return (
+          regionOrder.indexOf(
+            a.region_key
+          ) -
+          regionOrder.indexOf(
+            b.region_key
+          )
+        );
+
+      }
+    );
+
+
+    regionSelect.innerHTML = `
+      <option value="">
+        اختر المنطقة
+      </option>
+    `;
+
+
+    uniqueRegions.forEach(
+      function(region) {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+
+        option.value =
+          region.region_key;
+
+
+        option.textContent =
+          region.region_name;
+
+
+        regionSelect.appendChild(
+          option
+        );
+
+      }
+    );
+
+
+  } catch(error) {
+
+    console.error(
+      "Load regions error:",
+      error
+    );
+
+
+    regionSelect.innerHTML = `
+      <option value="">
+        تعذر تحميل المناطق
+      </option>
+    `;
+
+
+    statusEl.className =
+      "err";
+
+    statusEl.textContent =
+      "تعذر تحميل المناطق من قاعدة البيانات.";
+
+
+  }
+
+}
+
+
+/* ==================================================
+   LOAD CITIES
+================================================== */
+
+async function loadCitiesForRegion(
+  regionKey
+) {
+
+  citySelect.disabled =
+    true;
+
+
+  citySelect.innerHTML = `
+    <option value="">
+      جاري تحميل المدن...
+    </option>
+  `;
+
+
+  otherCityBox.style.display =
+    "none";
+
+
+  otherCityInput.value =
+    "";
+
+
+  cityAddStatus.textContent =
+    "";
+
+
+  if (!regionKey) {
+
+    citySelect.innerHTML = `
+      <option value="">
+        اختر المنطقة أولًا
+      </option>
+    `;
+
+    return;
+
+  }
+
+
+  try {
+
+    const {
+      data,
+      error
+    } = await supabaseClient
+      .from(CITY_TABLE_NAME)
+      .select(
+        "id, city_name"
+      )
+      .eq(
+        "region_key",
+        regionKey
+      )
+      .eq(
+        "is_active",
+        true
+      )
+      .order(
+        "city_name",
+        {
+          ascending:true
+        }
+      );
+
+
+    if (error) {
+
+      throw error;
+
+    }
+
+
+    citySelect.innerHTML = `
+      <option value="">
+        اختر المدينة
+      </option>
+    `;
+
+
+    data.forEach(
+      function(city) {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+
+        option.value =
+          city.city_name;
+
+
+        option.textContent =
+          city.city_name;
+
+
+        citySelect.appendChild(
+          option
+        );
+
+      }
+    );
+
+
+    /* =========================
+       أخرى
+    ========================= */
+
+    const otherOption =
+      document.createElement(
+        "option"
+      );
+
+
+    otherOption.value =
+      "__other__";
+
+
+    otherOption.textContent =
+      "أخرى";
+
+
+    citySelect.appendChild(
+      otherOption
+    );
+
+
+    citySelect.disabled =
+      false;
+
+
+  } catch(error) {
+
+    console.error(
+      "Load cities error:",
+      error
+    );
+
+
+    citySelect.innerHTML = `
+      <option value="">
+        تعذر تحميل المدن
+      </option>
+    `;
+
+
+    citySelect.disabled =
+      true;
+
+
+    statusEl.className =
+      "err";
+
+
+    statusEl.textContent =
+      "تعذر تحميل مدن المنطقة.";
+
+
+  }
+
+}
+
+
+/* ==================================================
+   REGION CHANGE
+================================================== */
+
+regionSelect.addEventListener(
+  "change",
+  function() {
+
+    statusEl.textContent =
+      "";
+
+    statusEl.className =
+      "";
+
+
+    loadCitiesForRegion(
+      regionSelect.value
+    );
+
+  }
+);
+
+
+/* ==================================================
+   CITY CHANGE
+================================================== */
+
+citySelect.addEventListener(
+  "change",
+  function() {
+
+    if (
+      citySelect.value ===
+      "__other__"
+    ) {
+
+      otherCityBox.style.display =
+        "block";
+
+
+      otherCityInput.focus();
+
+
+    } else {
+
+      otherCityBox.style.display =
+        "none";
+
+
+      otherCityInput.value =
+        "";
+
+
+      cityAddStatus.textContent =
+        "";
+
+    }
+
+  }
+);
+
+
+/* ==================================================
+   ADD NEW CITY
+================================================== */
+
+addOtherCityBtn.addEventListener(
+  "click",
+  async function() {
+
+    const regionKey =
+      regionSelect.value;
+
+
+    const cityName =
+      otherCityInput.value.trim();
+
+
+    cityAddStatus.textContent =
+      "";
+
+
+    /* ------------------------------------------
+       المنطقة
+    ------------------------------------------ */
+
+    if (!regionKey) {
+
+      cityAddStatus.style.color =
+        "#c0392b";
+
+      cityAddStatus.textContent =
+        "اختاري المنطقة أولًا.";
+
+      return;
+
+    }
+
+
+    /* ------------------------------------------
+       اسم المدينة
+    ------------------------------------------ */
+
+    if (!cityName) {
+
+      cityAddStatus.style.color =
+        "#c0392b";
+
+      cityAddStatus.textContent =
+        "اكتبي اسم المدينة.";
+
+      otherCityInput.focus();
+
+      return;
+
+    }
+
+
+    addOtherCityBtn.disabled =
+      true;
+
+    addOtherCityBtn.textContent =
+      "جاري الحفظ...";
+
+
+    try {
+
+
+      /* ----------------------------------------
+         التحقق من وجود المدينة
+      ---------------------------------------- */
+
+      const {
+        data: existingCity,
+        error: checkError
+      } = await supabaseClient
+        .from(CITY_TABLE_NAME)
+        .select(
+          "id, city_name"
+        )
+        .eq(
+          "region_key",
+          regionKey
+        )
+        .ilike(
+          "city_name",
+          cityName
+        )
+        .maybeSingle();
+
+
+      if (checkError) {
+
+        throw checkError;
+
+      }
+
+
+      /* ----------------------------------------
+         المدينة موجودة
+      ---------------------------------------- */
+
+      if (existingCity) {
+
+        await loadCitiesForRegion(
+          regionKey
+        );
+
+
+        citySelect.value =
+          existingCity.city_name;
+
+
+        otherCityBox.style.display =
+          "none";
+
+
+        otherCityInput.value =
+          "";
+
+
+        cityAddStatus.style.color =
+          "#d98b22";
+
+
+        cityAddStatus.textContent =
+          "هذه المدينة موجودة بالفعل وتم اختيارها.";
+
+
+        return;
+
+      }
+
+
+      /* ----------------------------------------
+         جلب بيانات وأسعار المنطقة
+      ---------------------------------------- */
+
+      const {
+        data: regionInfo,
+        error: regionError
+      } = await supabaseClient
+        .from(CITY_TABLE_NAME)
+        .select(`
+          region_name,
+          full_price,
+          customer_price,
+          launch_price,
+          trainer_rights
+        `)
+        .eq(
+          "region_key",
+          regionKey
+        )
+        .eq(
+          "is_active",
+          true
+        )
+        .limit(1)
+        .maybeSingle();
+
+
+      if (regionError) {
+
+        throw regionError;
+
+      }
+
+
+      if (!regionInfo) {
+
+        throw new Error(
+          "لم يتم العثور على بيانات وأسعار المنطقة."
+        );
+
+      }
+
+
+      /* ----------------------------------------
+         إضافة المدينة
+      ---------------------------------------- */
+
+      const {
+        data: insertedCity,
+        error: insertError
+      } = await supabaseClient
+        .from(CITY_TABLE_NAME)
+        .insert({
+
+          region_key:
+            regionKey,
+
+          region_name:
+            regionInfo.region_name,
+
+          city_name:
+            cityName,
+
+          full_price:
+            regionInfo.full_price,
+
+          customer_price:
+            regionInfo.customer_price,
+
+          launch_price:
+            regionInfo.launch_price,
+
+          trainer_rights:
+            regionInfo.trainer_rights,
+
+          is_active:
+            true
+
+        })
+        .select(
+          "id, city_name"
+        )
+        .single();
+
+
+      if (insertError) {
+
+        throw insertError;
+
+      }
+
+
+      /* ----------------------------------------
+         نجاح
+      ---------------------------------------- */
+
+      cityAddStatus.style.color =
+        "#2e8b57";
+
+
+      cityAddStatus.textContent =
+        "✓ تم حفظ المدينة في Supabase بنجاح";
+
+
+      await loadCitiesForRegion(
+        regionKey
+      );
+
+
+      citySelect.value =
+        insertedCity.city_name;
+
+
+      otherCityBox.style.display =
+        "none";
+
+
+      otherCityInput.value =
+        "";
+
+
+    } catch(error) {
+
+      console.error(
+        "Add city error:",
+        error
+      );
+
+
+      cityAddStatus.style.color =
+        "#c0392b";
+
+
+      cityAddStatus.textContent =
+        "تعذر إضافة المدينة: " +
+        (
+          error.message ||
+          "حدث خطأ غير معروف."
+        );
+
+
+    } finally {
+
+      addOtherCityBtn.disabled =
+        false;
+
+
+      addOtherCityBtn.textContent =
+        "إضافة المدينة";
+
+    }
+
+  }
+);
+
+
+/* ==================================================
+   ENTER لإضافة المدينة
+================================================== */
+
+otherCityInput.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (
+      event.key ===
+      "Enter"
+    ) {
+
+      event.preventDefault();
+
+      addOtherCityBtn.click();
+
+    }
+
+  }
+);
+
+
+/* ==================================================
    PROGRESS
 ================================================== */
 
@@ -1649,6 +2580,7 @@ function getSelectedFiles() {
 
   const files = {};
 
+
   for (
     const field of fileFields
   ) {
@@ -1658,6 +2590,7 @@ function getSelectedFiles() {
         field
       );
 
+
     if (
       !input
     ) {
@@ -1665,6 +2598,7 @@ function getSelectedFiles() {
       continue;
 
     }
+
 
     if (
       input.files &&
@@ -1677,6 +2611,7 @@ function getSelectedFiles() {
     }
 
   }
+
 
   return files;
 
@@ -2048,6 +2983,7 @@ function uploadLargeFile(
 
         upload.start();
 
+
       } catch (
         error
       ) {
@@ -2122,6 +3058,62 @@ form.addEventListener(
     ) {
 
       form.reportValidity();
+
+      return;
+
+    }
+
+
+    /* ----------------------------------------------
+       CITY VALIDATION
+    ---------------------------------------------- */
+
+    if (
+      !regionSelect.value
+    ) {
+
+      statusEl.className =
+        "err";
+
+      statusEl.textContent =
+        "يرجى اختيار منطقة التدريب.";
+
+      regionSelect.focus();
+
+      return;
+
+    }
+
+
+    if (
+      !citySelect.value
+    ) {
+
+      statusEl.className =
+        "err";
+
+      statusEl.textContent =
+        "يرجى اختيار مدينة التدريب.";
+
+      citySelect.focus();
+
+      return;
+
+    }
+
+
+    if (
+      citySelect.value ===
+      "__other__"
+    ) {
+
+      statusEl.className =
+        "err";
+
+      statusEl.textContent =
+        "يرجى إضافة المدينة الجديدة أولًا.";
+
+      otherCityInput.focus();
 
       return;
 
@@ -2216,12 +3208,12 @@ form.addEventListener(
           .trim();
 
 
+      const region =
+        regionSelect.value;
+
+
       const city =
-        document
-          .getElementById(
-            "city"
-          )
-          .value;
+        citySelect.value;
 
 
       const ownsCarValue =
@@ -2477,6 +3469,7 @@ form.addEventListener(
           error
         );
 
+
         throw new Error(
           error.message ||
           "تعذر حفظ طلب الانضمام."
@@ -2560,6 +3553,13 @@ form.addEventListener(
 
   }
 );
+
+
+/* ==================================================
+   INITIAL LOAD
+================================================== */
+
+loadRegions();
 
 </script>
 
