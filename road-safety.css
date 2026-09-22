@@ -580,3 +580,68 @@ footer{
     display: block;
     margin: 0 auto 25px;
 }
+
+
+/* =========================================
+   REFERENCES
+========================================= */
+
+.references{
+
+    margin-top:18px;
+
+    padding-top:10px;
+
+    border-top:1px solid #e1eef1;
+
+    font-size:9px;
+
+    line-height:1.9;
+
+    color:#9aa6ab;
+
+    text-align:center;
+
+}
+
+.references-title{
+
+    font-size:10px;
+
+    font-weight:700;
+
+    color:#7f9096;
+
+    margin-bottom:4px;
+
+}
+
+.reference-item{
+
+    margin-top:3px;
+
+}
+
+.reference-label{
+
+    font-weight:700;
+
+    color:#7f9096;
+
+}
+
+.reference-item a{
+
+    color:#6f969e;
+
+    text-decoration:none;
+
+    font-size:9px;
+
+}
+
+.reference-item a:hover{
+
+    text-decoration:underline;
+
+}
