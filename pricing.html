@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>المناطق والأسعار | TDrive</title>
+
+    <meta
+        name="description"
+        content="المناطق والمدن والأسعار وبرنامج الحوافز للمدربين في TDrive"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --tdrive: #65b7c3;
+            --tdrive-dark: #3a939f;
+            --tdrive-deep: #2f8ea1;
+
+            --bg: #f7fbfd;
+            --card: #ffffff;
+            --border: #d9edf5;
+
+            --text: #30343b;
+            --muted: #687780;
+
+            --price-bg: #fff8cf;
+            --price-border: #f1df79;
+
+            --trainer-bg: #fff0d3;
+            --trainer-border: #f3c76b;
+
+            --delete: #c96b6b;
+            --delete-bg: #fff4f4;
+
+            --shadow:
+                0 10px 30px rgba(47, 142, 161, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Cairo", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .container {
+            width: min(1100px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            text-decoration: none;
+            color: var(--tdrive-deep);
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        .brand span {
+            display: block;
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 600;
+            margin-top: -4px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--tdrive-deep);
+            border: 1px solid var(--border);
+            background: #fff;
+            padding: 9px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            background: var(--bg);
+            border-color: var(--tdrive);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            text-align: center;
+            padding: 55px 0 35px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #eef9fb;
+            color: var(--tdrive-dark);
+
+            border: 1px solid var(--border);
+
+            padding: 7px 15px;
+            border-radius: 999px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            color: #2d5963;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 13px auto 0;
+            color: var(--muted);
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            margin: 0 0 14px;
+            font-size: 21px;
+            font-weight: 800;
+            color: #2f5962;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            font-size: 14px;
+            margin: -5px 0 16px;
+        }
+
+        /* =========================
+           REGIONS
+        ========================= */
+
+        .regions {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .region {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 18px 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .region-name {
+            font-weight: 800;
+            font-size: 15px;
+            color: #355d65;
+        }
+
+        .region-price {
+            margin-top: 8px;
+            color: var(--tdrive-deep);
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .region-price small {
+            display: block;
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            min-width: 850px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 15px 14px;
+            border-bottom: 1px solid #edf3f5;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background: #eef7f9;
+            color: #315963;
+            font-size: 13px;
+            font-weight: 800;
+            line-height: 1.7;
+        }
+
+        td {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .region-cell {
+            font-weight: 800;
+            color: #315963;
+            white-space: nowrap;
+        }
+
+        .full-price {
+            font-weight: 800;
+            color: #4a4f54;
+        }
+
+        .customer-price {
+            background: var(--price-bg);
+            font-weight: 800;
+            color: #5e5a2d;
+        }
+
+        .trainer-price {
+            background: var(--trainer-bg);
+            color: #815b20;
+            font-weight: 800;
+        }
+
+        .launch-price {
+            background: #fffce8;
+            color: #4e532c;
+            font-weight: 800;
+        }
+
+        /* =========================
+           CITIES
+        ========================= */
+
+        .governorates {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .governorate-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .governorate-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 14px;
+        }
+
+        .governorate-header h3 {
+            margin: 0;
+            font-size: 17px;
+            color: #315963;
+        }
+
+        .mini-price {
+            font-size: 13px;
+            color: var(--tdrive-dark);
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .cities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            min-height: 35px;
+        }
+
+        .city-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+
+            background: #f6fbfc;
+            border: 1px solid #e0eef2;
+            border-radius: 9px;
+
+            padding: 5px 7px 5px 6px;
+
+            color: #596b72;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .delete-city {
+            width: 21px;
+            height: 21px;
+
+            border: none;
+            border-radius: 50%;
+
+            background: var(--delete-bg);
+            color: var(--delete);
+
+            font-size: 15px;
+            line-height: 18px;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0;
+
+            transition: 0.2s;
+        }
+
+        .delete-city:hover {
+            background: var(--delete);
+            color: #fff;
+        }
+
+        /* =========================
+           ADD CITY
+        ========================= */
+
+        .add-city-area {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px dashed #dcecef;
+        }
+
+        .add-city-btn {
+            width: 100%;
+
+            border: 1px dashed var(--tdrive);
+            background: #f4fbfc;
+            color: var(--tdrive-dark);
+
+            border-radius: 11px;
+
+            padding: 10px 14px;
+
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        .add-city-btn:hover {
+            background: #eaf7f9;
+            border-color: var(--tdrive-dark);
+        }
+
+        .add-city-form {
+            display: none;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .add-city-form.show {
+            display: flex;
+        }
+
+        .city-input {
+            flex: 1;
+
+            min-width: 0;
+
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            padding: 10px 12px;
+
+            font-family: inherit;
+            font-size: 13px;
+
+            outline: none;
+
+            background: #fff;
+        }
+
+        .city-input:focus {
+            border-color: var(--tdrive);
+            box-shadow: 0 0 0 3px rgba(101, 183, 195, 0.12);
+        }
+
+        .save-city-btn {
+            border: none;
+            border-radius: 10px;
+
+            padding: 9px 15px;
+
+            background: var(--tdrive-dark);
+            color: #fff;
+
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 800;
+
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .save-city-btn:hover {
+            background: var(--tdrive-deep);
+        }
+
+        .cancel-city-btn {
+            border: 1px solid #e0e5e7;
+            border-radius: 10px;
+
+            padding: 9px 12px;
+
+            background: #fff;
+            color: #687780;
+
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        /* =========================
+           POLICY
+        ========================= */
+
+        .policy {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .policy-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 18px;
+        }
+
+        .policy-box {
+            border-radius: 15px;
+            padding: 18px;
+        }
+
+        .policy-box.first {
+            background: #eef9f1;
+            border: 1px solid #d5eadb;
+        }
+
+        .policy-box.after {
+            background: #f7f8fa;
+            border: 1px solid #e5e7ea;
+        }
+
+        .policy-box h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+
+        .policy-box p {
+            margin: 0;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .note {
+            margin-top: 18px;
+            padding: 14px 16px;
+            background: #fffaf0;
+            border: 1px solid #f1dfb2;
+            border-radius: 12px;
+            color: #705d34;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           PROGRAMS
+        ========================= */
+
+        .programs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .program {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            padding: 20px;
+        }
+
+        .program h3 {
+            margin: 0 0 8px;
+            color: #315963;
+            font-size: 17px;
+        }
+
+        .program p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+            padding: 35px 0 45px;
+            color: #7b8990;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: var(--tdrive-dark);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .regions {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+        @media (max-width: 650px) {
+
+            .container {
+                width: min(100% - 22px, 560px);
+            }
+
+            .header-inner {
+                min-height: 68px;
+            }
+
+            .brand {
+                font-size: 21px;
+            }
+
+            .hero {
+                padding: 40px 0 25px;
+            }
+
+            .regions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .governorates,
+            .policy-main,
+            .programs {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+
+            .table-card {
+                border-radius: 14px;
+            }
+
+            .add-city-form {
+                flex-wrap: wrap;
+            }
+
+            .city-input {
+                flex-basis: 100%;
+            }
+
+            .save-city-btn,
+            .cancel-city-btn {
+                flex: 1;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<header>
+
+    <div class="container header-inner">
+
+        <a href="index.html" class="brand">
+            TDrive
+            <span>تكنولوجيا القيادة</span>
+        </a>
+
+        <a href="booking.html" class="back-btn">
+            التسجيل والحجز
+        </a>
+
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-badge">
+                دليل المناطق والأسعار
+            </div>
+
+            <h1>
+                المناطق والأسعار في TDrive
+            </h1>
+
+            <p>
+                تختلف أسعار البرامج حسب المنطقة، ويظهر السعر
+                المناسب للمتدرب بعد اختيار المنطقة والمدينة أثناء التسجيل.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <div class="container">
+
+
+        <!-- =========================
+             REGIONS
+        ========================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                المناطق
+            </h2>
+
+            <div class="regions">
+
+                <div class="region">
+
+                    <div class="region-name">
+                        المنطقة الغربية
+                    </div>
+
+                    <div class="region-price">
+                        419 ريال
+                        <small>
+                            أول 3 أشهر
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="region">
+
+                    <div class="region-name">
+                        المنطقة الجنوبية
+                    </div>
+
+                    <div class="region-price">
+                        709 ريال
+                        <small>
+                            أول 3 أشهر
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="region">
+
+                    <div class="region-name">
+                        المنطقة الوسطى
+                    </div>
+
+                    <div class="region-price">
+                        529 ريال
+                        <small>
+                            أول 3 أشهر
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="region">
+
+                    <div class="region-name">
+                        المنطقة الشرقية
+                    </div>
+
+                    <div class="region-price">
+                        419 ريال
+                        <small>
+                            أول 3 أشهر
+                        </small>
+                    </div>
+
+                </div>
+
+
+                <div class="region">
+
+                    <div class="region-name">
+                        المنطقة الشمالية
+                    </div>
+
+                    <div class="region-price">
+                        589 ريال
+                        <small>
+                            أول 3 أشهر
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRICES
+        ========================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                جدول الأسعار
+            </h2>
+
+            <p class="section-subtitle">
+                الأسعار التالية للبرنامج الواحد لمدة 5 ساعات تدريب.
+            </p>
+
+            <div class="table-card">
+
+                <div class="table-scroll">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    المنطقة
+                                </th>
+
+                                <th>
+                                    السعر الأساسي
+                                </th>
+
+                                <th>
+                                    السعر خلال فترة الخصم
+                                </th>
+
+                                <th>
+                                    السعر بعد الخصم الإضافي
+                                    <br>
+                                    لأول 3 أشهر
+                                </th>
+
+                                <th>
+                                    حقوق المدرب
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+
+                            <!-- WESTERN -->
+
+                            <tr>
+
+                                <td class="region-cell">
+                                    الغربية
+                                </td>
+
+                                <td class="full-price">
+                                    599 ريال
+                                </td>
+
+                                <td class="customer-price">
+                                    460 ريال
+                                </td>
+
+                                <td class="launch-price">
+                                    419 ريال
+                                </td>
+
+                                <td class="trainer-price">
+                                    400 ريال
+                                </td>
+
+                            </tr>
+
+
+                            <!-- SOUTHERN -->
+
+                            <tr>
+
+                                <td class="region-cell">
+                                    الجنوبية
+                                </td>
+
+                                <td class="full-price">
+                                    998 ريال
+                                </td>
+
+                                <td class="customer-price">
+                                    747.50 ريال
+                                </td>
+
+                                <td class="launch-price">
+                                    709 ريال
+                                </td>
+
+                                <td class="trainer-price">
+                                    650 ريال
+                                </td>
+
+                            </tr>
+
+
+                            <!-- CENTRAL -->
+
+                            <tr>
+
+                                <td class="region-cell">
+                                    الوسطى
+                                </td>
+
+                                <td class="full-price">
+                                    789 ريال
+                                </td>
+
+                                <td class="customer-price">
+                                    575 ريال
+                                </td>
+
+                                <td class="launch-price">
+                                    529 ريال
+                                </td>
+
+                                <td class="trainer-price">
+                                    500 ريال
+                                </td>
+
+                            </tr>
+
+
+                            <!-- EASTERN -->
+
+                            <tr>
+
+                                <td class="region-cell">
+                                    الشرقية
+                                </td>
+
+                                <td class="full-price">
+                                    599 ريال
+                                </td>
+
+                                <td class="customer-price">
+                                    460 ريال
+                                </td>
+
+                                <td class="launch-price">
+                                    419 ريال
+                                </td>
+
+                                <td class="trainer-price">
+                                    400 ريال
+                                </td>
+
+                            </tr>
+
+
+                            <!-- NORTHERN -->
+
+                            <tr>
+
+                                <td class="region-cell">
+                                    الشمالية
+                                </td>
+
+                                <td class="full-price">
+                                    849 ريال
+                                </td>
+
+                                <td class="customer-price">
+                                    632.50 ريال
+                                </td>
+
+                                <td class="launch-price">
+                                    589 ريال
+                                </td>
+
+                                <td class="trainer-price">
+                                    550 ريال
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CITIES
+        ========================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                المحافظات والمدن الرئيسية
+            </h2>
+
+            <p class="section-subtitle">
+                أضيفي المدن المتاحة داخل كل منطقة، ويمكنك حذف أي مدينة
+                عند الحاجة.
+            </p>
+
+
+            <div class="governorates">
+
+
+                <!-- =========================
+                     WESTERN
+                ========================== -->
+
+                <div class="governorate-card">
+
+                    <div class="governorate-header">
+
+                        <h3>
+                            المنطقة الغربية
+                        </h3>
+
+                        <span class="mini-price">
+                            419 ريال
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="cities"
+                        id="cities-western"
+                    >
+                    </div>
+
+
+                    <div class="add-city-area">
+
+                        <button
+                            type="button"
+                            class="add-city-btn"
+                            onclick="showAddCity('western')"
+                        >
+                            ＋ إضافة مدينة
+                        </button>
+
+
+                        <div
+                            class="add-city-form"
+                            id="add-form-western"
+                        >
+
+                            <input
+                                type="text"
+                                class="city-input"
+                                id="input-western"
+                                placeholder="اكتبي اسم المدينة"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="button"
+                                class="save-city-btn"
+                                onclick="addCity('western')"
+                            >
+                                إضافة
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cancel-city-btn"
+                                onclick="cancelAddCity('western')"
+                            >
+                                إلغاء
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     SOUTHERN
+                ========================== -->
+
+                <div class="governorate-card">
+
+                    <div class="governorate-header">
+
+                        <h3>
+                            المنطقة الجنوبية
+                        </h3>
+
+                        <span class="mini-price">
+                            709 ريال
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="cities"
+                        id="cities-southern"
+                    >
+                    </div>
+
+
+                    <div class="add-city-area">
+
+                        <button
+                            type="button"
+                            class="add-city-btn"
+                            onclick="showAddCity('southern')"
+                        >
+                            ＋ إضافة مدينة
+                        </button>
+
+
+                        <div
+                            class="add-city-form"
+                            id="add-form-southern"
+                        >
+
+                            <input
+                                type="text"
+                                class="city-input"
+                                id="input-southern"
+                                placeholder="اكتبي اسم المدينة"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="button"
+                                class="save-city-btn"
+                                onclick="addCity('southern')"
+                            >
+                                إضافة
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cancel-city-btn"
+                                onclick="cancelAddCity('southern')"
+                            >
+                                إلغاء
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     CENTRAL
+                ========================== -->
+
+                <div class="governorate-card">
+
+                    <div class="governorate-header">
+
+                        <h3>
+                            المنطقة الوسطى
+                        </h3>
+
+                        <span class="mini-price">
+                            529 ريال
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="cities"
+                        id="cities-central"
+                    >
+                    </div>
+
+
+                    <div class="add-city-area">
+
+                        <button
+                            type="button"
+                            class="add-city-btn"
+                            onclick="showAddCity('central')"
+                        >
+                            ＋ إضافة مدينة
+                        </button>
+
+
+                        <div
+                            class="add-city-form"
+                            id="add-form-central"
+                        >
+
+                            <input
+                                type="text"
+                                class="city-input"
+                                id="input-central"
+                                placeholder="اكتبي اسم المدينة"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="button"
+                                class="save-city-btn"
+                                onclick="addCity('central')"
+                            >
+                                إضافة
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cancel-city-btn"
+                                onclick="cancelAddCity('central')"
+                            >
+                                إلغاء
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     EASTERN
+                ========================== -->
+
+                <div class="governorate-card">
+
+                    <div class="governorate-header">
+
+                        <h3>
+                            المنطقة الشرقية
+                        </h3>
+
+                        <span class="mini-price">
+                            419 ريال
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="cities"
+                        id="cities-eastern"
+                    >
+                    </div>
+
+
+                    <div class="add-city-area">
+
+                        <button
+                            type="button"
+                            class="add-city-btn"
+                            onclick="showAddCity('eastern')"
+                        >
+                            ＋ إضافة مدينة
+                        </button>
+
+
+                        <div
+                            class="add-city-form"
+                            id="add-form-eastern"
+                        >
+
+                            <input
+                                type="text"
+                                class="city-input"
+                                id="input-eastern"
+                                placeholder="اكتبي اسم المدينة"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="button"
+                                class="save-city-btn"
+                                onclick="addCity('eastern')"
+                            >
+                                إضافة
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cancel-city-btn"
+                                onclick="cancelAddCity('eastern')"
+                            >
+                                إلغاء
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     NORTHERN
+                ========================== -->
+
+                <div class="governorate-card">
+
+                    <div class="governorate-header">
+
+                        <h3>
+                            المنطقة الشمالية
+                        </h3>
+
+                        <span class="mini-price">
+                            589 ريال
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="cities"
+                        id="cities-northern"
+                    >
+                    </div>
+
+
+                    <div class="add-city-area">
+
+                        <button
+                            type="button"
+                            class="add-city-btn"
+                            onclick="showAddCity('northern')"
+                        >
+                            ＋ إضافة مدينة
+                        </button>
+
+
+                        <div
+                            class="add-city-form"
+                            id="add-form-northern"
+                        >
+
+                            <input
+                                type="text"
+                                class="city-input"
+                                id="input-northern"
+                                placeholder="اكتبي اسم المدينة"
+                                autocomplete="off"
+                            >
+
+                            <button
+                                type="button"
+                                class="save-city-btn"
+                                onclick="addCity('northern')"
+                            >
+                                إضافة
+                            </button>
+
+                            <button
+                                type="button"
+                                class="cancel-city-btn"
+                                onclick="cancelAddCity('northern')"
+                            >
+                                إلغاء
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROGRAMS
+        ========================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                البرامج
+            </h2>
+
+
+            <div class="programs">
+
+
+                <div class="program">
+
+                    <h3>
+                        احترف القيادة على الطريق
+                    </h3>
+
+                    <p>
+                        برنامج تدريبي لمدة 5 ساعات يركز على تطوير
+                        مهارات القيادة والتطبيق العملي على الطريق.
+                    </p>
+
+                </div>
+
+
+                <div class="program">
+
+                    <h3>
+                        احترف القيادة على الطريق بلس
+                    </h3>
+
+                    <p>
+                        برنامج تدريبي تكميلي لمدة 5 ساعات،
+                        مصمم لاستكمال وتطوير المهارات القيادية.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRAINER POLICY
+        ========================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                سياسة حقوق وحوافز المدربين
+            </h2>
+
+
+            <div class="policy">
+
+                <p class="section-subtitle">
+
+                    تختلف حقوق المدرب حسب المنطقة، ويظهر المبلغ
+                    الأساسي المحدد في جدول الأسعار.
+
+                </p>
+
+
+                <div class="policy-main">
+
+
+                    <div class="policy-box first">
+
+                        <h3>
+                            أول 5 حجوزات
+                        </h3>
+
+                        <p>
+
+                            يحصل المدرب خلال أول 5 حجوزات مكتملة
+                            على مبلغ إضافي فوق حقوقه الأساسية،
+                            وفق قيمة الحافز المحددة للمنطقة.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="policy-box after">
+
+                        <h3>
+                            بعد أول 5 حجوزات
+                        </h3>
+
+                        <p>
+
+                            بعد إتمام أول 5 حجوزات، يعود مستحق
+                            المدرب إلى حقوقه الأساسية المحددة
+                            للمنطقة.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="note">
+
+                    <strong>
+                        ملاحظة:
+                    </strong>
+
+                    الحافز مرتبط بأول 5 حجوزات مكتملة لكل مدرب،
+                    وليس بأول 5 حجوزات في المنطقة بشكل عام.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    <div class="container">
+
+        <strong>TDrive</strong>
+        — تكنولوجيا القيادة
+
+        <br>
+
+        برامج تدريبية للقيادة والتطوير العملي
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /* =====================================================
+       البيانات الافتراضية للمدن
+    ===================================================== */
+
+    const defaultCities = {
+
+        western: [
+            "جدة",
+            "مكة المكرمة",
+            "الطائف",
+            "المدينة المنورة",
+            "ينبع",
+            "رابغ"
+        ],
+
+        southern: [
+            "أبها",
+            "خميس مشيط",
+            "جازان",
+            "نجران",
+            "الباحة"
+        ],
+
+        central: [
+            "الرياض",
+            "الخرج",
+            "الزلفي",
+            "الدوادمي",
+            "المجمعة"
+        ],
+
+        eastern: [
+            "الدمام",
+            "الخبر",
+            "الظهران",
+            "الأحساء",
+            "الجبيل",
+            "القطيف"
+        ],
+
+        northern: [
+            "تبوك",
+            "حائل",
+            "عرعر",
+            "سكاكا",
+            "القريات"
+        ]
+
+    };
+
+
+    /* =====================================================
+       تحميل المدن
+    ===================================================== */
+
+    function loadCities() {
+
+        const saved =
+            localStorage.getItem("tdrive_regions_cities");
+
+        if (saved) {
+
+            try {
+
+                return JSON.parse(saved);
+
+            } catch (error) {
+
+                console.error(
+                    "تعذر قراءة المدن المحفوظة",
+                    error
+                );
+
+            }
+
+        }
+
+        return JSON.parse(
+            JSON.stringify(defaultCities)
+        );
+
+    }
+
+
+    let citiesData = loadCities();
+
+
+    /* =====================================================
+       حفظ المدن
+    ===================================================== */
+
+    function saveCities() {
+
+        localStorage.setItem(
+            "tdrive_regions_cities",
+            JSON.stringify(citiesData)
+        );
+
+    }
+
+
+    /* =====================================================
+       عرض المدن
+    ===================================================== */
+
+    function renderCities(region) {
+
+        const container =
+            document.getElementById(
+                "cities-" + region
+            );
+
+        if (!container) return;
+
+        container.innerHTML = "";
+
+
+        const cities =
+            citiesData[region] || [];
+
+
+        cities.forEach((city, index) => {
+
+            const item =
+                document.createElement("div");
+
+            item.className = "city-item";
+
+
+            const name =
+                document.createElement("span");
+
+            name.textContent = city;
+
+
+            const deleteButton =
+                document.createElement("button");
+
+            deleteButton.type = "button";
+
+            deleteButton.className =
+                "delete-city";
+
+            deleteButton.title =
+                "حذف المدينة";
+
+            deleteButton.textContent = "×";
+
+
+            deleteButton.addEventListener(
+                "click",
+                function () {
+
+                    deleteCity(
+                        region,
+                        index
+                    );
+
+                }
+            );
+
+
+            item.appendChild(name);
+
+            item.appendChild(deleteButton);
+
+            container.appendChild(item);
+
+        });
+
+    }
+
+
+    /* =====================================================
+       عرض جميع المناطق
+    ===================================================== */
+
+    function renderAllCities() {
+
+        const regions = [
+            "western",
+            "southern",
+            "central",
+            "eastern",
+            "northern"
+        ];
+
+
+        regions.forEach(function (region) {
+
+            renderCities(region);
+
+        });
+
+    }
+
+
+    /* =====================================================
+       فتح نموذج إضافة مدينة
+    ===================================================== */
+
+    function showAddCity(region) {
+
+        const form =
+            document.getElementById(
+                "add-form-" + region
+            );
+
+        const input =
+            document.getElementById(
+                "input-" + region
+            );
+
+
+        if (!form) return;
+
+
+        form.classList.add("show");
+
+
+        if (input) {
+
+            input.focus();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       إلغاء إضافة المدينة
+    ===================================================== */
+
+    function cancelAddCity(region) {
+
+        const form =
+            document.getElementById(
+                "add-form-" + region
+            );
+
+        const input =
+            document.getElementById(
+                "input-" + region
+            );
+
+
+        if (form) {
+
+            form.classList.remove("show");
+
+        }
+
+
+        if (input) {
+
+            input.value = "";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       إضافة مدينة
+    ===================================================== */
+
+    function addCity(region) {
+
+        const input =
+            document.getElementById(
+                "input-" + region
+            );
+
+
+        if (!input) return;
+
+
+        const city =
+            input.value.trim();
+
+
+        if (!city) {
+
+            alert(
+                "فضلاً اكتبي اسم المدينة."
+            );
+
+            input.focus();
+
+            return;
+
+        }
+
+
+        if (!citiesData[region]) {
+
+            citiesData[region] = [];
+
+        }
+
+
+        const alreadyExists =
+            citiesData[region].some(
+                function (existingCity) {
+
+                    return (
+                        existingCity.trim()
+                            .toLowerCase() ===
+                        city.toLowerCase()
+                    );
+
+                }
+            );
+
+
+        if (alreadyExists) {
+
+            alert(
+                "هذه المدينة مضافة بالفعل."
+            );
+
+            input.focus();
+
+            return;
+
+        }
+
+
+        citiesData[region].push(city);
+
+
+        saveCities();
+
+        renderCities(region);
+
+        cancelAddCity(region);
+
+    }
+
+
+    /* =====================================================
+       حذف مدينة
+    ===================================================== */
+
+    function deleteCity(
+        region,
+        index
+    ) {
+
+        const city =
+            citiesData[region]?.[index];
+
+
+        if (!city) return;
+
+
+        const confirmed =
+            confirm(
+                `هل تريدين حذف مدينة "${city}"؟`
+            );
+
+
+        if (!confirmed) return;
+
+
+        citiesData[region].splice(
+            index,
+            1
+        );
+
+
+        saveCities();
+
+        renderCities(region);
+
+    }
+
+
+    /* =====================================================
+       Enter لإضافة المدينة
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key !== "Enter") {
+                return;
+            }
+
+
+            const activeElement =
+                document.activeElement;
+
+
+            if (
+                !activeElement ||
+                !activeElement.classList.contains(
+                    "city-input"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            const region =
+                activeElement.id.replace(
+                    "input-",
+                    ""
+                );
+
+
+            addCity(region);
+
+        }
+    );
+
+
+    /* =====================================================
+       التشغيل
+    ===================================================== */
+
+    renderAllCities();
+
+</script>
+
+</body>
+</html>
