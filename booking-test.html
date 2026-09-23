@@ -3737,7 +3737,307 @@
     }
 
 }
+/* =========================================================
+   FINAL MOBILE FIX
+   لا تجعل الخدمات والمناطق عمودية
+========================================================= */
 
+@media (max-width: 700px) {
+
+    /* ==========================================
+       الهيدر — الروابط أفقية
+    ========================================== */
+
+    #tdrive-booking-page > header {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+        padding: 12px 14px !important;
+    }
+
+    #tdrive-booking-page > header .logo {
+        flex: 0 0 auto !important;
+    }
+
+    #tdrive-booking-page > header nav {
+        width: auto !important;
+
+        display: flex !important;
+        flex-direction: row !important;
+
+        align-items: center !important;
+        justify-content: flex-start !important;
+
+        flex-wrap: nowrap !important;
+
+        gap: 4px !important;
+
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+
+        white-space: nowrap !important;
+
+        scrollbar-width: none !important;
+    }
+
+    #tdrive-booking-page > header nav::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    #tdrive-booking-page > header nav a {
+        width: auto !important;
+        flex: 0 0 auto !important;
+
+        min-height: 34px !important;
+
+        padding: 5px 8px !important;
+
+        font-size: 10px !important;
+
+        white-space: nowrap !important;
+    }
+
+    #tdrive-booking-page > header nav a.register-btn {
+        width: auto !important;
+        min-width: 65px !important;
+
+        grid-column: auto !important;
+
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+
+    /* ==========================================
+       الخدمات
+       3 جنب بعض
+    ========================================== */
+
+    #tdrive-booking-page .service-tabs {
+        width: calc(100% - 20px) !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr)) !important;
+
+        gap: 8px !important;
+
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    #tdrive-booking-page .service-tabs .tab-btn {
+        width: 100% !important;
+
+        min-width: 0 !important;
+        min-height: 70px !important;
+
+        padding: 8px 4px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        gap: 4px !important;
+
+        font-size: 11px !important;
+    }
+
+    #tdrive-booking-page .service-tabs .tab-btn i {
+        font-size: 20px !important;
+    }
+
+
+    /* ==========================================
+       المناطق
+       3 فوق + 2 تحت
+    ========================================== */
+
+    #tdrive-booking-page .regions-grid {
+        width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(6, minmax(0, 1fr)) !important;
+
+        gap: 9px !important;
+
+        margin: 0 auto !important;
+    }
+
+
+    #tdrive-booking-page .regions-grid .region-card {
+        grid-column: span 2 !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        border-radius: 13px !important;
+    }
+
+
+    /* الجنوبية */
+    #tdrive-booking-page
+    .regions-grid
+    .region-card:nth-child(4) {
+
+        grid-column: 2 / span 2 !important;
+        grid-row: 2 !important;
+    }
+
+
+    /* الشمالية */
+    #tdrive-booking-page
+    .regions-grid
+    .region-card:nth-child(5) {
+
+        grid-column: 4 / span 2 !important;
+        grid-row: 2 !important;
+    }
+
+
+    /* ==========================================
+       صور المناطق — مصغرة داخل البطاقة
+    ========================================== */
+
+    #tdrive-booking-page .region-image-wrap {
+
+        width: 100% !important;
+
+        height: 105px !important;
+
+        min-height: 105px !important;
+
+        flex: 0 0 105px !important;
+
+        overflow: hidden !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    #tdrive-booking-page .region-image-wrap img {
+
+        position: absolute !important;
+
+        inset: 0 !important;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        min-width: 0 !important;
+        min-height: 0 !important;
+
+        max-width: none !important;
+        max-height: none !important;
+
+        object-fit: cover !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+
+    /* ==========================================
+       معلومات المنطقة
+    ========================================== */
+
+    #tdrive-booking-page .region-card-info {
+
+        margin: -14px 0 0 !important;
+
+        padding: 9px 7px 8px !important;
+
+        border-radius: 12px 12px 0 0 !important;
+    }
+
+    #tdrive-booking-page .region-name {
+
+        margin: 0 0 2px !important;
+
+        font-size: 12px !important;
+
+        line-height: 1.4 !important;
+    }
+
+    #tdrive-booking-page .region-slogan {
+
+        min-height: 30px !important;
+
+        margin: 0 0 6px !important;
+
+        font-size: 8px !important;
+
+        line-height: 1.5 !important;
+    }
+
+    #tdrive-booking-page .choose-region-badge {
+
+        min-height: 25px !important;
+
+        padding: 4px 7px !important;
+
+        gap: 4px !important;
+
+        font-size: 8px !important;
+    }
+
+    #tdrive-booking-page .choose-region-badge i {
+
+        width: 15px !important;
+        height: 15px !important;
+
+        font-size: 7px !important;
+    }
+}
+
+
+/* =========================================================
+   شاشة أصغر
+========================================================= */
+
+@media (max-width: 390px) {
+
+    #tdrive-booking-page .service-tabs {
+        gap: 6px !important;
+    }
+
+    #tdrive-booking-page .service-tabs .tab-btn {
+        min-height: 65px !important;
+        font-size: 10px !important;
+    }
+
+    #tdrive-booking-page .service-tabs .tab-btn i {
+        font-size: 18px !important;
+    }
+
+    #tdrive-booking-page .regions-grid {
+        gap: 7px !important;
+    }
+
+    #tdrive-booking-page .region-image-wrap {
+        height: 88px !important;
+        min-height: 88px !important;
+        flex-basis: 88px !important;
+    }
+
+    #tdrive-booking-page .region-name {
+        font-size: 11px !important;
+    }
+
+    #tdrive-booking-page .region-slogan {
+        font-size: 7px !important;
+    }
+}
 </style>
 
 
