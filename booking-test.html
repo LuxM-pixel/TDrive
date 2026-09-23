@@ -2069,13 +2069,14 @@ body{
 
 /* ==================================================
    REGION CARDS
-   (تصميم كبير بخلفية صورة + تدرج لوني، نفس شكل الصفحة الرئيسية)
+   (ترتيب 3 في الأعلى و 2 في الأسفل بجانب بعضها)
 ================================================== */
 
 .regions-grid{
     display:grid;
     grid-template-columns:repeat(6, 1fr);
     gap:18px;
+    justify-content:center;
 }
 
 .region-card{
@@ -2099,12 +2100,14 @@ body{
         border-color .25s ease;
 }
 
+/* العنصر الرابع (الجنوبية) يأخذ العمودين الثاني والثالث من المنتصف في الصف الثاني */
 .regions-grid .region-card:nth-child(4){
-    grid-column:2 / span 2;
+    grid-column: 2 / span 2;
 }
 
+/* العنصر الخامس (الشمالية) يأخذ العمودين الرابع والخامس بجانب الجنوبية في الصف الثاني */
 .regions-grid .region-card:nth-child(5){
-    grid-column:4 / span 2;
+    grid-column: 4 / span 2;
 }
 
 .region-card:hover{
