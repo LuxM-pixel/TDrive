@@ -436,7 +436,7 @@
         .choose-region {
             border: none;
             background: white;
-            color: var(--btn-color, #284f59);
+            color: #284f59;
 
             border-radius: 30px;
 
@@ -469,13 +469,16 @@
             font-size: 11px;
         }
 
-        /* هويات المناطق (الخرائط المصغرة) في أسفل البطاقة */
+        /* تعديل حجم هوية المنطقة المصغرة لتكون صغيرة تماماً ومطابقة للصورة */
         .region-mini-map {
             width: 55px;
             height: 55px;
+            max-width: 55px;
+            max-height: 55px;
             object-fit: contain;
             opacity: 0.9;
             filter: brightness(0) invert(1);
+            display: block;
         }
 
 
@@ -923,7 +926,6 @@
                     >
 
                         <div class="region-image">
-                            <!-- صور الخلفيات العلوية الخاصة بكل منطقة -->
                             <img
                                 src="western_bg.webp"
                                 class="region-photo"
@@ -953,11 +955,10 @@
                                     اختر هذه المنطقة
                                 </button>
 
-                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
                                     src="western.webp"
                                     class="region-mini-map"
-                                    alt="هوية المنطقة الغربية"
+                                    alt="المنطقة الغربية"
                                 >
 
                             </div>
@@ -1005,11 +1006,10 @@
                                     اختر هذه المنطقة
                                 </button>
 
-                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
                                     src="central.webp"
                                     class="region-mini-map"
-                                    alt="هوية المنطقة الوسطى"
+                                    alt="المنطقة الوسطى"
                                 >
 
                             </div>
@@ -1057,11 +1057,10 @@
                                     اختر هذه المنطقة
                                 </button>
 
-                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
                                     src="eastern.webp"
                                     class="region-mini-map"
-                                    alt="هوية المنطقة الشرقية"
+                                    alt="المنطقة الشرقية"
                                 >
 
                             </div>
@@ -1109,11 +1108,10 @@
                                     اختر هذه المنطقة
                                 </button>
 
-                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
                                     src="southern.webp"
                                     class="region-mini-map"
-                                    alt="هوية المنطقة الجنوبية"
+                                    alt="المنطقة الجنوبية"
                                 >
 
                             </div>
@@ -1161,11 +1159,10 @@
                                     اختر هذه المنطقة
                                 </button>
 
-                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
                                     src="northern.webp"
                                     class="region-mini-map"
-                                    alt="هوية المنطقة الشمالية"
+                                    alt="المنطقة الشمالية"
                                 >
 
                             </div>
