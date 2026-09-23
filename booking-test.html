@@ -284,7 +284,7 @@
             grid-column: span 2;
 
             position: relative;
-            min-height: 390px;
+            min-height: 420px;
 
             overflow: hidden;
             border-radius: 28px;
@@ -303,7 +303,6 @@
             text-align: right;
         }
 
-        /* البطاقتان السفليتان */
         .region-card:nth-child(4) {
             grid-column: 2 / span 2;
         }
@@ -325,15 +324,9 @@
         ========================= */
 
         .region-image {
-            height: 215px;
+            height: 220px;
             position: relative;
             overflow: hidden;
-            background:
-                linear-gradient(
-                    135deg,
-                    #b7d9de,
-                    #eaf3f4
-                );
         }
 
         .region-image::after {
@@ -343,8 +336,8 @@
             background:
                 linear-gradient(
                     to top,
-                    rgba(17,55,64,0.60),
-                    rgba(17,55,64,0.02) 75%
+                    rgba(17,55,64,0.65),
+                    rgba(17,55,64,0.05) 70%
                 );
             z-index: 2;
         }
@@ -356,82 +349,6 @@
             display: block;
         }
 
-        /*
-          إذا عندك صور المناطق القديمة في GitHub
-          راح تظهر تلقائياً بهذه الأسماء.
-        */
-
-        .western-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #65a9b5,
-                    #d7e9eb
-                );
-        }
-
-        .central-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #b9936c,
-                    #ead6b9
-                );
-        }
-
-        .eastern-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #4e9aa7,
-                    #d8edef
-                );
-        }
-
-        .southern-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #3e7d5e,
-                    #cce2d0
-                );
-        }
-
-        .northern-image {
-            background:
-                linear-gradient(
-                    135deg,
-                    #615e78,
-                    #d9d8e5
-                );
-        }
-
-
-        /* =========================
-           MAP IMAGE
-        ========================= */
-
-        .map-overlay {
-            position: absolute;
-            width: 125px;
-            height: 105px;
-
-            left: 15px;
-            top: 15px;
-
-            object-fit: contain;
-
-            opacity: 0.75;
-
-            filter:
-                brightness(0)
-                invert(1);
-
-            z-index: 3;
-
-            pointer-events: none;
-        }
-
 
         /* =========================
            CARD CONTENT
@@ -439,7 +356,7 @@
 
         .region-content {
             position: relative;
-            margin-top: -20px;
+            margin-top: -25px;
             z-index: 5;
 
             padding: 24px 25px 22px;
@@ -455,7 +372,7 @@
 
             border-radius: 25px 25px 0 0;
 
-            min-height: 195px;
+            min-height: 200px;
         }
 
         .region-card.central .region-content {
@@ -502,9 +419,9 @@
         }
 
         .region-slogan {
-            font-size: 14px;
-            line-height: 1.8;
-            min-height: 48px;
+            font-size: 13.5px;
+            line-height: 1.7;
+            min-height: 45px;
             opacity: 0.9;
             margin: 0 0 15px;
         }
@@ -519,18 +436,18 @@
         .choose-region {
             border: none;
             background: white;
-            color: #284f59;
+            color: var(--btn-color, #284f59);
 
             border-radius: 30px;
 
-            padding: 10px 18px;
+            padding: 9px 16px;
 
-            font-size: 13px;
+            font-size: 12.5px;
             font-weight: 800;
 
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
 
             transition: 0.2s ease;
         }
@@ -540,8 +457,8 @@
         }
 
         .choose-region i {
-            width: 29px;
-            height: 29px;
+            width: 26px;
+            height: 26px;
             border-radius: 50%;
 
             display: flex;
@@ -549,19 +466,16 @@
             justify-content: center;
 
             background: #edf5f6;
+            font-size: 11px;
         }
 
+        /* هويات المناطق (الخرائط المصغرة) في أسفل البطاقة */
         .region-mini-map {
             width: 55px;
             height: 55px;
-
             object-fit: contain;
-
-            opacity: 0.85;
-
-            filter:
-                brightness(0)
-                invert(1);
+            opacity: 0.9;
+            filter: brightness(0) invert(1);
         }
 
 
@@ -875,7 +789,7 @@
             }
 
             .region-card {
-                min-height: 370px;
+                min-height: 380px;
             }
 
             .program-grid {
@@ -1008,14 +922,14 @@
                         data-region-name="المنطقة الغربية"
                     >
 
-                        <div class="region-image western-image">
-
+                        <div class="region-image">
+                            <!-- صور الخلفيات العلوية الخاصة بكل منطقة -->
                             <img
-                                src="IMG_6171.webp"
-                                class="map-overlay"
-                                alt=""
+                                src="western_bg.webp"
+                                class="region-photo"
+                                alt="المنطقة الغربية"
+                                onerror="this.src='https://images.unsplash.com/photo-1578895101408-1a3ce975d5d9?auto=format&fit=crop&w=600&q=80'"
                             >
-
                         </div>
 
                         <div class="region-content">
@@ -1035,14 +949,15 @@
                                     class="choose-region"
                                     type="button"
                                 >
-                                    اختر هذه المنطقة
                                     <i class="fa-solid fa-arrow-left"></i>
+                                    اختر هذه المنطقة
                                 </button>
 
+                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
-                                    src="IMG_6171.webp"
+                                    src="western.webp"
                                     class="region-mini-map"
-                                    alt=""
+                                    alt="هوية المنطقة الغربية"
                                 >
 
                             </div>
@@ -1060,14 +975,13 @@
                         data-region-name="المنطقة الوسطى"
                     >
 
-                        <div class="region-image central-image">
-
+                        <div class="region-image">
                             <img
-                                src="IMG_6171.webp"
-                                class="map-overlay"
-                                alt=""
+                                src="central_bg.webp"
+                                class="region-photo"
+                                alt="المنطقة الوسطى"
+                                onerror="this.src='https://images.unsplash.com/photo-1584646098378-0874589d76b1?auto=format&fit=crop&w=600&q=80'"
                             >
-
                         </div>
 
                         <div class="region-content">
@@ -1087,14 +1001,15 @@
                                     class="choose-region"
                                     type="button"
                                 >
-                                    اختر هذه المنطقة
                                     <i class="fa-solid fa-arrow-left"></i>
+                                    اختر هذه المنطقة
                                 </button>
 
+                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
-                                    src="IMG_6171.webp"
+                                    src="central.webp"
                                     class="region-mini-map"
-                                    alt=""
+                                    alt="هوية المنطقة الوسطى"
                                 >
 
                             </div>
@@ -1112,14 +1027,13 @@
                         data-region-name="المنطقة الشرقية"
                     >
 
-                        <div class="region-image eastern-image">
-
+                        <div class="region-image">
                             <img
-                                src="IMG_6171.webp"
-                                class="map-overlay"
-                                alt=""
+                                src="eastern_bg.webp"
+                                class="region-photo"
+                                alt="المنطقة الشرقية"
+                                onerror="this.src='https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80'"
                             >
-
                         </div>
 
                         <div class="region-content">
@@ -1139,14 +1053,15 @@
                                     class="choose-region"
                                     type="button"
                                 >
-                                    اختر هذه المنطقة
                                     <i class="fa-solid fa-arrow-left"></i>
+                                    اختر هذه المنطقة
                                 </button>
 
+                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
-                                    src="IMG_6171.webp"
+                                    src="eastern.webp"
                                     class="region-mini-map"
-                                    alt=""
+                                    alt="هوية المنطقة الشرقية"
                                 >
 
                             </div>
@@ -1164,14 +1079,13 @@
                         data-region-name="المنطقة الجنوبية"
                     >
 
-                        <div class="region-image southern-image">
-
+                        <div class="region-image">
                             <img
-                                src="IMG_6171.webp"
-                                class="map-overlay"
-                                alt=""
+                                src="southern_bg.webp"
+                                class="region-photo"
+                                alt="المنطقة الجنوبية"
+                                onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80'"
                             >
-
                         </div>
 
                         <div class="region-content">
@@ -1191,14 +1105,15 @@
                                     class="choose-region"
                                     type="button"
                                 >
-                                    اختر هذه المنطقة
                                     <i class="fa-solid fa-arrow-left"></i>
+                                    اختر هذه المنطقة
                                 </button>
 
+                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
-                                    src="IMG_6171.webp"
+                                    src="southern.webp"
                                     class="region-mini-map"
-                                    alt=""
+                                    alt="هوية المنطقة الجنوبية"
                                 >
 
                             </div>
@@ -1216,14 +1131,13 @@
                         data-region-name="المنطقة الشمالية"
                     >
 
-                        <div class="region-image northern-image">
-
+                        <div class="region-image">
                             <img
-                                src="IMG_6171.webp"
-                                class="map-overlay"
-                                alt=""
+                                src="northern_bg.webp"
+                                class="region-photo"
+                                alt="المنطقة الشمالية"
+                                onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80'"
                             >
-
                         </div>
 
                         <div class="region-content">
@@ -1243,14 +1157,15 @@
                                     class="choose-region"
                                     type="button"
                                 >
-                                    اختر هذه المنطقة
                                     <i class="fa-solid fa-arrow-left"></i>
+                                    اختر هذه المنطقة
                                 </button>
 
+                                <!-- هويات المناطق (الخرائط المصغرة) في أسفل البطاقة -->
                                 <img
-                                    src="IMG_6171.webp"
+                                    src="northern.webp"
                                     class="region-mini-map"
-                                    alt=""
+                                    alt="هوية المنطقة الشمالية"
                                 >
 
                             </div>
@@ -1295,8 +1210,6 @@
             </div>
 
 
-            <!-- المدينة -->
-
             <div class="form-container">
 
                 <div class="form-group">
@@ -1320,8 +1233,6 @@
 
             <br>
 
-
-            <!-- البرامج -->
 
             <div class="program-grid">
 
@@ -1636,31 +1547,6 @@
         </section>
 
 
-
-        <!-- =====================================================
-             CAPTAIN
-        ====================================================== -->
-
-        <section
-            id="captainPanel"
-            style="display:none;"
-        >
-
-            <div class="section-heading">
-
-                <h2>
-                    دورة الكابتن المحترف
-                </h2>
-
-                <p>
-                    التسجيل في البرنامج التدريبي للكباتن
-                </p>
-
-            </div>
-
-        </section>
-
-
     </main>
 
 
@@ -1676,719 +1562,155 @@
 
     <script>
 
-        /* =====================================================
-           SUPABASE
-        ====================================================== */
+        const SUPABASE_URL = "https://ytesjbrtkqnjqqeoswkc.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j";
 
-        const SUPABASE_URL =
-            "https://ytesjbrtkqnjqqeoswkc.supabase.co";
-
-        const SUPABASE_KEY =
-            "sb_publishable_c8DXQsWq3W1-1Nm3LBSUvA_PVEkO87j";
-
-        const supabaseClient =
-            window.supabase.createClient(
-                SUPABASE_URL,
-                SUPABASE_KEY
-            );
-
-
-        /* =====================================================
-           CURRENT BOOKING DATA
-        ====================================================== */
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         window.tdriveBooking = {
-
             regionKey: null,
-
             regionName: null,
-
             program: null,
-
             city: null,
-
             gender: null,
-
             trainer: null,
-
             date: null,
-
             time: null
-
         };
 
+        document.querySelectorAll(".choose-region").forEach(button => {
+            button.addEventListener("click", async function () {
+                const card = this.closest(".region-card");
+                const regionKey = card.dataset.region;
+                const regionName = card.dataset.regionName;
 
-        /* =====================================================
-           REGION BUTTONS
-        ====================================================== */
+                window.tdriveBooking.regionKey = regionKey;
+                window.tdriveBooking.regionName = regionName;
 
-        document
-            .querySelectorAll(".choose-region")
-            .forEach(button => {
+                const title = document.getElementById("selectedRegionTitle");
+                if (title) title.textContent = regionName;
 
-                button.addEventListener("click", async function () {
+                document.dispatchEvent(new CustomEvent("tdriveRegionSelected", {
+                    detail: { regionKey, regionName }
+                }));
 
-                    const card =
-                        this.closest(".region-card");
-
-                    const regionKey =
-                        card.dataset.region;
-
-                    const regionName =
-                        card.dataset.regionName;
-
-
-                    window.tdriveBooking.regionKey =
-                        regionKey;
-
-                    window.tdriveBooking.regionName =
-                        regionName;
-
-
-                    const title =
-                        document.getElementById(
-                            "selectedRegionTitle"
-                        );
-
-                    if (title) {
-
-                        title.textContent =
-                            regionName;
-
-                    }
-
-
-                    /* إرسال الحدث لـ app.js */
-
-                    document.dispatchEvent(
-                        new CustomEvent(
-                            "tdriveRegionSelected",
-                            {
-                                detail: {
-                                    regionKey,
-                                    regionName
-                                }
-                            }
-                        )
-                    );
-
-
-                    /* تحميل المدن */
-
-                    await loadCities(regionKey);
-
-
-                    /* الانتقال */
-
-                    showStep("programStep");
-
-                });
-
+                await loadCities(regionKey);
+                showStep("programStep");
             });
-
-
-        /* =====================================================
-           LOAD CITIES
-        ====================================================== */
+        });
 
         async function loadCities(regionKey) {
-
-            const citySelect =
-                document.getElementById("address");
-
+            const citySelect = document.getElementById("address");
             if (!citySelect) return;
 
+            citySelect.innerHTML = `<option value="">جاري تحميل المدن...</option>`;
 
-            citySelect.innerHTML = `
-                <option value="">
-                    جاري تحميل المدن...
-                </option>
-            `;
-
-
-            const {
-                data,
-                error
-            } = await supabaseClient
+            const { data, error } = await supabaseClient
                 .from("tdrive_regions_cities")
-                .select(
-                    "city_name"
-                )
-                .eq(
-                    "region_key",
-                    regionKey
-                )
-                .eq(
-                    "is_active",
-                    true
-                )
-                .order(
-                    "city_name",
-                    {
-                        ascending: true
-                    }
-                );
-
+                .select("city_name")
+                .eq("region_key", regionKey)
+                .eq("is_active", true)
+                .order("city_name", { ascending: true });
 
             if (error) {
-
-                console.error(
-                    "خطأ في تحميل المدن:",
-                    error
-                );
-
-                citySelect.innerHTML = `
-                    <option value="">
-                        تعذر تحميل المدن
-                    </option>
-                `;
-
+                citySelect.innerHTML = `<option value="">تعذر تحميل المدن</option>`;
                 return;
-
             }
 
-
-            citySelect.innerHTML = `
-                <option value="">
-                    اختر المدينة
-                </option>
-            `;
-
-
+            citySelect.innerHTML = `<option value="">اختر المدينة</option>`;
             (data || []).forEach(city => {
-
-                const option =
-                    document.createElement("option");
-
-                option.value =
-                    city.city_name;
-
-                option.textContent =
-                    city.city_name;
-
-                citySelect.appendChild(
-                    option
-                );
-
+                const option = document.createElement("option");
+                option.value = city.city_name;
+                option.textContent = city.city_name;
+                citySelect.appendChild(option);
             });
-
         }
 
-
-        /* =====================================================
-           CITY CHANGE
-        ====================================================== */
-
-        const addressSelect =
-            document.getElementById("address");
-
+        const addressSelect = document.getElementById("address");
         if (addressSelect) {
-
-            addressSelect.addEventListener(
-                "change",
-                function () {
-
-                    window.tdriveBooking.city =
-                        this.value;
-
-                    document.dispatchEvent(
-                        new CustomEvent(
-                            "tdriveCitySelected",
-                            {
-                                detail: {
-                                    city: this.value,
-                                    regionKey:
-                                        window.tdriveBooking.regionKey,
-                                    regionName:
-                                        window.tdriveBooking.regionName
-                                }
-                            }
-                        )
-                    );
-
-                }
-            );
-
+            addressSelect.addEventListener("change", function () {
+                window.tdriveBooking.city = this.value;
+            });
         }
 
+        document.querySelectorAll(".select-program").forEach(button => {
+            button.addEventListener("click", function () {
+                const program = this.dataset.program;
+                const city = document.getElementById("address").value;
 
-        /* =====================================================
-           PROGRAM BUTTONS
-        ====================================================== */
+                if (!city) {
+                    alert("يرجى اختيار المدينة أولاً.");
+                    return;
+                }
 
-        document
-            .querySelectorAll(".select-program")
-            .forEach(button => {
-
-                button.addEventListener(
-                    "click",
-                    async function () {
-
-                        const program =
-                            this.dataset.program;
-
-
-                        const city =
-                            document.getElementById(
-                                "address"
-                            ).value;
-
-
-                        if (!city) {
-
-                            alert(
-                                "يرجى اختيار المدينة أولاً."
-                            );
-
-                            return;
-
-                        }
-
-
-                        window.tdriveBooking.program =
-                            program;
-
-
-                        document.dispatchEvent(
-                            new CustomEvent(
-                                "tdriveProgramSelected",
-                                {
-                                    detail: {
-
-                                        program,
-
-                                        regionKey:
-                                            window.tdriveBooking.regionKey,
-
-                                        regionName:
-                                            window.tdriveBooking.regionName,
-
-                                        city
-
-                                    }
-                                }
-                            )
-                        );
-
-
-                        /*
-                         * app.js مسؤول عن جلب المدربين
-                         * وعرضهم حسب:
-                         *
-                         * المنطقة
-                         * المدينة
-                         * البرنامج
-                         * الجنس
-                         */
-
-
-                        showStep(
-                            "trainerStep"
-                        );
-
-                    }
-                );
-
+                window.tdriveBooking.program = program;
+                showStep("trainerStep");
             });
+        });
 
-
-        /* =====================================================
-           BACK BUTTONS
-        ====================================================== */
-
-        document
-            .getElementById("backToRegions")
-            ?.addEventListener(
-                "click",
-                function () {
-
-                    showStep(
-                        "regionStep"
-                    );
-
-                }
-            );
-
-
-        document
-            .getElementById("backToPrograms")
-            ?.addEventListener(
-                "click",
-                function () {
-
-                    showStep(
-                        "programStep"
-                    );
-
-                }
-            );
-
-
-        document
-            .getElementById("backToTrainers")
-            ?.addEventListener(
-                "click",
-                function () {
-
-                    showStep(
-                        "trainerStep"
-                    );
-
-                }
-            );
-
-
-        /* =====================================================
-           SHOW STEP
-        ====================================================== */
+        document.getElementById("backToRegions")?.addEventListener("click", () => showStep("regionStep"));
+        document.getElementById("backToPrograms")?.addEventListener("click", () => showStep("programStep"));
+        document.getElementById("backToTrainers")?.addEventListener("click", () => showStep("trainerStep"));
 
         function showStep(stepId) {
-
-            document
-                .querySelectorAll(".booking-step")
-                .forEach(step => {
-
-                    step.classList.remove(
-                        "active"
-                    );
-
-                });
-
-
-            const step =
-                document.getElementById(
-                    stepId
-                );
-
-            if (step) {
-
-                step.classList.add(
-                    "active"
-                );
-
-            }
-
-
+            document.querySelectorAll(".booking-step").forEach(step => step.classList.remove("active"));
+            const step = document.getElementById(stepId);
+            if (step) step.classList.add("active");
             updateStepper(stepId);
-
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
-
-
-        /* =====================================================
-           UPDATE STEPPER
-        ====================================================== */
 
         function updateStepper(stepId) {
-
-            const steps =
-                document.querySelectorAll(
-                    ".stepper .step"
-                );
-
-
+            const steps = document.querySelectorAll(".stepper .step");
             let activeIndex = 0;
+            if (stepId === "regionStep") activeIndex = 0;
+            else if (stepId === "programStep") activeIndex = 1;
+            else if (stepId === "trainerStep") activeIndex = 2;
+            else activeIndex = 3;
 
+            steps.forEach((step, index) => {
+                step.classList.remove("active", "completed");
+                if (index < activeIndex) step.classList.add("completed");
+                if (index === activeIndex) step.classList.add("active");
+            });
+        }
 
-            if (
-                stepId === "regionStep"
-            ) {
+        const dateInput = document.getElementById("bookingDate");
+        if (dateInput && typeof AirDatepicker !== "undefined") {
+            new AirDatepicker(dateInput, {
+                autoClose: true,
+                minDate: new Date(),
+                dateFormat: "yyyy-MM-dd",
+                onSelect({ formattedDate }) {
+                    window.tdriveBooking.date = formattedDate;
+                }
+            });
+        }
 
-                activeIndex = 0;
+        document.getElementById("continueBooking")?.addEventListener("click", function () {
+            const name = document.getElementById("fullName")?.value.trim();
+            const gender = document.getElementById("gender")?.value;
+            const date = document.getElementById("bookingDate")?.value;
+            const time = document.getElementById("bookingTime")?.value;
 
-            } else if (
-                stepId === "programStep"
-            ) {
-
-                activeIndex = 1;
-
-            } else if (
-                stepId === "trainerStep"
-            ) {
-
-                activeIndex = 2;
-
-            } else {
-
-                activeIndex = 3;
-
+            if (!name || !gender || !date || !time) {
+                alert("يرجى إكمال جميع البيانات المطلوبة.");
+                return;
             }
 
-
-            steps.forEach(
-                (step, index) => {
-
-                    step.classList.remove(
-                        "active",
-                        "completed"
-                    );
-
-
-                    if (
-                        index < activeIndex
-                    ) {
-
-                        step.classList.add(
-                            "completed"
-                        );
-
-                    }
-
-
-                    if (
-                        index === activeIndex
-                    ) {
-
-                        step.classList.add(
-                            "active"
-                        );
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           DATE PICKER
-        ====================================================== */
-
-        const dateInput =
-            document.getElementById(
-                "bookingDate"
-            );
-
-        if (
-            dateInput &&
-            typeof AirDatepicker !== "undefined"
-        ) {
-
-            new AirDatepicker(
-                dateInput,
-                {
-
-                    autoClose: true,
-
-                    minDate: new Date(),
-
-                    dateFormat: "yyyy-MM-dd",
-
-                    onSelect({
-                        formattedDate
-                    }) {
-
-                        window.tdriveBooking.date =
-                            formattedDate;
-
-                    }
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           GENDER
-        ====================================================== */
-
-        const genderSelect =
-            document.getElementById(
-                "gender"
-            );
-
-        if (genderSelect) {
-
-            genderSelect.addEventListener(
-                "change",
-                function () {
-
-                    window.tdriveBooking.gender =
-                        this.value;
-
-
-                    document.dispatchEvent(
-                        new CustomEvent(
-                            "tdriveGenderSelected",
-                            {
-                                detail: {
-                                    gender:
-                                        this.value
-                                }
-                            }
-                        )
-                    );
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           FULL NAME
-        ====================================================== */
-
-        const fullName =
-            document.getElementById(
-                "fullName"
-            );
-
-        if (fullName) {
-
-            fullName.addEventListener(
-                "input",
-                function () {
-
-                    window.tdriveBooking.fullName =
-                        this.value;
-
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           CONTINUE
-        ====================================================== */
-
-        document
-            .getElementById(
-                "continueBooking"
-            )
-            ?.addEventListener(
-                "click",
-                function () {
-
-                    const name =
-                        document.getElementById(
-                            "fullName"
-                        )?.value.trim();
-
-
-                    const gender =
-                        document.getElementById(
-                            "gender"
-                        )?.value;
-
-
-                    const date =
-                        document.getElementById(
-                            "bookingDate"
-                        )?.value;
-
-
-                    const time =
-                        document.getElementById(
-                            "bookingTime"
-                        )?.value;
-
-
-                    if (!name) {
-
-                        alert(
-                            "يرجى كتابة الاسم الكامل."
-                        );
-
-                        return;
-
-                    }
-
-
-                    if (!gender) {
-
-                        alert(
-                            "يرجى اختيار الجنس."
-                        );
-
-                        return;
-
-                    }
-
-
-                    if (!date) {
-
-                        alert(
-                            "يرجى اختيار التاريخ."
-                        );
-
-                        return;
-
-                    }
-
-
-                    if (!time) {
-
-                        alert(
-                            "يرجى اختيار الوقت."
-                        );
-
-                        return;
-
-                    }
-
-
-                    window.tdriveBooking.fullName =
-                        name;
-
-                    window.tdriveBooking.gender =
-                        gender;
-
-                    window.tdriveBooking.date =
-                        date;
-
-                    window.tdriveBooking.time =
-                        time;
-
-
-                    document.dispatchEvent(
-                        new CustomEvent(
-                            "tdriveBookingDetailsReady",
-                            {
-                                detail:
-                                    window.tdriveBooking
-                            }
-                        )
-                    );
-
-
-                    showStep(
-                        "paymentStep"
-                    );
-
-                }
-            );
-
-
-        /* =====================================================
-           EXPOSE SHOW STEP
-        ====================================================== */
-
-        window.tdriveShowStep =
-            showStep;
-
+            window.tdriveBooking.fullName = name;
+            window.tdriveBooking.gender = gender;
+            window.tdriveBooking.date = date;
+            window.tdriveBooking.time = time;
+
+            showStep("paymentStep");
+        });
+
+        window.tdriveShowStep = showStep;
 
     </script>
 
-
-    <!--
-        ملف التطبيق الأساسي
-        يحتفظ بوظائف الحجز والمدربين والدفع الموجودة عندك.
-    -->
-
-    <script
-        type="module"
-        src="app.js?v=4"
-    ></script>
-
+    <script type="module" src="app.js?v=4"></script>
 
 </body>
 
