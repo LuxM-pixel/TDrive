@@ -54,6 +54,12 @@
             cursor: pointer;
         }
 
+        /* حماية عامة: أي صورة في الصفحة متحكومة بحجم أبوها */
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
         /* =========================
            HEADER
         ========================= */
@@ -284,8 +290,10 @@
             grid-column: span 2;
 
             position: relative;
-            min-height: 420px;
+            display: flex;
+            flex-direction: column;
 
+            /* لا يوجد min-height ثابت، الطول بيتحدد من محتوى الصورة + النص فقط */
             overflow: hidden;
             border-radius: 28px;
 
@@ -321,12 +329,15 @@
 
         /* =========================
            REGION IMAGE
+           (هنا الحل: نسبة ثابتة + قفل تام على أي صورة كبيرة)
         ========================= */
 
         .region-image {
-            height: 220px;
             position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;   /* نسبة ثابتة زي التصميم، مش ارتفاع رقم ثابت */
             overflow: hidden;
+            border-radius: 28px 28px 0 0;
         }
 
         .region-image::after {
@@ -343,10 +354,13 @@
         }
 
         .region-photo {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            inset: 0;
+            width: 100% !important;
+            height: 100% !important;
+            max-width: none;
             object-fit: cover;
-            display: block;
+            object-position: center;
         }
 
 
@@ -371,8 +385,6 @@
                 );
 
             border-radius: 25px 25px 0 0;
-
-            min-height: 200px;
         }
 
         .region-card.central .region-content {
@@ -469,7 +481,6 @@
             font-size: 11px;
         }
 
-        /* تعديل حجم هوية المنطقة المصغرة لتكون صغيرة تماماً ومطابقة للصورة */
         .region-mini-map {
             width: 55px;
             height: 55px;
@@ -478,7 +489,6 @@
             object-fit: contain;
             opacity: 0.9;
             filter: brightness(0) invert(1);
-            display: block;
         }
 
 
@@ -791,8 +801,8 @@
                 grid-column: span 1;
             }
 
-            .region-card {
-                min-height: 380px;
+            .region-image {
+                aspect-ratio: 16 / 10;
             }
 
             .program-grid {
