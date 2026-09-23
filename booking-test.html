@@ -1712,198 +1712,373 @@
 
 <style>
 
-/* ==================================================
-   PAGE RESET
-================================================== */
+/* =========================================================
+   TDrive Booking Test
+   PAGE ISOLATED CSS
+   لا يعتمد على style.css
+========================================================= */
 
 #tdrive-booking-page,
-#tdrive-booking-page *{
-    box-sizing:border-box;
+#tdrive-booking-page * {
+    box-sizing: border-box;
 }
 
-#tdrive-booking-page{
-    margin:0;
-    padding:0;
-    width:100%;
-    min-height:100vh;
-    min-height:100dvh;
-    font-family:"Cairo",sans-serif;
-    background:#ffffff;
-    color:#243746;
-}
-
-#tdrive-booking-page #booking{
-    width:100%;
-    position:relative;
-    isolation:isolate;
-    overflow:hidden;
-    padding-bottom:125px !important;
+#tdrive-booking-page {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #243746;
+    font-family: "Cairo", sans-serif;
+    direction: rtl;
 }
 
 
-/* ==================================================
-   HERO
-================================================== */
+/* =========================================================
+   BODY / GENERAL
+========================================================= */
 
-#tdrive-booking-page .booking-visual{
-    width:100vw !important;
-    max-width:none !important;
-    margin:0 calc(50% - 50vw) 22px !important;
-    padding:0 !important;
-    overflow:hidden !important;
+#tdrive-booking-page button,
+#tdrive-booking-page input,
+#tdrive-booking-page select {
+    font-family: "Cairo", sans-serif;
 }
 
-#tdrive-booking-page .booking-visual img{
-    display:block !important;
-    width:100% !important;
-    max-width:none !important;
-    height:auto !important;
-    margin:0 !important;
-    padding:0 !important;
-    border-radius:0 !important;
-    object-fit:cover !important;
-    box-shadow:none !important;
+#tdrive-booking-page button {
+    appearance: none;
+    -webkit-appearance: none;
 }
 
-#tdrive-booking-page .booking-hero{
-    text-align:center;
-    padding:5px 15px 18px;
+#tdrive-booking-page img {
+    max-width: 100%;
 }
 
-#tdrive-booking-page .booking-hero h2{
-    color:#4f9fae;
-    font-size:32px;
-    font-weight:800;
-    margin:0 0 8px;
-}
-
-#tdrive-booking-page .booking-hero .subtitle{
-    color:#707d82;
-    font-size:17px;
-    margin:0;
-    line-height:1.8;
+#tdrive-booking-page a {
+    text-decoration: none;
 }
 
 
-/* ==================================================
+/* =========================================================
+   HEADER
+========================================================= */
+
+#tdrive-booking-page > header {
+    width: 100%;
+    min-height: 78px;
+    padding: 14px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: #ffffff;
+    border-bottom: 1px solid #edf2f3;
+}
+
+#tdrive-booking-page > header .logo {
+    flex-shrink: 0;
+}
+
+#tdrive-booking-page > header .logo h1 {
+    margin: 0;
+    color: #3a939f;
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+#tdrive-booking-page > header .logo p {
+    margin: 5px 0 0;
+    color: #718087;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+#tdrive-booking-page > header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#tdrive-booking-page > header nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 38px;
+    padding: 7px 13px;
+    color: #40545c;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+#tdrive-booking-page > header nav a:hover {
+    color: #3a939f;
+    background: #f1fafb;
+}
+
+#tdrive-booking-page > header nav a.register-btn {
+    color: #ffffff;
+    background: #3a939f;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#tdrive-booking-page > header nav a.register-btn:hover {
+    color: #ffffff;
+    background: #2f7f89;
+}
+
+
+/* =========================================================
+   BOOKING MAIN
+========================================================= */
+
+#tdrive-booking-page #booking {
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 78px);
+    padding-bottom: 130px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+#tdrive-booking-page .booking-visual {
+    width: 100%;
+    margin: 0 0 24px;
+    padding: 0;
+    overflow: hidden;
+}
+
+#tdrive-booking-page .booking-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+#tdrive-booking-page .booking-hero {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5px 20px 20px;
+    text-align: center;
+}
+
+#tdrive-booking-page .booking-hero h2 {
+    margin: 0 0 7px;
+    color: #4f9fae;
+    font-size: 32px;
+    line-height: 1.4;
+    font-weight: 900;
+}
+
+#tdrive-booking-page .booking-hero .subtitle {
+    margin: 0;
+    color: #707d82;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
    SERVICE TABS
-================================================== */
+========================================================= */
 
-#tdrive-booking-page .service-tabs{
-    position:relative;
-    z-index:10;
+#tdrive-booking-page .service-tabs {
+    width: min(1100px, calc(100% - 30px));
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 10px;
+}
+
+#tdrive-booking-page .service-tabs .tab-btn {
+    flex: 1;
+    min-height: 58px;
+    border: 1px solid #dcebec;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #50636a;
+    font-family: "Cairo", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    transition: .2s ease;
+}
+
+#tdrive-booking-page .service-tabs .tab-btn i {
+    color: #4f9fae;
+    font-size: 17px;
+}
+
+#tdrive-booking-page .service-tabs .tab-btn:hover,
+#tdrive-booking-page .service-tabs .tab-btn.active {
+    background: #eefafb;
+    border-color: #9ed4da;
+    color: #317f89;
+}
+
+#tdrive-booking-page .service-tabs .tab-btn.active i {
+    color: #317f89;
 }
 
 
-/* ==================================================
+/* =========================================================
    REGION SECTION
-================================================== */
+========================================================= */
 
-#tdrive-booking-page .region-selection{
-    width:100%;
-    max-width:1050px;
-    margin:0 auto 28px;
-    padding:22px;
-    background:#fbfdfd;
-    border:1px solid #e0eeee;
-    border-radius:24px;
-    box-sizing:border-box;
-}
-
-#tdrive-booking-page .region-heading{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-    margin-bottom:18px;
-    text-align:right;
-}
-
-#tdrive-booking-page .region-heading h3{
-    margin:0;
-    color:#243746;
-    font-size:20px;
-    font-weight:800;
-}
-
-#tdrive-booking-page .region-heading p{
-    margin:3px 0 0;
-    color:#7b898e;
-    font-size:12px;
-}
-
-#tdrive-booking-page .region-step-number{
-    width:36px;
-    height:36px;
-    flex:0 0 36px;
-    border-radius:50%;
-    background:#4f9fae;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:15px;
-    font-weight:800;
-}
-
-#tdrive-booking-page .small-step{
-    width:30px;
-    height:30px;
-    flex:0 0 30px;
-    font-size:13px;
-}
-
-#tdrive-booking-page .region-status{
-    text-align:center;
-    color:#7d8a8f;
-    font-size:12px;
-    margin-bottom:14px;
-}
-
-#tdrive-booking-page .region-status.success{
-    color:#3b8c76;
-}
-
-#tdrive-booking-page .region-status.error{
-    color:#b65b5b;
+#tdrive-booking-page .region-selection {
+    position: relative;
+    z-index: 2;
+    width: min(1120px, calc(100% - 30px));
+    margin: 0 auto 30px;
+    padding: 25px;
+    background: #fbfdfd;
+    border: 1px solid #e0eeee;
+    border-radius: 26px;
 }
 
 
-/* ==================================================
+/* =========================================================
+   REGION HEADING
+========================================================= */
+
+#tdrive-booking-page .region-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    text-align: right;
+}
+
+#tdrive-booking-page .region-step-number {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #4f9fae;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+#tdrive-booking-page .region-heading h3 {
+    margin: 0;
+    color: #243746;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+#tdrive-booking-page .region-heading p {
+    margin: 3px 0 0;
+    color: #7b898e;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   REGION STATUS
+========================================================= */
+
+#tdrive-booking-page .region-status {
+    width: 100%;
+    min-height: 22px;
+    margin: 0 0 15px;
+    text-align: center;
+    color: #7d8a8f;
+    font-size: 12px;
+}
+
+#tdrive-booking-page .region-status.success {
+    color: #3b8c76;
+}
+
+#tdrive-booking-page .region-status.error {
+    color: #b65b5b;
+}
+
+
+/* =========================================================
    REGIONS GRID
-   3 فوق + 2 تحت بالمنتصف
-================================================== */
+   مهم جدًا:
+   3 بطاقات في الصف الأول
+   2 بطاقات في الصف الثاني بالمنتصف
+========================================================= */
 
-#tdrive-booking-page .regions-grid{
-    width:100%;
-    display:grid !important;
-    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
-    gap:18px !important;
-    align-items:stretch;
-    justify-items:stretch;
+#tdrive-booking-page .regions-grid {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 18px !important;
+    align-items: stretch;
+    justify-items: stretch;
 }
 
 
-/* كل بطاقة تأخذ عمودين */
+/* =========================================================
+   REGION CARD
+========================================================= */
 
-#tdrive-booking-page .region-card{
-    grid-column:span 2 !important;
-    position:relative;
-    display:flex !important;
-    flex-direction:column !important;
-    width:100% !important;
-    min-width:0 !important;
-    height:auto !important;
-    padding:0 !important;
-    margin:0 !important;
-    overflow:hidden !important;
-    border:1px solid rgba(210,224,227,.9) !important;
-    border-radius:26px !important;
-    background:#fff !important;
-    box-shadow:0 10px 30px rgba(36,73,81,.10);
-    cursor:pointer;
-    font-family:"Cairo",sans-serif;
-    text-align:right;
+#tdrive-booking-page .regions-grid .region-card {
+    position: relative !important;
+
+    grid-column: span 2 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    border: 1px solid #d9e5e7 !important;
+    border-radius: 24px !important;
+
+    background: #ffffff !important;
+
+    color: #243746;
+
+    box-shadow: 0 8px 25px rgba(38, 76, 84, .09);
+
+    cursor: pointer;
+
+    text-align: right;
+
+    font-family: "Cairo", sans-serif;
+
     transition:
         transform .25s ease,
         box-shadow .25s ease,
@@ -1911,122 +2086,173 @@
 }
 
 
+/* الصف الأول */
+
+#tdrive-booking-page .regions-grid .region-card:nth-child(1),
+#tdrive-booking-page .regions-grid .region-card:nth-child(2),
+#tdrive-booking-page .regions-grid .region-card:nth-child(3) {
+    grid-row: 1;
+}
+
+
 /* الصف الثاني */
 
-#tdrive-booking-page .regions-grid .region-card:nth-child(4){
-    grid-column:2 / span 2 !important;
+#tdrive-booking-page .regions-grid .region-card:nth-child(4) {
+    grid-column: 2 / span 2 !important;
+    grid-row: 2;
 }
 
-#tdrive-booking-page .regions-grid .region-card:nth-child(5){
-    grid-column:4 / span 2 !important;
+#tdrive-booking-page .regions-grid .region-card:nth-child(5) {
+    grid-column: 4 / span 2 !important;
+    grid-row: 2;
 }
 
 
-/* hover */
+/* =========================================================
+   REGION CARD HOVER
+========================================================= */
 
-#tdrive-booking-page .region-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 18px 40px rgba(36,73,81,.16);
-    border-color:rgba(79,159,174,.45) !important;
+#tdrive-booking-page .regions-grid .region-card:hover {
+    transform: translateY(-5px);
+    border-color: #9ccfd5 !important;
+    box-shadow: 0 18px 38px rgba(38, 76, 84, .15);
 }
 
-#tdrive-booking-page .region-card.selected{
-    border-color:#4f9fae !important;
+#tdrive-booking-page .regions-grid .region-card.selected {
+    border-color: #4f9fae !important;
     box-shadow:
-        0 0 0 3px rgba(79,159,174,.18),
-        0 18px 40px rgba(36,73,81,.16);
+        0 0 0 3px rgba(79, 159, 174, .17),
+        0 18px 38px rgba(38, 76, 84, .15);
 }
 
 
-/* ==================================================
+/* =========================================================
    REGION IMAGE
-   هذه أهم نقطة في التعديل
-================================================== */
+   لا توجد أي وراثة من style.css
+========================================================= */
 
-#tdrive-booking-page .region-image-wrap{
-    position:relative !important;
-    display:block !important;
-    width:100% !important;
-    height:auto !important;
-    aspect-ratio:4 / 3 !important;
-    min-height:0 !important;
-    overflow:hidden !important;
-    border-radius:0 !important;
-    flex:0 0 auto !important;
+#tdrive-booking-page .region-image-wrap {
+    position: relative !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    height: 235px !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: hidden !important;
+
+    background: #edf4f5;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    flex: 0 0 235px !important;
 }
 
 
-/* طبقة التدرج */
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
 
-#tdrive-booking-page .region-image-wrap::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
+#tdrive-booking-page .region-image-wrap::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
     background:
         linear-gradient(
             to top,
-            rgba(17,55,64,.65),
-            rgba(17,55,64,.05) 70%
+            rgba(17, 55, 64, .62),
+            rgba(17, 55, 64, .04) 72%
         );
-    z-index:2;
-    pointer-events:none;
+
+    pointer-events: none;
+
+    z-index: 2;
 }
 
 
-/* الصورة نفسها */
+/* =========================================================
+   REGION IMAGE ITSELF
+========================================================= */
 
-#tdrive-booking-page .region-image-wrap img{
-    position:absolute !important;
-    inset:0 !important;
-    display:block !important;
-    width:100% !important;
-    height:100% !important;
-    max-width:none !important;
-    max-height:none !important;
-    min-width:0 !important;
-    min-height:0 !important;
-    margin:0 !important;
-    padding:0 !important;
-    border:0 !important;
-    border-radius:0 !important;
-    object-fit:cover !important;
-    object-position:center center !important;
-    transform:none;
-    box-shadow:none !important;
-    transition:transform .3s ease;
+#tdrive-booking-page .region-image-wrap img {
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    display: block !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    outline: 0 !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    box-shadow: none !important;
+
+    transform: translateZ(0);
+
+    transition: transform .35s ease;
+}
+
+#tdrive-booking-page .region-card:hover .region-image-wrap img {
+    transform: scale(1.05);
 }
 
 
-/* حركة بسيطة عند المرور */
+/* =========================================================
+   REGION INFO
+========================================================= */
 
-#tdrive-booking-page .region-card:hover .region-image-wrap img{
-    transform:scale(1.05);
-}
+#tdrive-booking-page .region-card-info {
+    position: relative;
+    z-index: 5;
 
+    width: 100%;
 
-/* ==================================================
-   REGION CONTENT
-================================================== */
+    margin: -24px 0 0;
 
-#tdrive-booking-page .region-card-info{
-    position:relative !important;
-    z-index:5;
-    width:100%;
-    margin-top:-24px;
-    padding:18px 18px 16px;
-    color:#fff;
+    padding: 17px 17px 15px;
+
+    color: #ffffff;
+
+    border-radius: 20px 20px 0 0;
+
     background:
         linear-gradient(
             180deg,
             #285967 0%,
             #183e49 100%
         );
-    border-radius:20px 20px 0 0;
 }
 
-#tdrive-booking-page .region-card.central .region-card-info{
+#tdrive-booking-page .region-card.central .region-card-info {
     background:
         linear-gradient(
             180deg,
@@ -2035,7 +2261,7 @@
         );
 }
 
-#tdrive-booking-page .region-card.eastern .region-card-info{
+#tdrive-booking-page .region-card.eastern .region-card-info {
     background:
         linear-gradient(
             180deg,
@@ -2044,7 +2270,7 @@
         );
 }
 
-#tdrive-booking-page .region-card.southern .region-card-info{
+#tdrive-booking-page .region-card.southern .region-card-info {
     background:
         linear-gradient(
             180deg,
@@ -2053,7 +2279,7 @@
         );
 }
 
-#tdrive-booking-page .region-card.northern .region-card-info{
+#tdrive-booking-page .region-card.northern .region-card-info {
     background:
         linear-gradient(
             180deg,
@@ -2062,218 +2288,314 @@
         );
 }
 
-#tdrive-booking-page .region-name{
-    margin:0 0 4px;
-    font-size:18px;
-    font-weight:800;
-    color:#fff;
+
+/* =========================================================
+   REGION TEXT
+========================================================= */
+
+#tdrive-booking-page .region-name {
+    margin: 0 0 4px;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.5;
+    font-weight: 900;
 }
 
-#tdrive-booking-page .region-slogan{
-    margin:0 0 13px;
-    font-size:12px;
-    line-height:1.7;
-    min-height:38px;
-    opacity:.9;
-    color:#fff;
+#tdrive-booking-page .region-slogan {
+    min-height: 39px;
+
+    margin: 0 0 13px;
+
+    color: rgba(255,255,255,.92);
+
+    font-size: 12px;
+    line-height: 1.7;
 }
 
-#tdrive-booking-page .region-bottom{
-    display:flex;
-    justify-content:flex-start;
-}
-
-#tdrive-booking-page .choose-region-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-    background:#fff;
-    color:#284f59;
-    border-radius:30px;
-    padding:8px 13px;
-    font-size:11px;
-    font-weight:800;
-}
-
-#tdrive-booking-page .choose-region-badge i{
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    background:#edf5f6;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:9px;
+#tdrive-booking-page .region-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 
-/* ==================================================
+/* =========================================================
+   REGION BADGE
+========================================================= */
+
+#tdrive-booking-page .choose-region-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 35px;
+
+    padding: 7px 12px;
+
+    color: #284f59;
+    background: #ffffff;
+
+    border-radius: 30px;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+#tdrive-booking-page .choose-region-badge i {
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #3a939f;
+    background: #edf5f6;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
    SELECTED REGION
-================================================== */
+========================================================= */
 
-#tdrive-booking-page .selected-region-box{
-    margin-top:15px;
-    padding:12px 14px;
-    background:#eefafb;
-    border:1px solid #cfeef2;
-    border-radius:15px;
-    display:flex;
-    align-items:center;
-    gap:10px;
+#tdrive-booking-page .selected-region-box {
+    width: 100%;
+
+    margin-top: 15px;
+    padding: 12px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background: #eefafb;
+    border: 1px solid #cfeef2;
+    border-radius: 15px;
 }
 
-#tdrive-booking-page .selected-region-icon{
-    width:38px;
-    height:38px;
-    flex:0 0 38px;
-    border-radius:50%;
-    background:#d9f2f4;
-    color:#3a939f;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+#tdrive-booking-page .selected-region-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #3a939f;
+    background: #d9f2f4;
 }
 
-#tdrive-booking-page .selected-region-info{
-    flex:1;
-    text-align:right;
+#tdrive-booking-page .selected-region-info {
+    flex: 1;
+    min-width: 0;
+    text-align: right;
 }
 
-#tdrive-booking-page .selected-region-info small{
-    display:block;
-    color:#7d8e93;
-    font-size:9px;
+#tdrive-booking-page .selected-region-info small {
+    display: block;
+
+    color: #7d8e93;
+    font-size: 9px;
 }
 
-#tdrive-booking-page .selected-region-info strong{
-    display:block;
-    margin-top:2px;
-    color:#2f4e57;
-    font-size:13px;
+#tdrive-booking-page .selected-region-info strong {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #2f4e57;
+    font-size: 13px;
 }
 
-#tdrive-booking-page .change-region-btn{
-    border:1px solid #b8dfe4;
-    background:#fff;
-    color:#3a939f;
-    border-radius:9px;
-    padding:7px 12px;
-    font-family:"Cairo",sans-serif;
-    font-size:11px;
-    font-weight:700;
-    cursor:pointer;
+#tdrive-booking-page .change-region-btn {
+    border: 1px solid #b8dfe4;
+    background: #ffffff;
+    color: #3a939f;
+
+    border-radius: 9px;
+
+    padding: 7px 12px;
+
+    font-family: "Cairo", sans-serif;
+    font-size: 11px;
+    font-weight: 800;
+
+    cursor: pointer;
 }
 
 
-/* ==================================================
+/* =========================================================
+   DRIVING PANEL
+========================================================= */
+
+#tdrive-booking-page .service-panel {
+    width: min(1120px, calc(100% - 30px));
+    margin: 0 auto;
+}
+
+#tdrive-booking-page .booking-program-title {
+    margin: 20px 0;
+    text-align: center;
+    color: #243746;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+
+/* =========================================================
    PROGRAM GATE
-================================================== */
+========================================================= */
 
-#tdrive-booking-page .program-gate{
-    width:100%;
-    max-width:1100px;
-    margin:0 auto;
-    padding:10px 5px 30px;
-    box-sizing:border-box;
-    overflow-x:hidden;
+#tdrive-booking-page .program-gate {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 10px 5px 30px;
+
+    overflow: hidden;
 }
 
-#tdrive-booking-page .program-gate-main{
-    display:flex;
-    justify-content:center;
-    margin-bottom:18px;
-    width:100%;
+#tdrive-booking-page .program-gate-main {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
 }
 
-#tdrive-booking-page .program-gate-title{
-    width:min(420px,90%);
-    min-height:50px;
-    padding:8px 15px;
-    background:#4f9fae;
-    color:#fff;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    font-size:18px;
-    font-weight:800;
-    box-shadow:0 5px 15px rgba(79,159,174,.18);
+#tdrive-booking-page .program-gate-title {
+    width: min(420px, 90%);
+    min-height: 50px;
+
+    padding: 8px 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-radius: 14px;
+
+    background: #4f9fae;
+    color: #ffffff;
+
+    font-size: 18px;
+    font-weight: 900;
+
+    box-shadow: 0 5px 15px rgba(79,159,174,.18);
 }
 
 
-/* ==================================================
+/* =========================================================
    PROGRAM SECTION
-================================================== */
+========================================================= */
 
-#tdrive-booking-page .program-section-disabled{
-    border-top:1px solid #e8eeee;
-    padding-top:22px;
+#tdrive-booking-page .program-section-disabled {
+    width: 100%;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #e8eeee;
 }
 
-#tdrive-booking-page .program-gate-subtitle{
-    color:#344c55;
-    font-size:15px;
-    font-weight:700;
-    margin-bottom:15px;
-    text-align:center;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:9px;
+#tdrive-booking-page .program-gate-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin-bottom: 18px;
+
+    color: #344c55;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+#tdrive-booking-page .small-step {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    font-size: 13px;
 }
 
 
-/* ==================================================
-   PROGRAMS
-================================================== */
+/* =========================================================
+   PROGRAM CARDS LAYOUT
+========================================================= */
 
-#tdrive-booking-page .programs-layout{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    align-items:stretch;
-    flex-wrap:nowrap;
-    width:100%;
+#tdrive-booking-page .programs-layout {
+    width: 100%;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+    gap: 18px;
+
+    flex-wrap: nowrap;
 }
 
-#tdrive-booking-page .program-side{
-    position:relative;
-    width:48%;
-    min-width:150px;
-    max-width:320px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    margin-bottom:10px;
+#tdrive-booking-page .program-side {
+    position: relative;
+
+    width: min(320px, 48%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#tdrive-booking-page .program-arrow{
-    width:100px;
-    height:40px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-bottom:-3px;
-    z-index:2;
+#tdrive-booking-page .program-arrow {
+    width: 100px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: -3px;
+
+    z-index: 2;
 }
 
-#tdrive-booking-page .program-arrow svg{
-    width:100%;
-    height:100%;
-    overflow:visible;
+#tdrive-booking-page .program-arrow svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
 }
 
-#tdrive-booking-page .program-option-card{
-    width:100%;
-    min-height:320px;
-    padding:15px 10px 12px;
-    border-radius:18px;
-    cursor:pointer;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+
+/* =========================================================
+   PROGRAM CARD
+========================================================= */
+
+#tdrive-booking-page .program-option-card {
+    width: 100%;
+    min-height: 320px;
+
+    padding: 15px 12px 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    cursor: pointer;
+
     transition:
         transform .2s ease,
         box-shadow .2s ease,
@@ -2281,474 +2603,1142 @@
 }
 
 
-/* الأساسي */
+/* BASIC */
 
-#tdrive-booking-page .basic-program-card{
-    background:#fffaf6;
-    border:1.5px solid #f0d7c2;
-    box-shadow:0 4px 15px rgba(230,173,123,.1);
+#tdrive-booking-page .basic-program-card {
+    background: #fffaf6;
+    border: 1.5px solid #f0d7c2;
+
+    box-shadow: 0 4px 15px rgba(230,173,123,.1);
 }
 
-#tdrive-booking-page .basic-program-card:hover{
-    transform:translateY(-3px);
-    border-color:#e6ad7b;
-    box-shadow:0 8px 20px rgba(230,173,123,.2);
+#tdrive-booking-page .basic-program-card:hover {
+    transform: translateY(-3px);
+
+    border-color: #e6ad7b;
+
+    box-shadow: 0 8px 20px rgba(230,173,123,.2);
 }
 
-#tdrive-booking-page .basic-program-card.selected{
-    border-color:#d99a68;
+#tdrive-booking-page .basic-program-card.selected {
+    border-color: #d99a68;
+
     box-shadow:
         0 0 0 3px rgba(217,154,104,.12),
         0 8px 22px rgba(230,173,123,.18);
 }
 
-#tdrive-booking-page .basic-icon{
-    background:#fff0e5;
-    color:#d99a68;
+
+/* PLUS */
+
+#tdrive-booking-page .plus-program-card {
+    background: #fcf5f5;
+    border: 1.5px solid #dcbaba;
+
+    box-shadow: 0 4px 15px rgba(166,93,93,.1);
 }
 
+#tdrive-booking-page .plus-program-card:hover {
+    transform: translateY(-3px);
 
-/* التكميلي */
+    border-color: #a65d5d;
 
-#tdrive-booking-page .plus-program-card{
-    background:#fcf5f5;
-    border:1.5px solid #dcbaba;
-    box-shadow:0 4px 15px rgba(166,93,93,.1);
+    box-shadow: 0 8px 20px rgba(166,93,93,.2);
 }
 
-#tdrive-booking-page .plus-program-card:hover{
-    transform:translateY(-3px);
-    border-color:#a65d5d;
-    box-shadow:0 8px 20px rgba(166,93,93,.2);
-}
+#tdrive-booking-page .plus-program-card.selected {
+    border-color: #a65d5d;
 
-#tdrive-booking-page .plus-program-card.selected{
-    border-color:#a65d5d;
     box-shadow:
         0 0 0 3px rgba(166,93,93,.12),
         0 8px 22px rgba(166,93,93,.18);
 }
 
-#tdrive-booking-page .plus-icon{
-    background:#f5e4e4;
-    color:#a65d5d;
+
+/* =========================================================
+   PROGRAM ICON
+========================================================= */
+
+#tdrive-booking-page .program-icon {
+    width: 45px;
+    height: 45px;
+
+    margin-bottom: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 18px;
 }
 
-#tdrive-booking-page .plus-program-card .program-price strong{
-    color:#a65d5d;
+#tdrive-booking-page .basic-icon {
+    background: #fff0e5;
+    color: #d99a68;
 }
 
-#tdrive-booking-page .plus-program-card .program-divider{
-    background:#dcbaba;
+#tdrive-booking-page .plus-icon {
+    background: #f5e4e4;
+    color: #a65d5d;
 }
 
 
-/* ==================================================
+/* =========================================================
    PROGRAM TEXT
-================================================== */
+========================================================= */
 
-#tdrive-booking-page .program-icon{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-bottom:8px;
-    font-size:18px;
+#tdrive-booking-page .program-option-card h4 {
+    margin: 0 0 5px;
+
+    color: #243746;
+
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 900;
 }
 
-#tdrive-booking-page .program-option-card h4{
-    margin:0 0 5px;
-    font-size:17px;
-    font-weight:800;
-    color:#243746;
+#tdrive-booking-page .program-hours {
+    margin-bottom: 8px;
+
+    color: #344c55;
+
+    font-size: 14px;
+    font-weight: 800;
 }
 
-#tdrive-booking-page .program-hours{
-    font-size:14px;
-    font-weight:700;
-    color:#344c55;
-    margin-bottom:8px;
+#tdrive-booking-page .program-price {
+    margin-bottom: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
 }
 
-#tdrive-booking-page .program-price{
-    margin-bottom:2px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
+#tdrive-booking-page .program-price strong {
+    font-size: 17px;
+    font-weight: 900;
 }
 
-#tdrive-booking-page .program-price strong{
-    font-size:17px;
-    font-weight:800;
+#tdrive-booking-page .basic-program-card .program-price strong {
+    color: #d99a68;
 }
 
-#tdrive-booking-page .basic-program-card .program-price strong{
-    color:#d99a68;
+#tdrive-booking-page .plus-program-card .program-price strong {
+    color: #a65d5d;
 }
 
-#tdrive-booking-page .program-price .old-price{
-    font-size:13px;
-    color:#999;
-    text-decoration:line-through;
+#tdrive-booking-page .program-price .old-price {
+    color: #999999;
+    font-size: 13px;
+    text-decoration: line-through;
 }
 
-#tdrive-booking-page .program-price-note{
-    color:#9aa6aa;
-    font-size:9px;
-    margin-bottom:6px;
+#tdrive-booking-page .program-price-note {
+    margin-bottom: 6px;
+
+    color: #9aa6aa;
+
+    font-size: 9px;
 }
 
-#tdrive-booking-page .program-divider{
-    width:85%;
-    height:1px;
-    margin:5px auto 8px;
+#tdrive-booking-page .program-divider {
+    width: 85%;
+    height: 1px;
+
+    margin: 5px auto 8px;
+
+    background: #efd7c4;
 }
 
-#tdrive-booking-page .basic-program-card .program-divider{
-    background:#efd7c4;
+#tdrive-booking-page .plus-program-card .program-divider {
+    background: #dcbaba;
 }
 
-#tdrive-booking-page .program-option-card p{
-    width:100%;
-    margin:0 auto 10px;
-    color:#455966;
-    font-size:11.5px;
-    line-height:1.5;
-    flex-grow:1;
+#tdrive-booking-page .program-option-card p {
+    width: 100%;
+
+    flex-grow: 1;
+
+    margin: 0 auto 10px;
+
+    color: #455966;
+
+    font-size: 11.5px;
+    line-height: 1.6;
 }
 
 
-/* ==================================================
+/* =========================================================
    PROGRAM BUTTON
-================================================== */
+========================================================= */
 
-#tdrive-booking-page .choose-program-btn{
-    width:100%;
-    min-height:36px;
-    border:none;
-    border-radius:10px;
-    background:#4f9fae;
-    color:#fff;
-    font-family:"Cairo",sans-serif;
-    font-size:13px;
-    font-weight:700;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:6px;
-    transition:
-        background .2s ease,
-        transform .2s ease;
+#tdrive-booking-page .choose-program-btn {
+    width: 100%;
+    min-height: 37px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: #4f9fae;
+    color: #ffffff;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    transition: .2s ease;
 }
 
-#tdrive-booking-page .choose-program-btn:hover{
-    background:#3a939f;
-    transform:translateY(-2px);
+#tdrive-booking-page .choose-program-btn:hover {
+    background: #3a939f;
+    transform: translateY(-2px);
 }
 
 
-/* ==================================================
-   BOOKING BADGES
-================================================== */
+/* =========================================================
+   BOOKING CONTENT
+========================================================= */
 
-#tdrive-booking-page .selected-program-badge{
-    background:#eefafb;
-    border:1px solid #cfeef2;
-    color:#3a939f;
-    font-weight:700;
-    border-radius:12px;
-    padding:10px 14px;
-    margin-bottom:10px;
-    text-align:center;
+#tdrive-booking-page #registrationContent {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
 }
 
+
+/* =========================================================
+   NOTES
+========================================================= */
+
+#tdrive-booking-page .booking-note {
+    width: 100%;
+
+    margin: 18px 0;
+    padding: 17px;
+
+    background: #f7fbfc;
+    border: 1px solid #dceff1;
+    border-radius: 15px;
+
+    color: #50636a;
+
+    line-height: 1.8;
+}
+
+#tdrive-booking-page .booking-note h3 {
+    margin: 0 0 8px;
+
+    color: #315c65;
+
+    font-size: 16px;
+    font-weight: 900;
+}
+
+#tdrive-booking-page .booking-note p {
+    margin: 6px 0;
+
+    font-size: 12px;
+}
+
+#tdrive-booking-page .booking-note strong {
+    color: #3a939f;
+}
+
+#tdrive-booking-page .booking-note-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+/* =========================================================
+   STEPPER
+========================================================= */
+
+#tdrive-booking-page .stepper {
+    width: 100%;
+
+    margin: 20px auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tdrive-booking-page .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    min-width: 55px;
+
+    color: #829196;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+#tdrive-booking-page .step-circle {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #edf2f3;
+    color: #829196;
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+#tdrive-booking-page .step-circle.active {
+    background: #4f9fae;
+    color: #ffffff;
+}
+
+#tdrive-booking-page .step-line {
+    width: 55px;
+    height: 2px;
+
+    margin: 0 4px;
+
+    background: #e3ebed;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+#tdrive-booking-page #bookingForm,
+#tdrive-booking-page #captainForm {
+    width: 100%;
+}
+
+#tdrive-booking-page .form-step,
+#tdrive-booking-page .captain-form-step {
+    width: 100%;
+
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2ebed;
+    border-radius: 18px;
+
+    box-shadow: 0 8px 25px rgba(36,73,81,.06);
+}
+
+#tdrive-booking-page .form-step:not(.active) {
+    display: none;
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+#tdrive-booking-page .selected-program-badge,
 #tdrive-booking-page .booking-region-badge,
-#tdrive-booking-page .booking-price-badge{
-    border-radius:11px;
-    padding:8px 12px;
-    margin-bottom:8px;
-    text-align:center;
-    font-size:12px;
-    font-weight:700;
+#tdrive-booking-page .booking-price-badge {
+    width: 100%;
+
+    margin-bottom: 9px;
+
+    padding: 9px 12px;
+
+    border-radius: 11px;
+
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 800;
 }
 
-#tdrive-booking-page .booking-region-badge{
-    background:#f5f9f9;
-    border:1px solid #e0ebeb;
-    color:#52666c;
+#tdrive-booking-page .selected-program-badge {
+    background: #eefafb;
+    border: 1px solid #cfeef2;
+    color: #3a939f;
 }
 
-#tdrive-booking-page .booking-price-badge{
-    background:#fff8ef;
-    border:1px solid #f0dcc5;
-    color:#c77f46;
+#tdrive-booking-page .booking-region-badge {
+    background: #f5f9f9;
+    border: 1px solid #e0ebeb;
+    color: #52666c;
 }
 
-
-/* ==================================================
-   BACKGROUND WAVE
-================================================== */
-
-#tdrive-booking-page #booking::after{
-    content:"";
-    position:absolute;
-    left:-12%;
-    right:-12%;
-    bottom:0;
-    height:155px;
-    background:#eaf8fa;
-    border-radius:50% 50% 0 0 / 65% 65% 0 0;
-    z-index:-1;
-}
-
-#tdrive-booking-page #booking::before{
-    content:"";
-    position:absolute;
-    left:-15%;
-    right:35%;
-    bottom:0;
-    height:95px;
-    background:#f7fcfd;
-    border-radius:60% 60% 0 0 / 70% 70% 0 0;
-    z-index:-1;
+#tdrive-booking-page .booking-price-badge {
+    background: #fff8ef;
+    border: 1px solid #f0dcc5;
+    color: #c77f46;
 }
 
 
-/* ==================================================
-   TRAINER PLACEHOLDER
-================================================== */
+/* =========================================================
+   FORM TITLES
+========================================================= */
 
-#tdrive-booking-page .trainer-placeholder{
-    text-align:center;
-    color:#8b999f;
-    font-size:13px;
+#tdrive-booking-page .step-title {
+    margin: 18px 0 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #304b54;
+
+    font-size: 17px;
+    font-weight: 900;
 }
 
 
-/* ==================================================
+/* =========================================================
+   LABELS
+========================================================= */
+
+#tdrive-booking-page .form-step > label,
+#tdrive-booking-page .captain-form-step > label {
+    display: block;
+
+    margin: 13px 0 6px;
+
+    color: #52666d;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   INPUT ICON
+========================================================= */
+
+#tdrive-booking-page .input-icon {
+    position: relative;
+    width: 100%;
+}
+
+#tdrive-booking-page .input-icon input,
+#tdrive-booking-page .input-icon select {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 43px 0 14px;
+
+    border: 1px solid #dce7e9;
+    border-radius: 11px;
+
+    background: #ffffff;
+    color: #344b54;
+
+    outline: none;
+
+    font-family: "Cairo", sans-serif;
+    font-size: 13px;
+
+    transition: .2s ease;
+}
+
+#tdrive-booking-page .input-icon input:focus,
+#tdrive-booking-page .input-icon select:focus {
+    border-color: #8ccbd2;
+    box-shadow: 0 0 0 3px rgba(79,159,174,.08);
+}
+
+#tdrive-booking-page .input-icon input:disabled,
+#tdrive-booking-page .input-icon select:disabled {
+    background: #f4f7f8;
+    color: #9ba8ac;
+}
+
+#tdrive-booking-page .input-icon > i {
+    position: absolute;
+
+    right: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #4f9fae;
+
+    font-size: 14px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+#tdrive-booking-page .next-btn,
+#tdrive-booking-page .back-btn {
+    min-height: 43px;
+
+    border-radius: 10px;
+
+    padding: 8px 20px;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+#tdrive-booking-page .next-btn {
+    border: 0;
+
+    background: #4f9fae;
+    color: #ffffff;
+}
+
+#tdrive-booking-page .next-btn:hover {
+    background: #3a939f;
+    transform: translateY(-1px);
+}
+
+#tdrive-booking-page .form-step > .next-btn,
+#tdrive-booking-page .captain-form-step > .next-btn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#tdrive-booking-page .step-buttons {
+    width: 100%;
+
+    margin-top: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#tdrive-booking-page .step-buttons .next-btn {
+    flex: 1;
+}
+
+#tdrive-booking-page .step-buttons .back-btn {
+    flex: 0 0 120px;
+}
+
+#tdrive-booking-page .back-btn {
+    border: 1px solid #d7e3e5;
+
+    background: #ffffff;
+    color: #61737a;
+}
+
+#tdrive-booking-page .back-btn:hover {
+    border-color: #9fcdd2;
+    color: #3a939f;
+}
+
+
+/* =========================================================
+   TRAINER
+========================================================= */
+
+#tdrive-booking-page .trainer-selection-description {
+    margin: 0 0 12px;
+
+    color: #74858b;
+
+    font-size: 12px;
+}
+
+#tdrive-booking-page .trainer-selection {
+    width: 100%;
+
+    min-height: 100px;
+
+    padding: 10px;
+
+    border: 1px solid #e2ebed;
+    border-radius: 13px;
+
+    background: #fbfdfd;
+}
+
+#tdrive-booking-page .trainer-placeholder {
+    margin: 25px 0;
+
+    text-align: center;
+
+    color: #8b999f;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TIME SLOTS
+========================================================= */
+
+#tdrive-booking-page .time-slots-grid {
+    width: 100%;
+
+    margin-top: 8px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+#tdrive-booking-page .time-slots-grid button {
+    min-height: 42px;
+
+    border: 1px solid #dce7e9;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #50636a;
+
+    font-family: "Cairo", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   VIDEOS
+========================================================= */
+
+#tdrive-booking-page .videos-section {
+    width: 100%;
+
+    margin-top: 30px;
+    padding: 20px;
+
+    background: #f8fcfc;
+
+    border: 1px solid #dfedef;
+    border-radius: 18px;
+}
+
+#tdrive-booking-page .videos-title {
+    margin: 0 0 6px;
+
+    color: #315c65;
+
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 900;
+}
+
+#tdrive-booking-page .videos-text {
+    margin: 0 0 15px;
+
+    color: #7b898e;
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+#tdrive-booking-page .video-card {
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+
+    background: #000;
+}
+
+#tdrive-booking-page .video-card h3 {
+    padding: 12px;
+    margin: 0;
+
+    background: #f3f8f9;
+
+    color: #405860;
+
+    font-size: 13px;
+    text-align: center;
+}
+
+#tdrive-booking-page .video-card iframe {
+    display: block;
+
+    width: 100%;
+    height: 390px;
+
+    border: 0;
+}
+
+
+/* =========================================================
    CAPTAIN
-================================================== */
+========================================================= */
 
-#tdrive-booking-page .captain-payment-note{
-    text-align:center;
+#tdrive-booking-page #captainPanel {
+    width: min(760px, calc(100% - 30px));
+    margin: 0 auto;
+}
+
+#tdrive-booking-page .captain-stepper {
+    margin-bottom: 20px;
+}
+
+#tdrive-booking-page .captain-video-section {
+    margin-top: 25px;
+}
+
+#tdrive-booking-page .captain-payment-note {
+    margin: 15px 0;
+
+    color: #66787e;
+
+    text-align: center;
+
+    font-size: 12px;
 }
 
 
-/* ==================================================
+/* =========================================================
    FOOTER
-================================================== */
+========================================================= */
 
-#tdrive-booking-page footer{
-    flex-shrink:0 !important;
-    width:100% !important;
-    margin-top:auto !important;
-    margin-bottom:0 !important;
-    padding:28px 15px !important;
-    box-sizing:border-box !important;
-    background:#3a939f !important;
-    color:#fff !important;
-    border-radius:30px 30px 0 0 !important;
-    box-shadow:0 -6px 25px rgba(79,159,174,.12);
+#tdrive-booking-page > footer {
+    width: 100%;
+
+    margin: 0;
+
+    padding: 28px 15px;
+
+    background: #3a939f;
+
+    color: #ffffff;
+
+    border-radius: 30px 30px 0 0;
+
+    text-align: center;
+
+    box-shadow: 0 -6px 25px rgba(79,159,174,.12);
 }
 
-#tdrive-booking-page footer p{
-    margin:0 !important;
-    color:#fff !important;
-    font-size:14px !important;
-    line-height:1.5 !important;
+#tdrive-booking-page > footer p {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 
-/* ==================================================
+/* =========================================================
+   DECORATIVE BACKGROUND
+========================================================= */
+
+#tdrive-booking-page #booking::before {
+    content: "";
+
+    position: absolute;
+
+    left: -15%;
+    right: 35%;
+    bottom: 0;
+
+    height: 95px;
+
+    background: #f7fcfd;
+
+    border-radius: 60% 60% 0 0 / 70% 70% 0 0;
+
+    z-index: -1;
+}
+
+#tdrive-booking-page #booking::after {
+    content: "";
+
+    position: absolute;
+
+    left: -12%;
+    right: -12%;
+    bottom: 0;
+
+    height: 155px;
+
+    background: #eaf8fa;
+
+    border-radius: 50% 50% 0 0 / 65% 65% 0 0;
+
+    z-index: -2;
+}
+
+
+/* =========================================================
    TABLET
-================================================== */
+========================================================= */
 
-@media(max-width:950px){
+@media (max-width: 950px) {
 
-    #tdrive-booking-page .regions-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-        gap:14px !important;
+    #tdrive-booking-page > header {
+        padding: 14px 20px;
     }
 
-    #tdrive-booking-page .region-card,
+    #tdrive-booking-page > header nav {
+        gap: 4px;
+    }
+
+    #tdrive-booking-page > header nav a {
+        padding: 6px 9px;
+        font-size: 11px;
+    }
+
+    #tdrive-booking-page .region-selection {
+        width: calc(100% - 25px);
+    }
+
+    #tdrive-booking-page .regions-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    }
+
+    #tdrive-booking-page .regions-grid .region-card,
     #tdrive-booking-page .regions-grid .region-card:nth-child(4),
-    #tdrive-booking-page .regions-grid .region-card:nth-child(5){
-        grid-column:span 1 !important;
+    #tdrive-booking-page .regions-grid .region-card:nth-child(5) {
+        grid-column: span 1 !important;
+        grid-row: auto !important;
+    }
+
+    #tdrive-booking-page .region-image-wrap {
+        height: 220px !important;
+        flex-basis: 220px !important;
     }
 
 }
 
 
-/* ==================================================
+/* =========================================================
    MOBILE
-================================================== */
+========================================================= */
 
-@media(max-width:700px){
+@media (max-width: 700px) {
 
-    #tdrive-booking-page .booking-hero{
-        padding:2px 12px 15px;
+    #tdrive-booking-page > header {
+        min-height: auto;
+
+        padding: 14px 12px;
+
+        flex-direction: column;
+
+        gap: 12px;
     }
 
-    #tdrive-booking-page .booking-hero h2{
-        font-size:27px;
+    #tdrive-booking-page > header nav {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 6px;
     }
 
-    #tdrive-booking-page .booking-hero .subtitle{
-        font-size:14px;
+    #tdrive-booking-page > header nav a {
+        width: 100%;
+
+        min-height: 36px;
+
+        padding: 6px 5px;
+
+        font-size: 10px;
     }
 
-    #tdrive-booking-page .program-gate{
-        padding-left:8px;
-        padding-right:8px;
-    }
-
-    #tdrive-booking-page .program-gate-title{
-        font-size:16px;
-    }
-
-    #tdrive-booking-page .region-selection{
-        padding:15px 10px;
-        border-radius:20px;
-    }
-
-    #tdrive-booking-page .region-heading{
-        justify-content:flex-start;
-    }
-
-    #tdrive-booking-page .region-heading h3{
-        font-size:17px;
+    #tdrive-booking-page > header nav a.register-btn {
+        grid-column: span 2;
     }
 
 
-    /* الجوال: بطاقة واحدة في كل صف */
-
-    #tdrive-booking-page .regions-grid{
-        grid-template-columns:1fr !important;
-        gap:16px !important;
-        max-width:440px;
-        margin:0 auto;
+    #tdrive-booking-page .booking-hero {
+        padding: 3px 12px 16px;
     }
 
-    #tdrive-booking-page .region-card,
+    #tdrive-booking-page .booking-hero h2 {
+        font-size: 27px;
+    }
+
+    #tdrive-booking-page .booking-hero .subtitle {
+        font-size: 14px;
+    }
+
+
+    #tdrive-booking-page .service-tabs {
+        width: calc(100% - 20px);
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+    #tdrive-booking-page .service-tabs .tab-btn {
+        min-height: 50px;
+    }
+
+
+    #tdrive-booking-page .region-selection {
+        width: calc(100% - 20px);
+
+        padding: 15px 10px;
+
+        border-radius: 20px;
+    }
+
+    #tdrive-booking-page .region-heading {
+        justify-content: flex-start;
+    }
+
+    #tdrive-booking-page .region-heading h3 {
+        font-size: 17px;
+    }
+
+
+    /* =====================================================
+       MOBILE REGIONS
+       بطاقة كاملة داخل حدودها
+    ===================================================== */
+
+    #tdrive-booking-page .regions-grid {
+        width: 100%;
+
+        grid-template-columns: 1fr !important;
+
+        gap: 16px !important;
+
+        margin: 0 auto;
+    }
+
+    #tdrive-booking-page .regions-grid .region-card,
     #tdrive-booking-page .regions-grid .region-card:nth-child(4),
-    #tdrive-booking-page .regions-grid .region-card:nth-child(5){
-        grid-column:auto !important;
+    #tdrive-booking-page .regions-grid .region-card:nth-child(5) {
+        grid-column: 1 !important;
+        grid-row: auto !important;
     }
 
-    #tdrive-booking-page .region-image-wrap{
-        aspect-ratio:16 / 10 !important;
+    #tdrive-booking-page .region-image-wrap {
+        width: 100% !important;
+
+        height: 220px !important;
+
+        flex-basis: 220px !important;
+
+        aspect-ratio: auto !important;
     }
 
-    #tdrive-booking-page .region-card-info{
-        padding:15px 15px 13px;
+    #tdrive-booking-page .region-card-info {
+        margin-top: -20px;
+
+        padding: 15px;
     }
 
-    #tdrive-booking-page .region-name{
-        font-size:16px;
+    #tdrive-booking-page .region-name {
+        font-size: 16px;
     }
 
-    #tdrive-booking-page .region-slogan{
-        font-size:11.5px;
-        min-height:auto;
-    }
+    #tdrive-booking-page .region-slogan {
+        min-height: auto;
 
-
-    /* البرامج */
-
-    #tdrive-booking-page .programs-layout{
-        gap:8px;
-    }
-
-    #tdrive-booking-page .program-option-card{
-        min-height:320px;
-        padding:14px 8px 11px;
-    }
-
-    #tdrive-booking-page .program-option-card h4{
-        font-size:15px;
-    }
-
-    #tdrive-booking-page .program-hours{
-        font-size:13px;
-    }
-
-    #tdrive-booking-page .program-price{
-        gap:5px;
-    }
-
-    #tdrive-booking-page .program-price strong{
-        font-size:14px;
-    }
-
-    #tdrive-booking-page .program-price .old-price{
-        font-size:11px;
-    }
-
-    #tdrive-booking-page .program-option-card p{
-        font-size:10.5px;
-        line-height:1.55;
-    }
-
-    #tdrive-booking-page .choose-program-btn{
-        font-size:12px;
-        min-height:35px;
+        font-size: 11.5px;
     }
 
 
-    #tdrive-booking-page #booking{
-        padding-bottom:105px !important;
+    /* =====================================================
+       PROGRAMS MOBILE
+    ===================================================== */
+
+    #tdrive-booking-page .program-gate {
+        padding: 10px 0 25px;
     }
 
-    #tdrive-booking-page #booking::after{
-        height:125px;
+    #tdrive-booking-page .programs-layout {
+        gap: 8px;
     }
 
-    #tdrive-booking-page #booking::before{
-        height:80px;
+    #tdrive-booking-page .program-side {
+        width: calc(50% - 4px);
+
+        min-width: 0;
     }
 
-    #tdrive-booking-page footer{
-        border-radius:26px 26px 0 0 !important;
-        padding:25px 12px !important;
+    #tdrive-booking-page .program-arrow {
+        width: 70px;
+        height: 32px;
     }
 
-    #tdrive-booking-page footer p{
-        font-size:12px !important;
+    #tdrive-booking-page .program-option-card {
+        min-height: 325px;
+
+        padding: 13px 8px 11px;
+
+        border-radius: 15px;
+    }
+
+    #tdrive-booking-page .program-option-card h4 {
+        font-size: 14px;
+    }
+
+    #tdrive-booking-page .program-hours {
+        font-size: 12px;
+    }
+
+    #tdrive-booking-page .program-price {
+        gap: 4px;
+    }
+
+    #tdrive-booking-page .program-price strong {
+        font-size: 14px;
+    }
+
+    #tdrive-booking-page .program-price .old-price {
+        font-size: 10px;
+    }
+
+    #tdrive-booking-page .program-option-card p {
+        font-size: 10px;
+        line-height: 1.55;
+    }
+
+    #tdrive-booking-page .choose-program-btn {
+        min-height: 34px;
+        font-size: 11px;
+    }
+
+
+    /* =====================================================
+       FORM MOBILE
+    ===================================================== */
+
+    #tdrive-booking-page #registrationContent {
+        width: calc(100% - 20px);
+    }
+
+    #tdrive-booking-page .form-step,
+    #tdrive-booking-page .captain-form-step {
+        padding: 15px;
+    }
+
+    #tdrive-booking-page .step-line {
+        width: 25px;
+    }
+
+    #tdrive-booking-page .step-item {
+        min-width: 42px;
+
+        font-size: 9px;
+    }
+
+    #tdrive-booking-page .step-circle {
+        width: 31px;
+        height: 31px;
+    }
+
+    #tdrive-booking-page .step-buttons {
+        flex-direction: row;
+    }
+
+    #tdrive-booking-page .step-buttons .back-btn {
+        flex: 0 0 95px;
+    }
+
+    #tdrive-booking-page .time-slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #tdrive-booking-page .video-card iframe {
+        height: 230px;
+    }
+
+
+    #tdrive-booking-page #captainPanel {
+        width: calc(100% - 20px);
+    }
+
+
+    #tdrive-booking-page #booking {
+        padding-bottom: 105px;
+    }
+
+    #tdrive-booking-page #booking::after {
+        height: 125px;
+    }
+
+    #tdrive-booking-page #booking::before {
+        height: 80px;
+    }
+
+
+    #tdrive-booking-page > footer {
+        padding: 25px 12px;
+
+        border-radius: 26px 26px 0 0;
+    }
+
+    #tdrive-booking-page > footer p {
+        font-size: 12px;
     }
 
 }
 
 
-/* ==================================================
+/* =========================================================
    VERY SMALL MOBILE
-================================================== */
+========================================================= */
 
-@media(max-width:390px){
+@media (max-width: 390px) {
 
-    #tdrive-booking-page .region-card-info{
-        padding:13px 13px 12px;
+    #tdrive-booking-page .region-image-wrap {
+        height: 195px !important;
+        flex-basis: 195px !important;
     }
 
-    #tdrive-booking-page .program-option-card{
-        min-height:330px;
+    #tdrive-booking-page .region-card-info {
+        padding: 13px;
     }
 
-    #tdrive-booking-page .program-option-card h4{
-        font-size:14px;
+    #tdrive-booking-page .program-option-card {
+        min-height: 335px;
     }
 
-    #tdrive-booking-page .program-option-card p{
-        font-size:10px;
+    #tdrive-booking-page .program-option-card h4 {
+        font-size: 13px;
+    }
+
+    #tdrive-booking-page .program-option-card p {
+        font-size: 9.5px;
     }
 
 }
 
 </style>
-
 
 
 <!-- ==================================================
