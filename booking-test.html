@@ -17,6 +17,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet">
 
+<!--
+    أبقيناه حتى لا نخسر تنسيقات الموقع العامة
+    مثل الهيدر والخدمات والنماذج.
+    جميع تنسيقات صفحة التسجيل الخاصة بنا
+    أصبحت معزولة تحت #tdrive-booking-page
+-->
 <link rel="stylesheet" href="style.css?v=6">
 
 <link rel="stylesheet"
@@ -25,7 +31,7 @@
 </head>
 
 
-<body>
+<body id="tdrive-booking-page">
 
 
 <!-- ==================================================
@@ -87,9 +93,9 @@
 
 
 
-    <!-- =========================
+    <!-- ==================================================
          HERO
-    ========================== -->
+    ================================================== -->
 
     <div class="booking-hero">
 
@@ -105,9 +111,9 @@
 
 
 
-    <!-- =========================
+    <!-- ==================================================
          SERVICE TABS
-    ========================= -->
+    ================================================== -->
 
     <div class="service-tabs">
 
@@ -156,332 +162,330 @@
 
 
 
+    <!-- ==================================================
+         REGION SELECTION
+    ================================================== -->
+
+    <section
+        id="regionSelection"
+        class="region-selection">
 
 
+        <div class="region-heading">
 
-            <!-- ==================================================
-                 اختيار المنطقة
-            ================================================== -->
+            <div class="region-step-number">
+                1
+            </div>
 
-            <section
-                id="regionSelection"
-                class="region-selection">
+            <div>
+
+                <h3>
+                    اختر منطقتك
+                </h3>
+
+                <p>
+                    اختر المنطقة التي ترغب في التدريب فيها
+                </p>
+
+            </div>
+
+        </div>
 
 
-                <div class="region-heading">
+        <div
+            id="regionStatus"
+            class="region-status"
+        >
+            جاري تحميل المناطق...
+        </div>
 
-                    <div class="region-step-number">
-                        1
-                    </div>
 
-                    <div>
+        <!-- ==================================================
+             REGIONS
+        ================================================== -->
 
-                        <h3>
-                            اختر منطقتك
-                        </h3>
+        <div
+            id="regionsGrid"
+            class="regions-grid"
+        >
 
-                        <p>
-                            اختر المنطقة التي ترغب في التدريب فيها
-                        </p>
+
+            <!-- الغربية -->
+
+            <button
+                type="button"
+                class="region-card western"
+                data-region="western"
+                data-name="المنطقة الغربية"
+            >
+
+                <div class="region-image-wrap">
+
+                    <img
+                        src="western.webp"
+                        alt="المنطقة الغربية"
+                    >
+
+                </div>
+
+                <div class="region-card-info">
+
+                    <h3 class="region-name">
+                        المنطقة الغربية
+                    </h3>
+
+                    <p class="region-slogan">
+                        بين البحر والتاريخ ..<br>
+                        رحلة لا تنتهي
+                    </p>
+
+                    <div class="region-bottom">
+
+                        <span class="choose-region-badge">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                            اختر هذه المنطقة
+
+                        </span>
 
                     </div>
 
                 </div>
 
-
-
-                <!-- رسالة حالة الاتصال -->
-
-                <div
-                    id="regionStatus"
-                    class="region-status"
-                >
-                    جاري تحميل المناطق...
-                </div>
+            </button>
 
 
 
-                <!-- بطاقات المناطق -->
+            <!-- الوسطى -->
 
-                <div
-                    id="regionsGrid"
-                    class="regions-grid"
-                >
+            <button
+                type="button"
+                class="region-card central"
+                data-region="central"
+                data-name="المنطقة الوسطى"
+            >
 
+                <div class="region-image-wrap">
 
-                    <!-- الغربية -->
-
-                    <button
-                        type="button"
-                        class="region-card western"
-                        data-region="western"
-                        data-name="المنطقة الغربية"
+                    <img
+                        src="central.webp"
+                        alt="المنطقة الوسطى"
                     >
-
-                        <div class="region-image-wrap">
-
-                            <img
-                                src="western.webp"
-                                alt="المنطقة الغربية"
-                            >
-
-                        </div>
-
-                        <div class="region-card-info">
-
-                            <h3 class="region-name">
-                                المنطقة الغربية
-                            </h3>
-
-                            <p class="region-slogan">
-                                بين البحر والتاريخ ..<br>
-                                رحلة لا تنتهي
-                            </p>
-
-                            <div class="region-bottom">
-
-                                <span class="choose-region-badge">
-
-                                    <i class="fa-solid fa-arrow-left"></i>
-
-                                    اختر هذه المنطقة
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </button>
-
-
-
-                    <!-- الوسطى -->
-
-                    <button
-                        type="button"
-                        class="region-card central"
-                        data-region="central"
-                        data-name="المنطقة الوسطى"
-                    >
-
-                        <div class="region-image-wrap">
-
-                            <img
-                                src="central.webp"
-                                alt="المنطقة الوسطى"
-                            >
-
-                        </div>
-
-                        <div class="region-card-info">
-
-                            <h3 class="region-name">
-                                المنطقة الوسطى
-                            </h3>
-
-                            <p class="region-slogan">
-                                قلب المملكة ..<br>
-                                حيث الأصالة والعراقة
-                            </p>
-
-                            <div class="region-bottom">
-
-                                <span class="choose-region-badge">
-
-                                    <i class="fa-solid fa-arrow-left"></i>
-
-                                    اختر هذه المنطقة
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </button>
-
-
-
-                    <!-- الشرقية -->
-
-                    <button
-                        type="button"
-                        class="region-card eastern"
-                        data-region="eastern"
-                        data-name="المنطقة الشرقية"
-                    >
-
-                        <div class="region-image-wrap">
-
-                            <img
-                                src="eastern.webp"
-                                alt="المنطقة الشرقية"
-                            >
-
-                        </div>
-
-                        <div class="region-card-info">
-
-                            <h3 class="region-name">
-                                المنطقة الشرقية
-                            </h3>
-
-                            <p class="region-slogan">
-                                على ضفاف الخليج ..<br>
-                                مستقبل أكثر إشراقاً
-                            </p>
-
-                            <div class="region-bottom">
-
-                                <span class="choose-region-badge">
-
-                                    <i class="fa-solid fa-arrow-left"></i>
-
-                                    اختر هذه المنطقة
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </button>
-
-
-
-                    <!-- الجنوبية -->
-
-                    <button
-                        type="button"
-                        class="region-card southern"
-                        data-region="southern"
-                        data-name="المنطقة الجنوبية"
-                    >
-
-                        <div class="region-image-wrap">
-
-                            <img
-                                src="southern.webp"
-                                alt="المنطقة الجنوبية"
-                            >
-
-                        </div>
-
-                        <div class="region-card-info">
-
-                            <h3 class="region-name">
-                                المنطقة الجنوبية
-                            </h3>
-
-                            <p class="region-slogan">
-                                طبيعة ساحرة ..<br>
-                                وروح أصيلة
-                            </p>
-
-                            <div class="region-bottom">
-
-                                <span class="choose-region-badge">
-
-                                    <i class="fa-solid fa-arrow-left"></i>
-
-                                    اختر هذه المنطقة
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </button>
-
-
-
-                    <!-- الشمالية -->
-
-                    <button
-                        type="button"
-                        class="region-card northern"
-                        data-region="northern"
-                        data-name="المنطقة الشمالية"
-                    >
-
-                        <div class="region-image-wrap">
-
-                            <img
-                                src="northern.webp"
-                                alt="المنطقة الشمالية"
-                            >
-
-                        </div>
-
-                        <div class="region-card-info">
-
-                            <h3 class="region-name">
-                                المنطقة الشمالية
-                            </h3>
-
-                            <p class="region-slogan">
-                                جمال فريد ..<br>
-                                بين الجبال والوديان
-                            </p>
-
-                            <div class="region-bottom">
-
-                                <span class="choose-region-badge">
-
-                                    <i class="fa-solid fa-arrow-left"></i>
-
-                                    اختر هذه المنطقة
-
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </button>
-
 
                 </div>
 
+                <div class="region-card-info">
 
+                    <h3 class="region-name">
+                        المنطقة الوسطى
+                    </h3>
 
-                <!-- المنطقة المختارة -->
+                    <p class="region-slogan">
+                        قلب المملكة ..<br>
+                        حيث الأصالة والعراقة
+                    </p>
 
-                <div
-                    id="selectedRegionBox"
-                    class="selected-region-box"
-                    style="display:none;"
-                >
+                    <div class="region-bottom">
 
-                    <div class="selected-region-icon">
-                        <i class="fa-solid fa-location-dot"></i>
-                    </div>
+                        <span class="choose-region-badge">
 
-                    <div class="selected-region-info">
+                            <i class="fa-solid fa-arrow-left"></i>
 
-                        <small>
-                            المنطقة المختارة
-                        </small>
+                            اختر هذه المنطقة
 
-                        <strong id="selectedRegionName">
-                            —
-                        </strong>
+                        </span>
 
                     </div>
 
-                    <button
-                        type="button"
-                        id="changeRegionBtn"
-                        class="change-region-btn"
+                </div>
+
+            </button>
+
+
+
+            <!-- الشرقية -->
+
+            <button
+                type="button"
+                class="region-card eastern"
+                data-region="eastern"
+                data-name="المنطقة الشرقية"
+            >
+
+                <div class="region-image-wrap">
+
+                    <img
+                        src="eastern.webp"
+                        alt="المنطقة الشرقية"
                     >
-                        تغيير
-                    </button>
 
                 </div>
 
-            </section>
+                <div class="region-card-info">
+
+                    <h3 class="region-name">
+                        المنطقة الشرقية
+                    </h3>
+
+                    <p class="region-slogan">
+                        على ضفاف الخليج ..<br>
+                        مستقبل أكثر إشراقاً
+                    </p>
+
+                    <div class="region-bottom">
+
+                        <span class="choose-region-badge">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                            اختر هذه المنطقة
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- الجنوبية -->
+
+            <button
+                type="button"
+                class="region-card southern"
+                data-region="southern"
+                data-name="المنطقة الجنوبية"
+            >
+
+                <div class="region-image-wrap">
+
+                    <img
+                        src="southern.webp"
+                        alt="المنطقة الجنوبية"
+                    >
+
+                </div>
+
+                <div class="region-card-info">
+
+                    <h3 class="region-name">
+                        المنطقة الجنوبية
+                    </h3>
+
+                    <p class="region-slogan">
+                        طبيعة ساحرة ..<br>
+                        وروح أصيلة
+                    </p>
+
+                    <div class="region-bottom">
+
+                        <span class="choose-region-badge">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                            اختر هذه المنطقة
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </button>
+
+
+
+            <!-- الشمالية -->
+
+            <button
+                type="button"
+                class="region-card northern"
+                data-region="northern"
+                data-name="المنطقة الشمالية"
+            >
+
+                <div class="region-image-wrap">
+
+                    <img
+                        src="northern.webp"
+                        alt="المنطقة الشمالية"
+                    >
+
+                </div>
+
+                <div class="region-card-info">
+
+                    <h3 class="region-name">
+                        المنطقة الشمالية
+                    </h3>
+
+                    <p class="region-slogan">
+                        جمال فريد ..<br>
+                        بين الجبال والوديان
+                    </p>
+
+                    <div class="region-bottom">
+
+                        <span class="choose-region-badge">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                            اختر هذه المنطقة
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </button>
+
+
+        </div>
+
+
+
+        <!-- ==================================================
+             SELECTED REGION
+        ================================================== -->
+
+        <div
+            id="selectedRegionBox"
+            class="selected-region-box"
+            style="display:none;"
+        >
+
+            <div class="selected-region-icon">
+                <i class="fa-solid fa-location-dot"></i>
+            </div>
+
+            <div class="selected-region-info">
+
+                <small>
+                    المنطقة المختارة
+                </small>
+
+                <strong id="selectedRegionName">
+                    —
+                </strong>
+
+            </div>
+
+            <button
+                type="button"
+                id="changeRegionBtn"
+                class="change-region-btn"
+            >
+                تغيير
+            </button>
+
+        </div>
+
+    </section>
+
 
 
     <!-- ==================================================
@@ -491,7 +495,8 @@
     <div
         id="drivingPanel"
         class="service-panel"
-        style="display:none;">
+        style="display:none;"
+    >
 
 
         <h3 class="booking-program-title">
@@ -499,19 +504,11 @@
         </h3>
 
 
-
-        <!-- ==================================================
-             بوابة اختيار المنطقة والبرنامج
-        ================================================== -->
-
         <div
             id="programSelectGate"
-            class="program-gate">
+            class="program-gate"
+        >
 
-
-            <!-- ==================================================
-                 العنوان الرئيسي
-            ================================================== -->
 
             <div class="program-gate-main">
 
@@ -527,9 +524,9 @@
 
             </div>
 
+
             <!-- ==================================================
-                 اختيار البرنامج
-                 مخفي إلى أن يتم اختيار المنطقة
+                 PROGRAM SECTION
             ================================================== -->
 
             <section
@@ -553,19 +550,14 @@
 
 
 
-                <!-- ==================================================
-                     البرامج
-                ================================================== -->
-
                 <div class="programs-layout">
 
 
                     <!-- ==================================================
-                         البرنامج الأساسي
+                         BASIC
                     ================================================== -->
 
                     <div class="program-side basic-side">
-
 
                         <div class="program-arrow arrow-basic">
 
@@ -597,13 +589,11 @@
                         </div>
 
 
-
                         <div
                             class="program-option-card basic-program-card"
                             data-program="basic"
-                            data-program-label="البرنامج الأساسي"
+                            data-program-label="احترف القيادة على الطريق"
                         >
-
 
                             <div class="program-icon basic-icon">
 
@@ -613,7 +603,7 @@
 
 
                             <h4>
-                                البرنامج الأساسي
+                                احترف القيادة على الطريق
                             </h4>
 
 
@@ -631,8 +621,8 @@
                                     —
                                 </strong>
 
-                                <span>
-                                    500 ريال
+                                <span class="old-price">
+                                    —
                                 </span>
 
                             </div>
@@ -663,7 +653,6 @@
 
                             </button>
 
-
                         </div>
 
                     </div>
@@ -671,11 +660,10 @@
 
 
                     <!-- ==================================================
-                         البرنامج التكميلي
+                         PLUS
                     ================================================== -->
 
                     <div class="program-side plus-side">
-
 
                         <div class="program-arrow arrow-plus">
 
@@ -707,13 +695,11 @@
                         </div>
 
 
-
                         <div
                             class="program-option-card plus-program-card"
                             data-program="plus"
-                            data-program-label="البرنامج التكميلي"
+                            data-program-label="احترف القيادة على الطريق بلس"
                         >
-
 
                             <div class="program-icon plus-icon">
 
@@ -723,7 +709,7 @@
 
 
                             <h4>
-                                البرنامج التكميلي
+                                احترف القيادة على الطريق بلس
                             </h4>
 
 
@@ -741,8 +727,8 @@
                                     —
                                 </strong>
 
-                                <span>
-                                    500 ريال
+                                <span class="old-price">
+                                    —
                                 </span>
 
                             </div>
@@ -773,7 +759,6 @@
 
                             </button>
 
-
                         </div>
 
                     </div>
@@ -782,8 +767,6 @@
                 </div>
 
 
-
-                <!-- البرنامج المختار -->
 
                 <input
                     type="hidden"
@@ -796,7 +779,7 @@
 
 
             <!-- ==================================================
-                 محتوى التسجيل
+                 REGISTRATION
             ================================================== -->
 
             <div
@@ -805,12 +788,7 @@
             >
 
 
-                <!-- =========================
-                     NOTE
-                ========================== -->
-
                 <div class="booking-note">
-
 
                     <h3 class="booking-note-title">
 
@@ -839,21 +817,17 @@
 
 
 
-                <!-- ==================================================
-                     STEPPER
-                ================================================== -->
+                <!-- STEPPER -->
 
                 <div class="stepper">
-
 
                     <div class="step-item">
 
                         <div
                             class="step-circle active"
-                            data-step="1">
-
+                            data-step="1"
+                        >
                             1
-
                         </div>
 
                         <span>
@@ -870,10 +844,9 @@
 
                         <div
                             class="step-circle"
-                            data-step="2">
-
+                            data-step="2"
+                        >
                             2
-
                         </div>
 
                         <span>
@@ -890,10 +863,9 @@
 
                         <div
                             class="step-circle"
-                            data-step="3">
-
+                            data-step="3"
+                        >
                             3
-
                         </div>
 
                         <span>
@@ -910,10 +882,9 @@
 
                         <div
                             class="step-circle"
-                            data-step="4">
-
+                            data-step="4"
+                        >
                             4
-
                         </div>
 
                         <span>
@@ -933,24 +904,18 @@
                 <form id="bookingForm">
 
 
-                    <!-- ==================================================
-                         STEP 1
-                    ================================================== -->
+                    <!-- STEP 1 -->
 
                     <div
                         class="form-step active"
                         data-step="1"
                     >
 
-
                         <div
                             id="selectedProgramBadge"
                             class="selected-program-badge"
                         ></div>
 
-
-
-                        <!-- ملخص المنطقة -->
 
                         <div
                             id="bookingRegionBadge"
@@ -960,16 +925,12 @@
                         </div>
 
 
-
-                        <!-- السعر -->
-
                         <div
                             id="bookingPriceBadge"
                             class="booking-price-badge"
                         >
                             السعر: —
                         </div>
-
 
 
                         <h4 class="step-title">
@@ -979,7 +940,6 @@
                             البيانات الشخصية
 
                         </h4>
-
 
 
                         <label>
@@ -999,7 +959,6 @@
                             <i class="fa-solid fa-user"></i>
 
                         </div>
-
 
 
                         <label>
@@ -1033,7 +992,6 @@
                         </div>
 
 
-
                         <label>
                             مدينة التدريب
                         </label>
@@ -1058,7 +1016,6 @@
                         </div>
 
 
-
                         <label>
                             رقم الجوال
                         </label>
@@ -1080,42 +1037,32 @@
                         </div>
 
 
-
                         <button
                             type="button"
                             class="next-btn"
                             data-next="2"
                         >
-
                             التالي
-
                         </button>
 
                     </div>
 
 
 
-                    <!-- ==================================================
-                         STEP 2
-                    ================================================== -->
+                    <!-- STEP 2 -->
 
                     <div
                         class="form-step"
                         data-step="2"
                     >
 
-
                         <h4 class="step-title">
-
                             اختيار المدرب
-
                         </h4>
 
 
                         <p class="trainer-selection-description">
-
                             تحديد المدرب المناسب للتدريب:
-
                         </p>
 
 
@@ -1124,18 +1071,11 @@
                             id="trainerList"
                         >
 
-                            <p
-                                style="
-                                    text-align:center;
-                                    color:#8b999f;
-                                    font-size:13px;
-                                "
-                            >
+                            <p class="trainer-placeholder">
                                 يرجى تحديد الجنس ومدينة التدريب أولًا في الخطوة السابقة.
                             </p>
 
                         </div>
-
 
 
                         <input
@@ -1145,18 +1085,14 @@
                         >
 
 
-
                         <div class="step-buttons">
-
 
                             <button
                                 type="button"
                                 class="back-btn"
                                 data-back="1"
                             >
-
                                 السابق
-
                             </button>
 
 
@@ -1165,11 +1101,8 @@
                                 class="next-btn"
                                 data-next="3"
                             >
-
                                 التالي
-
                             </button>
-
 
                         </div>
 
@@ -1177,15 +1110,12 @@
 
 
 
-                    <!-- ==================================================
-                         STEP 3
-                    ================================================== -->
+                    <!-- STEP 3 -->
 
                     <div
                         class="form-step"
                         data-step="3"
                     >
-
 
                         <h4 class="step-title">
 
@@ -1194,7 +1124,6 @@
                             اختيار الموعد
 
                         </h4>
-
 
 
                         <label>
@@ -1217,7 +1146,6 @@
                         </div>
 
 
-
                         <label>
                             وقت التدريب
                         </label>
@@ -1226,8 +1154,7 @@
                         <div
                             id="timeSlotsGrid"
                             class="time-slots-grid"
-                        >
-                        </div>
+                        ></div>
 
 
                         <input
@@ -1237,18 +1164,14 @@
                         >
 
 
-
                         <div class="step-buttons">
-
 
                             <button
                                 type="button"
                                 class="back-btn"
                                 data-back="2"
                             >
-
                                 السابق
-
                             </button>
 
 
@@ -1257,11 +1180,8 @@
                                 class="next-btn"
                                 data-next="4"
                             >
-
                                 التالي
-
                             </button>
-
 
                         </div>
 
@@ -1269,15 +1189,12 @@
 
 
 
-                    <!-- ==================================================
-                         STEP 4
-                    ================================================== -->
+                    <!-- STEP 4 -->
 
                     <div
                         class="form-step"
                         data-step="4"
                     >
-
 
                         <h4 class="step-title">
 
@@ -1288,9 +1205,7 @@
                         </h4>
 
 
-
                         <div class="booking-note">
-
 
                             <h3>
                                 مراجعة التسجيل
@@ -1298,83 +1213,61 @@
 
 
                             <p>
-
                                 المنطقة:
-
                                 <strong id="selectedRegionReview">
                                     —
                                 </strong>
-
                             </p>
 
 
                             <p>
-
                                 المدينة:
-
                                 <strong id="selectedCityReview">
                                     —
                                 </strong>
-
                             </p>
 
 
                             <p>
-
                                 البرنامج المختار:
-
                                 <strong id="selectedProgramReview">
                                     —
                                 </strong>
-
                             </p>
 
 
                             <p>
-
                                 السعر:
-
                                 <strong id="selectedPriceReview">
                                     —
                                 </strong>
-
                             </p>
 
 
                             <p>
-
                                 المدرب المختار:
-
                                 <strong id="selectedTrainerName">
                                     —
                                 </strong>
-
                             </p>
 
 
                             <p>
-
                                 بعد تأكيد التسجيل سيتم الانتقال
                                 إلى صفحة اختيار طريقة الدفع.
-
                             </p>
-
 
                         </div>
 
 
-
                         <div class="step-buttons">
-
 
                             <button
                                 type="button"
                                 class="back-btn"
                                 data-back="3"
                             >
-
                                 السابق
-
                             </button>
 
 
@@ -1382,11 +1275,8 @@
                                 type="submit"
                                 class="next-btn"
                             >
-
                                 تأكيد التسجيل
-
                             </button>
-
 
                         </div>
 
@@ -1394,12 +1284,9 @@
 
 
 
-                    <!-- ==================================================
-                         VIDEOS
-                    ================================================== -->
+                    <!-- VIDEOS -->
 
                     <section class="videos-section">
-
 
                         <h2 class="videos-title">
 
@@ -1411,14 +1298,11 @@
 
 
                         <p class="videos-text">
-
                             مقتطفات من دورة احتراف القيادة على الطريق
-
                         </p>
 
 
                         <div class="video-card">
-
 
                             <iframe
                                 src="https://www.youtube.com/embed/A9d0v3xpJrQ"
@@ -1426,15 +1310,12 @@
                                 allowfullscreen>
                             </iframe>
 
-
                         </div>
-
 
                     </section>
 
 
                 </form>
-
 
             </div>
 
@@ -1459,7 +1340,6 @@
 
         <div class="booking-note">
 
-
             <h3 class="captain-note-title">
 
                 <i class="fa-solid fa-award"></i>
@@ -1477,17 +1357,13 @@
 
             </p>
 
-
         </div>
 
 
 
-        <!-- ==================================================
-             CAPTAIN STEPPER
-        ================================================== -->
+        <!-- CAPTAIN STEPPER -->
 
         <div class="stepper captain-stepper">
-
 
             <div class="step-item">
 
@@ -1542,25 +1418,19 @@
 
             </div>
 
-
         </div>
 
 
 
-        <!-- ==================================================
-             CAPTAIN FORM
-        ================================================== -->
+        <!-- CAPTAIN FORM -->
 
         <form id="captainForm">
 
-
-            <!-- CAPTAIN STEP 1 -->
 
             <div
                 class="captain-form-step active"
                 data-captain-step="1"
             >
-
 
                 <h4 class="step-title">
 
@@ -1637,24 +1507,18 @@
                     class="next-btn"
                     id="captainNextBtn"
                 >
-
                     التالي
-
                 </button>
-
 
             </div>
 
 
-
-            <!-- CAPTAIN STEP 2 -->
 
             <div
                 class="captain-form-step"
                 data-captain-step="2"
                 style="display:none;"
             >
-
 
                 <h4 class="step-title">
 
@@ -1670,13 +1534,7 @@
                     class="trainer-selection"
                 >
 
-                    <p
-                        style="
-                            text-align:center;
-                            color:#8b999f;
-                            font-size:13px;
-                        "
-                    >
+                    <p class="trainer-placeholder">
                         جاري تحميل المواعيد المتاحة...
                     </p>
 
@@ -1692,15 +1550,12 @@
 
                 <div class="step-buttons">
 
-
                     <button
                         type="button"
                         class="back-btn"
                         id="captainStep2BackBtn"
                     >
-
                         السابق
-
                     </button>
 
 
@@ -1709,27 +1564,20 @@
                         class="next-btn"
                         id="captainStep2NextBtn"
                     >
-
                         التالي
-
                     </button>
 
-
                 </div>
-
 
             </div>
 
 
-
-            <!-- CAPTAIN STEP 3 -->
 
             <div
                 class="captain-form-step"
                 data-captain-step="3"
                 style="display:none;"
             >
-
 
                 <h4 class="step-title">
 
@@ -1761,7 +1609,7 @@
                 </div>
 
 
-                <p style="text-align:center;">
+                <p class="captain-payment-note">
 
                     بعد الضغط على المتابعة سيتم الانتقال
                     إلى صفحة اختيار طريقة الدفع.
@@ -1771,15 +1619,12 @@
 
                 <div class="step-buttons">
 
-
                     <button
                         type="button"
                         class="back-btn"
                         id="captainBackBtn"
                     >
-
                         السابق
-
                     </button>
 
 
@@ -1787,14 +1632,10 @@
                         type="submit"
                         class="next-btn"
                     >
-
                         اختيار طريقة الدفع
-
                     </button>
 
-
                 </div>
-
 
             </div>
 
@@ -1803,12 +1644,9 @@
 
 
 
-        <!-- ==================================================
-             CAPTAIN VIDEO
-        ================================================== -->
+        <!-- CAPTAIN VIDEO -->
 
         <section class="videos-section captain-video-section">
-
 
             <h2 class="videos-title">
 
@@ -1820,17 +1658,13 @@
 
 
             <p class="videos-text">
-
                 تعرّف على دورة الكابتن المحترف المقدمة من TDrive
-
             </p>
 
 
             <div class="video-grid">
 
-
                 <div class="video-card">
-
 
                     <h3>
                         إعلان دورة الكابتن المحترف
@@ -1843,12 +1677,9 @@
                         allowfullscreen>
                     </iframe>
 
-
                 </div>
 
-
             </div>
-
 
         </section>
 
@@ -1875,50 +1706,54 @@
 
 
 <!-- ==================================================
-     CUSTOM DESIGN
+     PAGE-SPECIFIC CSS
+     معزول تحت #tdrive-booking-page
 ================================================== -->
 
 <style>
 
 /* ==================================================
-   GENERAL
+   PAGE RESET
 ================================================== */
 
-html,
-body{
-    margin:0 !important;
-    padding:0 !important;
-    width:100% !important;
+#tdrive-booking-page,
+#tdrive-booking-page *{
+    box-sizing:border-box;
 }
 
-body{
-    min-height:100vh !important;
-    min-height:100dvh !important;
-    height:auto !important;
-    display:flex !important;
-    flex-direction:column !important;
+#tdrive-booking-page{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100vh;
+    min-height:100dvh;
+    font-family:"Cairo",sans-serif;
     background:#ffffff;
+    color:#243746;
 }
 
-#booking{
-    flex:1 0 auto !important;
+#tdrive-booking-page #booking{
+    width:100%;
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
+    padding-bottom:125px !important;
 }
 
 
 /* ==================================================
-   HERO IMAGE
+   HERO
 ================================================== */
 
-.booking-visual{
+#tdrive-booking-page .booking-visual{
     width:100vw !important;
     max-width:none !important;
     margin:0 calc(50% - 50vw) 22px !important;
     padding:0 !important;
-    box-sizing:border-box !important;
     overflow:hidden !important;
 }
 
-.booking-visual img{
+#tdrive-booking-page .booking-visual img{
     display:block !important;
     width:100% !important;
     max-width:none !important;
@@ -1930,24 +1765,19 @@ body{
     box-shadow:none !important;
 }
 
-
-/* ==================================================
-   BOOKING HERO
-================================================== */
-
-.booking-hero{
+#tdrive-booking-page .booking-hero{
     text-align:center;
     padding:5px 15px 18px;
 }
 
-.booking-hero h2{
+#tdrive-booking-page .booking-hero h2{
     color:#4f9fae;
     font-size:32px;
     font-weight:800;
     margin:0 0 8px;
 }
 
-.booking-hero .subtitle{
+#tdrive-booking-page .booking-hero .subtitle{
     color:#707d82;
     font-size:17px;
     margin:0;
@@ -1956,48 +1786,20 @@ body{
 
 
 /* ==================================================
-   PROGRAM GATE
+   SERVICE TABS
 ================================================== */
 
-.program-gate{
-    width:100%;
-    max-width:1100px;
-    margin:0 auto;
-    padding:10px 5px 30px;
-    box-sizing:border-box;
-    overflow-x:hidden;
-}
-
-.program-gate-main{
-    display:flex;
-    justify-content:center;
-    margin-bottom:18px;
-    width:100%;
-}
-
-.program-gate-title{
-    width:min(420px,90%);
-    min-height:50px;
-    padding:8px 15px;
-    background:#4f9fae;
-    color:#fff;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    font-size:18px;
-    font-weight:800;
-    box-shadow:0 5px 15px rgba(79,159,174,.18);
-    box-sizing:border-box;
+#tdrive-booking-page .service-tabs{
+    position:relative;
+    z-index:10;
 }
 
 
 /* ==================================================
-   REGION SELECTION
+   REGION SECTION
 ================================================== */
 
-.region-selection{
+#tdrive-booking-page .region-selection{
     width:100%;
     max-width:1050px;
     margin:0 auto 28px;
@@ -2008,7 +1810,7 @@ body{
     box-sizing:border-box;
 }
 
-.region-heading{
+#tdrive-booking-page .region-heading{
     display:flex;
     align-items:center;
     justify-content:center;
@@ -2017,26 +1819,26 @@ body{
     text-align:right;
 }
 
-.region-heading h3{
+#tdrive-booking-page .region-heading h3{
     margin:0;
     color:#243746;
     font-size:20px;
     font-weight:800;
 }
 
-.region-heading p{
+#tdrive-booking-page .region-heading p{
     margin:3px 0 0;
     color:#7b898e;
     font-size:12px;
 }
 
-.region-step-number{
+#tdrive-booking-page .region-step-number{
     width:36px;
     height:36px;
     flex:0 0 36px;
     border-radius:50%;
     background:#4f9fae;
-    color:white;
+    color:#fff;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -2044,55 +1846,63 @@ body{
     font-weight:800;
 }
 
-.small-step{
+#tdrive-booking-page .small-step{
     width:30px;
     height:30px;
     flex:0 0 30px;
     font-size:13px;
 }
 
-.region-status{
+#tdrive-booking-page .region-status{
     text-align:center;
     color:#7d8a8f;
     font-size:12px;
     margin-bottom:14px;
 }
 
-.region-status.success{
+#tdrive-booking-page .region-status.success{
     color:#3b8c76;
 }
 
-.region-status.error{
+#tdrive-booking-page .region-status.error{
     color:#b65b5b;
 }
 
 
 /* ==================================================
-   REGION CARDS
-   (ترتيب 3 في الأعلى و 2 في الأسفل بجانب بعضها)
+   REGIONS GRID
+   3 فوق + 2 تحت بالمنتصف
 ================================================== */
 
-.regions-grid{
-    display:grid;
-    grid-template-columns:repeat(6, 1fr);
-    gap:18px;
-    justify-content:center;
+#tdrive-booking-page .regions-grid{
+    width:100%;
+    display:grid !important;
+    grid-template-columns:repeat(6,minmax(0,1fr)) !important;
+    gap:18px !important;
+    align-items:stretch;
+    justify-items:stretch;
 }
 
-.region-card{
-    grid-column:span 2;
+
+/* كل بطاقة تأخذ عمودين */
+
+#tdrive-booking-page .region-card{
+    grid-column:span 2 !important;
     position:relative;
-    display:flex;
-    flex-direction:column;
-    padding:0;
-    margin:0;
-    overflow:hidden;
-    border:1px solid rgba(210,224,227,.9);
-    border-radius:26px;
-    background:#fff;
+    display:flex !important;
+    flex-direction:column !important;
+    width:100% !important;
+    min-width:0 !important;
+    height:auto !important;
+    padding:0 !important;
+    margin:0 !important;
+    overflow:hidden !important;
+    border:1px solid rgba(210,224,227,.9) !important;
+    border-radius:26px !important;
+    background:#fff !important;
     box-shadow:0 10px 30px rgba(36,73,81,.10);
     cursor:pointer;
-    font-family:inherit;
+    font-family:"Cairo",sans-serif;
     text-align:right;
     transition:
         transform .25s ease,
@@ -2100,24 +1910,28 @@ body{
         border-color .25s ease;
 }
 
-/* العنصر الرابع (الجنوبية) يأخذ العمودين الثاني والثالث من المنتصف في الصف الثاني */
-.regions-grid .region-card:nth-child(4){
-    grid-column: 2 / span 2;
+
+/* الصف الثاني */
+
+#tdrive-booking-page .regions-grid .region-card:nth-child(4){
+    grid-column:2 / span 2 !important;
 }
 
-/* العنصر الخامس (الشمالية) يأخذ العمودين الرابع والخامس بجانب الجنوبية في الصف الثاني */
-.regions-grid .region-card:nth-child(5){
-    grid-column: 4 / span 2;
+#tdrive-booking-page .regions-grid .region-card:nth-child(5){
+    grid-column:4 / span 2 !important;
 }
 
-.region-card:hover{
+
+/* hover */
+
+#tdrive-booking-page .region-card:hover{
     transform:translateY(-6px);
     box-shadow:0 18px 40px rgba(36,73,81,.16);
-    border-color:rgba(79,159,174,.45);
+    border-color:rgba(79,159,174,.45) !important;
 }
 
-.region-card.selected{
-    border-color:#4f9fae;
+#tdrive-booking-page .region-card.selected{
+    border-color:#4f9fae !important;
     box-shadow:
         0 0 0 3px rgba(79,159,174,.18),
         0 18px 40px rgba(36,73,81,.16);
@@ -2125,20 +1939,31 @@ body{
 
 
 /* ==================================================
-   REGION IMAGE (نسبة ثابتة، الصورة لا تفلت أبدًا)
+   REGION IMAGE
+   هذه أهم نقطة في التعديل
 ================================================== */
 
-.region-image-wrap{
-    position:relative;
-    width:100%;
-    aspect-ratio:4 / 3;
-    overflow:hidden;
+#tdrive-booking-page .region-image-wrap{
+    position:relative !important;
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:4 / 3 !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    border-radius:0 !important;
+    flex:0 0 auto !important;
 }
 
-.region-image-wrap::after{
+
+/* طبقة التدرج */
+
+#tdrive-booking-page .region-image-wrap::after{
     content:"";
     position:absolute;
     inset:0;
+    width:100%;
+    height:100%;
     background:
         linear-gradient(
             to top,
@@ -2146,32 +1971,50 @@ body{
             rgba(17,55,64,.05) 70%
         );
     z-index:2;
+    pointer-events:none;
 }
 
-.region-image-wrap img{
-    position:absolute;
-    inset:0;
+
+/* الصورة نفسها */
+
+#tdrive-booking-page .region-image-wrap img{
+    position:absolute !important;
+    inset:0 !important;
+    display:block !important;
     width:100% !important;
     height:100% !important;
-    max-width:none;
-    object-fit:cover;
-    object-position:center;
+    max-width:none !important;
+    max-height:none !important;
+    min-width:0 !important;
+    min-height:0 !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:0 !important;
+    border-radius:0 !important;
+    object-fit:cover !important;
+    object-position:center center !important;
+    transform:none;
+    box-shadow:none !important;
     transition:transform .3s ease;
 }
 
-.region-card:hover .region-image-wrap img{
+
+/* حركة بسيطة عند المرور */
+
+#tdrive-booking-page .region-card:hover .region-image-wrap img{
     transform:scale(1.05);
 }
 
 
 /* ==================================================
-   REGION CONTENT (لوحة ملونة تتراكب على الصورة)
+   REGION CONTENT
 ================================================== */
 
-.region-card-info{
-    position:relative;
-    margin-top:-24px;
+#tdrive-booking-page .region-card-info{
+    position:relative !important;
     z-index:5;
+    width:100%;
+    margin-top:-24px;
     padding:18px 18px 16px;
     color:#fff;
     background:
@@ -2183,7 +2026,7 @@ body{
     border-radius:20px 20px 0 0;
 }
 
-.region-card.central .region-card-info{
+#tdrive-booking-page .region-card.central .region-card-info{
     background:
         linear-gradient(
             180deg,
@@ -2192,7 +2035,7 @@ body{
         );
 }
 
-.region-card.eastern .region-card-info{
+#tdrive-booking-page .region-card.eastern .region-card-info{
     background:
         linear-gradient(
             180deg,
@@ -2201,7 +2044,7 @@ body{
         );
 }
 
-.region-card.southern .region-card-info{
+#tdrive-booking-page .region-card.southern .region-card-info{
     background:
         linear-gradient(
             180deg,
@@ -2210,7 +2053,7 @@ body{
         );
 }
 
-.region-card.northern .region-card-info{
+#tdrive-booking-page .region-card.northern .region-card-info{
     background:
         linear-gradient(
             180deg,
@@ -2219,27 +2062,28 @@ body{
         );
 }
 
-.region-name{
+#tdrive-booking-page .region-name{
     margin:0 0 4px;
     font-size:18px;
     font-weight:800;
     color:#fff;
 }
 
-.region-slogan{
+#tdrive-booking-page .region-slogan{
     margin:0 0 13px;
     font-size:12px;
     line-height:1.7;
     min-height:38px;
     opacity:.9;
+    color:#fff;
 }
 
-.region-bottom{
+#tdrive-booking-page .region-bottom{
     display:flex;
     justify-content:flex-start;
 }
 
-.choose-region-badge{
+#tdrive-booking-page .choose-region-badge{
     display:inline-flex;
     align-items:center;
     gap:7px;
@@ -2251,7 +2095,7 @@ body{
     font-weight:800;
 }
 
-.choose-region-badge i{
+#tdrive-booking-page .choose-region-badge i{
     width:20px;
     height:20px;
     border-radius:50%;
@@ -2267,7 +2111,7 @@ body{
    SELECTED REGION
 ================================================== */
 
-.selected-region-box{
+#tdrive-booking-page .selected-region-box{
     margin-top:15px;
     padding:12px 14px;
     background:#eefafb;
@@ -2278,7 +2122,7 @@ body{
     gap:10px;
 }
 
-.selected-region-icon{
+#tdrive-booking-page .selected-region-icon{
     width:38px;
     height:38px;
     flex:0 0 38px;
@@ -2290,31 +2134,31 @@ body{
     justify-content:center;
 }
 
-.selected-region-info{
+#tdrive-booking-page .selected-region-info{
     flex:1;
     text-align:right;
 }
 
-.selected-region-info small{
+#tdrive-booking-page .selected-region-info small{
     display:block;
     color:#7d8e93;
     font-size:9px;
 }
 
-.selected-region-info strong{
+#tdrive-booking-page .selected-region-info strong{
     display:block;
     margin-top:2px;
     color:#2f4e57;
     font-size:13px;
 }
 
-.change-region-btn{
+#tdrive-booking-page .change-region-btn{
     border:1px solid #b8dfe4;
-    background:white;
+    background:#fff;
     color:#3a939f;
     border-radius:9px;
     padding:7px 12px;
-    font-family:inherit;
+    font-family:"Cairo",sans-serif;
     font-size:11px;
     font-weight:700;
     cursor:pointer;
@@ -2322,15 +2166,52 @@ body{
 
 
 /* ==================================================
+   PROGRAM GATE
+================================================== */
+
+#tdrive-booking-page .program-gate{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:10px 5px 30px;
+    box-sizing:border-box;
+    overflow-x:hidden;
+}
+
+#tdrive-booking-page .program-gate-main{
+    display:flex;
+    justify-content:center;
+    margin-bottom:18px;
+    width:100%;
+}
+
+#tdrive-booking-page .program-gate-title{
+    width:min(420px,90%);
+    min-height:50px;
+    padding:8px 15px;
+    background:#4f9fae;
+    color:#fff;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-size:18px;
+    font-weight:800;
+    box-shadow:0 5px 15px rgba(79,159,174,.18);
+}
+
+
+/* ==================================================
    PROGRAM SECTION
 ================================================== */
 
-.program-section-disabled{
+#tdrive-booking-page .program-section-disabled{
     border-top:1px solid #e8eeee;
     padding-top:22px;
 }
 
-.program-gate-subtitle{
+#tdrive-booking-page .program-gate-subtitle{
     color:#344c55;
     font-size:15px;
     font-weight:700;
@@ -2344,20 +2225,19 @@ body{
 
 
 /* ==================================================
-   PROGRAMS LAYOUT
+   PROGRAMS
 ================================================== */
 
-.programs-layout{
+#tdrive-booking-page .programs-layout{
     display:flex;
     justify-content:center;
     gap:12px;
     align-items:stretch;
     flex-wrap:nowrap;
     width:100%;
-    box-sizing:border-box;
 }
 
-.program-side{
+#tdrive-booking-page .program-side{
     position:relative;
     width:48%;
     min-width:150px;
@@ -2366,15 +2246,9 @@ body{
     flex-direction:column;
     align-items:center;
     margin-bottom:10px;
-    box-sizing:border-box;
 }
 
-
-/* ==================================================
-   CURVED ARROWS
-================================================== */
-
-.program-arrow{
+#tdrive-booking-page .program-arrow{
     width:100px;
     height:40px;
     display:flex;
@@ -2384,18 +2258,13 @@ body{
     z-index:2;
 }
 
-.program-arrow svg{
+#tdrive-booking-page .program-arrow svg{
     width:100%;
     height:100%;
     overflow:visible;
 }
 
-
-/* ==================================================
-   PROGRAM CARDS
-================================================== */
-
-.program-option-card{
+#tdrive-booking-page .program-option-card{
     width:100%;
     min-height:320px;
     padding:15px 10px 12px;
@@ -2405,7 +2274,6 @@ body{
     display:flex;
     flex-direction:column;
     align-items:center;
-    box-sizing:border-box;
     transition:
         transform .2s ease,
         box-shadow .2s ease,
@@ -2415,26 +2283,26 @@ body{
 
 /* الأساسي */
 
-.basic-program-card{
+#tdrive-booking-page .basic-program-card{
     background:#fffaf6;
     border:1.5px solid #f0d7c2;
     box-shadow:0 4px 15px rgba(230,173,123,.1);
 }
 
-.basic-program-card:hover{
+#tdrive-booking-page .basic-program-card:hover{
     transform:translateY(-3px);
     border-color:#e6ad7b;
     box-shadow:0 8px 20px rgba(230,173,123,.2);
 }
 
-.basic-program-card.selected{
+#tdrive-booking-page .basic-program-card.selected{
     border-color:#d99a68;
     box-shadow:
         0 0 0 3px rgba(217,154,104,.12),
         0 8px 22px rgba(230,173,123,.18);
 }
 
-.basic-icon{
+#tdrive-booking-page .basic-icon{
     background:#fff0e5;
     color:#d99a68;
 }
@@ -2442,44 +2310,44 @@ body{
 
 /* التكميلي */
 
-.plus-program-card{
+#tdrive-booking-page .plus-program-card{
     background:#fcf5f5;
     border:1.5px solid #dcbaba;
     box-shadow:0 4px 15px rgba(166,93,93,.1);
 }
 
-.plus-program-card:hover{
+#tdrive-booking-page .plus-program-card:hover{
     transform:translateY(-3px);
     border-color:#a65d5d;
     box-shadow:0 8px 20px rgba(166,93,93,.2);
 }
 
-.plus-program-card.selected{
+#tdrive-booking-page .plus-program-card.selected{
     border-color:#a65d5d;
     box-shadow:
         0 0 0 3px rgba(166,93,93,.12),
         0 8px 22px rgba(166,93,93,.18);
 }
 
-.plus-icon{
+#tdrive-booking-page .plus-icon{
     background:#f5e4e4;
     color:#a65d5d;
 }
 
-.plus-program-card .program-price strong{
+#tdrive-booking-page .plus-program-card .program-price strong{
     color:#a65d5d;
 }
 
-.plus-program-card .program-divider{
+#tdrive-booking-page .plus-program-card .program-divider{
     background:#dcbaba;
 }
 
 
 /* ==================================================
-   PROGRAM ICON
+   PROGRAM TEXT
 ================================================== */
 
-.program-icon{
+#tdrive-booking-page .program-icon{
     width:45px;
     height:45px;
     border-radius:50%;
@@ -2490,26 +2358,21 @@ body{
     font-size:18px;
 }
 
-
-/* ==================================================
-   PROGRAM TEXT
-================================================== */
-
-.program-option-card h4{
+#tdrive-booking-page .program-option-card h4{
     margin:0 0 5px;
     font-size:17px;
     font-weight:800;
     color:#243746;
 }
 
-.program-hours{
+#tdrive-booking-page .program-hours{
     font-size:14px;
     font-weight:700;
     color:#344c55;
     margin-bottom:8px;
 }
 
-.program-price{
+#tdrive-booking-page .program-price{
     margin-bottom:2px;
     display:flex;
     align-items:center;
@@ -2517,38 +2380,38 @@ body{
     gap:8px;
 }
 
-.basic-program-card .program-price strong{
-    color:#d99a68;
-}
-
-.program-price strong{
+#tdrive-booking-page .program-price strong{
     font-size:17px;
     font-weight:800;
 }
 
-.program-price span{
+#tdrive-booking-page .basic-program-card .program-price strong{
+    color:#d99a68;
+}
+
+#tdrive-booking-page .program-price .old-price{
     font-size:13px;
     color:#999;
     text-decoration:line-through;
 }
 
-.program-price-note{
+#tdrive-booking-page .program-price-note{
     color:#9aa6aa;
     font-size:9px;
     margin-bottom:6px;
 }
 
-.program-divider{
+#tdrive-booking-page .program-divider{
     width:85%;
     height:1px;
     margin:5px auto 8px;
 }
 
-.basic-program-card .program-divider{
+#tdrive-booking-page .basic-program-card .program-divider{
     background:#efd7c4;
 }
 
-.program-option-card p{
+#tdrive-booking-page .program-option-card p{
     width:100%;
     margin:0 auto 10px;
     color:#455966;
@@ -2559,17 +2422,17 @@ body{
 
 
 /* ==================================================
-   CHOOSE BUTTON
+   PROGRAM BUTTON
 ================================================== */
 
-.choose-program-btn{
+#tdrive-booking-page .choose-program-btn{
     width:100%;
     min-height:36px;
     border:none;
     border-radius:10px;
     background:#4f9fae;
     color:#fff;
-    font-family:inherit;
+    font-family:"Cairo",sans-serif;
     font-size:13px;
     font-weight:700;
     cursor:pointer;
@@ -2582,17 +2445,17 @@ body{
         transform .2s ease;
 }
 
-.choose-program-btn:hover{
+#tdrive-booking-page .choose-program-btn:hover{
     background:#3a939f;
     transform:translateY(-2px);
 }
 
 
 /* ==================================================
-   SELECTED PROGRAM
+   BOOKING BADGES
 ================================================== */
 
-.selected-program-badge{
+#tdrive-booking-page .selected-program-badge{
     background:#eefafb;
     border:1px solid #cfeef2;
     color:#3a939f;
@@ -2603,13 +2466,8 @@ body{
     text-align:center;
 }
 
-
-/* ==================================================
-   REGION / PRICE BADGES
-================================================== */
-
-.booking-region-badge,
-.booking-price-badge{
+#tdrive-booking-page .booking-region-badge,
+#tdrive-booking-page .booking-price-badge{
     border-radius:11px;
     padding:8px 12px;
     margin-bottom:8px;
@@ -2618,13 +2476,13 @@ body{
     font-weight:700;
 }
 
-.booking-region-badge{
+#tdrive-booking-page .booking-region-badge{
     background:#f5f9f9;
     border:1px solid #e0ebeb;
     color:#52666c;
 }
 
-.booking-price-badge{
+#tdrive-booking-page .booking-price-badge{
     background:#fff8ef;
     border:1px solid #f0dcc5;
     color:#c77f46;
@@ -2632,17 +2490,10 @@ body{
 
 
 /* ==================================================
-   SOFT WAVE BACKGROUND
+   BACKGROUND WAVE
 ================================================== */
 
-#booking{
-    position:relative;
-    isolation:isolate;
-    overflow:hidden;
-    padding-bottom:125px !important;
-}
-
-#booking::after{
+#tdrive-booking-page #booking::after{
     content:"";
     position:absolute;
     left:-12%;
@@ -2654,7 +2505,7 @@ body{
     z-index:-1;
 }
 
-#booking::before{
+#tdrive-booking-page #booking::before{
     content:"";
     position:absolute;
     left:-15%;
@@ -2668,10 +2519,30 @@ body{
 
 
 /* ==================================================
+   TRAINER PLACEHOLDER
+================================================== */
+
+#tdrive-booking-page .trainer-placeholder{
+    text-align:center;
+    color:#8b999f;
+    font-size:13px;
+}
+
+
+/* ==================================================
+   CAPTAIN
+================================================== */
+
+#tdrive-booking-page .captain-payment-note{
+    text-align:center;
+}
+
+
+/* ==================================================
    FOOTER
 ================================================== */
 
-footer{
+#tdrive-booking-page footer{
     flex-shrink:0 !important;
     width:100% !important;
     margin-top:auto !important;
@@ -2684,7 +2555,7 @@ footer{
     box-shadow:0 -6px 25px rgba(79,159,174,.12);
 }
 
-footer p{
+#tdrive-booking-page footer p{
     margin:0 !important;
     color:#fff !important;
     font-size:14px !important;
@@ -2698,15 +2569,15 @@ footer p{
 
 @media(max-width:950px){
 
-    .regions-grid{
-        grid-template-columns:repeat(2, 1fr);
-        gap:14px;
+    #tdrive-booking-page .regions-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:14px !important;
     }
 
-    .region-card,
-    .regions-grid .region-card:nth-child(4),
-    .regions-grid .region-card:nth-child(5){
-        grid-column:span 1;
+    #tdrive-booking-page .region-card,
+    #tdrive-booking-page .regions-grid .region-card:nth-child(4),
+    #tdrive-booking-page .regions-grid .region-card:nth-child(5){
+        grid-column:span 1 !important;
     }
 
 }
@@ -2718,127 +2589,134 @@ footer p{
 
 @media(max-width:700px){
 
-    .booking-hero{
+    #tdrive-booking-page .booking-hero{
         padding:2px 12px 15px;
     }
 
-    .booking-hero h2{
+    #tdrive-booking-page .booking-hero h2{
         font-size:27px;
     }
 
-    .booking-hero .subtitle{
+    #tdrive-booking-page .booking-hero .subtitle{
         font-size:14px;
     }
 
-    .program-gate{
+    #tdrive-booking-page .program-gate{
         padding-left:8px;
         padding-right:8px;
     }
 
-    .program-gate-title{
+    #tdrive-booking-page .program-gate-title{
         font-size:16px;
     }
 
-    .region-selection{
+    #tdrive-booking-page .region-selection{
         padding:15px 10px;
         border-radius:20px;
     }
 
-    .region-heading{
+    #tdrive-booking-page .region-heading{
         justify-content:flex-start;
     }
 
-    .region-heading h3{
+    #tdrive-booking-page .region-heading h3{
         font-size:17px;
     }
 
-    .regions-grid{
-        grid-template-columns:1fr;
-        gap:16px;
+
+    /* الجوال: بطاقة واحدة في كل صف */
+
+    #tdrive-booking-page .regions-grid{
+        grid-template-columns:1fr !important;
+        gap:16px !important;
         max-width:440px;
         margin:0 auto;
     }
 
-    .region-card,
-    .regions-grid .region-card:nth-child(4),
-    .regions-grid .region-card:nth-child(5){
-        grid-column:auto;
+    #tdrive-booking-page .region-card,
+    #tdrive-booking-page .regions-grid .region-card:nth-child(4),
+    #tdrive-booking-page .regions-grid .region-card:nth-child(5){
+        grid-column:auto !important;
     }
 
-    .region-image-wrap{
-        aspect-ratio:16 / 10;
+    #tdrive-booking-page .region-image-wrap{
+        aspect-ratio:16 / 10 !important;
     }
 
-    .region-card-info{
+    #tdrive-booking-page .region-card-info{
         padding:15px 15px 13px;
     }
 
-    .region-name{
+    #tdrive-booking-page .region-name{
         font-size:16px;
     }
 
-    .region-slogan{
+    #tdrive-booking-page .region-slogan{
         font-size:11.5px;
         min-height:auto;
     }
 
-    .programs-layout{
+
+    /* البرامج */
+
+    #tdrive-booking-page .programs-layout{
         gap:8px;
     }
 
-    .program-option-card{
+    #tdrive-booking-page .program-option-card{
         min-height:320px;
         padding:14px 8px 11px;
     }
 
-    .program-option-card h4{
+    #tdrive-booking-page .program-option-card h4{
         font-size:15px;
     }
 
-    .program-hours{
+    #tdrive-booking-page .program-hours{
         font-size:13px;
     }
 
-    .program-price{
+    #tdrive-booking-page .program-price{
         gap:5px;
     }
 
-    .program-price strong{
+    #tdrive-booking-page .program-price strong{
         font-size:14px;
     }
 
-    .program-price span{
+    #tdrive-booking-page .program-price .old-price{
         font-size:11px;
     }
 
-    .program-option-card p{
+    #tdrive-booking-page .program-option-card p{
         font-size:10.5px;
         line-height:1.55;
     }
 
-    .choose-program-btn{
+    #tdrive-booking-page .choose-program-btn{
         font-size:12px;
         min-height:35px;
     }
 
-    #booking{
+
+    #tdrive-booking-page #booking{
         padding-bottom:105px !important;
     }
 
-    #booking::after{
+    #tdrive-booking-page #booking::after{
         height:125px;
     }
 
-    #booking::before{
+    #tdrive-booking-page #booking::before{
         height:80px;
     }
 
-    footer{
+    #tdrive-booking-page footer{
         border-radius:26px 26px 0 0 !important;
         padding:25px 12px !important;
     }
 
-    footer p{
+    #tdrive-booking-page footer p{
         font-size:12px !important;
     }
 
@@ -2851,19 +2729,19 @@ footer p{
 
 @media(max-width:390px){
 
-    .region-card-info{
+    #tdrive-booking-page .region-card-info{
         padding:13px 13px 12px;
     }
 
-    .program-option-card{
+    #tdrive-booking-page .program-option-card{
         min-height:330px;
     }
 
-    .program-option-card h4{
+    #tdrive-booking-page .program-option-card h4{
         font-size:14px;
     }
 
-    .program-option-card p{
+    #tdrive-booking-page .program-option-card p{
         font-size:10px;
     }
 
@@ -2945,7 +2823,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".program-option-card");
 
 
-
     /* ==================================================
        المنطقة
     ================================================== */
@@ -2972,7 +2849,6 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("address");
 
 
-
     /* ==================================================
        حالة الحجز
     ================================================== */
@@ -2984,7 +2860,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedRegionCities = [];
 
     let selectedRegionPricing = null;
-
 
 
     /* ==================================================
@@ -3011,15 +2886,12 @@ document.addEventListener("DOMContentLoaded", function () {
         !registrationContent ||
         !selectedProgramInput
     ) {
-
         return;
-
     }
 
 
-
     /* ==================================================
-       إخفاء الخدمات
+       الخدمات
     ================================================== */
 
     function hideAllServicePanels() {
@@ -3033,11 +2905,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
-    /* ==================================================
-       إزالة تحديد الخدمات
-    ================================================== */
-
     function clearServiceTabs() {
 
         serviceTabs.forEach(function (tab) {
@@ -3049,11 +2916,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-
-    /* ==================================================
-       فتح الخدمة
-    ================================================== */
 
     function openService(service) {
 
@@ -3127,11 +2989,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
-    /* ==================================================
-       أزرار الخدمات
-    ================================================== */
-
     serviceTabs.forEach(function (tab) {
 
         tab.addEventListener("click", function (event) {
@@ -3152,11 +3009,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       تحميل بيانات المنطقة من Supabase
+       تحميل بيانات المنطقة
     ================================================== */
 
-    async function loadRegionData(regionKey, regionName) {
-
+    async function loadRegionData(
+        regionKey,
+        regionName
+    ) {
 
         regionStatus.textContent =
             "جاري تحميل المدن والأسعار...";
@@ -3164,13 +3023,6 @@ document.addEventListener("DOMContentLoaded", function () {
         regionStatus.className =
             "region-status";
 
-
-        /*
-            نقرأ جميع المدن النشطة داخل المنطقة.
-
-            مثال:
-            region_key = western
-        */
 
         const {
             data,
@@ -3231,22 +3083,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /*
-            حفظ المدن
-        */
-
         selectedRegionCities = data;
 
-
-        /*
-            أخذ الأسعار من أول مدينة.
-
-            حاليًا جميع مدن المنطقة لها
-            نفس الأسعار.
-
-            سنترك هذا المنطق مرنًا لاحقًا
-            لو اختلف السعر حسب المدينة.
-        */
 
         const firstCity = data[0];
 
@@ -3268,24 +3106,10 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
 
-        /*
-            تحديث السعر على البطاقات
-        */
-
         updateProgramPrices();
-
-
-
-        /*
-            تحديث المدن
-        */
 
         populateCities(data);
 
-
-        /*
-            تحديث الحالة
-        */
 
         regionStatus.textContent =
             "تم تحميل بيانات " +
@@ -3303,15 +3127,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       تحديث أسعار البرامج
+       تحديث الأسعار
     ================================================== */
 
     function updateProgramPrices() {
 
         if (!selectedRegionPricing) {
-
             return;
-
         }
 
 
@@ -3330,6 +3152,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 priceElement.textContent =
                     priceText;
+
+            });
+
+
+        /*
+            السعر السابق المعروض بشكل مشطوب
+            أصبح هو السعر الأساسي للمنطقة.
+        */
+
+        const oldPrice =
+            selectedRegionPricing.fullPrice;
+
+
+        const oldPriceText =
+            Number(oldPrice).toLocaleString("ar-SA") +
+            " ريال";
+
+
+        document
+            .querySelectorAll(".old-price")
+            .forEach(function (priceElement) {
+
+                priceElement.textContent =
+                    oldPriceText;
 
             });
 
@@ -3392,149 +3238,123 @@ document.addEventListener("DOMContentLoaded", function () {
 
     regionCards.forEach(function (card) {
 
-        card.addEventListener("click", async function () {
+        card.addEventListener(
+            "click",
+            async function () {
 
 
-            const regionKey =
-                card.dataset.region;
+                const regionKey =
+                    card.dataset.region;
 
-            const regionName =
-                card.dataset.name;
-
-
-            if (!regionKey) return;
+                const regionName =
+                    card.dataset.name;
 
 
-            /*
-                إزالة تحديد باقي المناطق
-            */
-
-            regionCards.forEach(function (item) {
-
-                item.classList.remove(
-                    "selected"
-                );
-
-            });
+                if (!regionKey) return;
 
 
-            card.classList.add("selected");
+                regionCards.forEach(function (item) {
 
-
-            /*
-                حفظ المنطقة
-            */
-
-            selectedRegion =
-                regionKey;
-
-            selectedRegionNameValue =
-                regionName;
-
-
-            /*
-                تحديث واجهة المنطقة
-            */
-
-            selectedRegionName.textContent =
-                regionName;
-
-            selectedRegionBox.style.display =
-                "flex";
-
-
-            /*
-                إخفاء البرامج أثناء التحميل
-            */
-
-            programSection.style.display =
-                "none";
-
-
-            /*
-                إعادة السعر
-            */
-
-            document
-                .querySelectorAll(".current-price")
-                .forEach(function (element) {
-
-                    element.textContent = "—";
+                    item.classList.remove(
+                        "selected"
+                    );
 
                 });
 
 
-            /*
-                تحميل Supabase
-            */
+                card.classList.add("selected");
 
-            const success =
-                await loadRegionData(
-                    regionKey,
-                    regionName
+
+                selectedRegion =
+                    regionKey;
+
+                selectedRegionNameValue =
+                    regionName;
+
+
+                selectedRegionName.textContent =
+                    regionName;
+
+                selectedRegionBox.style.display =
+                    "flex";
+
+
+                programSection.style.display =
+                    "none";
+
+
+                document
+                    .querySelectorAll(".current-price")
+                    .forEach(function (element) {
+
+                        element.textContent = "—";
+
+                    });
+
+
+                document
+                    .querySelectorAll(".old-price")
+                    .forEach(function (element) {
+
+                        element.textContent = "—";
+
+                    });
+
+
+                const success =
+                    await loadRegionData(
+                        regionKey,
+                        regionName
+                    );
+
+
+                if (!success) {
+                    return;
+                }
+
+
+                programSection.style.display =
+                    "block";
+
+
+                document.dispatchEvent(
+                    new CustomEvent(
+                        "tdriveRegionSelected",
+                        {
+                            detail: {
+
+                                region:
+                                    selectedRegion,
+
+                                regionName:
+                                    selectedRegionNameValue,
+
+                                cities:
+                                    selectedRegionCities,
+
+                                pricing:
+                                    selectedRegionPricing
+
+                            }
+                        }
+                    )
                 );
 
 
-            if (!success) {
+                setTimeout(function () {
 
-                return;
+                    programSection.scrollIntoView({
+
+                        behavior:"smooth",
+
+                        block:"start"
+
+                    });
+
+                },150);
 
             }
-
-
-            /*
-                إظهار البرامج
-            */
-
-            programSection.style.display =
-                "block";
-
-
-            /*
-                إرسال حدث للصفحة/app.js
-            */
-
-            document.dispatchEvent(
-                new CustomEvent(
-                    "tdriveRegionSelected",
-                    {
-                        detail: {
-
-                            region:
-                                selectedRegion,
-
-                            regionName:
-                                selectedRegionNameValue,
-
-                            cities:
-                                selectedRegionCities,
-
-                            pricing:
-                                selectedRegionPricing
-
-                        }
-                    }
-                )
-            );
-
-
-            /*
-                النزول للبرامج
-            */
-
-            setTimeout(function () {
-
-                programSection.scrollIntoView({
-
-                    behavior: "smooth",
-
-                    block: "start"
-
-                });
-
-            }, 150);
-
-        });
+        );
 
     });
 
@@ -3586,6 +3406,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     });
 
 
+                document
+                    .querySelectorAll(".old-price")
+                    .forEach(function (element) {
+
+                        element.textContent = "—";
+
+                    });
+
+
                 regionCards.forEach(
                     function (card) {
 
@@ -3593,7 +3422,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             "selected"
                         );
 
-                    });
+                    }
+                );
 
 
                 document
@@ -3602,9 +3432,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     )
                     .scrollIntoView({
 
-                        behavior: "smooth",
+                        behavior:"smooth",
 
-                        block: "start"
+                        block:"start"
 
                     });
 
@@ -3628,11 +3458,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 event.preventDefault();
 
 
-                /*
-                    لا يسمح باختيار البرنامج
-                    قبل المنطقة
-                */
-
                 if (!selectedRegion) {
 
                     alert(
@@ -3654,10 +3479,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (!program) return;
 
 
-                /*
-                    السعر الحالي
-                */
-
                 const currentPrice =
                     selectedRegionPricing
                         ? selectedRegionPricing.customerPrice
@@ -3678,10 +3499,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                /*
-                    إزالة التحديد
-                */
-
                 cards.forEach(
                     function (item) {
 
@@ -3693,20 +3510,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                /*
-                    تحديد البرنامج
-                */
-
                 card.classList.add("selected");
 
 
                 selectedProgramInput.value =
                     program;
 
-
-                /*
-                    اسم البرنامج
-                */
 
                 if (selectedProgramBadge) {
 
@@ -3716,10 +3525,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
 
-
-                /*
-                    صفحة المراجعة
-                */
 
                 if (selectedProgramReview) {
 
@@ -3748,14 +3553,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                /*
-                    شريط المنطقة
-                */
-
                 const bookingRegionBadge =
                     document.getElementById(
                         "bookingRegionBadge"
                     );
+
 
                 if (bookingRegionBadge) {
 
@@ -3766,14 +3568,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                /*
-                    شريط السعر
-                */
-
                 const bookingPriceBadge =
                     document.getElementById(
                         "bookingPriceBadge"
                     );
+
 
                 if (bookingPriceBadge) {
 
@@ -3787,10 +3586,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                /*
-                    إخفاء البوابة
-                */
-
                 gate.style.display =
                     "none";
 
@@ -3798,10 +3593,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 registrationContent.style.display =
                     "block";
 
-
-                /*
-                    العودة للخطوة الأولى
-                */
 
                 const allSteps =
                     registrationContent
@@ -3843,10 +3634,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                /*
-                    إعادة مؤشر الخطوات
-                */
-
                 const stepCircles =
                     registrationContent
                         .querySelectorAll(
@@ -3881,10 +3668,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
 
-                /*
-                    الحدث الأساسي الموجود
-                */
-
                 document.dispatchEvent(
                     new CustomEvent(
                         "tdriveProgramSelected",
@@ -3917,21 +3700,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                /*
-                    النزول للنموذج
-                */
-
                 setTimeout(
                     function () {
 
                         registrationContent
                             .scrollIntoView({
 
-                                behavior:
-                                    "smooth",
+                                behavior:"smooth",
 
-                                block:
-                                    "start"
+                                block:"start"
 
                             });
 
@@ -3947,7 +3724,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       حماية أزرار اختيار البرنامج
+       أزرار اختيار البرنامج
     ================================================== */
 
     const chooseButtons =
@@ -3988,7 +3765,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       الحالة الابتدائية للبرنامج
+       الحالة الابتدائية
     ================================================== */
 
     selectedProgramInput.value = "";
@@ -4032,7 +3809,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (trainerList) {
 
                 trainerList.innerHTML =
-                    '<p style="text-align:center; color:#8b999f; font-size:13px;">يرجى تحديد الجنس ومدينة التدريب أولًا في الخطوة السابقة لعرض المدربين المناسبين.</p>';
+                    '<p class="trainer-placeholder">يرجى تحديد الجنس ومدينة التدريب أولًا في الخطوة السابقة لعرض المدربين المناسبين.</p>';
 
             }
 
@@ -4044,15 +3821,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (trainerList) {
 
             trainerList.innerHTML =
-                '<p style="text-align:center; color:#8b999f; font-size:13px;">جاري جلب المدربين...</p>';
+                '<p class="trainer-placeholder">جاري جلب المدربين...</p>';
 
         }
 
-
-        /*
-            إرسال الحدث الموجود أصلًا
-            مع إضافة المنطقة.
-        */
 
         document.dispatchEvent(
             new CustomEvent(
@@ -4099,9 +3871,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "change",
             function () {
 
-                /*
-                    تحديث مراجعة المدينة
-                */
 
                 if (selectedCityReview) {
 
@@ -4122,8 +3891,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       مراقبة اختيار المنطقة والبرنامج
-       للتجربة في Console
+       CONSOLE EVENTS
     ================================================== */
 
     document.addEventListener(
