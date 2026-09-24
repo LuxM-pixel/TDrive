@@ -4039,39 +4039,29 @@
     }
 }
 
-      /* تقليل المساحة الفارغة قبل اختيار البرنامج */
+/* ==============================
+   ضبط المسافة قبل الفوتر
+   ============================== */
+
 #tdrive-booking-page #booking {
-    min-height: 0 !important;
+    min-height: auto !important;
     height: auto !important;
-    padding-bottom: 30px !important;
+    padding-bottom: 0 !important;
 }
 
-/* المحتوى الذي لم يُفتح بعد لا يحجز مساحة */
-#tdrive-booking-page #regionSelection,
-#tdrive-booking-page #registrationContent {
-    display: none;
-}
-
-/* عند إظهار المحتوى، يرجع طبيعي */
-#tdrive-booking-page #regionSelection[style*="display: block"],
-#tdrive-booking-page #regionSelection[style*="display: flex"],
-#tdrive-booking-page #registrationContent[style*="display: block"] {
-    display: block;
-}
-
-/* الفوتر يكون قريب من الخدمات في الحالة الأولى */
+/* الفوتر يبقى تحت المحتوى مع مسافة قصيرة */
 #tdrive-booking-page footer {
-    margin-top: 20px !important;
+    margin-top: 45px !important;
+}
+
+/* إزالة أي مساحة إضافية بعد الفوتر */
+#tdrive-booking-page {
+    padding-bottom: 0 !important;
 }
 
 @media (max-width: 700px) {
-    #tdrive-booking-page #booking {
-        min-height: 0 !important;
-        padding-bottom: 20px !important;
-    }
-
     #tdrive-booking-page footer {
-        margin-top: 15px !important;
+        margin-top: 35px !important;
     }
 }
       
