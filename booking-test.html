@@ -4083,7 +4083,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
     /* ==================================================
        SUPABASE
     ================================================== */
@@ -4111,36 +4110,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const servicePanels =
         document.querySelectorAll(".service-panel");
 
-    const gate =
-        document.getElementById("programSelectGate");
+    const drivingPanel =
+        document.getElementById("drivingPanel");
 
-    const registrationContent =
-        document.getElementById("registrationContent");
+    const captainPanel =
+        document.getElementById("captainPanel");
 
-    const selectedProgramInput =
-        document.getElementById("selectedDrivingProgram");
-
-    const selectedProgramBadge =
-        document.getElementById("selectedProgramBadge");
-
-    const selectedProgramReview =
-        document.getElementById("selectedProgramReview");
-
-    const selectedPriceReview =
-        document.getElementById("selectedPriceReview");
-
-    const selectedRegionReview =
-        document.getElementById("selectedRegionReview");
-
-    const selectedCityReview =
-        document.getElementById("selectedCityReview");
-
-    const cards =
-        document.querySelectorAll(".program-option-card");
+    const carPanel =
+        document.getElementById("carPanel");
 
 
     /* ==================================================
-       المنطقة
+       القيادة
     ================================================== */
 
     const regionSelection =
@@ -4164,8 +4145,44 @@ document.addEventListener("DOMContentLoaded", function () {
     const programSection =
         document.getElementById("programSection");
 
+    const programSelectGate =
+        document.getElementById("programSelectGate");
+
+    const registrationContent =
+        document.getElementById("registrationContent");
+
+    const selectedProgramInput =
+        document.getElementById("selectedDrivingProgram");
+
+    const selectedProgramBadge =
+        document.getElementById("selectedProgramBadge");
+
+    const selectedProgramReview =
+        document.getElementById("selectedProgramReview");
+
+    const selectedPriceReview =
+        document.getElementById("selectedPriceReview");
+
+    const selectedRegionReview =
+        document.getElementById("selectedRegionReview");
+
+    const selectedCityReview =
+        document.getElementById("selectedCityReview");
+
+    const bookingRegionBadge =
+        document.getElementById("bookingRegionBadge");
+
+    const bookingPriceBadge =
+        document.getElementById("bookingPriceBadge");
+
     const addressSelect =
         document.getElementById("address");
+
+    const programCards =
+        document.querySelectorAll(".program-option-card");
+
+    const chooseProgramButtons =
+        document.querySelectorAll(".choose-program-btn");
 
 
     /* ==================================================
@@ -4188,10 +4205,11 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ==================================================
        الحالة الابتدائية
        
-       التسلسل الجديد:
-       1) البرنامج ظاهر
-       2) المناطق مخفية
-       3) التسجيل مخفي
+       عند فتح الصفحة:
+       الخدمات فقط
+       المناطق مخفية
+       البرامج مخفية
+       التسجيل مخفي
     ================================================== */
 
     serviceTabs.forEach(function (tab) {
@@ -4209,23 +4227,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /*
-     * نتحقق من وجود العناصر الأساسية
-     */
-
-    if (
-        !gate ||
-        !registrationContent ||
-        !selectedProgramInput
-    ) {
-        return;
-    }
-
-
-    /*
-     * المناطق لا تظهر عند فتح الصفحة
-     */
-
     if (regionSelection) {
 
         regionSelection.style.display = "none";
@@ -4233,26 +4234,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /*
-     * التسجيل لا يظهر عند فتح الصفحة
-     */
-
-    registrationContent.style.display = "none";
-
-
-    /*
-     * برنامج القيادة هو الشاشة الأولى داخل الخدمة
-     */
-
     if (programSection) {
 
-        programSection.style.display = "block";
+        programSection.style.display = "none";
+
+    }
+
+
+    if (registrationContent) {
+
+        registrationContent.style.display = "none";
+
+    }
+
+
+    if (addressSelect) {
+
+        addressSelect.innerHTML =
+            '<option value="">اختر المنطقة أولًا</option>';
+
+        addressSelect.disabled = true;
 
     }
 
 
     /* ==================================================
-       الخدمات
+       الخدمات الثلاث
     ================================================== */
 
     function hideAllServicePanels() {
@@ -4280,20 +4287,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function resetDrivingFlow() {
 
-        /*
-         * تصفير البرنامج
-         */
+        /* البرنامج */
 
         selectedProgram = "";
 
         selectedProgramLabel = "";
 
-        selectedProgramInput.value = "";
+        if (selectedProgramInput) {
+
+            selectedProgramInput.value = "";
+
+        }
 
 
-        /*
-         * تصفير المنطقة
-         */
+        /* المنطقة */
 
         selectedRegion = null;
 
@@ -4304,9 +4311,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedRegionPricing = null;
 
 
-        /*
-         * إخفاء المناطق
-         */
+        /* المناطق */
 
         if (regionSelection) {
 
@@ -4315,9 +4320,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /*
-         * إخفاء بيانات التسجيل
-         */
+        /* البرامج */
+
+        if (programSection) {
+
+            programSection.style.display = "none";
+
+        }
+
+
+        /* التسجيل */
 
         if (registrationContent) {
 
@@ -4326,42 +4338,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /*
-         * إعادة إظهار اختيار البرنامج
-         */
-
-        if (programSection) {
-
-            programSection.style.display = "block";
-
-        }
-
-
-        /*
-         * إزالة تحديد البرنامج
-         */
-
-        cards.forEach(function (card) {
-
-            card.classList.remove("selected");
-
-        });
-
-
-        /*
-         * إزالة تحديد المنطقة
-         */
-
-        regionCards.forEach(function (card) {
-
-            card.classList.remove("selected");
-
-        });
-
-
-        /*
-         * إخفاء المنطقة المختارة
-         */
+        /* المنطقة المختارة */
 
         if (selectedRegionBox) {
 
@@ -4370,9 +4347,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /*
-         * إعادة المدينة لحالتها الأولى
-         */
+        /* إزالة التحديد */
+
+        regionCards.forEach(function (card) {
+
+            card.classList.remove("selected");
+
+        });
+
+
+        programCards.forEach(function (card) {
+
+            card.classList.remove("selected");
+
+        });
+
+
+        /* المدينة */
 
         if (addressSelect) {
 
@@ -4384,9 +4375,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /*
-         * تصفير الأسعار
-         */
+        /* الأسعار */
 
         document
             .querySelectorAll(".current-price")
@@ -4406,9 +4395,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
 
-        /*
-         * تصفير النصوص
-         */
+        /* النصوص */
 
         if (selectedProgramBadge) {
 
@@ -4416,13 +4403,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-
         if (selectedProgramReview) {
 
             selectedProgramReview.textContent = "—";
 
         }
-
 
         if (selectedPriceReview) {
 
@@ -4430,17 +4415,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
 
-
         if (selectedRegionReview) {
 
             selectedRegionReview.textContent = "—";
 
         }
 
-
         if (selectedCityReview) {
 
             selectedCityReview.textContent = "—";
+
+        }
+
+        if (bookingRegionBadge) {
+
+            bookingRegionBadge.textContent =
+                "المنطقة: —";
+
+        }
+
+        if (bookingPriceBadge) {
+
+            bookingPriceBadge.textContent =
+                "السعر: —";
 
         }
 
@@ -4469,18 +4466,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /*
-         * عند الدخول لخدمة القيادة
-         * نبدأ دائمًا من اختيار البرنامج
-         */
+        /* ==========================================
+           القيادة
+        ========================================== */
 
         if (service === "driving") {
 
             resetDrivingFlow();
 
-
-            const drivingPanel =
-                document.getElementById("drivingPanel");
 
             if (drivingPanel) {
 
@@ -4488,15 +4481,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
             }
 
+
+            /*
+             * عند الضغط على الخدمة:
+             *
+             * تظهر المناطق مباشرة
+             *
+             * ولا تظهر برامج Basic / Plus
+             * حتى تختار المنطقة
+             */
+
+            if (regionSelection) {
+
+                regionSelection.style.display = "block";
+
+            }
+
+
+            if (regionStatus) {
+
+                regionStatus.textContent =
+                    "اختر المنطقة التي ترغب في التدريب فيها";
+
+                regionStatus.className =
+                    "region-status";
+
+            }
+
+
+            setTimeout(function () {
+
+                if (regionSelection) {
+
+                    regionSelection.scrollIntoView({
+
+                        behavior: "smooth",
+
+                        block: "start"
+
+                    });
+
+                }
+
+            }, 100);
+
+
             return;
 
         }
 
 
-        if (service === "captain") {
+        /* ==========================================
+           الكابتن
+        ========================================== */
 
-            const captainPanel =
-                document.getElementById("captainPanel");
+        if (service === "captain") {
 
             if (captainPanel) {
 
@@ -4509,10 +4548,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        if (service === "car") {
+        /* ==========================================
+           شراء سيارة
+        ========================================== */
 
-            const carPanel =
-                document.getElementById("carPanel");
+        if (service === "car") {
 
             if (carPanel) {
 
@@ -4546,7 +4586,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       تحميل بيانات المنطقة
+       تحميل المنطقة من Supabase
     ================================================== */
 
     async function loadRegionData(
@@ -4565,32 +4605,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        const {
-            data,
-            error
-        } = await supabaseClient
+        const result =
+            await supabaseClient
+                .from("tdrive_regions_cities")
+                .select(`
+                    id,
+                    region_key,
+                    region_name,
+                    city_name,
+                    full_price,
+                    customer_price,
+                    launch_price,
+                    trainer_rights,
+                    is_active
+                `)
+                .eq("region_key", regionKey)
+                .eq("is_active", true)
+                .order("city_name", {
+                    ascending: true
+                });
 
-            .from("tdrive_regions_cities")
 
-            .select(`
-                id,
-                region_key,
-                region_name,
-                city_name,
-                full_price,
-                customer_price,
-                launch_price,
-                trainer_rights,
-                is_active
-            `)
-
-            .eq("region_key", regionKey)
-
-            .eq("is_active", true)
-
-            .order("city_name", {
-                ascending: true
-            });
+        const data = result.data;
+        const error = result.error;
 
 
         if (error) {
@@ -4604,7 +4641,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (regionStatus) {
 
                 regionStatus.textContent =
-                    "تعذر تحميل بيانات المنطقة من قاعدة البيانات.";
+                    "تعذر تحميل بيانات المنطقة.";
 
                 regionStatus.className =
                     "region-status error";
@@ -4636,6 +4673,11 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedRegionCities = data;
 
 
+        /*
+         * الأسعار ثابتة للمنطقة،
+         * لذلك نأخذها من أول مدينة.
+         */
+
         const firstCity = data[0];
 
 
@@ -4656,16 +4698,12 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
 
-        /*
-         * تحديث الأسعار بعد اختيار المنطقة
-         */
+        /* تحديث الأسعار */
 
         updateProgramPrices();
 
 
-        /*
-         * تحميل المدن
-         */
+        /* تحميل المدن */
 
         populateCities(data);
 
@@ -4689,7 +4727,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       تحديث الأسعار
+       تحديث أسعار البرنامجين
     ================================================== */
 
     function updateProgramPrices() {
@@ -4701,44 +4739,44 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        const price =
+        const customerPrice =
             selectedRegionPricing.customerPrice;
 
 
-        const priceText =
-            Number(price).toLocaleString("ar-SA") +
+        const fullPrice =
+            selectedRegionPricing.fullPrice;
+
+
+        const customerPriceText =
+            Number(customerPrice).toLocaleString("ar-SA") +
             " ريال";
 
 
+        const fullPriceText =
+            Number(fullPrice).toLocaleString("ar-SA") +
+            " ريال";
+
+
+        /*
+         * كلا البرنامجين لهما سعر المنطقة نفسها
+         */
+
         document
             .querySelectorAll(".current-price")
-            .forEach(function (priceElement) {
+            .forEach(function (element) {
 
-                priceElement.textContent =
-                    priceText;
+                element.textContent =
+                    customerPriceText;
 
             });
 
 
-        /*
-         * السعر الأساسي للمنطقة
-         */
-
-        const oldPrice =
-            selectedRegionPricing.fullPrice;
-
-
-        const oldPriceText =
-            Number(oldPrice).toLocaleString("ar-SA") +
-            " ريال";
-
-
         document
             .querySelectorAll(".old-price")
-            .forEach(function (priceElement) {
+            .forEach(function (element) {
 
-                priceElement.textContent =
-                    oldPriceText;
+                element.textContent =
+                    fullPriceText;
 
             });
 
@@ -4746,7 +4784,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       تحميل المدن
+       المدن
     ================================================== */
 
     function populateCities(cities) {
@@ -4794,35 +4832,437 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       تجهيز التسجيل بعد اختيار البرنامج + المنطقة
+       اختيار المنطقة
+       
+       بعد اختيار المنطقة:
+       نخفي المناطق
+       ونظهر اختيار البرنامج
     ================================================== */
 
-    function openRegistration() {
+    regionCards.forEach(function (card) {
 
-        if (
-            !selectedProgram ||
-            !selectedRegion ||
-            !selectedRegionPricing
-        ) {
+        card.addEventListener(
+            "click",
+            async function () {
+
+                const regionKey =
+                    card.dataset.region;
+
+                const regionName =
+                    card.dataset.name;
+
+
+                if (!regionKey) return;
+
+
+                /*
+                 * إزالة تحديد المناطق الأخرى
+                 */
+
+                regionCards.forEach(function (item) {
+
+                    item.classList.remove("selected");
+
+                });
+
+
+                card.classList.add("selected");
+
+
+                /*
+                 * حفظ المنطقة
+                 */
+
+                selectedRegion =
+                    regionKey;
+
+                selectedRegionNameValue =
+                    regionName;
+
+
+                /*
+                 * إظهار المنطقة المختارة
+                 */
+
+                if (selectedRegionName) {
+
+                    selectedRegionName.textContent =
+                        regionName;
+
+                }
+
+
+                if (selectedRegionBox) {
+
+                    selectedRegionBox.style.display =
+                        "flex";
+
+                }
+
+
+                /*
+                 * تحميل المدن والأسعار
+                 */
+
+                const success =
+                    await loadRegionData(
+                        regionKey,
+                        regionName
+                    );
+
+
+                if (!success) {
+
+                    return;
+
+                }
+
+
+                /*
+                 * إخفاء المناطق
+                 */
+
+                if (regionSelection) {
+
+                    regionSelection.style.display =
+                        "none";
+
+                }
+
+
+                /*
+                 * إظهار قسم اختيار البرنامج
+                 */
+
+                if (programSelectGate) {
+
+                    programSelectGate.style.display =
+                        "block";
+
+                }
+
+
+                if (programSection) {
+
+                    programSection.style.display =
+                        "block";
+
+                }
+
+
+                /*
+                 * التسجيل يبقى مخفيًا
+                 */
+
+                if (registrationContent) {
+
+                    registrationContent.style.display =
+                        "none";
+
+                }
+
+
+                /*
+                 * تحديث عنوان البرنامج
+                 */
+
+                const programTitle =
+                    document.querySelector(
+                        ".booking-program-title"
+                    );
+
+
+                if (programTitle) {
+
+                    programTitle.textContent =
+                        "التسجيل في برنامج احترف القيادة على الطريق";
+
+                }
+
+
+                /*
+                 * إرسال حدث المنطقة
+                 */
+
+                document.dispatchEvent(
+                    new CustomEvent(
+                        "tdriveRegionSelected",
+                        {
+                            detail: {
+
+                                region:
+                                    selectedRegion,
+
+                                regionName:
+                                    selectedRegionNameValue,
+
+                                cities:
+                                    selectedRegionCities,
+
+                                pricing:
+                                    selectedRegionPricing
+
+                            }
+
+                        }
+                    )
+                );
+
+
+                /*
+                 * الانتقال لاختيار البرنامج
+                 */
+
+                setTimeout(function () {
+
+                    if (programSection) {
+
+                        programSection.scrollIntoView({
+
+                            behavior: "smooth",
+
+                            block: "start"
+
+                        });
+
+                    }
+
+                }, 100);
+
+            }
+        );
+
+    });
+
+
+    /* ==================================================
+       تغيير المنطقة
+    ================================================== */
+
+    if (changeRegionBtn) {
+
+        changeRegionBtn.addEventListener(
+            "click",
+            function () {
+
+                /*
+                 * إلغاء المنطقة فقط
+                 */
+
+                selectedRegion = null;
+
+                selectedRegionNameValue = "";
+
+                selectedRegionCities = [];
+
+                selectedRegionPricing = null;
+
+
+                /*
+                 * إخفاء المنطقة المختارة
+                 */
+
+                if (selectedRegionBox) {
+
+                    selectedRegionBox.style.display =
+                        "none";
+
+                }
+
+
+                /*
+                 * إظهار المناطق
+                 */
+
+                if (regionSelection) {
+
+                    regionSelection.style.display =
+                        "block";
+
+                }
+
+
+                /*
+                 * إخفاء البرامج
+                 */
+
+                if (programSection) {
+
+                    programSection.style.display =
+                        "none";
+
+                }
+
+
+                /*
+                 * إخفاء التسجيل
+                 */
+
+                if (registrationContent) {
+
+                    registrationContent.style.display =
+                        "none";
+
+                }
+
+
+                /*
+                 * المدينة
+                 */
+
+                if (addressSelect) {
+
+                    addressSelect.innerHTML =
+                        '<option value="">اختر المنطقة أولًا</option>';
+
+                    addressSelect.disabled = true;
+
+                }
+
+
+                /*
+                 * الأسعار
+                 */
+
+                document
+                    .querySelectorAll(".current-price")
+                    .forEach(function (element) {
+
+                        element.textContent = "—";
+
+                    });
+
+
+                document
+                    .querySelectorAll(".old-price")
+                    .forEach(function (element) {
+
+                        element.textContent = "—";
+
+                    });
+
+
+                /*
+                 * إزالة تحديد المنطقة
+                 */
+
+                regionCards.forEach(function (card) {
+
+                    card.classList.remove("selected");
+
+                });
+
+
+                /*
+                 * الرجوع للمناطق
+                 */
+
+                regionSelection.scrollIntoView({
+
+                    behavior: "smooth",
+
+                    block: "start"
+
+                });
+
+            }
+        );
+
+    }
+
+
+    /* ==================================================
+       اختيار البرنامج Basic / Plus
+       
+       بعد اختيار البرنامج:
+       يظهر التسجيل
+    ================================================== */
+
+    function selectProgram(card) {
+
+        if (!selectedRegion) {
+
+            alert(
+                "يرجى اختيار المنطقة أولًا."
+            );
 
             return;
 
         }
 
 
+        if (!selectedRegionPricing) {
+
+            alert(
+                "جاري تحميل سعر المنطقة، يرجى الانتظار."
+            );
+
+            return;
+
+        }
+
+
+        const program =
+            card.dataset.program;
+
+        const programLabel =
+            card.dataset.programLabel || "";
+
+
+        if (!program) return;
+
+
+        selectedProgram =
+            program;
+
+        selectedProgramLabel =
+            programLabel;
+
+
+        if (selectedProgramInput) {
+
+            selectedProgramInput.value =
+                program;
+
+        }
+
+
+        /*
+         * تحديد البطاقة
+         */
+
+        programCards.forEach(function (item) {
+
+            item.classList.remove("selected");
+
+        });
+
+
+        card.classList.add("selected");
+
+
+        /*
+         * السعر
+         */
+
         const currentPrice =
             selectedRegionPricing.customerPrice;
 
 
+        const priceText =
+            Number(currentPrice).toLocaleString("ar-SA") +
+            " ريال";
+
+
         /*
-         * البرنامج
+         * شارة البرنامج
          */
 
         if (selectedProgramBadge) {
 
             selectedProgramBadge.textContent =
                 "البرنامج المختار: " +
-                selectedProgramLabel;
+                programLabel;
 
         }
 
@@ -4830,7 +5270,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedProgramReview) {
 
             selectedProgramReview.textContent =
-                selectedProgramLabel;
+                programLabel;
 
         }
 
@@ -4842,10 +5282,16 @@ document.addEventListener("DOMContentLoaded", function () {
         if (selectedPriceReview) {
 
             selectedPriceReview.textContent =
-                Number(
-                    currentPrice
-                ).toLocaleString("ar-SA") +
-                " ريال";
+                priceText;
+
+        }
+
+
+        if (bookingPriceBadge) {
+
+            bookingPriceBadge.textContent =
+                "السعر: " +
+                priceText;
 
         }
 
@@ -4862,16 +5308,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        /*
-         * شارة المنطقة
-         */
-
-        const bookingRegionBadge =
-            document.getElementById(
-                "bookingRegionBadge"
-            );
-
-
         if (bookingRegionBadge) {
 
             bookingRegionBadge.textContent =
@@ -4882,23 +5318,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /*
-         * شارة السعر
+         * إخفاء اختيار البرنامج
          */
 
-        const bookingPriceBadge =
-            document.getElementById(
-                "bookingPriceBadge"
-            );
+        if (programSection) {
 
-
-        if (bookingPriceBadge) {
-
-            bookingPriceBadge.textContent =
-                "السعر: " +
-                Number(
-                    currentPrice
-                ).toLocaleString("ar-SA") +
-                " ريال";
+            programSection.style.display =
+                "none";
 
         }
 
@@ -4906,13 +5332,6 @@ document.addEventListener("DOMContentLoaded", function () {
         /*
          * إظهار التسجيل
          */
-
-        if (gate) {
-
-            gate.style.display = "none";
-
-        }
-
 
         if (registrationContent) {
 
@@ -4927,41 +5346,31 @@ document.addEventListener("DOMContentLoaded", function () {
          */
 
         const allSteps =
-            registrationContent
-                .querySelectorAll(
-                    ".form-step"
-                );
+            registrationContent.querySelectorAll(
+                ".form-step"
+            );
 
 
-        allSteps.forEach(
-            function (step) {
+        allSteps.forEach(function (step) {
 
-                step.classList.remove(
-                    "active"
-                );
+            step.classList.remove("active");
 
-                step.style.display =
-                    "none";
+            step.style.display = "none";
 
-            }
-        );
+        });
 
 
         const firstStep =
-            registrationContent
-                .querySelector(
-                    '.form-step[data-step="1"]'
-                );
+            registrationContent.querySelector(
+                '.form-step[data-step="1"]'
+            );
 
 
         if (firstStep) {
 
-            firstStep.classList.add(
-                "active"
-            );
+            firstStep.classList.add("active");
 
-            firstStep.style.display =
-                "block";
+            firstStep.style.display = "block";
 
         }
 
@@ -4971,41 +5380,33 @@ document.addEventListener("DOMContentLoaded", function () {
          */
 
         const stepCircles =
-            registrationContent
-                .querySelectorAll(
-                    ".step-circle"
-                );
+            registrationContent.querySelectorAll(
+                ".step-circle"
+            );
 
 
-        stepCircles.forEach(
-            function (circle) {
+        stepCircles.forEach(function (circle) {
 
-                circle.classList.remove(
-                    "active"
-                );
+            circle.classList.remove("active");
 
-            }
-        );
+        });
 
 
         const firstCircle =
-            registrationContent
-                .querySelector(
-                    '.step-circle[data-step="1"]'
-                );
+            registrationContent.querySelector(
+                '.step-circle[data-step="1"]'
+            );
 
 
         if (firstCircle) {
 
-            firstCircle.classList.add(
-                "active"
-            );
+            firstCircle.classList.add("active");
 
         }
 
 
         /*
-         * حدث اختيار البرنامج
+         * إرسال حدث اختيار البرنامج
          */
 
         document.dispatchEvent(
@@ -5035,355 +5436,40 @@ document.addEventListener("DOMContentLoaded", function () {
                             currentPrice
 
                     }
+
                 }
             )
         );
 
 
         /*
-         * الانتقال لبيانات التسجيل
+         * الانتقال للتسجيل
          */
 
-        setTimeout(
-            function () {
+        setTimeout(function () {
 
-                registrationContent
-                    .scrollIntoView({
+            if (registrationContent) {
 
-                        behavior: "smooth",
+                registrationContent.scrollIntoView({
 
-                        block: "start"
+                    behavior: "smooth",
 
-                    });
-
-            },
-            100
-        );
-
-    }
-
-
-    /* ==================================================
-       اختيار المنطقة
-       
-       الآن المنطقة تأتي بعد البرنامج
-    ================================================== */
-
-    regionCards.forEach(function (card) {
-
-        card.addEventListener(
-            "click",
-            async function () {
-
-
-                const regionKey =
-                    card.dataset.region;
-
-                const regionName =
-                    card.dataset.name;
-
-
-                if (!regionKey) return;
-
-
-                /*
-                 * لا يمكن اختيار المنطقة بدون برنامج
-                 */
-
-                if (!selectedProgram) {
-
-                    alert(
-                        "يرجى اختيار البرنامج أولًا."
-                    );
-
-                    return;
-
-                }
-
-
-                /*
-                 * إزالة تحديد المناطق الأخرى
-                 */
-
-                regionCards.forEach(function (item) {
-
-                    item.classList.remove(
-                        "selected"
-                    );
+                    block: "start"
 
                 });
 
-
-                card.classList.add(
-                    "selected"
-                );
-
-
-                /*
-                 * حفظ المنطقة
-                 */
-
-                selectedRegion =
-                    regionKey;
-
-                selectedRegionNameValue =
-                    regionName;
-
-
-                /*
-                 * عرض المنطقة المختارة
-                 */
-
-                if (selectedRegionName) {
-
-                    selectedRegionName.textContent =
-                        regionName;
-
-                }
-
-
-                if (selectedRegionBox) {
-
-                    selectedRegionBox.style.display =
-                        "flex";
-
-                }
-
-
-                /*
-                 * تصفير الأسعار مؤقتًا
-                 */
-
-                document
-                    .querySelectorAll(".current-price")
-                    .forEach(function (element) {
-
-                        element.textContent =
-                            "—";
-
-                    });
-
-
-                document
-                    .querySelectorAll(".old-price")
-                    .forEach(function (element) {
-
-                        element.textContent =
-                            "—";
-
-                    });
-
-
-                /*
-                 * تحميل بيانات المنطقة
-                 */
-
-                const success =
-                    await loadRegionData(
-                        regionKey,
-                        regionName
-                    );
-
-
-                if (!success) {
-
-                    return;
-
-                }
-
-
-                /*
-                 * المنطقة اختيرت بنجاح
-                 */
-
-                document.dispatchEvent(
-                    new CustomEvent(
-                        "tdriveRegionSelected",
-                        {
-                            detail: {
-
-                                region:
-                                    selectedRegion,
-
-                                regionName:
-                                    selectedRegionNameValue,
-
-                                cities:
-                                    selectedRegionCities,
-
-                                pricing:
-                                    selectedRegionPricing,
-
-                                program:
-                                    selectedProgram,
-
-                                programLabel:
-                                    selectedProgramLabel
-
-                            }
-                        }
-                    )
-                );
-
-
-                /*
-                 * الآن بعد البرنامج + المنطقة
-                 * ننتقل للتسجيل
-                 */
-
-                openRegistration();
-
             }
-        );
 
-    });
-
-
-    /* ==================================================
-       تغيير المنطقة
-    ================================================== */
-
-    if (changeRegionBtn) {
-
-        changeRegionBtn.addEventListener(
-            "click",
-            function () {
-
-
-                /*
-                 * لا نلغي البرنامج
-                 * نرجع فقط لاختيار المنطقة
-                 */
-
-                selectedRegion = null;
-
-                selectedRegionNameValue = "";
-
-                selectedRegionCities = [];
-
-                selectedRegionPricing = null;
-
-
-                /*
-                 * إخفاء المنطقة المختارة
-                 */
-
-                if (selectedRegionBox) {
-
-                    selectedRegionBox.style.display =
-                        "none";
-
-                }
-
-
-                /*
-                 * إخفاء التسجيل مؤقتًا
-                 */
-
-                if (registrationContent) {
-
-                    registrationContent.style.display =
-                        "none";
-
-                }
-
-
-                /*
-                 * إظهار المناطق مرة أخرى
-                 */
-
-                if (regionSelection) {
-
-                    regionSelection.style.display =
-                        "block";
-
-                }
-
-
-                /*
-                 * المدينة
-                 */
-
-                if (addressSelect) {
-
-                    addressSelect.innerHTML =
-                        '<option value="">اختر المنطقة أولًا</option>';
-
-                    addressSelect.disabled = true;
-
-                }
-
-
-                /*
-                 * الأسعار
-                 */
-
-                document
-                    .querySelectorAll(".current-price")
-                    .forEach(function (element) {
-
-                        element.textContent =
-                            "—";
-
-                    });
-
-
-                document
-                    .querySelectorAll(".old-price")
-                    .forEach(function (element) {
-
-                        element.textContent =
-                            "—";
-
-                    });
-
-
-                /*
-                 * إزالة تحديد المنطقة
-                 */
-
-                regionCards.forEach(
-                    function (card) {
-
-                        card.classList.remove(
-                            "selected"
-                        );
-
-                    }
-                );
-
-
-                /*
-                 * الرجوع إلى اختيار المنطقة
-                 */
-
-                if (regionSelection) {
-
-                    regionSelection.scrollIntoView({
-
-                        behavior: "smooth",
-
-                        block: "start"
-
-                    });
-
-                }
-
-            }
-        );
+        }, 100);
 
     }
 
 
     /* ==================================================
-       اختيار البرنامج
-       
-       الترتيب الجديد:
-       البرنامج أولًا
-       ثم المنطقة
+       الضغط على بطاقة البرنامج
     ================================================== */
 
-    cards.forEach(function (card) {
+    programCards.forEach(function (card) {
 
         card.addEventListener(
             "click",
@@ -5391,194 +5477,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 event.preventDefault();
 
-
-                const program =
-                    card.dataset.program;
-
-                const programLabel =
-                    card.dataset.programLabel ||
-                    "";
-
-
-                if (!program) {
-
-                    return;
-
-                }
-
-
-                /*
-                 * حفظ البرنامج
-                 */
-
-                selectedProgram =
-                    program;
-
-                selectedProgramLabel =
-                    programLabel;
-
-
-                selectedProgramInput.value =
-                    program;
-
-
-                /*
-                 * إزالة تحديد البرامج الأخرى
-                 */
-
-                cards.forEach(
-                    function (item) {
-
-                        item.classList.remove(
-                            "selected"
-                        );
-
-                    }
-                );
-
-
-                card.classList.add(
-                    "selected"
-                );
-
-
-                /*
-                 * عرض البرنامج المختار
-                 */
-
-                if (selectedProgramBadge) {
-
-                    selectedProgramBadge.textContent =
-                        "البرنامج المختار: " +
-                        programLabel;
-
-                }
-
-
-                if (selectedProgramReview) {
-
-                    selectedProgramReview.textContent =
-                        programLabel;
-
-                }
-
-
-                /*
-                 * لا نحتاج منطقة قبل البرنامج
-                 *
-                 * الآن نظهر المناطق
-                 */
-
-                if (regionSelection) {
-
-                    regionSelection.style.display =
-                        "block";
-
-                }
-
-
-                /*
-                 * التسجيل لا يظهر حتى اختيار المنطقة
-                 */
-
-                if (registrationContent) {
-
-                    registrationContent.style.display =
-                        "none";
-
-                }
-
-
-                /*
-                 * إظهار قسم المناطق
-                 */
-
-                if (regionStatus) {
-
-                    regionStatus.textContent =
-                        "اختاري المنطقة التي ترغبين في التدريب فيها";
-
-                    regionStatus.className =
-                        "region-status";
-
-                }
-
-
-                /*
-                 * إذا كان المستخدم غير المنطقة
-                 * سابقًا، نعيد تحميل المنطقة
-                 * فقط بعد اختيارها.
-                 */
-
-                if (!selectedRegion) {
-
-                    setTimeout(
-                        function () {
-
-                            regionSelection.scrollIntoView({
-
-                                behavior: "smooth",
-
-                                block: "start"
-
-                            });
-
-                        },
-                        100
-                    );
-
-                } else {
-
-                    /*
-                     * إذا كان هناك منطقة محفوظة
-                     * نعيد حساب السعر ونبقي التسجيل
-                     * حسب المنطقة المختارة.
-                     */
-
-                    updateProgramPrices();
-
-                }
-
-
-                /*
-                 * حدث اختيار البرنامج
-                 *
-                 * مهم:
-                 * لا نرسل region كشرط للحجز.
-                 */
-
-                document.dispatchEvent(
-                    new CustomEvent(
-                        "tdriveProgramSelected",
-                        {
-                            detail: {
-
-                                program:
-                                    selectedProgram,
-
-                                label:
-                                    selectedProgramLabel,
-
-                                region:
-                                    selectedRegion,
-
-                                regionName:
-                                    selectedRegionNameValue,
-
-                                city:
-                                    addressSelect
-                                        ? addressSelect.value
-                                        : "",
-
-                                price:
-                                    selectedRegionPricing
-                                        ? selectedRegionPricing.customerPrice
-                                        : null
-
-                            }
-                        }
-                    )
-                );
+                selectProgram(card);
 
             }
         );
@@ -5590,115 +5489,32 @@ document.addEventListener("DOMContentLoaded", function () {
        أزرار اختيار البرنامج
     ================================================== */
 
-    const chooseButtons =
-        document.querySelectorAll(
-            ".choose-program-btn"
+    chooseProgramButtons.forEach(function (button) {
+
+        button.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                const card =
+                    button.closest(
+                        ".program-option-card"
+                    );
+
+
+                if (!card) return;
+
+
+                selectProgram(card);
+
+            }
         );
 
-
-    chooseButtons.forEach(
-        function (button) {
-
-            button.addEventListener(
-                "click",
-                function (event) {
-
-                    event.preventDefault();
-
-                    event.stopPropagation();
-
-
-                    const card =
-                        button.closest(
-                            ".program-option-card"
-                        );
-
-
-                    if (!card) return;
-
-
-                    card.click();
-
-                }
-            );
-
-        }
-    );
-
-
-    /* ==================================================
-       الحالة الابتدائية
-    ================================================== */
-
-    selectedProgramInput.value = "";
-
-
-    if (selectedProgramBadge) {
-
-        selectedProgramBadge.textContent = "";
-
-    }
-
-
-    if (selectedProgramReview) {
-
-        selectedProgramReview.textContent =
-            "—";
-
-    }
-
-
-    if (selectedPriceReview) {
-
-        selectedPriceReview.textContent =
-            "—";
-
-    }
-
-
-    if (selectedRegionReview) {
-
-        selectedRegionReview.textContent =
-            "—";
-
-    }
-
-
-    if (selectedCityReview) {
-
-        selectedCityReview.textContent =
-            "—";
-
-    }
-
-
-    /*
-     * تأكيد إخفاء المناطق والتسجيل
-     * عند تحميل الصفحة
-     */
-
-    if (regionSelection) {
-
-        regionSelection.style.display =
-            "none";
-
-    }
-
-
-    if (registrationContent) {
-
-        registrationContent.style.display =
-            "none";
-
-    }
-
-
-    if (programSection) {
-
-        programSection.style.display =
-            "block";
-
-    }
+    });
 
 
     /* ==================================================
@@ -5713,7 +5529,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function checkTrainerRequirements() {
-
 
         if (
             !genderSelect ||
@@ -5733,7 +5548,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (trainerList) {
 
                 trainerList.innerHTML =
-                    '<p class="trainer-placeholder">يرجى تحديد الجنس ومدينة التدريب أولًا في الخطوة السابقة لعرض المدربين المناسبين.</p>';
+                    '<p class="trainer-placeholder">يرجى تحديد الجنس ومدينة التدريب أولًا في الخطوة السابقة.</p>';
 
             }
 
@@ -5769,9 +5584,10 @@ document.addEventListener("DOMContentLoaded", function () {
                             selectedRegionNameValue,
 
                         program:
-                            selectedProgramInput.value
+                            selectedProgram
 
                     }
+
                 }
             )
         );
@@ -5795,7 +5611,6 @@ document.addEventListener("DOMContentLoaded", function () {
             "change",
             function () {
 
-
                 if (selectedCityReview) {
 
                     selectedCityReview.textContent =
@@ -5814,7 +5629,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==================================================
-       CONSOLE EVENTS
+       أحداث للتوافق مع app.js
     ================================================== */
 
     document.addEventListener(
@@ -5841,7 +5656,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     );
-
 
 });
 
