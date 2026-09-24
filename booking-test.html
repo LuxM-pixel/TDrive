@@ -4038,6 +4038,43 @@
         font-size: 7px !important;
     }
 }
+
+      /* تقليل المساحة الفارغة قبل اختيار البرنامج */
+#tdrive-booking-page #booking {
+    min-height: 0 !important;
+    height: auto !important;
+    padding-bottom: 30px !important;
+}
+
+/* المحتوى الذي لم يُفتح بعد لا يحجز مساحة */
+#tdrive-booking-page #regionSelection,
+#tdrive-booking-page #registrationContent {
+    display: none;
+}
+
+/* عند إظهار المحتوى، يرجع طبيعي */
+#tdrive-booking-page #regionSelection[style*="display: block"],
+#tdrive-booking-page #regionSelection[style*="display: flex"],
+#tdrive-booking-page #registrationContent[style*="display: block"] {
+    display: block;
+}
+
+/* الفوتر يكون قريب من الخدمات في الحالة الأولى */
+#tdrive-booking-page footer {
+    margin-top: 20px !important;
+}
+
+@media (max-width: 700px) {
+    #tdrive-booking-page #booking {
+        min-height: 0 !important;
+        padding-bottom: 20px !important;
+    }
+
+    #tdrive-booking-page footer {
+        margin-top: 15px !important;
+    }
+}
+      
 </style>
 
 
