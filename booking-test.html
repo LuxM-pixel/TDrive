@@ -192,13 +192,10 @@
         </div>
 
 
-        <div
-            id="regionStatus"
-            class="region-status"
-        >
-            جاري تحميل المناطق...
-        </div>
-
+   <div
+    id="regionStatus"
+    class="region-status"
+></div>
 
         <!-- ==================================================
              REGIONS
@@ -4500,13 +4497,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (regionStatus) {
 
-                regionStatus.textContent =
-                    "اختر المنطقة التي ترغب في التدريب فيها";
+    regionStatus.textContent = "";
 
-                regionStatus.className =
-                    "region-status";
+    regionStatus.className =
+        "region-status";
 
-            }
+}
 
 
             setTimeout(function () {
