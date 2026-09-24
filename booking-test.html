@@ -1726,6 +1726,7 @@
 
 <style>
 
+
 /* =========================================================
    TDrive Booking Test
    PAGE ISOLATED CSS
@@ -1777,7 +1778,7 @@
    HEADER
 ========================================================= */
 
-#tdrive-booking-page > header {
+#tdrive-booking-page .tdrive-page-wrap > header {
     width: 100%;
     min-height: 78px;
     padding: 14px 5%;
@@ -1789,11 +1790,11 @@
     border-bottom: 1px solid #edf2f3;
 }
 
-#tdrive-booking-page > header .logo {
+#tdrive-booking-page .tdrive-page-wrap > header .logo {
     flex-shrink: 0;
 }
 
-#tdrive-booking-page > header .logo h1 {
+#tdrive-booking-page .tdrive-page-wrap > header .logo h1 {
     margin: 0;
     color: #3a939f;
     font-size: 28px;
@@ -1801,14 +1802,14 @@
     line-height: 1;
 }
 
-#tdrive-booking-page > header .logo p {
+#tdrive-booking-page .tdrive-page-wrap > header .logo p {
     margin: 5px 0 0;
     color: #718087;
     font-size: 11px;
     font-weight: 600;
 }
 
-#tdrive-booking-page > header nav {
+#tdrive-booking-page .tdrive-page-wrap > header nav {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1816,7 +1817,7 @@
     flex-wrap: wrap;
 }
 
-#tdrive-booking-page > header nav a {
+#tdrive-booking-page .tdrive-page-wrap > header nav a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -1829,19 +1830,19 @@
     transition: .2s ease;
 }
 
-#tdrive-booking-page > header nav a:hover {
+#tdrive-booking-page .tdrive-page-wrap > header nav a:hover {
     color: #3a939f;
     background: #f1fafb;
 }
 
-#tdrive-booking-page > header nav a.register-btn {
+#tdrive-booking-page .tdrive-page-wrap > header nav a.register-btn {
     color: #ffffff;
     background: #3a939f;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-#tdrive-booking-page > header nav a.register-btn:hover {
+#tdrive-booking-page .tdrive-page-wrap > header nav a.register-btn:hover {
     color: #ffffff;
     background: #2f7f89;
 }
@@ -3339,7 +3340,7 @@
    FOOTER
 ========================================================= */
 
-#tdrive-booking-page > footer {
+#tdrive-booking-page .tdrive-page-wrap > footer {
     width: 100%;
 
     margin: 0;
@@ -3357,7 +3358,7 @@
     box-shadow: 0 -6px 25px rgba(79,159,174,.12);
 }
 
-#tdrive-booking-page > footer p {
+#tdrive-booking-page .tdrive-page-wrap > footer p {
     margin: 0;
 
     color: #ffffff;
@@ -3414,15 +3415,15 @@
 
 @media (max-width: 950px) {
 
-    #tdrive-booking-page > header {
+    #tdrive-booking-page .tdrive-page-wrap > header {
         padding: 14px 20px;
     }
 
-    #tdrive-booking-page > header nav {
+    #tdrive-booking-page .tdrive-page-wrap > header nav {
         gap: 4px;
     }
 
-    #tdrive-booking-page > header nav a {
+    #tdrive-booking-page .tdrive-page-wrap > header nav a {
         padding: 6px 9px;
         font-size: 11px;
     }
@@ -3456,7 +3457,7 @@
 
 @media (max-width: 700px) {
 
-    #tdrive-booking-page > header {
+    #tdrive-booking-page .tdrive-page-wrap > header {
         min-height: auto;
 
         padding: 14px 12px;
@@ -3466,7 +3467,7 @@
         gap: 12px;
     }
 
-    #tdrive-booking-page > header nav {
+    #tdrive-booking-page .tdrive-page-wrap > header nav {
         width: 100%;
 
         display: grid;
@@ -3476,7 +3477,7 @@
         gap: 6px;
     }
 
-    #tdrive-booking-page > header nav a {
+    #tdrive-booking-page .tdrive-page-wrap > header nav a {
         width: 100%;
 
         min-height: 36px;
@@ -3486,7 +3487,7 @@
         font-size: 10px;
     }
 
-    #tdrive-booking-page > header nav a.register-btn {
+    #tdrive-booking-page .tdrive-page-wrap > header nav a.register-btn {
         grid-column: span 2;
     }
 
@@ -3710,13 +3711,13 @@
     }
 
 
-    #tdrive-booking-page > footer {
+    #tdrive-booking-page .tdrive-page-wrap > footer {
         padding: 25px 12px;
 
         border-radius: 26px 26px 0 0;
     }
 
-    #tdrive-booking-page > footer p {
+    #tdrive-booking-page .tdrive-page-wrap > footer p {
         font-size: 12px;
     }
 
@@ -3762,7 +3763,7 @@
        الهيدر — الروابط أفقية
     ========================================== */
 
-    #tdrive-booking-page > header {
+    #tdrive-booking-page .tdrive-page-wrap > header {
         flex-direction: row !important;
         align-items: center !important;
         justify-content: space-between !important;
@@ -3770,11 +3771,11 @@
         padding: 12px 14px !important;
     }
 
-    #tdrive-booking-page > header .logo {
+    #tdrive-booking-page .tdrive-page-wrap > header .logo {
         flex: 0 0 auto !important;
     }
 
-    #tdrive-booking-page > header nav {
+    #tdrive-booking-page .tdrive-page-wrap > header nav {
         width: auto !important;
 
         display: flex !important;
@@ -3795,11 +3796,11 @@
         scrollbar-width: none !important;
     }
 
-    #tdrive-booking-page > header nav::-webkit-scrollbar {
+    #tdrive-booking-page .tdrive-page-wrap > header nav::-webkit-scrollbar {
         display: none !important;
     }
 
-    #tdrive-booking-page > header nav a {
+    #tdrive-booking-page .tdrive-page-wrap > header nav a {
         width: auto !important;
         flex: 0 0 auto !important;
 
@@ -3812,7 +3813,7 @@
         white-space: nowrap !important;
     }
 
-    #tdrive-booking-page > header nav a.register-btn {
+    #tdrive-booking-page .tdrive-page-wrap > header nav a.register-btn {
         width: auto !important;
         min-width: 65px !important;
 
@@ -4100,8 +4101,10 @@
     }
 }
       
-</style>
+<style>
 
+
+      
 
 <!-- ==================================================
      SCRIPTS
