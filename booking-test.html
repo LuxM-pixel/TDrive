@@ -32,6 +32,7 @@
 
 
 <body id="tdrive-booking-page">
+<div class="tdrive-page-wrap">
 
 
 <!-- ==================================================
@@ -1687,6 +1688,21 @@
 </section>
 
 
+<!-- ==================================================
+     WAVE FILL
+     يملأ المساحة الفاضية بين المحتوى والفوتر تلقائيًا
+================================================== -->
+
+<div class="tdrive-wave-fill" aria-hidden="true">
+    <svg viewBox="0 0 1440 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,80 C240,160 480,0 720,60 C960,120 1200,20 1440,90 L1440,200 L0,200 Z"
+              fill="#eaf8fa"/>
+        <path d="M0,120 C300,60 600,180 900,110 C1100,65 1300,140 1440,110 L1440,200 L0,200 Z"
+              fill="#f7fcfd"/>
+    </svg>
+</div>
+
+
 
 <!-- ==================================================
      FOOTER
@@ -1699,6 +1715,7 @@
     </p>
 
 </footer>
+</div><!-- .tdrive-page-wrap -->
 
 
 
@@ -4037,28 +4054,49 @@
 }
 
 /* ==============================
-   ضبط المسافة قبل الفوتر
+   الغلاف: يرتب الصفحة عموديًا
+   ويخلي الفوتر دايمًا آخر شيء
    ============================== */
 
+#tdrive-booking-page .tdrive-page-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* المحتوى ياخد ارتفاعه الطبيعي فقط */
 #tdrive-booking-page #booking {
+    flex: 0 0 auto;
     min-height: auto !important;
     height: auto !important;
     padding-bottom: 0 !important;
 }
 
-/* الفوتر يبقى تحت المحتوى مع مسافة قصيرة */
-#tdrive-booking-page footer {
-    margin-top: 45px !important;
+/* الموجة تملأ المساحة الفاضية المتبقية تلقائيًا
+   بدل ما تكون مسافة بيضاء فاضية */
+#tdrive-booking-page .tdrive-wave-fill {
+    flex: 1 1 auto;
+    min-height: 60px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
 }
 
-/* إزالة أي مساحة إضافية بعد الفوتر */
-#tdrive-booking-page {
-    padding-bottom: 0 !important;
+#tdrive-booking-page .tdrive-wave-fill svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* الفوتر ثابت الحجم وينزل تلقائيًا لآخر الصفحة */
+#tdrive-booking-page .tdrive-page-wrap > footer {
+    flex: 0 0 auto;
+    margin-top: 0 !important;
 }
 
 @media (max-width: 700px) {
-    #tdrive-booking-page footer {
-        margin-top: 35px !important;
+    #tdrive-booking-page .tdrive-wave-fill {
+        min-height: 40px;
     }
 }
       
