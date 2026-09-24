@@ -4061,8 +4061,9 @@
 /* الموجة تملأ المساحة الفاضية المتبقية تلقائيًا
    بدل ما تكون مسافة بيضاء فاضية */
 #tdrive-booking-page .tdrive-wave-fill {
-    flex: 1 1 auto;
-    min-height: 60px;
+    flex: 0 0 55px;
+    min-height: 55px;
+    height: 55px;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
@@ -4082,8 +4083,24 @@
 
 @media (max-width: 700px) {
     #tdrive-booking-page .tdrive-wave-fill {
-        min-height: 40px;
+        flex: 0 0 45px;
+        min-height: 45px;
+        height: 45px;
     }
+}
+
+/* تقليل المسافة بين عنوان المنطقة وبطاقات المناطق */
+#tdrive-booking-page .region-heading {
+    margin-bottom: 8px;
+}
+
+/* إذا كانت رسالة المنطقة فارغة لا تحجز مساحة */
+#tdrive-booking-page .region-status:empty {
+    display: none;
+}
+
+#tdrive-booking-page .region-selection {
+    margin-bottom: 10px;
 }
       
 </style>
