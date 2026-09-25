@@ -1318,27 +1318,27 @@ footer {
     }
 }
 
-   /* =========================
-   بطاقات مستحقات المناطق
+/* =========================
+   صور المناطق — وضوح أعلى
 ========================= */
 
 .region-card {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    background: rgba(255, 255, 255, 0.96);
-    border: 1px solid rgba(79, 159, 174, 0.22);
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(79, 159, 174, 0.24);
     border-radius: 34px;
     box-shadow: 0 12px 35px rgba(52, 76, 85, 0.08);
 }
 
-/* الصورة داخل القوس */
+/* صورة المنطقة */
 .region-card::before {
     content: "";
     position: absolute;
 
-    width: 300px;
-    height: 300px;
+    width: 315px;
+    height: 315px;
 
     left: -105px;
     bottom: -125px;
@@ -1349,61 +1349,68 @@ footer {
     background-size: cover;
     background-position: center;
 
-    /* زيادة وضوح الصورة */
-    opacity: 0.27;
+    opacity: 0.42;
 
     z-index: -2;
 
-    filter: saturate(0.85) contrast(0.95);
+    filter:
+        saturate(1.05)
+        contrast(1.08)
+        brightness(1.02);
 }
 
-/* القوس الخارجي */
+/* القوس */
 .region-card::after {
     content: "";
     position: absolute;
 
-    width: 365px;
-    height: 365px;
+    width: 375px;
+    height: 375px;
 
-    left: -138px;
-    bottom: -157px;
+    left: -135px;
+    bottom: -155px;
 
     border-radius: 50%;
 
-    border: 38px solid rgba(79, 159, 174, 0.075);
+    border: 34px solid rgba(79, 159, 174, 0.065);
 
     z-index: -1;
     pointer-events: none;
 }
 
-/* طبقة بيضاء خفيفة حتى تبقى النصوص واضحة */
+/* إبقاء المحتوى فوق الصورة */
 .region-card > * {
     position: relative;
     z-index: 2;
 }
 
 
-/* تحسين ظهور الصورة على الجوال */
+/* 📱 الجوال */
 @media (max-width: 600px) {
 
     .region-card::before {
-        width: 285px;
-        height: 285px;
+        width: 300px;
+        height: 300px;
 
         left: -95px;
-        bottom: -110px;
+        bottom: -105px;
 
-        opacity: 0.30;
+        opacity: 0.45;
+
+        filter:
+            saturate(1.08)
+            contrast(1.1)
+            brightness(1.02);
     }
 
     .region-card::after {
-        width: 345px;
-        height: 345px;
+        width: 360px;
+        height: 360px;
 
         left: -125px;
-        bottom: -145px;
+        bottom: -140px;
 
-        border-width: 34px;
+        border-width: 32px;
     }
 }
 
