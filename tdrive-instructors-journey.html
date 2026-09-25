@@ -1318,6 +1318,95 @@ footer {
     }
 }
 
+   /* =========================
+   بطاقات مستحقات المناطق
+========================= */
+
+.region-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(79, 159, 174, 0.22);
+    border-radius: 34px;
+    box-shadow: 0 12px 35px rgba(52, 76, 85, 0.08);
+}
+
+/* الصورة داخل القوس */
+.region-card::before {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    left: -105px;
+    bottom: -125px;
+
+    border-radius: 50%;
+
+    background-image: var(--region-image);
+    background-size: cover;
+    background-position: center;
+
+    /* زيادة وضوح الصورة */
+    opacity: 0.27;
+
+    z-index: -2;
+
+    filter: saturate(0.85) contrast(0.95);
+}
+
+/* القوس الخارجي */
+.region-card::after {
+    content: "";
+    position: absolute;
+
+    width: 365px;
+    height: 365px;
+
+    left: -138px;
+    bottom: -157px;
+
+    border-radius: 50%;
+
+    border: 38px solid rgba(79, 159, 174, 0.075);
+
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* طبقة بيضاء خفيفة حتى تبقى النصوص واضحة */
+.region-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* تحسين ظهور الصورة على الجوال */
+@media (max-width: 600px) {
+
+    .region-card::before {
+        width: 285px;
+        height: 285px;
+
+        left: -95px;
+        bottom: -110px;
+
+        opacity: 0.30;
+    }
+
+    .region-card::after {
+        width: 345px;
+        height: 345px;
+
+        left: -125px;
+        bottom: -145px;
+
+        border-width: 34px;
+    }
+}
+
 </style>
 </head>
 
