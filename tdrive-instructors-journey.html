@@ -1,0 +1,2603 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>رحلة المدربين والمدربات | TDrive</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   TDrive — VISUAL IDENTITY
+========================================================= */
+
+:root {
+    --tdrive: #4F9FAE;
+    --tdrive-dark: #3A939F;
+    --tdrive-light: #EAF8FA;
+    --tdrive-soft: #EEFafb;
+    --tdrive-border: #CFEef2;
+
+    --text: #344C55;
+    --text-soft: #455966;
+    --text-muted: #707D82;
+
+    --white: #ffffff;
+    --background: #ffffff;
+    --background-soft: #F8FBFC;
+
+    --shadow-sm: 0 8px 25px rgba(52, 76, 85, 0.07);
+    --shadow-md: 0 18px 45px rgba(52, 76, 85, 0.10);
+
+    --radius-sm: 14px;
+    --radius-md: 24px;
+    --radius-lg: 34px;
+
+    --container: 1180px;
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.9;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+}
+
+.container {
+    width: min(92%, var(--container));
+    margin-inline: auto;
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.section {
+    position: relative;
+    padding: 90px 0;
+    overflow: hidden;
+}
+
+.section-soft {
+    background: var(--background-soft);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 16px;
+    border-radius: 999px;
+
+    background: var(--tdrive-light);
+    color: var(--tdrive-dark);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 14px;
+}
+
+.section-title h2 {
+    font-size: clamp(27px, 5vw, 42px);
+    line-height: 1.35;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.section-title p {
+    max-width: 680px;
+    margin: 14px auto 0;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    padding: 22px 0;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 900;
+    color: var(--tdrive);
+    font-size: 25px;
+    letter-spacing: -0.5px;
+}
+
+.logo small {
+    font-size: 11px;
+    color: var(--text-soft);
+    font-weight: 600;
+}
+
+.header-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 15px;
+    border-radius: 999px;
+
+    color: var(--tdrive-dark);
+    background: rgba(255,255,255,.8);
+    border: 1px solid rgba(79,159,174,.15);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+    min-height: 760px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.98) 0%,
+            rgba(255,255,255,.91) 38%,
+            rgba(234,248,250,.35) 72%,
+            rgba(234,248,250,.05) 100%
+        );
+}
+
+/* decorative turquoise arc */
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 620px;
+    height: 620px;
+
+    border: 90px solid rgba(79,159,174,.07);
+    border-radius: 50%;
+
+    left: -300px;
+    top: -180px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 4;
+
+    width: min(92%, var(--container));
+    margin-inline: auto;
+
+    padding-top: 80px;
+}
+
+.hero-copy {
+    width: min(540px, 100%);
+}
+
+.hero-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 15px;
+    border-radius: 999px;
+
+    background: var(--tdrive-light);
+    color: var(--tdrive-dark);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(39px, 8vw, 68px);
+    line-height: 1.18;
+    font-weight: 900;
+    color: var(--text);
+    letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+    color: var(--tdrive);
+}
+
+.hero-description {
+    margin-top: 22px;
+    color: var(--text-soft);
+    font-size: 17px;
+    line-height: 2;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    min-height: 52px;
+    padding: 0 23px;
+
+    border-radius: 15px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: .25s ease;
+}
+
+.btn-primary {
+    background: var(--tdrive);
+    color: var(--white);
+    box-shadow: 0 12px 28px rgba(79,159,174,.25);
+}
+
+.btn-primary:hover {
+    background: var(--tdrive-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--white);
+    color: var(--tdrive-dark);
+    border: 1px solid var(--tdrive-border);
+}
+
+.btn-secondary:hover {
+    background: var(--tdrive-light);
+}
+
+/* Hero image */
+
+.hero-visual {
+    position: absolute;
+    z-index: 2;
+
+    width: min(850px, 67vw);
+
+    left: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border-radius: 0 0 0 100px;
+
+    overflow: hidden;
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent 0%,
+            black 17%,
+            black 100%
+        );
+}
+
+.hero-visual img {
+    width: 100%;
+    height: 690px;
+    object-fit: cover;
+
+    object-position: center;
+
+    filter: saturate(.96);
+}
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+}
+
+.welcome-card {
+    position: relative;
+
+    background: var(--white);
+    border: 1px solid var(--tdrive-border);
+
+    border-radius: var(--radius-md);
+
+    padding: 32px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.welcome-card h3 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.welcome-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.quote-mark {
+    position: absolute;
+    left: 25px;
+    top: 15px;
+
+    font-size: 65px;
+    color: var(--tdrive-light);
+
+    line-height: 1;
+}
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.benefit-card {
+    position: relative;
+
+    background: var(--white);
+    border: 1px solid #edf2f3;
+
+    border-radius: var(--radius-md);
+
+    padding: 24px 18px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: .25s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--tdrive-border);
+}
+
+.benefit-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    background: var(--tdrive-light);
+    color: var(--tdrive);
+
+    font-size: 19px;
+
+    margin-bottom: 16px;
+}
+
+.benefit-card h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.benefit-card p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+/* =========================================================
+   JOURNEY STEPS
+========================================================= */
+
+.journey {
+    position: relative;
+}
+
+.journey-line {
+    display: none;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.step {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    background: var(--white);
+
+    border: 1px solid var(--tdrive-border);
+
+    border-radius: 20px;
+
+    padding: 21px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.step-number {
+    flex: 0 0 43px;
+
+    width: 43px;
+    height: 43px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--tdrive);
+    color: white;
+
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.step h3 {
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.step p {
+    color: var(--text-muted);
+    font-size: 12px;
+}
+
+/* =========================================================
+   INSTRUCTOR / TRAINEE VISUAL
+========================================================= */
+
+.training-visual {
+    position: relative;
+}
+
+.training-image {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+
+    box-shadow: var(--shadow-md);
+
+    border: 7px solid var(--white);
+}
+
+.training-image img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+}
+
+.training-badge {
+    position: absolute;
+
+    right: 20px;
+    bottom: 20px;
+
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,.7);
+
+    border-radius: 18px;
+
+    padding: 13px 17px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.training-badge strong {
+    display: block;
+    color: var(--tdrive-dark);
+    font-size: 14px;
+}
+
+.training-badge span {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+/* =========================================================
+   TRAINEE JOURNEY
+========================================================= */
+
+.trainee-flow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.flow-item {
+    position: relative;
+
+    background: var(--white);
+    border: 1px solid #edf2f3;
+
+    border-radius: 20px;
+
+    padding: 22px 17px;
+
+    text-align: center;
+}
+
+.flow-icon {
+    width: 51px;
+    height: 51px;
+
+    margin: 0 auto 12px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--tdrive-light);
+    color: var(--tdrive-dark);
+
+    border-radius: 50%;
+}
+
+.flow-item h3 {
+    font-size: 14px;
+}
+
+.flow-item p {
+    margin-top: 5px;
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+/* =========================================================
+   FEMALE TRAINING VISUAL
+========================================================= */
+
+.female-training {
+    background:
+        linear-gradient(
+            135deg,
+            var(--tdrive-light),
+            #ffffff
+        );
+}
+
+.female-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 35px;
+}
+
+.female-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.female-copy h2 {
+    font-size: clamp(27px, 6vw, 42px);
+    line-height: 1.4;
+    margin-bottom: 17px;
+}
+
+.female-copy p {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* =========================================================
+   SAFETY / TRAFFIC
+========================================================= */
+
+.safety {
+    background: var(--tdrive-dark);
+    color: white;
+}
+
+.safety .section-title h2,
+.safety .section-title p {
+    color: white;
+}
+
+.safety .section-title .eyebrow {
+    background: rgba(255,255,255,.13);
+    color: white;
+}
+
+.safety-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.safety-image {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+.safety-image img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+}
+
+.safety-copy h3 {
+    font-size: 25px;
+    margin-bottom: 14px;
+}
+
+.safety-copy p {
+    color: rgba(255,255,255,.76);
+    font-size: 14px;
+}
+
+.safety-points {
+    display: grid;
+    gap: 11px;
+    margin-top: 22px;
+}
+
+.safety-point {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    font-size: 13px;
+}
+
+.safety-point i {
+    color: #B9DFE4;
+}
+
+/* =========================================================
+   EVALUATION
+========================================================= */
+
+.evaluation-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.evaluation-card {
+    background: var(--white);
+    border: 1px solid var(--tdrive-border);
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.evaluation-card i {
+    color: var(--tdrive);
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.evaluation-card h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.evaluation-card p {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   DUES
+========================================================= */
+
+.dues {
+    position: relative;
+    background: var(--background-soft);
+}
+
+.dues::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    left: -260px;
+    top: 120px;
+
+    border: 75px solid rgba(79,159,174,.055);
+
+    border-radius: 50%;
+}
+
+.dues-note {
+    max-width: 700px;
+    margin: -25px auto 35px;
+
+    text-align: center;
+
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.regions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.region-card {
+    position: relative;
+
+    min-height: 230px;
+
+    overflow: hidden;
+
+    background: white;
+
+    border: 1px solid var(--tdrive-border);
+
+    border-radius: 27px;
+
+    padding: 27px;
+
+    box-shadow: var(--shadow-sm);
+
+    isolation: isolate;
+}
+
+/* الصورة داخل القوس */
+
+.region-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 245px;
+    height: 245px;
+
+    left: -85px;
+    bottom: -100px;
+
+    border-radius: 50%;
+
+    background-image: var(--region-image);
+    background-size: cover;
+    background-position: center;
+
+    opacity: .13;
+
+    z-index: -2;
+}
+
+.region-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    left: -110px;
+    bottom: -125px;
+
+    border-radius: 50%;
+
+    border: 35px solid rgba(79,159,174,.07);
+
+    z-index: -1;
+}
+
+.region-name {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.region-label {
+    display: inline-block;
+
+    margin-top: 4px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+.region-price {
+    margin-top: 24px;
+
+    font-size: 35px;
+    line-height: 1;
+
+    color: var(--tdrive-dark);
+    font-weight: 900;
+}
+
+.region-price small {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.region-launch {
+    display: inline-flex;
+
+    margin-top: 13px;
+
+    padding: 6px 11px;
+
+    border-radius: 999px;
+
+    background: var(--tdrive-light);
+    color: var(--tdrive-dark);
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* =========================================================
+   PAYMENT FLOW
+========================================================= */
+
+.payment-flow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+
+    margin-top: 35px;
+}
+
+.payment-step {
+    text-align: center;
+
+    padding: 21px 12px;
+
+    border-radius: 20px;
+
+    background: white;
+    border: 1px solid #edf2f3;
+}
+
+.payment-step i {
+    color: var(--tdrive);
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.payment-step strong {
+    display: block;
+    font-size: 12px;
+}
+
+.payment-step span {
+    display: block;
+    margin-top: 3px;
+    color: var(--text-muted);
+    font-size: 10px;
+}
+
+/* =========================================================
+   JOURNEY SUMMARY
+========================================================= */
+
+.summary {
+    position: relative;
+}
+
+.summary-track {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    padding: 16px;
+
+    background: white;
+
+    border: 1px solid var(--tdrive-border);
+    border-radius: 17px;
+}
+
+.summary-number {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--tdrive-light);
+    color: var(--tdrive-dark);
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.summary-item span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta {
+    position: relative;
+
+    padding: 90px 0;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,255,255,.15),
+            transparent 30%
+        ),
+        var(--tdrive-dark);
+
+    color: white;
+
+    overflow: hidden;
+}
+
+.cta::before,
+.cta::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 65px solid rgba(255,255,255,.06);
+}
+
+.cta::before {
+    width: 360px;
+    height: 360px;
+    left: -190px;
+    top: -170px;
+}
+
+.cta::after {
+    width: 450px;
+    height: 450px;
+    right: -260px;
+    bottom: -280px;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: clamp(29px, 6vw, 48px);
+    line-height: 1.4;
+}
+
+.cta p {
+    max-width: 600px;
+    margin: 13px auto 27px;
+
+    color: rgba(255,255,255,.78);
+    font-size: 14px;
+}
+
+.cta .btn-primary {
+    background: white;
+    color: var(--tdrive-dark);
+}
+
+.cta .btn-primary:hover {
+    background: var(--tdrive-light);
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: #327F89;
+    color: white;
+
+    padding: 28px 0;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    gap: 7px;
+
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.footer-text {
+    font-size: 11px;
+    color: rgba(255,255,255,.7);
+}
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (min-width: 700px) {
+
+    .section {
+        padding: 110px 0;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .steps {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .step {
+        display: block;
+        text-align: center;
+    }
+
+    .step-number {
+        margin: 0 auto 14px;
+    }
+
+    .welcome-grid {
+        grid-template-columns: 1.2fr .8fr;
+    }
+
+    .trainee-flow {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .evaluation-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .regions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .summary-track {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .payment-flow {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* =========================================================
+   DESKTOP
+========================================================= */
+
+@media (min-width: 1000px) {
+
+    .hero {
+        min-height: 800px;
+    }
+
+    .hero-content {
+        padding-top: 40px;
+    }
+
+    .hero-visual {
+        left: -20px;
+        width: 64vw;
+        max-width: 950px;
+    }
+
+    .hero-visual img {
+        height: 760px;
+    }
+
+    .female-grid {
+        grid-template-columns: .8fr 1.2fr;
+    }
+
+    .training-image img {
+        height: 500px;
+    }
+
+    .safety-grid {
+        grid-template-columns: 1.1fr .9fr;
+    }
+
+    .safety-image img {
+        height: 430px;
+    }
+
+    .regions-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .summary-track {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 699px) {
+
+    .site-header {
+        padding: 15px 0;
+    }
+
+    .header-link {
+        display: none;
+    }
+
+    .hero {
+        min-height: 820px;
+        align-items: flex-start;
+    }
+
+    .hero-content {
+        padding-top: 110px;
+    }
+
+    .hero-copy {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        left: 0;
+        top: auto;
+        bottom: -10px;
+        transform: none;
+
+        mask-image:
+            linear-gradient(
+                to bottom,
+                transparent 0%,
+                black 28%,
+                black 100%
+            );
+
+        border-radius: 0;
+    }
+
+    .hero-visual img {
+        height: 400px;
+        object-position: 62% center;
+    }
+
+    .hero-actions {
+        position: relative;
+        z-index: 6;
+    }
+
+    .training-image img {
+        height: 310px;
+    }
+
+    .female-copy {
+        order: 1;
+    }
+
+    .female-grid > .training-visual {
+        order: 2;
+    }
+
+    .safety-image img {
+        height: 270px;
+    }
+
+    .region-card {
+        min-height: 210px;
+    }
+
+    .region-card::before {
+        opacity: .09;
+    }
+
+    .region-card::after {
+        opacity: .65;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container nav">
+
+        <div class="logo">
+            TDrive
+            <small>تكنولوجيا القيادة</small>
+        </div>
+
+        <a
+            class="header-link"
+            href="https://www.tdrivesa.com/instructor-registration.html"
+        >
+            <i class="fa-solid fa-user-plus"></i>
+            التسجيل للانضمام
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-visual">
+
+        <img
+            src="tdrive_instructor_training.webp"
+            alt="مدرب قيادة أثناء تدريب متدرب"
+        >
+
+    </div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-copy reveal">
+
+            <div class="hero-kicker">
+                <i class="fa-solid fa-road"></i>
+                رحلة المدربين والمدربات
+            </div>
+
+            <h1>
+                كن جزءًا من
+                <span>TDrive</span>
+            </h1>
+
+            <p class="hero-description">
+                رحلة تدريبية منظمة تجمع بين المنهج، التدريب العملي،
+                التقييم والتوثيق، لتمنح المدرب تجربة تدريبية واضحة
+                واحترافية.
+            </p>
+
+            <div class="hero-actions">
+
+                <a
+                    class="btn-primary"
+                    href="https://www.tdrivesa.com/instructor-registration.html"
+                >
+                    التسجيل للانضمام إلى TDrive
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+
+                <a class="btn-secondary" href="#journey">
+                    اكتشف الرحلة
+                    <i class="fa-solid fa-chevron-down"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WELCOME
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-hand-wave"></i>
+                أهلًا بك
+            </div>
+
+            <h2>
+                تبدأ رحلتك من هنا
+            </h2>
+
+            <p>
+                TDrive تمنح المدرب إطارًا واضحًا للعمل والتدريب،
+                من لحظة التسجيل وحتى إتمام التدريب واعتماد المستحقات.
+            </p>
+
+        </div>
+
+
+        <div class="welcome-grid">
+
+            <div class="welcome-card reveal">
+
+                <span class="quote-mark">“</span>
+
+                <h3>
+                    تدريب أكثر تنظيمًا
+                </h3>
+
+                <p>
+                    لا تقتصر الرحلة على التدريب داخل السيارة،
+                    بل تمتد إلى المنهج، متابعة تقدم المتدرب،
+                    الملاحظات والتقييم والتوثيق.
+                </p>
+
+            </div>
+
+
+            <div class="welcome-card reveal">
+
+                <h3>
+                    دخل إضافي بمرونة
+                </h3>
+
+                <p>
+                    تستقبل الحجوزات التدريبية وفق الآلية المعتمدة
+                    وتنفذ البرنامج التدريبي وتوثق الجلسات،
+                    ثم تُحتسب مستحقاتك بعد اعتماد الخدمة.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BENEFITS
+===================================================== -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-layer-group"></i>
+                منظومة التدريب
+            </div>
+
+            <h2>
+                ماذا توفر لك TDrive؟
+            </h2>
+
+        </div>
+
+
+        <div class="benefits-grid">
+
+            <div class="benefit-card reveal">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <h3>منهج تدريبي</h3>
+
+                <p>
+                    محتوى تدريبي منظم يساعدك على تقديم البرنامج
+                    بطريقة واضحة ومتسقة.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card reveal">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+
+                <h3>تدريب عملي</h3>
+
+                <p>
+                    تطبيق المهارات داخل السيارة ومتابعة مستوى
+                    المتدرب أثناء التدريب.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card reveal">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+
+                <h3>تقييم وتوثيق</h3>
+
+                <p>
+                    تسجيل الملاحظات والمهارات والتوصيات
+                    ومتابعة تقدم المتدرب.
+                </p>
+
+            </div>
+
+
+            <div class="benefit-card reveal">
+
+                <div class="benefit-icon">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+
+                <h3>مستحقاتك</h3>
+
+                <p>
+                    توثيق الخدمة واعتمادها ثم احتساب
+                    مستحقات المدرب وفق المنطقة والبرنامج.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     JOIN JOURNEY
+===================================================== -->
+
+<section class="section journey" id="journey">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-route"></i>
+                خطوة بخطوة
+            </div>
+
+            <h2>
+                خطوات الانضمام
+            </h2>
+
+            <p>
+                رحلة واضحة تبدأ من التسجيل وتنتهي بامتلاك
+                حساب المدرب والوصول إلى المنهج التدريبي.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step reveal">
+
+                <div class="step-number">1</div>
+
+                <div>
+                    <h3>التسجيل الإلكتروني</h3>
+                    <p>إرسال طلب الانضمام إلى TDrive.</p>
+                </div>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">2</div>
+
+                <div>
+                    <h3>مراجعة الطلب</h3>
+                    <p>مراجعة البيانات والمستندات.</p>
+                </div>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">3</div>
+
+                <div>
+                    <h3>قبول الطلب</h3>
+                    <p>استلام رسالة القبول ورقم الملف.</p>
+                </div>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">4</div>
+
+                <div>
+                    <h3>بوابة المدربين</h3>
+                    <p>الوصول إلى البوابة المناسبة.</p>
+                </div>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="step-number">5</div>
+
+                <div>
+                    <h3>حساب المدرب</h3>
+                    <p>بدء الرحلة التدريبية.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CURRICULUM
+===================================================== -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-graduation-cap"></i>
+                المنهج
+            </div>
+
+            <h2>
+                منهجك التدريبي بين يديك
+            </h2>
+
+            <p>
+                محتوى يساعد المدرب على تقديم تجربة تدريبية
+                متسقة ومنظمة.
+            </p>
+
+        </div>
+
+
+        <div class="trainee-flow">
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-file-lines"></i>
+                </div>
+
+                <h3>النصوص التعليمية</h3>
+
+                <p>
+                    شرح منظم للمفاهيم والمهارات.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-image"></i>
+                </div>
+
+                <h3>المحتوى المرئي</h3>
+
+                <p>
+                    صور ومواد بصرية مساندة.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-video"></i>
+                </div>
+
+                <h3>الفيديوهات</h3>
+
+                <p>
+                    أمثلة وتطبيقات تساعد على الفهم.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-list-check"></i>
+                </div>
+
+                <h3>الأنشطة</h3>
+
+                <p>
+                    تطبيق ومراجعة للمعلومات.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <h3>إثراء</h3>
+
+                <p>
+                    مواد إضافية تدعم رحلة التعلم.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-road"></i>
+                </div>
+
+                <h3>التطبيق العملي</h3>
+
+                <p>
+                    الانتقال من المعرفة إلى القيادة.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MALE TRAINING
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="training-visual reveal">
+
+            <div class="training-image">
+
+                <img
+                    src="tdrive_instructor_training.webp"
+                    alt="مدرب ومتدرب أثناء التدريب العملي"
+                >
+
+                <div class="training-badge">
+
+                    <strong>
+                        التدريب العملي
+                    </strong>
+
+                    <span>
+                        تعليم • تطبيق • متابعة
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRAINEE JOURNEY
+===================================================== -->
+
+<section class="section section-soft">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-person-chalkboard"></i>
+                رحلة المتدرب
+            </div>
+
+            <h2>
+                من التعلم إلى القيادة
+            </h2>
+
+            <p>
+                رحلة المتدرب لا تتوقف عند تنفيذ المهارة،
+                بل تشمل الملاحظة والتقييم والتوصية.
+            </p>
+
+        </div>
+
+
+        <div class="trainee-flow">
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-book"></i>
+                </div>
+
+                <h3>يتعلم</h3>
+
+                <p>
+                    يطّلع على المحتوى والمواد التعليمية.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-car-side"></i>
+                </div>
+
+                <h3>يطبق</h3>
+
+                <p>
+                    ينتقل إلى التطبيق العملي.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-eye"></i>
+                </div>
+
+                <h3>يُتابع</h3>
+
+                <p>
+                    يلاحظ المدرب أداءه أثناء القيادة.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-note-sticky"></i>
+                </div>
+
+                <h3>تُسجل الملاحظات</h3>
+
+                <p>
+                    توثيق المهارات والملاحظات.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+
+                <h3>يتقدم</h3>
+
+                <p>
+                    متابعة تطور مستوى القيادة.
+                </p>
+
+            </div>
+
+
+            <div class="flow-item reveal">
+
+                <div class="flow-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+
+                <h3>يُقيّم</h3>
+
+                <p>
+                    تقييم المهارات والتوصية بالخطوة التالية.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FEMALE TRAINING
+===================================================== -->
+
+<section class="section female-training">
+
+    <div class="container">
+
+        <div class="female-grid">
+
+            <div class="female-copy reveal">
+
+                <div class="section-title" style="text-align:right; margin-bottom:0;">
+
+                    <div class="eyebrow">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        التدريب للمدربات
+                    </div>
+
+                    <h2>
+                        تجربة تدريبية
+                        <span style="color:var(--tdrive);">
+                            تراعي رحلة المتدربة
+                        </span>
+                    </h2>
+
+                    <p style="margin-right:0;">
+                        مساحة تدريبية منظمة تجمع بين التوجيه،
+                        التطبيق، الملاحظات والتقييم، ضمن تجربة
+                        احترافية واضحة.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="training-visual reveal">
+
+                <div class="training-image">
+
+                    <img
+                        src="tdrive_female_instructor_training.webp"
+                        alt="مدربة ومتدربة أثناء التدريب"
+                    >
+
+                    <div class="training-badge">
+
+                        <strong>
+                            المدربة والمتدربة
+                        </strong>
+
+                        <span>
+                            توجيه • تطبيق • تقييم
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SAFETY / TRAFFIC
+===================================================== -->
+
+<section class="section safety">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-shield-halved"></i>
+                السلامة المرورية
+            </div>
+
+            <h2>
+                القيادة مسؤولية قبل أن تكون مهارة
+            </h2>
+
+            <p>
+                التدريب يرتبط بفهم الطريق والأنظمة
+                والممارسات الآمنة أثناء القيادة.
+            </p>
+
+        </div>
+
+
+        <div class="safety-grid">
+
+            <div class="safety-image reveal">
+
+                <img
+                    src="tdrive_traffic_patrol.webp"
+                    alt="سيارة مرور تسير في الطريق"
+                >
+
+            </div>
+
+
+            <div class="safety-copy reveal">
+
+                <h3>
+                    طريق أكثر وعيًا
+                </h3>
+
+                <p>
+                    تساعد رحلة التدريب على ربط المهارة العملية
+                    بالسلوك الآمن وفهم البيئة المرورية.
+                </p>
+
+                <div class="safety-points">
+
+                    <div class="safety-point">
+                        <i class="fa-solid fa-check"></i>
+                        الالتزام بالأنظمة المرورية
+                    </div>
+
+                    <div class="safety-point">
+                        <i class="fa-solid fa-check"></i>
+                        قراءة الطريق ومتابعة حركة المرور
+                    </div>
+
+                    <div class="safety-point">
+                        <i class="fa-solid fa-check"></i>
+                        التحكم بالسرعة والمسافة
+                    </div>
+
+                    <div class="safety-point">
+                        <i class="fa-solid fa-check"></i>
+                        اتخاذ القرار الآمن أثناء القيادة
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EVALUATION
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-clipboard-check"></i>
+                التقييم
+            </div>
+
+            <h2>
+                تقييم المتدرب وتوصية المدرب
+            </h2>
+
+            <p>
+                التقييم لا يقتصر على النتيجة، بل يوضح
+                ما تم إتقانه وما يحتاج إلى تطوير.
+            </p>
+
+        </div>
+
+
+        <div class="evaluation-grid">
+
+            <div class="evaluation-card reveal">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <h3>
+                    المهارات المتقنة
+                </h3>
+
+                <p>
+                    تحديد المهارات التي أظهر المتدرب تمكنًا منها.
+                </p>
+
+            </div>
+
+
+            <div class="evaluation-card reveal">
+
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                <h3>
+                    المهارات التي تحتاج تطويرًا
+                </h3>
+
+                <p>
+                    توضيح النقاط التي تحتاج إلى مزيد من التدريب.
+                </p>
+
+            </div>
+
+
+            <div class="evaluation-card reveal">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <h3>
+                    توصية المدرب
+                </h3>
+
+                <p>
+                    تحديد الخطوة العملية التالية وفق مستوى المتدرب.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DUES
+===================================================== -->
+
+<section class="section dues">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-wallet"></i>
+                مستحقات المدرب
+            </div>
+
+            <h2>
+                مستحقاتك حسب المنطقة
+            </h2>
+
+        </div>
+
+
+        <p class="dues-note reveal">
+            مستحقات المدرب عن البرنامج التدريبي الكامل
+            (5 ساعات)، بعد إتمام البرنامج واستكمال التوثيق
+            والتقييم واعتماد الخدمة.
+        </p>
+
+
+        <div class="regions-grid">
+
+
+            <!-- الجنوبية -->
+
+            <div
+                class="region-card reveal"
+                style="--region-image:url('southern.webp');"
+            >
+
+                <div class="region-name">
+                    الجنوبية
+                </div>
+
+                <span class="region-label">
+                    المنطقة الجنوبية
+                </span>
+
+                <div class="region-price">
+                    650 <small>ريال</small>
+                </div>
+
+                <div class="region-launch">
+                    أول 5 حجوزات: 709 ريال
+                </div>
+
+            </div>
+
+
+            <!-- الغربية -->
+
+            <div
+                class="region-card reveal"
+                style="--region-image:url('western.webp');"
+            >
+
+                <div class="region-name">
+                    الغربية
+                </div>
+
+                <span class="region-label">
+                    المنطقة الغربية
+                </span>
+
+                <div class="region-price">
+                    400 <small>ريال</small>
+                </div>
+
+                <div class="region-launch">
+                    أول 5 حجوزات: 419 ريال
+                </div>
+
+            </div>
+
+
+            <!-- الوسطى -->
+
+            <div
+                class="region-card reveal"
+                style="--region-image:url('central.webp');"
+            >
+
+                <div class="region-name">
+                    الوسطى
+                </div>
+
+                <span class="region-label">
+                    المنطقة الوسطى
+                </span>
+
+                <div class="region-price">
+                    500 <small>ريال</small>
+                </div>
+
+                <div class="region-launch">
+                    أول 5 حجوزات: 529 ريال
+                </div>
+
+            </div>
+
+
+            <!-- الشرقية -->
+
+            <div
+                class="region-card reveal"
+                style="--region-image:url('eastern.webp');"
+            >
+
+                <div class="region-name">
+                    الشرقية
+                </div>
+
+                <span class="region-label">
+                    المنطقة الشرقية
+                </span>
+
+                <div class="region-price">
+                    400 <small>ريال</small>
+                </div>
+
+                <div class="region-launch">
+                    أول 5 حجوزات: 419 ريال
+                </div>
+
+            </div>
+
+
+            <!-- الشمالية -->
+
+            <div
+                class="region-card reveal"
+                style="--region-image:url('northern.webp');"
+            >
+
+                <div class="region-name">
+                    الشمالية
+                </div>
+
+                <span class="region-label">
+                    المنطقة الشمالية
+                </span>
+
+                <div class="region-price">
+                    550 <small>ريال</small>
+                </div>
+
+                <div class="region-launch">
+                    أول 5 حجوزات: 589 ريال
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PAYMENT FLOW -->
+
+        <div class="payment-flow">
+
+            <div class="payment-step reveal">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                <strong>تنفيذ التدريب</strong>
+
+                <span>
+                    إتمام البرنامج
+                </span>
+
+            </div>
+
+
+            <div class="payment-step reveal">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+
+                <strong>التوثيق</strong>
+
+                <span>
+                    تسجيل الجلسات
+                </span>
+
+            </div>
+
+
+            <div class="payment-step reveal">
+
+                <i class="fa-solid fa-user-check"></i>
+
+                <strong>اعتماد الخدمة</strong>
+
+                <span>
+                    مراجعة واعتماد
+                </span>
+
+            </div>
+
+
+            <div class="payment-step reveal">
+
+                <i class="fa-solid fa-calculator"></i>
+
+                <strong>احتساب المستحقات</strong>
+
+                <span>
+                    وفق المنطقة
+                </span>
+
+            </div>
+
+
+            <div class="payment-step reveal">
+
+                <i class="fa-solid fa-money-bill-transfer"></i>
+
+                <strong>الدفع</strong>
+
+                <span>
+                    استلام المستحقات
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUMMARY
+===================================================== -->
+
+<section class="section summary">
+
+    <div class="container">
+
+        <div class="section-title reveal">
+
+            <div class="eyebrow">
+                <i class="fa-solid fa-route"></i>
+                رحلتك كاملة
+            </div>
+
+            <h2>
+                رحلتك مع TDrive في صورة واحدة
+            </h2>
+
+        </div>
+
+
+        <div class="summary-track">
+
+            <div class="summary-item reveal">
+                <div class="summary-number">01</div>
+                <span>التسجيل</span>
+            </div>
+
+            <div class="summary-item reveal">
+                <div class="summary-number">02</div>
+                <span>مراجعة وقبول الطلب</span>
+            </div>
+
+            <div class="summary-item reveal">
+                <div class="summary-number">03</div>
+                <span>استلام رقم الملف</span>
+            </div>
+
+            <div class="summary-item reveal">
+                <div class="summary-number">04</div>
+                <span>الدخول إلى بوابة المدربين</span>
+            </div>
+
+            <div class="summary-item reveal">
+                <div class="summary-number">05</div>
+                <span>الوصول إلى المنهج</span>
+            </div>
+
+            <div class="summary-item reveal">
+                <div class="summary-number">06</div>
+                <span>استقبال الحجوزات</span>
+            </div>
+
+            <div class="summary-item reveal">
+                <div class="summary-number">07</div>
+                <span>تنفيذ التدريب</span>
+            </div>
+
+            <div class="summary-item reveal">
+                <div class="summary-number">08</div>
+                <span>تقييم المتدرب</span>
+            </div>
+
+            <div class="summary-item reveal">
+                <div class="summary-number">09</div>
+                <span>توثيق واعتماد الخدمة</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-content reveal">
+
+            <h2>
+                هل أنت مستعد للانضمام؟
+            </h2>
+
+            <p>
+                ابدأ رحلتك مع TDrive وكن جزءًا من منظومة
+                تدريبية تهتم بالتعلم والتطبيق والتقييم.
+            </p>
+
+            <a
+                class="btn-primary"
+                href="https://www.tdrivesa.com/instructor-registration.html"
+            >
+                التسجيل للانضمام إلى TDrive
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-inner">
+
+            <div class="footer-logo">
+                TDrive
+            </div>
+
+            <div class="footer-text">
+                تكنولوجيا القيادة وحلول القيادة والتنقل
+            </div>
+
+            <div class="footer-text">
+                © TDrive — جميع الحقوق محفوظة
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach((entry) => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("show");
+
+                revealObserver.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealElements.forEach((element) => {
+    revealObserver.observe(element);
+});
+
+</script>
+
+</body>
+</html>
