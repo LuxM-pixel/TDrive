@@ -660,3 +660,13 @@ footer{
     display: block;
 }
 
+
+/* توحيد صور موضوعات القيادة الآمنة */
+.safety-icon {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+    border-radius: 50%;
+}
