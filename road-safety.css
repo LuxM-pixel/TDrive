@@ -699,6 +699,20 @@ footer{
     margin-bottom: 15px;
     display: block;
 }
+/* تعديل حجم وتنسيق صور الكروت لتكون أوضح وبدون مساحات كبيرة */
+.card {
+    padding: 20px; /* تقليص الحشو الداخلي للكارت ليصبح متناسقاً */
+}
+
+.card img {
+    width: 100%;
+    height: 220px; /* زيادة ارتفاع الصورة لتكون أكبر وأوضح */
+    object-fit: cover; /* لملء المساحة بشكل متناسق دون تشويه */
+    border-radius: 14px;
+    margin-top: 0; /* إلغاء أي مسافة علوية فوق الصورة */
+    margin-bottom: 15px;
+    display: block;
+}
 
 
 
