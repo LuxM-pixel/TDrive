@@ -156,14 +156,16 @@ section > h2::after{
     gap:25px;
 }
 
+/* تعديل الكارت والصور لتبدأ من الحافة العلوية تماماً وبدون مسافات فارغة */
 .card{
     display:block;
     text-decoration:none;
     background:#fff;
     border:2px solid #d9edf5;
     border-radius:22px;
-    padding:30px;
+    padding: 0 20px 20px 20px !important;
     text-align:center;
+    overflow: hidden;
     transition:.35s;
     color:#333;
     box-shadow:0 8px 20px rgba(0,0,0,.05);
@@ -172,6 +174,15 @@ section > h2::after{
 .card:hover{
     transform:translateY(-8px);
     box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
+
+.card img{
+    width: 100% !important;
+    height: 230px !important;
+    object-fit: cover !important;
+    border-radius: 22px 22px 0 0 !important;
+    margin: 0 0 15px 0 !important;
+    display: block !important;
 }
 
 .card .icon{
@@ -186,6 +197,7 @@ section > h2::after{
     height:120px;
     object-fit:contain;
     transition:.3s;
+    border-radius: 50%;
 }
 
 .card:hover .icon img{
@@ -271,6 +283,7 @@ footer{
     }
 
 }
+
 /* ==========================
    Traffic Points Table
 ========================== */
@@ -367,6 +380,7 @@ footer{
     }
 
 }
+
 /* ===============================
    Traffic Signs Slider
 ================================= */
@@ -455,19 +469,19 @@ footer{
     border-top:2px solid #d9edf5;
 }
 
-
 /* أيقونات الصفحات الداخلية */
 .hero-logo img{
     width:170px;
     max-width:65%;
     height:auto;
 }
+
 .main-logo img {
-    width: 380px;        /* تم تكبيره ليكون أكبر من حجمه الأصلي وأوضح */
+    width: 380px;
     max-width: 95%;
     height: auto;
     display: block;
-    margin: -10px auto 5px; /* رفعناه قليلاً للأعلى لتقليص أي مسافة إضافية */
+    margin: -10px auto 5px;
 }
 
 /* ==========================
@@ -500,19 +514,12 @@ footer{
     color: #444;
 }
 
-/* إضافة أيقونة صغيرة بجانب كل نصيحة */
 .tips-section ul li::before {
     content: "💡";
     position: absolute;
     right: 0;
     top: 0;
     font-size: 20px;
-}
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
 }
 
 /* ===== صورة شرح إشارة المرور ===== */
@@ -574,6 +581,7 @@ footer{
     font-size: 17px;
     line-height: 1.8;
 }
+
 .hero-car{
     width: 220px;
     height: auto;
@@ -581,85 +589,45 @@ footer{
     margin: 0 auto 25px;
 }
 
-
 /* =========================================
    REFERENCES
 ========================================= */
 
 .references{
-
     margin-top:18px;
-
     padding-top:10px;
-
     border-top:1px solid #e1eef1;
-
     font-size:9px;
-
     line-height:1.9;
-
     color:#9aa6ab;
-
     text-align:center;
-
 }
 
 .references-title{
-
     font-size:10px;
-
     font-weight:700;
-
     color:#7f9096;
-
     margin-bottom:4px;
-
 }
 
 .reference-item{
-
     margin-top:3px;
-
 }
 
 .reference-label{
-
     font-weight:700;
-
     color:#7f9096;
-
 }
 
 .reference-item a{
-
     color:#6f969e;
-
     text-decoration:none;
-
     font-size:9px;
-
 }
 
 .reference-item a:hover{
-
     text-decoration:underline;
-
 }
-
-.card .icon {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto; /* لتووسط الأيقونة داخل الكارت */
-}
-
-.card .icon img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 50%;
-    display: block;
-}
-
 
 /* توحيد صور موضوعات القيادة الآمنة */
 .safety-icon {
@@ -671,9 +639,7 @@ footer{
     border-radius: 50%;
 }
 
-
-/* تنسيق صور صفحة المخالفات المرورية فقط */
-
+/* تنسيق صور صفحة المخالفات المرورية */
 .violation-image {
     width: 100%;
     height: 220px;
@@ -689,30 +655,3 @@ footer{
         border-radius: 16px;
     }
 }
-
-/* التحكم بحجم صور الكروت لتكون متناسقة ومتجاوبة */
-.card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 14px;
-    margin-bottom: 15px;
-    display: block;
-}
-/* تعديل حجم وتنسيق صور الكروت لتكون أوضح وبدون مساحات كبيرة */
-.card {
-    padding: 20px; /* تقليص الحشو الداخلي للكارت ليصبح متناسقاً */
-}
-
-.card img {
-    width: 100%;
-    height: 220px; /* زيادة ارتفاع الصورة لتكون أكبر وأوضح */
-    object-fit: cover; /* لملء المساحة بشكل متناسق دون تشويه */
-    border-radius: 14px;
-    margin-top: 0; /* إلغاء أي مسافة علوية فوق الصورة */
-    margin-bottom: 15px;
-    display: block;
-}
-
-
-
