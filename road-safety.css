@@ -156,7 +156,7 @@ section > h2::after{
     gap:25px;
 }
 
-/* الكارت الأساسي (يعود لحالته الأصلية تماماً لكي لا تتأثر الصفحة الرئيسية) */
+/* الكارت الأساسي (سيبقى طبيعياً لكل الموقع) */
 .card{
     display:block;
     text-decoration:none;
@@ -207,46 +207,22 @@ section > h2::after{
 
 
 /* ==========================
-   تنسيق خاص بكروت صفحة المخالفات المرورية فقط (.violation-card)
+   الحل الذكي: أي كارت يحتوي على صورة (img) في أي صفحة
+   سيتم ضبطه تلقائياً ليلتصق بالأعلى وبدون مساحات فارغة
+   دون التأثير على الكروت التي فيها أيقونات رسم
 ========================== */
-.violation-card{
-    display:block;
-    text-decoration:none;
-    background:#fff;
-    border:2px solid #d9edf5;
-    border-radius:22px;
+.card:has(img:not(.icon img)) {
     padding: 0 20px 20px 20px !important;
-    text-align:center;
-    overflow: hidden;
-    transition:.35s;
-    color:#333;
-    box-shadow:0 8px 20px rgba(0,0,0,.05);
+    overflow: hidden !important;
 }
 
-.violation-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 18px 35px rgba(0,0,0,.12);
-}
-
-.violation-card img{
+.card:has(img:not(.icon img)) img {
     width: 100% !important;
     height: 230px !important;
     object-fit: cover !important;
     border-radius: 22px 22px 0 0 !important;
     margin: 0 0 15px 0 !important;
     display: block !important;
-}
-
-.violation-card h3{
-    color:#65b7c3;
-    font-size:24px;
-    margin-bottom:15px;
-}
-
-.violation-card p{
-    color:#666;
-    font-size:17px;
-    line-height:1.9;
 }
 
 
