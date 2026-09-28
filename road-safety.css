@@ -156,16 +156,15 @@ section > h2::after{
     gap:25px;
 }
 
-/* تعديل الكارت والصور لتبدأ من الحافة العلوية تماماً وبدون مسافات فارغة */
+/* الكارت العادي (للصفحة الرئيسية وباقي المواقع) كما كان تماماً */
 .card{
     display:block;
     text-decoration:none;
     background:#fff;
     border:2px solid #d9edf5;
     border-radius:22px;
-    padding: 0 20px 20px 20px !important;
+    padding:30px;
     text-align:center;
-    overflow: hidden;
     transition:.35s;
     color:#333;
     box-shadow:0 8px 20px rgba(0,0,0,.05);
@@ -174,15 +173,6 @@ section > h2::after{
 .card:hover{
     transform:translateY(-8px);
     box-shadow:0 18px 35px rgba(0,0,0,.12);
-}
-
-.card img{
-    width: 100% !important;
-    height: 230px !important;
-    object-fit: cover !important;
-    border-radius: 22px 22px 0 0 !important;
-    margin: 0 0 15px 0 !important;
-    display: block !important;
 }
 
 .card .icon{
@@ -197,7 +187,6 @@ section > h2::after{
     height:120px;
     object-fit:contain;
     transition:.3s;
-    border-radius: 50%;
 }
 
 .card:hover .icon img{
@@ -215,6 +204,51 @@ section > h2::after{
     font-size:17px;
     line-height:1.9;
 }
+
+
+/* ==========================
+   تنسيق خاص بكروت صفحة المخالفات المرورية فقط
+========================== */
+.violation-card{
+    display:block;
+    text-decoration:none;
+    background:#fff;
+    border:2px solid #d9edf5;
+    border-radius:22px;
+    padding: 0 20px 20px 20px !important;
+    text-align:center;
+    overflow: hidden;
+    transition:.35s;
+    color:#333;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.violation-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
+
+.violation-card img{
+    width: 100% !important;
+    height: 230px !important;
+    object-fit: cover !important;
+    border-radius: 22px 22px 0 0 !important;
+    margin: 0 0 15px 0 !important;
+    display: block !important;
+}
+
+.violation-card h3{
+    color:#65b7c3;
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.violation-card p{
+    color:#666;
+    font-size:17px;
+    line-height:1.9;
+}
+
 
 /* ==========================
    Footer
@@ -637,21 +671,4 @@ footer{
     margin: 0 auto;
     object-fit: cover;
     border-radius: 50%;
-}
-
-/* تنسيق صور صفحة المخالفات المرورية */
-.violation-image {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    border-radius: 18px;
-    margin: 0 auto 20px;
-}
-
-@media (max-width: 600px) {
-    .violation-image {
-        height: 190px;
-        border-radius: 16px;
-    }
 }
