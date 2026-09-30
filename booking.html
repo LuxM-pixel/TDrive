@@ -279,17 +279,46 @@
                         </div>
 
 
-                   <div class="program-price">
+                        <div class="program-price">
 
-    <strong>
-        419 ريال
-    </strong>
+                            <strong>
+                                419 ريال
+                            </strong>
 
-    <span>
-        500 ريال
-    </span>
+                            <span>
+                                500 ريال
+                            </span>
 
-</div>
+                        </div>
+
+
+                        <!-- ==================================================
+                             كود الخصم - الأساسي
+                        ================================================== -->
+
+                        <div class="discount-code-box">
+
+                            <div class="discount-code-title">
+                                استخدم الكود
+                            </div>
+
+                            <div class="discount-code-row">
+
+                                <strong>
+                                    TDRIVE10
+                                </strong>
+
+                                <button
+                                    type="button"
+                                    class="copy-code-btn"
+                                    onclick="copyDiscountCode('TDRIVE10', this, event)"
+                                >
+                                    نسخ
+                                </button>
+
+                            </div>
+
+                        </div>
 
 
                         <div class="program-divider"></div>
@@ -383,17 +412,46 @@
                         </div>
 
 
-                      <div class="program-price">
+                        <div class="program-price">
 
-    <strong>
-        419 ريال
-    </strong>
+                            <strong>
+                                419 ريال
+                            </strong>
 
-    <span>
-        500 ريال
-    </span>
+                            <span>
+                                500 ريال
+                            </span>
 
-</div>
+                        </div>
+
+
+                        <!-- ==================================================
+                             كود الخصم - التكميلي
+                        ================================================== -->
+
+                        <div class="discount-code-box">
+
+                            <div class="discount-code-title">
+                                استخدم الكود
+                            </div>
+
+                            <div class="discount-code-row">
+
+                                <strong>
+                                    TDRIVE10
+                                </strong>
+
+                                <button
+                                    type="button"
+                                    class="copy-code-btn"
+                                    onclick="copyDiscountCode('TDRIVE10', this, event)"
+                                >
+                                    نسخ
+                                </button>
+
+                            </div>
+
+                        </div>
 
 
                         <div class="program-divider"></div>
@@ -986,7 +1044,6 @@
                             تأكيد التسجيل
 
                         </button>
-
 
                     </div>
 
@@ -1754,14 +1811,13 @@ body{
 }
 
 .program-price{
-    margin-bottom:8px;
+    margin-bottom:5px;
     display:flex;
     align-items:center;
     justify-content:center;
     gap:8px;
 }
 
-/* سعر الأساسي */
 .basic-program-card .program-price strong{
     color:#d99a68;
 }
@@ -1776,6 +1832,64 @@ body{
     color:#999;
     text-decoration:line-through;
 }
+
+
+/* ==================================================
+   DISCOUNT CODE
+================================================== */
+
+.discount-code-box{
+    width:100%;
+    margin:2px 0 8px;
+    text-align:center;
+}
+
+.discount-code-title{
+    color:#4f9fae;
+    font-size:11px;
+    font-weight:700;
+    margin-bottom:4px;
+}
+
+.discount-code-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    direction:ltr;
+}
+
+.discount-code-row strong{
+    color:#344c55;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.copy-code-btn{
+    border:none;
+    border-radius:7px;
+    padding:4px 9px;
+    background:#4f9fae;
+    color:#fff;
+    font-family:inherit;
+    font-size:10px;
+    font-weight:700;
+    cursor:pointer;
+    transition:transform .15s ease, background .15s ease;
+}
+
+.copy-code-btn:hover{
+    background:#3a939f;
+}
+
+.copy-code-btn:active{
+    transform:scale(.96);
+}
+
+
+/* ==================================================
+   PROGRAM DIVIDER
+================================================== */
 
 .program-divider{
     width:85%;
@@ -1902,6 +2016,7 @@ footer p{
     line-height:1.5 !important;
 }
 
+
 /* ==================================================
    HERO IMAGE — FULL WIDTH
 ================================================== */
@@ -1927,30 +2042,107 @@ footer p{
     box-shadow:none !important;
 }
 
+
 /* ==================================================
    MOBILE
 ================================================== */
 
 @media(max-width:600px){
-    .booking-hero{ padding:2px 12px 15px; }
-    .booking-hero h2{ font-size:27px; }
-    .booking-hero .subtitle{ font-size:14px; }
-    .program-gate{ padding-left:8px; padding-right:8px; }
-    .program-gate-title{ font-size:16px; }
-    .programs-layout{ gap:8px; }
-    .program-option-card{ min-height:320px; padding:14px 8px 11px; }
-    .program-option-card h4{ font-size:15px; }
-    .program-hours{ font-size:13px; }
-    .program-price{ gap:5px; }
-    .program-price strong{ font-size:14px; }
-    .program-price span{ font-size:11px; }
-    .program-option-card p{ font-size:10.5px; line-height:1.55; }
-    .choose-program-btn{ font-size:12px; min-height:35px; }
-    #booking{ padding-bottom:105px !important; }
-    #booking::after{ height:125px; }
-    #booking::before{ height:80px; }
-    footer{ border-radius:26px 26px 0 0 !important; padding:25px 12px !important; }
-    footer p{ font-size:12px !important; }
+
+    .booking-hero{
+        padding:2px 12px 15px;
+    }
+
+    .booking-hero h2{
+        font-size:27px;
+    }
+
+    .booking-hero .subtitle{
+        font-size:14px;
+    }
+
+    .program-gate{
+        padding-left:8px;
+        padding-right:8px;
+    }
+
+    .program-gate-title{
+        font-size:16px;
+    }
+
+    .programs-layout{
+        gap:8px;
+    }
+
+    .program-option-card{
+        min-height:320px;
+        padding:14px 8px 11px;
+    }
+
+    .program-option-card h4{
+        font-size:15px;
+    }
+
+    .program-hours{
+        font-size:13px;
+    }
+
+    .program-price{
+        gap:5px;
+    }
+
+    .program-price strong{
+        font-size:14px;
+    }
+
+    .program-price span{
+        font-size:11px;
+    }
+
+    .discount-code-title{
+        font-size:10px;
+    }
+
+    .discount-code-row strong{
+        font-size:11px;
+    }
+
+    .copy-code-btn{
+        font-size:9px;
+        padding:4px 8px;
+    }
+
+    .program-option-card p{
+        font-size:10.5px;
+        line-height:1.55;
+    }
+
+    .choose-program-btn{
+        font-size:12px;
+        min-height:35px;
+    }
+
+    #booking{
+        padding-bottom:105px !important;
+    }
+
+    #booking::after{
+        height:125px;
+    }
+
+    #booking::before{
+        height:80px;
+    }
+
+    footer{
+        border-radius:26px 26px 0 0 !important;
+        padding:25px 12px !important;
+    }
+
+    footer p{
+        font-size:12px !important;
+    }
+
 }
 
 </style>
@@ -1970,6 +2162,90 @@ footer p{
 
 
 <script>
+
+/* ==================================================
+   نسخ كود الخصم
+================================================== */
+
+function copyDiscountCode(code, button, event) {
+
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
+    const showCopied = function () {
+
+        const originalText = button.textContent;
+
+        button.textContent = "تم النسخ ✓";
+
+        setTimeout(function () {
+            button.textContent = originalText;
+        }, 1500);
+
+    };
+
+
+    if (navigator.clipboard && window.isSecureContext) {
+
+        navigator.clipboard.writeText(code)
+            .then(showCopied)
+            .catch(function () {
+
+                fallbackCopy(code, showCopied);
+
+            });
+
+    } else {
+
+        fallbackCopy(code, showCopied);
+
+    }
+
+}
+
+
+/* ==================================================
+   نسخ احتياطي للأجهزة التي لا تدعم Clipboard API
+================================================== */
+
+function fallbackCopy(text, callback) {
+
+    const textarea = document.createElement("textarea");
+
+    textarea.value = text;
+
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    textarea.style.pointerEvents = "none";
+
+    document.body.appendChild(textarea);
+
+    textarea.focus();
+    textarea.select();
+
+    try {
+
+        document.execCommand("copy");
+
+        callback();
+
+    } catch (error) {
+
+        console.error("تعذر نسخ الكود:", error);
+
+    }
+
+    document.body.removeChild(textarea);
+
+}
+
+
+/* ==================================================
+   نظام التسجيل
+================================================== */
+
 document.addEventListener("DOMContentLoaded", function () {
 
     /* ==================================================
@@ -2008,202 +2284,399 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ==================================================
        دالة إخفاء جميع الخدمات
     ================================================== */
+
     function hideAllServicePanels() {
+
         servicePanels.forEach(function (panel) {
             panel.style.display = "none";
         });
+
     }
 
 
     /* ==================================================
        دالة إزالة حالة التحديد
     ================================================== */
+
     function clearServiceTabs() {
+
         serviceTabs.forEach(function (tab) {
             tab.classList.remove("active");
             tab.classList.remove("selected");
         });
+
     }
 
 
     /* ==================================================
        دالة فتح الخدمة
     ================================================== */
+
     function openService(service) {
+
         clearServiceTabs();
+
         hideAllServicePanels();
 
-        const selectedTab = document.querySelector('.tab-btn[data-service="' + service + '"]');
+
+        const selectedTab =
+            document.querySelector(
+                '.tab-btn[data-service="' + service + '"]'
+            );
+
 
         if (selectedTab) {
             selectedTab.classList.add("active");
         }
 
+
         if (service === "driving") {
-            const drivingPanel = document.getElementById("drivingPanel");
-            if (drivingPanel) drivingPanel.style.display = "block";
+
+            const drivingPanel =
+                document.getElementById("drivingPanel");
+
+            if (drivingPanel) {
+                drivingPanel.style.display = "block";
+            }
+
             return;
         }
+
 
         if (service === "captain") {
-            const captainPanel = document.getElementById("captainPanel");
-            if (captainPanel) captainPanel.style.display = "block";
+
+            const captainPanel =
+                document.getElementById("captainPanel");
+
+            if (captainPanel) {
+                captainPanel.style.display = "block";
+            }
+
             return;
         }
 
+
         if (service === "car") {
-            const carPanel = document.getElementById("carPanel");
-            if (carPanel) carPanel.style.display = "block";
+
+            const carPanel =
+                document.getElementById("carPanel");
+
+            if (carPanel) {
+                carPanel.style.display = "block";
+            }
+
             return;
         }
+
     }
 
 
     /* ==================================================
        أزرار الخدمات الرئيسية
     ================================================== */
+
     serviceTabs.forEach(function (tab) {
+
         tab.addEventListener("click", function (event) {
+
             event.preventDefault();
+
             const service = tab.dataset.service;
+
             if (!service) return;
+
             openService(service);
+
         });
+
     });
 
 
     /* ==================================================
        البرامج الأساسية والتكميلية
     ================================================== */
+
     cards.forEach(function (card) {
+
         card.addEventListener("click", function (event) {
+
             event.preventDefault();
 
-            const program = card.dataset.program;
-            const programLabel = card.dataset.programLabel;
+
+            const program =
+                card.dataset.program;
+
+            const programLabel =
+                card.dataset.programLabel;
+
 
             if (!program) return;
 
+
             /* إزالة التحديد */
+
             cards.forEach(function (item) {
+
                 item.classList.remove("selected");
+
             });
+
 
             /* تحديد البرنامج */
+
             card.classList.add("selected");
+
             selectedProgramInput.value = program;
 
+
             /* اسم البرنامج */
+
             if (selectedProgramBadge) {
-                selectedProgramBadge.textContent = "البرنامج المختار: " + programLabel;
+
+                selectedProgramBadge.textContent =
+                    "البرنامج المختار: " + programLabel;
+
             }
+
 
             /* صفحة المراجعة */
+
             if (selectedProgramReview) {
-                selectedProgramReview.textContent = programLabel;
+
+                selectedProgramReview.textContent =
+                    programLabel;
+
             }
+
 
             /* إخفاء البوابة */
+
             gate.style.display = "none";
+
             registrationContent.style.display = "block";
 
+
             /* العودة للخطوة الأولى */
-            const allSteps = registrationContent.querySelectorAll(".form-step");
+
+            const allSteps =
+                registrationContent.querySelectorAll(".form-step");
+
+
             allSteps.forEach(function (step) {
+
                 step.classList.remove("active");
+
                 step.style.display = "none";
+
             });
 
-            const firstStep = registrationContent.querySelector('.form-step[data-step="1"]');
+
+            const firstStep =
+                registrationContent.querySelector(
+                    '.form-step[data-step="1"]'
+                );
+
+
             if (firstStep) {
+
                 firstStep.classList.add("active");
+
                 firstStep.style.display = "block";
+
             }
+
 
             /* إعادة مؤشر الخطوات */
-            const stepCircles = registrationContent.querySelectorAll(".step-circle");
+
+            const stepCircles =
+                registrationContent.querySelectorAll(".step-circle");
+
+
             stepCircles.forEach(function (circle) {
+
                 circle.classList.remove("active");
+
             });
 
-            const firstCircle = registrationContent.querySelector('.step-circle[data-step="1"]');
+
+            const firstCircle =
+                registrationContent.querySelector(
+                    '.step-circle[data-step="1"]'
+                );
+
+
             if (firstCircle) {
+
                 firstCircle.classList.add("active");
+
             }
 
+
             /* إبلاغ app.js */
-            document.dispatchEvent(new CustomEvent("tdriveProgramSelected", {
-                detail: {
-                    program: program,
-                    label: programLabel
-                }
-            }));
+
+            document.dispatchEvent(
+                new CustomEvent("tdriveProgramSelected", {
+
+                    detail: {
+
+                        program: program,
+
+                        label: programLabel
+
+                    }
+
+                })
+            );
+
 
             /* الانتقال للنموذج */
+
             setTimeout(function () {
+
                 registrationContent.scrollIntoView({
+
                     behavior: "smooth",
+
                     block: "start"
+
                 });
+
             }, 100);
+
         });
+
     });
 
 
     /* ==================================================
        حماية أزرار اختيار البرنامج
     ================================================== */
-    const chooseButtons = document.querySelectorAll(".choose-program-btn");
+
+    const chooseButtons =
+        document.querySelectorAll(".choose-program-btn");
+
+
     chooseButtons.forEach(function (button) {
+
         button.addEventListener("click", function (event) {
+
             event.preventDefault();
+
             event.stopPropagation();
-            const card = button.closest(".program-option-card");
+
+
+            const card =
+                button.closest(".program-option-card");
+
+
             if (!card) return;
+
+
             card.click();
+
         });
+
     });
 
 
     /* ==================================================
        الحالة الابتدائية للبرامج
     ================================================== */
+
     selectedProgramInput.value = "";
-    if (selectedProgramBadge) selectedProgramBadge.textContent = "";
-    if (selectedProgramReview) selectedProgramReview.textContent = "—";
+
+
+    if (selectedProgramBadge) {
+        selectedProgramBadge.textContent = "";
+    }
+
+
+    if (selectedProgramReview) {
+        selectedProgramReview.textContent = "—";
+    }
 
 
     /* ==================================================
        فلترة المدربين بناء على الجنس
     ================================================== */
-    const genderSelect = document.getElementById("gender");
-    const addressSelect = document.getElementById("address");
-    const trainerList = document.getElementById("trainerList");
+
+    const genderSelect =
+        document.getElementById("gender");
+
+    const addressSelect =
+        document.getElementById("address");
+
+    const trainerList =
+        document.getElementById("trainerList");
+
 
     function checkTrainerRequirements() {
+
         if (!genderSelect.value || !addressSelect.value) {
-            if(trainerList) {
-                trainerList.innerHTML = '<p style="text-align:center; color:#8b999f; font-size:13px;">يرجى تحديد الجنس ومدينة التدريب أولًا في الخطوة السابقة لعرض المدربين المناسبين.</p>';
+
+            if (trainerList) {
+
+                trainerList.innerHTML =
+                    '<p style="text-align:center; color:#8b999f; font-size:13px;">يرجى تحديد الجنس ومدينة التدريب أولًا في الخطوة السابقة لعرض المدربين المناسبين.</p>';
+
             }
+
         } else {
-            if(trainerList) {
-                trainerList.innerHTML = '<p style="text-align:center; color:#8b999f; font-size:13px;">جاري جلب المدربين...</p>';
+
+            if (trainerList) {
+
+                trainerList.innerHTML =
+                    '<p style="text-align:center; color:#8b999f; font-size:13px;">جاري جلب المدربين...</p>';
+
             }
-            // إرسال حدث مخصص لملف app.js ليقوم بجلب البيانات بناءً على الجنس
-            document.dispatchEvent(new CustomEvent("fetchTrainers", { 
-                detail: { 
-                    gender: genderSelect.value, 
-                    city: addressSelect.value 
-                } 
-            }));
+
+
+            /* إرسال حدث مخصص لملف app.js */
+
+            document.dispatchEvent(
+                new CustomEvent("fetchTrainers", {
+
+                    detail: {
+
+                        gender: genderSelect.value,
+
+                        city: addressSelect.value
+
+                    }
+
+                })
+            );
+
         }
+
     }
 
-    // إضافة مستمعات للأحداث على القوائم المنسدلة
-    if(genderSelect) genderSelect.addEventListener("change", checkTrainerRequirements);
-    if(addressSelect) addressSelect.addEventListener("change", checkTrainerRequirements);
+
+    /* ==================================================
+       مستمعات الأحداث
+    ================================================== */
+
+    if (genderSelect) {
+
+        genderSelect.addEventListener(
+            "change",
+            checkTrainerRequirements
+        );
+
+    }
+
+
+    if (addressSelect) {
+
+        addressSelect.addEventListener(
+            "change",
+            checkTrainerRequirements
+        );
+
+    }
 
 });
+
 </script>
 
 </body>
