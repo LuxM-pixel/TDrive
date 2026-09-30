@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
     let courseName = "TDrive Driving Course";
     let itemReference = "tdrive-course";
-    let amountStr = "375.00";
+    let amountStr = "419.00";
 
     if (productType === "captain-sticker") {
 
