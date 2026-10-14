@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101820">
+  <title>خدمة العملاء | TDrive</title>
+  <style>
+    :root {
+      --bg: #101820;
+      --panel: #17232d;
+      --panel-2: #1d2b36;
+      --text: #f4f7f8;
+      --muted: #b6c2ca;
+      --green: #4F9FAEEF; /* تم التعديل إلى التركواز */
+      --green-deep: #2c7382; /* درجة أعمق للتركواز للأزرار */
+      --line: rgba(255,255,255,.12);
+      --shadow: 0 24px 70px rgba(0,0,0,.32);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      background:
+        radial-gradient(ellipse at 85% 8%, rgba(79,159,174,.12), transparent 32%),
+        radial-gradient(ellipse at 5% 95%, rgba(74,155,190,.12), transparent 34%),
+        var(--bg);
+      color: var(--text);
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.9;
+      overflow: hidden;
+    }
+    button { font: inherit; }
+    .app { min-height: 100svh; display: flex; flex-direction: column; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 15px clamp(16px, 4vw, 54px); border-bottom: 1px solid var(--line);
+      background: rgba(16,24,32,.72); backdrop-filter: blur(14px);
+    }
+    .brand { display:flex; align-items:center; gap:11px; font-weight:800; letter-spacing:.2px; }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 12px;
+      background: repeating-conic-gradient(from 0deg, var(--green) 0% 25%, #e1f2f5 0% 50%) 50% / 16px 16px;
+      border: 1px solid rgba(255,255,255,.24); box-shadow: 0 0 25px rgba(79,159,174,.15);
+    }
+    .brand small { display:block; color:var(--muted); font-size:11px; font-weight:500; line-height:1.4; }
+    .top-actions { display:flex; align-items:center; gap:10px; }
+    .pill { border:1px solid var(--line); background:rgba(255,255,255,.04); color:var(--muted); border-radius:999px; padding:5px 12px; font-size:12px; white-space:nowrap; }
+    .icon-btn, .nav-btn {
+      color:var(--text); border:1px solid var(--line); background:var(--panel);
+      border-radius:13px; cursor:pointer; transition:transform .2s, background .2s, border-color .2s;
+    }
+    .icon-btn { padding:8px 12px; }
+    .icon-btn:hover, .nav-btn:hover { background:var(--panel-2); border-color:rgba(79,159,174,.6); transform:translateY(-1px); }
+    main { flex:1; display:grid; place-items:center; padding:clamp(14px, 3vh, 30px) clamp(14px, 5vw, 72px); min-height:0; }
+    .deck { width:min(1100px, 100%); height:min(690px, 75svh); min-height:390px; position:relative; }
+    .slide {
+      position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center;
+      padding:clamp(22px, 4.4vw, 58px); overflow:auto;
+      background:linear-gradient(145deg, rgba(29,43,54,.97), rgba(20,31,40,.97));
+      border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadow);
+      opacity:0; transform:translateX(-24px) scale(.99); pointer-events:none;
+      transition:opacity .32s ease, transform .42s cubic-bezier(.2,.8,.2,1);
+    }
+    .slide.active { opacity:1; transform:translateX(0) scale(1); pointer-events:auto; z-index:1; }
+    .slide::before { content:""; position:absolute; top:0; right:0; width:7px; height:100%; background:linear-gradient(var(--green), transparent 75%); border-radius:0 28px 28px 0; }
+    .eyebrow { color:var(--green); font-size:13px; font-weight:800; margin:0 0 12px; letter-spacing:.3px; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { font-size:clamp(32px, 5.2vw, 62px); line-height:1.35; margin-bottom:18px; }
+    h2 { font-size:clamp(25px, 3.1vw, 39px); line-height:1.45; margin-bottom:18px; }
+    h3 { font-size:clamp(19px, 2.1vw, 25px); color:var(--green); margin-bottom:12px; }
+    p { font-size:clamp(16px, 1.6vw, 20px); color:#e5ecef; margin-bottom:14px; }
+    .subtitle { color:var(--muted); font-size:clamp(17px, 2vw, 23px); }
+    .cover-tag { display:inline-flex; align-items:center; gap:8px; width:fit-content; border:1px solid rgba(79,159,174,.35); background:rgba(79,159,174,.08); color:#b4e5ef; padding:7px 14px; border-radius:999px; margin-bottom:24px; font-size:14px; }
+    .cover-tag span { width:8px; height:8px; border-radius:50%; background:var(--green); }
+    .divider { width:92px; height:4px; border-radius:99px; background:var(--green); margin:22px 0; }
+    .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
+    .card { padding:17px 19px; border:1px solid var(--line); border-radius:18px; background:rgba(255,255,255,.035); }
+    .card p { font-size:clamp(15px, 1.45vw, 18px); margin:0; }
+    .number { display:inline-grid; place-items:center; width:32px; height:32px; border-radius:10px; background:rgba(79,159,174,.13); color:var(--green); font-weight:800; margin-left:8px; }
+    ul { margin:0; padding-right:24px; }
+    li { color:#e5ecef; font-size:clamp(16px, 1.55vw, 20px); margin:7px 0; padding-right:3px; }
+    li::marker { color:var(--green); }
+    .quote { border-right:4px solid var(--green); background:rgba(79,159,174,.08); padding:19px 22px; border-radius:0 15px 15px 0; font-size:clamp(21px, 2.6vw, 31px); font-weight:800; }
+    .metric-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .metric { background:rgba(79,159,174,.07); border:1px solid rgba(79,159,174,.23); border-radius:16px; padding:17px; }
+    .metric strong { display:block; color:var(--green); font-size:20px; margin-bottom:7px; }
+    .metric span { color:var(--muted); font-size:14px; }
+    .footer { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px clamp(16px, 4vw, 54px) 18px; border-top:1px solid var(--line); }
+    .progress-wrap { display:flex; align-items:center; gap:13px; min-width:0; flex:1; }
+    .progress-track { width:min(260px, 34vw); height:5px; background:rgba(255,255,255,.12); border-radius:99px; overflow:hidden; }
+    .progress-bar { height:100%; width:0; background:var(--green); transition:width .3s ease; }
+    .count { color:var(--muted); font-size:13px; white-space:nowrap; direction:ltr; }
+    .controls { display:flex; align-items:center; gap:9px; }
+    .nav-btn { min-width:45px; padding:8px 14px; font-weight:700; }
+    .nav-btn.primary { background:var(--green-deep); border-color:rgba(79,159,174,.6); }
+    .nav-btn:disabled { opacity:.35; cursor:not-allowed; transform:none; }
+    .hint { color:var(--muted); font-size:12px; }
+    .section-slide { background:radial-gradient(ellipse at 15% 85%, rgba(79,159,174,.12), transparent 40%), linear-gradient(145deg, #1d2b36, #121d26); }
+    .section-num { font-size:clamp(60px, 10vw, 110px); color:rgba(79,159,174,.2); font-weight:900; line-height:1; margin-bottom:16px; }
+    @media (max-width:700px) {
+      .topbar { padding:12px 14px; }
+      .pill, .hint { display:none; }
+      main { padding:12px; }
+      .deck { height:calc(100svh - 155px); min-height:0; }
+      .slide { padding:25px 23px; border-radius:20px; }
+      .slide::before { width:5px; border-radius:0 20px 20px 0; }
+      .grid, .metric-grid { grid-template-columns:1fr; gap:10px; }
+      .card { padding:13px 15px; }
+      li { margin:5px 0; }
+      .footer { padding:11px 14px 14px; gap:8px; }
+      .progress-track { width:22vw; }
+      .nav-btn { min-width:40px; padding:7px 11px; }
+    }
+    @media (max-height:600px) and (min-width:701px) {
+      .deck { height:72svh; min-height:300px; }
+      .slide { padding:24px 36px; }
+      li { margin:3px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition:none !important; scroll-behavior:auto !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand"><div class="brand-mark" aria-hidden="true"></div><div>TDrive <small>التعلّم والتطوير</small></div></div>
+    <div class="top-actions"><span class="pill">عرض تدريبي تفاعلي</span><button class="icon-btn" id="fullscreenBtn" type="button" aria-label="ملء الشاشة">⛶</button></div>
+  </header>
+
+  <main>
+    <div class="deck" id="deck" aria-live="polite">
+      <section class="slide active">
+        <div class="cover-tag"><span></span> دورة تدريبية</div>
+        <p class="eyebrow">خدمة العملاء</p>
+        <h1>نحو تجربة عميل احترافية ومستدامة</h1>
+        <div class="divider"></div>
+        <p class="subtitle">إعداد وتقديم<br><strong>أ. منى حمود</strong></p>
+      </section>
+
+      <section class="slide">
+        <p class="eyebrow">مقدمة الدورة</p>
+        <h2>خدمة العملاء تبدأ من طريقة استقبالنا للعميل</h2>
+        <div class="quote">«العميل يمثل الضيف الذي يزور بيتنا»</div>
+        <p style="margin-top:22px">هذا المبدأ يوجّه طريقة استقبال العميل، وتهيئة المكان، والتواصل معه، وتقديم خدمة واضحة ومحترفة تعكس صورة المؤسسة.</p>
+      </section>
+
+      <section class="slide">
+        <p class="eyebrow">أهداف الدورة</p><h2>ماذا سنتعلم؟</h2>
+        <div class="grid">
+          <div class="card"><p><span class="number">1</span>فهم مفهوم خدمة العملاء وأهميتها.</p></div>
+          <div class="card"><p><span class="number">2</span>إدراك الفرق بين خدمة العملاء وتجربة العميل.</p></div>
+          <div class="card"><p><span class="number">3</span>تهيئة بيئة استقبال مناسبة ومهنية.</p></div>
+          <div class="card"><p><span class="number">4</span>تحديد احتياجات العملاء وتوقعاتهم.</p></div>
+          <div class="card"><p><span class="number">5</span>تطبيق مهارات التواصل والاستماع الفعال.</p></div>
+          <div class="card"><p><span class="number">6</span>التعامل مع المواقف الصعبة والعملاء الغاضبين.</p></div>
+          <div class="card"><p><span class="number">7</span>إدارة الشكاوى ومعالجة المشكلات باحترافية.</p></div>
+          <div class="card"><p><span class="number">8</span>قياس رضا العملاء وتحسين جودة الخدمة.</p></div>
+          <div class="card"><p><span class="number">9</span>الالتزام بأخلاقيات المهنة والاحترافية.</p></div>
+          <div class="card"><p><span class="number">10</span>بناء تجربة عميل إيجابية ومستدامة.</p></div>
+        </div>
+      </section>
+
+      <section class="slide section-slide"><div class="section-num">01</div><p class="eyebrow">الوحدة الأولى</p><h2>أساسيات خدمة العملاء وتمثيل المؤسسة</h2><p class="subtitle">فهم المفهوم، والتمييز بين الخدمة والتجربة، وإدراك دور الموظف في تشكيل صورة المؤسسة.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الأولى · المفهوم</p><h2>ما المقصود بخدمة العملاء؟</h2><p>خدمة العملاء هي مجموعة الأنشطة والممارسات التي تقدمها المؤسسة لمساعدة العملاء، والإجابة عن استفساراتهم، وتلبية احتياجاتهم، ومعالجة مشكلاتهم قبل الحصول على الخدمة أو المنتج وأثناءه وبعده.</p><p>وهي ليست مهمة موظف واحد فقط، بل مسؤولية تتكامل فيها الإجراءات والأنظمة وسلوك جميع العاملين الذين يتعاملون مع العميل بصورة مباشرة أو غير مباشرة.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الأولى · المفهوم</p><h2>خدمة العملاء وتجربة العميل</h2><div class="grid"><div class="card"><h3>خدمة العملاء</h3><p>التفاعل المباشر الذي يحدث عند استفسار العميل أو طلبه للمساعدة أو تقديمه شكوى.</p></div><div class="card"><h3>تجربة العميل</h3><p>الانطباع الكامل الذي يتكوّن لدى العميل من جميع مراحل تعامله مع المؤسسة.</p></div></div><p style="margin-top:18px">كل تواصل مع العميل جزء من تجربته، حتى لو لم يكن هناك طلب أو شكوى مباشرة.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الأولى · الأهمية</p><h2>لماذا تُعد خدمة العملاء مهمة؟</h2><ul><li>تعزز رضا العملاء وثقتهم بالمؤسسة.</li><li>تدعم المحافظة على العملاء واستمرار تعاملهم.</li><li>تسهم في بناء سمعة إيجابية للمؤسسة.</li><li>تساعد على فهم الاحتياجات والتوقعات بصورة أفضل.</li><li>تقلل من تكرار المشكلات عندما تُحل أسبابها.</li><li>تمنح المؤسسة فرصًا للتحسين والتطوير.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة الأولى · دور الموظف</p><h2>موظف خدمة العملاء ممثل للمؤسسة</h2><p>قد يكون موظف خدمة العملاء أول شخص يتعامل معه العميل، ولذلك فإن أسلوبه ومظهره ودقة معلوماته وسرعة استجابته تؤثر في انطباع العميل عن المؤسسة بأكملها.</p><div class="quote">كل تواصل هو فرصة لبناء الثقة أو إضعافها.</div></section>
+
+      <section class="slide section-slide"><div class="section-num">02</div><p class="eyebrow">الوحدة الثانية</p><h2>التهيئة والمظهر المهني واستقبال العملاء</h2><p class="subtitle">تهيئة المكان والأدوات، والاهتمام بالمظهر، وتقديم استقبال يبعث على الراحة والثقة.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الثانية · تهيئة المكان</p><h2>تهيئة بيئة استقبال العميل</h2><p>ينبغي أن يكون المكان الذي نستقبل فيه العملاء مرتبًا ونظيفًا ومهيأً لتقديم الخدمة، وأن يساعد العميل على معرفة وجهته والحصول على المساعدة بسهولة.</p><ul><li>التأكد من نظافة المكان وترتيبه.</li><li>توضيح أماكن الاستقبال والانتظار والخدمة.</li><li>توفير الأدوات والمستلزمات اللازمة للعمل.</li><li>التأكد من جاهزية الأنظمة والأجهزة المستخدمة.</li><li>المحافظة على خصوصية معلومات العملاء.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة الثانية · الأمن والسلامة</p><h2>أدوات السلامة والتجهيزات</h2><p>من مسؤوليات التهيئة التأكد من توفر التجهيزات التي تدعم سلامة العملاء والعاملين، وفق طبيعة المكان ومتطلبات المؤسسة.</p><div class="grid"><div class="card"><h3>السلامة</h3><p>طفاية حريق، ومستلزمات السلامة المطلوبة، ومعرفة طريقة الإبلاغ عن المخاطر.</p></div><div class="card"><h3>التشغيل</h3><p>مسجل الصوت عند الحاجة، وملفات الأرشفة، وكاميرات المراقبة وفق الأنظمة والسياسات المعتمدة.</p></div></div><p style="margin-top:15px">يجب التأكد من أن التجهيزات مناسبة، وتعمل بشكل صحيح، ويُستخدم كل منها وفق التعليمات والسياسات ذات الصلة.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الثانية · المظهر والسلوك</p><h2>المظهر المهني والاستقبال</h2><ul><li>الالتزام بالمظهر المناسب لطبيعة العمل.</li><li>الترحيب بالعميل بأسلوب مهذب وودود.</li><li>استخدام لغة جسد إيجابية واهتمام بصري مناسب.</li><li>إتاحة الفرصة للعميل لشرح طلبه دون مقاطعة.</li><li>توجيه العميل إلى الشخص أو القسم المختص عند الحاجة.</li><li>تجنب الانشغال بالجوال أو الأحاديث الجانبية أثناء خدمته.</li></ul></section>
+
+      <section class="slide section-slide"><div class="section-num">03</div><p class="eyebrow">الوحدة الثالثة</p><h2>فهم احتياجات العملاء وتوقعاتهم</h2><p class="subtitle">تحديد ما يحتاجه العميل فعلًا، وفهم توقعاته، وتقديم المعلومة أو الحل المناسب.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الثالثة</p><h2>كيف نفهم احتياج العميل؟</h2><ul><li>الاستماع إلى العميل دون افتراضات مسبقة.</li><li>طرح أسئلة واضحة ومحددة عند الحاجة.</li><li>التأكد من فهم الطلب بإعادة صياغته.</li><li>التمييز بين ما يطلبه العميل وما يحتاج إليه لحل المشكلة.</li><li>توضيح الخيارات المتاحة والوقت المتوقع والإجراءات المطلوبة.</li></ul><div class="quote" style="margin-top:18px">الفهم الصحيح من البداية يقلل الأخطاء وسوء التوقعات.</div></section>
+      <section class="slide"><p class="eyebrow">الوحدة الثالثة · التوقعات</p><h2>إدارة توقعات العميل</h2><p>تتكون توقعات العميل من المعلومات التي تصله، والوعود التي تُقدم له، والتجارب السابقة، والوقت الذي يتوقعه للحصول على الخدمة.</p><ul><li>تقديم معلومات دقيقة وشفافة.</li><li>تجنب الوعود التي لا يمكن ضمان تنفيذها.</li><li>شرح الشروط والخطوات والمدة المتوقعة بوضوح.</li><li>إبلاغ العميل مبكرًا عند حدوث تغيير أو تأخير.</li><li>التأكد من أن العميل فهم ما سيحدث بعد ذلك.</li></ul></section>
+
+      <section class="slide section-slide"><div class="section-num">04</div><p class="eyebrow">الوحدة الرابعة</p><h2>مهارات التواصل واللغة المهنية</h2><p class="subtitle">التواصل الواضح والاستماع الفعال واختيار الكلمات المناسبة عند التعامل مع العملاء.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الرابعة · التواصل الفعال</p><h2>عناصر التواصل الفعال</h2><ul><li>وضوح الرسالة واستخدام كلمات يفهمها العميل.</li><li>التركيز على موضوع العميل وعدم تشتيت الحديث.</li><li>اختيار نبرة صوت هادئة ومحترمة.</li><li>التأكد من وصول المعلومة وفهمها.</li><li>مراعاة اختلاف احتياجات العملاء وظروفهم.</li><li>تقديم إجابة متسقة مع السياسات والإجراءات المعتمدة.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة الرابعة · الاستماع</p><h2>الاستماع الفعال</h2><p>الاستماع الفعال يعني منح العميل الاهتمام الكامل لفهم ما يقوله وما يحتاج إليه، بدلًا من الاستعداد للرد قبل اكتمال حديثه.</p><ul><li>عدم مقاطعة العميل دون ضرورة.</li><li>إظهار الاهتمام من خلال التفاعل المناسب.</li><li>طرح أسئلة توضيحية عند الحاجة.</li><li>تلخيص ما فهمته للتأكد من صحة الفهم.</li><li>تجنب الحكم على العميل أو التقليل من مشكلته.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة الرابعة · اللغة المهنية</p><h2>استخدام اللغة المهنية</h2><div class="grid"><div class="card"><h3>استخدم عبارات واضحة</h3><p>«يسعدني مساعدتك»، «دعني أتأكد من المعلومة»، «سأوضح لك الخطوات».</p></div><div class="card"><h3>تجنب العبارات السلبية</h3><p>تجنب اللوم، والسخرية، والجدال، والوعود غير المؤكدة، وإلقاء المسؤولية على الآخرين.</p></div></div><p style="margin-top:18px">اللغة المهنية لا تعني استخدام كلمات رسمية فقط، بل تعني احترام العميل وتوضيح الحقيقة بأسلوب مناسب.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الرابعة · الاعتراضات</p><h2>التعامل مع اعتراضات العملاء</h2><ul><li>الاستماع إلى الاعتراض كاملًا.</li><li>إظهار تفهم وجهة نظر العميل دون الدخول في جدال.</li><li>توضيح المعلومات أو السياسات المرتبطة بالاعتراض.</li><li>عرض الخيارات المتاحة ضمن الصلاحيات.</li><li>الاتفاق على الخطوة التالية ومتابعتها.</li></ul></section>
+
+      <section class="slide section-slide"><div class="section-num">05</div><p class="eyebrow">الوحدة الخامسة</p><h2>إدارة المواقف الصعبة والعملاء الغاضبين</h2><p class="subtitle">احتواء الموقف بهدوء، وفهم سبب الانزعاج، والانتقال من التوتر إلى الحل.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الخامسة</p><h2>كيف نتعامل مع العميل الغاضب؟</h2><ul><li>المحافظة على الهدوء وعدم الرد بانفعال.</li><li>الاستماع إلى العميل دون مقاطعته.</li><li>إظهار التفهم لمشاعره ولأثر المشكلة عليه.</li><li>التركيز على المشكلة بدلًا من أخذ الكلام بصورة شخصية.</li><li>توضيح ما يمكن فعله وما لا يمكن فعله بصدق.</li><li>طلب دعم المسؤول المختص عند تجاوز الموقف للصلاحيات أو حدود السلامة.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة الخامسة · خطوات عملية</p><h2>من الانفعال إلى الحل</h2><div class="grid"><div class="card"><p><span class="number">1</span>استمع: اترك العميل يشرح ما حدث.</p></div><div class="card"><p><span class="number">2</span>تفهم: اعترف بأثر المشكلة دون جدال.</p></div><div class="card"><p><span class="number">3</span>وضّح: اسأل لتحديد المشكلة الفعلية.</p></div><div class="card"><p><span class="number">4</span>اقترح: اعرض حلًا أو خيارات ممكنة.</p></div><div class="card"><p><span class="number">5</span>تابع: وضح الإجراء والمدة والمسؤول.</p></div><div class="card"><p><span class="number">6</span>وثّق: سجّل ما يلزم وفق سياسة المؤسسة.</p></div></div></section>
+
+      <section class="slide section-slide"><div class="section-num">06</div><p class="eyebrow">الوحدة السادسة</p><h2>إدارة الشكاوى ومعالجة المشكلات</h2><p class="subtitle">تحويل الشكوى إلى فرصة لفهم الخلل ومعالجته وتحسين الخدمة.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة السادسة · استقبال الشكوى</p><h2>التعامل المهني مع الشكاوى</h2><ul><li>استقبال الشكوى باحترام وجدية.</li><li>الاستماع إلى التفاصيل وجمع المعلومات اللازمة.</li><li>تسجيل الوقائع بوضوح ودقة.</li><li>تحديد الإجراء المناسب وفق السياسة والصلاحيات.</li><li>إبلاغ العميل بما سيحدث والوقت المتوقع للمتابعة.</li><li>المحافظة على سرية المعلومات ذات الصلة.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة السادسة · حل المشكلة</p><h2>معالجة السبب وليس العرض فقط</h2><p>حل المشكلة بصورة مستدامة لا يقتصر على تهدئة العميل في اللحظة نفسها؛ بل يتطلب فهم السبب الذي أدى إلى حدوثها، والتحقق من فعالية الإجراء المتخذ.</p><ul><li>جمع الأدلة والمعلومات المتعلقة بالمشكلة.</li><li>تحديد السبب المحتمل والتحقق منه.</li><li>تنفيذ الإجراء التصحيحي المناسب.</li><li>التأكد من أن الحل عالج المشكلة.</li><li>تحليل تكرار الشكاوى للاستفادة منها في التحسين.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة السادسة · المتابعة</p><h2>إغلاق الشكوى ومتابعتها</h2><p>لا تكتمل معالجة الشكوى بمجرد تنفيذ الإجراء؛ بل ينبغي التأكد من إبلاغ العميل بالنتيجة وتوثيق ما تم، بحسب إجراءات المؤسسة.</p><ul><li>إبلاغ العميل بما تم اتخاذه من إجراءات.</li><li>توضيح أي خطوات إضافية أو قيود قائمة.</li><li>التحقق من النتيجة متى كان ذلك مناسبًا.</li><li>توثيق الشكوى ونتيجتها والإجراءات المرتبطة بها.</li><li>استخدام المعلومات لتقليل احتمال تكرار المشكلة.</li></ul></section>
+
+      <section class="slide section-slide"><div class="section-num">07</div><p class="eyebrow">الوحدة السابعة</p><h2>جودة خدمة العملاء وقياس رضاهم</h2><p class="subtitle">استخدام المؤشرات لفهم أداء الخدمة، ومراقبة النتائج، وتحديد فرص التحسين.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة السابعة · الجودة</p><h2>ما المقصود بجودة خدمة العملاء؟</h2><p>جودة خدمة العملاء هي مدى قدرة الخدمة على تلبية المتطلبات والاحتياجات والتوقعات المحددة، مع الالتزام بالإجراءات والمعايير المعتمدة وتقديم تجربة متسقة.</p><ul><li>دقة المعلومات المقدمة للعميل.</li><li>سرعة الاستجابة المناسبة لطبيعة الطلب.</li><li>وضوح الإجراءات وسهولة الوصول إلى الخدمة.</li><li>الالتزام بالوعود والمتطلبات.</li><li>فعالية معالجة المشكلات والشكاوى.</li><li>التحسين المستمر بناءً على النتائج والملاحظات.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة السابعة · مؤشرات الأداء</p><h2>مؤشرات قياس رضا العملاء وجودة الخدمة</h2><div class="metric-grid"><div class="metric"><strong>CSAT</strong><span>مؤشر رضا العميل عن خدمة أو تجربة محددة.</span></div><div class="metric"><strong>NPS</strong><span>مؤشر الاستعداد للتوصية بالمؤسسة للآخرين.</span></div><div class="metric"><strong>زمن الاستجابة</strong><span>المدة حتى بدء الرد على العميل.</span></div><div class="metric"><strong>زمن المعالجة</strong><span>الوقت اللازم لمعالجة الطلب أو المشكلة.</span></div><div class="metric"><strong>الحل من أول تواصل</strong><span>مدى حل المشكلة دون حاجة إلى تواصل إضافي.</span></div><div class="metric"><strong>تكرار الشكاوى</strong><span>مدى تكرر الشكاوى، بما يساعد على كشف الأسباب.</span></div></div></section>
+      <section class="slide"><p class="eyebrow">الوحدة السابعة · التحسين</p><h2>كيف نستفيد من المؤشرات؟</h2><ul><li>تحديد المؤشرات التي ترتبط بأهداف الخدمة.</li><li>جمع البيانات بصورة منتظمة ومتسقة.</li><li>مقارنة النتائج بالمستهدفات والفترات السابقة.</li><li>تحليل أسباب الانخفاض أو التغير في الأداء.</li><li>تحديد إجراءات تحسين بمسؤوليات ومواعيد واضحة.</li><li>متابعة النتائج للتحقق من فعالية التحسين.</li></ul><p style="margin-top:14px">الأرقام وحدها لا تكفي؛ المهم فهم ما تعنيه وتحويلها إلى قرارات وإجراءات فعالة.</p></section>
+
+      <section class="slide section-slide"><div class="section-num">08</div><p class="eyebrow">الوحدة الثامنة</p><h2>أخلاقيات خدمة العملاء والاحترافية المستدامة</h2><p class="subtitle">الالتزام بالاحترام والشفافية والسرية والمسؤولية في جميع مراحل التعامل.</p></section>
+      <section class="slide"><p class="eyebrow">الوحدة الثامنة · الأخلاقيات</p><h2>أخلاقيات خدمة العملاء</h2><ul><li>احترام جميع العملاء دون تمييز غير مبرر.</li><li>تقديم معلومات دقيقة وشفافة عن الأسعار والخدمات.</li><li>توضيح حقوق العميل وواجباته وسياسة الجودة ذات الصلة.</li><li>المحافظة على سرية بيانات العملاء وعدم مشاركتها دون مسوغ.</li><li>الالتزام بالأنظمة والسياسات والإجراءات المعتمدة.</li><li>تحمل المسؤولية وتصحيح الخطأ عند حدوثه.</li><li>تجنب تضليل العميل أو تقديم وعود لا يمكن الوفاء بها.</li></ul></section>
+      <section class="slide"><p class="eyebrow">الوحدة الثامنة · الاحترافية</p><h2>كيف نحافظ على احترافية مستدامة؟</h2><ul><li>تطوير المهارات والمعرفة بصورة مستمرة.</li><li>تطبيق الإجراءات بصورة متسقة.</li><li>طلب المساندة عند الحاجة وعدم التخمين في المعلومات.</li><li>التعلم من الملاحظات والشكاوى والأخطاء.</li><li>التعاون مع الفرق الأخرى لتقديم خدمة متكاملة.</li><li>مراجعة النتائج والبحث عن فرص التحسين.</li></ul></section>
+
+      <section class="slide">
+        <p class="eyebrow">ملخص الدورة</p><h2>ما الذي نأخذه معنا؟</h2>
+        <ul><li>العميل يمثل الضيف الذي يزور بيتنا.</li><li>تهيئة المكان والأدوات أساس للاستقبال المهني.</li><li>الشفافية والدقة تبنيان الثقة وتديران التوقعات.</li><li>الاستماع والتواصل الواضح يساعدان على فهم الاحتياج.</li><li>الهدوء والتفهم يساعدان في احتواء المواقف الصعبة.</li><li>الشكاوى مصدر للتعلم والتحسين.</li><li>المؤشرات تساعد على قياس الأداء وتوجيه التطوير.</li><li>الأخلاقيات والسرية والمسؤولية أساس الاحترافية.</li></ul>
+      </section>
+      <section class="slide">
+        <p class="eyebrow">ختام الدورة</p><h1>شكرًا لكم</h1><div class="divider"></div>
+        <div class="quote">العميل يمثل الضيف الذي يزور بيتنا</div>
+        <p style="margin-top:24px" class="subtitle">معًا نحو خدمة عملاء أكثر احترافية، وتجربة أفضل، وثقة تدوم.</p>
+        <p style="margin-top:16px"><strong>إعداد وتقديم: أ. منى حمود</strong></p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="progress-wrap">
+      <div class="progress-track" aria-label="التقدم في العرض"><div class="progress-bar" id="progressBar"></div></div>
+      <span class="count" id="slideCount">01 / 30</span>
+      <span class="hint">استخدمي ← → للتنقل</span>
+    </div>
+    <div class="controls">
+      <button class="nav-btn" id="prevBtn" type="button" aria-label="الشريحة السابقة">→ السابق</button>
+      <button class="nav-btn primary" id="nextBtn" type="button" aria-label="الشريحة التالية">التالي ←</button>
+    </div>
+  </footer>
+</div>
+<script>
+(() => {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const prev = document.getElementById('prevBtn');
+  const next = document.getElementById('nextBtn');
+  const count = document.getElementById('slideCount');
+  const bar = document.getElementById('progressBar');
+  let current = 0;
+  const pad = n => String(n).padStart(2, '0');
+
+  function show(index) {
+    current = Math.max(0, Math.min(slides.length - 1, index));
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === current);
+      slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+    });
+    count.textContent = `${pad(current + 1)} / ${pad(slides.length)}`;
+    bar.style.width = `${((current + 1) / slides.length) * 100}%`;
+    prev.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+    document.title = `${slides[current].querySelector('h1, h2')?.textContent || 'خدمة العملاء'} | TDrive`;
+    slides[current].scrollTop = 0;
+  }
+  prev.addEventListener('click', () => show(current - 1));
+  next.addEventListener('click', () => show(current + 1));
+  document.addEventListener('keydown', e => {
+    if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); show(current + 1); }
+    if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); show(current - 1); }
+    if (e.key === 'Home') show(0);
+    if (e.key === 'End') show(slides.length - 1);
+    if (e.key === 'Escape') document.exitFullscreen?.();
+  });
+  let touchStartX = 0;
+  document.getElementById('deck').addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+  document.getElementById('deck').addEventListener('touchend', e => {
+    const delta = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(delta) > 55) show(current + (delta < 0 ? 1 : -1));
+  }, {passive:true});
+  document.getElementById('fullscreenBtn').addEventListener('click', async () => {
+    try {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+      else await document.exitFullscreen();
+    } catch (_) { /* ملء الشاشة قد لا يكون مدعومًا في بعض متصفحات الجوال */ }
+  });
+  show(0);
+})();
+</script>
+</body>
+</html>
