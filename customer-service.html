@@ -6,164 +6,430 @@
   <meta name="theme-color" content="#101820">
   <title>خدمة العملاء | TDrive</title>
   <style>
-    :root {
-      --bg: #101820;
-      --panel: #17232d;
-      --panel-2: #1d2b36;
-      --text: #f4f7f8;
-      --muted: #b6c2ca;
-      --turquoise: #4F9FA;
-      --turquoise-deep: #2c7382;
-      --line: rgba(255,255,255,.1);
-      --shadow: 0 20px 50px rgba(0,0,0,.4);
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
-    body {
-      background:
-        radial-gradient(ellipse at 85% 8%, rgba(79,159,174,.15), transparent 40%),
-        radial-gradient(ellipse at 5% 95%, rgba(74,155,190,.12), transparent 40%),
-        var(--bg);
-      color: var(--text);
-      font-family: Tahoma, Arial, sans-serif;
-      line-height: 1.8;
-      display: flex;
-      flex-direction: column;
-    }
-    button { font: inherit; }
-
-    /* منطقة العرض الرئيسية (تأخذ الشاشة كاملة) */
-    main {
-      flex: 1;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .deck {
-      width: 100%;
-      max-width: 1200px;
-      height: 100%;
-      max-height: 800px;
-      position: relative;
-    }
-
-    .slide {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(24px, 5vw, 60px);
-      overflow-y: auto;
-      background: linear-gradient(145deg, rgba(29,43,54,.95), rgba(16,24,32,.98));
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      opacity: 0;
-      transform: scale(.97);
-      pointer-events: none;
-      transition: opacity .3s ease, transform .3s ease;
-    }
-
-    .slide.active {
-      opacity: 1;
-      transform: scale(1);
-      pointer-events: auto;
-      z-index: 1;
-    }
-
-    .slide::before {
-      content: "";
-      position: absolute;
-      top: 0; right: 0;
-      width: 6px; height: 100%;
-      background: linear-gradient(var(--turquoise), transparent 80%);
-      border-radius: 0 24px 24px 0;
-    }
-
-    /* النصوص والعناوين */
-    .eyebrow { color: var(--turquoise); font-size: 14px; font-weight: 800; margin: 0 0 12px; }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { font-size: clamp(30px, 5vw, 56px); line-height: 1.3; margin-bottom: 18px; }
-    h2 { font-size: clamp(24px, 3.5vw, 38px); line-height: 1.4; margin-bottom: 18px; }
-    h3 { font-size: clamp(18px, 2vw, 24px); color: var(--turquoise); margin-bottom: 10px; }
-    p { font-size: clamp(15px, 1.6vw, 19px); color: #e5ecef; margin-bottom: 14px; }
-    .subtitle { color: var(--muted); font-size: clamp(16px, 2vw, 22px); }
-
-    .cover-tag {
-      display: inline-flex; align-items: center; gap: 8px; width: fit-content;
-      border: 1px solid rgba(79,159,174,.35); background: rgba(79,159,174,.08);
-      color: #b4e5ef; padding: 6px 14px; border-radius: 999px; margin-bottom: 20px; font-size: 13px;
-    }
-    .cover-tag span { width: 8px; height: 8px; border-radius: 50%; background: var(--turquoise); }
-    .divider { width: 80px; height: 4px; border-radius: 99px; background: var(--turquoise); margin: 20px 0; }
-    
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
-    .card { padding: 15px 18px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.03); }
-    .card p { font-size: clamp(14px, 1.4vw, 17px); margin: 0; }
-    .number { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: rgba(79,159,174,.15); color: var(--turquoise); font-weight: 800; margin-left: 8px; }
-    
-    ul { margin: 0; padding-right: 20px; }
-    li { color: #e5ecef; font-size: clamp(15px, 1.5vw, 19px); margin: 6px 0; }
-    li::marker { color: var(--turquoise); }
-    .quote { border-right: 4px solid var(--turquoise); background: rgba(79,159,174,.08); padding: 16px 20px; border-radius: 0 14px 14px 0; font-size: clamp(20px, 2.5vw, 28px); font-weight: 800; }
-    
-    .metric-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
-    .metric { background: rgba(79,159,174,.07); border: 1px solid rgba(79,159,174,.2); border-radius: 14px; padding: 14px; }
-    .metric strong { display: block; color: var(--turquoise); font-size: 18px; margin-bottom: 4px; }
-    .metric span { color: var(--muted); font-size: 13px; }
-
-    .section-slide { background: radial-gradient(ellipse at 15% 85%, rgba(79,159,174,.15), transparent 40%), linear-gradient(145deg, #1d2b36, #121d26); }
-    .section-num { font-size: clamp(50px, 9vw, 90px); color: rgba(79,159,174,.25); font-weight: 900; line-height: 1; margin-bottom: 12px; }
-
-    /* شريط التحكم السفلي العائم والشبه شفاف */
-    .controls-bar {
-      position: absolute;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 8px 16px;
-      background: rgba(23, 35, 45, 0.85);
-      border: 1px solid var(--line);
-      backdrop-filter: blur(12px);
-      border-radius: 999px;
-      z-index: 10;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-
-    .nav-btn {
-      color: var(--text);
-      border: none;
-      background: rgba(255,255,255,.06);
-      border-radius: 999px;
-      padding: 8px 16px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background .2s, transform .2s;
-    }
-    .nav-btn:hover { background: rgba(79,159,174,.3); }
-    .nav-btn.primary { background: var(--turquoise-deep); color: #fff; }
-    .nav-btn:disabled { opacity: .3; cursor: not-allowed; }
-
-    .progress-track { width: 100px; height: 4px; background: rgba(255,255,255,.15); border-radius: 99px; overflow: hidden; }
-    .progress-bar { height: 100%; width: 0; background: var(--turquoise); transition: width .3s ease; }
-    .count { color: var(--muted); font-size: 12px; direction: ltr; font-weight: 600; }
-
-    @media (max-width: 700px) {
-      main { padding: 8px; }
-      .slide { padding: 20px 16px; border-radius: 16px; }
-      .grid, .metric-grid { grid-template-columns: 1fr; gap: 8px; }
-      .controls-bar { bottom: 12px; padding: 6px 12px; gap: 10px; width: calc(100% - 24px); justify-content: space-between; }
-      .progress-track { width: 60px; }
-    }
+:root {
+  --bg: #F4F8FA;
+  --panel: #FFFFFF;
+  --panel-2: #EAF3F5;
+  --text: #172B35;
+  --muted: #536873;
+  --turquoise: #4F9FAE;
+  --turquoise-deep: #327987;
+  --line: #D9E5E9;
+  --shadow: 0 8px 30px rgba(27, 63, 75, 0.10);
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+}
+button {
+  font: inherit;
+}
+/* منطقة العرض الرئيسية */
+main {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+/* مساحة الشرائح الأفقية بنسبة 16:9 */
+.deck {
+  width: min(100%, calc((100vh - 32px) * 16 / 9));
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100vh - 32px);
+  position: relative;
+}
+/* تصميم الشريحة */
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(22px, 3.5vw, 48px);
+  overflow-y: auto;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F8FBFC 100%);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .25s ease;
+}
+.slide.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  z-index: 1;
+}
+/* الشريط التركوازي الجانبي */
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    var(--turquoise),
+    #A9D8DF
+  );
+  border-radius: 0 18px 18px 0;
+}
+/* العناوين والنصوص */
+.eyebrow {
+  color: var(--turquoise-deep);
+  font-size: clamp(12px, 1.1vw, 15px);
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1 {
+  font-size: clamp(27px, 3.5vw, 48px);
+  line-height: 1.35;
+  margin-bottom: 14px;
+  color: #172B35;
+  font-weight: 800;
+}
+h2 {
+  font-size: clamp(22px, 2.5vw, 34px);
+  line-height: 1.4;
+  margin-bottom: 14px;
+  color: #172B35;
+  font-weight: 800;
+}
+h3 {
+  font-size: clamp(16px, 1.6vw, 22px);
+  color: var(--turquoise-deep);
+  margin-bottom: 8px;
+}
+p {
+  font-size: clamp(13px, 1.35vw, 17px);
+  color: #344A55;
+  margin-bottom: 10px;
+}
+.subtitle {
+  color: var(--muted);
+  font-size: clamp(14px, 1.5vw, 20px);
+}
+/* شارة غلاف العرض */
+.cover-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  border: 1px solid #C5E2E7;
+  background: #EAF6F8;
+  color: #286C79;
+  padding: 5px 13px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.cover-tag span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--turquoise);
+}
+.divider {
+  width: 76px;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--turquoise);
+  margin: 15px 0;
+}
+/* البطاقات */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.card {
+  padding: 12px 15px;
+  border: 1px solid #DCE9EC;
+  border-radius: 12px;
+  background: #F7FAFB;
+}
+.card p {
+  font-size: clamp(12px, 1.2vw, 16px);
+  margin: 0;
+  color: #344A55;
+}
+.number {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: #DDF0F3;
+  color: #286C79;
+  font-weight: 800;
+  margin-left: 8px;
+}
+/* القوائم */
+ul {
+  margin: 0;
+  padding-right: 22px;
+}
+li {
+  color: #344A55;
+  font-size: clamp(13px, 1.35vw, 17px);
+  margin: 5px 0;
+}
+li::marker {
+  color: var(--turquoise-deep);
+}
+/* الاقتباسات */
+.quote {
+  border-right: 4px solid var(--turquoise);
+  background: #EAF6F8;
+  color: #214B56;
+  padding: 13px 18px;
+  border-radius: 0 12px 12px 0;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 800;
+}
+/* مؤشرات الأداء */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.metric {
+  background: #F0F8F9;
+  border: 1px solid #D3E8EC;
+  border-radius: 12px;
+  padding: 12px;
+}
+.metric strong {
+  display: block;
+  color: #286C79;
+  font-size: clamp(14px, 1.4vw, 18px);
+  margin-bottom: 4px;
+}
+.metric span {
+  color: #536873;
+  font-size: clamp(11px, 1vw, 13px);
+}
+/* شرائح بداية الوحدات */
+.section-slide {
+  background:
+    radial-gradient(
+      ellipse at 10% 90%,
+      rgba(79, 159, 174, 0.12),
+      transparent 45%
+    ),
+    linear-gradient(135deg, #FFFFFF, #EDF6F8);
+}
+.section-num {
+  font-size: clamp(42px, 6vw, 76px);
+  color: rgba(79, 159, 174, 0.25);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+/* شريط التنقل */
+.controls-bar {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 12px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #D9E5E9;
+  border-radius: 999px;
+  z-index: 10;
+  box-shadow: 0 4px 16px rgba(27, 63, 75, 0.10);
+}
+.nav-btn {
+  color: #28434D;
+  border: 1px solid #D9E5E9;
+  background: #F2F7F8;
+  border-radius: 999px;
+  padding: 6px 13px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.nav-btn:hover {
+  background: #DDF0F3;
+}
+.nav-btn.primary {
+  background: var(--turquoise-deep);
+  color: #FFFFFF;
+  border-color: var(--turquoise-deep);
+}
+.nav-btn:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+/* شريط تقدم العرض */
+.progress-track {
+  width: 80px;
+  height: 4px;
+  background: #DFE8EB;
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--turquoise);
+  transition: width .3s ease;
+}
+.count {
+  color: #536873;
+  font-size: 11px;
+  direction: ltr;
+  font-weight: 700;
+}
+/* الشاشات الصغيرة */
+@media (max-width: 700px) {
+  main {
+    padding: 6px;
+  }
+  .deck {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: calc(100dvh - 12px);
+  }
+  .slide {
+    padding: 16px 14px 58px;
+    border-radius: 12px;
+  }
+  .slide::before {
+    width: 4px;
+    border-radius: 0 12px 12px 0;
+  }
+  h1 {
+    font-size: clamp(22px, 5vw, 34px);
+  }
+  h2 {
+    font-size: clamp(18px, 4vw, 27px);
+  }
+  h3 {
+    font-size: 15px;
+  }
+  p,
+  li {
+    font-size: clamp(11px, 2.3vw, 15px);
+    line-height: 1.7;
+  }
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .card {
+    padding: 8px 9px;
+  }
+  .card p {
+    font-size: clamp(10px, 2vw, 13px);
+  }
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .metric {
+    padding: 8px;
+  }
+  .metric strong {
+    font-size: 13px;
+  }
+  .metric span {
+    font-size: 10px;
+  }
+  .quote {
+    padding: 9px 12px;
+    font-size: clamp(15px, 3vw, 20px);
+  }
+  .section-num {
+    font-size: 44px;
+  }
+  .controls-bar {
+    bottom: 7px;
+    gap: 7px;
+    padding: 5px 8px;
+  }
+  .nav-btn {
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+  .progress-track {
+    width: 40px;
+  }
+  .count {
+    font-size: 9px;
+  }
+}
+/* تحسين العرض عند استخدام الهاتف بالوضع الأفقي */
+@media (max-height: 500px) {
+  main {
+    padding: 4px;
+  }
+  .deck {
+    width: min(100%, calc((100dvh - 8px) * 16 / 9));
+    max-height: calc(100dvh - 8px);
+  }
+  .slide {
+    padding: 12px 24px 48px;
+  }
+  h1 {
+    font-size: clamp(23px, 4vw, 36px);
+  }
+  h2 {
+    font-size: clamp(18px, 2.8vw, 27px);
+    margin-bottom: 8px;
+  }
+  p,
+  li {
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 5px;
+  }
+  .eyebrow {
+    margin-bottom: 4px;
+  }
+  .card {
+    padding: 7px 10px;
+  }
+  .controls-bar {
+    bottom: 4px;
+  }
+}
   </style>
 </head>
 <body>
