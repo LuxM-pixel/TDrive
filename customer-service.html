@@ -224,12 +224,11 @@ li::marker { color: var(--turquoise-deep); }
   margin-bottom: 10px;
 }
 
-/* شريط التنقل وأزرار التكبير والتصغير */
+/* شريط التنقل وأزرار التكبير والتصغير (موضع جديد على اليسار) */
 .controls-bar {
   position: absolute;
   bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 12px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -239,7 +238,7 @@ li::marker { color: var(--turquoise-deep); }
   border-radius: 999px;
   z-index: 10;
   box-shadow: 0 4px 16px rgba(27, 63, 75, 0.10);
-  max-width: calc(100% - 20px);
+  max-width: calc(100% - 24px);
   white-space: nowrap;
 }
 .nav-btn {
@@ -359,8 +358,10 @@ li::marker { color: var(--turquoise-deep); }
   .section-num { font-size: 44px; }
   .controls-bar {
     bottom: 7px;
+    left: 7px;
     gap: 7px;
     padding: 5px 8px;
+    max-width: calc(100% - 14px);
   }
   .nav-btn {
     padding: 5px 9px;
@@ -401,7 +402,7 @@ li::marker { color: var(--turquoise-deep); }
   }
   .eyebrow { margin-bottom: 4px; }
   .card { padding: 7px 10px; }
-  .controls-bar { bottom: 4px; }
+  .controls-bar { bottom: 4px; left: 4px; }
 }
 
 /* مستويات تكبير محتوى الشرائح */
@@ -866,7 +867,7 @@ li::marker { color: var(--turquoise-deep); }
     <p style="margin-top:14px"><strong>إعداد وتقديم: أ. منى حمود</strong></p>
   </section>
 
-  <!-- أزرار التنقل والتكبير والتصغير -->
+  <!-- أزرار التنقل والتكبير والتصغير (على اليسار) -->
   <div class="controls-bar">
     <button class="nav-btn" id="prevBtn" type="button" aria-label="السابق">→ السابق</button>
 
