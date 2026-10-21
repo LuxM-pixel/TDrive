@@ -224,11 +224,13 @@ li::marker { color: var(--turquoise-deep); }
   margin-bottom: 10px;
 }
 
-/* شريط التنقل وأزرار التكبير والتصغير (موضع جديد على اليسار) */
+/* شريط التنقل وأزرار التكبير والتصغير (موضع ثابت على اليسار) */
 .controls-bar {
   position: absolute;
   bottom: 12px;
-  left: 12px;
+  left: 12px !important;
+  right: auto !important;
+  transform: none !important;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -358,7 +360,9 @@ li::marker { color: var(--turquoise-deep); }
   .section-num { font-size: 44px; }
   .controls-bar {
     bottom: 7px;
-    left: 7px;
+    left: 7px !important;
+    right: auto !important;
+    transform: none !important;
     gap: 7px;
     padding: 5px 8px;
     max-width: calc(100% - 14px);
@@ -402,7 +406,7 @@ li::marker { color: var(--turquoise-deep); }
   }
   .eyebrow { margin-bottom: 4px; }
   .card { padding: 7px 10px; }
-  .controls-bar { bottom: 4px; left: 4px; }
+  .controls-bar { bottom: 4px; left: 4px !important; right: auto !important; transform: none !important; }
 }
 
 /* مستويات تكبير محتوى الشرائح */
